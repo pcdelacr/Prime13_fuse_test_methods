@@ -1,0 +1,964 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.CtvDecoder</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.CtvDecoder.Binning">
+            <summary>
+            Services for Per Die Binning.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Binning.PrintBinsForAllActiveDieIds(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Fetch and print current Bins for all active die ids.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Binning.SavePortInformation(System.Collections.Generic.Dictionary{System.String,System.Int32},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Assigns per die binning for the current die id.
+            </summary>
+            <param name="perDiePorts">Integer with exitPort for the current die ID.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.TestMethods.CtvDecoder.CtvDecoder">
+            <summary>
+            This class contains the high level services used for the CtvDecoding with an input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.CtvDecoder.SessionContext">
+            <summary>
+            Gets or sets the session context.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.CtvDecoder.Debug">
+            <summary>
+            Gets or sets a value indicating whether the Debug mode is used or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.CtvDecoder.CsvDelimiter">
+            <summary>
+            Gets or sets a value indicating whether the CsvDelimiter defined.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.CtvDecoder.DataStructure">
+            <summary>
+            Gets or sets a value of the DataStructure defined based in the ConfigurationFile.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.CtvDecoder.ConfigurationFile">
+            <summary>
+            Gets or sets a value with the ConfigurationFile.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.CtvDecoder.CtvCapturePins">
+            <summary>
+            Gets or sets a value with the CtvCapturePins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.CtvDecoder.SpmHelperStructure">
+            <summary>
+            Gets or sets the SpmHelperStructure that contains an StringParsedMetadataHelper for each ItuffToken_ItuffDescriptor combo.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.CtvStructureInit(Prime.TestMethods.TestMethodsParams.File,Prime.TestMethods.TestMethodsParams.CommaSeparatedString,Prime.TestMethods.TestMethodsParams.CommaSeparatedString,System.Boolean)">
+            <summary>
+            Function to initialize the data dictionary in the Verify Method.
+            </summary>
+            <param name="configurationFile">The configuration file pointer.</param>
+            <param name="ctvCapturePins">ctvCapturePins as TestMethodParams.CommaSeparatedString.</param>
+            <param name="dieIdRenameParam">List of strings to rename all CtvCapturePins.</param>
+            <param name="perDieBinningParam">List of integers to be used in conjunction with dieIdRenameParam to determine per SSID exit ports.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.CtvStructureProcessing(Prime.TestMethods.TestMethodsParams.CommaSeparatedString,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}})">
+            <summary>
+            Function to iterate over nested dictionaries.
+            </summary>
+            <param name="ctvCapturePins">ctvCapturePins as TestMethodParams.CommaSeparatedString.</param>
+            <param name="ctvData">Dictionary containing CtvData per pin.</param>
+            <param name="ituffResults">Dictionary with Ituff data based on csv file ItuffTokens.</param>
+            <param name="ituffFailFields">Dictionary with failing data to be printed in ituff.</param>
+            <returns>Result of CTV Processing.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.GetFieldByPath(System.String,System.String)">
+            <summary>
+            Function to get a Field from DataStructure using relative paths.
+            </summary>
+            <param name="path">The path of the field we want to return.</param>
+            <param name="absolutePath">The absolute path as starting point reference.</param>
+            <returns> Returns the field fetched by path. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.GetFieldByPath(System.String)">
+            <summary>
+            Function to get a Field from DataStructure using relative paths.
+            </summary>
+            <param name="path">The path of the field we want to return.</param>
+            <returns> Returns the field fetched by path. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.DictionaryUpdate(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Function that updates the pivot dictionary with the update dictionary data.
+            </summary>
+            <param name="pivotDict">The pivot dictionary we want to update.</param>
+            <param name="updateDict">Dictionary with the updated data. Appends if common key exists, otherwise adds an item to pivot.</param>
+            <returns> Returns the updated pivot dictionary.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.DictionaryTree(System.Collections.Generic.List{System.String},Prime.TestMethods.CtvDecoder.Field)">
+            <summary>
+            Function that creates a flat dictionary with a Field on tail.
+            This structure is needed to be merged properly.
+            </summary>
+            <param name="rungs">List of rungs in field hierarchy.</param>
+            <param name="field">The field object.</param>
+            <returns> Returns the flat dictionary.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.DictionaryMerge(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object},System.Int32)">
+            <summary>
+            Recursive function that merges the dictionaries.
+            </summary>
+            <param name="pivotDict">The original pivot dictionary.</param>
+            <param name="mergingDict">The dictionary we want to merge to the pivot dictionary. Has a flat dictionary structure.</param>
+            <param name="rowIndex">Configuration File row index for the current iterating field.</param>
+            <returns> Returns the new pivot dictionary with the merged dictionary.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.SetCompareDataValues(Prime.TestMethods.CtvDecoder.Field)">
+            <summary>
+            Function set the limits and/or expected value from the string within input Field Parameters.
+            </summary>
+            <param name="dataField">The field with the data (limits and expected value) expressions.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.GetPackageExitPort">
+            <summary>
+            Function to pick an exit port based on ascending priority.
+            </summary>
+            <returns>Returns the final package exit port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.SetDieIdRenameFromParameters(Prime.TestMethods.TestMethodsParams.CommaSeparatedString,Prime.TestMethods.TestMethodsParams.CommaSeparatedString)">
+            <summary>
+            Function that validates and sets the dieIdRenameParam list from TestMethod parameters.
+            </summary>
+            <param name="dieIdRenameParam">dieIdRenameParam from TestMethod parameters.</param>
+            <param name="ctvCapturePins">ctvCapturePins defined in the TestMethod parameters.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.DataStructureSequencialIteration(System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}})">
+            <summary>
+            Function to iterate over nested dictionaries.
+            </summary>
+            <param name="pin">The Ctv Pin to be processed.</param>
+            <param name="ctvStringValue">String containing the ctv data to be processed.</param>
+            <param name="ituffResults">Dictionary with Ituff data based on csv file ItuffTokens.</param>
+            <param name="ituffFailFields">Dictionary with failing data to be printed in ituff.</param>
+            <returns>Returns the exit port for current iteration (dieId).</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.GetDieIdRename(System.String)">
+            <summary>
+            Function that renames from pin name to die name.
+            </summary>
+            <param name="pin"> The pin name. </param>
+            <returns> Returns the die name. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.SetFunctionResult(Prime.TestMethods.CtvDecoder.Field)">
+            <summary>
+            Function set the stringExpression to numbers from the string with field paths.
+            </summary>
+            <param name="functionField">The field with the stringExpression.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.FunctionExpression(Prime.TestMethods.CtvDecoder.Field,System.String)">
+            <summary>
+            Function to process an stringExpression expression.
+            </summary>
+            <param name="functionField">The Field being processed.</param>
+            <param name="functionExpression">The functionExpression to be processed.</param>
+            <returns> Returns the value from functionExpression result.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.ReplaceThisWithFieldName(System.String,Prime.TestMethods.CtvDecoder.Field)">
+            <summary>
+            Function to replace the keyword 'this' with the current FieldName.
+            </summary>
+            <param name="path">The current field named as "this".</param>
+            <param name="field">The current Field Object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.ReplaceFieldPathInStringExpression(Prime.TestMethods.CtvDecoder.Field,System.String)">
+            <summary>
+            Function to replace a field Path in a string expression with its FieldData.
+            </summary>
+            <param name="field">The current Field Object.</param>
+            <param name="stringExpression">A fieldPath from original stringExpression. Could contain "this" if it is referring to the current Field.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.PrintDebug(System.String)">
+            <summary>
+            Function to print debug messages in console.
+            </summary>
+            <param name="message">The message to be printed.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.SetDebugMode">
+            <summary>
+            Function to SetDebugMode based on Instance LogLevel.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.BuildDebugTableHeader">
+            <summary>
+            Function to BuildDebugTableHeader string.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.BasicConfigurationFileValidation">
+            <summary>
+            Function to validate the ConfigurationFile basic healthiness.
+            </summary>
+            <returns> Returns the ConfigurationFile content as a string array. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.SetConfigurationFileParameters(System.String[])">
+            <summary>
+            Function to set the ConfigurationFile basic parameters as the CsvDelimiter, Header, and number of Columns.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.InitializeBasicAttributes">
+            <summary>
+            Function to Initialize the basic attributes as the structures to hold all the ConfigurationFile data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.CheckPinNames">
+            <summary>
+            Function to checks the CtvCapture pins comparing them with the ones found in in the ConfigurationFile.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.CheckPinDataSizesAreEqual">
+            <summary>
+            Function to check for the expected size of each CtvCapture pin based in the ConfigurationFile match among them.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.BuildStringParsedMetadataHelper">
+            <summary>
+            Function to build the StringParsedMetadataHelper structure based on the ConfigurationFile's Field and ITUFF Descriptor columns.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.SplitRowDataAndCheckElements(System.String,System.Int32)">
+            <summary>
+            Function to split and check the row data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.UpdatePinSizeStructure(System.String,System.Int32)">
+            <summary>
+            Function to update the perCtvCapturePinStringSize structure for final checkout of sizes between the different pins.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.DataStructureInitialization(System.String[])">
+            <summary>
+            Function to iterate thru each ConfigurationFile's row.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.ConfigurationFileColumnIteration(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Function to iterate thru each ConfigurationFile's column for the given row.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.UpdateDataStructureWithRowData(System.Collections.Generic.List{System.String},Prime.TestMethods.CtvDecoder.Field,System.Int32)">
+            <summary>
+            Function to update the DataStructure dictionary with the current row data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.UpdateVectoredRungsWithRowData(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Function to initialize the DataStructure based on the ConfigurationFile.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.CheckRepeatedColumnNames">
+            <summary>
+            Function to check if any column name is repeated.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.CheckTnameSize(Prime.TestMethods.CtvDecoder.Field)">
+            <summary>
+            Function to check if size of tname is bigger than 128 characters.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoder.UpdateItuffDescriptorsStructure(System.String,Prime.TestMethods.CtvDecoder.Field)">
+            <summary>
+            Function to initialize the DataStructure based on the ConfigurationFile.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.CtvDecoder.CtvDecoderException">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoderException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.CtvDecoder.CtvDecoderException"/> class.
+            </summary>
+            <param name="message"> Message passed by user.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoderException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.CtvDecoder.CtvDecoderException"/> class.
+            </summary>
+            <param name="info">Info for serializer.</param>
+            <param name="context">Context for serializer.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.CtvDecoderException.FormatExceptionMessage(System.String)">
+            <summary>
+            Function to print error messages in console.
+            </summary>
+            <param name="message">The string to be printed.</param>
+            <returns>Returns formatted message for exception..</returns>
+        </member>
+        <member name="T:Prime.TestMethods.CtvDecoder.DieIdFormatChecker">
+            <summary>
+            This class is intended to store all utils and common functions.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.CtvDecoder.DieIdFormatChecker.DieIdCheck">
+            <summary>
+            Check if the value is a DieId Code.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.DieIdFormatChecker.CheckDieIdFormat(System.String)">
+            <summary>
+            Checks the DieId string format.
+            </summary>
+            <param name="token">token of holding the string token to verified.</param>
+            <returns>Returns a true if the format matches a DieId.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.CtvDecoder.Field">
+            <summary>
+            This class contains the basic structure of a Field.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.String},System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.CtvDecoder.Field"/> class.
+            Constructor for the Field class.
+            </summary>
+            <param name="name">The field's name.</param>
+            <param name="configurationFileParameters">The parameters for each field .</param>
+            <param name="rungs">The hierarchy levels of the field.</param>
+            <param name="rungDictionary">The hierarchy levels in dictionary format.</param>
+            <param name="row">The ConfigurationFile row where the Field is locates.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.MaxSize">
+            <summary>
+            Gets the MaxSize of a Field in terms of bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.Name">
+            <summary>
+            Gets or sets the Name of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.Row">
+            <summary>
+            Gets or sets the Row of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.Path">
+            <summary>
+            Gets or sets the Path of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.Hierarchy">
+            <summary>
+            Gets or sets the Path of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ExpectedData">
+            <summary>
+            Gets or sets the Expected Value of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ExpectedDataValueDouble">
+            <summary>
+            Gets or sets the Expected Value of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ExpectedDataValueString">
+            <summary>
+            Gets or sets the Expected Value of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.LowLimit">
+            <summary>
+            Gets or sets the LowLimit parameter of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.HighLimit">
+            <summary>
+            Gets or sets the HighLimit parameter of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.Function">
+            <summary>
+            Gets or sets the Function parameter of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.LowLimitValueDouble">
+            <summary>
+            Gets or sets the LowLimit parameter of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.HighLimitValueDouble">
+            <summary>
+            Gets or sets the HighLimit parameter of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.LowLimitValueString">
+            <summary>
+            Gets or sets the LowLimit parameter of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.HighLimitValueString">
+            <summary>
+            Gets or sets the HighLimit parameter of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.StringData">
+            <summary>
+            Gets or sets a value indicating whether gets or sets the StringData of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.FieldStringData">
+            <summary>
+            Gets or sets a value indicating whether gets or sets the FieldStringData of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.FieldData">
+            <summary>
+            Gets or sets a value indicating whether gets or sets the decimal Data of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.Size">
+            <summary>
+            Gets or sets the Size of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.InstanceExitPort">
+            <summary>
+            Gets or sets the InstanceExitPort at which the test will exit the instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ExitPort">
+            <summary>
+            Gets or sets the user defined ExitPort at which the test will exit the instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ItuffToken">
+            <summary>
+            Gets or sets the ITUFF Token number of a field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.PinFinderFormat">
+            <summary>
+            Gets or sets the PinFinderFormat string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.PerBit">
+            <summary>
+            Gets or sets the PerBit parameter of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.Codification">
+            <summary>
+            Gets or sets the codification type for the field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ItuffDescriptor">
+            <summary>
+            Gets or sets the ItuffDescriptor for the field DataService.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.PerBitFailures">
+            <summary>
+            Gets or sets the list of PerBit fail cases.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ConfigurationFileParameters">
+            <summary>
+            Gets or sets the parameters of a Field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ExpectedDataIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.HighLimitIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.LowLimitIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ItuffDescriptorIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ItuffTokenIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.PerBitIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.CodificationIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.PinFinderFormatIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ExitPortIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.FunctionIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.StringDataIsSet">
+            <summary>
+            Gets or sets a value indicating whether a specific ConfigurationFile Column is being used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.MaxSizeIsSet">
+            <summary>
+            Gets or sets a value indicating whether a field size exceeds the maxSize.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ExitPortShort">
+            <summary>
+            Gets or sets as ushort the ExitPort  at which the test will exit the instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.Field.ErrorMessage">
+            <summary>
+            Gets or sets the ErrorMessage.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.ToArray">
+            <summary>
+            Converts the Field information into an Array.
+            </summary>
+            <returns> Returns the Field info as List of strings.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.SetFieldData(System.String)">
+            <summary>
+            Function to SetFieldData to apply the data into the Field based on CTV DataService.
+            </summary>
+            <param name="inputString">The string chopped from the CTV DataService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.CompareFieldData">
+            <summary>
+            Compares the FieldData to expected value or limits.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.FormatStringValue(System.String)">
+            <summary>
+            Function that formats a Field parameter based on its name and returns is string double representation with 4 decimal digits.
+            </summary>
+            <param name="parameter">Parameter to change to Base format.</param>
+            <returns> Returns the Field Data in the requested base. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.CheckCodification(System.String)">
+            <summary>
+            Function that checks the type of codification for the field.
+            </summary>
+            <param name="inputString"> The data to be converted. </param>
+            <returns> Returns the Field Data in the requested codification. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.CheckCodificationString(System.String)">
+            <summary>
+            Function that checks the type of codification for the field.
+            </summary>
+            <param name="inputString"> The data to be converted. </param>
+            <returns> Returns the Field Data in the requested codification. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.ConfigurationFileColumnStringReplace(System.String)">
+            <summary>
+            Function to parse based values (hex, oct, bin) to decimal numbers in string format.
+            </summary>
+            <param name="baseString">The string that contains the based (0x, 0o, 0b) values.</param>
+            <returns> Returns the updated string with decimal numbers. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.InitializeField">
+            <summary>
+            Function to InitializeField to be used by CtvDecoder based on the passed ConfigurationFileParameters.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.CheckCodificationViolations">
+            <summary>
+            Function that checks for violations between the Field properties.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.CheckLimitsAndExpectedDataViolations">
+            <summary>
+            Function that checks for violations between the Field properties.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.CheckStorageTokenViolations">
+            <summary>
+            Function that checks for violations between the Field properties.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.CheckItuffDescriptorViolations">
+            <summary>
+            Function that checks for violations between the Field properties.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.CheckMiscellaneousViolations">
+            <summary>
+            Function that checks for violations between the Field properties.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Field.CompareFieldDataPerBitCase">
+            <summary>
+            Function to perform Field data comparison when PerBit is set.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.CtvDecoder.ICtvDecoderExtensions">
+            <summary>
+            Interface for extending the DC Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ICtvDecoderExtensions.CustomPostProcessDcResults(Prime.BusinessLogic.Dc.IDcResult)">
+            <summary>
+            Called right after successful execution to provide the user the ability to post process exit port, CTV results, and DC results.
+            </summary>
+            <param name="dcResults">The object for holding the exit port, CTV results, and DC results.</param>
+        </member>
+        <member name="T:Prime.TestMethods.CtvDecoder.ItuffFormat">
+            <summary>
+            This class is intended to store all Ituff Printing functions.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.ItuffFormat.ItuffDelimiter">
+            <summary>
+            Gets the ItuffDelimiter used for printing in Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.PrintToItuff(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}},System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.StringParsedMetadataHelper.StringParsedMetadataHelper},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Function that prints a dictionary in ituff format.
+            </summary>
+            <param name="ituffDatabase"> The local database to print to ituff. </param>
+            <param name="spmHelperStructure"> The spmHelperStructure containing predefined StringParsedMetadata objects.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.PrintPinFinderToItuff(Prime.TestMethods.CtvDecoder.Field,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Prints the PerBitFailures to Ituff.
+            </summary>
+            <param name="field">Field object containing the failing information for pin finder printout.</param>
+            <param name="bitIndex">Bit to be printed in PinFinderFormat.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.AddToFailingItuff(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}},Prime.TestMethods.CtvDecoder.Field)">
+            <summary>
+            Function that creates a dictionary with the Field values in ituff format.
+            </summary>
+            <param name="ituffDatabase"> The local database we want to add the field.</param>
+            <param name="ituffField"> The field we want to concatenate.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.AddToGeneralItuff(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}},Prime.TestMethods.CtvDecoder.Field)">
+            <summary>
+            Function that creates a dictionary with the Field values in ituff format.
+            </summary>
+            <param name="ituffDatabase"> The local database we want to add the field.</param>
+            <param name="ituffField"> The field we want to concatenate.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.GetDieIdToken(Prime.TestMethods.CtvDecoder.Field)">
+            <summary>
+            Function to get the dieIdToken from a Field object.
+            </summary>
+            <param name="ituffField"> The field we want to concatenate.</param>
+            <returns>Returns the dieIdtoken.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.GetDieIdDataDictionaryFromItuffDatabase(System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}})">
+            <summary>
+            Function to append data into the ItuffDataDictionary.
+            </summary>
+            <param name="dieIdToken">A token with a DieId.</param>
+            <param name="ituffDatabase">The ituffDatabase containing all test information.</param>
+            <returns>Returns the DieIdDataDictionary contained in ituffDatabase if exists.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.GetItuffDataDictionaryFromDieIdDataDictionary(System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Function to append data into the ItuffDataDictionary.
+            </summary>
+            <param name="ituffToken">The ituff token to be used as append to the TestInstance name.</param>
+            <param name="dieIdDataDictionary">The per DieId dictionary with ituff data.</param>
+            <returns>Returns the ItuffDataDictionary contained in DieIdDataDictionary if exists.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.AppendToItuffDataDictionary(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Function to append data into the ItuffDataDictionary.
+            </summary>
+            <param name="fieldValueString">Field data value in string format.</param>
+            <param name="ituffDataDictionary">The ituff data dictionary.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.AppendItuffDescriptor(Prime.TestMethods.CtvDecoder.Field,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Function to append data into the ItuffDataDictionary.
+            </summary>
+            <param name="ituffField"> The field we want to concatenate.</param>
+            <param name="ituffDataDictionary">The ituff data dictionary.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.AppendToDieIdDataDictionary(System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Function to append data into the DieIdDataDictionary.
+            </summary>
+            <param name="ituffToken">The ituff token to be used as append to the TestInstance name.</param>
+            <param name="dieIdDataDictionary">The per DieId dictionary with ituff data.</param>
+            <param name="ituffDataDictionary">The ituff data dictionary.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.ItuffFormat.AppendToItuffDatabase(System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Function to append data into the ItuffDatabase.
+            </summary>
+            <param name="dieIdToken">A token with a DieId.</param>
+            <param name="ituffDatabase">The ituffDatabase containing all test information.</param>
+            <param name="dieIdDataDictionary">The per DieId dictionary with ituff data.</param>
+        </member>
+        <member name="T:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod">
+            <summary>
+            Test method responsible for Analog guild CTV decoding.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.#ctor(Prime.BusinessLogic.Dc.IDcTestCreator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod"/> class.
+            </summary>
+            <param name="dcTestCreator">Dc test creator object, used to create DcTest objects.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.#ctor(Prime.BusinessLogic.Triggers.ITriggersFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod"/> class.
+            </summary>
+            <param name="triggerFactory">An ITriggerFactory implementation to use dependency injection.</param>
+        </member>
+        <member name="T:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.EnabledDisabled">
+            <summary>
+            List of available EnabledDisabled states.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.EnabledDisabled.ENABLED">
+            <summary>
+            ENABLED.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.EnabledDisabled.DISABLED">
+            <summary>
+            DISABLED.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.Patlist">
+            <summary>
+            Gets or sets Pat-list to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.Pins">
+            <summary>
+            Gets or sets comma separated pins to get DC results for.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.LowLimits">
+            <summary>
+            Gets or sets comma separated low limits for the measure pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.HighLimits">
+            <summary>
+            Gets or sets comma seperated high limits for the measure pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.DatalogLevel">
+            <summary>
+            Gets or sets datalog level(ALL, FAIL_ONLY, COMPRESS, PINMAP_COMPRESS").
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.TriggerMapName">
+            <summary>
+            Gets or sets comma seperated high limits for the measure pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.SoftwareTriggerConfiguration">
+            <summary>
+            Gets or sets the configuration file for the software trigger event.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.SamplingCount">
+            <summary>
+            Gets or sets sampling count per pin.
+            Optional field , Required when measuring the same pin few times.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.MeasurementTypes">
+            <summary>
+            Gets or sets comma separated measurement types (Current, Voltage) or (C, V).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.CtvCapturePins">
+            <summary>
+            Gets or sets comma separated pins for CTV capture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.ConfigurationFile">
+            <summary>
+            Gets or sets ConfigFile with dataStructure parameters.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.DieIdRename">
+            <summary>
+            Gets or sets the DieIdRename.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.PerDieBinning">
+            <summary>
+            Gets or sets the PerDieBinning.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.TestMethodExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.Decoder">
+            <summary>
+            Gets or sets the CtvDecoder.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.ExitPort">
+            <summary>
+            Gets or sets the custom port to be overriden by user..
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.Prime#TestMethods#CtvDecoder#ICtvDecoderExtensions#CustomPostProcessDcResults(Prime.BusinessLogic.Dc.IDcResult)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.PrimeCtvDecoderTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.CtvDecoder.Utils">
+            <summary>
+            This class is intended to store all utils and common functions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Utils.PrintDebug(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Function to print debug messages in console.
+            </summary>
+            <param name="message">The message to be printed.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Utils.PrintDebugError(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Function to print error messages in console.
+            </summary>
+            <param name="message">The string to be reversed.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Utils.SliceString(System.String@,System.Int32)">
+            <summary>
+            Function to Slice a string in two parts based on the sliceSize.
+            </summary>
+            <param name="s">The string to be reversed.</param>
+            <param name="sliceSize">The size of the slice to be cut.</param>
+            <returns>Returns a list with the data split.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Utils.ReplaceFirst(System.String,System.String,System.String)">
+            <summary>
+            Function to Replace first appearance in string.
+            </summary>
+            <param name="inputString">The string where the replace happens.</param>
+            <param name="search">String to be replaced.</param>
+            <param name="replace">Replaces the searched string.</param>
+            <returns>Returns the string with the replacement done.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Utils.OnesComplementToDecimal(System.String)">
+            <summary>
+            Function to calculate OnesComplement.
+            </summary>
+            <param name="s">The string to be reversed from OnesComplement.</param>
+            <returns>Returns the int value of the 1's complement input binary string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Utils.TwosComplementToDecimal(System.String)">
+            <summary>
+            Function to calculate TwosComplement.
+            </summary>
+            <param name="s">The string to be converted to TwosComplement.</param>
+            <returns>Returns the 2's complement of the input binary string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Utils.Reverse(System.String)">
+            <summary>
+            Function to reverse a string.
+            </summary>
+            <param name="s">The string to be reversed.</param>
+            <returns>Returns the reversed string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Utils.GrayCodeToDecimal(System.String)">
+            <summary>
+            Function that turns gray code into decimal.
+            </summary>
+            <param name="inputString">The string to turned into decimal.</param>
+            /// <returns>Returns the decimal value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Utils.SGrayCodeToDecimal(System.String)">
+            <summary>
+            Function that turns signed gray code into signed decimal.
+            </summary>
+            <param name="inputString">The string to turned into signed decimal.</param>
+            /// <returns>Returns the signed decimal value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.CtvDecoder.Utils.BaseStringReplace(System.String)">
+            <summary>
+            Function to parse based values (hex, oct, bin) to decimal numbers in string format.
+            </summary>
+            <param name="baseString">The string that contains the based (0x, 0o, 0b) values.</param>
+            <returns> Returns the updated string with decimal numbers. </returns>
+        </member>
+    </members>
+</doc>

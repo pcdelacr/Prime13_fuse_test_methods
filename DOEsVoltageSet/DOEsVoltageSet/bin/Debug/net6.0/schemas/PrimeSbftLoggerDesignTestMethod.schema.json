@@ -1,0 +1,333 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "design_name": {
+      "type": "string"
+    },
+    "chain_lengths": {
+      "type": "object",
+      "properties": {
+        "scanout": {
+          "type": "integer"
+        },
+        "iscan": {
+          "type": "integer"
+        },
+        "lfsr": {
+          "type": "integer"
+        },
+        "DR_padded_bits": {
+          "type": "integer"
+        },
+        "CTV_padded_bits": {
+          "type": "integer"
+        },
+        "mclk": {
+          "type": "integer"
+        },
+        "mclk_bit_offset_hi": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "scanout",
+        "iscan",
+        "lfsr",
+        "DR_padded_bits",
+        "CTV_padded_bits",
+        "mclk",
+        "mclk_bit_offset_hi"
+      ]
+    },
+    "fubs": {
+      "type": "object",
+      "properties": {
+        "segment_length": {
+          "type": "integer"
+        },
+        "fub": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "bitpos": {
+                  "type": "integer"
+                },
+                "partition": {
+                  "type": "string"
+                },
+                "fubname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bitpos",
+                "partition",
+                "fubname"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "bitpos": {
+                  "type": "integer"
+                },
+                "partition": {
+                  "type": "string"
+                },
+                "fubname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bitpos",
+                "partition",
+                "fubname"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "bitpos": {
+                  "type": "integer"
+                },
+                "partition": {
+                  "type": "string"
+                },
+                "fubname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bitpos",
+                "partition",
+                "fubname"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "bitpos": {
+                  "type": "integer"
+                },
+                "partition": {
+                  "type": "string"
+                },
+                "fubname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bitpos",
+                "partition",
+                "fubname"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "bitpos": {
+                  "type": "integer"
+                },
+                "partition": {
+                  "type": "string"
+                },
+                "fubname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "bitpos",
+                "partition",
+                "fubname"
+              ]
+            }
+          ]
+        },
+        "priority": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment_length",
+        "fub",
+        "priority"
+      ]
+    },
+    "tap_pins": {
+      "type": "object",
+      "properties": {
+        "TMS": {
+          "type": "string"
+        },
+        "TDI": {
+          "type": "string"
+        },
+        "TDO": {
+          "type": "string"
+        },
+        "TCK": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "TMS",
+        "TDI",
+        "TDO",
+        "TCK"
+      ]
+    },
+    "tap_link": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "type": "object",
+          "properties": {
+            "IR": {
+              "type": "object",
+              "properties": {
+                "TMS": {
+                  "type": "string"
+                },
+                "TDI": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "TMS",
+                "TDI"
+              ]
+            },
+            "DR": {
+              "type": "object",
+              "properties": {
+                "TMS": {
+                  "type": "string"
+                },
+                "TDI": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "TMS",
+                "TDI"
+              ]
+            }
+          },
+          "required": [
+            "IR",
+            "DR"
+          ]
+        },
+        "footer": {
+          "type": "object",
+          "properties": {
+            "IR": {
+              "type": "object",
+              "properties": {
+                "TMS": {
+                  "type": "string"
+                },
+                "TDI": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "TMS",
+                "TDI"
+              ]
+            },
+            "DR": {
+              "type": "object",
+              "properties": {
+                "TMS": {
+                  "type": "string"
+                },
+                "TDI": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "TMS",
+                "TDI"
+              ]
+            }
+          },
+          "required": [
+            "IR",
+            "DR"
+          ]
+        },
+        "character_map": {
+          "type": "object",
+          "properties": {
+            "ONE": {
+              "type": "object",
+              "properties": {
+                "TMS": {
+                  "type": "string"
+                },
+                "TDI": {
+                  "type": "string"
+                },
+                "TCK": {
+                  "type": "string"
+                },
+                "TDO": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "TMS",
+                "TDI",
+                "TCK",
+                "TDO"
+              ]
+            },
+            "ZERO": {
+              "type": "object",
+              "properties": {
+                "TMS": {
+                  "type": "string"
+                },
+                "TDI": {
+                  "type": "string"
+                },
+                "TCK": {
+                  "type": "string"
+                },
+                "TDO": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "TMS",
+                "TDI",
+                "TCK",
+                "TDO"
+              ]
+            }
+          },
+          "required": [
+            "ONE",
+            "ZERO"
+          ]
+        }
+      },
+      "required": [
+        "header",
+        "footer",
+        "character_map"
+      ]
+    }
+  },
+  "required": [
+    "design_name",
+    "chain_lengths",
+    "fubs",
+    "tap_pins",
+    "tap_link"
+  ]
+}

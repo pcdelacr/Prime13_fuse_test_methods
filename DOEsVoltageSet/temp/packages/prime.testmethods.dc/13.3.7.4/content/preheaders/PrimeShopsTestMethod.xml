@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeShopsTestMethod" MetaData="dll=Prime.TestMethods.Dc" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeShopsTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="DcLevelsTc" descriptions="Gets or sets LevelsTc for lower and upper Dc test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="LowerLevelsTc" descriptions="Gets or sets LowerLevelsTc for functional test execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="UpperLevelsTc" descriptions="Gets or sets UpperLevelsTc for functional test execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PatList" descriptions="Gets or sets PatList to execute.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>Plist</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingsTc" descriptions="Gets or sets TimingsTc for plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>TimingCondition</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="LowerDiodeForceAttributes" descriptions="Gets or sets Pin Attributes for lower Dc test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="UpperDiodeForceAttributes" descriptions="Gets or sets Pin Attributes for upper Dc test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="LowerDiodeLimitHigh" descriptions=" Gets or sets high limit to process dc results for lower diode test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="UpperDiodeLimitHigh" descriptions=" Gets or sets high limit to process dc results for upper diode test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="LowerDiodeLimitLow" descriptions="Gets or sets low limit to process dc results for lower diode test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="UpperDiodeLimitLow" descriptions="Gets or sets low limit to process dc results for upper diode test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="Pins" descriptions="Gets or sets comma separated pins to measure in dc test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MeasureSequence" descriptions="Gets or sets MeasureSequence.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>SERIAL</Choice>
+          <Choice>PARALLEL</Choice>
+        </Choices>
+        <Default>PARALLEL</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="ShopsTestType" descriptions=" Gets or sets shops test type: LOWER_SHORTS, LOWER_SHORTS_AND_OPENS, UPPER_SHORTS, UPPER_SHORTS_AND_OPENS, ALL(default).">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>ALL</Choice>
+          <Choice>LOWER_SHORTS</Choice>
+          <Choice>UPPER_SHORTS</Choice>
+          <Choice>LOWER_SHORTS_AND_OPENS</Choice>
+          <Choice>UPPER_SHORTS_AND_OPENS</Choice>
+        </Choices>
+        <Default>ALL</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TemplateMode" descriptions="Gets or sets shops test mode: DC_ONLY, FUNC_ONLY, DC_AND_FUNC(default).">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>DC_ONLY</Choice>
+          <Choice>FUNC_ONLY</Choice>
+          <Choice>DC_AND_FUNC</Choice>
+        </Choices>
+        <Default>DC_AND_FUNC</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="EnableFlushSmartTc" descriptions="Gets or sets flag to enable flushing Levels Smart TC.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Disabled</Choice>
+          <Choice>Enabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="DatalogLevel" descriptions=" Gets or sets selects data log mode : FAIL_DATA, ALL_DATA, ALL_DATA_COMPRESS, ALL_DATA_PINMAP_COMPRESS, NONE(default).">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>ALL</Choice>
+          <Choice>COMPRESS</Choice>
+          <Choice>PINMAP_COMPRESS</Choice>
+          <Choice>COMPRESS</Choice>
+          <Choice>FAIL_ONLY</Choice>
+          <Choice>PIN_DETAIL</Choice>
+          <Choice>NONE</Choice>
+        </Choices>
+        <Default>NONE</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="AlarmPortRedirect" descriptions="Gets or sets the alarm port redirect disabled or enabled.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>ENABLED</Choice>
+          <Choice>DISABLED</Choice>
+        </Choices>
+        <Default>DISABLED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PrePause" descriptions="Gets or sets Pre-Measurement delay specified in Seconds.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PowerDomain" descriptions="Optional PowerDomain to use during test condition construction. Supported only in TOS322">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FUNCTIONAL LOWER SHORTS AND OPENS</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PORT PASS</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PORT FAIL FUNCTIONAL, PASS DC</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>3</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PORT FAIL FUNCTIONAL UPPER SHORTS AND OPENS</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>4</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PORT FAIL DC SHORTS</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>5</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PORT FAIL DC LOWER OPENS</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>6</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PORT FAIL DC UPPER OPENS</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>7</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PORT FAIL ALARM MODE ACTIVE</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>8-99</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PORT TO BE USED BY USER WITH REDIRECT PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

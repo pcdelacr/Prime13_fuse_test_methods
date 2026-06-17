@@ -1,0 +1,1206 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HdmtOs.Sdk.Uei.CommandMessages</name>
+    </assembly>
+    <members>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.AdjustControlSetValueMessage">
+            <summary>
+            Concrete class for the Adjust Control Set Value message (command ID 73)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.AdjustControlSetValueMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.AdjustControlSetValueMessage.PackageDutIndex">
+            <summary>
+            The package-level DUT index (does not correlate to different IPs for intraDUT)
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.AdjustControlSetValueMessage.CsIndex">
+            <summary>
+            The control set index
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.AdjustControlSetValueMessage.Action">
+            <summary>
+            The action
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.AdjustControlSetValueMessage.ValueId">
+            <summary>
+            The field in the control set to adjust
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.AdjustControlSetValueMessage.Value">
+            <summary>
+            The new value or amount to adjust existing value
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.AdjustControlSetValueMessage.ZoneIndex">
+            <summary>
+            The zone index
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.BulkReadReplyMessage">
+            <summary>
+            Concrete class for the Bulk Read Reply message (command ID 41)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.BulkReadReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.BulkReadReplyMessage.Offset">
+            <summary>
+            The offset at which the data was read
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.BulkReadReplyMessage.Region">
+            <summary>
+            The region that was read
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.BulkReadReplyMessage.Data">
+            <summary>
+            The data that was read
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.BulkReadReplyMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.BulkReadRequestMessage">
+            <summary>
+            Concrete class for the Bulk Read Request message (command ID 40)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.BulkReadRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.BulkReadRequestMessage.Offset">
+            <summary>
+            The offset at which to start reading
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.BulkReadRequestMessage.Region">
+            <summary>
+            The region to read
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.BulkReadRequestMessage.NumBytes">
+            <summary>
+            The number of bytes to read
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.BulkWriteCompleteMessage">
+            <summary>
+            Concrete class for the Bulk Write Complete message (command ID 43)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.BulkWriteCompleteMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.BulkWriteCompleteMessage.Region">
+            <summary>
+            The region that was written
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.BulkWriteMessage">
+            <summary>
+            Concrete class for the Bulk Write message (command ID 42)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.BulkWriteMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.BulkWriteMessage.Offset">
+            <summary>
+            The offset at which to write the data
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.BulkWriteMessage.Region">
+            <summary>
+            The region to write
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.BulkWriteMessage.Data">
+            <summary>
+            The data to write
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.BulkWriteMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.ClearDutFaultBitsMessage">
+            <summary>
+            Concrete class for the Clear Dut Fault Bits message (command ID 63)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.ClearDutFaultBitsMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.ClearDutFaultBitsMessage.DutMask">
+            <summary>
+            Mask of DUTs to clear
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.CommunicationOkReplyMessage">
+            <summary>
+            Concrete class for the Communication OK Reply message (command ID 1)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.CommunicationOkReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.CommunicationProtocolErrorReplyMessage">
+            <summary>
+            Concrete class for the Communication Protocol Error Reply message (command ID 2)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.CommunicationProtocolErrorReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.CommunicationProtocolErrorReplyMessage.ErrorId">
+            <summary>
+            The error ID:
+            <list type="bullet">
+            <item>0 – This ID is currently unused/reserved for future use</item>
+            <item>1 - Unrecognized command ID</item>
+            <item>2 - Invalid payload length</item>
+            <item>3 - Invalid payload data</item>
+            <item>4-99 - Reserved for future use for generic errors. Owned by HDMT.</item>
+            <item>100+ - Available for client-specific errors.</item>
+            </list>
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.CommunicationProtocolErrorReplyMessage.Message">
+            <summary>
+            The optional error message
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.CommunicationProtocolErrorReplyMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.DebugUnrecognizedCommandMessage">
+            <summary>
+            Concrete class for the DebugUnrecognizedCommand message (command ID 99)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.DebugUnrecognizedCommandMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.DutMapMessage">
+            <summary>
+            Concrete class for the DUT Map message (command ID 71)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.DutMapMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.DutMapMessage.UeiDutMap">
+            <summary>
+            The DUT ID map
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.DutMapMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetActiveControlSetIndexReplyMessage">
+            <summary>
+            Concrete class for the Get Active Control Set Index Reply message (command ID 60)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetActiveControlSetIndexReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetActiveControlSetIndexReplyMessage.PackageDutIndex">
+            <summary>
+            The package-level DUT ID (does not correlate to different IPs for intraDUT)
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetActiveControlSetIndexReplyMessage.ControlSetIndex">
+            <summary>
+            The current active control set index
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetActiveControlSetIndexReplyMessage.ZoneIndex">
+            <summary>
+            Thermal zone
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetActiveControlSetIndexRequestMessage">
+            <summary>
+            Concrete class for the Get Active Control Set Index Request message (command ID 59)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetActiveControlSetIndexRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetActiveControlSetIndexRequestMessage.PackageDutIndex">
+            <summary>
+            The package-level DUT ID (does not correlate to different IPs for intraDUT)
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetActiveControlSetIndexRequestMessage.ZoneIndex">
+            <summary>
+            Thermal zone
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetDutFaultMaskReplyMessage">
+            <summary>
+            Concrete class for the Get Dut Fault Mask Reply message (command ID 62)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetDutFaultMaskReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetDutFaultMaskReplyMessage.DutMask">
+            <summary>
+            The returned bit mask
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetDutFaultMaskReplyMessage.FaultDescription">
+            <summary>
+            The returned fault description
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.GetDutFaultMaskReplyMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetDutFaultMaskRequestMessage">
+            <summary>
+            Concrete class for the Get DUT Fault Mask Request message (command ID 61)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetDutFaultMaskRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetMaxBaudReplyMessage">
+            <summary>
+            Concrete class for the Get Max Baud Reply message (command ID 52)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetMaxBaudReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetMaxBaudReplyMessage.MaxBaud">
+            <summary>
+            The max supported baud rate
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetMaxBaudRequestMessage">
+            <summary>
+            Concrete class for the Get Max Baud Request message (command ID 51)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetMaxBaudRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetSoftwareModeReplyMessage">
+            <summary>
+            Concrete class for the Software Mode Reply message (command ID 56)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetSoftwareModeReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetSoftwareModeReplyMessage.SoftwareMode">
+            <summary>
+            The possible software modes received from the client
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetSoftwareModeReplyMessage.SoftwareMode.Bootloader">
+            <summary>Client is currently executing the bootloader</summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetSoftwareModeReplyMessage.SoftwareMode.Main">
+            <summary>Client is currently executing the main software</summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetSoftwareModeReplyMessage.Mode">
+            <summary>
+            The software mode received from the client
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetSoftwareModeRequestMessage">
+            <summary>
+            Concrete class for the Get Software Mode Request message (command ID 55)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetSoftwareModeRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetSupportedBaudsReplyMessage">
+            <summary>
+            Concrete class for the Get Supported Bauds Reply message (command ID 77)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetSupportedBaudsReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetSupportedBaudsReplyMessage.Bauds">
+            <summary>
+            The supported bauds
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.GetSupportedBaudsReplyMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetSupportedBaudsRequestMessage">
+            <summary>
+            Concrete class for the Get Supported Bauds Request message (command ID 76)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetSupportedBaudsRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetTimeReplyMessage">
+            <summary>
+            Concrete class for the Get Time Reply message (command ID 54)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetTimeReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.GetTimeReplyMessage.TimeUs">
+            <summary>
+            The client's current time
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GetTimeRequestMessage">
+            <summary>
+            Concrete class for the Get Time Request message (command ID 53)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GetTimeRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GoToMainSoftwareMessage">
+            <summary>
+            Concrete class for the Go To Main Software message (command ID 57)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GoToMainSoftwareMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.GoToSafeStateMessage">
+            <summary>
+            Concrete class for the Go To Safe State message (command ID 44)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.GoToSafeStateMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.LoopbackReplyMessage">
+            <summary>
+            Concrete class for the Loopback Reply message (command ID 4)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.LoopbackReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.LoopbackReplyMessage.Message">
+            <summary>
+            The message to send to the client
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.LoopbackReplyMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.LoopbackRequestMessage">
+            <summary>
+            Concrete class for the Loopback Request message (command ID 3)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.LoopbackRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.LoopbackRequestMessage.Message">
+            <summary>
+            The message to send to the client
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.LoopbackRequestMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.NoPayloadMessageBase">
+            <summary>
+            Abstract base class for command messages with no payload
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.NoPayloadMessageBase.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.SendFlowItemNameMessage">
+            <summary>
+            Concrete class for the Send FlowItem Name message (command ID 72)
+            </summary>
+            <remarks>
+            This command was previously described as the "Send Test Instance Name" command, despite actually sending the
+            FlowItem name
+            </remarks>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SendFlowItemNameMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SendFlowItemNameMessage.DutIndex">
+            <summary>
+            Unique DUT index. For defined DUTs indexing begins at 0.
+            <example><br/>Example:<br/>
+                1. MDUTx2 DUTs[11,12]
+                    <list type="table">
+                    <listheader><term>Dut</term><term>11</term><term>12</term></listheader>
+                    <item><term>Index</term><term>0</term><term>1</term></item>
+                    </list>
+                2. INTRADUT MDUTx2 Package DUTs[11, 12] each including IP DUTs[IPA, IPB]
+                    <list type="table">
+                    <listheader><term>Dut</term><term>11</term><term>11_IPA</term><term>11_IPB</term><term>12</term><term>12_IPA</term><term>12_IPB</term></listheader>
+                    <item><term>Index</term><term>0</term><term>1</term><term>2</term><term>3</term><term>4</term><term>5</term></item>
+                    </list>
+            </example>
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SendFlowItemNameMessage.FlowItemName">
+            <summary>
+            The FlowItem name
+            </summary>
+            <remarks>
+            This will be truncated to MAX_UEI_TEST_INSTANCE_NAME_SIZE(254) in the UEI backend.
+            </remarks>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.SendFlowItemNameMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage">
+            <summary>
+            Concrete class for the Send Host Info message (command ID 75)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.RctcTypes">
+            <summary>
+            The possible RCTC types sent to the client
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.RctcTypes.Unknown">
+            <summary>Unknown type</summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.RctcTypes.Rctc2">
+            <summary>RCTC2</summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.RctcTypes.Rctc3">
+            <summary>RCTC3</summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.RctcTypes.HbiRctc">
+            <summary>HBI RCTC</summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.RctcTypes.Gen3BpRc">
+            <summary>Gen3 BP RC</summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.RctcType">
+            <summary>
+            The RCTC type
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.TosGen">
+            <summary>
+            The TOS generation
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.TosMajor">
+            <summary>
+            The TOS major version
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.TosMinor">
+            <summary>
+            The TOS minor version
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SendHostInfoMessage.TosPatch">
+            <summary>
+            The TOS patch version
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.SetActiveControlSetMessage">
+            <summary>
+            Concrete class for the Set Active Control Set message (command ID 58)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SetActiveControlSetMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SetActiveControlSetMessage.PackageDutIndex">
+            <summary>
+            The package-level DUT index (does not correlate to different IPs for intraDUT)
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SetActiveControlSetMessage.ControlSetIndex">
+            <summary>
+            The control set index
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SetActiveControlSetMessage.ZoneIndex">
+            <summary>
+            Thermal zone
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SetActiveControlSetMessage.DelayMs">
+            <summary>
+            Millisecond delay before activating the control set
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.SetBaudMessage">
+            <summary>
+            Concrete class for the Set Baud message (command ID 50)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SetBaudMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SetBaudMessage.Baud">
+            <summary>
+            The baud rate to set
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.SetUeiStreamingWeightsMessage">
+            <summary>
+            Concrete class for the Set Uei Streaming Weights message (command ID 74)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SetUeiStreamingWeightsMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SetUeiStreamingWeightsMessage.PacketIndex">
+            <summary>
+            The packet index
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SetUeiStreamingWeightsMessage.Weights">
+            <summary>
+            The streaming weights
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.SetUeiStreamingWeightsMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.SoftResetMessage">
+            <summary>
+            Concrete class for the Soft Reset message (command ID 49)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SoftResetMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.SoftwareVersionReplyMessage">
+            <summary>
+            Concrete class for the Software Version Reply message (command ID 8)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SoftwareVersionReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SoftwareVersionReplyMessage.Version">
+            <summary>
+            The version information.  Only <see cref="P:System.Version.Major"/> and <see cref="P:System.Version.Minor"/> may be populated, depending on how how the UEI client FW replied.
+            Newer UEI clients may also return <see cref="P:System.Version.Build"/> and <see cref="P:System.Version.Revision"/>. <see cref="P:System.Version.Build"/> maps to version_patch and <see cref="P:System.Version.Revision"/> maps to version_build in the UEI reply, per the UEI spec
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SoftwareVersionReplyMessage.SubsystemIndex">
+            <summary>
+            The subsystem index.
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.SoftwareVersionReplyMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.SoftwareVersionRequestMessage">
+            <summary>
+            Concrete class for the Software Version Request message (command ID 7)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.SoftwareVersionRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.SoftwareVersionRequestMessage.SubsystemIndex">
+            <summary>
+            The subsystem index.  Must correspond to those used with the bulk read/write commands.
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StartStreamingMessage">
+            <summary>
+            Concrete class for the Start Streaming message (command ID 47)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StartStreamingMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StopStreamingMessage">
+            <summary>
+            Concrete class for the Stop Streaming message (command ID 48)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StopStreamingMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StreamingNumUniquePacketIdsReplyMessage">
+            <summary>
+            Concrete class for the Streaming Num Unique Packet Ids Reply message (command ID 65)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StreamingNumUniquePacketIdsReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingNumUniquePacketIdsReplyMessage.UniquePacketsFromTarget">
+            <summary>
+            Number of unique packets the client has been configured to stream
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StreamingNumUniquePacketIdsRequestMessage">
+            <summary>
+            Concrete class for the Streaming Num Unique Packet Ids Request message (command ID 64)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StreamingNumUniquePacketIdsRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StreamingResetConfiguredTxValuesMessage">
+            <summary>
+            Concrete class for the Streaming Reset Configured Tx Values message (command ID 70)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StreamingResetConfiguredTxValuesMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StreamingSetTxValueMessage">
+            <summary>
+            Concrete class for the Streaming Set Tx Value message (command ID 69)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StreamingSetTxValueMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingSetTxValueMessage.StreamingPacketIdIndex">
+            <summary>
+            The packet index
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingSetTxValueMessage.StreamingValueIndex">
+            <summary>
+            The value index
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingSetTxValueMessage.SensorId">
+            <summary>
+            The value index
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsFromTargetReplyMessage">
+            <summary>
+            Concrete class for the Streaming Value Ids From Target Reply message (command ID 68)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsFromTargetReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsFromTargetReplyMessage.UniquePacketIndex">
+            <summary>
+            The unique packet index
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsFromTargetReplyMessage.StreamingValueIdsFromTarget">
+            <summary>
+            The value IDs for the packet
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsFromTargetReplyMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsFromTargetRequestMessage">
+            <summary>
+            Concrete class for the Streaming Value Ids From Target Request message (command ID 67)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsFromTargetRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsFromTargetRequestMessage.UniquePacketIndex">
+            <summary>
+            The unique packet index
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsToTargetMessage">
+            <summary>
+            Concrete class for the Streaming ValueIds To Target message (command ID 66)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsToTargetMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsToTargetMessage.UniquePacketIndex">
+            <summary>
+            The unique packet index
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsToTargetMessage.StreamingValueIdsToTarget">
+            <summary>
+            The value IDs for the packet.  Static values are represented as 0, which maps to <see cref="F:HdmtOs.Sdk.Uei.UeiSensorId.Td00"/>.
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.StreamingValueIdsToTargetMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StreamingValuesInfoReplyMessage">
+            <summary>
+            Concrete class for the Streaming Values Info Reply message (command ID 46)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StreamingValuesInfoReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingValuesInfoReplyMessage.NumValuesPerPacket">
+            <summary>
+            The number of streaming values that will be streamed from the client
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingValuesInfoReplyMessage.NumUniquePacketIds">
+            <summary>
+            The number of unique packet IDs that will be streamed from the client
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingValuesInfoReplyMessage.StreamingIds">
+            <summary>
+            Client-specific value IDs describing the streamable values in each packet
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.StreamingValuesInfoReplyMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.StreamingValuesInfoRequestMessage">
+            <summary>
+            Concrete class for the Streaming Values Info Request message (command ID 45)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.StreamingValuesInfoRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingValuesInfoRequestMessage.NumValuesPerPacket">
+            <summary>
+            The number of streaming values that will be streamed to the client
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.StreamingValuesInfoRequestMessage.NumUniquePacketIds">
+            <summary>
+            The number of unique packet IDs that will be streamed to the client
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.TargetIdReplyMessage">
+            <summary>
+            Concrete class for the Target ID Request message (command ID 6)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.TargetIdReplyMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.TargetIdReplyMessage.Id">
+            <summary>
+            The returned ID
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.TargetIdReplyMessage.Name">
+            <summary>
+            The returned name
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.TargetIdReplyMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.TargetIdRequestMessage">
+            <summary>
+            Concrete class for the Target ID Request message (command ID 5)
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.TargetIdRequestMessage.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase">
+            <summary>
+            Base class for a UEI command message
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.TimestampUs">
+            <summary>
+            Gets the timestamp of the command.  Will only be populated for reply messages or cached messages
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.FromNetworkOrder(System.UInt16)">
+            <summary>
+            Gets an unsigned 16-bit integer with host endianness from an input that is in network byte order (big-endian)
+            </summary>
+            <param name="value">The original value in network byte order</param>
+            <returns>The value in host byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.FromNetworkOrder(System.UInt32)">
+            <summary>
+            Gets an unsigned 32-bit integer with host endianness from an input that is in network byte order (big-endian)
+            </summary>
+            <param name="value">The original value in network byte order</param>
+            <returns>The value in host byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.FromNetworkOrder(System.UInt64)">
+            <summary>
+            Gets an unsigned 64-bit integer with host endianness from an input that is in network byte order (big-endian)
+            </summary>
+            <param name="value">The original value in network byte order</param>
+            <returns>The value in host byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.FromNetworkOrder(System.Int16)">
+            <summary>
+            Gets a signed 16-bit integer with host endianness from an input that is in network byte order (big-endian)
+            </summary>
+            <param name="value">The original value in network byte order</param>
+            <returns>The value in host byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.FromNetworkOrder(System.Int32)">
+            <summary>
+            Gets a signed 32-bit integer with host endianness from an input that is in network byte order (big-endian)
+            </summary>
+            <param name="value">The original value in network byte order</param>
+            <returns>The value in host byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.FromNetworkOrder(System.Int64)">
+            <summary>
+            Gets a signed 64-bit integer with host endianness from an input that is in network byte order (big-endian)
+            </summary>
+            <param name="value">The original value in network byte order</param>
+            <returns>The value in host byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.ToNetworkOrder(System.UInt16)">
+            <summary>
+            Gets an unsigned 16-bit integer with network byte order (big-endian) from an input that has host endianness
+            </summary>
+            <param name="value">The original value in host byte order</param>
+            <returns>The value in network byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.ToNetworkOrder(System.UInt32)">
+            <summary>
+            Gets an unsigned 32-bit integer with network byte order (big-endian) from an input that has host endianness
+            </summary>
+            <param name="value">The original value in host byte order</param>
+            <returns>The value in network byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.ToNetworkOrder(System.UInt64)">
+            <summary>
+            Gets an unsigned 64-bit integer with network byte order (big-endian) from an input that has host endianness
+            </summary>
+            <param name="value">The original value in host byte order</param>
+            <returns>The value in network byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.ToNetworkOrder(System.Int16)">
+            <summary>
+            Gets a signed 16-bit integer with network byte order (big-endian) from an input that has host endianness
+            </summary>
+            <param name="value">The original value in host byte order</param>
+            <returns>The value in network byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.ToNetworkOrder(System.Int32)">
+            <summary>
+            Gets a signed 32-bit integer with network byte order (big-endian) from an input that has host endianness
+            </summary>
+            <param name="value">The original value in host byte order</param>
+            <returns>The value in network byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.ToNetworkOrder(System.Int64)">
+            <summary>
+            Gets an signed 64-bit integer with network byte order (big-endian) from an input that has host endianness
+            </summary>
+            <param name="value">The original value in host byte order</param>
+            <returns>The value in network byte order</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.GetUInt16(System.Byte[],System.Int32)">
+            <summary>
+            Gets an unsigned 16-bit integer from the specified byte array at the specified index.  Assumes network byte
+            order (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <returns>The unsigned 16-bit integer value</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.GetUInt32(System.Byte[],System.Int32)">
+            <summary>
+            Gets an unsigned 32-bit integer from the specified byte array at the specified index.  Assumes network byte
+            order (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <returns>The unsigned 32-bit integer value</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.GetUInt64(System.Byte[],System.Int32)">
+            <summary>
+            Gets an unsigned 64-bit integer from the specified byte array at the specified index.  Assumes network byte
+            order (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <returns>The unsigned 64-bit integer value</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.GetInt16(System.Byte[],System.Int32)">
+            <summary>
+            Gets a signed 16-bit integer from the specified byte array at the specified index.  Assumes network byte
+            order (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <returns>The signed 16-bit integer value</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.GetInt32(System.Byte[],System.Int32)">
+            <summary>
+            Gets a signed 32-bit integer from the specified byte array at the specified index.  Assumes network byte
+            order (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <returns>The signed 32-bit integer value</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.GetInt64(System.Byte[],System.Int32)">
+            <summary>
+            Gets a signed 64-bit integer from the specified byte array at the specified index.  Assumes network byte
+            order (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <returns>The signed 64-bit integer value</returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.SetUInt16(System.Byte[],System.Int32,System.UInt16)">
+            <summary>
+            Set an unsigned 16-bit integer to the specified byte array at the specified index in network byte order
+            (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <param name="value">The unsigned 16-bit value to set (with host endianness)</param>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.SetUInt32(System.Byte[],System.Int32,System.UInt32)">
+            <summary>
+            Set an unsigned 32-bit integer to the specified byte array at the specified index in network byte order
+            (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <param name="value">The unsigned 32-bit value to set (with host endianness)</param>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.SetUInt64(System.Byte[],System.Int32,System.UInt64)">
+            <summary>
+            Set an unsigned 64-bit integer to the specified byte array at the specified index in network byte order
+            (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <param name="value">The unsigned 64-bit value to set (with host endianness)</param>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.SetInt16(System.Byte[],System.Int32,System.Int16)">
+            <summary>
+            Set a signed 16-bit integer to the specified byte array at the specified index in network byte order
+            (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <param name="value">The signed 16-bit value to set (with host endianness)</param>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.SetInt32(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Set a signed 32-bit integer to the specified byte array at the specified index in network byte order
+            (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <param name="value">The signed 32-bit value to set (with host endianness)</param>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.SetInt64(System.Byte[],System.Int32,System.Int64)">
+            <summary>
+            Set a signed 64-bit integer to the specified byte array at the specified index in network byte order
+            (big-endian).
+            </summary>
+            <remarks>Assumes index is valid and there are sufficient bytes at the index</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <param name="value">The signed 64-bit value to set (with host endianness)</param>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiCommandMessageBase.GetAsciiString(System.Byte[],System.Int32,System.Boolean)">
+            <summary>
+            Get an ASCII string from the specified byte array at the specified index, using bytes until the end of the array or
+            (optionally) a null byte is encountered.
+            </summary>
+            <remarks>Assumes index is valid</remarks>
+            <param name="bytes">The byte array</param>
+            <param name="index">The start index</param>
+            <param name="allowNullTermination">True to terminate the string if a null byte is encountered</param>
+            <returns>The string</returns>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.UeiStructCommandMessage`1">
+            <summary>
+            Base class for a command message that gets/sets its payload using a struct
+            </summary>
+            <typeparam name="T">The type of the struct</typeparam>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.UeiStructCommandMessage`1.StructHasNoFields">
+            <summary>
+            A flag indicating if the struct type has no fields and should be serialized/deserialized to an empty array
+            </summary>
+        </member>
+        <member name="F:HdmtOs.Sdk.Uei.CommandMessages.UeiStructCommandMessage`1.Struct">
+            <summary>
+            The instance of <typeparamref name="T"/> used to serialize/deserialize the data
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiStructCommandMessage`1.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.UeiStructTransmitCommandMessage`1">
+            <summary>
+            Base class for a transmit command message that gets/sets its payload using a struct
+            </summary>
+            <typeparam name="T">The type of the struct</typeparam>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UeiStructTransmitCommandMessage`1.ToByteArray">
+            <inheritdoc/>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.UeiStructTransmitCommandMessage`1.CommandId">
+            <summary>
+            The command ID for this command
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.CommandMessages.UnknownCommandMessage">
+            <summary>
+            Class that is returned when an unknown command ID or invalid payload data is encountered for a reply message or when
+            accessing cached messages
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UnknownCommandMessage.#ctor(System.Byte)">
+            <summary>
+            Constructed a new instance with the specified command ID
+            </summary>
+            <param name="commandId">The command ID</param>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.UnknownCommandMessage.CommandId">
+            <summary>
+            The ID of the invalid command
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.Uei.CommandMessages.UnknownCommandMessage.Payload">
+            <summary>
+            The raw payload data
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.CommandMessages.UnknownCommandMessage.TrySetFromByteArray(System.Byte[])">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

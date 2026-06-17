@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeGfxMbistHryToTagTestMethod" MetaData="dll=Prime.TestMethods.Gfx" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeGfxMbistHryToTagTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="Area" descriptions="The Area for Gfx.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="Content" descriptions="Content for Gfx.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="Tag" descriptions="Tag to create from the decoded HRY.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="TagPassSymbol" descriptions="The symbol will be used in the generated Tag to represent passing engine id.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default>1</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TagFailSymbol" descriptions="The symbol will be used in the generated Tag to represent failing engine id.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default>0</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="HryMapKeys" descriptions="Comma separated list of shared storage keys that hold the HRY - Eid mapping. Usually another test method or user code populates this shared storage key.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="HryValueKeys" descriptions="Comma separated list of shared storage keys that hold the HRY values. Usually another test method or user code populates this shared storage key.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="HryPassSymbols" descriptions="Comma separated list of characters symbols that desribes pass status from the HRY received from another test method or user code.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="HryMappingConfig" descriptions="This file holds the mapping from component name in the 'HryMapKeys' shared storage, to actual eid.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>File</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT - Any test class setup or logic failure.</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT - Tag created successfully.</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.PatternService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.PatternService.Internal.IPatternService">
+            <summary>
+            Internal methods.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.Internal.IPatternService.GetPattern(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets a pattern object for the given pattern name.
+            </summary>
+            <param name="patternName">Pattern name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Pattern obj.</returns>
+        </member>
+        <member name="M:Prime.PatternService.Internal.IPatternService.GetCachingBehavior(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the current caching behavior.
+            </summary>
+            <param name="sessionContext">Session context.</param>
+            <returns>Caching behavior.</returns>
+        </member>
+        <member name="T:Prime.PatternService.Internal.IPattern">
+            <summary>
+            Pattern interface.
+            </summary>
+        </member>
+        <member name="P:Prime.PatternService.Internal.IPattern.Name">
+            <summary>
+            Gets pattern name.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.Internal.IPattern.GetDomains">
+            <summary>
+            Domains.
+            </summary>
+            <returns>Domains list.</returns>
+        </member>
+        <member name="M:Prime.PatternService.Internal.IPattern.GetLabelAddress(System.String,System.String)">
+            <summary>
+            Label address.
+            </summary>
+            <param name="domain">Domain.</param>
+            <param name="label">Label.</param>
+            <returns>Address.</returns>
+        </member>
+        <member name="M:Prime.PatternService.Internal.IPattern.GetLabels(System.String)">
+            <summary>
+            gets labels.
+            </summary>
+            <param name="domain">Domains.</param>
+            <returns>Labels.</returns>
+        </member>
+        <member name="T:Prime.PatternService.IPatternService">
+            <summary>
+            Searches label in pattern and returns the label name and address.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.SetCachingBehavior(Prime.PlatformService.Internal.CachingBehavior,System.UInt64,System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the pattern operations cache behavior and size.
+            </summary>
+            <param name="cachingBehavior">Caching behavior for the pattern modify and pattern reads operations.</param>
+            <param name="entryCapacity">Capacity of the pattern memory cache. If more than capacity regions are cached the least recently used region is evicted from the cache.</param>
+            <param name="vectorCapacity">Maximum amount of vectors in the pattern memory cache. If more than maxVectorCountInCache vectors are in the cache the least recently used region gets evicted from the cache.</param>
+            <param name="maxVectorEntrySize">Maximum size of an entry to be accepted into the cache.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.GetLabelFromAddress(System.String,System.String,System.UInt32,System.Boolean)">
+            <summary>
+            Get the closest label name and address, to the provided pattern, domain, address and direction of search.
+            Note that if there is a label on the same address that is provided through 'searchAtAddress' parameter,
+            it will be returned regardless of the search direction.
+            Function will throw FatalException if function failed to find closest label, or if TOS API failed for any reason.
+            </summary>
+            <param name="patternName">Name of the pattern where Label has to be searched.</param>
+            <param name="domainName">Domain name of the pattern.</param>
+            <param name="searchAtAddress">Search address of the pattern where the label need to be searched.</param>
+            <param name="searchUpForLabel">If true, it will search for the closest label before the provided address ('searchAtAddress' parameter),
+            Otherwise(false), it will search after the provided address('searchAtAddress' parameter). </param>
+            <returns>Returns ILabel Object, that holds LabelName and address, use GetName and GetAddress to get the information.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.GetLabels(System.String,System.String,System.String)">
+            <summary>
+            Gets all the labels that match the pattern name, the label name and the domain name.
+            </summary>
+            <param name="patternName">Name of the pattern where Label has to be searched.</param>
+            <param name="labelRegex">Label regex of the pattern to look for.</param>
+            <param name="domainName">Domain name of the pattern.</param>
+            <returns>A vector containing all the Label objects matches the label name for the given pattern name and domain name.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.ReadPinData(System.String,System.Collections.Generic.List{System.String},System.UInt32,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read Data for a list of Pins at a specific pattern.
+            </summary>
+            <param name="patternName">Pattern name to read data from.</param>
+            <param name="pinNames">A list of pins to read data from.</param>
+            <param name="address">Start address to read data.</param>
+            <param name="numberOfVectors">number of vectors to read.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Map where the key in pin name and the value is the data for this pin.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.ReadInstruction(System.String,System.String,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read Data for a list of Pins at a specific pattern.
+            </summary>
+            <param name="patternName">Pattern name to read data from.</param>
+            <param name="domain">The domain to read from.</param>
+            <param name="address">The address to read instruction data from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Pair first value is the instruction and the second value is the instruction arguments.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.ReadCtv(System.String,System.String,System.UInt32,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read CTV Data at a specific pattern and Domain.
+            </summary>
+            <param name="patternName">Pattern name to read data from.</param>
+            <param name="domain">Domain to read data from.</param>
+            <param name="address">Start address to read data.</param>
+            <param name="numberOfVectors">number of vectors to read.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>String with CTV data.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.ReadMTV(System.String,System.String,System.UInt32,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read MTV Data at a specific pattern and Domain.
+            </summary>
+            <param name="patternName">Pattern name to read data from.</param>
+            <param name="domain">Domain to read data from.</param>
+            <param name="address">Start address to read data.</param>
+            <param name="numberOfVectors">number of vectors to read.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>String with MTV data.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.GetVectorAddressForLabel(System.String,System.String,System.String)">
+            <summary>
+             Read vector address for specific label, domain in the pattern.
+            </summary>
+            <param name="patternName">Pattern name to read data from.</param>
+            <param name="patternLabelName">label to read data.</param>
+            <param name="domain">Domain to read data from.</param>
+            <returns>Vector address for given label.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.ReadLRPT(System.String,System.String,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read LRPT Data at a specific pattern and Domain at specific address.
+            </summary>
+            <param name="patternName">Pattern name to read data from.</param>
+            <param name="domain">Domain to read data from.</param>
+            <param name="address">Start address to read data.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>LRPT value at specific address.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.GetDomains(System.String)">
+            <summary>
+            Get all domains in pattern.
+            </summary>
+            <param name="patternName">Name of the pattern.</param>
+            <returns>The name of the domain.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.GetAllPatternNames">
+            <summary>
+            Get all pattern names.
+            </summary>
+            <returns>The name pattern names.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.GetDomainForPinAndPattern(System.String,System.String)">
+            <summary>
+            Get the name of the domain a certain pin belongs to.
+            </summary>
+            <param name="patternName">Name of the pattern.</param>
+            <param name="pinName">Name of the pin.</param>
+            <returns>The name of the domain.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.GetChannelLinkingMode(System.String,System.String)">
+            <summary>
+            Get the channel linking mode.
+            </summary>
+            <param name="patternName">Name of the pattern.</param>
+            <param name="domainName">Name of the domain.</param>
+            <returns>Channel linking mode.</returns>
+        </member>
+        <member name="M:Prime.PatternService.IPatternService.GetPatternVectorCount(System.String,System.String)">
+            <summary>
+            Get pattern vector size per domain.
+            </summary>
+            <param name="patternName">Pattern name.</param>
+            <param name="domain">Domain name.</param>
+            <returns>Vector count of pattern.</returns>
+        </member>
+        <member name="T:Prime.PatternService.ILabel">
+            <summary>
+            Searches label in patern and returns the label name and address.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.ILabel.GetName">
+            <summary>
+            Gets the label name of the pattern .
+            </summary>
+            <returns>Pattern Label Name that has been searched.</returns>
+        </member>
+        <member name="M:Prime.PatternService.ILabel.GetAddress">
+            <summary>
+            Gets the pattern label address.
+            </summary>
+            <returns>Return Pattern Label Address.</returns>
+        </member>
+        <member name="T:Prime.PatternService.IpPredefinedSharedStorage">
+            <summary>
+            Pattern cache at ip level.
+            </summary>
+        </member>
+        <member name="P:Prime.PatternService.IpPredefinedSharedStorage.PatternCache">
+            <summary>
+            Gets or sets pattern cache.
+            Public for shared storage.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.IpPredefinedSharedStorage.PatternExists(System.String)">
+            <summary>
+            Checks whether a pattern is loaded in the TP.
+            </summary>
+            <param name="name">Pattern name to check.</param>
+            <returns>True if exists.</returns>
+        </member>
+        <member name="T:Prime.PatternService.Label">
+            <summary>
+            Label class.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.Label.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PatternService.Label"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.Label.#ctor(Prime.PlatformService.Internal.IPatternLabel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PatternService.Label"/> class.
+            </summary>
+            <param name="label">platform label object.</param>
+        </member>
+        <member name="P:Prime.PatternService.Label.Address">
+            <summary>
+            Gets or sets address.
+            </summary>
+        </member>
+        <member name="P:Prime.PatternService.Label.Name">
+            <summary>
+            Gets or sets name.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.Label.GetAddress">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.Label.GetName">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PatternService.LotPredefinedSharedStorage">
+            <summary>
+            Pattern storage for Lot Level.
+            </summary>
+        </member>
+        <member name="P:Prime.PatternService.LotPredefinedSharedStorage.PatternCache">
+            <summary>
+            Gets pattern cache.
+            Public for shared storage.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.LotPredefinedSharedStorage.HasPattern(System.String)">
+            <summary>
+            Checks if cache has a pattern.
+            </summary>
+            <param name="name">Pattern name to find.</param>
+            <returns>True if found.</returns>
+        </member>
+        <member name="M:Prime.PatternService.LotPredefinedSharedStorage.Insert(Prime.PatternService.Internal.IPattern)">
+            <summary>
+            Inserts a pattern object into cache.
+            </summary>
+            <param name="pattern">Pattern to store.</param>
+        </member>
+        <member name="M:Prime.PatternService.LotPredefinedSharedStorage.GetPattern(System.String)">
+            <summary>
+            Gets a pattern.
+            </summary>
+            <param name="name">Pattern name.</param>
+            <returns>Pattern.</returns>
+        </member>
+        <member name="T:Prime.PatternService.Pattern">
+            <summary>
+            Pattern class.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.Pattern.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PatternService.Pattern"/> class.
+            </summary>
+            <param name="name">Pattern name.</param>
+            <param name="domains">Domains.</param>
+        </member>
+        <member name="P:Prime.PatternService.Pattern.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.Pattern.Build(System.String)">
+            <summary>
+            Builds and populates pattern object.
+            </summary>
+            <param name="name">Pattern name.</param>
+            <returns>Pattern.</returns>
+        </member>
+        <member name="M:Prime.PatternService.Pattern.GetDomains">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.Pattern.GetLabelAddress(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.Pattern.GetLabels(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PatternService.PatternService">
+            <summary>
+            Pattern Service.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PatternService.PatternService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.GetAllPatternNames">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.GetChannelLinkingMode(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.GetDomainForPinAndPattern(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.GetDomains(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.GetLabelFromAddress(System.String,System.String,System.UInt32,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.GetLabels(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.GetPattern(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.GetPatternVectorCount(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.GetVectorAddressForLabel(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.ReadCtv(System.String,System.String,System.UInt32,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.ReadInstruction(System.String,System.String,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.ReadLRPT(System.String,System.String,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.ReadMTV(System.String,System.String,System.UInt32,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.ReadPinData(System.String,System.Collections.Generic.List{System.String},System.UInt32,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.SetCachingBehavior(Prime.PlatformService.Internal.CachingBehavior,System.UInt64,System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatternService.PatternService.GetCachingBehavior(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

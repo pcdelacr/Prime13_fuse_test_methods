@@ -1,0 +1,2814 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.DatalogService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.DatalogService.Constants">
+            <summary>
+            Datalog service constants.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.Constants.LevelSixPrefix">
+            <summary>
+            Level 6 comnt prefix.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.Constants.LevelSixNewLinePrefix">
+            <summary>
+            Level 6 comnt prefix with a new line.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.Constants.ItuffSnippetNoDataValue">
+            <summary>
+            ItuffStrDb get lines, no data result.
+            </summary>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogService">
+            <summary>
+            DatalogService implementation class.
+            Partial class for SDK.
+            </summary>
+            <summary>
+            Partial implementation of DatalogService for Storage services.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetAlarmWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffSeparatorFormatWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffUddTypeWriter">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffEndOfDeviceWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffComntWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffCompositeStrStrWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffUltWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffCompositeWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffFailDataWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffMrsltWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffRawbinaryWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffRawnhexWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffStrgaltWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffStrgvalWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffTsattrsWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetScanFiSpoFiWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetScanFiUltWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToItuff(System.Collections.Generic.IEnumerable{Prime.DatalogService.DatalogSpec.IDatalogFormatBase},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToItuff(System.Collections.Generic.IEnumerable{Prime.DatalogService.DatalogSpec.IDatalogFormatBase},System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToItuff(System.String,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToScanFi(Prime.DatalogService.DatalogSpec.IScanFiFormat,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.FlushAllDataStreamLogs(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToPpr(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToRaster(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToScanFi(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToTelemetry(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.WriteToTFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetTnameResolver">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.AddUddTokens(System.String,System.Collections.Generic.IEnumerable{Prime.DatalogService.DatalogSpec.IUddTypeFormat})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.ClearUddTokens(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetStoredUddTypeTokens">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.AddLevelSixItuffHeader(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.ClearLevelSixItuffHeader(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetLevelSixItuffHeaders">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.SetTestNameOverride(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.TryGetTestNameOverride(System.String@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.ClearTestNameOverride(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.AddQueryableItuffTokens(System.Collections.Generic.HashSet{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogService.GetItuffSnippetForTname(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.ComntFormat">
+            <summary>
+            Comnt format class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ComntFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.ComntFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ComntFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ComntFormat.SetData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ComntFormat.AddData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ComntFormat.IncludeTnameInPrint(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ComntFormat.ClearData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ComntFormat.ForceItuffLevel(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ComntFormat.AddFailPins(System.Collections.Generic.IEnumerable{System.String},Prime.DatalogService.FormatType)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.CompositeFormat">
+            <summary>
+            Composite class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.CompositeFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.CompositeFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.CompositeFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.CompositeFormat.SetData(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Double}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.CompositeFormat.SetData(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Double}},Prime.DatalogService.Unit)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.CompositeStringStringFormat">
+            <summary>
+            Composite string class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.CompositeStringStringFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.CompositeStringStringFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.CompositeStringStringFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.CompositeStringStringFormat.SetData(System.Int32,Prime.DatalogService.Unit,Prime.DatalogService.Unit,System.String,System.Double,System.Double,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.FailDataFormat">
+            <summary>
+            Fail data class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.FailDataFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.FailDataFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.FailDataFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.FailDataFormat.SetData(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.UInt32},Prime.DatalogService.FormatType)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.FailDataFormat.SetData(System.Collections.Generic.IEnumerable{System.UInt32},Prime.DatalogService.FormatType)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.ItuffFormat">
+            <summary>
+            Ituff format base.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.ItuffFormat"/> class.
+            </summary>
+            <param name="tnameResolver">The tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.ItuffFormat.TNamePostFix">
+            <summary>
+            Gets or sets the postFix to add after the tname section.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.ItuffFormat.TNamePreFix">
+            <summary>
+            Gets or sets the preFix to add before the tname section.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.ItuffFormat.CustomTname">
+            <summary>
+            Gets or sets a custom tname to use for tname token.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.ItuffFormat.TssidAttribute">
+            <summary>
+            Gets or sets the tssid attribute.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.ItuffFormat.OutputLevel">
+            <summary>
+            Gets or sets the ituff output level.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.ItuffFormat.Stream">
+            <summary>
+            Gets the underline steam that holds the ituff content.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.ForceAries">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTnamePostfix(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTnamePrefix(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTssidAttributes(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetCustomTname(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.ClearItuff">
+            <summary>
+            Clear stream object.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.WriteLine(System.String,System.String)">
+            <summary>
+            Write a line to stream.
+            </summary>
+            <param name="tag">line tag.</param>
+            <param name="value">line value.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.GetTnameForPrint">
+            <summary>
+            GetTnameForPrint.
+            </summary>
+            <returns>Returns tname from current instance.</returns>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.WriteTname">
+            <summary>
+            Write tname line to datalog.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.WriteTname(System.String)">
+            <summary>
+            Write tname line to datalog.
+            </summary>
+            <param name="tnameToPrint">Tname to use for datalogging.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.WriteTname(System.String,System.Int32)">
+            <summary>
+            Write tname line to datalog with a postfix counter value.
+            </summary>
+            <param name="tnameToPrint">Tname to use for datalogging.</param>
+            <param name="tNameCounter">Counter to append to tname.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.WriteTname(System.String,System.String)">
+            <summary>
+            Write tname line to datalog with a postfix counter value.
+            </summary>
+            <param name="instanceName">instance name to use for datalogging.</param>
+            <param name="tNameCounter">Counter to append to tname.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffFormat.WriteTssidAttributes">
+            <summary>
+            Write tssid token if enabled by configuration.
+            </summary>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.ItuffUltFormat">
+            <summary>
+            Ult format.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffUltFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.ItuffUltFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffUltFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ItuffUltFormat.SetData(System.String,System.String,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.MrsltFormat">
+            <summary>
+            Mrsl class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.MrsltFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.MrsltFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.MrsltFormat.ApplyFormatting">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.MrsltFormat.SetData(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.MrsltFormat.SetData(System.Double,Prime.DatalogService.Unit)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.MrsltFormat.SetData(System.Double,System.Double,System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.MrsltFormat.SetData(System.Double,Prime.DatalogService.Unit,System.Double,System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.MrsltFormat.SetPrecision(System.UInt32)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.RawbinaryFormat">
+            <summary>
+            Raw binary class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawbinaryFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.RawbinaryFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawbinaryFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawbinaryFormat.SetData(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawbinaryFormat.AddData(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawbinaryFormat.SetMaxLineLength(System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawbinaryFormat.IncludeTnameInPrint(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawbinaryFormat.ClearData">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.RawnhexFormat">
+            <summary>
+            Rawnhex class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawnhexFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.RawnhexFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawnhexFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawnhexFormat.SetData(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.RawnhexFormat.SetMaxLineLength(System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.ScanFiFormat">
+            <summary>
+            ScanFi format.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.ScanFiFormat.Stream">
+            <summary>
+            Gets the underline steam that holds the ituff content.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiFormat.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiFormat.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiFormat.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiFormat.SetTnamePrefix(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiFormat.SetTnamePostfix(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiFormat.AppendInstanceName">
+            <summary>
+            Get alternative instance name if exist, otherwise get current test instance name.
+            </summary>
+            <returns>Alt instance name, otherwise current test instance name.</returns>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiFormat.WriteLine(System.String,System.String)">
+            <summary>
+            Write a line.
+            </summary>
+            <param name="tag">token.</param>
+            <param name="value">value.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiFormat.WriteLine(System.String)">
+            <summary>
+            Write a line.
+            </summary>
+            <param name="inputLine">line content.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiFormat.WriteTname">
+            <summary>
+            Write a tname line.
+            </summary>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.ScanFiUltFormat">
+            <summary>
+            ScanFi Ult class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiUltFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ScanFiUltFormat.SetData(System.String,System.String,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.SeparatorFormat">
+            <summary>
+            Seperator class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.SeparatorFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.SeparatorFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.SeparatorFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.SeparatorFormat.SetItuffLevel(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.SpoFiFormat">
+            <summary>
+            SpoFi format.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.SpoFiFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.SpoFiFormat.AddPatternData(Prime.DatalogService.DatalogSpec.PatternData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.SpoFiFormat.AddPatternHeader(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.SpoFiFormat.SetInstanceHeader(System.String,System.UInt64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.SpoFiFormat.AddData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.StrgaltFormat">
+            <summary>
+            Strgalt class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgaltFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.StrgaltFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgaltFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgaltFormat.SetData(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgaltFormat.SetMaxLineLength(System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.StrgvalFormat">
+            <summary>
+            strgval class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgvalFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.StrgvalFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgvalFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgvalFormat.SetData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgvalFormat.SetData(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgvalFormat.SetDelimiterCharacterForWrap(System.Char)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgvalFormat.ForceItuffLevel(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgvalFormat.SetMaxLineLength(System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.StrgvalFormat.GetMaxLineLength">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.TsattrsFormat">
+            <summary>
+            Tsattrs token formatter implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.TsattrsFormat.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.TsattrsFormat.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.TsattrsFormat.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.TsattrsFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.TsattrsFormat.SetData(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.TsattrsFormat.SetData(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.TsattrsFormat.GetMaxLineLength">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.UddTypeFormat">
+            <summary>
+            UddType class.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.DatalogSpec.UddTypeFormat.stream">
+            <summary>
+            Gets the underline steam that holds the ituff content.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.UddTypeFormat.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.UddTypeFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.UddTypeFormat.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.UddTypeFormat.SetData(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.UddTypeFormat.GetUddHeader">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.UddTypeFormat.GetUddValue">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.UddTypeFormat.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IComntFormat">
+            <summary>
+            Interface used by DatalogService to print comments to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IComntFormat.IncludeTnameInPrint(System.Boolean)">
+            <summary>
+            Sets whether to include tname in the first print of the same comntWriter object. Tname is not included by Default.
+            </summary>
+            <param name="printTname">bool for whether to include tname in the first print. Defaults to false.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IComntFormat.SetData(System.String)">
+            <summary>
+            Takes in a value and outputs it to the ItuffWriter in the format:
+            2_tname_[testInstanceName]
+            2_comnt_[value]
+            Clears existing Data.
+            </summary>
+            <param name="comntValue">Comment to be written.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When the input string is empty or contains a white space.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var ituffWriter = Prime.Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffComntWriter();
+            ituffWriter.SetData(this.StrToDatalog);
+            Prime.Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(ituffWriter, this.SessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IComntFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffComntWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IComntFormat.AddData(System.String)">
+            <summary>
+            Takes in a value and outputs it to the ItuffWriter in the format:
+            2_tname_[testInstanceName]
+            2_comnt_[value]
+            Does not clear existing Data.
+            </summary>
+            <param name="comntValue">Comment to be written.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IComntFormat.ClearData">
+            <summary>
+            Clears ituff writer data.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IComntFormat.ForceItuffLevel(System.String)">
+            <summary>
+            Will force the writer ituff level. Allowed values are "3", "2" or "0".
+            </summary>
+            <param name="level">The ituff level.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IComntFormat.AddFailPins(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Add fail pins with pin finder formatting.
+            2_comnt_failpins_{ [failPins] } .
+            </summary>
+            <param name="failPins">List of failing pins.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IComntFormat.AddFailPins(System.Collections.Generic.IEnumerable{System.String},Prime.DatalogService.FormatType)">
+            <summary>
+            Add fail pins with pin finder formatting.
+            2_comnt_failpins_{ [failPins] } .
+            </summary>
+            <param name="failPins">List of failing pins.</param>
+            <param name="format">Format to apply.</param>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.ICompositeFormat">
+            <summary>
+            Interface used by DatalogService to print Composite data to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ICompositeFormat.SetData(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Double}})">
+            <summary>
+            Outputs to the ItuffWriter using the format:
+            2_tname_[testInstanceName]
+            2_category_[category]
+            2_composite_[data_int1]_[data_double1]
+            ...
+            2_composite_[data_intN]_[data_doubleN].
+            </summary>
+            <param name="category">Category name.</param>
+            <param name="data">List of int, double pairs to be printed under composite tags.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When the input category or data are empty or the category string contains a white space.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            string category = "category";
+            var data = new List&lt;KeyValuePair&lt;string, double&gt;&gt;(){
+                new KeyValuePair&lt;string, double&gt;("Data1", 0.0),
+            };
+            var ituffWriter = Prime.Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffCompositeWriter();
+            writer.SetData(category, data);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffCompositeWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ICompositeFormat.SetData(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Double}},Prime.DatalogService.Unit)">
+            <summary>
+            Outputs to the ItuffWriter using the format:
+            2_tname_[testInstanceName]
+            2_category_[category]
+            2_composite_[data_int1]_[data_double1]
+            ...
+            2_composite_[data_intN]_[data_doubleN]
+            2_msunit_[msunit].
+            </summary>
+            <param name="category">Category name.</param>
+            <param name="data">List of int, double pairs to be printed under composite tags.</param>
+            <param name="msunit">Unit of composite data.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When the input category or data are empty or the category string contains a white space.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            string category = "category";
+            var data = new List&lt;KeyValuePair&lt;string, double&gt;&gt;(){
+                new KeyValuePair&lt;string, double&gt;("Data1", 0.0),
+            };
+            var ituffWriter = Prime.Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffCompositeWriter();
+            writer.SetData(category, data, Unit.V);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffCompositeWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.ICompositeStringStringFormat">
+            <summary>
+            Interface used by DatalogService to print Composite String String Data to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ICompositeStringStringFormat.SetData(System.Int32,Prime.DatalogService.Unit,Prime.DatalogService.Unit,System.String,System.Double,System.Double,System.String,System.String)">
+            <summary>
+            2_tname_[testInstanceName]
+            2_testflow_[TestFlowName]
+            2_testflowseq_[testFlowSeq]
+            2_funits_[funits]
+            2_msunit_[msunits]
+            2_category_[category]
+            2_cmpstrstr_[forcedValue]![measuredValue]![pinId]![comment].
+            </summary>
+            <param name="testFlowSeq">Integer value for test flow sequence.</param>
+            <param name="funits">Unit for forced value.</param>
+            <param name="msunits">Unit for measured value.</param>
+            <param name="category">Category value.</param>
+            <param name="forcedValue">Forced Value of cmpstrstr tag.</param>
+            <param name="measuredValue">Measured Value of cmpstrstr tag.</param>
+            <param name="pinId">Pin ID of cmpstrstr tag. Limited to 12 characters.</param>
+            <param name="comment">Comment of cmpstrstr tag. Limited to 12 characters.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">It's thrown when: 1. The category, comment or pinId fields are empty. 2. The comment or pinId fields have a lenght bigger then 12.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffCompositeStrStrWriter();
+            writer.SetData(testFlowSeq, funits, msunits, category, forcedValue, measuredValue, pinId, comment);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffCompositeStrStrWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IDatalogFormatBase">
+            <summary>
+            Defines the base interface for all formatters.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IDatalogFormatBase.GetTName">
+            <summary>
+            Gets tname of the datalog data.
+            </summary>
+            <returns>the tname of the format , if applicable.</returns>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IDatalogFormatBase.ToFormattedString">
+            <summary>
+            Converts ScanFi contents into a string.
+            </summary>
+            <returns>String representation of ScanFi contents.</returns>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IDatalogFormatBase.ApplyFormatting">
+            <summary>
+            Will create the underline formatter Stream.
+            Without creating a literal string.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IDatalogFormatBase.GetStream">
+            <summary>
+            Returns the underline stream object.
+            </summary>
+            <returns>underline stream object.</returns>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IFailDataFormat">
+            <summary>
+            Interface used by DatalogService to print Faildata to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IFailDataFormat.SetData(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.UInt32})">
+            <summary>
+            Outputs to the ItuffWriter using the format:
+            2_tname_[testInstanceName]
+            2_fdpmv_[mainRMA]
+            2_fcpmv_[subrRMA]
+            2_fspmv_[scanRMA]
+            2_pttrn_[pattern]
+            2Vcont_[cycleCount]
+            2_faildata_{[failData]}.
+            </summary>
+            <param name="pattern">List of strings representing pattern to be appended to pttrn tag.</param>
+            <param name="mainRMA">Main address.</param>
+            <param name="subrRMA">Subroutine address.</param>
+            <param name="scanRMA">Scan Address.</param>
+            <param name="cycleCount">Cycle count number.</param>
+            <param name="faildata">List of strings to be appended to failData tag.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When the fail data does not have any elements.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var failingPinChannels = new List&lt;uint&gt;(){ 555 };
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffFailDataWriter();
+            writer.SetData(patternData, mainRMA, subrRMA, scanRMA, cycleCount,failData);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffFailDataWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IFailDataFormat.SetData(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{System.UInt32},Prime.DatalogService.FormatType)">
+            <summary>
+            Outputs to the ItuffWriter using the format:
+            2_tname_[testInstanceName]
+            2_fdpmv_[mainRMA]
+            2_fcpmv_[subrRMA]
+            2_fspmv_[scanRMA]
+            2_pttrn_[pattern]
+            2Vcont_[cycleCount]
+            2_faildata_{[failData]}.
+            </summary>
+            <param name="pattern">List of strings representing pattern to be appended to pttrn tag.</param>
+            <param name="mainRMA">Main address.</param>
+            <param name="subrRMA">Subroutine address.</param>
+            <param name="scanRMA">Scan Address.</param>
+            <param name="cycleCount">Cycle count number.</param>
+            <param name="faildata">List of strings to be appended to failData tag.</param>
+            <param name="format">Format to apply. Default = FormatType.PINFINDER.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When the fail data does not have any elements.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var failingPinChannels = new List&lt;uint&gt;(){ 555 };
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffFailDataWriter();
+            writer.SetData(patternData, mainRMA, subrRMA, scanRMA, cycleCount,failData, FormatType.PINFINDER);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffFailDataWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IFailDataFormat.SetData(System.Collections.Generic.IEnumerable{System.UInt32})">
+            <summary>
+            Outputs to the ItuffWriter using the format:
+            2_tname_[testInstanceName]
+            2_faildata_{[failData]}.
+            </summary>
+            <param name="failData">List of strings to be appended to failData tag.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When the fail data does not have any elements.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var failingPinChannels = new List&lt;uint&gt;(){ 555 };
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffFailDataWriter();
+            writer.SetData(failData);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffFailDataWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IFailDataFormat.SetData(System.Collections.Generic.IEnumerable{System.UInt32},Prime.DatalogService.FormatType)">
+            <summary>
+            Outputs to the ItuffWriter using the format:
+            2_tname_[testInstanceName]
+            2_faildata_{[failData]}.
+            </summary>
+            <param name="failData">List of strings to be appended to failData tag.</param>
+            <param name="format">Format to apply. Default = FormatType.PINFINDER.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When the fail data does not have any elements.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var failingPinChannels = new List&lt;uint&gt;(){ 555 };
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffFailDataWriter();
+            writer.SetData(failData, FormatType.PINFINDER);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffFailDataWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IItuffFormat">
+            <summary>
+            Interface shared by by ItuffFormats.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IItuffFormat.ForceAries">
+            <summary>
+            Forces Ituff to be printed to Aries only. Will override Midas output.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IItuffFormat.SetTnamePostfix(System.String)">
+            <summary>
+            Sets the postfix for printing to the ItuffWriter. Postfix will be appended in the format:
+            [level]_tname_[testInstanceName]_[postfix]
+            Where [level] and [testInstanceName] will be auto populated based on test instance and Midas/Aries info.
+            </summary>
+            <param name="postfix">String to be appended to tname.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IItuffFormat.SetTnamePrefix(System.String)">
+            <summary>
+            Sets the prefix for printing to the ItuffWriter. Prefix will be appended in the format:
+            [level]_tname_[prefix]_[testInstanceName]
+            Where [level] and [testInstanceName] will be auto populated based on test instance and Midas/Aries info.
+            </summary>
+            <param name="prefix">String to be appended to tname.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IItuffFormat.SetTssidAttributes(System.String)">
+            <summary>
+            Sets the Tssid attributes to the ItuffWriter.
+            2_tname_[testInstanceName]
+            2_tssid_[data]
+            2_strgalt[type]_[value].
+            </summary>
+            <param name="data">Data to be printed in this attribute.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IItuffFormat.SetCustomTname(System.String)">
+            <summary>
+            Enables setting custom tname.
+            </summary>
+            <param name="tname">tname to be overwritten.</param>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IItuffUltWriter">
+            <summary>
+            Interface used by DatalogService to print ULT to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IItuffUltWriter.SetData(System.String,System.String,System.String,System.String)">
+            <summary>
+            Takes in a value and outputs it to the ItuffWriter in the format:
+            2_lsep
+            2_tname_[InstanceName]
+            2_trlot_[lot]
+            2_trwafer_[wafer]
+            2_trxloc_[xloc]
+            2_tryloc_[yloc]
+            .</summary>
+            <param name="lot">Lot ID.</param>
+            <param name="wafer">Wafer number.</param>
+            <param name="xLocation">X location.</param>
+            <param name="yLocation">Y location.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffUltWriter();
+            writer.SetData(lot, wafer, xLocation, yLocation);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffUltWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IItuffUltWriter.SetDataSort(System.String,System.String,System.String,System.String)">
+            <summary>
+            Takes in a value and outputs it to the ItuffWriter in the format:
+            2_lsep
+            2_tname_[InstanceName]
+            2_comnt_trlot_[lot]
+            2_comnt_trwafer_[wafer]
+            2_comnt_trxloc_[xloc]
+            2_comnt_tryloc_[yloc]
+            .
+            </summary>
+            <param name="lot">Lot ID.</param>
+            <param name="wafer">Wafer number.</param>
+            <param name="xLocation">X location.</param>
+            <param name="yLocation">Y location.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffUltWriter();
+            writer.SetDataSort(lot, wafer, xLocation, yLocation);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffUltWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IItuffUltWriter.AddPsnBinary(System.String)">
+            <summary>
+            Takes in a value and outputs it to the ItuffWriter in the format:
+            2_psnbinary_[FuseString]
+            .
+            </summary>
+            <param name="fuseString">Fuse string.</param>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IMrsltFormat">
+            <summary>
+            Interface used by DatalogService to print Mrslt data to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetPrecision(System.UInt32)">
+            <summary>
+            Sets number of digits to display after decimal point for Mrslt. If function is not called default will be 4.
+            </summary>
+            <param name="precision">Number of digits to print after decimal. Accepts only positive integers.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var dffValidationOverallLine = ServiceStore&lt;IDatalogService&gt;.Service.GetItuffMrsltWriter();
+            dffValidationOverallLine.SetTnamePostfix("_DVO");
+            dffValidationOverallLine.SetPrecision(0);
+            dffValidationOverallLine.SetData(100);
+            this.datalogService.WriteToItuff(dffValidationOverallLine, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.ItuffFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffMrsltWriter"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTnamePostfix(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetData(System.Double)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetData(System.Double)">
+            <summary>
+            Takes in a value and writes Mrslt to the ItuffWriter in the format:
+            [level]_tname_[testInstanceName]
+            [level]_mrslt_[value]
+            Where [level] and [testInstanceName] will be auto populated based on test instance and Midas/Aries info.
+            </summary>
+            <param name="value">Value to be used as mrslt.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var dffValidationOverallLine = ServiceStore&lt;IDatalogService&gt;.Service.GetItuffMrsltWriter();
+            dffValidationOverallLine.SetTnamePostfix("_DVO");
+            dffValidationOverallLine.SetPrecision(0);
+            dffValidationOverallLine.SetData(100);
+            this.datalogService.WriteToItuff(dffValidationOverallLine, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.ItuffFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffMrsltWriter"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTnamePostfix(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetPrecision(System.UInt32)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetData(System.Double,Prime.DatalogService.Unit)">
+            <summary>
+            Takes in a value and a unit and writes Mrslt to the ItuffWriter in the format:
+            [level]_tname_[testInstanceName]
+            [level]_mrslt_[value]
+            [level]_msunit_[unit]
+            Where [level] and [testInstanceName] will be auto populated based on test instance and Midas/Aries info.
+            </summary>
+            <param name="value">Value to be used as mrslt.</param>
+            <param name="unit">Unit to be appended to msunit.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var dffValidationOverallLine = ServiceStore&lt;IDatalogService&gt;.Service.GetItuffMrsltWriter();
+            dffValidationOverallLine.SetTnamePostfix("_DVO");
+            dffValidationOverallLine.SetPrecision(0);
+            dffValidationOverallLine.SetData(100, Unit.V);
+            this.datalogService.WriteToItuff(dffValidationOverallLine, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.ItuffFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffMrsltWriter"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTnamePostfix(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetPrecision(System.UInt32)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetData(System.Double,System.Double,System.Double)">
+            <summary>
+            Takes in a value, lower limit, and upper limit and writes Mrslt to the ItuffWriter in the format:
+            [level]_tname_[testInstanceName]
+            [level]_mrslt_[value]
+            [level]_splolim_[spLoLimit]
+            [level]_sphilim_[spHiLimit]
+            Where [level] and [testInstanceName] will be auto populated based on test instance and Midas/Aries info.
+            </summary>
+            <param name="value">Value to be used as result.</param>
+            <param name="spLoLimit">Value to be used as splolim.</param>
+            <param name="spHiLimit">Value to be used as sphilim.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            double value = 0.0;
+            double spLoLimit = 2.0;
+            double spHiLimit = 2.0;
+            var dffValidationOverallLine = ServiceStore&lt;IDatalogService&gt;.Service.GetItuffMrsltWriter();
+            dffValidationOverallLine.SetTnamePostfix("_DVO");
+            dffValidationOverallLine.SetPrecision(0);
+            dffValidationOverallLine.SetData(value, spLoLimit, spHiLimit);
+            this.datalogService.WriteToItuff(dffValidationOverallLine, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.ItuffFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffMrsltWriter"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTnamePostfix(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetPrecision(System.UInt32)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetData(System.Double,Prime.DatalogService.Unit,System.Double,System.Double)">
+            <summary>
+            Takes in a value, lower limit, upper limit, and unit and writes Mrslt to the ItuffWriter in the format:
+            2_tname_[testInstanceName]
+            2_mrslt_[value]
+            2_msunit_[unit]
+            2_splolim_[spLoLimit]
+            2_sphilim_[spHiLimit]
+            Where [level] and [testInstanceName] will be auto populated based on test instance and Midas/Aries info.
+            </summary>
+            <param name="value">Value to be used as mrslt.</param>
+            <param name="unit">Unit to be appended to msunit.</param>
+            <param name="spLoLimit">Value to be used as splolim.</param>
+            <param name="spHiLimit">Value to be used as sphilim.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            double value = 0.0;
+            double spLoLimit = 2.0;
+            double spHiLimit = 2.0;
+            var dffValidationOverallLine = ServiceStore&lt;IDatalogService&gt;.Service.GetItuffMrsltWriter();
+            dffValidationOverallLine.SetTnamePostfix("_DVO");
+            dffValidationOverallLine.SetPrecision(0);
+            dffValidationOverallLine.SetData(value, Unit.V, spLoLimit, spHiLimit);
+            this.datalogService.WriteToItuff(dffValidationOverallLine, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.ItuffFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffMrsltWriter"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTnamePostfix(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetPrecision(System.UInt32)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IRawbinaryFormat">
+            <summary>
+            Interface used by DatalogService to print Rawbinary data to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IRawbinaryFormat.SetData(System.String,System.Boolean)">
+            <summary>
+            Takes in a binary value and outputs to the ItuffWriter using the format:
+            2_tname_[testInstanceName]
+            2_rawbinary_[msbF/msbL]_[binaryValue]
+            Where msbF/L corresponds to whether msb is first or last.
+            </summary>
+            <param name="binaryValue">Binary value to be printed. Only accepts 1, 0, and x characters.</param>
+            <param name="isMsbFirst">Boolean for whether most significant bit is first.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When the binary value is empty, has more than 3997 characters or contains characters that are not '0', '1', 'X' or 'x'.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffRawbinaryWriter();
+            string binaryString;
+            writer.SetData(binaryValueToWrite, true);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffRawbinaryWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IRawbinaryFormat.AddData(System.String,System.Boolean)">
+            <summary>
+            Takes in a binary value and adds it to the ItuffWriter using the format:
+            2_tname_[testInstanceName]
+            2_rawbinary_[msbF/msbL]_[binaryValue]
+            Where msbF/L corresponds to whether msb is first or last.
+            </summary>
+            <param name="binaryValue">Binary value to be printed. Only accepts 1, 0, and x characters.</param>
+            <param name="isMsbFirst">Boolean for whether most significant bit is first.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When the binary value is empty, has more than 3997 characters or contains characters that are not '0', '1', 'X' or 'x'.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffRawbinaryWriter();
+            string binaryString;
+            writer.AddData(binaryValueToWrite, true);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffRawbinaryWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IRawbinaryFormat.SetMaxLineLength(System.UInt32)">
+            <summary>
+            Set the number of bits that can be datalogged. default is 3997.
+            </summary>
+            <param name="length">number of allowed bits.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IRawbinaryFormat.IncludeTnameInPrint(System.Boolean)">
+            <summary>
+            Sets whether to include tname in the first print of the same comntWriter object. Tname is included by Default.
+            </summary>
+            <param name="printTname">bool for whether to include tname in the first print. Defaults to false.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IRawbinaryFormat.ClearData">
+            <summary>
+            Clears ituff writer data.
+            </summary>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IRawnhexFormat">
+            <summary>
+            Interface used by DatalogService to print Rawnhex data to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IRawnhexFormat.SetData(System.String,System.Boolean)">
+            <summary>
+            Takes in a binary value and outputs to the ItuffWriter using the format:
+            2_tname_[testInstanceName]
+            2_rawnhex_[msbF/msbL]_[#of significant bits]_[hexValue of binaryValue]
+            Where msbF/L corresponds to whether msb is first or last.
+            </summary>
+            <param name="binaryValue">Binary value to be printed in hex format. Only accepts 1, 0, and x characters.</param>
+            <param name="isMsbFirst">Boolean for whether most significant bit is first.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IRawnhexFormat.SetMaxLineLength(System.UInt32)">
+            <summary>
+            Set the number of bits that can be datalogged. default is 3997.
+            </summary>
+            <param name="length">number of allowed bits.</param>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IScanFiFormat">
+            <summary>
+            Formatter for ScanFi related items.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IScanFiFormat.SetTnamePrefix(System.String)">
+            <summary>
+            (Optional) Sets the prefix for printing to the ScanFiWriter. Prefix will be appended in the format:
+            2_tname_[prefix]_[testInstanceName]
+            Where [testInstanceName] will be auto populated based on test instance info.
+            </summary>
+            <param name="prefix">String to be appended to tname.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IScanFiFormat.SetTnamePostfix(System.String)">
+            <summary>
+            (Optional) Sets the postfix for printing to the ScanFiWriter. Postfix will be appended in the format:
+            2_tname_[testInstanceName]_[postfix]
+            Where [testInstanceName] will be auto populated based on test instance info.
+            </summary>
+            <param name="postfix">String to be appended to tname.</param>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IScanFiUltFormat">
+            <summary>
+            Interface used by DatalogService to print ULT to ScanFi.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IScanFiUltFormat.SetData(System.String,System.String,System.String,System.String)">
+            <summary>
+            Takes in a value and outputs it to the ScanFiWriter in the format:
+            2_lotid_[lot]
+            2_wafid_[wafer]
+            2_xloc_[xLocation]
+            2_yloc_[yLocation]
+            .
+            </summary>
+            <param name="lot">Lot ID.</param>
+            <param name="wafer">Wafer number.</param>
+            <param name="xLocation">X location.</param>
+            <param name="yLocation">Y location.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetScanFiUltWriter();
+            writer.SetData(lot, wafer, xLocation, yLocation);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.IDatalogService"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetScanFiUltWriter"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.ISeparatorFormat">
+            <summary>
+            Interface used by DatalogService to print lsep tokens to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ISeparatorFormat.SetItuffLevel(System.String)">
+            <summary>
+            Set the ituff level for this seperator.
+            ituff will hold:
+            [level]_lsep
+            .
+            </summary>
+            <param name="level">the ituff level.</param>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.ISpoFiFormat">
+            <summary>
+            Interface used by DatalogService to print SPOFI data to ScanFi.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ISpoFiFormat.SetInstanceHeader(System.String,System.UInt64)">
+            <summary>
+            Adds information for instance to Spofi format in the format of:
+            2_ttype_HDMTG2
+            2_plist_[plist]
+            2_tname_[testInstanceName]
+            2_fail_limits:min_0_max_[captureCount]_cat_0
+            Where [testInstanceName] will be auto populated based on test instance info.
+            </summary>
+            <param name="plist">Name of plist for print.</param>
+            <param name="captureCount">Number of Captures.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ISpoFiFormat.AddPatternHeader(System.String,System.Boolean)">
+            <summary>
+            Adds information for pattern to Spofi format in the format of:
+            2_pttrn_[pattern]
+            2_pattern_mode:[compressed|uncompressed]
+            This will be appended to existing data in Spofi format.
+            Should be used before adding pattern data to delineate a pattern group.
+            </summary>
+            <param name="pattern">Pattern name.</param>
+            <param name="isCompressed">Indicates if pattern mode is compressed or uncompressed.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ISpoFiFormat.AddPatternHeader(System.String)">
+            <summary>
+            Add pattern header to spofi when pattern passed.
+            </summary>
+            <param name="pattern">Pattern name.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ISpoFiFormat.AddPatternData(Prime.DatalogService.DatalogSpec.PatternData)">
+            <summary>
+            Adds information for pattern to Spofi format in the format of:
+            [label] 0 [pin] [scanChainLength] [cyclesFromPreviousLabel] [actualPatternData] -1 [failCycle] # [debugComment]
+            This will be appended to existing data in Spofi format.
+            Should be used after calling AddPatternHeader() in order to delineate a pattern group.
+            </summary>
+            <param name="patternData">Pattern data that contains information for previous format.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ISpoFiFormat.AddData(System.String)">
+            <summary>
+            Add user data to the spofi.
+            </summary>
+            <param name="data">Data string to add to the SPOFI stream.</param>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.PatternData">
+            <summary>
+            Scan pattern data to log.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.PatternData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.DatalogSpec.PatternData"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.PatternData.Label">
+            <summary>
+            Gets or sets the label name.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.PatternData.Pin">
+            <summary>
+            Gets or sets the pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.PatternData.ScanChainLength">
+            <summary>
+            Gets or sets the scan chain length.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.PatternData.CyclesFromPreviousLabel">
+            <summary>
+            Gets or sets the cycle from previous label where the fail is on.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.PatternData.ActualPatternData">
+            <summary>
+            Gets or sets the actual pattern data in current pin.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.PatternData.FailCycle">
+            <summary>
+            Gets or sets the fail cycle where the fail is on.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.DatalogSpec.PatternData.DebugComment">
+            <summary>
+            Gets or sets the debug comment.
+            </summary>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IStrgaltFormat">
+            <summary>
+            Interface used by DatalogService to print Strgval data to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IStrgaltFormat.SetData(System.String,System.String)">
+            <summary>
+            Takes in a strgalt type and value and outputs it to the ItuffWriter in the format:
+            2_tname_[testInstanceName]
+            2_strgalt_[type]_[value].
+            </summary>
+            <param name="strgaltType">strgalt type to be written.</param>
+            <param name="strgaltValue">strgalt value to be written.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IStrgaltFormat.SetMaxLineLength(System.UInt32)">
+            <summary>
+            Set the number of bits that can be datalogged. default is 3997.
+            </summary>
+            <param name="length">number of allowed bits.</param>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IStrgvalFormat">
+            <summary>
+            Interface used by DatalogService to print Strgval data to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IStrgvalFormat.SetData(System.String)">
+            <summary>
+            Takes in a strgval and outputs it to the ItuffWriter in the format:
+            2_tname_[testInstanceName]
+            2_strgval_[value].
+            </summary>
+            <param name="strgvalValue">strgval to be written.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IStrgvalFormat.SetData(System.String,System.String)">
+             <summary>
+             Takes in a strgval and outputs it to the ItuffWriter in the format:
+             2_tname_[testInstanceName]
+             2_msunit_[spmDescriptor]
+             2_strgval_[strgvalValue]
+            
+             SPM descriptor can be generated by using the StringParsedMetadataHelper class.
+             </summary>
+             <param name="strgvalValue">strgval to be written.</param>
+             <param name="spmDescriptor">SPM descriptor string.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IStrgvalFormat.SetDelimiterCharacterForWrap(System.Char)">
+            <summary>
+            Sets delimiter character for wrapping if strgval value is longer than limit (4000 characters).
+            </summary>
+            <param name="delimiter">Character to wrap on.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IStrgvalFormat.ForceItuffLevel(System.String)">
+            <summary>
+            Will force the writer ituff level. Allowed values are "2" or "0".
+            </summary>
+            <param name="level">The ituff level.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IStrgvalFormat.SetMaxLineLength(System.UInt32)">
+            <summary>
+            Set the number of bits that can be datalogged. default is 3997.
+            </summary>
+            <param name="length">number of allowed bits.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IStrgvalFormat.GetMaxLineLength">
+            <summary>
+            Returns the max line length that is configured to this object.
+            </summary>
+            <returns>Max length in chars.</returns>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.ITsattrsFormat">
+            <summary>
+            Level 4 tsattrs token.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ITsattrsFormat.SetData(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}},System.String)">
+             <summary>
+             Ituff 4_tsattrs token formatter.
+             4_tsattrs_[linesToAdd.key1],[linesToAdd[key1].Value].
+             4_tsattrs_[linesToAdd.key2],[linesToAdd[key2].Value].
+            
+             In case of multiple linesToAdd or longer value than allowed:
+             4_tsattrs_[linesToAdd.key1]_1,[linesToAdd[key1][0].Value].
+             4_tsattrs_[linesToAdd.key1]_2,[linesToAdd[key1][1].Value].
+             </summary>
+             <param name="linesToAdd">Lines to print.</param>
+             <param name="valuesToAddSeparator">Separator string between values.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ITsattrsFormat.SetData(System.String,System.String)">
+            <summary>
+            Set a single token, value.
+            Ituff 4_tsattrs token formatter.
+            4_tsattrs_[token],[value].
+            </summary>
+            <param name="token">The token.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.ITsattrsFormat.GetMaxLineLength">
+            <summary>
+            Returns the max line length that is configured to this object.
+            </summary>
+            <returns>Max length in chars.</returns>
+        </member>
+        <member name="T:Prime.DatalogService.DatalogSpec.IUddTypeFormat">
+            <summary>
+            Interface used by DatalogService to print UDDType data to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IUddTypeFormat.SetData(System.String,System.String)">
+            <summary>
+            Takes in a uddTypeValue and outputs it to the ItuffWriter in the format:
+            4_uddtype_[udd header]_[udd value].
+            </summary>
+            <param name="uddHeader">udd header to be written.</param>
+            <param name="uddValue">udd value to be written.</param>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IUddTypeFormat.GetUddHeader">
+            <summary>
+            Returns the uddHeader.
+            </summary>
+            <returns>UddHeader.</returns>
+        </member>
+        <member name="M:Prime.DatalogService.DatalogSpec.IUddTypeFormat.GetUddValue">
+            <summary>
+            Returns the uddValue.
+            </summary>
+            <returns>uddValue.</returns>
+        </member>
+        <member name="T:Prime.DatalogService.FlowItemNameTnameResolver">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.FlowItemNameTnameResolver.GetTName(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DatalogService.InstanceNameTnameResolver">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.InstanceNameTnameResolver.GetTName(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DatalogService.Unit">
+            <summary>
+            Units that may be printed to ItuffFormat.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.Unit.A">
+            <summary>
+            A representing Amperes for current measurements.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.Unit.V">
+            <summary>
+            V representing Volts for voltage measurements.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.Unit.O">
+            <summary>
+            O representing Ohms for resistance calculations.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.Unit.C">
+            <summary>
+            C representing Celsius for temperature measurements.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.Unit.M">
+            <summary>
+            M representing Micrometer for size measurements.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.Unit.S">
+            <summary>
+            S representing Seconds for time measurements.
+            </summary>
+        </member>
+        <member name="T:Prime.DatalogService.FormatType">
+            <summary>
+            Format type to apply on top of default datalog spec writer.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.FormatType.DEFAULT">
+            <summary>
+            Default format, use datalog spec.
+            </summary>
+        </member>
+        <member name="F:Prime.DatalogService.FormatType.PINFINDER">
+            <summary>
+            Pin Finder tools format.
+            </summary>
+        </member>
+        <member name="T:Prime.DatalogService.IDatalogService">
+            <summary>
+            <para>Handles the printing to the ituff.</para>
+            <para>For more details, see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?pagePath=/Prime%20Customer%20Wiki/Releases/RELEASE_PLACEHOLDER/Services%20SDK/DatalogService">the service SDK</a>.</para>
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="N:Prime.ConsoleService"/></item>
+            <item><see cref="T:Prime.SessionService.SessionService"/></item>
+            <item><see cref="N:Prime.SharedStorageService"/></item>
+            <item><see cref="N:Prime.PlatformService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetAlarmWriter">
+            <summary>
+            Returns an empty AlarmFormat. Set data with SetData().
+            </summary>
+            <returns>IAlarmFormat: Allows writing to the ItuffWriter for Alarms.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var alarmWriter = ServiceStore&lt;IDatalogService&gt;.Service.GetAlarmWriter();
+            var alarmInfo = exception.GetAlarmInfo();
+            alarmWriter.SetData(alarmInfo);
+            ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(alarmWriter, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.PrimeSpec.IAlarmFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.PrimeSpec.IAlarmFormat.SetData(System.Collections.Generic.IEnumerable{Prime.Base.Exceptions.AlarmException.AlarmInfo})"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffMrsltWriter">
+            <summary>
+            Returns an empty MrsltFormat. Set data with SetData().
+            </summary>
+            <returns>IMrsltFormat: Allows writing to the ItuffWriter for mrslts.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var dffValidationOverallLine = ServiceStore&lt;IDatalogService&gt;.Service.GetItuffMrsltWriter();
+            dffValidationOverallLine.SetTnamePostfix("_DVO");
+            dffValidationOverallLine.SetPrecision(0);
+            dffValidationOverallLine.SetData(100);
+            this.datalogService.WriteToItuff(dffValidationOverallLine, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IMrsltFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetData(System.Double)"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTnamePostfix(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IMrsltFormat.SetPrecision(System.UInt32)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffComntWriter">
+            <summary>
+            Returns an empty IComntFormat. Set data with SetData().
+            </summary>
+            <returns>IComntFormat: Allows writing to the ItuffWriter for comments.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var ituffWriter = Prime.Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffComntWriter();
+            ituffWriter.SetData(this.StrToDatalog);
+            Prime.Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(ituffWriter, this.SessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IComntFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IComntFormat.SetData(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffStrgaltWriter">
+            <summary>
+            Returns an empty IStrgaltFormat. Set data with SetData().
+            </summary>
+            <returns>IComntFormat: Allows writing to the ItuffWriter for strgalt data.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffStrgaltWriter();
+            writer.SetTnamePostfix(data.Key);
+            writer.SetData("fus_msbF", data.Value);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IStrgaltFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IStrgaltFormat.SetData(System.String,System.String)"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTnamePostfix(System.String)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffStrgvalWriter">
+            <summary>
+            Returns an empty IStrgvalFormat. Set data with SetData().
+            </summary>
+            <returns>IStrgvalFormat: Allows writing to the ItuffWriter for strgval data.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffStrgvalWriter();
+            string dataToPrint = "data_to_print";
+            string prefix = "failchannel_";
+            writer.SetTnamePrefix("");
+            writer.SetData(dataToPrint);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IStrgvalFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IStrgvalFormat.SetData(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ItuffFormat.SetTnamePostfix(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffRawbinaryWriter">
+            <summary>
+            Returns an empty IRawbinaryFormat. Set data with SetData().
+            </summary>
+            <returns>IRawbinaryFormat: Allows writing to the ItuffWriter for rawbinary data.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffRawbinaryWriter();
+            string binaryString;
+            writer.AddData(toWrite, true);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IRawbinaryFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IRawbinaryFormat.AddData(System.String,System.Boolean)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffRawnhexWriter">
+            <summary>
+            Returns an empty IRawnhexFormat. Set data with SetData().
+            </summary>
+            <returns>IRawnhexFormat: Allows writing to the ItuffWriter for rawnhex data.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffRawnhexWriter();
+            writer.SetData(perPinData, true);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IRawnhexFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IRawnhexFormat.SetData(System.String,System.Boolean)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffFailDataWriter">
+            <summary>
+            Returns an empty IFailDataFormat. Set data with SetData().
+            </summary>
+            <returns>IFailDataFormat: Allows writing to the ItuffWriter for faildata.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffFailDataWriter();
+            writer.SetData(faildata, FormatType.PINFINDER);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IFailDataFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IFailDataFormat.SetData(System.Collections.Generic.IEnumerable{System.UInt32},Prime.DatalogService.FormatType)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffCompositeWriter">
+            <summary>
+            Returns an empty ICompositeFormat. Set data with SetData().
+            </summary>
+            <returns>ICompositeFormat: Allows writing to the ItuffWriter for composite data.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffCompositeWriter();
+            writer.SetData(category, data);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.ICompositeFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ICompositeFormat.SetData(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Double}})"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffCompositeStrStrWriter">
+            <summary>
+            Returns an empty ICompositeStringStringFormat. Set data with SetData().
+            </summary>
+            <returns>ICompositeStringStringFormat: Allows writing to the ItuffWriter for composite string strings.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffCompositeStrStrWriter();
+            writer.SetData(testFlowSeq, funits, msunits, category, forcedValue, measuredValue, pinId, comment);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.ICompositeStringStringFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ICompositeStringStringFormat.SetData(System.Int32,Prime.DatalogService.Unit,Prime.DatalogService.Unit,System.String,System.Double,System.Double,System.String,System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffUltWriter">
+            <summary>
+            Returns an Ituff ULT writer.
+            </summary>
+            <returns>IItuffUltWriter : Allows writing ULT data to the ItuffWriter.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffUltWriter();
+            writer.SetData(lot, wafer, xLocation, yLocation);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IItuffUltWriter"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IItuffUltWriter.SetData(System.String,System.String,System.String,System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffEndOfDeviceWriter">
+            <summary>
+            Returns an Ituff EndOfDeviceFormat writer.
+            </summary>
+            <returns>IEndOfDeviceFormat : Allows writing EndOfDevice data to the ItuffWriter.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffEndOfDeviceWriter();
+            writer.SetData(endDeviceTimeStamp, binn, fbin, ibin, trslt);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.PrimeSpec.IEndOfDeviceFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.PrimeSpec.IEndOfDeviceFormat.SetData(System.String,System.String,System.String,System.String,System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffSeparatorFormatWriter">
+            <summary>
+            Returns an Ituff SeparatorFormat writer.
+            </summary>
+            <returns>ISeparatorFormat : Allows writing ituff separator data to the ItuffWriter.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffSeparatorFormatWriter();
+            writer.SetItuffLevel(level);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.ISeparatorFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ISeparatorFormat.SetItuffLevel(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffUddTypeWriter">
+            <summary>
+            Returns an Ituff UddType writer.
+            </summary>
+            <returns>IUddTypeFormat : Allows writing uddType data to the ItuffWriter.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffUddTypeWriter();
+            writer.SetData(uddHeader, uddValue);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IUddTypeFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IUddTypeFormat.SetData(System.String,System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffTsattrsWriter">
+            <summary>
+            Returns an Ituff Tsattrs writer.
+            </summary>
+            <returns>ITsattrsFormat : Allows writing 4_tsattrs data to the ItuffWriter.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffTsattrsWriter();
+            writer.SetData(token, value);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.ITsattrsFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ITsattrsFormat.SetData(System.String,System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetScanFiSpoFiWriter">
+            <summary>
+            Returns an empty ISpoFiFormat.
+            </summary>
+            <returns>ISpoFiFormat: Allows writing to the ScanFiWriter for spofi data.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetScanFiSpoFiWriter();
+            writer.AddData(data);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.ISpoFiFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.ISpoFiFormat.AddData(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetScanFiUltWriter">
+            <summary>
+            Returns an ScanFi ULT writer.
+            </summary>
+            <returns>IScanFiUltFormat : Allows writing ULT data to the ScanFiWriter.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetScanFiUltWriter();
+            writer.SetData(lot, wafer, xLocation, yLocation);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(writer, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IScanFiUltFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IScanFiUltFormat.SetData(System.String,System.String,System.String,System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.AddUddTokens(System.String,System.Collections.Generic.IEnumerable{Prime.DatalogService.DatalogSpec.IUddTypeFormat})">
+            <summary>
+            Add UDD writers to Lot Start level 4 operation.
+            Any writer that was added using this operation
+            will be printed when LotStart datalog algorithm will run.
+            </summary>
+            <param name="instanceName">The instance to record the tokens for.</param>
+            <param name="tokens">List of Udd writers to print during LotStart level 4.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When two of the UddTypeFormats have a repeated Udd Type with different field records.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var items = new List&lt;IUddTypeFormat&gt;();
+            foreach (var uddEntry in ((IStringParsedMetadataGetData)this).GetUddTokens())
+            {
+                var uddWriter = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffUddTypeWriter();
+                uddWriter.SetData(uddEntry.Item1, uddEntry.Item2);
+                items.Add(uddWriter);
+            }
+            if (items.Count != 0)
+            {
+                Base.ServiceStore&lt;IDatalogService&gt;.Service.AddUddTokens(this.CurrentInstanceName, items);
+            }
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IScanFiUltFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IUddTypeFormat.SetData(System.String,System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffUddTypeWriter"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.ClearUddTokens(System.String)">
+            <summary>
+            Clear all the instance's previous udd records.
+            </summary>
+            <param name="instanceName">The instance name to store the data for.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.ClearUddTokens(this.CurrentInstanceName);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetStoredUddTypeTokens">
+            <summary>
+            Add UDD writers to Lot Start level 4 operation.
+            Any writer that was added using this operation
+            will be printed when LotStart datalog algorithm will run.
+            string format: "4_uddtype_[some valid uddtype string]".
+            ****TO BE REMOVED once LotStart flow will be finalized ****.
+            </summary>
+            <returns>A list of udd tokens from shared storage.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.GetStoredUddTypeTokens();
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of an ituff writer to datalog.
+            </summary>
+            <param name="formatter">Ituff Format Writer to be written.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var ituffWriter = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffComntWriter();
+            ituffWriter.SetData($"Comment");
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(ituffWriter, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IComntFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffComntWriter"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IComntFormat.SetData(System.String)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.WriteToItuff(Prime.DatalogService.DatalogSpec.IDatalogFormatBase,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of an ituff writer to datalog.
+            </summary>
+            <param name="formatter">Ituff Format Writer to be written.</param>
+            <param name="makeQueryable">Allows this datalog to be queryable later in the TP flow. default is true.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var ituffWriter = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffComntWriter();
+            ituffWriter.SetData($"Comment");
+            bool makeItuffDataQueriable = true;
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(ituffWriter, makeItuffDataQueriable, sessionContext);
+            var tname = ituffWriter.GetTName();
+            var ituff = ServiceStore&lt;IDatalogService&gt;.Service.GetItuffSnippetForTname(tname);
+            if(ituff == "ItuffSnippetNoDataValue")
+            {
+                Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.Print($"Ituff data for instance {tname}: \n {ituff}.");
+            }
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IStrgaltFormat"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.WriteToItuff(System.Collections.Generic.IEnumerable{Prime.DatalogService.DatalogSpec.IDatalogFormatBase},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of a List of ituff writer by order to datalog.
+            </summary>
+            <param name="formatters">Ituff Format Writers to be written.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var listOfDatalogInfo = new List&lt;IDatalogFormatBase&gt;();
+            foreach (var data in datalogInfo)
+            {
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffStrgaltWriter();
+            writer.SetData("fus_msbF", data.Value);
+            listOfDatalogInfo.Add(writer);
+            }
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(listOfDatalogInfo, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IStrgaltFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffStrgaltWriter"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IStrgaltFormat.SetData(System.String,System.String)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.WriteToItuff(System.Collections.Generic.IEnumerable{Prime.DatalogService.DatalogSpec.IDatalogFormatBase},System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of a List of ituff writer by order to datalog.
+            </summary>
+            <param name="formatters">Ituff Format Writers to be written.</param>
+            <param name="makeQueryable">Allows this datalog to be queryable later in the TP flow. default is true.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var listOfDatalogInfo = new List&lt;IDatalogFormatBase&gt;();
+            foreach (var data in datalogInfo)
+            {
+            var writer = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffStrgaltWriter();
+            writer.SetData("fus_msbF", data.Value);
+            listOfDatalogInfo.Add(writer);
+            }
+            bool makeItuffDataQueriable = true;
+            foreach (var data in datalogInfo)
+            {
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(listOfDatalogInfo, makeItuffDataQueriable, sessionContext);
+            var tname = data.GetTName();
+            var ituff = ServiceStore&lt;IDatalogService&gt;.Service.GetItuffSnippetForTname(tname);
+            if(ituff == "ItuffSnippetNoDataValue")
+            {
+                Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.Print($"Ituff data for instance {tname}: \n {ituff}.");
+            }
+            }
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IStrgaltFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffStrgaltWriter"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IStrgaltFormat.SetData(System.String,System.String)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.WriteToScanFi(Prime.DatalogService.DatalogSpec.IScanFiFormat,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of a ScanFi writer to datalog.
+            </summary>
+            <param name="formatter">ScanFi Format Writer to be written.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var scanWriter = Prime.Base.ServiceStore&lt;IDatalogService&gt;.Service.GetScanFiUltWriter();
+            scanWriter.SetData(ultDecoded.Lot, ultDecoded.Wafer, ultDecoded.XLocation, ultDecoded.YLocation);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToScanFi(scanWriter, this.SessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.DatalogService.DatalogSpec.IScanFiFormat"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffStrgaltWriter"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IScanFiUltFormat.SetData(System.String,System.String,System.String,System.String)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.WriteToTFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of a formatted string to Tfile.
+            </summary>
+            <param name="formattedString">Pre-formatted string to be written.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            string tFileContent = "Information to Write";
+            Prime.Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToTFile(tFileContent, this.SessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.ISessionContextProviderContainer"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.WriteToRaster(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of a formatted string to Raster.
+            </summary>
+            <param name="formattedString">Pre-formatted string to be written.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            if (this.isRasterDataLogEnabled)
+            {
+                string fileContent = "Information to Write";
+                Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToRaster(fileContent, this.SessionContext);
+            }
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.ISessionContextProviderContainer"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.WriteToTelemetry(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of a formatted string to Telemetry.
+            </summary>
+            <param name="formattedString">Pre-formatted string to be written.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            if (this.isTelemetryEnabled)
+            {
+                string fileContent = "Information to Write";
+                Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToTelemetry(fileContent, this.SessionContext);
+            }
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.ISessionContextProviderContainer"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.WriteToPpr(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of a formatted string to PowerPremonitionResponse PUDL log.
+            </summary>
+            <param name="formattedString">Pre-formatted string to be written.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            string fileContent = "Information to Write";
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToPpr(fileContent, this.SessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.ISessionContextProviderContainer"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetItuffSnippetForTname(System.String)">
+            <summary>
+            Pulls the ITUFF Snippet for a specific Instance.
+            </summary>
+            <param name="tname">The Instance name for pull ITUFF data for.</param>
+            <returns>The Ituff Snippet for the required instance.</returns>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.FlushAllDataStreamLogs(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Flush all the Data Streams.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var currentEndDeviceTimeStamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+            const string userBinPrefix = "9098";
+            var ituff = new List&lt;IDatalogFormatBase&gt;();
+            var ituffComntWriter = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffComntWriter();
+            ituffComntWriter.SetData("footer_begin");
+            ituff.Add(ituffComntWriter);
+            var ituffEndOfDeviceWriter = Base.ServiceStore&lt;IDatalogService&gt;.Service.GetItuffEndOfDeviceWriter();
+            ituffEndOfDeviceWriter.SetData(currentEndDeviceTimeStamp, $"{userBinPrefix}{datalogUserBin}", datalogUserBin, datalogUserBin.Substring(0, 2), "fail");
+            ituff.Add(ituffEndOfDeviceWriter);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.WriteToItuff(ituff, this.sessionContext);
+            Base.ServiceStore&lt;IDatalogService&gt;.Service.FlushAllDataStreamLogs(this.sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.ISessionContextProviderContainer"/></item>
+            </list>
+            </remarks>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffComntWriter"/>
+            <seealso cref="M:Prime.DatalogService.DatalogSpec.IComntFormat.SetData(System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.GetItuffEndOfDeviceWriter"/>
+            <seealso cref="M:Prime.DatalogService.PrimeSpec.IEndOfDeviceFormat.SetData(System.String,System.String,System.String,System.String,System.String)"/>
+            <seealso cref="M:Prime.DatalogService.IDatalogService.WriteToItuff(System.Collections.Generic.IEnumerable{Prime.DatalogService.DatalogSpec.IDatalogFormatBase},Prime.SessionService.ISessionContextProviderContainer)"/>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.GetLevelSixItuffHeaders">
+            <summary>
+            Return a string with all ituff Headers to be printed.
+            </summary>
+            <returns>Return all the lines stored.</returns>
+            <example>
+            This shows how to get ituff header to be printed.
+            <code>
+            var myLevelSixItuffLines = Prime.Services.DatalogService.GetLevelSixItuffHeaders();
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.ClearLevelSixItuffHeader(System.String)">
+            <summary>
+            Clear Level six ituff header for specific instance Name.
+            </summary>
+            <param name="instanceName">Instance Name to be cleared.</param>
+            <example>
+            This shows how to clear ituff header.
+            <code>
+            Prime.Services.DatalogService.ClearLevelSixItuffHeader(myInstanceName);
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.AddLevelSixItuffHeader(System.String,System.String)">
+            <summary>
+            Add new ituff header line to be printed in Level Six.
+            </summary>
+            <param name="instanceName">Instance name.</param>
+            <param name="lines">lines to be printed in level six header.</param>
+            <example>
+            This shows how to add lines in ituff header.
+            <code>
+            var ituffHeaderLine = "MyItuffHeaderDataToBePrintedInLevelSix";
+            Prime.Services.DatalogService.AddLevelSixItuffHeader(myInstanceName, ituffHeaderLine);
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.DatalogService.IDatalogService.AddQueryableItuffTokens(System.Collections.Generic.HashSet{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Adds ituff tokens for which the data printed to ituff will be saved.
+            Token is the string which appears after 2/0_tname_   in ituff.
+            </summary>
+            <param name="ituffTokens">ituff tokens for which the data printed to ituff will be saved.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <example>
+            This shows how to set token for saving ituff data for instance 'INSTANCE_A' in module 'TPI_BASE' , whise data in ituff looks like this.
+            2_tname_TPI_BASE::INSTANCE_A
+            2_mrslt_0.5A.
+            <code>
+            var ituffTokens = new HashSet&lt;string>();
+            ituffTokens.Add("TPI_BASE::INSTANCE_A");
+            Prime.Services.DatalogService.SetTokensToSaveItuffData(ituffTokens, this.sessionContext);
+            .
+            </code>
+            </example>
+        </member>
+        <member name="T:Prime.DatalogService.Internal.IDatalogService">
+            <summary>
+            Additional interface for Prime internal usage.
+            Need to cast the main IDatalogService to Internal.IDatalogService
+            to access these methods.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.Internal.IDatalogService.Initialize(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes the service.
+            This function is expected to be called on the PrimeInitializeLibraryTest.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.DatalogService.Internal.IDatalogService.IsMidasEnabled">
+            <summary>
+            The current status of if is midas enabled.
+            </summary>
+            <returns>If midas data-logging is enabled.</returns>
+        </member>
+        <member name="M:Prime.DatalogService.Internal.IDatalogService.WriteToItuff(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of a formatted string to Ituff.
+            </summary>
+            <param name="formattedString">Pre-formatted string to be written.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DatalogService.Internal.IDatalogService.WriteToItuff(System.String,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Writes the contents of a formatted string to Ituff.
+            </summary>
+            <param name="formattedString">Pre-formatted string to be written.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="saveToItuffDb">Whether or not to save the ituff data to ituff cache.</param>
+        </member>
+        <member name="M:Prime.DatalogService.Internal.IDatalogService.WriteToScanFi(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the contents of a formatted string to ScanFi.
+            </summary>
+            <param name="formattedString">Pre-formatted string to be written.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DatalogService.Internal.IDatalogService.TryGetTestNameOverride(System.String@)">
+            <summary>
+            Returns the test name to override if exist by out variable.
+            if it doesn't exist, returns false.
+            </summary>
+            <param name="name">the test name to used as appear in storage.</param>
+            <returns>False, if AltInstanceName doesn't exist in storage, else True.</returns>
+        </member>
+        <member name="M:Prime.DatalogService.Internal.IDatalogService.SetTestNameOverride(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set instance name to override for the upcoming tname datalogs.
+            This instance name override will be reset at every end instance.
+            </summary>
+            <param name="altInstanceName">The alternative instance name to be used.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DatalogService.Internal.IDatalogService.ClearTestNameOverride(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clear the current test instance name to override.
+            The default tname will be the current instance name.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DatalogService.Internal.IDatalogService.GetTnameResolver">
+            <summary>
+            Gets the TNameResolver.
+            </summary>
+            <returns>The TName resolver.</returns>
+        </member>
+        <member name="T:Prime.DatalogService.PrimeSpec.IAlarmFormat">
+            <summary>
+            Writer to write Alarm information to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.PrimeSpec.IAlarmFormat.SetData(System.Collections.Generic.IEnumerable{Prime.Base.Exceptions.AlarmException.AlarmInfo})">
+            <summary>
+            Print AlarmInfo to ituff.
+            </summary>
+            <param name="data">Alarm Info from Alarm Exception.</param>
+        </member>
+        <member name="T:Prime.DatalogService.PrimeSpec.IEndOfDeviceFormat">
+            <summary>
+            Writer to write Unit footer information to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.PrimeSpec.IEndOfDeviceFormat.SetData(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Print Unit footer to ituff in the following format:
+            2_lend
+            3_dvtsteddt_[endDeviceTimeStamp]
+            3_binn_[bin]
+            3_curfbin_[fbin]
+            3_curibin_[ibin]
+            3_trslt_[trslt]
+            3_comnt_footer_end
+            .
+            </summary>
+            <param name="endDeviceTimeStamp">End of device timestamp.</param>
+            <param name="binn">binn value.</param>
+            <param name="fbin">fbin value.</param>
+            <param name="ibin">ibin value.</param>
+            <param name="trslt">trlt value.</param>
+        </member>
+        <member name="T:Prime.DatalogService.PrimeSpec.AlarmFormat">
+            <summary>
+            Alarm format class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.PrimeSpec.AlarmFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.PrimeSpec.AlarmFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.PrimeSpec.AlarmFormat.ApplyFormatting">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DatalogService.PrimeSpec.AlarmFormat.SetData(System.Collections.Generic.IEnumerable{Prime.Base.Exceptions.AlarmException.AlarmInfo})">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DatalogService.PrimeSpec.EndOfDeviceFormat">
+            <summary>
+            End of device class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.PrimeSpec.EndOfDeviceFormat.#ctor(Prime.DatalogService.ITnameResolver,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.PrimeSpec.EndOfDeviceFormat"/> class.
+            </summary>
+            <param name="tnameResolver">the tname resolver.</param>
+            <param name="isMidasEnabled">If Midas is enabled or not.</param>
+        </member>
+        <member name="M:Prime.DatalogService.PrimeSpec.EndOfDeviceFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.PrimeSpec.EndOfDeviceFormat.SetData(System.String,System.String,System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DatalogService.ITnameResolver">
+            <summary>
+            An interfaces that resolves the tname to use for the current instance.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.ITnameResolver.GetTName(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the Tname to use for the current TP.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+            <returns>The tname to use.</returns>
+        </member>
+        <member name="T:Prime.DatalogService.StorageItems.ItuffObjDb">
+            <summary>
+            Internal class ItuffStrDb.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.ItuffObjDb.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.ItuffObjDb.AddItuffData(Prime.DatalogService.DatalogSpec.IDatalogFormatBase)">
+            <summary>
+            AddItuffData.
+            </summary>
+            <param name="datalogFormat">datalog format object.</param>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.ItuffObjDb.GetItuffData(System.String,System.String@)">
+            <summary>
+            Get Ituff Data if tname exists.
+            </summary>
+            <param name="tname">instance Name.</param>
+            <param name="theData">out parameter for data.</param>
+            <returns>true if instance Name and its data, else returns empty string in out parameter. </returns>
+        </member>
+        <member name="T:Prime.DatalogService.StorageItems.ItuffStrDb">
+            <summary>
+            Internal class ItuffStrDb.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.ItuffStrDb.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.ItuffStrDb.AddItuffData(System.String,System.String)">
+            <summary>
+            AddItuffData.
+            </summary>
+            <param name="tname">tname to which the data belongs.</param>
+            <param name="ituffData">the ituff data to add.</param>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.ItuffStrDb.GetItuffData(System.String,System.String@)">
+            <summary>
+            Get Ituff Data if tname exists.
+            </summary>
+            <param name="tname">instance Name.</param>
+            <param name="theData">out parameter for data.</param>
+            <returns>true if instance Name and its data, else returns empty string in out parameter. </returns>
+        </member>
+        <member name="T:Prime.DatalogService.StorageItems.LevelSixHeaderContents">
+            <summary>
+            LevelSixHeaderContents class.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.LevelSixHeaderContents.SetData(System.String,System.String)">
+            <summary>
+            Set line to levelSixHeaderLines.
+            </summary>
+            <param name="instanceName">The instance name of this line.</param>
+            <param name="line">the line that needs to be set.</param>
+        </member>
+        <member name="T:Prime.DatalogService.StorageItems.UddDb">
+            <summary>
+            UddDb.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.UddDb.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DatalogService.StorageItems.UddDb"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.StorageItems.UddDb.UddtypeRecords">
+            <summary>
+            Gets or sets uddtype record TOD_[name] --> field comma list.
+            </summary>
+        </member>
+        <member name="P:Prime.DatalogService.StorageItems.UddDb.UddtypeCreators">
+            <summary>
+            Gets or sets uddtype record TOD_[name] --> creator instance name.
+            </summary>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.UddDb.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.UddDb.AddInstanceUddRecords(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Add Instance Udd Records.
+            </summary>
+            <param name="instanceName">instanceName.</param>
+            <param name="uddRecords">uddRecords.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException"> if found a different definition for this uddtype record,throw an exception with details on the creator.</exception>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.UddDb.ClearInstanceUddRecords(System.String)">
+            <summary>
+            erase all of records created by the same instance from UddtypeRecords and UddtypeCreators.
+            </summary>
+            <param name="instanceName">instanceName.</param>
+        </member>
+        <member name="M:Prime.DatalogService.StorageItems.UddDb.GetAllRecords">
+            <summary>
+            concatenate all records from all instances in the DB to a list.
+            </summary>
+            <returns>list of all records.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,97 @@
+{
+   "Configurations": [
+      {
+         "Name": "Config999",
+         "Registers": [
+            {
+               "Name": "CPU0",
+               "SimulationString": "1011110000001111111",
+               "FuseGroupsToHide": "GROUP_A",
+               "Reverse": true,
+               "DatalogFormat": "RLE",
+               "Masks": [
+                  {
+                     "Name": "Mask1",
+                     "FuseGroup": "*",
+                     "Value": "mmmmmmmmmmmmmmmmmmm",
+                     "Dynamic": [
+                        {
+                           "FuseGroup": "*",
+                           "uservar":
+                           {
+                              "Name": "FuseVars.CUSTOM_STRING"
+                           }
+                        },
+                        {
+                           "FuseGroup": "GROUP_A",
+                           "sharedstorage":
+                           {
+                              "Name": "VAR1",
+                              "Scope": "DUT"
+                           }
+                        },
+                        {
+                           "FuseGroup": "GROUP_B",
+                           "DFF": {
+                              "Name": "VARGBM1",
+                              "Optype": "PBIC_S2",
+                              "DieID": "GBM1"
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "Name": "Mask2",
+                     "FuseGroup": "GROUP_A",
+                     "Value": "111100",
+							"FailPort": 2
+                  },
+                  {
+                     "Name": "Mask3",
+                     "FuseGroup": "GROUP_B",
+                     "Value": "10000",
+                     "MismatchBits": [
+                        {
+                           "sharedstorage":
+                           {
+                              "Name": "FailingBitsForMask1",
+                              "Scope": "DUT"
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "UltDecode": {
+						"FuseGroup": "*",
+						"FailPort": 3
+					}
+            },
+            {
+               "Name": "CPU1",
+               "SimulationString": "1011110000001111111",
+               "FuseGroupsToHide": "GROUP_A",
+               "Masks": [
+                  {
+                     "Name": "Mask1",
+                     "FuseGroup": "*",
+                     "Value": "0011110000001000000",
+                     "MismatchBits": [
+                        {
+                           "sharedstorage":
+                           {
+                              "Name": "FailingBitsForMask1",
+                              "Scope": "DUT"
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "UltDecode": {
+						"FuseGroup": "ULT",
+						"FailPort": 4
+					}
+            }
+         ]
+      }
+   ]
+}

@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.Brita</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.Brita.BritaFactory">
+            <summary>
+            Builds a default BritaLogger object.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaFactory.CreateBritaHandler">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.BritaHandler">
+            <summary>
+            Implementation of the BritaHandler interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandler.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Brita.BritaHandler"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandler.#ctor(Trace.PrimeTraceId.Service.IPrimeTraceIdService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Brita.BritaHandler"/> class.
+            Constuctor for using trace id mock for unit tests.
+            </summary>
+            <param name="traceIdServiceMock">traceidService mock.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandler.GetChecksumAndVersion(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc cref="T:Prime.BusinessLogic.Brita.IBritaHandler"/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandler.GetTraceId(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc cref="T:Prime.BusinessLogic.Brita.IBritaHandler"/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandler.StoreBritaChecksumAndVersion(System.ValueTuple{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stores Brita instances names.
+            </summary>
+            <param name="checksumAndVersion">checksum and version.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.BritaHandlerLegacy">
+            <summary>
+            Implementation of the BritaHandler interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandlerLegacy.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Brita.BritaHandlerLegacy"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandlerLegacy.GetChecksumAndVersion(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc cref="T:Prime.BusinessLogic.Brita.IBritaHandler"/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandlerLegacy.GetTraceId(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc cref="T:Prime.BusinessLogic.Brita.IBritaHandler"/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandlerLegacy.GetBritaChecksumInstanceNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets list of checksum instances.
+            </summary>
+            <returns>list of checksum instances.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandlerLegacy.PopulateTestFlowItems(System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.String,System.String,System.Boolean}},System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Populates all flow items names and types.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandlerLegacy.ResolveFlowItemsPaths(System.Func{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Converts TOS path to TRACE path. When this function called for checksum calculations, TraceId nuget version 6 required to see all flow items,
+            including flow type items, in this case also "MAIN" flow need to be added manually. (note this only needed in legacy mode for TOS3.10.20 and below).
+            </summary>
+            <returns>list of converted checksum instances.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandlerLegacy.GetInstanceNamesAndPorts(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Converts TOS path to TRACE path.
+            </summary>
+            <returns>list of converted checksum instances and their exit ports.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.BritaStorage">
+            <summary>
+            PortBinInfo class.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Brita.BritaStorage.BritaChecksumInstanceNames">
+            <summary>
+            Gets or sets a value indicating whether die id post execute is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Brita.BritaStorage.FlowItemsListNoFlowable">
+            <summary>
+            Gets or sets a value indicating whether die id post execute is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Brita.BritaStorage.FlowItemToFlowable">
+            <summary>
+            Gets or sets a value indicating whether die id post execute is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Brita.BritaStorage.ConcurrentFlowables">
+            <summary>
+            Gets or sets a value indicating whether die id post execute is enabled.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaStorage.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.IBritaFactory">
+            <summary>
+            Interface to abstract the building of a Brita handler.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.IBritaFactory.CreateBritaHandler">
+            <summary>
+            Returns an interface to a Brita handler which can process Brita data.
+            </summary>
+            <returns>Brita handler.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.BritaFactoryBuilder">
+            <summary>
+            Builds a IBritaFactory.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaFactoryBuilder.Build">
+            <summary>
+            Builds a default IInputDataFactory.
+            </summary>
+            <returns>A default IInputDataFactory.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.IBritaHandler">
+            <summary>
+            Scoreboard Logger interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.IBritaHandler.Init(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialize brita object.
+            </summary>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.IBritaHandler.GetChecksumAndVersion(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets checksum string encoded by Trace API.
+            </summary>
+            <param name="sessionContext">session context.</param>
+            <returns>list of checksum instances and version.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.IBritaHandler.GetTraceId(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets trace id string representing executed instances and ports encoded for Trace.
+            </summary>
+            <param name="sessionContext">session context.</param>
+            <returns>Brita trace id for currently executed unit/flow.</returns>
+        </member>
+    </members>
+</doc>

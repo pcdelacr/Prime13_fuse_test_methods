@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Plugins.Functional.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Plugins.Functional.CtvToSharedStorage">
+            <summary>
+            Interface for processing CTV (Capture Test Vector) per pin.
+            </summary>
+        </member>
+        <member name="M:Prime.Plugins.Functional.CtvToSharedStorage.#ctor(Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Plugins.Functional.CtvToSharedStorage"/> class.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+            <param name="consoleService">The console service.</param>
+            <param name="sharedStorageService">The shared storage service.</param>
+        </member>
+        <member name="M:Prime.Plugins.Functional.CtvToSharedStorage.Initialize(System.String)">
+            <summary>
+            Initializes the plugin with the specified user input.
+            </summary>
+            <param name="userInput">
+            A string containing options that are parsed to configure the <see cref="T:Prime.Plugins.Functional.CtvToSharedStorage"/> class.
+            It should include:
+            <list type="bullet">
+            <item>
+            <description><c>--CtvPinDataTokens</c>: A comma-separated list of tokens corresponding to the CTV (Capture Test Vector) data for each pin.</description>
+            </item>
+            <item>
+            <description><c>--CtvPinNamesParameter</c> (Optional): The name of the parameter that contains the list of pins to capture the CTV data.</description>
+            </item>
+            </list>
+            Example: <c>--CtvPinDataTokens token1,token2,token3 --CtvPinNamesParameter CtvCapturePins</c>
+            </param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">
+            Thrown when the parameter is not found in the current instance's parameters,
+            when the parameter is empty, or when the number of CTV pins does not match the number of tokens.
+            </exception>
+        </member>
+        <member name="M:Prime.Plugins.Functional.CtvToSharedStorage.ProcessCtvPerPin(Prime.FunctionalService.ICaptureCtvPerPinTest)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.Plugins.Functional.FailuresToDatalog">
+            <summary>
+            The FailuresToDatalog class implements the IProcessFailures interface.
+            This class is responsible for processing failure data and logging it to a datalog.
+            </summary>
+        </member>
+        <member name="M:Prime.Plugins.Functional.FailuresToDatalog.#ctor(Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService,Prime.DatalogService.IDatalogService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Plugins.Functional.FailuresToDatalog"/> class.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+            <param name="consoleService">The console service.</param>
+            <param name="datalogService">The datalog service.</param>
+        </member>
+        <member name="M:Prime.Plugins.Functional.FailuresToDatalog.Initialize(System.String)">
+            <summary>
+            Initializes the plugin with the specified user input.
+            </summary>
+            <param name="userInput">
+            A string containing options that are parsed to configure the <see cref="T:Prime.Plugins.Functional.FailuresToDatalog"/> class.
+            It should include:
+            <list type="bullet">
+            <item>
+            <description><c>--PrintPreviousLabel</c>: A boolean flag indicating whether to print the previous label into the datalog.</description>
+            </item>
+            <item>
+            <description><c>--MaxFailuresToItuff</c>: An integer specifying the maximum number of failures to log to Ituff.</description>
+            </item>
+            <item>
+            <description><c>--MaxFailuresPerPatternToItuff</c>: An integer specifying the maximum number of failures per pattern to log to Ituff.</description>
+            </item>
+            </list>
+            Example: <c>--PrintPreviousLabel true --MaxFailuresToItuff 10 --MaxFailuresPerPatternToItuff 5</c>
+            </param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">
+            Thrown when the required parameters are not found in the current instance's parameters or in the user input.
+            </exception>
+        </member>
+        <member name="M:Prime.Plugins.Functional.FailuresToDatalog.ProcessFailures(Prime.FunctionalService.ICaptureFailureTest)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.Plugins.Functional.FrequencyMeasurePlugin">
+            <summary>
+            Functional specific plugin implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.Plugins.Functional.FrequencyMeasurePlugin.#ctor(Prime.SessionService.ISessionContextProviderContainer,Prime.SharedStorageService.ISharedStorageService,Prime.TestConditionService.ITestConditionService,Prime.ConsoleService.IConsoleService,Prime.DatalogService.IDatalogService,Prime.FileService.IFileService,Prime.PinService.IPinService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Plugins.Functional.FrequencyMeasurePlugin"/> class.
+            </summary>
+            <param name="sessionContextProviderContainer">sessionContextProviderContainer.</param>
+            <param name="sharedStorageService">SharedStorage service interface.</param>
+            <param name="testConditionService">Test condition service interface.</param>
+            <param name="consoleService">Console service interface.</param>
+            <param name="datalogService">Datalog service interface.</param>
+            <param name="fileService">File service interface.</param>
+            <param name="pinService">Pin service interface.</param>
+        </member>
+        <member name="M:Prime.Plugins.Functional.FrequencyMeasurePlugin.Initialize(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.Plugins.Functional.FrequencyMeasurePlugin.Verify(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Plugins.Functional.FrequencyMeasurePlugin.PreExecuteFunctionalTest(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Plugins.Functional.FrequencyMeasurePlugin.PostExecuteFunctionalTest(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Plugins.Functional.FrequencyMeasure.FrequencyMeasureConfiguration">
+            <summary>
+            FrequencyMeasureConfig.
+            </summary>
+        </member>
+        <member name="P:Prime.Plugins.Functional.FrequencyMeasure.FrequencyMeasureConfiguration.Pins">
+            <summary>
+            Gets or sets frequencyMeasuresHandlers.
+            </summary>
+        </member>
+        <member name="P:Prime.Plugins.Functional.FrequencyMeasure.FrequencyMeasureConfiguration.PreFixToken">
+            <summary>
+            Gets or sets pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.Plugins.Functional.FrequencyMeasure.FrequencyMeasureConfiguration.PostFixToken">
+            <summary>
+            Gets or sets pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.Plugins.Functional.FrequencyMeasure.FrequencyMeasureConfiguration.CycleNumber">
+            <summary>
+            Gets or sets CycleNumber.
+            </summary>
+        </member>
+        <member name="T:Prime.Plugins.Functional.FrequencyMeasure.PerPinHandler">
+            <summary>
+            FrequencyMeasureHandler.
+            </summary>
+        </member>
+        <member name="T:Prime.Plugins.Functional.FrequencyMeasure.PerPinHandler.EdgeCounterCapture">
+            <summary>
+            EdgeCounterCapture.
+            </summary>
+        </member>
+        <member name="F:Prime.Plugins.Functional.FrequencyMeasure.PerPinHandler.EdgeCounterCapture.BothEdges">
+            <summary>
+            BothEdges.
+            </summary>
+        </member>
+        <member name="F:Prime.Plugins.Functional.FrequencyMeasure.PerPinHandler.EdgeCounterCapture.RisingEdge">
+            <summary>
+            RisingEdge.
+            </summary>
+        </member>
+        <member name="F:Prime.Plugins.Functional.FrequencyMeasure.PerPinHandler.EdgeCounterCapture.FallingEdge">
+            <summary>
+            FallingEdge.
+            </summary>
+        </member>
+        <member name="F:Prime.Plugins.Functional.FrequencyMeasure.PerPinHandler.EdgeCounterCapture.Off">
+            <summary>
+            Off,
+            </summary>
+        </member>
+        <member name="P:Prime.Plugins.Functional.FrequencyMeasure.PerPinHandler.PinName">
+            <summary>
+            Gets or sets pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.Plugins.Functional.FrequencyMeasure.PerPinHandler.OutputName">
+            <summary>
+            Gets or sets IP name.
+            </summary>
+        </member>
+        <member name="T:Prime.Plugins.Functional.SharedStorageToList">
+            <summary>
+            Functional specific plugin implementation.
+            </summary>
+        </member>
+        <member name="F:Prime.Plugins.Functional.SharedStorageToList.storageKey">
+            <summary>
+            Shared storage variable key, which stores comma separated pins for masking.
+            </summary>
+        </member>
+        <member name="M:Prime.Plugins.Functional.SharedStorageToList.#ctor(Prime.SessionService.ISessionContextProviderContainer,Prime.SharedStorageService.ISharedStorageService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Plugins.Functional.SharedStorageToList"/> class.
+            </summary>
+            <param name="sessionContext">sessionContext.</param>
+            <param name="sharedStorageService">sharedStorageService interface.</param>
+        </member>
+        <member name="M:Prime.Plugins.Functional.SharedStorageToList.Initialize(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.Plugins.Functional.SharedStorageToList.GetDynamicPinMask">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

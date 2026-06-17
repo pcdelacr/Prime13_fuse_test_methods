@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeSampleRateTestMethod" MetaData="dll=Prime.TestMethods.SampleRate" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeSampleRateTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="SamplingRateValue" descriptions="SamplingRateValue, DUT Sampling is based on this number.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="WaferSampleRateValue" descriptions="WaferSampleRateValue, Wafer Sampling is based on this number.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="WaferSampleList" descriptions="WaferSampleList, DUT Sampling is based on this wafer list.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="SampleOption" descriptions="Sample options. This options provide total 4 different mode of operation, it will be decided whether DUT sampling, WAFER sampling, WAFER_LIST or SAMPLE_LOWEST is to be done.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>WAFER_SAMPLING</Choice>
+          <Choice>WAFER_LIST</Choice>
+          <Choice>DUT_SAMPLING</Choice>
+          <Choice>SAMPLE_LOWEST</Choice>
+        </Choices>
+        <Default>DUT_SAMPLING</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="ShouldFirstBeSampled" descriptions="Should first be sampled. When this parameter is true, first unit will be first sample. Otherwise the first DUT sample to be sample will be the one with same number as SamplingRateValue.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PrintItuffExitPort" descriptions="PrintItuffExitport, DUT Sampling is based on this number.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="GlobalSampleRate" descriptions="Global sample rate. If true, sampling happen in test-program level, where sampleRate is centralized in uservar. Otherwise it is test-method level or so called local sampleRate.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="SampleLowestWaferTrayList" descriptions="SampleLowestWaferTrayList, list of wafer/tray to be executed for lowest sample.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="SampleLowestValue" descriptions="SampleLowestValue, lowest numbered wafers/trays to be sampled.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="IsSampleLowestTrayType" descriptions="Is sample lowest type tray or wafer. This parameter will be in use when sampleOption is SAMPLE_LOWEST. If true, tray sampling is taking place. Otherwise, it is wafer sampling.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

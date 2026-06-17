@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeVixVoxTestMethod" MetaData="dll=Prime.TestMethods.Dc" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeVixVoxTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="Patlist" descriptions="Gets or sets PatList to use.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>Plist</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="TimingsTc" descriptions="Gets or sets TimingsTc to use.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>TimingCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="LevelsTc" descriptions="Gets or sets LevelsTc to use.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="ApplyEndSequence" descriptions="The ApplyEndSequence at the end of the test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>ENABLED</Choice>
+          <Choice>DISABLED</Choice>
+        </Choices>
+        <Default>DISABLED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PowerDomain" descriptions="Optional PowerDomain to use during test condition construction. Supported only in TOS322">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PrePlist" descriptions="Gets or sets the PrePlist callback to plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MaskPins" descriptions="Gets or sets comma separated pins for mask.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="CatastrophicFailLimit" descriptions="Gets or sets catastrophic fail limit.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>0</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TdoPinName" descriptions="Gets or sets TDO Pin Name.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="VixPinsMask" descriptions="Gets or sets Vix Pins to mask.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VoxPinsMask" descriptions="Gets or sets Vox Pins to mask.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ExecuteMode" descriptions="Gets or sets Test Method Execution Mode: Search Vix, Search Vox, One Pass.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>ONEPASS</Choice>
+          <Choice>SEARCHVIX</Choice>
+          <Choice>SEARCHVOX</Choice>
+        </Choices>
+        <Default>ONEPASS</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="VihVohSearchParams" descriptions="Gets or sets vih/voh search parameters.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VilVolSearchParams" descriptions="Gets or sets vih/voh search parameters.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="DvMode" descriptions="Gets or sets DvMode options.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>FALSE</Choice>
+          <Choice>TRUE</Choice>
+          <Choice>PERPINITUFF</Choice>
+        </Choices>
+        <Default>FALSE</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="HryLoggingMode" descriptions="Gets or sets HRY logging mode.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>DISABLED</Choice>
+          <Choice>ENABLED</Choice>
+        </Choices>
+        <Default>DISABLED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="OnePassHryPins" descriptions="Gets or sets HRY pins of interest.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>3</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT VOX FAILED</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT VIX FAILED</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT VIX VOX FAILED</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

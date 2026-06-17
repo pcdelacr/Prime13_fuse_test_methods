@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Prime.TestMethods.UltEncoderDecoder</id>
+    <version>13.3.7.4</version>
+    <authors>MPE MIT ATE Test Methods</authors>
+    <projectUrl>https://dev.azure.com/mit-us/PRIME</projectUrl>
+    <description>Package Description</description>
+    <releaseNotes>'Merged PR 10493: Prime 13 PrimeSDK'
+'Merged PR 10631: [CherryPick] Merged PR 10627: PrimeULTDecoderTestMethod documentation update for PackageEfuse, PrintUltDataPerDieIdToItuff. Add ULT Ituff scenario.'
+'Merged PR 10046: [CherryPick] Merged PR 9867: [FuseBurn] Enable ULTEncode as MiniFlow API.'
+'Merged PR 9773: Merged PR 9729: Fixing broken links and wiki generation process'
+'Merged PR 9720: Merged PR 9719: changing default parameter UploadUltToDffService to enabled'
+'Merged PR 9632: Merged PR 9628: Making the IPlugin.Initialize per plugin's interface, not gen...'
+'Merged PR 9630: Merged PR 9604: Enabling functional plugins to process failures and Ctvs.'</releaseNotes>
+    <copyright>Copyright (2005) (2025) Intel Corporation</copyright>
+    <repository type="git" url="https://mit-us@dev.azure.com/mit-us/PRIME/_git/PRIME" commit="844be61cd7141529d49e2a33078c0df8b76bd0f9" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.PrimeAttributes" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="PrimeSDKAbstraction" version="[1.0.0, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.TestMethodsParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.Func" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.FuseLogicCollection" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.CommonParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.TestMethodBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DatalogService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DffService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FunctionalService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PinService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.UserVarService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.ATE_TM.PrimePHGenerator" version="[3.9.1, 4.0.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="8.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ValueTuple" version="4.5.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.PrimeAttributes" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="PrimeSDKAbstraction" version="[1.0.0, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.TestMethodsParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.Func" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.FuseLogicCollection" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.CommonParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.TestMethodBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DatalogService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DffService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FunctionalService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PinService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.UserVarService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="HdmtOs.Sdk.Meta" version="[4.0.2]" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.ATE_TM.PrimePHGenerator" version="[3.9.1, 4.0.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="8.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ComponentModel.Composition" version="6.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework=".NETFramework4.6.2" />
+    </frameworkAssemblies>
+    <contentFiles>
+      <files include="any/any/__ReferencedDocs/.attachments/UltDecoder/image-0e9d3844-eeee-4d11-b038-1d47b5b66d8f.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltDecoder/image-735976f4-e279-4785-8ebb-eb763b49c433.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltDecoder/image-926e05fb-0c2b-4c03-a832-13c5d8c5bced.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltDecoder/PackageEfuse-condition.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltDecoder/PrimeULTDecodeTM.xlsx" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltDecoder/PrintUltDataPerDieIdToItuff-switch.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltDecoder/TSMC-4ad66bd1-697d-4153-8d43-6529bc3bb74e.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltDecoder/ULT-ituff-scenario.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltDecoder/Universal intel ULT decode-e936fbde-838c-4a0c-9bdd-3e697d14afce.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltEncoder/delete" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltEncoder/image-1.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltEncoder/image-2.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltEncoder/image-3.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/UltEncoder/screencaptured.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/UltDecoder.md" buildAction="None" />
+      <files include="any/any/__ReferencedDocs/UltEncoder.md" buildAction="None" />
+    </contentFiles>
+  </metadata>
+</package>

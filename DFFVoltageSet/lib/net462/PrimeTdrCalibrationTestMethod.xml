@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeTdrCalibrationTestMethod" MetaData="dll=Prime.TestMethods.TdrCalibration" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeTdrCalibrationTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="TdrHiLimit" descriptions="High limit of the calibration value.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default>0S</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TdrLoLimit" descriptions="Low limit of the calibration value.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default>0S</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PinGroups" descriptions="Comma separated PinGroups to do TDR calibration.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="CustomFileName" descriptions="The custom file name to use. This will be used with each pin group name for the final file name=[TDRFile_{CustomFileName}_{pinGroup}]. If it's empty, the default file name=[TDRFile_{effectiveTiuName}_{pinGroup}] will be used.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="IgnoredPins" descriptions="Comma separated IgnoredPins to exclude from TDR calibration.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="LoadDataFromFile" descriptions="Calibration files for each PinGroups to be calibrated.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>TRUE</Choice>
+          <Choice>FALSE</Choice>
+        </Choices>
+        <Default>FALSE</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="AlwaysExecute" descriptions="AlwaysExecute to do TDR calibration.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>TRUE</Choice>
+          <Choice>FALSE</Choice>
+        </Choices>
+        <Default>TRUE</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TdrOverrides" descriptions="An input file for manually overrides TDR calibration values.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

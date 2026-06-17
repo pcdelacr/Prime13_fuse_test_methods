@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Pause</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Pause.IPrinter">
+            <summary>
+            Printer to print message to Console.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Pause.IPrinter.Print(System.String)">
+            <summary>
+            print message to Console.
+            </summary>
+            <param name="text">The text to print.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Pause.PrimePauseTestMethod">
+            <summary>
+            Test Method for Pause n milliseconds.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Pause.PrimePauseTestMethod.#ctor(Prime.TestMethods.Pause.IPrinter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Pause.PrimePauseTestMethod"/> class.
+            </summary>
+            <param name="printer">printer to print Debug messages to Console..</param>
+        </member>
+        <member name="P:Prime.TestMethods.Pause.PrimePauseTestMethod.SleepTime">
+            <summary>
+            Gets or sets the sleep time in milliseconds.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Pause.PrimePauseTestMethod.ExitPort">
+            <summary>
+            Gets or sets return Port after Sleep Time. Range from 0 to 5. (Default=1).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Pause.PrimePauseTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Pause.PrimePauseTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Pause.PrimePauseTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Pause.PrimePauseTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

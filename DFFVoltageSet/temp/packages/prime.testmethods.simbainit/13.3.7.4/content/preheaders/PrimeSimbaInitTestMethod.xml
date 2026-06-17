@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeSimbaInitTestMethod" MetaData="dll=Prime.TestMethods.SimbaInit" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeSimbaInitTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="UlatEnableMode" descriptions="The ULAT enable mode (OFF/PROD).">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Disabled</Choice>
+          <Choice>Enabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="UlatFileType" descriptions="The ULAT input file format (LOT/UNIT).">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Lot</Choice>
+          <Choice>Unit</Choice>
+        </Choices>
+        <Default>Unit</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="UnitIdentificationMethod" descriptions="The unit identification Method (VID/ULT/VID_AND_ULT).">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Vid</Choice>
+          <Choice>Ult</Choice>
+          <Choice>VidAndUlt</Choice>
+        </Choices>
+        <Default>VidAndUlt</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="SsidKeyForUltData" descriptions="The SSID key to access ULT/eFuse data.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="UlatFilePath" descriptions="The path to the ulat file. If it's empty, Simba will take the ulat file from the SCVars.SC_ULAT_FILE user variable.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TargetedInstancesFile" descriptions="The path to the targeted instances file in Sort.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>File</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

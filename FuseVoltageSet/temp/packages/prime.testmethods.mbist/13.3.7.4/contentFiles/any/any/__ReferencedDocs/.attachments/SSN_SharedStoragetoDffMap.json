@@ -1,0 +1,174 @@
+{
+	"Version": "1.0",
+	"DiePinDefinitions": {
+		"CPU1": {
+			"CtvPinMapping": {
+				"LP1": "xxHPCC_DPIN_Dig_slcA_AA0",
+				"LP2": "xxHPCC_DPIN_Dig_slcA_AA1",
+				"LP3": "xxHPCC_DPIN_Dig_slcA_AA2",
+				"LP4": "xxHPCC_DPIN_Dig_slcA_AA3"
+			},
+			"DpsPinToDomains": {
+				"VCCSA": "VCCSA"
+			}
+		},
+		"CPU2": {
+			"CtvPinMapping": {
+				"LP1": "xxHPCC_DPIN_Dig_slcA_AA4",
+				"LP2": "xxHPCC_DPIN_Dig_slcA_AA5",
+				"LP3": "xxHPCC_DPIN_Dig_slcA_AA6",
+				"LP4": "xxHPCC_DPIN_Dig_slcA_AA7"
+			},
+			"DpsPinToDomains": {
+				"VCCSA": "VCCSA"
+			}
+		}
+	},
+	"UseDieNameInTag": false,
+	"DefaultTagDefinition": {
+		"HryTagsByType": {
+			"Hry": {
+				"SharedStorage": "HRY_RAWSTR_MBIST",
+				"Ituff": "HRY_RAWSTR_MBIST",
+				"Dff": ""
+			},
+			"KitchenSink": {
+				"SharedStorage": "",
+				"Dff": "",
+				"Ituff": ""
+			}
+		},
+		"Recovery": {
+			"SharedStorage": "SOCRecovery",
+			"Dff": "SOCREC"
+		},
+		"Vmin": {
+			"SharedStorage": "MbistVminPerMem",
+			"Ituff": "VMIN"
+		},
+		"RegisterNames": {
+			"HCS": "TEST.TEST.TESTHCS",
+			"FDS": "TEST.TEST.TESTFDS"
+		},
+		"BisrChains": {
+			"BISR_BP0": {
+				"SharedStorage": "BISR_BP0",
+				"Dff": {
+					"ALL": "BISR_BP0"
+				},
+				"Ituff": "BISR_BP0",
+				"FusePadding": "20"
+			},
+			"BISR_BP1": {
+				"SharedStorage": "BISR_BP1",
+				"Dff": {
+					"ALL": "BISR_BP1"
+				},
+				"Ituff": "BISR_BP1",
+				"VfdmReverse": "True"
+			},
+			"BISR_BP2": {
+				"SharedStorage": "BISR_BP2",
+				"Dff": {
+					"ALL": "BISR_BP2"
+				},
+				"Ituff": "BISR_BP2",
+				"BisrVirtualFuse": {
+					"Namespace": "CDIE",
+					"Tag": "CORE",
+					"FuseName": "BISR_BP2"
+				}
+			},
+			"BISR_BP3": {
+				"SharedStorage": "BISR_BP3",
+				"Dff": {
+                    "SDS": "BISR_BP3",
+                    "SDT": "BOB",
+                    "CLASS_COLD": "cold",
+                    "CLASS_HOT": "hot"
+				},
+				"Ituff": "BISR_BP3"
+			},
+			"BISR_BP4": {
+				"SharedStorage": "BISR_BP4",
+				"Dff": {
+					"ALL": "BISR_BP4"
+				},
+				"Ituff": "BISR_BP4"
+			},
+			"BISR_BP5": {
+				"SharedStorage": "BISR_BP5",
+				"Dff": {
+					"ALL": "BISR_BP5"
+				},
+				"Ituff": "BISR_BP5"
+			},
+			"BISR_BP6": {
+				"SharedStorage": "BISR_BP6",
+				"Dff": {
+					"ALL": "BISR_BP6"
+				},
+				"Ituff": "BISR_BP6"
+			},
+			"BISR_BP7": {
+				"SharedStorage": "BISR_BP7",
+				"Dff": {
+					"ALL": "BISR_BP7"
+				},
+				"Ituff": "BISR_BP7"
+			},
+			"BISR_BP8": {
+				"SharedStorage": "BISR_BP8",
+				"Dff": {
+					"ALL": "BISR_BP8"
+				},
+				"Ituff": "ITUFF8",
+				"CorrectBira": {
+					"FIT0_BP0_WBP0_MEM1_RG0_RS_SROW0_FUSE_REG": {
+						"Input": [3, 2, 1, 0],
+						"Output": [0, 1, 2, 3]
+					}
+				}
+			},
+			"BISR_BP9": {
+				"SharedStorage": "BISR_BP9",
+				"Dff": {
+					"ALL": "BISR_BP9"
+				},
+				"Ituff": "BISR_BP9",
+				"PaddingChar": "X",
+				"CorrectBira": {
+					"FIT1_BP0_WBP0_MEM1_RG0_RS_SROW0_FUSE_REG": {
+						"Enable": "FIT1_BP1_WBP0_MEM1_RG0_RS_SROW0_FUSE_REG0",
+						"Offset": "1"
+					},
+					"FIT1_BP1_WBP0_MEM1_RG0_RS_SROW0_FUSE_REG": {
+						"Enable": "FIT1_BP1_WBP0_MEM2_RG0_RS_SROW0_FUSE_REG0",
+						"Offset": "1"
+					}
+				}
+			},
+			"BISR_BP10": {
+				"SharedStorage": "BISR_BP10",
+				"Dff": {
+					"ALL": "BISR_BP10"
+				},
+				"Ituff": "BISR_BP10"
+			},
+			"BISR_BP11": {
+				"SharedStorage": "BISR_BP11",
+				"Dff": {
+					"ALL": "BISR_BP11"
+				},
+				"Ituff": "BISR_BP11"
+			},
+			"BISR_BP12": {
+				"SharedStorage": "BISR_BP12",
+				"Dff": {
+					"ALL": "BISR_BP12"
+				},
+				"Ituff": "BISR_BP12"
+			}
+		}
+	}
+}

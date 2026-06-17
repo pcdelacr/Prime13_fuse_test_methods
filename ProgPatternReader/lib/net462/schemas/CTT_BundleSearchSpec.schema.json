@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "BundleSearchSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "Project",
+    "CTTSearchCfg"
+  ],
+  "properties": {
+    "Project": {
+      "type": "string"
+    },
+    "CTTSearchCfg": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/SearchConfig"
+      }
+    }
+  },
+  "definitions": {
+    "SearchConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "BundleFreqDef",
+        "SafeZoneInstrumentalDef"
+      ],
+      "properties": {
+        "BundleFreqDef": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "SafeZoneInstrumentalDef": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SafeZoneDefn"
+          }
+        }
+      }
+    },
+    "SafeZoneDefn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "PreBurstListName": {
+          "type": "string"
+        },
+        "InstanceId": {
+          "type": "integer",
+          "format": "int64",
+          "minimum":  1
+        },
+        "BurstIndex": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

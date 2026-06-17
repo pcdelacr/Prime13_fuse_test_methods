@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Prime.TestMethods.VminSearch</id>
+    <version>13.3.7.4</version>
+    <authors>MPE MIT ATE Test Methods</authors>
+    <projectUrl>https://dev.azure.com/mit-us/PRIME</projectUrl>
+    <description>Package Description</description>
+    <releaseNotes>'Merged PR 11280: VminSearch: updating SetLimitingPatterns logic to correctly updating _lp for failing targets'
+'Merged PR 11279: Cherry picking VminTC changes'
+'Merged PR 11100: [VminTC] StoreSearchResults not support monolithic mode'
+'Merged PR 10923: VminTC: new vmin_update_on_pass FeatureSwitch for RecoveryPort serial testing'
+'Merged PR 10910: Merged PR 10832: VminTC - enable store result to shared storage'
+'Merged PR 10911: Merged PR 10883: VminTC: adjust plist mode during verify using top layer content'
+'Merged PR 10878: fix VminTc amble fails issue'</releaseNotes>
+    <copyright>Copyright (2005) (2025) Intel Corporation</copyright>
+    <repository type="git" url="https://mit-us@dev.azure.com/mit-us/PRIME/_git/PRIME" commit="844be61cd7141529d49e2a33078c0df8b76bd0f9" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.TestMethodsParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.Utilities" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.BaseUtilities" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.DieRecoveryBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.DTSBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.FlowControlBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.PlistModificationBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.PreloadParametersBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.VminForwardingBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.VoltageConverterBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.ScoreboardLogger" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.VminNormalizer" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.CommonParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.ITestMethod" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.TestMethodBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DatalogService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DffService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FunctionalService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PinService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlatformService.Interface" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlistService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PupService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TelemetryService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TestConditionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.UserVarService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.VminForwardingService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.VoltageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="JetBrains.Annotations" version="2019.1.3" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.ATE_TM.PrimePHGenerator" version="[3.9.1, 4.0.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.Collections.Immutable" version="1.6.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ValueTuple" version="4.5.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.TestMethodsParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.Utilities" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.BaseUtilities" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.DieRecoveryBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.DTSBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.FlowControlBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.PlistModificationBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.PreloadParametersBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.VminForwardingBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.DDG.VoltageConverterBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.ScoreboardLogger" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.VminNormalizer" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.CommonParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.ITestMethod" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.TestMethodBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DatalogService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DffService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FunctionalService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PinService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlatformService.Interface" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlistService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PupService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TelemetryService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TestConditionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.UserVarService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.VminForwardingService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.VoltageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="HdmtOs.Sdk.Meta" version="[4.0.2]" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="JetBrains.Annotations" version="2019.1.3" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.ATE_TM.PrimePHGenerator" version="[3.9.1, 4.0.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.Collections.Immutable" version="6.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ComponentModel.Composition" version="6.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework=".NETFramework4.6.2" />
+    </frameworkAssemblies>
+    <contentFiles>
+      <files include="any/any/__ReferencedDocs/.attachments/image-18f9f096-4506-47b9-86fc-da52d294df21.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/mermaid-diagram-20211117180717.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/mermaid-diagram-20211117180746.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/mermaid-diagram-20211117180801.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/VminSearch_IsSearchCompleted.drawio" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/VminSearch_IsSearchCompleted.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/VminSearch_MainExecuteFlow.drawio" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/VminSearch_MainExecuteFlow.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/VminTC/vmintc_favor_core_vs_freq.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/VminTC/vmintc_incremental.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/VminTC/vmintc_multipass.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/VminTC/vmintc_multi_ip_incremental.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/VminTC/vmintc_simple_search.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/VminSearch.md" buildAction="None" />
+      <files include="any/any/__ReferencedDocs/VminTC.md" buildAction="None" />
+    </contentFiles>
+  </metadata>
+</package>

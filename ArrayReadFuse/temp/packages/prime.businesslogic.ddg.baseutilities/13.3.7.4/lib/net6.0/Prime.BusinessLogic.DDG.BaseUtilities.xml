@@ -1,0 +1,1309 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.DDG.BaseUtilities</name>
+    </assembly>
+    <members>
+        <member name="T:DDG.BinMatrixServiceExtensions">
+            <summary>
+            Defines the <see cref="T:DDG.BinMatrixServiceExtensions" />.
+            </summary>
+        </member>
+        <member name="M:DDG.BinMatrixServiceExtensions.EvaluateString(Prime.BinMatrixService.IBinMatrixService,Prime.SessionService.ISessionContextProviderContainer,System.String,System.Int32)">
+            <summary>
+            Evaluates BinMatrix spec values for tokens encapsulated with {}.
+            </summary>
+            <param name="service">Service interface.</param>
+            <param name="session">ISessionContextProviderContainer.</param>
+            <param name="input">String to be evaluated.</param>
+            <param name="flowNumber">Flow number. When is not specified the method will try to get current flow number from test instance parameter.</param>
+            <returns>Evaluated string.</returns>
+        </member>
+        <member name="T:DDG.BitArrayExtensions">
+            <summary>
+            Extension functions dealing with BitArray objects.
+            </summary>
+        </member>
+        <member name="M:DDG.BitArrayExtensions.ToBitArray(System.String)">
+            <summary>
+            String extension method. Turns a string of 1s and 0s into a BitArray.
+            A 1 in the string is a true in the BitArray, 0 (or any other character) is false.
+            </summary>
+            <param name="data">String data to convert.</param>
+            <returns>BitArray.</returns>
+            <exception cref="T:System.ArgumentNullException"> if input string is null.</exception>
+        </member>
+        <member name="M:DDG.BitArrayExtensions.ToBinaryString(System.Collections.BitArray)">
+            <summary>
+            BitArray extension method. Turns a BitArray into a string of 1s and 0s.
+            The BitArray true maps to 1, while false maps to 0.
+            </summary>
+            <param name="data">BitArray to convert.</param>
+            <returns>string.</returns>
+            <exception cref="T:System.ArgumentNullException"> if input BitArray is null.</exception>
+        </member>
+        <member name="M:DDG.BitArrayExtensions.Slice(System.Collections.BitArray,System.Int32,System.Int32)">
+            <summary>
+            Gets a slice of a BitArray.
+            </summary>
+            <param name="bitArray">BitArray source.</param>
+            <param name="start">Offset of the first element.</param>
+            <param name="count">NUmber of elements to get.</param>
+            <returns>A subset of the Bitarray.</returns>
+            <exception cref="T:System.ArgumentNullException"> if input BitArray is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"> if start + size is larger than the size of the bit array.</exception>
+        </member>
+        <member name="M:DDG.BitArrayExtensions.Add(System.Collections.BitArray,System.Collections.BitArray)">
+            <summary>
+            Appends one BitArray to another.
+            </summary>
+            <param name="bitArray1">Base BitArray.</param>
+            <param name="bitArray2">BitArray to add.</param>
+            <returns>new BitArray containing the contents of both BitArrays.</returns>
+            <exception cref="T:System.ArgumentNullException"> if both BitArrays are null.</exception>
+        </member>
+        <member name="M:DDG.BitArrayExtensions.Write(System.Collections.BitArray,System.Int32,System.String)">
+            <summary>
+            Writes the binary data to the bit array starting at the given location.
+            </summary>
+            <param name="bitArray1">BitArray to write.</param>
+            <param name="start">Starting index.</param>
+            <param name="data">Binary data to write.</param>
+            <returns>New bitarray with the new data.</returns>
+        </member>
+        <member name="M:DDG.BitArrayExtensions.Write(System.Collections.BitArray,System.Int32,System.Collections.BitArray)">
+            <summary>
+            Writes the binary data to the bit array starting at the given location.
+            </summary>
+            <param name="bitArray1">BitArray to write.</param>
+            <param name="start">Starting index.</param>
+            <param name="data">BitArray data to write.</param>
+            <returns>New bitarray with the new data.</returns>
+        </member>
+        <member name="M:DDG.BitArrayExtensions.Any(System.Collections.BitArray,System.Boolean)">
+            <summary>
+            Check if any value in the bitarray matches the given value.
+            </summary>
+            <param name="bitArray">BitArray.</param>
+            <param name="value">Value to look for.</param>
+            <returns>True if any value in the bitarray matches the value parameter.</returns>
+        </member>
+        <member name="T:DDG.DoubleExtensions">
+            <summary>
+            Defines the <see cref="T:DDG.DoubleExtensions" />.
+            </summary>
+        </member>
+        <member name="M:DDG.DoubleExtensions.Equals(System.Double,System.Double,System.UInt32)">
+            <summary>
+            Checks if 2 double values are equal to the given number of decimal places.
+            </summary>
+            <param name="number1">Double value.</param>
+            <param name="number2">Double Value.</param>
+            <param name="decimalPlaces">Number of decimal places to check for equality (0 means exact match).</param>
+            <returns>true if the values are equivalent.</returns>
+        </member>
+        <member name="T:DDG.DutStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+            <typeparam name="T">The type of the stored object.</typeparam>
+        </member>
+        <member name="M:DDG.DutStorage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.DutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:DDG.DutStorage`1.#ctor(System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.DutStorage`1"/> class.
+            </summary>
+            <param name="ctor">The constructor function used to create the stored object.</param>
+        </member>
+        <member name="M:DDG.DutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:DDG.DutStorage`1.Get(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="sessionContext">The session context.</param>
+            <returns>The stored object for this session.</returns>
+        </member>
+        <member name="M:DDG.DutStorage`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="newObject">The object to store.</param>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:DDG.DutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="sessionSession">The session context.</param>
+            <returns>The lock object for this session.</returns>
+        </member>
+        <member name="T:DDG.ExpressionContext">
+            <summary>
+            Defines the <see cref="T:DDG.ExpressionContext" />.
+            </summary>
+        </member>
+        <member name="M:DDG.ExpressionContext.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.ExpressionContext"/> class.
+            </summary>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetValueFromTrialVar(System.String)">
+            <summary>
+            Retrieves the value from a trial variable.
+            </summary>
+            <param name="parameter">The parameter in the format T.collection.variable.</param>
+            <returns>The value of the trial variable.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetEnvironmentVariable(System.String)">
+            <summary>
+            Retrieves the value of an environment variable.
+            </summary>
+            <param name="parameter">The parameter in the format T.collection.variable.</param>
+            <returns>The value of the environment variable.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.EvaluateDoublesArray(System.Object[])">
+            <summary>
+            Evaluates an array of objects and converts them to an array of doubles.
+            </summary>
+            <param name="arguments">The array of objects to be evaluated.</param>
+            <returns>An array of doubles.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ToInt64(System.String)">
+            <summary>
+            Converts the specified value to a 64-bit signed integer.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The converted 64-bit signed integer.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ToInt64(System.Double)">
+            <summary>
+            Converts the specified value to a 64-bit signed integer.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The converted 64-bit signed integer.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ToInt32(System.String)">
+            <summary>
+            Converts the specified value to a 32-bit signed integer.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The converted 32-bit signed integer.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ToInt32(System.Double)">
+            <summary>
+            Converts the specified value to a 32-bit signed integer.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The converted 32-bit signed integer.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ToDouble(System.String,System.Boolean)">
+            <summary>
+            Converts an object to a double value.
+            </summary>
+            <param name="value">The object to convert.</param>
+            <param name="useUnits">Flag to use units conversion.</param>
+            <returns>The converted double value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ToDouble(System.String)">
+            <summary>
+            Converts an object to a double value.
+            </summary>
+            <param name="value">The object to convert.</param>
+            <returns>The converted double value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ToDouble(System.Int32)">
+            <summary>
+            Converts an int to a double value.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Converter double value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ToDouble(System.Object)">
+            <summary>
+            Converts an int to a double value.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Converter double value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ToString(System.Object)">
+            <summary>
+            Converts the specified value to a string.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The string representation of the value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Random">
+            <summary>
+            Generates a random double value between 0.0 and 1.0.
+            </summary>
+            <returns>A random double value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetDelimitedData(System.String,System.Int32,System.String)">
+            <summary>
+            Gets the delimited data from the input string.
+            </summary>
+            <param name="input">The input string.</param>
+            <param name="index">The index of the delimited data.</param>
+            <param name="delimiter">The delimiter used to separate the data.</param>
+            <returns>The delimited data.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Length(System.String)">
+            <summary>
+            Returns the length of the string representation of the specified value.
+            </summary>
+            <param name="value">The value to get the length of.</param>
+            <returns>The length of the string representation of the value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Substring(System.String,System.Int32,System.Int32)">
+            <summary>
+            Retrieves a substring from the specified value.
+            </summary>
+            <param name="value">The value to retrieve the substring from.</param>
+            <param name="start">The starting index of the substring.</param>
+            <param name="length">The length of the substring.</param>
+            <returns>The substring.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Bin2Int(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Converts a binary number to an integer.
+            </summary>
+            <param name="binaryNumber">The binary number to convert.</param>
+            <param name="lsbFirst">Flag indicating whether the least significant bit is first.</param>
+            <param name="twosComp">Flag indicating whether the binary number is in two's complement form.</param>
+            <returns>The converted integer value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Bin2Dec(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Converts a binary number to an integer.
+            </summary>
+            <param name="binaryNumber">The binary number to convert.</param>
+            <param name="lsbFirst">Flag indicating whether the least significant bit is first.</param>
+            <param name="twosComp">Flag indicating whether the binary number is in two's complement form.</param>
+            <returns>The converted integer value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Bin2Dec(System.String)">
+            <summary>
+            Converts a binary number to an integer.
+            </summary>
+            <param name="binaryNumber">The binary number to convert.</param>
+            <returns>The converted integer value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Bin2Long(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Converts a binary number to a long integer.
+            </summary>
+            <param name="binaryNumber">The binary number to convert.</param>
+            <param name="lsbFirst">Indicates whether the least significant bit is first.</param>
+            <param name="twosComp">Indicates whether the binary number is in two's complement form.</param>
+            <returns>The converted long integer value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Bin2Hex(System.String,System.Int32)">
+            <summary>
+            Converts a binary number to its hexadecimal representation.
+            </summary>
+            <param name="binaryNumber">The binary number to convert.</param>
+            <param name="size">The length of the hexadecimal representation.</param>
+            <returns>The hexadecimal representation of the binary number.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Dec2Bin(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Converts a decimal number to a binary string representation.
+            </summary>
+            <param name="number">The decimal number to convert.</param>
+            <param name="bits">The number of bits in the binary representation.</param>
+            <param name="twosComp">Indicates whether to use two's complement representation.</param>
+            <returns>The binary string representation of the decimal number.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Hex2Bin(System.String,System.Int32)">
+            <summary>
+            Converts a hexadecimal number to a binary string representation.
+            </summary>
+            <param name="number">The hexadecimal number to convert.</param>
+            <param name="bits">The number of bits in the binary representation.</param>
+            <returns>The binary string representation of the hexadecimal number.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Reverse(System.String)">
+            <summary>
+            Reverses the characters in a string.
+            </summary>
+            <param name="param">The string to reverse.</param>
+            <returns>The reversed string.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Double2UQmn(System.Double,System.Int32,System.Int32)">
+            <summary>
+            Converts a voltage value from decimal to binary in unsigned Q1.9 format.
+            </summary>
+            <param name="voltageVal">The decimal voltage to reverse.</param>
+            <param name="mBits">The number of bits for the integer portion of voltage.</param>
+            <param name="nBits">The number of bits for the decimal portion of voltage.</param>
+            <returns>The converted Binary string in UQmn format.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetPatSymbolString(System.String,System.Int32)">
+            <summary>
+            Gets the pattern symbol string for the specified value and size.
+            </summary>
+            <param name="value">The value to generate the pattern symbol string for.</param>
+            <param name="size">The size of the pattern symbol string.</param>
+            <returns>The pattern symbol string.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetCurrentDataBin">
+            <summary>
+            Gets the current data bin.
+            </summary>
+            <returns>The current data bin.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetCurrentSoftBin">
+            <summary>
+            Gets the current soft bin.
+            </summary>
+            <returns>The current soft bin.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetCurrentHardBin">
+            <summary>
+            Gets the current hard bin.
+            </summary>
+            <returns>The current hard bin.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ExecCallback(System.String,System.String)">
+            <summary>
+            Executes a callback function with optional arguments.
+            </summary>
+            <param name="func">The name of the callback function.</param>
+            <param name="args">The optional arguments for the callback function.</param>
+            <returns>The result of the callback function.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.XorBitWise(System.String,System.String)">
+            <summary>
+            Performs a bitwise XOR operation on two binary strings.
+            </summary>
+            <param name="arg1">The first binary string.</param>
+            <param name="arg2">The second binary string.</param>
+            <returns>The result of the XOR operation.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.OrBitWise(System.String,System.String)">
+            <summary>
+            Performs a bitwise OR operation on two binary strings.
+            </summary>
+            <param name="arg1">The first binary string.</param>
+            <param name="arg2">The second binary string.</param>
+            <returns>The result of the OR operation.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.AndBitWise(System.String,System.String)">
+            <summary>
+            Performs a bitwise AND operation on two binary strings.
+            </summary>
+            <param name="arg1">The first binary string.</param>
+            <param name="arg2">The second binary string.</param>
+            <returns>The result of the AND operation.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.NotBitWise(System.String)">
+            <summary>
+            Performs a bitwise NOT operation on a binary string.
+            </summary>
+            <param name="arg1">The binary string.</param>
+            <returns>The result of the NOT operation.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Max(System.Object[])">
+            <summary>
+            Returns the maximum value from a list of objects.
+            </summary>
+            <param name="args">The list of objects.</param>
+            <returns>The maximum value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Min(System.Object[])">
+            <summary>
+            Returns the minimum value from a list of objects.
+            </summary>
+            <param name="args">The list of objects.</param>
+            <returns>The minimum value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.IsMatch(System.String,System.String)">
+            <summary>
+            Checks if a string matches a regular expression pattern.
+            </summary>
+            <param name="inputString">The input string.</param>
+            <param name="regexString">The regular expression pattern.</param>
+            <returns>True if the string matches the pattern, otherwise false.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Contains(System.String,System.String)">
+            <summary>
+            Checks if a string contains a specified substring.
+            </summary>
+            <param name="inputString">The input string.</param>
+            <param name="partial">The substring to search for.</param>
+            <returns>True if the string contains the substring, otherwise false.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Replace(System.String,System.String,System.String)">
+            <summary>
+            Replaces all occurrences of a substring in a string with another substring.
+            </summary>
+            <param name="inputString">The input string.</param>
+            <param name="searchString">The substring to search for.</param>
+            <param name="replaceString">The substring to replace with.</param>
+            <returns>The modified string.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.LinearFit(System.Object,System.Object,System.Char)">
+            <summary>
+            Performs a linear fit on the given data points.
+            </summary>
+            <param name="xValueObject">The x-values of the data points.</param>
+            <param name="yValueObject">The y-values of the data points.</param>
+            <param name="delimiter">The delimiter used to separate the values in the input objects.</param>
+            <returns>A string containing the intercept, slope, and R-squared value of the linear fit.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.LittleEndian(System.String)">
+            <summary>
+            Applies little endian conversion to the hex string.
+            </summary>
+            <param name="str">hex value.</param>
+            <returns>result.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Count(System.String,System.String)">
+            <summary>
+            Counts the number of occurrences of a string in a string.
+            </summary>
+            <param name="str">The input string.</param>
+            <param name="c">The character to count.</param>
+            <returns>The number of occurrences of the character in the string.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.IndexOf(System.String,System.String)">
+            <summary>
+            Returns the zero-based index of the first occurrence of the specified string in a string.
+            </summary>
+            <param name="str">The input string.</param>
+            <param name="c">The character to search for.</param>
+            <returns>The zero-based index position of the first occurrence, if found; otherwise, -1.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.LastIndexOf(System.String,System.String)">
+            <summary>
+            Returns the zero-based index of the last occurrence of the specified string in a string.
+            </summary>
+            <param name="str">The input string.</param>
+            <param name="c">The character to search for.</param>
+            <returns>The zero-based index position of the last occurrence, if found; otherwise, -1.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.SelectArrayElements(System.Object,System.String,System.Char)">
+            <summary>
+            Selects elements from an array based on the specified range.
+            </summary>
+            <param name="input">The input array.</param>
+            <param name="range">The range of elements to select.</param>
+            <param name="delimiter">The delimiter used in the input array.</param>
+            <returns>The selected elements as an object.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.SelectArrayElement(System.Object,System.Int32,System.Char)">
+            <summary>
+            Selects an element from an array based on the specified index.
+            </summary>
+            <param name="arrayObject">The array object.</param>
+            <param name="index">The index of the element to select.</param>
+            <param name="delimiter">The delimiter used to split the array object.</param>
+            <returns>The selected element.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.SubtractArrays(System.Object,System.Object,System.Char)">
+            <summary>
+            Subtracts two arrays.
+            </summary>
+            <param name="array1Object">Array object 1.</param>
+            <param name="array2Object">Array object 2.</param>
+            <param name="delimiter">Delimiter.</param>
+            <returns>Result.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ScalarMultiplyArray(System.Double,System.Object,System.Char)">
+            <summary>
+            Multiplies a scalar with an array.
+            </summary>
+            <param name="scalar">Scalar value.</param>
+            <param name="arrayObject">Array object.</param>
+            <param name="delimiter">Delimiter.</param>
+            <returns>Resulting array.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayMax(System.Object[])">
+            <summary>
+            Returns the maximum value in the array.
+            </summary>
+            <param name="parameters">The array of objects to evaluate.</param>
+            <returns>The maximum value in the array.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayMax(System.Int32[])">
+            <summary>
+            Returns the maximum value in the array.
+            </summary>
+            <param name="parameters">The array of objects to evaluate.</param>
+            <returns>The maximum value in the array.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayMax(System.Double[])">
+            <summary>
+            Returns the maximum value in the array.
+            </summary>
+            <param name="parameters">The array of objects to evaluate.</param>
+            <returns>The maximum value in the array.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayMin(System.Object[])">
+            <summary>
+            Returns the minimum value from an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The minimum value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayMin(System.Int32[])">
+            <summary>
+            Returns the minimum value from an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The minimum value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayMin(System.Double[])">
+            <summary>
+            Returns the minimum value from an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The minimum value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayAverage(System.Object[])">
+            <summary>
+            Calculates the average value of an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The average value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayAverage(System.Int32[])">
+            <summary>
+            Calculates the average value of an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The average value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayAverage(System.Double[])">
+            <summary>
+            Calculates the average value of an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The average value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayMedian(System.Object[])">
+            <summary>
+            Calculates the median value of an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The median value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayMedian(System.Int32[])">
+            <summary>
+            Calculates the median value of an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The median value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArrayMedian(System.Double[])">
+            <summary>
+            Calculates the median value of an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The median value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Percentile(System.Object,System.Int32,System.Char)">
+            <summary>
+            Calculates the percentile value from an array of numbers.
+            </summary>
+            <param name="arrayObject">The array of numbers.</param>
+            <param name="percentile">The percentile value to calculate.</param>
+            <param name="delimiter">The delimiter used to split the array if it is provided as a string.</param>
+            <returns>The calculated percentile value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ArraySum(System.Object[])">
+            <summary>
+            Calculates the sum of an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The sum of the array.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Sum(System.Double[])">
+            <summary>
+            Calculates the sum of an array of doubles.
+            </summary>
+            <param name="parameters">The array of doubles.</param>
+            <returns>The sum of the array.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.IQR(System.Object[])">
+            <summary>
+            Calculates the inter-quantile range (IQR) of a given array of numbers.
+            </summary>
+            <param name="parameters">The array of numbers.</param>
+            <returns>The inter-quantile range (IQR) of the array.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Join(System.Object,System.String)">
+            <summary>
+            Joins the elements of an array into a single string using the specified delimiter.
+            </summary>
+            <param name="arrayObject">The array object to join.</param>
+            <param name="delimiter">The delimiter to use between elements.</param>
+            <returns>A string that contains the joined elements of the array.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Split(System.String,System.String,System.Char)">
+            <summary>
+            Splits a string into an array based on a delimiter and converts the elements to the specified type.
+            </summary>
+            <param name="arrayString">The string to split.</param>
+            <param name="type">The type to convert the elements to.</param>
+            <param name="delimiter">The delimiter used to split the string.</param>
+            <returns>An array of elements of the specified type.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetSharedStorageString(System.String)">
+            <summary>
+            Retrieves a value from shared storage.
+            </summary>
+            <param name="parameter">Token name.</param>
+            <returns>The retrieved value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetSharedStorageInt(System.String)">
+            <summary>
+            Retrieves a value from shared storage.
+            </summary>
+            <param name="parameter">Token name.</param>
+            <returns>The retrieved value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetSharedStorageDouble(System.String)">
+            <summary>
+            Retrieves a value from shared storage.
+            </summary>
+            <param name="parameter">Token name.</param>
+            <returns>The retrieved value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetValueFromDff(System.String)">
+            <summary>
+            Retrieves a value from DFF based on the provided parameter.
+            </summary>
+            <param name="parameter">The parameter to retrieve the value from DFF.</param>
+            <returns>The retrieved value from DFF.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetResistanceOffset(System.String)">
+            <summary>
+            Gets the resistance offset for the specified parameter.
+            </summary>
+            <param name="parameter">The parameter to get the resistance offset for.</param>
+            <returns>The resistance offset value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.GetVminForwardingValue(System.String)">
+            <summary>
+            Gets the Vmin forwarding value.
+            </summary>
+            <param name="parameter">The parameter.</param>
+            <returns>The Vmin forwarding value.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.Concat(System.String[])">
+            <summary>
+            Concatenates the specified parameters.
+            </summary>
+            <param name="parameters">List of strings.</param>
+            <returns>concatenated string.</returns>
+        </member>
+        <member name="M:DDG.ExpressionContext.ToString(System.Int32)">
+            <summary>
+            Converts an integer value to its string representation.
+            </summary>
+            <param name="parameter">The integer value to convert.</param>
+            <returns>The string representation of the integer value.</returns>
+        </member>
+        <member name="T:DDG.FileUtilities">
+            <summary>
+            Defines the <see cref="T:DDG.FileUtilities" />.
+            </summary>
+        </member>
+        <member name="M:DDG.FileUtilities.GetFile(System.String)">
+            <summary>
+            Wrapper function for Prime GetFile which actually prints out the name of the file if it isn't found
+            or GetFile fails.
+            </summary>
+            <param name="fileName">Filename to create a local copy of.</param>
+            <returns>Local file name.</returns>
+            <exception cref="T:System.IO.FileNotFoundException"> if file is not found.</exception>
+        </member>
+        <member name="T:DDG.Gsds">
+            <summary>
+            Defines the <see cref="T:DDG.Gsds" />.
+            </summary>
+        </member>
+        <member name="M:DDG.Gsds.TryGetToken(System.String,System.Object@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if a token exists, returns true if it does. Throws an exception
+            if the token is not in SharedStorage format.
+            </summary>
+            <param name="token">SharedStorage token name of the form G.[ULI].[SDIO].Name.</param>
+            <param name="result">Result.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>true if the token exists.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the token is in the wrong format.</exception>
+        </member>
+        <member name="M:DDG.Gsds.IsTokenFormat(System.String)">
+            <summary>
+            Checks if a given string is in GSDS format (G.[ULI].[SDIO].Name) and returns
+            true if it is.
+            </summary>
+            <param name="token">GSDS token name.</param>
+            <returns>true if the token is in G.[ULI].[SDIO].Name format.</returns>
+        </member>
+        <member name="M:DDG.Gsds.WriteToken(System.String,System.Object,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes a gsds token with the given value.
+            </summary>
+            <param name="token">GSDS token name of the form G.[ULI].[SDI].Name.</param>
+            <param name="value">GSDS value to write.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the token is in the wrong format.</exception>
+        </member>
+        <member name="M:DDG.Gsds.ReadToken(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reads a SharedStorage token and returns the value as a string.
+            </summary>
+            <param name="token">SharedStorage token name of the form G.[ULI].[SDIO].Name.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>string.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the token is in the wrong format.</exception>
+        </member>
+        <member name="T:DDG.HdmtExpression">
+            <summary>
+            Defines the <see cref="T:DDG.HdmtExpression" />.
+            </summary>
+        </member>
+        <member name="M:DDG.HdmtExpression.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.HdmtExpression"/> class.
+            </summary>
+            <param name="expression">String expression.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <param name="console">Prime IConsoleService.</param>
+        </member>
+        <member name="M:DDG.HdmtExpression.#ctor(System.String,NCalc.EvaluateOptions,Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.HdmtExpression"/> class.
+            </summary>
+            <param name="expression">String expression.</param>
+            <param name="options">EvaluateOptions options.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <param name="console">Prime IConsoleService.</param>
+        </member>
+        <member name="P:DDG.HdmtExpression.ExpressionContext">
+            <summary>
+            Gets expression context. Used for lambda functions.
+            </summary>
+        </member>
+        <member name="P:DDG.HdmtExpression.ExpressionAsText">
+            <summary>
+            Gets the original text of the expression for telemetry logging.
+            Should be the same as this.OriginalExpression, but using OriginalExpression
+            in telemetry caused random hangs when running expressions in parallel
+            threads. Not sure why.
+            </summary>
+        </member>
+        <member name="M:DDG.HdmtExpression.Evaluate">
+            <summary>
+            Wrapper to Evaluate the Expression.
+            </summary>
+            <returns>expression result.</returns>
+        </member>
+        <member name="M:DDG.HdmtExpression.TryGetValueFromDff(System.String,System.String@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reads the value of a token.
+            </summary>
+            <param name="parameter">Dff token.</param>
+            <param name="dffValue">Value.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>True if value exist.</returns>
+        </member>
+        <member name="M:DDG.HdmtExpression.GetValueFromTrialVar(System.String)">
+            <summary>
+            Reads a value from a trial variable.
+            </summary>
+            <param name="parameter">Variable name.</param>
+            <returns>value.</returns>
+        </member>
+        <member name="M:DDG.HdmtExpression.GetEnvironmentVariable(System.String)">
+            <summary>
+            Retrieves the value of an environment variable.
+            </summary>
+            <param name="parameter">The parameter in the format T.collection.variable.</param>
+            <returns>The value of the environment variable.</returns>
+        </member>
+        <member name="M:DDG.HdmtExpression.GetResistanceOffset(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Retrieves the resistance offset value for the specified parameter.
+            </summary>
+            <param name="parameter">The parameter in the format R.O.variable.</param>
+            <param name="sessionContext">The session context container.</param>
+            <returns>The resistance offset value.</returns>
+        </member>
+        <member name="M:DDG.HdmtExpression.GetVminForwardingValue(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reads the Vmin forwarding value.
+            </summary>
+            <param name="parameter">CornerId.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>Vmin value.</returns>
+        </member>
+        <member name="T:DDG.IDutStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:DDG.IDutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:DDG.IDutStorage`1.Get(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:DDG.IDutStorage`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="newObject">Object to store.</param>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:DDG.IDutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="sessionSession">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:DDG.PatternOccurrence">
+            <summary>
+            Tuple with pattern occurrence information.
+            </summary>
+        </member>
+        <member name="M:DDG.PatternOccurrence.#ctor(System.UInt64,System.String,System.UInt64,System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.PatternOccurrence"/> class.
+            </summary>
+            <param name="burst">Burst index.</param>
+            <param name="name">Pattern name.</param>
+            <param name="occurrence">Pattern occurrence.</param>
+            <param name="index">Pattern index in plist.</param>
+        </member>
+        <member name="P:DDG.PatternOccurrence.Burst">
+            <summary>
+            Gets the burst index.
+            </summary>
+        </member>
+        <member name="P:DDG.PatternOccurrence.PatternName">
+            <summary>
+            Gets the pattern name.
+            </summary>
+        </member>
+        <member name="P:DDG.PatternOccurrence.Occurrence">
+            <summary>
+            Gets the pattern occurrence.
+            </summary>
+        </member>
+        <member name="P:DDG.PatternOccurrence.Index">
+            <summary>
+            Gets the pattern index.
+            </summary>
+        </member>
+        <member name="M:DDG.PatternOccurrence.Equals(DDG.PatternOccurrence)">
+            <summary>
+            Compares current and other object.
+            </summary>
+            <param name="other">Other object.</param>
+            <returns>true when equal.</returns>
+        </member>
+        <member name="T:DDG.PlistUtilities">
+            <summary>
+            Plist utilities for Vmin searches.
+            </summary>
+        </member>
+        <member name="M:DDG.PlistUtilities.GetPlistContentsIndex(System.String)">
+            <summary>
+            Extracts plist contents index converting from position to occurrence.
+            </summary>
+            <param name="patlist">Patlist name.</param>
+            <returns>List of pattern occurrences.</returns>
+        </member>
+        <member name="T:DDG.RadixConversion">
+            <summary>
+            Defines the <see cref="T:DDG.RadixConversion" />.
+            </summary>
+        </member>
+        <member name="M:DDG.RadixConversion.BinaryToHex(System.String,System.Boolean)">
+            <summary>
+            String extension method. Convert the given binary string to a Hex string (no size restrictions).
+            </summary>
+            <param name="data">Binary string.</param>
+            <param name="lsbFirst">Bool value, set to true if the binary string is LSB first. (Default is true, which means MSB first).</param>
+            <returns>Hex string.</returns>
+            <exception cref="T:System.ArgumentNullException"> if the input data is null or empty.</exception>
+        </member>
+        <member name="M:DDG.RadixConversion.BinaryToInteger(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            String extension method. Convert the given binary string to decimal (32 bit integer).
+            </summary>
+            <param name="data">Binary string.</param>
+            <param name="lsbFirst">Bool value, set to true if the binary string is LSB first. (Default is true, which means MSB first).</param>
+            <param name="twosComp">Bool value, if true the binary is treated as a 2s compliment encoding.</param>
+            <returns>int32 value.</returns>
+        </member>
+        <member name="M:DDG.RadixConversion.BinaryToLong(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            String extension method. Convert the given binary string to decimal (64 bit integer).
+            </summary>
+            <param name="data">Binary string.</param>
+            <param name="lsbFirst">Bool value, set to true if the binary string is LSB first. (Default is true, which means MSB first).</param>
+            <param name="twosComp">Bool value, if true the binary is treated as a 2s compliment encoding.</param>
+            <returns>int62 value.</returns>
+        </member>
+        <member name="M:DDG.RadixConversion.TwosComplementToInteger(System.String)">
+            <summary>
+            String extension method. Convert the given binary string (in 2s Complement encoding) to decimal (32 bits integer).
+            </summary>
+            <param name="data">Binary string.</param>
+            <returns>int64 value.</returns>
+        </member>
+        <member name="M:DDG.RadixConversion.IntegerToBinary(System.String,System.Int32)">
+            <summary>
+            String extension method. Converts the positive integer value (stored in a string) into a binary value (stored in a string).
+            </summary>
+            <param name="data">Integer value in a string.</param>
+            <param name="size">Optional size to pad the result to.</param>
+            <returns>binary value in a string.</returns>
+        </member>
+        <member name="M:DDG.RadixConversion.LongToBinary2Comp(System.Int64,System.Int32)">
+            <summary>
+            String extension method. Converts the positive integer value (stored in a string) into a binary value (stored in a string).
+            </summary>
+            <param name="value">Integer value in a string.</param>
+            <param name="size">Optional size to pad the result to.</param>
+            <returns>binary value in a string.</returns>
+        </member>
+        <member name="M:DDG.RadixConversion.IntegerToBinary(System.Int32,System.Int32)">
+            <summary>
+            Int extension method. Converts the positive integer value into a binary value (stored in a string).
+            </summary>
+            <param name="data">Integer value.</param>
+            <param name="size">Optional size to pad the result to.</param>
+            <returns>binary value in a string.</returns>
+        </member>
+        <member name="M:DDG.RadixConversion.HexToBinary(System.Char,System.Int32)">
+            <summary>
+            Char extension method. Converts the Hexadecimal character into a binary value.
+            </summary>
+            <param name="data">Hex value in a string.</param>
+            <param name="size">Optional size to pad the result to.</param>
+            <returns>binary value in a string.</returns>
+        </member>
+        <member name="M:DDG.RadixConversion.HexToBinary(System.String,System.Int32)">
+            <summary>
+            String extension method. Converts the Hexadecimal value into a binary value.
+            </summary>
+            <param name="data">Hex value in a string.</param>
+            <param name="size">Optional size to pad the result to.</param>
+            <returns>binary value in a string.</returns>
+        </member>
+        <member name="T:DDG.SpecSet">
+            <summary>
+            Defines the <see cref="T:DDG.SpecSet" />.
+            </summary>
+        </member>
+        <member name="M:DDG.SpecSet.ReadToken(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if a token exists, returns true if it does. Throws an exception
+            if the token is not in SpecSet format.
+            </summary>
+            <param name="token">SpecSet token name of the form S.[TL].Name.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>SpecSet string value.</returns>
+        </member>
+        <member name="T:DDG.StringExtensions">
+            <summary>
+            Defines the <see cref="T:DDG.StringExtensions" />.
+            </summary>
+        </member>
+        <member name="M:DDG.StringExtensions.Reverse(System.String)">
+            <summary>
+            Simply reverses a string. This is the fastest way I could find to do it.
+            </summary>
+            <param name="data">String to reverse.</param>
+            <returns>Reversed String.</returns>
+            <exception cref="T:System.ArgumentNullException"> if the string is null.</exception>
+        </member>
+        <member name="M:DDG.StringExtensions.ResizeBinary(System.String,System.Int32)">
+            <summary>
+            Resizes the binary number. It will either pad (to the left) with 0s, or cut (from the left) extra bits.)
+            </summary>
+            <param name="data">Binary data.</param>
+            <param name="size">Expected size (0 means return as is).</param>
+            <returns>A resized binary string.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.RangeToList(System.String)">
+            <summary>
+            Function to convert a string range into a list of integers.
+            Example ranges: "3,6-8" becomes { 3, 6, 7, 8 }.
+            </summary>
+            <param name="range">Range to convert.</param>
+            <returns>List of indexes.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.ExpandRangedString(System.String)">
+            <summary>
+            Expands ranged/compressed string.
+            </summary>
+            <param name="input">Input string.</param>
+            <returns>Result.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.ToDouble(System.String)">
+            <summary>
+            Converts string with or without units to double value.
+            Able to handle units multipliers and scientific notation.
+            </summary>
+            <param name="value">string value.</param>
+            <returns>double value.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.ToDouble(System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Converts string with or without units to double value.
+            Able to handle units multipliers and scientific notation.
+            </summary>
+            <param name="value">string value.</param>
+            <param name="useSharedStorage">Evaluates value from SharedStorage.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>double value.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.TryConvertUnits(System.String)">
+            <summary>
+            Tries to evaluate value containing units.
+            </summary>
+            <param name="value">value to convert.</param>
+            <returns>double value.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.EvaluateToken(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluates the token as a string gsds or uservar or literal.
+            </summary>
+            <param name="token">Token.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>Token value as a string.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.EvaluateExpression(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluates a string expression to a double value.
+            </summary>
+            <param name="value">Expression. Using $ as token delimiter.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>Converted double value.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.ToInt(System.String)">
+            <summary>
+            Converts string to int32.
+            </summary>
+            <param name="value">string value.</param>
+            <returns>integer result.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.ToInt(System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Converts string to int32.
+            </summary>
+            <param name="value">string value.</param>
+            <param name="useSharedStorage">Evaluates value from SharedStorage.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>integer result.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.GetPatSymbolString(System.String,System.Int32)">
+            <summary>
+            Gets string data into PatSymbol. Able to process binary, integer and hex representation.
+            </summary>
+            <param name="data">data string.</param>
+            <param name="expectedSize">data size.</param>
+            <returns>Array of PatternSymbol.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.ReplaceTokens(System.String,System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.String)">
+            <summary>
+            Replaces token in curly brackets with specified value.
+            </summary>
+            <param name="input">input string.</param>
+            <param name="toBeReplaced">data size.</param>
+            <param name="type">Type of brackets.</param>
+            <returns>Array of PatternSymbol.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.ReplaceTokens(System.String,System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.String)">
+            <summary>
+            Replaces token in curly brackets with specified value.
+            </summary>
+            <param name="input">input string.</param>
+            <param name="toBeReplaced">data size.</param>
+            <param name="type">Type of brackets.</param>
+            <returns>Array of PatternSymbol.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.ExtractTokens(System.String,System.String)">
+            <summary>
+            Extracts tokens enclosed in curly brackets from the input string.
+            </summary>
+            <param name="input">The input string.</param>
+            <param name="type">Type of brackets.</param>
+            <returns>A list of extracted tokens.</returns>
+        </member>
+        <member name="M:DDG.StringExtensions.ReplaceCharAt(System.String,System.Int32,System.Char)">
+            <summary>
+            Replaces the character at the specified index with a new character.
+            </summary>
+            <param name="input">The input string.</param>
+            <param name="index">The index of the character to replace.</param>
+            <param name="newChar">The new character to insert.</param>
+            <returns>A new string with the character replaced.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when the index is out of the range of the input string.</exception>
+        </member>
+        <member name="T:DDG.TestMethodExtensions">
+            <summary>
+            Defines the <see cref="T:DDG.TestMethodExtensions" />.
+            </summary>
+        </member>
+        <member name="M:DDG.TestMethodExtensions.PrintParameters``1(``0,Prime.TestMethods.TestMethodBase.PrimeLogLevel,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Prints all instance parameters using reflection.
+            </summary>
+            <typeparam name="T">Test method class.</typeparam>
+            <param name="instance">Instance object.</param>
+            <param name="logLevel">Log level.</param>
+            <param name="console">Console interface.</param>
+            <param name="session">Session context.</param>
+        </member>
+        <member name="T:DDG.TestProgramServiceExtensions">
+            <summary>
+            Defines the <see cref="T:DDG.TestProgramServiceExtensions" />.
+            </summary>
+        </member>
+        <member name="M:DDG.TestProgramServiceExtensions.GetCurrentDefaultTiming(Prime.TestProgramService.ITestProgramService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns current instance timings.
+            </summary>
+            <param name="service">Service interface.</param>
+            <param name="session">Prime ISessionContextProviderContainer.</param>
+            <returns>Pattern list name.</returns>
+        </member>
+        <member name="M:DDG.TestProgramServiceExtensions.GetCurrentDefaultLevel(Prime.TestProgramService.ITestProgramService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns current instance levels.
+            </summary>
+            <param name="service">Service interface.</param>
+            <param name="session">Prime ISessionContextProviderContainer.</param>
+            <returns>Pattern list name.</returns>
+        </member>
+        <member name="M:DDG.TestProgramServiceExtensions.GetCurrentFlowNumber(Prime.TestProgramService.ITestProgramService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns current instance flow number.
+            </summary>
+            <param name="service">Service interface.</param>
+            <param name="session">Prime ISessionContextProviderContainer.</param>
+            <returns>Flow number.</returns>
+        </member>
+        <member name="M:DDG.TestProgramServiceExtensions.GetCurrentLogLevel(Prime.TestProgramService.ITestProgramService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the value of the LogLevel parameter for a Callback/UserFunction.
+            Will be "DISABLED" if called from Evergreen code.
+            </summary>
+            <param name="service">Service interface.</param>
+            <param name="session">Prime ISessionContextProviderContainer.</param>
+            <returns>Value of LogLevel, DISABLED, TEST_METHOD, or Enabled.</returns>
+        </member>
+        <member name="M:DDG.TestProgramServiceExtensions.GetPrimeConsole(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the Prime ConsoleService or null depending on whether the LogLevel is enabled in ISessionContextProviderContainer.
+            </summary>
+            <param name="sessionContext">ISessionContextProviderContainer for the current instance.</param>
+            <returns>IConsoleService or null.</returns>
+        </member>
+        <member name="T:DDG.UserVar">
+            <summary>
+            Defines the <see cref="T:DDG.UserVar" />.
+            </summary>
+        </member>
+        <member name="T:DDG.UserVar.ValidTypes">
+            <summary>
+            Defines the valid Hdmt UserVariable types.
+            </summary>
+        </member>
+        <member name="F:DDG.UserVar.ValidTypes.BOOLEAN">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:DDG.UserVar.ValidTypes.DOUBLE">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:DDG.UserVar.ValidTypes.INTEGER">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:DDG.UserVar.ValidTypes.STRING">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:DDG.UserVar.ValidTypes.ARRAYBOOLEAN">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:DDG.UserVar.ValidTypes.ARRAYDOUBLE">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:DDG.UserVar.ValidTypes.ARRAYINTEGER">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:DDG.UserVar.ValidTypes.ARRAYSTRING">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="M:DDG.UserVar.Exists(System.String)">
+            <summary>
+            Returns true if the given UserVar exists, false otherwise.
+            </summary>
+            <param name="uservar">Hdmt UserVariable name of form collection.variable .</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:DDG.UserVar.Write(System.String,DDG.UserVar.ValidTypes,System.Object)">
+            <summary>
+            Writes an uservar of the given type.
+            </summary>
+            <param name="uservar">Hdmt UserVariable of the form collection.variable .</param>
+            <param name="type">Type of the Hdmt UserVariable.</param>
+            <param name="value">String value to write. It will be converted to the correct type, ARRAY types should be a comma-separated string.</param>
+        </member>
+        <member name="M:DDG.UserVar.Read(System.String,DDG.UserVar.ValidTypes)">
+            <summary>
+            Reads the value of the given Hdmt UserVariable.
+            </summary>
+            <param name="uservar">Hdmt UserVariable of the form collection.variable .</param>
+            <param name="type">Type of the Hdmt UserVariable.</param>
+            <returns>Value as a string. ARRAY types will be a comma-separated string.</returns>
+        </member>
+        <member name="M:DDG.UserVar.ReadAndGetType(System.String,DDG.UserVar.ValidTypes@)">
+            <summary>
+            Reads the value of the given Hdmt UserVariable without knowing the type.
+            The parameter "type" will be updated with the actual type that was read.
+            </summary>
+            <param name="uservar">Hdmt UserVariable of the form collection.variable .</param>
+            <param name="type">(output) Type of the Hdmt UserVariable.</param>
+            <returns>Value as a string. ARRAY types will be a comma-separated string.</returns>
+        </member>
+        <member name="T:DDG.Utils">
+            <summary>
+            Different common utilities.
+            </summary>
+        </member>
+        <member name="M:DDG.Utils.ExtractData(System.Collections.Generic.Dictionary{System.String,System.String},System.Char[]@)">
+            <summary>
+            Extracts CTV data dictionary into a char array. Optimized for test time.
+            </summary>
+            <param name="ctvData">CTV data.</param>
+            <param name="singleOutputString">Output array.</param>
+        </member>
+    </members>
+</doc>

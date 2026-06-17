@@ -1,0 +1,614 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.SimpleSearch</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.SimpleSearch.EdgeCheck">
+            <summary>
+            Edge check class responsible to handle boundary check for test point indexes.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.EdgeCheck.#ctor(Prime.TestMethods.SimpleSearch.Storage.Common,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SimpleSearch.EdgeCheck"/> class.
+            </summary>
+            <param name="commonInfo">Common information.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.EdgeCheck.EdgeCheckResult">
+            <summary>
+            Edge check result, use to report all 4 conditions before performing linear/binary search.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.EdgeCheck.EdgeCheckResult.Pass">
+            <summary>
+            Pass to fail transition success.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.EdgeCheck.EdgeCheckResult.Fail">
+            <summary>
+            Reverse pass to fail transition, invalid condition.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.EdgeCheck.EdgeCheckResult.BothPass">
+            <summary>
+            Both end pass.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.EdgeCheck.EdgeCheckResult.BothFail">
+            <summary>
+            Both end fail.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.EdgeCheck.CommonInfo">
+            <summary>
+            Gets common information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.EdgeCheck.PerformEdgeCheck">
+            <summary>
+            Default edge check take care of lowest point and highest point, and check if it does fulfill any of the 4 edge check conditions through functional test.
+            Directly exit if fail, before proceeding to linear/binary search.
+            </summary>
+            <returns>Any of the 4 edge check condition.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.EdgeCheck.CheckTestPoint(System.Int32,System.String)">
+            <summary>
+            Functional test for start and end test point.
+            </summary>
+            <param name="index">Start or end index.</param>
+            <param name="testPointType">Start or end test point type.</param>
+            <returns>>Boolean result of index passing/failing functional test.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.FunctionalTestHub">
+            <summary>
+            FunctionalTestHub class centralize functional test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.FunctionalTestHub.#ctor(Prime.FunctionalService.IFunctionalTest,Prime.TestMethods.SimpleSearch.ItuffLogger,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SimpleSearch.FunctionalTestHub"/> class.
+            </summary>
+            <param name="functionalTest">Functional test.</param>
+            <param name="ituffLogger">Ituff logger.</param>
+            <param name="isFrequencySearch">Is frequency or voltage search type.</param>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.FunctionalTestHub.FunctionalTest">
+            <summary>
+            Gets functional test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.FunctionalTestHub.ItuffLogger">
+            <summary>
+            Gets ituff logger.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.FunctionalTestHub.IsFrequencySearch">
+            <summary>
+            Gets a value indicating whether search type is frequency or level search.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.FunctionalTestHub.ApplyFilteredTestCondition">
+            <summary>
+            Apply levels or timings test condition, based on vmin/vmax, or fmin/fmax.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.FunctionalTestHub.ApplyTestConditions">
+            <summary>
+            Apply both levels or timings test condition.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.FunctionalTestHub.ExecuteFunctionalTest">
+            <summary>
+            Execute functional test.
+            </summary>
+            <returns>Functional test result.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.FunctionalTestHub.PopulatePerCycleFailure">
+            <summary>
+            Populate per cycle failures.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.ItuffLogger">
+            <summary>
+            Ituff logging class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.ItuffLogger.#ctor(Prime.TestMethods.SimpleSearch.Storage.MrsltConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SimpleSearch.ItuffLogger"/> class.
+            </summary>
+            <param name="mrsltConverter">Mrslt converter object.</param>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.ItuffLogger.MrsltResult">
+            <summary>
+            Gets or sets mrslt result to be printed on ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.ItuffLogger.NumberOfPoint">
+            <summary>
+            Gets or sets number of point search have executed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.ItuffLogger.Failures">
+            <summary>
+            Gets or sets failures collected from functional test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.ItuffLogger.MrsltConverter">
+            <summary>
+            Gets or sets mrsltConverter.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.ItuffLogger.ClearItuffData">
+            <summary>
+            Clear or reset ituff data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.ItuffLogger.PrintToItuff(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print failures, mrslt and comnt info to ituff.
+            </summary>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.ItuffLogger.PrintFailuresToItuff(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Functions to print failures to ituff.
+            </summary>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod">
+            <summary>
+            SimpleSearch test method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.functionalTestHub">
+            <summary>
+            Functional test to execute plist.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.testConditionHandle">
+            <summary>
+            Test condition object to handle specSet modification.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.commonInfo">
+            <summary>
+            Common information.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.ituffLogger">
+            <summary>
+            ItuffLogger instance.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.edgeCheck">
+            <summary>
+            Edge check object.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.searchValueList">
+            <summary>
+            This list stores the low to high search values input from user.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchMethodOption">
+            <summary>
+            Search method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchMethodOption.LINEAR">
+            <summary>
+            Linear.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchMethodOption.BINARY">
+            <summary>
+            Binary.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchDirectionOption">
+            <summary>
+            Search direction.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchDirectionOption.PASS_TO_FAIL">
+            <summary>
+            Start from pass to fail.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchDirectionOption.FAIL_TO_PASS">
+            <summary>
+            Start from fail to pass.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchTypeOption">
+            <summary>
+            Search type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchTypeOption.VMIN">
+            <summary>
+            VMIN.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchTypeOption.VMAX">
+            <summary>
+            VMAX.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchTypeOption.FMIN">
+            <summary>
+            FMIN.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchTypeOption.FMAX">
+            <summary>
+            FMAX.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.EnabledOption">
+            <summary>
+            Enable or disable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.EnabledOption.ENABLED">
+            <summary>
+            Enable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.EnabledOption.DISABLED">
+            <summary>
+            Disable.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.ValuesExpression">
+            <summary>
+            Gets or sets point expression. Expected input format as lowValue,highValue,resolution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchParam">
+            <summary>
+            Gets or sets levels or timings specSet.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchMethod">
+            <summary>
+            Gets or sets search method. Example: Linear, Binary.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchDirection">
+            <summary>
+            Gets or sets search direction. Example: Pass_to_fail, fail_to_pass.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchType">
+            <summary>
+            Gets or sets search type. Example: VMIN, VMAX, FMIN, FMAX.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SkipEdgeCheck">
+            <summary>
+            Gets or sets skip edge check.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.FrequencyMode">
+            <summary>
+            Gets or sets IsCoreMode to determine whether CORE speed or FSB is use.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.PeriodFormat">
+            <summary>
+            Gets or sets period format either in period (nS) or frequency(Mhz). Default enabled means period.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.BusRatio">
+            <summary>
+            Gets or sets bus ratio when CORE mode selected.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.UpdatePortForSearch">
+            <summary>
+            Update exit port, given if edge check is skipped.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.PopulateLevelsSearchList(Prime.TestMethods.SimpleSearch.SearchValueBuilder)">
+            <summary>
+            Populate value into list, based on vmin, vmax, P2F or F2P.
+            Order of list item is expected to be opposite one another.
+            Last test point within the range is included.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.PopulateTimingsSearchList(Prime.TestMethods.SimpleSearch.SearchValueBuilder)">
+            <summary>
+            Populate value into list, based on FMAX, FMIN, P2F or F2P, and period format.
+            Order of list item is expected to be opposite one another.
+            Last test point within the range is included.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.SearchMethod">
+            <summary>
+            This class responsible for handling linear, binary search.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchMethod.#ctor(Prime.TestMethods.SimpleSearch.Storage.Common,Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.SearchDirectionOption,Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.EnabledOption,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SimpleSearch.SearchMethod"/> class.
+            </summary>
+            <param name="commonInfo">Common information.</param>
+            <param name="searchDirection">Search direction.</param>
+            <param name="skipEdgeCheck">Skip edge check.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.SearchMethod.SearchDirection">
+            <summary>
+            Gets search direction parameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.SearchMethod.SkipEdgeCheck">
+            <summary>
+            Gets skip edge check status.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.SearchMethod.CommonInfo">
+            <summary>
+            Gets common information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchMethod.ExecuteLinearSearch">
+            <summary>
+            Execute linear search.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchMethod.ExecuteBinarySearch">
+            <summary>
+            Execute binary search.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchMethod.SearchPassToFail">
+            <summary>
+            Searching value from passing to failing transition, index starting from low index to high index of search value list.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchMethod.ValidateP2FFailFunctionalTestEdgeCheck(System.Int32)">
+            <summary>
+            This function validate pass_to_fail case, where functional test failed, considering skipped and non-skipped edge check.
+            Condition that trigger this function: 1) pass_to_FAIL, 2) FAIL at first point/both_end_FAIL, 3) reverse pass_to_FAIL.
+            </summary>
+            <param name="currentIndex">Current loop index to identify if we are at the start or end of search value list.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchMethod.ValidateP2FPassFunctionalTestEdgeCheck(System.Int32)">
+            <summary>
+            This function validate pass_to_fail case, where functional test passed, considering skipped and non-skipped edge check.
+            Condition that trigger this function: 1) PASS_to_fail/first point PASS, 2) Both_end_PASS.
+            </summary>
+            <param name="currentIndex">Current loop index to identify if we are at the start or end of search value list.</param>
+            <returns>False meant pass_to_fail transition are not met, otherwise true to continue search.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchMethod.SearchFailToPass">
+            <summary>
+            Note: Fail_to_pass transition search check high index to low index (invert with pass_to_fail), and make comparison with start/end index (which are both constant).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchMethod.ValidateF2PPassFunctionalEdgeCheck(System.Int32)">
+            <summary>
+            1) fail_to_PASS, 2) Both end PASS, 3) PASS_to_fail reverse/first PASS.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.SearchValueBuilder">
+            <summary>
+            Class to populate all search points based on user selection.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchValueBuilder.#ctor(Prime.TestMethods.SimpleSearch.SearchValueBuilder.PointBreakdown,System.String,Prime.TestMethods.SimpleSearch.PrimeSimpleSearchTestMethod.EnabledOption,Prime.TestMethods.SimpleSearch.Storage.MrsltConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SimpleSearch.SearchValueBuilder"/> class.
+            </summary>
+            <param name="points">Points object.</param>
+            <param name="busRatio">Bus ratio.</param>
+            <param name="isCoreMode">Is Core or FSB mode.</param>
+            <param name="mrsltConverter">Mrslt converter.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PopulateValuesHighToLow">
+            <summary>
+            Build search value from high to low.
+            </summary>
+            <returns>List of search values.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PopulateValuesLowToHigh">
+            <summary>
+            Build search value from low to high.
+            </summary>
+            <returns>List of search values.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PopulatePeriodValuesLowToHigh">
+            <summary>
+            Build each point into period (nS), and push to list from low to high, last point included.
+            </summary>
+            <returns>List of search value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PopulatePeriodValuesHighToLow">
+            <summary>
+            Build each point into period (nS), and push to list from high to low, last point included.
+            </summary>
+            <returns>List of search value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PopulateFrequencyHighToLow">
+            <summary>
+            Build each point into frequency, push to list from high to low, last point included.
+            </summary>
+            <returns>List of search value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PopulateFrequencyLowToHigh">
+            <summary>
+            Build each point into frequency, push to list from high to low, last point included.
+            </summary>
+            <returns>List of search value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchValueBuilder.ResolveBusRatio(System.String)">
+            <summary>
+            Convert user input string busRatio to double.
+            </summary>
+            <param name="inputBusRatio">User input busRatio.</param>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Test method exception for handling unacceptable input.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PopulateValuesLowToHigh(System.Double,System.Double,System.Double)">
+            <summary>
+            This function populate all the values into searchValueList from low to high, by accepting multiplication product as parameter.
+            </summary>
+            <param name="baseValue">Base value is the result of multiplication from caller function, use to push all values to list except last value.</param>
+            <param name="lastValue">Last value is the result of multiplication from caller function, only use to populate last value.</param>
+            <param name="postProcessedResolution">Processed resolution, either is multiplied with period or frequency, or non-processed from vmin/vmax.</param>
+            <returns>Search value list.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PopulateValuesHighToLow(System.Double,System.Double,System.Double)">
+            <summary>
+            This function populate all the values into searchValueList from high to low, by accepting multiplication product as parameter.
+            </summary>
+            <param name="baseValue">Base value is the result of multiplication from caller function, use to push all values to list except last value.</param>
+            <param name="lastValue">Last value is the result of multiplication from caller function, only use to populate last value.</param>
+            <param name="postProcessedResolution">Processed resolution, either is multiplied with period or frequency, or non-processed from vmin/vmax.</param>
+            <returns>Search value list.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PointBreakdown">
+            <summary>
+            Breakdown value expression from user.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PointBreakdown.LowValue">
+            <summary>
+            Gets or sets low value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PointBreakdown.HighValue">
+            <summary>
+            Gets or sets high value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.SearchValueBuilder.PointBreakdown.Resolution">
+            <summary>
+            Gets or sets resolution.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.Storage.Common">
+            <summary>
+            Common parameter and properties shared across classes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.Storage.Common.ReverseFail">
+            <summary>
+            Reverse fail of pass_to_fail, or fail_to_pass constant.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimpleSearch.Storage.Common.BothEndFail">
+            <summary>
+            Both end fails constant.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.Storage.Common.#ctor(Prime.TestMethods.SimpleSearch.FunctionalTestHub,Prime.TestMethods.SimpleSearch.TestConditionHandle,System.Collections.Generic.List{System.Double},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SimpleSearch.Storage.Common"/> class.
+            </summary>
+            <param name="functionalTestHub">FunctionalTest object.</param>
+            <param name="testConditionHandle">Test condition object.</param>
+            <param name="searchValueList">Search value list.</param>
+            <param name="searchParam">SpecSet value.</param>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.Storage.Common.StartIndex">
+            <summary>
+            Gets passing index or starting index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.Storage.Common.EndIndex">
+            <summary>
+            Gets or sets failing index or end index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.Storage.Common.LastPassIndex">
+            <summary>
+            Gets or sets last pass index, value shared across linear, binary and edge check class.
+            This value helps to decide last passing value, which will be printed in ituff mrslt.
+            Negative value indicate either a both end passing, failing, or pass to fail in reverse order detected.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.Storage.Common.FunctionalTestHub">
+            <summary>
+            Gets functional test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.Storage.Common.TestConditionHandle">
+            <summary>
+            Gets test condition instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.Storage.Common.SearchValueList">
+            <summary>
+            Gets search value list generated from user.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.Storage.Common.SearchParam">
+            <summary>
+            Gets search parameter use for spec set.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.Storage.MrsltConverter">
+            <summary>
+            This class responsible to convert search value especially for timing (FMAX and FMIN) condition.
+            Back to user input value that is intended to be print in ituff.
+            VMIn and VMAX do not consume this due to it's nature of using just the user input as search value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.Storage.MrsltConverter.IsPeriod">
+            <summary>
+            Gets or sets a value indicating whether is period or frequency.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimpleSearch.Storage.MrsltConverter.CoreMultiplier">
+            <summary>
+            Gets or sets the core multiplier.
+            This is to divide or reverse engineer multiplication happens in SearchValueBuilder.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimpleSearch.TestConditionHandle">
+            <summary>
+            Class contains logic for setup level and timing specSet.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.TestConditionHandle.SetSpecSet(System.String,System.Double)">
+            <summary>
+            Set specSet value.
+            </summary>
+            <param name="specSetName">SpecSet name.</param>
+            <param name="specSetValue">Spec set value.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SimpleSearch.TestConditionHandle.GetTestCondition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get current test condition.
+            </summary>
+            <param name="testConditionName">Test condition name to get.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+    </members>
+</doc>

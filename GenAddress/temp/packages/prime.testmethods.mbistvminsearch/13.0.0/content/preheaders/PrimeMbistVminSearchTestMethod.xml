@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeMbistVminSearchTestMethod" MetaData="dll=Prime.TestMethods.MbistVminSearch" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeMbistVminSearchTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="Patlist" descriptions="Patlist to execute.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>Plist</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="LevelsTc" descriptions="Level test condition to load.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="ApplyEndSequence" descriptions="The ApplyEndSequence at the end of the test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>ENABLED</Choice>
+          <Choice>DISABLED</Choice>
+        </Choices>
+        <Default>DISABLED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingsTc" descriptions="Timing test condition to load.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>TimingCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="PrePlist" descriptions="The PrePlist callback to plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MaskPins" descriptions="Comma separated pins for mask.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VoltageTargets" descriptions="Targets.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="StartVoltages" descriptions="StartVoltageValues.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="EndVoltageLimits" descriptions="EndVoltageLimits.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="StartVoltagesForRetry" descriptions="LowerStartVoltages for overshoot.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="StepSize" descriptions="StepSize.">
+        <Type>
+          <Tester>Double</Tester>
+          <TestProgram>Double</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="FeatureSwitchSettings" descriptions="FeatureSwitchSettings.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="FivrCondition" descriptions="FivrCondition name.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MultiPassMasks" descriptions="A list containing the mask bit arrays needed for multi pass capability. Example: \&quot;1100,0101\&quot; indicates that two multi pass will be executed. Where elements corresponding to \&quot;1\&quot; mean that target will be masked or ignored for the corresponding search.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ScoreboardBaseNumbers" descriptions="An integer number value to prefix the generated scoreboard fail counters.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ScoreboardEdgeTicks" descriptions="The number of resolution ticks to step down when scoreboard mode is enabled.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>0</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PatternNameMap" descriptions="A comma separated string of integers which map characters in the pattern name to produce a scoreboard counter. Positive indexes, starting at 0, map characters at the start of the string. Negative indexes, starting at -1, map characters at the end of the string.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ScoreboardMaxFails" descriptions="The maximum number of fails that can be processed for scoreboard counters. This parameter is zero by default. If no other positive value is passed, then the maximum possible integer value will be used.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>0</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="MaxRepetitionCount" descriptions="The maximum number of times a search can be repeated for recovering purposes. This parameter is zero by default. Meaning, no repetition will be executed for any search.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>0</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="ExecutionMode" descriptions="Execution mode, default behaviour is Search without scoreboard. In order to enable ScoreBoard : executionMode = SearchWithScoreboard and ScoreBoardBaseNum &gt; 0.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Search</Choice>
+          <Choice>SearchWithScoreboard</Choice>
+        </Choices>
+        <Default>Search</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="FailCaptureCount" descriptions="FailCaptureCount. Default 1 will set stop-on-first-fail. Any value greater than 1 will run full plist unless used in combination with ReturnOn plist options.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>2147483647</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="CtvPins" descriptions="CTV capture pins.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ForceConfigFileParseState" descriptions="The state to force parsing of a new config file for debug scenarios.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Disabled</Choice>
+          <Choice>Enabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="AdvancedDebug" descriptions="Whether to collect per pattern debug.  Per controller per pattern result information.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Disabled</Choice>
+          <Choice>Enabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PrintToItuff" descriptions="Mode for printing hry string to the ituff.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="RecoveryModeDownbin" descriptions="Set the recovery mode of the instancMbistTestMode.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Disabled</Choice>
+          <Choice>Enabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="BisrMode" descriptions="Mode used to store BISR data in TP.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="DffOperation" descriptions="Dff Operation.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VFDMconfig" descriptions="VFDM config.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MappingConfig" descriptions="Mapping config.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ClearVariables" descriptions="Mode for clearing or not global HRY string.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MbistTestMode" descriptions="Enables default or post repair flows.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>HRY</Choice>
+          <Choice>PostRepair</Choice>
+          <Choice>KS</Choice>
+          <Choice>RepShareBira</Choice>
+        </Choices>
+        <Default>HRY</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="ItuffNameExtenstion" descriptions="For running multiple fuse values with different ITUFF prints.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="LookupTableConfigurationFile" descriptions="LookupTableConfigurationFile.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="RecoveryConfigurationFile" descriptions="RecoveryConfigurationFile.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="IgnorePrePstFail" descriptions="To ignore state.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Disabled</Choice>
+          <Choice>Enabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TestMode" descriptions="Enables default or post repair flows. ">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>SingleVmin</Choice>
+          <Choice>MultiVmin</Choice>
+          <Choice>Functional</Choice>
+          <Choice>Scoreboard</Choice>
+        </Choices>
+        <Default>SingleVmin</Default>
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Failed</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>Passed</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>Repairable Arrays</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>3</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>Recovery</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>4</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>Repair and Recovery</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>5</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Config Error</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>6</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Missing Corner Case</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>7</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Failed DTS Monitor</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>8</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Reset failure</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>9</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>BisrChainCompress Fails</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

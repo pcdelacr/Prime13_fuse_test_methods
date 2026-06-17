@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.DDGBaseInitializers</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.ExecuteMode">
+            <summary>
+            Enum to control template execution mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.ExecuteMode.Configure">
+            <summary>Configure Mode, run once during Init to build the Forwarding Table.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.ExecuteMode.DumpTables">
+            <summary>Print out all the VminForwarding Table information.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.MyBool">
+            <summary>
+            Simple enum to hold True/False parameter values.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.MyBool.True">
+            <summary>
+            Enum for True.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.MyBool.False">
+            <summary>
+            Enum For false.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.RulesFile">
+            <summary>
+            Gets or sets the DieRecovery Rules file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.SKUFile">
+            <summary>
+            Gets or sets the DieRecovery SKU Definition file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.TrackerFile">
+            <summary>
+            Gets or sets the DieRecovery Tracker configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.Mode">
+            <summary>
+            Gets or sets the Templates Execution Mode (Only Configure is valid for a production test program).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.AllowDefeatures">
+            <summary>
+            Gets or sets the value indicating whether DownBins are valid. If false, the Trackers can only be written once and will fail if their value is changed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.SaveHistory">
+            <summary>
+            Gets or sets the value indicating whether to save the name of every test that updates a DieRecovery Tracker.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.EnablePreTestCheck">
+            <summary>
+            Gets or sets the value indicating whether VminTC should run the die recovery rules before executing the search.
+            If this is set to True and the pre-test check fails, VminTC exit port will depend only on the results of the test, any non-tested trackers will be ignored.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.DieRecoveryBase.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.DTSBase">
+            <summary>
+            Voltage Converter Test Class. Run during INIT to read configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.DTSBase.ConfigurationFile">
+            <summary>
+            Gets or sets the voltage converter ActiveConfiguration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.DTSBase.VoltageTargetMapping">
+            <summary>
+            Gets or sets the voltage targets to sensors mapping.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.DTSBase.FileSystem_">
+            <summary>
+            Gets or sets the file system interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.DTSBase.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.DTSBase.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.FlowControlBase">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.FlowControlBase.MyBool">
+            <summary>
+            Simple enum to hold True/False parameter values.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.FlowControlBase.MyBool.True">
+            <summary>
+            Enum for True.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.FlowControlBase.MyBool.False">
+            <summary>
+            Enum For false.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.FlowControlBase.AllowDownbins">
+            <summary>
+            Gets or sets the flag to indicate if Flow Downbins are allowed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.FlowControlBase.UseMTT">
+            <summary>
+            Gets or sets the flag to indicate if flow control will use MTT.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.FlowControlBase.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.FlowControlBase.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.PlistModificationsBase">
+            <summary>
+            Voltage Converter Test Class. Run during INIT to read configuration.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.PlistModificationsBase.Mode">
+            <summary>
+            Enumerates different operation modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.PlistModificationsBase.Mode.Restore">
+            <summary>
+            Restore; it reverts back all changes to original state.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.PlistModificationsBase.Mode.Clean">
+            <summary>
+            Removes node from tree; it will lose track of restore data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.PlistModificationsBase.Patlists">
+            <summary>
+            Gets or sets the list of patlists to restore.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.PlistModificationsBase.OperationMode">
+            <summary>
+            Gets or sets the operation mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.PlistModificationsBase.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.PlistModificationsBase.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.PreloadParametersBase">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.PreloadParametersBase.InputFile">
+            <summary>
+            Gets or sets the input file with preloaded configurations to load.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.PreloadParametersBase.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.PreloadParametersBase.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.ExecuteMode">
+            <summary>
+            Enum to control template execution mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.ExecuteMode.Configure">
+            <summary>Configure Mode, run once during Init to build the Forwarding Table.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.ExecuteMode.DumpTables">
+            <summary>Print out all the VminForwarding Table information.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.MyBool">
+            <summary>
+            Simple enum to hold True/False parameter values.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.MyBool.True">
+            <summary>
+            Enum for True.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.MyBool.False">
+            <summary>
+            Enum For false.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.FlowIndexModes">
+            <summary>
+            Enum to define flow index modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.FlowIndexModes.VminForwardingAndLogging">
+            <summary>
+            Use FlowIndex for VminForwarding and Logging.
+            This is the default mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.FlowIndexModes.LoggingOnly">
+            <summary>
+            Use flowIndex for Logging only.
+            VminForwarding will use the FlowIndex = 1.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.Mode">
+            <summary>
+            Gets or sets the Templates Execution mode (Either Configure or DumpTables).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.VminSinglePointMode">
+            <summary>
+            Gets or sets the operation mode to force VminTC to only run a single test point.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.SearchGuardbandEnable">
+            <summary>
+            Gets or sets the operation mode to enable VminTC SearchGuardband mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.UseDffAsSource">
+            <summary>
+            Gets or sets the operation mode flag OperationModeFlag.UseLimitCheckAsSource.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.UseLimitCheck">
+            <summary>
+            Gets or sets the operation mode flag OperationModeFlag.UseLimitCheck.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.UseVoltagesSources">
+            <summary>
+            Gets or sets the operation mode flag OperationModeFlag.UseVoltagesSources.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.StoreVoltages">
+            <summary>
+            Gets or sets the operation mode flag OperationModeFlag.StoreVoltages.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.DffMappingFile">
+            <summary>
+            Gets or sets the name of the DFF-to-GSDS mapping file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.DffMappingSet">
+            <summary>
+            Gets or sets the name of the Set within the DffMappingFile to use.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.DffMappingOptype">
+            <summary>
+            Gets or sets the location to read the DFF data from.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.StoreVoltagesDoubleTap">
+            <summary>
+            Gets or sets an offset to add to stored vmin when delta is greater than the entered offset.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.EnableHermesMode">
+            <summary>
+            Gets or sets the VminTC flag to enable or disable hermes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.EnableVminNormalizer">
+            <summary>
+            Gets or sets the VminTC flag to enable or disable vmin normalizer.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.DisablePerCoreOvershoot">
+            <summary>
+            Gets or sets the VminTC flag to disable per-core overshoot. If there is overshoot all cores will start at retry voltage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.FlowIndexMode">
+            <summary>
+            Gets or sets the FlowIndex mode.
+            Default is VminForwarding_and_Logging while Logging_Only will only use FlowIndex for logging purposes and will use 1 for VminForwarding.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.EnableVminStoreResult">
+            <summary>
+            Gets or sets the VminTC flag to enable or disable vmin store results.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DDGBaseInitializers.VminForwardingBase.Execute">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

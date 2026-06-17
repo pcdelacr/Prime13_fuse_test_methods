@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeSimpleSearchTestMethod" MetaData="dll=Prime.TestMethods.SimpleSearch" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeSimpleSearchTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="Patlist" descriptions="Patlist to execute.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>Plist</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="TimingsTc" descriptions="TimingsTc for plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>TimingCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="LevelsTc" descriptions="LevelsTc for plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="ValuesExpression" descriptions="Point Expression. Expected input format as lowValue,highValue,resolution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="SearchParam" descriptions="Levels or timings specSet.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="SearchMethod" descriptions="Search method. Example: Linear, Binary.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>LINEAR</Choice>
+          <Choice>BINARY</Choice>
+        </Choices>
+        <Default>LINEAR</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="SearchDirection" descriptions="Search direction. Example: Pass_to_fail, fail_to_pass.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>PASS_TO_FAIL</Choice>
+          <Choice>FAIL_TO_PASS</Choice>
+        </Choices>
+        <Default>PASS_TO_FAIL</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="SearchType" descriptions="Search type. Example: VMIN, VMAX, FMIN, FMAX">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>VMIN</Choice>
+          <Choice>VMAX</Choice>
+          <Choice>FMIN</Choice>
+          <Choice>FMAX</Choice>
+        </Choices>
+        <Default>VMIN</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="SkipEdgeCheck" descriptions="Skip edge check.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>ENABLED</Choice>
+          <Choice>DISABLED</Choice>
+        </Choices>
+        <Default>ENABLED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="FrequencyMode" descriptions="Indicate if search relative to CORE speed or FSB. Enable is CORE, else FSB.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>ENABLED</Choice>
+          <Choice>DISABLED</Choice>
+        </Choices>
+        <Default>DISABLED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PeriodFormat" descriptions="Period format either in period (nS) or frequency(Mhz). Default enabled means period.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>ENABLED</Choice>
+          <Choice>DISABLED</Choice>
+        </Choices>
+        <Default>ENABLED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="BusRatio" descriptions="Bus ratio to be specify when CORE mode selected.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>Both End Pass</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>Pass Port</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Reverse Fail or Both End Fail</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

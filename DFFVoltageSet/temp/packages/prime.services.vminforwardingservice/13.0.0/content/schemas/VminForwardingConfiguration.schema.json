@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "powerDomains"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "powerDomains": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/PowerDomain"
+      }
+    }
+  },
+  "definitions": {
+    "VoltageSources": {
+      "type": "object",
+      "properties": {
+        "corner": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "cornersWithLinearAdjustment": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/linearAdjustmentPoint"
+          }
+        },
+		"Dff" :
+		{
+		 "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+		},
+        "sharedStorage": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "sharedStorageLimitCheck": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frequencySwitchAdjustment": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "linearAdjustmentPoint": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "FrequencySource": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": ["BinMatrix", "Literal", "SharedStorage", "UserVar", "UserVarStringArray"]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "ExportStorageVariable": {
+      "type": "object",
+      "properties": {
+        "voltageVariablePrefix": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frequencyVariablePrefix": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "cornerType": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frequencySource": {
+          "$ref": "#/definitions/FrequencySource"
+        },
+        "voltageSources": {
+          "$ref": "#/definitions/VoltageSources"
+        },
+        "exportStorageVariable": {
+          "$ref": "#/definitions/ExportStorageVariable"
+        }
+      }
+    },
+    "PowerDomain": {
+      "type": "object",
+      "required": [
+        "name",
+        "corners"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instances": {
+          "type": "string",
+          "minLength": 1
+        },
+        "corners": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/cornerType"
+          }
+        }
+      }
+    }
+  }
+}

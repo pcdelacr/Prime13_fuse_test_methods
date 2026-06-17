@@ -1,0 +1,2710 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.DffService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.DffService.AccessType">
+            <summary>
+            Access type class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.AccessType.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.AccessType"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.AccessType.#ctor(Prime.DffService.AccessType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.AccessType"/> class.
+            </summary>
+            <param name="other">Object to copy.</param>
+        </member>
+        <member name="T:Prime.DffService.AccessType.Type">
+            <summary>
+            Access type choice.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.AccessType.Type.READONLY">
+            <summary>
+            Read only.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.AccessType.Type.WRITEREAD">
+            <summary>
+            Write and read.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.AccessType.Type.PROTECTED">
+            <summary>
+            Protected.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.AccessType.AccessibleType">
+            <summary>
+            Gets or sets type.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.AccessType.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.AccessType.IsWritable">
+            <summary>
+            Is writable.
+            </summary>
+            <returns>True if is writable.</returns>
+        </member>
+        <member name="M:Prime.DffService.AccessType.IsReadOnly">
+            <summary>
+            Is read only.
+            </summary>
+            <returns>True if is read only.</returns>
+        </member>
+        <member name="M:Prime.DffService.AccessType.IsProtected">
+            <summary>
+            Is protected.
+            </summary>
+            <returns>True if is protected.</returns>
+        </member>
+        <member name="T:Prime.DffService.CurrentDffData">
+            <summary>
+            Current dff data class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.CurrentDffData.EnabledModules">
+            <summary>
+            Gets or sets EnabledModules.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.CurrentDffData.UltLevelPerDieIdDffData">
+            <summary>
+            Gets or sets Ult Level Per DieId Dff Data. This will be clear and repopulate per DUT.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.CurrentDffData.PkgLevelPerDieIdDffData">
+            <summary>
+            Gets or sets PkgLevelPerDieIdDffData.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.CurrentDffData.CurrentDffDataPerDieId">
+            <summary>
+            Gets or sets Current Dff Data Per DieId.
+            Key is the die id.
+            Value is pairs of DFF token and value.
+            Will be cleared and repopulated per DUT.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.CurrentDffData.ReadOpType">
+            <summary>
+             Gets or Sets read op type.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.CurrentDffData.WriteOpType">
+            <summary>
+            Gets or sets write op type.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.CurrentDffData.ProcessType">
+            <summary>
+             Gets or Sets process type.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.CurrentDffData.WriteMode">
+            <summary>
+             Gets or Sets write mode.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.CurrentDffData.EnabledModulesString">
+            for end of flow ituff print
+            <summary>
+            Gets enabled modules string.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.ConvertTableKeyToString(System.String)">
+            <summary>
+            Convert table key to string.
+            </summary>
+            <param name="tableKey">Table key.</param>
+            <returns>Table key in string.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.ToString(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the current Dff as string.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+            <returns>The string of the object.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.SetEnabledModules(System.String)">
+            <summary>
+            Set enabled modules.
+            </summary>
+            <param name="enabledModulesString">Enabled modules string.</param>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.GetCurrentDffValue(System.String,System.String,System.Boolean,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get current dff value.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="tokenName">Token name.</param>
+            <param name="isGetDffExecution">Is get dff execution.</param>
+            <param name="isItuffFailPrint">Is ituff fail print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff value.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.IsTokenExist(System.String,System.String)">
+            <summary>
+            Is token exist.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="tokenName">Token name.</param>
+            <returns>True if token exist.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.IsTokenWritable(System.String,System.String)">
+            <summary>
+            Is token writable.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="tokenName">Token name.</param>
+            <returns>True if token is writable.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.ShouldMtlRulesBeChecked(System.String,System.String)">
+            <summary>
+            Should mtl rules be checked.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="tokenName">Token name.</param>
+            <returns>True if mtl rules should be check.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.GetCurrentDffValueDecoderSize(System.String,System.String)">
+            <summary>
+            Get current dff value decoder size.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="tokenName">Token name.</param>
+            <returns>Dff value size.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.PopulateDffTokenPrintOuts(Prime.DffService.TpType,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Populate dff token print outs.
+            </summary>
+            <param name="tpType">Tp type.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>Dff token print out string.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.AddCurrentDff(System.String,Prime.DffService.CurrentOpTypeData)">
+            <summary>
+            Add current dff.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="tokensList">Token list.</param>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.MergeUnitAndPkgDffData">
+            <summary>
+            Merge unit and pkg dff data.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.IsDieIdPopulated(System.String)">
+            <summary>
+            Is die id populated.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <returns>True if is populated.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.GetCurrentOpTypeData(System.String)">
+            <summary>
+            Get current op type data.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <returns>Current op type data.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.GetAllWritableTokenNamesForGivenDieId(System.String)">
+            <summary>
+            Get all writable token names for given die id.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <returns>Writable token names.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.GetAllMtlTokensForGivenDieId(System.String)">
+            <summary>
+            Get all MTL tokens for given die id.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <returns>Tokens where keys correspond to the token names and values to the tokens data.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentDffData.GetAllMtlTokensForGivenDieIdAndModule(System.String,System.String)">
+            <summary>
+            Get all MTL tokens for given die id and module.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="moduleNameFilter">Module to filter tokens.</param>
+            <returns>Tokens where keys correspond to the token names and values to the tokens data.</returns>
+        </member>
+        <member name="T:Prime.DffService.CurrentOpTypeData">
+            <summary>
+            Current operation type data class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.CurrentOpTypeData.DffTokens">
+            <summary>
+             Gets or sets DffTokens.
+            Key is the token name and value is the token value.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.PopulateNoUploadDffMegaToken(System.Collections.Generic.KeyValuePair{System.String,Prime.DffService.DffTokenData},System.Text.StringBuilder,System.Text.StringBuilder)">
+            <summary>
+            Populate no upload dff mega token.
+            </summary>
+            <param name="dffToken">Dff token.</param>
+            <param name="skippedDffMegaToken">Skipped dff mega token.</param>
+            <param name="skippedOriginalDffMegaToken">Skipped original dff mega token.</param>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.GetDffTokenValue(System.String,System.String,System.Boolean,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get dff token value.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <param name="dieId">Die id.</param>
+            <param name="isGetDffExecution">Is get dff execution.</param>
+            <param name="isItuffFailPrint">Is ituff fail print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff token value.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.GetCurrentDffValueDecoderSize(System.String)">
+            <summary>
+            Get current dff value decoder size.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <returns>Current dff value decoder size.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.AddDffTokenToMap(System.String,Prime.DffService.DffTokenData)">
+            <summary>
+            Add dff token to map.
+            </summary>
+            <param name="token">Token.</param>
+            <param name="dffTokenValue">Dff token value.</param>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.PopulateDffMegaToken(System.String,System.String@,System.String@,System.String@)">
+            <summary>
+            Populate dff mega token.
+            </summary>
+            <param name="writeMode">Write mode.</param>
+            <param name="dffDataMegaToken">Dff data mega token.</param>
+            <param name="skippedDffMegaToken">Skipped dff mega token.</param>
+            <param name="skippedOriginalDffMegaToken">Skipped original dff mega token.</param>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.ShouldMtlRulesBeChecked(System.String)">
+            <summary>
+            Should mtl rules be checked.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <returns>True if should be check.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.GetDffTokenData(System.String,Prime.DffService.FailItuffDataInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get dff token data.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <param name="failData">Fail data.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff token data.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.IsTokenExist(System.String)">
+            <summary>
+            Is token exist.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <returns>True if token name exist.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.IsTokenWritable(System.String)">
+            <summary>
+            Is token writable.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <returns>True if is writable.</returns>
+        </member>
+        <member name="M:Prime.DffService.CurrentOpTypeData.GetAllWritableTokenNames">
+            <summary>
+            Get all writable token name.
+            </summary>
+            <returns>All writable token name.</returns>
+        </member>
+        <member name="T:Prime.DffService.DffTokenData">
+            <summary>
+            Dff token data class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.DffTokenData"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.#ctor(Prime.DffService.DffTokenData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.DffTokenData"/> class.
+            </summary>
+            <param name="other">Object to copy.</param>
+        </member>
+        <member name="P:Prime.DffService.DffTokenData.DataAccessType">
+            <summary>
+            Gets or sets DataAccessType.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffTokenData.DffUtilities">
+            <summary>
+            Gets or sets DffUtilities.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffTokenData.Latest">
+            <summary>
+            Gets or sets latest.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffTokenData.MtlRule">
+            <summary>
+            Gets or sets mtl rule.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.LocalWriteNoUploadModeCheck(System.String)">
+            <summary>
+            Local write no upload mode check.
+            </summary>
+            <param name="writeMode">Write mode.</param>
+            <returns>True if "LOCALWRITE" or "NOUPLOAD" or "UNDEFINED".</returns>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.SetToken(System.String)">
+            <summary>
+            Set token.
+            </summary>
+            <param name="token">Token to set.</param>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.Initialize(System.String)">
+            <summary>
+            Initialize.
+            </summary>
+            <param name="value">Value.</param>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.GetDataAccessType">
+            <summary>
+            Get data access type.
+            </summary>
+            <returns>Data access type.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.GetValue">
+            <summary>
+            Get value.
+            </summary>
+            <returns>Value.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.GetOriginalValue">
+            <summary>
+            Get original value.
+            </summary>
+            <returns>Value.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.CompressOriginalValue">
+            <summary>
+            Compress original value.
+            </summary>
+            <returns>Original value.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.CompressLatestValue">
+            <summary>
+            Compress latest value.
+            </summary>
+            <returns>Latest value.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.MakeWritable">
+            <summary>
+            Make writable.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.MakeProtected">
+            <summary>
+            Make protected.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.MakeSpecial">
+            <summary>
+            Make special.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.IsReadOnly">
+            <summary>
+            Is read only.
+            </summary>
+            <returns>True if is read only.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.IsWritable">
+            <summary>
+            Is writable.
+            </summary>
+            <returns>True if is writable.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.IsProtected">
+            <summary>
+            Is protected.
+            </summary>
+            <returns>True if is protected.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffTokenData.IsSpecial">
+            <summary>
+            Is special.
+            </summary>
+            <returns>True if is special.</returns>
+        </member>
+        <member name="T:Prime.DffService.EndOfFlowCurrentDffTokens">
+            <summary>
+            End of flow current dff tokens class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.EndOfFlowCurrentDffTokens.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.EndOfFlowCurrentDffTokens.GetAllTokens">
+            <summary>
+            Get all tokens.
+            </summary>
+            <returns>All tokens.</returns>
+        </member>
+        <member name="T:Prime.DffService.EndOfFlowTokensWithField">
+            <summary>
+            End of flow tokens with field class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.EndOfFlowTokensWithField.TokenWithFields">
+            <summary>
+            Gets or sets token with fields.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.EndOfFlowTokensWithField.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DffService.Token">
+            <summary>
+            Token class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.Token.#ctor(System.String,System.String,Prime.DffService.MtlTokenRule,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.Token"/> class.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="tokenName">Token name.</param>
+            <param name="mtlTokenRule">Mtl token rule.</param>
+            <param name="isSpecialToken">Is special token.</param>
+        </member>
+        <member name="P:Prime.DffService.Token.DieId">
+            <summary>
+            Gets die id.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.Token.TokenName">
+            <summary>
+            Gets token name.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.Token.MtlTokenRule">
+            <summary>
+            Gets mtl token rule.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.Token.IsSpecialToken">
+            <summary>
+            Gets a value indicating whether is special token.
+            </summary>
+        </member>
+        <member name="T:Prime.DffService.ProcessRangeValues">
+            <summary>
+            Process range values class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.ProcessRangeValues.RangesOfIntValues">
+            <summary>
+            Gets or sets ranges of int values.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.ProcessRangeValues.RangesOfDoubleValues">
+            <summary>
+            Gets or sets ranges of double values.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.ProcessRangeValues.RangesOfUIntValues">
+            <summary>
+            Gets or sets ranges of uint values.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.ProcessRangeValues.RangesOfIntForBinaryValues">
+            <summary>
+            Gets or sets ranges of uint for binary values.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.ProcessRangeValues.StringValues">
+            <summary>
+            Gets or sets string values.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.ProcessRangeValues.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DffService.RangesOfDoubleValues">
+            <summary>
+            Ranges of int values class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfDoubleValues.MinValue">
+            <summary>
+            Gets or sets min value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfDoubleValues.MaxValue">
+            <summary>
+            Gets or sets max value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfDoubleValues.SingleValue">
+            <summary>
+            Gets or sets single value.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.RangesOfDoubleValues.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DffService.RangesOfIntForBinaryValues">
+            <summary>
+            Ranges of UInt values class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfIntForBinaryValues.MinValue">
+            <summary>
+            Gets or sets min value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfIntForBinaryValues.MaxValue">
+            <summary>
+            Gets or sets max value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfIntForBinaryValues.SingleValue">
+            <summary>
+            Gets or sets single value.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.RangesOfIntForBinaryValues.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DffService.RangesOfIntValues">
+            <summary>
+            Ranges of double values class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfIntValues.MinValue">
+            <summary>
+            Gets or sets min value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfIntValues.MaxValue">
+            <summary>
+            Gets or sets max value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfIntValues.SingleValue">
+            <summary>
+            Gets or sets single value.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.RangesOfIntValues.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DffService.RangesOfUIntValues">
+            <summary>
+            Ranges of UInt values class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfUIntValues.MinValue">
+            <summary>
+            Gets or sets min value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfUIntValues.MaxValue">
+            <summary>
+            Gets or sets max value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfUIntValues.SingleValue">
+            <summary>
+            Gets or sets single value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.RangesOfUIntValues.RawValues">
+            <summary>
+            Gets or sets raw values.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.RangesOfUIntValues.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DffService.SpecialTokens">
+            <summary>
+            Special tokens class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.SpecialTokens.SpecialTokensToString">
+            <summary>
+            ToString for special tokens class.
+            </summary>
+            <returns>Special tokens in string.</returns>
+        </member>
+        <member name="M:Prime.DffService.SpecialTokens.IsSpecialToken(System.String)">
+            <summary>
+            Is special token.
+            </summary>
+            <param name="token">Token to check.</param>
+            <returns>Return true if is special token.</returns>
+        </member>
+        <member name="T:Prime.DffService.DffMtlTokenRules">
+            <summary>
+            Dff mtl token rules class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffMtlTokenRules.MtlXmlPath">
+            <summary>
+            Gets or sets mtl xml path.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffMtlTokenRules.LocalMtlXmlPath">
+            <summary>
+             Gets or Sets local mtl xml path.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffMtlTokenRules.MtlXmlTimeStamp">
+            <summary>
+            Gets or sets mtl xml time stamp.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffMtlTokenRules.XmlStream">
+            <summary>
+             Gets or Sets xml steam.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffMtlTokenRules.MultiProcessStepToTypePairs">
+            <summary>
+            Gets multi process step to type pairs.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffMtlTokenRules.MtlRevision">
+            <summary>
+            Gets or sets mtl Revision.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.PopulateMtlTokenRule(Prime.DffService.MtlTokenRule@,System.Xml.XmlNode)">
+            <summary>
+            Populate mtl token rule.
+            </summary>
+            <param name="currentMtlToken">Current mtl token.</param>
+            <param name="token">Token to populate.</param>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.PopulateValueDecoderField(Prime.DffService.MtlTokenRule@,System.Xml.XmlNode)">
+            <summary>
+            PopulateValueDecoderField.
+            </summary>
+            <param name="currentMtlToken">Current mtl token.</param>
+            <param name="valueDecoderList">Value decoder xml.</param>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.GetMtlFile">
+            <summary>
+            Get mtl file.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.PopulateMtlFileDb(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Populate mtl file db.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.ReadMtlFile(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read mtl file.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.SetXmlStream(System.Xml.XmlDocument)">
+            <summary>
+            Set xml stream.
+            </summary>
+            <param name="xmlStream">Xml stream.</param>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.GetValueDecoderField(System.String,Prime.DffService.FailItuffDataInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get value decoder field.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <param name="failData">Fail data.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Value decoder field.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.GetSingleTokenRule(System.String,Prime.DffService.FailItuffDataInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get single token rule.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <param name="failData">Fail data.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Token rule.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.IsRuleExists(System.String)">
+            <summary>
+            Is rules exist.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <returns>True if is exist.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffMtlTokenRules.GetMtlRevision">
+            <summary>
+            Get MtlRevision.
+            </summary>
+            <returns>MtlRevision.</returns>
+        </member>
+        <member name="T:Prime.DffService.MtlTokenRule">
+            <summary>
+            Mtl token rule class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.Name">
+            Token name
+            <summary>
+            Gets or sets name.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.GlobalType">
+            this is to validate the dff token is using the right data type
+            GlobalTypeDef m_globalType;
+            <summary>
+            Gets or sets global type.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.ValueDecoderFields">
+            <summary>
+            Gets or sets value decoder field.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.RefLevels">
+            conclusion: PRIME Service will error out if die id is not part of these
+            This is die id.- Only validate tokens that match the die id. If not defined, meaning PKG level.
+            <summary>
+            Gets ref levels.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.FirstUploadSocketType">
+            conclusion: PRIME Service will always try to validate. Check if this parameter only use to skip/not skip
+            This is the upload socket - if not the same as current socket, will skip token validation.
+            Do we still do this? or validate regardless.
+            <summary>
+            Gets or sets first upload socket type.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.UploadProcessStep">
+            conclusion: PRIME Service will always try to validate. Check if this parameter only use to skip/not skip
+            This is process step [for HCSL] - if not defined but running HCSL -> skip validation on the token. Do we still do this?
+            <summary>
+            Gets or sets upload process step.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.IsDataFormatCheckEnabled">
+            <summary>
+            Gets or sets a value indicating whether is data format check enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.IsDataRangeCheckEnabled">
+            <summary>
+            Gets or sets a value indicating whether is data range check enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.IsAllowedToOverwrite">
+            Still valid. Set should fail if try to overwrite.
+            <summary>
+            Gets or sets a value indicating whether is allowed to override.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.IsCompressionEnabled">
+            When true - this indicates that the DFF value is base64 encoded (i.e. value would need to be decoded before use)
+            <summary>
+            Gets or sets a value indicating whether is compression.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.DelimiterCount">
+            Check if we have the right number of delimiters
+            <summary>
+            Gets or sets delimiter count.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.ModuleName">
+            <summary>
+            Gets or sets module name.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.IsKillModeValidation">
+            field indicating whether or not to fail the validation when Dff value is being set
+            <summary>
+            Gets or sets a value indicating whether is kill mode validation.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.MtlTokenRule.KillModeValidationFromMtlValue">
+            To preserve the original value from the MTL file for kill mode.
+            <summary>
+            Gets or sets a value indicating whether is kill mode validation based directly from MTL file regardless of OPTYPE.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.MtlTokenRule.SetXmlInputToTrue(System.String)">
+            <summary>
+            Set xml input to true.
+            </summary>
+            <param name="xmlInput">Xml input.</param>
+            <returns>True if xml input = "1".</returns>
+        </member>
+        <member name="M:Prime.DffService.MtlTokenRule.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.MtlTokenRule.GetDefaultValue">
+            <summary>
+            Get default value.
+            </summary>
+            <returns>Default value.</returns>
+        </member>
+        <member name="M:Prime.DffService.MtlTokenRule.GetFieldsLengths">
+            <summary>
+            Get fields lengths..
+            </summary>
+            <returns>Field lengths.</returns>
+        </member>
+        <member name="M:Prime.DffService.MtlTokenRule.SetRefLevel(System.String)">
+            <summary>
+            Set ref levels.
+            </summary>
+            <param name="refLevel">Ref level.</param>
+        </member>
+        <member name="T:Prime.DffService.ValueDecoderField">
+            <summary>
+            Value decoder field class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.ValueDecoderField.RequiredDef">
+            Check only for tokens with multiple values. To define which value is required which is not or optional. Is this still valid?
+            RequiredDef m_requiredDef;
+            <summary>
+            Gets or sets required def.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.ValueDecoderField.StringLength">
+            Check for the string length does not exceed.
+            <summary>
+            Gets or sets string length.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.ValueDecoderField.ProcessedRangeValue">
+            Hold the value of processed allowed/disallowed value
+            <summary>
+            Gets processed range value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.ValueDecoderField.DefaultValue">
+            Use this default value if not found
+            <summary>
+            Gets or sets default value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.ValueDecoderField.Name">
+            Do we still need tihs? Not writing to GDS anymore // Conclusion we will need this for name.
+            <summary>
+            Gets or sets name.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.ValueDecoderField.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.ValueDecoderField.PopulateRangeValues(System.String,System.Collections.Generic.List{System.String},System.Int32@)">
+            <summary>
+            Populate range values.
+            </summary>
+            <param name="globalType">Global type.</param>
+            <param name="individualRange">Individual range.</param>
+            <param name="outHexCharCount">Out hex char count. </param>
+        </member>
+        <member name="M:Prime.DffService.ValueDecoderField.PopulateSingleValue(System.String,System.String,System.Int32@)">
+            <summary>
+            Populate single value.
+            </summary>
+            <param name="globalType">Global type.</param>
+            <param name="valueToProcess">Value to process.</param>
+            <param name="outHexCharCount">Out hex char count.</param>
+        </member>
+        <member name="M:Prime.DffService.ValueDecoderField.PopulateAllowedValuesForNonString(System.String,System.Collections.Generic.List{System.String},System.Int32@)">
+            <summary>
+            Populate allowed values for non string.
+            </summary>
+            <param name="globalType">Global type.</param>
+            <param name="splitValues">Split values.</param>
+            <param name="outHexCharCount">Out hex char count.</param>
+        </member>
+        <member name="M:Prime.DffService.ValueDecoderField.SetDisallowedValues(System.String,System.String)">
+            <summary>
+            Set disallowed values.
+            </summary>
+            <param name="value">Value.</param>
+            <param name="globalType">Global type.</param>
+        </member>
+        <member name="M:Prime.DffService.ValueDecoderField.SetAllowedValues(System.String,System.String)">
+            <summary>
+            Set allowed values.
+            </summary>
+            <param name="value">Value.</param>
+            <param name="globalType">Global type.</param>
+        </member>
+        <member name="M:Prime.DffService.ValueDecoderField.IsAllowedValue">
+            <summary>
+            Is allowed value.
+            </summary>
+            <returns>True if is allowed.</returns>
+        </member>
+        <member name="M:Prime.DffService.ValueDecoderField.PopulateAllowedDisallowedValues(System.String,System.String)">
+            <summary>
+            Populate allowed disallowed values.
+            </summary>
+            <param name="value">Value to populate.</param>
+            <param name="globalType">Global type.</param>
+        </member>
+        <member name="M:Prime.DffService.ValueDecoderField.HexStrToUnsignedLong(System.String)">
+            <summary>
+            Hex string to unsigned long conversion.
+            </summary>
+            <param name="inputHex">Hex string.</param>
+            <returns>Converted hex string.</returns>
+        </member>
+        <member name="T:Prime.DffService.DffOpType">
+            <summary>
+            Dff op type class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffOpType.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffOpType.GetDffTokenValue(System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get dff token value.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <param name="dieId">Die id.</param>
+            <param name="isItuffFailPrint">Is ituff fail print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff token value.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffOpType.PopulateDffValue(System.String,System.String)">
+            <summary>
+            Populate dff value.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <param name="tokenValue">Token value.</param>
+        </member>
+        <member name="M:Prime.DffService.DffOpType.GetDffData">
+            <summary>
+            Get dff data.
+            </summary>
+            <returns>Dff data.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffOpType.UpdateDffData(System.String,System.String)">
+            <summary>
+            Update dff data.
+            </summary>
+            <param name="tokenName">Token name.</param>
+            <param name="tokenValue">Token value.</param>
+            <returns>True if is update successful.</returns>
+        </member>
+        <member name="T:Prime.DffService.DffPerDutUbe">
+            <summary>
+            Dff per dut ube class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffPerDutUbe.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffPerDutUbe.CreatePerUltDieIdDffData(System.String,System.String,System.Collections.Generic.Dictionary{System.String,Prime.DffService.DffUltLevel})">
+            <summary>
+            Create per ult die id dff data.
+            </summary>
+            <param name="dieId">Die Id.</param>
+            <param name="ult">ULT.</param>
+            <param name="perUltDffData">Per ULT Dff data storage.</param>
+        </member>
+        <member name="M:Prime.DffService.DffPerDutUbe.CreatePerPkgDieIdsDffData(System.String,System.Collections.Generic.Dictionary{System.String,Prime.DffService.DffUltLevel})">
+            <summary>
+            Create per package die ids dff data.
+            </summary>
+            <param name="ult">Ult.</param>
+            <param name="perUltDffData">Per Ult Data.</param>
+        </member>
+        <member name="M:Prime.DffService.DffPerDutUbe.GetDff(System.String,System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get dff.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="opType">Op type.</param>
+            <param name="tokenName">Token name.</param>
+            <param name="isItuffFailPrint">Is Ituff fail print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff.</returns>
+        </member>
+        <member name="T:Prime.DffService.DffUbe">
+            <summary>
+            Dff ube class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffUbe.UbePath">
+            <summary>
+            Gets or sets ube path.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffUbe.UbeFileTimeStamp">
+            <summary>
+            Gets or sets ube file time stamp.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffUbe.LocalUbePath">
+            <summary>
+             Gets or Sets local ube path.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.ReadUbeFileFormat(System.Collections.Generic.List{System.String})">
+            <summary>
+            Read ube file format.
+            </summary>
+            <param name="lineParts">Line parts.</param>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.GetFile">
+            <summary>
+            Get files.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.PopulateUbe(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This function parses all lines in the UBE file, populating this data structure with its contents.
+            </summary>
+            <param name="allLines">All lines.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.CollectUnitLevelDffData(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Collect unit level dff data.
+            </summary>
+            <param name="ult">Ult.</param>
+            <param name="opType">Op type.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff data.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.GetPkgLevelDieIds(System.String)">
+            <summary>
+            Get package level die ids.
+            </summary>
+            <param name="ult">Ult.</param>
+            <returns>Package level die ids.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.GetDieLevelDff(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get die level dff.
+            </summary>
+            <param name="ult">Ult.</param>
+            <param name="opType">Op type.</param>
+            <param name="token">Token.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Die level dff.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.GetPkgLevelDff(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get package level dff.
+            </summary>
+            <param name="ult">Ult.</param>
+            <param name="dieId">Die id.</param>
+            <param name="opType">Op type.</param>
+            <param name="token">Token.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Package level dff.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.GetUltDieIdPairs">
+            <summary>
+            Get ult die id pairs.
+            </summary>
+            <returns>Ult die id pairs.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.AddNewUnitData(Prime.DffService.DffVid,System.String)">
+            <summary>
+            Add new unit data.
+            </summary>
+            <param name="dffVid">Dff vid.</param>
+            <param name="unitName">Unit Name.</param>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.GetPerUltDffData">
+            <summary>
+            Get Per ULT DFF Data.
+            </summary>
+            <returns>All Ult Level DFF data.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.DoesUltDataExist(System.String)">
+            <summary>
+            Does ult data exist.
+            </summary>
+            <param name="ult">Ult to check.</param>
+            <returns>True if exist.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.MergeTwoOptypeDataIntoOne(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Merge two op type data into one.
+            </summary>
+            <param name="baseOptype">Base op type.</param>
+            <param name="targetOptype">Target op type.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.GetDffByVid(System.String,System.String,System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get dff by vid. This API will attempt to find the token value by first:
+                1. If no DieId is provided, the API will return a token value that matches to the provided optype for the first ULT defined in the UBE file.
+                2. If a DieId is provided, search for a token matching to dieId/optype in the pkg/stack level.
+                3. If not found in unit level, attempt to find the ULT level that matches to the ULT value in the UBE file. The API expects the full ULT name for the DieId field, not the dieId it corresponds to. The API will then match to the token corresponding to the provided optype.
+            </summary>
+            <param name="vid">VID used to search for the token.</param>
+            <param name="tokenName">Name of the token to return.</param>
+            <param name="dieId">Die id value used to search for the token. Please refer to the API description on how to use this field.</param>
+            <param name="operationType">Operation type used to search for the token. Please refer to the API description on how to use this field.</param>
+            <param name="ituffPrint">If true, prints failure to return token data to ituff.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.TryGetVidPerUlt(System.String,System.String@,Prime.DffService.TpType,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get vid by ult line.
+            </summary>
+            <param name="ult">Vid.</param>
+            <param name="vid">Token name.</param>
+            <param name="tpType">Tp type(SORT or CLASS).</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.TryGetUltFromUbePerDieId(System.String,System.String,System.String@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get ult line by dieId and VID from UBE file.
+            </summary>
+            <param name="vid">Target Vid.</param>
+            <param name="dieId">target DieId.</param>
+            <param name="ult">result ult line.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.TryGetDffTokenInUnitLevel(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Search for a DFF token in the unit level data.
+            </summary>
+            <param name="vid">Visual id to use when searching for token. The API will only match to tokens within this VID.</param>
+            <param name="tokenName">Name of the token to retrieve.</param>
+            <param name="dieId">The dieId to match to when searching for the token. If a token with the same name is defined for multiple dieId, the API will only match to the token defining this value.</param>
+            <param name="operationType">The operationType to match to when searching for the token. If a token with the same name and is defined multiple times for the same dieId, the API will only match to the token containing this value.</param>
+            <param name="tokenValue">Populated with DFF token when API returns true. Will not be populated if the API returns false. Maybe null if ref var is not instantiated beforehand.</param>
+            <returns>A DFF token within the unit level data matching to provided parameters.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUbe.TryGetDffTokenInUltLevel(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Search for a DFF token in the ULT level data, retrieving from the ULT that corresponds to the dieId.
+            </summary>
+            <param name="vid">Visual id to use when searching for token. The API will only match to tokens within this VID.</param>
+            <param name="tokenName">Name of the token to retrieve.</param>
+            <param name="dieId">The dieId to match to when searching for the token. If a token with the same name is defined for multiple dieId, the API will only match to the token defining this value.</param>
+            <param name="operationType">The operationType to match to when searching for the token. If a token with the same name and is defined multiple times for the same dieId, the API will only match to the token containing this value.</param>
+            <param name="tokenValue">Populated with DFF token when API returns true. Will not be populated if the API returns false. Maybe null if ref var is not instantiated beforehand.</param>
+            <returns>True if the token was found with the specified params. Otherwise, false.</returns>
+            <remarks>Lookup of tokens will prioritize matches within "NULL" ULT tokens. If none are found, the search continues to tokens defined in initialized ULT scopes.</remarks>
+        </member>
+        <member name="T:Prime.DffService.DffUltLevel">
+            <summary>
+            Dff ult level class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffUltLevel.PkgLevelData">
+            this should be a pointer to the map of m_pkgData in DffVid
+            <summary>
+            Gets or sets package level data.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffUltLevel.DieId">
+            The dieID name tag to ULT name
+            <summary>
+            Gets or sets die id.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffUltLevel.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffUltLevel.AddDffOpType(System.String,Prime.DffService.DffOpType)">
+            <summary>
+            Add dff op type.
+            </summary>
+            <param name="opType">Op type.</param>
+            <param name="dffOpType">Dff op type.</param>
+        </member>
+        <member name="M:Prime.DffService.DffUltLevel.CollectDffData(System.String)">
+            <summary>
+            CollectDffData.
+            </summary>
+            <param name="opType">Op type.</param>
+            <returns>Dff data.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUltLevel.GetPkgLevelDieIds">
+            <summary>
+            Get package level die ids.
+            </summary>
+            <returns>Get pkg level die ids.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUltLevel.IsOpTypeExist(System.String)">
+            <summary>
+            Is op type exist.
+            </summary>
+            <param name="opType">Op type.</param>
+            <returns>True if op type exist.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUltLevel.GetDff(System.String,System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get dff.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="opType">Op type.</param>
+            <param name="tokenName">Token name.</param>
+            <param name="isItuffFailPrint">Is ituff fail print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff value.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUltLevel.GetDieLevelDff(System.String,System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get die level dff.
+            </summary>
+            <param name="opType">Op type.</param>
+            <param name="token">Token.</param>
+            <param name="dieId">Die id.</param>
+            <param name="isItuffFailPrint">Is ituff fail print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff value.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUltLevel.GetPkgLevelDff(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get pkg level dff.
+            </summary>
+            <param name="opType">Op type.</param>
+            <param name="token">Token.</param>
+            <param name="dieId">Die id.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff value.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffUltLevel.MergeTwoOptypeDataIntoOne(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Merge two optype data into one.
+            </summary>
+            <param name="baseOptype">Base optype.</param>
+            <param name="targetOptype">Target optype.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.DffService.DffVid">
+            <summary>
+            Dff vid class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffVid.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffVid.GetPerUltDffData">
+            <summary>
+            Get per ult dff data.
+            </summary>
+            <returns>Ult data.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffVid.GetPerPkgStackIdDffData">
+            <summary>
+            Get per package stack id dff data.
+            </summary>
+            <returns>Package data.</returns>
+        </member>
+        <member name="M:Prime.DffService.DffVid.ClearAllData">
+            <summary>
+            Clear all data.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffVid.AddUltDataDffOpType(System.String,System.String,Prime.DffService.DffOpType)">
+            <summary>
+            Add ult data dff op type.
+            </summary>
+            <param name="ult">Ult.</param>
+            <param name="opType">Op type.</param>
+            <param name="dffOpType">Dff op type.</param>
+        </member>
+        <member name="M:Prime.DffService.DffVid.AddPkgDataDffOpType(System.String,System.String,Prime.DffService.DffOpType)">
+            <summary>
+            Add package data dff op type.
+            </summary>
+            <param name="pkg">Package.</param>
+            <param name="opType">Op type.</param>
+            <param name="dffOpType">Dff op type.</param>
+        </member>
+        <member name="M:Prime.DffService.DffVid.SetUltDataDieId(System.String,System.String)">
+            <summary>
+            Set ult data die die.
+            </summary>
+            <param name="ult">Ult.</param>
+            <param name="dieId">Die id.</param>
+        </member>
+        <member name="T:Prime.DffService.DffGlobalVariables">
+            <summary>
+            Global variables for DFF service.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.NotAvailableString">
+            <summary>
+            Not available string const.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.SetDffFailedDataKey">
+            <summary>
+            Set dff failed data key.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffStrgvalMaxLength">
+            <summary>
+            Dff strgval max length, its truncated on 3990, with including the characters "_TRUNCATED"(10 char).
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.TruncatedPostfix">
+            <summary>
+            Truncated postfix.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffInvalidChar">
+            <summary>
+            Dff invalid char.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffDelimiterCheck">
+            <summary>
+            Dff delimiter check.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffAccessInvalid">
+            <summary>
+            Dff access invalid.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffNotExist">
+            <summary>
+            Dff not exist.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffLengthExceed">
+            <summary>
+            Get dff field not exist.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffFieldNotExist">
+            <summary>
+            Dff field not exist.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.GetDffNotExist">
+            <summary>
+            Get dff not exist.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.GetDffFieldNotExist">
+            <summary>
+            Get dff field not exist.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.UndefinedUint">
+            <summary>
+            Undefined uint value.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.UndefinedUlong">
+            <summary>
+            Undefined ulong value.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.UndefinedDouble">
+            <summary>
+            Undefined double value.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.WfrDieId">
+            <summary>
+            Wafer die id.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.UbeTokenKey">
+            <summary>
+            Ube token key.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.ScDffInfoTokenKey">
+            <summary>
+            Sc dff info token key.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.MtlFilePath">
+            <summary>
+            Mtl file path.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.ScDffInfoUservarMaxSize">
+            <summary>
+            Sc dff info uservar max size.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.ScDffInfoUservar">
+            <summary>
+            Sc dff info uservar.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.CurrentDieId">
+            <summary>
+            Current die id.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffSettingsKey">
+            <summary>
+            Dff settings key.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffDebugMode">
+            <summary>
+            Dff settings key.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffRangeCheckAllowedValue">
+            <summary>
+            Dff range check all allowed value.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffRangeCheckDisallowedValue">
+            <summary>
+            Dff range check disallowed value.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffDataFormatCheck">
+            <summary>
+            Dff data format check.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffRequiredOptional">
+            <summary>
+            Dff required optional.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffStringLength">
+            <summary>
+            Dff string length.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.IndividualTokenSwitchKey">
+            <summary>
+            Individual token switch key.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.UltDecodedKey">
+            <summary>
+            Ult decoded key.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.ScDffTimestamp">
+            <summary>
+            Sc dff time stamp.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.SkipUbeFile">
+            <summary>
+            Skip ube file.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffLengthLimitCheck">
+            <summary>
+            Uservar set for the character limit for every Dff Tokens.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.UltDownloadPath">
+            <summary>
+            Ult download path.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.InlineDffQueryItuff">
+            <summary>
+            Inline dff query ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.InlineDffEFuseIdToQuery">
+            <summary>
+            Inline dff efuse id to query.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.DffGlobalVariables.DffOlbSharedStorageToken">
+            <summary>
+            Dff olb token key name in sharedstorage.
+            </summary>
+        </member>
+        <member name="T:Prime.DffService.DffService">
+            <summary>
+            Implementation of DffService.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffService.GetCurrentDieId(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffService.GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffService.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffService.Prime#Base#IAlephAble#IAlephAble#GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffService.Prime#Base#IAlephAble#IAlephAble#AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffService.Init(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffService.BuildUbeSharedStorageDatabaseFromInlineDffCall(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read UBE file and construct the UBE database in the sharedstorage.
+            This path for the UBE file is determined by the outcome of the GetDFF api.
+            inLineUbeFile is an input NetApps file, resultant of the outcome of inLineDFF api.
+            should be executed once per group of units at MainFlow.
+            </summary>
+            <param name="inLineDffUbeFile">The inLine DffUbe File.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.DffService.TryGetMtlRevision(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffService.GetAllMtlTokensByDieId(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffService.GetAllMtlTokensByDieIdAndModule(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffService.PrintTokensToItuffFooter(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffService.TryGetTokenFromUltData(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer,System.String@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DffService.TpType">
+            <summary>
+            Tp type.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.TpType.CLASS">
+            <summary>
+            Class Tp.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.TpType.SORT">
+            <summary>
+            Sort Tp.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.TpType.STSORT">
+            <summary>
+            Stack Sort Tp.
+            </summary>
+        </member>
+        <member name="F:Prime.DffService.TpType.UNKNOWN">
+            <summary>
+            Unknown Tp type.
+            </summary>
+        </member>
+        <member name="T:Prime.DffService.DffSettings">
+            <summary>
+            Implementation of Dff settings class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffSettings.TpType">
+            <summary>
+            Gets tp type.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffSettings.IsUbeFileSkipped">
+            <summary>
+            Gets a value indicating whether is ube file skipped.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffSettings.IsCustomStringCheckNeeded">
+            <summary>
+            Gets a value indicating whether is DLE, custom string length check skipped.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.DffSettings.CustomStringCheckLimit">
+            <summary>
+            Gets a value indicating whether is ube file skipped.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffSettings.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DffService.DffSettings.Populate">
+            <summary>
+            Populate.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DffSettings.Validate">
+            <summary>
+            Validate.
+            </summary>
+        </member>
+        <member name="T:Prime.DffService.FailItuffDataInfo">
+            <summary>
+            Fail ituff data info class.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.DffName">
+            <summary>
+            Gets or sets dff name.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.DieId">
+            <summary>
+            Gets or sets die id.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.DffValue">
+            <summary>
+            Gets or sets dff value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.DffInitialValue">
+            <summary>
+            Gets or sets dff initial value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.KillStatus">
+            <summary>
+            Gets or sets kill status.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.LabelTag">
+            <summary>
+            Gets or sets label tag.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.FieldName">
+            <summary>
+            Gets or sets field name.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.FieldValue">
+            <summary>
+            Gets or sets field value.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.IsInEndOfFlow">
+            <summary>
+            Gets or sets a value indicating whether is in end of flow flag.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.IsSet">
+            <summary>
+            Gets or sets a value indicating whether is set flag.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.IsItuffFailPrint">
+            <summary>
+            Gets or sets a value indicating whether is ituff fail print flag.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.EligibleForDmff">
+            <summary>
+            Gets a value indicating whether this failure is eligible for dmff.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.FailItuffDataInfo.ValidFailure">
+            <summary>
+            Gets a value indicating whether this failure is valid.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfo.ToString">
+            <summary>
+            To string for fail ituff data info.
+            </summary>
+            <returns>Fail ituff data info in string.</returns>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfo.PrintFailItuffData(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print fail ituff data.
+            </summary>
+            <param name="failLabelTag">Fail label tag.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfo.SetField(System.String,System.String)">
+            <summary>
+            Set field.
+            </summary>
+            <param name="inFieldName">Field name.</param>
+            <param name="inFieldValue">Field value.</param>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfo.SaveDataToSharedStorage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Save data to shared storage.
+            </summary>
+            <param name="failLabelTag">Fail label tag.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.DffService.FailItuffDataInfoList">
+            <summary>
+            Fail ituff data info list class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfoList.CollectMainFlowNonKillTokens(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Collect main flow non kill tokens.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="tokenName">Token name.</param>
+            <param name="isEndOfFLow">Is end of flow flag.</param>
+            <param name="labelTag">Label tag.</param>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfoList.CollectMainFlowTokens(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Collect main flow tokens.
+            </summary>
+            <param name="dieId">Die id.</param>
+            <param name="tokenName">Token name.</param>
+            <param name="killStatus">Kill status.</param>
+            <param name="labelTag">Label tag.</param>
+            <param name="isEndOfFLow">Is end of flow.</param>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfoList.ToString">
+            <summary>
+            To string for fail ituff data info list class.
+            </summary>
+            <returns>Fail ituff data info list class in string.</returns>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfoList.AddFailItuffData(System.String,Prime.DffService.FailItuffDataInfo)">
+            <summary>
+            Add fail ituff data.
+            </summary>
+            <param name="dffFullName">Dff full name.</param>
+            <param name="failItuffDataInfo">Fail ituff data info.</param>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfoList.ClearFailHistoryDff(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clear fail history dff.
+            </summary>
+            <param name="dffFullName">Dff full name.</param>
+            <param name="dieId">Die id.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfoList.GetSizeOfFailItuffDffData">
+            <summary>
+            Get size of fail ituff dff data.
+            </summary>
+            <returns>Size of fail ituff dff data.</returns>
+        </member>
+        <member name="M:Prime.DffService.FailItuffDataInfoList.CleanEndOfFlowFailingData">
+            <summary>
+            Clean end of flow failing data.
+            </summary>
+        </member>
+        <member name="T:Prime.DffService.IDffService">
+            <summary>
+            <para>Definition Group DffService, reads UBE File(stacks supported) and MTL File, Get and Set DFF during operations, Megatoken Print from CurrentDff.</para>
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="N:Prime.ConsoleService"/></item>
+            <item><see cref="T:Prime.FileService.FileService"/></item>
+            <item><see cref="N:Prime.PerformanceService"/></item>
+            <item><see cref="N:Prime.PlatformService"/></item>
+            <item><see cref="T:Prime.SharedStorageService.SharedStorageService"/></item>
+            <item><see cref="T:Prime.SessionService.SessionService"/></item>
+            <item><see cref="N:Prime.DatalogService"/></item>
+            <item><see cref="N:Prime.TelemetryService"/></item>
+            <item><see cref="T:Prime.UserVarService.UserVarService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.DffService.IDffService.Init(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialize MTL file rules to local memory.
+            By getting file directory from UserVar DFFVars.MTL_FILE_PATH.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            Prime.Base.ServiceStore&lt;IDffService&gt;.Service.Init(sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="M:Prime.UserVarService.IUserVarService.TryGetScValue(System.String)"/></item>
+            <item><see cref="M:Prime.FileService.IFileService.TryGetFile(System.String)"/></item>
+            <item><see cref="M:Prime.FileService.IFileService.GetLastModificationTimeUtc(System.String)"/></item>
+            <item><see cref="M:Prime.FileService.IFileService.ReadFile(System.String)"/></item>
+            </list>
+            </remarks>
+            <seealso cref="T:Prime.SessionService.ISessionContextProviderContainer"/>
+        </member>
+        <member name="M:Prime.DffService.IDffService.SetDff(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set Dff value to current optype and current die id. This will replace the whole token value or per field value.
+            Example of SetDFF without field name: SetDFF(TokenName, tokenValue)
+            Example of SetDFF with field name: SetDFF(TokenName.FieldName, FieldValue)
+            TokenName and FieldName is delimited by "." and only single field is allowed.
+            </summary>
+            <param name="tokenName">Dff token to set and fieldName to set (if exist).</param>
+            <param name="tokenValue">Token/Field value to store.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.SetDff(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set Dff value to current optype based on the input die id. This will replace
+            the whole token value or per field value.
+            Example of SetDFF without field name: SetDFF(TokenName, tokenValue, targetDieId)
+            Example of SetDFF with field name: SetDFF(TokenName.FieldName, FieldValue, targetDieId)
+            TokenName and FieldName is delimited by "." and only single field is allowed.
+            </summary>
+            <param name="tokenName">Dff token to set and field name to set (if exist).</param>
+            <param name="tokenValue">Token/Field value to store.</param>
+            <param name="targetDieId">Target die id to set the dff to.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetDff(System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the Dff value for the current optype and current die id.
+            </summary>
+            <param name="tokenName">Dff token name to retrieve the value.</param>
+            <param name="ituffPrint">To enable/disable the get fail ituff print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dff value for the given token name.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            try
+            {
+                var dffValue = Prime.Base.ServiceStore&lt;IDffService&gt;.Service.GetDff(tokenName, ituffPrint, sessionContext);
+            }
+            catch (Base.Exceptions.DffException ex)
+            {
+                ex.LogDffException(this.InstanceName, this.SessionContext);
+            }
+            </code>
+            </example>
+            </remarks>
+            <seealso cref="T:Prime.SessionService.ISessionContextProviderContainer"/>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetDff(System.String,System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the Dff value for input optype and die id.
+            </summary>
+            <param name="tokenName">Dff token name to retrieve the value.</param>
+            <param name="operationType">optype to get the dff data from.</param>
+            <param name="targetDieId">target die id to get the dff data from.</param>
+            <param name="ituffPrint">To enable/disable the get fail ituff print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>specification set value.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            try
+            {
+                var dffValue = Prime.Base.ServiceStore&lt;IDffService&gt;.Service.GetDff(tokenName, operationType, targetDieId, ituffPrint, sessionContext);
+            }
+            catch (Base.Exceptions.DffException ex)
+            {
+                ex.LogDffException(this.InstanceName, this.SessionContext);
+            }
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetDffByOpType(System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the Dff value for the current die id based on the input optype.
+            </summary>
+            <param name="tokenName">Dff token name to retrieve the value.</param>
+            <param name="operationType">optype to get the dff data from.</param>
+            <param name="ituffPrint">To enable/disable the get fail ituff print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>specification set value.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            try
+            {
+                var dffValue = Prime.Base.ServiceStore&lt;IDffService&gt;.Service.GetDffByOpType(tokenName, operationType, ituffPrint, sessionContext);
+            }
+            catch (Base.Exceptions.DffException ex)
+            {
+                ex.LogDffException(this.InstanceName, this.SessionContext);
+            }
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetDffByDieId(System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the Dff value for the current optype based on the input die id.
+            </summary>
+            <param name="tokenName">Dff token name to retrieve the value.</param>
+            <param name="targetDieId">target die id to get the dff data from.</param>
+            <param name="ituffPrint">To enable/disable the get fail ituff print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>specification set value.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            try
+            {
+                var dffValue = Prime.Base.ServiceStore&lt;IDffService&gt;.Service.GetDffByDieId(tokenName, targetDieId, ituffPrint, sessionContext);
+            }
+            catch (Base.Exceptions.DffException ex)
+            {
+                ex.LogDffException(this.InstanceName, this.SessionContext);
+            }
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetDffFromUltDatabase(System.String,System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Calls GetDFF API to get UBE paths for the eFuseIds input.
+            </summary>
+            <param name="visualIds">Visual IDs of the units.</param>
+            <param name="eFuseIds">EFuse IDs of the units.</param>
+            <param name="timeOutInSeconds">Timeout for the API to get response from the UTL DB.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>ubeFilePaths returned by GetDff API.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            try
+            {
+                var ubePath = Prime.Base.ServiceStore&lt;IDffService&gt;.Service.GetDffFromUltDatabase(visualIds, eFuseIds, timeOutInSeconds, sessionContext);
+            }
+            catch (Base.Exceptions.DffException ex)
+            {
+                ex.LogDffException(this.InstanceName, this.SessionContext);
+            }
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DffService.IDffService.PopulateDffDataPerUnit(System.String,System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialize the Dff values to populate the dff structure based on the whichsocket config and fuseread
+            This is supposed to be call per unit and not in main flow.
+            </summary>
+            <param name="readOpType">The optype to read the DFF data from.</param>
+            <param name="writeOpType">The optype to write the DFF data to.</param>
+            <param name="writeMode">write mode  - WRITE, LOCALWRITE or NOUPLOAD.</param>
+            <param name="processType">Current socket process type.</param>
+            <param name="enabledModules">Controls which groups of tokens will be killed for when failing In-Place Validations and End of Flow Validations.
+            Supported values:
+              ALLKILL - Enables validation failures for all tokens
+              NONKILL Disables validation failures for all tokens
+              ModuleName  Enables validation failures for -ModuleName-
+              !ModuleName Disables validation failures for -ModuleName-.</param>
+            Examples:
+            ALLKILL - All tokens validated and killed for
+            ALLKILL,!MODULEA - All tokens except tokens tagged to MODULEA validated and killed for.
+            NONKILL - No token killed for.
+            NONKILL,MODULEA - Only MODULEA tokens are validated and killed for.
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.EnableIndividualTokenLogging(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Enables the individual tokens printout in datalog.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.DisableIndividualTokenLogging(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Disables the individual tokens printout in datalog.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.BuildUbeSharedStorageDatabase(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read UBE file and construct the UBE database in the sharedstorage.
+            This path for the UBE file is determined by SCVars.ULT_DOWNLOAD_PATH and
+            should be executed only once per lot in lotstart testmethod.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetInlineDff(System.String,System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Calls GetDFF API to get UBE paths for the eFuseIds input.
+            </summary>
+            <param name="visualIds">Visual IDs of the units.</param>
+            <param name="eFuseIds">EFuse IDs of the units.</param>
+            <param name="timeOutInSeconds">Timeout for the API to get response from the UTL DB.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Pipe separated string of ube file paths.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.ParseUbeFiles(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Parses a list of ube files and adds to ube shared storage database.
+            </summary>
+            <param name="ubeFiles">Pipe separated string of ube file paths.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.InquireForUltDownloaded(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Inquire if the ULT was properly downloaded from the GetDff API call earlier.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.PrintMegaToken(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print the megatoken to dff and console.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.SetCurrentDieId(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the default current die id for dff service usage.
+            </summary>
+            <param name="dieId">Die id name to set as the current die id.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetCurrentDieId(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the default current die id from dff service shared storage.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The current DieId string.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetUltPerDieId(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the ULT combined string for given die id.
+            </summary>
+            <param name="dieId">The die id to store the ULT data for.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:Prime.Base.Exceptions.BaseException">If there's no Ult for the given dieId.</exception>
+            <returns>The ULT combined string.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.TryGetVidPerUlt(System.String,System.String@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the VID string for given ult.
+            </summary>
+            <param name="ult">The ULT line decoded.</param>
+            <param name="vidPerUlt">The VID that match the ULT line.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The result of finding VID and ULT match.</returns>
+            <example>
+            <code>
+            if (Prime.Base.ServiceStore&lt;IDffService&gt;.Service.TryGetVidPerUlt("Y5106803_330_-10_+00", out var vid, sessionContext))
+            {
+                Prime.Base.ServiceStore&lt;IDffService&gt;.Service.Print($"Current Ult's Vid=[{vid}].");
+            }
+            else
+            {
+                Prime.Base.ServiceStore&lt;IDffService&gt;.Service.Print($"Sorry, but we couldn't find the match of Ult in UBE file..");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.DffService.IDffService.TryGetUltFromUbePerDieId(System.String,System.String,System.String@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the ult line string for given dieID from UE file.
+            </summary>
+            <param name="vid">The vid that need to identify in UBE.</param>
+            <param name="dieId">The target dieId under the vid.</param>
+            <param name="ult">The ult from target dieId under the vid.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The result of finding VID and ULT match.</returns>
+            <example>
+            <code>
+            if (Prime.Base.ServiceStore&lt;IDffService&gt;.Service.TryGetUltFromUbePerDieId("UnitVisualId", out var ult, sessionContext))
+            {
+                Prime.Base.ServiceStore&lt;IDffService&gt;.Service.Print($"Current ult at DieId under vid=[{ult}].");
+            }
+            else
+            {
+                Prime.Base.ServiceStore&lt;IDffService&gt;.Service.Print($"Sorry, but we couldn't find the match of dieId in UBE file..");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.DffService.IDffService.TryGetUltPerDieId(System.String,System.String@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Tries to gt the ULT combined string for given die id.
+            </summary>
+            <param name="dieId">The die id to store the ULT data for.</param>
+            <param name="ultPerDieId">The ult for the given dieId.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Boolean of the existance of the ULT.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            if (Prime.Base.ServiceStore&lt;IDffService&gt;.Service.TryGetUltPerDieId("PKG", out var ult, sessionContext))
+            {
+                Prime.Base.ServiceStore&lt;IDffService&gt;.Service.Print($"Current DieId's ULT=[{ult}].");
+            }
+            else
+            {
+                Prime.Base.ServiceStore&lt;IDffService&gt;.Service.Print($"Sorry, but we couldn't find the current die id Ult..");
+            }
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DffService.IDffService.SetUltDataPerDieId(System.String,System.String,System.String,System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the ULT data of given die id for dff service usage.
+            </summary>
+            <param name="dieId">The die id to store the ULT data for.</param>
+            <param name="lot">The lot identifier of the die.</param>
+            <param name="wafer">The wafer identifier of the die.</param>
+            <param name="xLocation">The die X location.</param>
+            <param name="yLocation">The die Y location.</param>
+            <param name="isInlineDffEnabled">Enables or disables inline dff mode. Defaults to false.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.PrintUltDataPerDieIdToItuff(System.String,System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print the ULT data and given die id to ituff and console.
+            </summary>
+            <param name="dieId">The die id to store the ULT data for.</param>
+            <param name="lot">The lot identifier of the die.</param>
+            <param name="wafer">The wafer identifier of the die.</param>
+            <param name="xLocation">The die X location.</param>
+            <param name="yLocation">The die Y location.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.ValidateEndOfFlowTokens(System.Boolean@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute MTL token check for tokens that are not set using setDff.
+            </summary>
+            <param name="isFailingDns">The flag to tell if the function is failing DNS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>TRUE for no failures in inline setdff and validation. FALSE for failure.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.OptypesDffTokensDataMerge(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Merging Optypes of Dff tokens data to another base optype.
+            </summary>
+            <param name="baseOptype">The base of optype DFF Tokens data.</param>
+            <param name="targetOptype">The optype DFF Tokens data that get merge.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetDffByVid(System.String,System.String,System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get dff by vid. This API will attempt to find a token value in the DFF data by using the following conditional logic...<br/>
+                If no dieId is provided, the API will return a token value that matches to the provided optype for the first ULT defined in the UBE file.<br/>
+                Else-if... a dieId is provided, search for a token matching to dieId/optype in the pkg/stack level.<br/>
+                Else... not found in unit level, attempt to find the ULT level that matches to the ULT value in the UBE file. The API expects the full ULT name for the DieId field, not the dieId it corresponds to. The API will then match to the token corresponding to the provided optype.<br/>
+            </summary>
+            <param name="vid">The vid to get the token from.</param>
+            <param name="tokenName">The dff token name to get the value.</param>
+            <param name="dieId">The die id to get the token from. Leave it empty for non-mcp.</param>
+            <param name="operationType">Optype to get the token from.</param>
+            <param name="ituffPrint">To enable/disable the get fail ituff print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The token value that matches the VID, tokenname, die id and optype provided.</returns>
+            <exception cref="T:Prime.Base.Exceptions.DffException">Thrown if the provided VID could not be found or no token could be resolved with the provided parameters.</exception>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetDffFromUbe(System.String,System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get DFF Token value straight from Ube File. User needs to provide token name, die id, and optype.
+            </summary>
+            <param name="tokenName">The dff token name to get the value.</param>
+            <param name="dieId">The die id to get the token from.</param>
+            <param name="operationType">Optype to get the token from.</param>
+            /// <param name="ituffPrint">To enable/disable the get fail ituff print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The token value that matches the tokenname, die id and optype from UBE file.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetAllWriteableTokensForCurrentOptype(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get All DFF Token Names that's write-able for current optype with the provided die id. User need to provide die id.
+            </summary>
+            <param name="dieId">The die id to get the token names from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>List of token names for current optype that matches die id provided. For tokens with multiple fields will return as tokA.Field1.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.IsTokenUpdated(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if the token for current optype and given die id is already being updated in main flow.
+            </summary>
+            <param name="tokenName">The token name to check if it is already updated.</param>
+            <param name="dieId">The die id to get the token names from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>True for token was updated and false for token is default from ube or mtl.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.TryGetMtlRevision(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the Mtl revision if it's already loaded, empty otherwise.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The mtl revision.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetAllMtlTokensByDieId(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get all MTL tokens by die id.
+            </summary>
+            <param name="dieId">The die id to get the tokens from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>MTL tokens dictionary where the key is the token name and the value the token data.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var tokens = Prime.Base.ServiceStore&lt;IDffService&gt;.Service.GetAllMtlTokensByDieId("PKG", sessionContext);
+            </code>
+            </example>
+            </remarks>
+            <seealso cref="T:Prime.SessionService.ISessionContextProviderContainer"/>
+        </member>
+        <member name="M:Prime.DffService.IDffService.GetAllMtlTokensByDieIdAndModule(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get all MTL tokens by die id with the ability to filter them by module name.
+            </summary>
+            <param name="dieId">The die id to get the tokens from.</param>
+            <param name="moduleNameFilter">Module name for filtering the tokens.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>MTL tokens dictionary where the key is the token name and the value the token data.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var tokens = Prime.Base.ServiceStore&lt;IDffService&gt;.Service.GetAllMtlTokensByDieIdAndModule("PKG", "TPI", sessionContext);
+            </code>
+            </example>
+            </remarks>
+            <seealso cref="T:Prime.SessionService.ISessionContextProviderContainer"/>
+        </member>
+        <member name="M:Prime.DffService.IDffService.PrintTokensToItuffFooter(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print custom tokens to ITUFF footer.
+            </summary>
+            <param name="dieId">The die id where the tokens are from.</param>
+            <param name="datalogUserBin">User bin to be reported in the footer.</param>
+            <param name="tokensToPrint">Tokens to print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            var tokensToPrint = new Dictionary&lt;string, string&gt;() { { "TOKC", "98" } };
+            Prime.Base.ServiceStore&lt;IDffService&gt;.Service.PrintTokensToItuffFooter("PKG", "9850", tokensToPrint, sessionContext);
+            </code>
+            </example>
+            </remarks>
+            <seealso cref="T:Prime.SessionService.ISessionContextProviderContainer"/>
+        </member>
+        <member name="M:Prime.DffService.IDffService.IsDffMainFlowFailsExists(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Wether dmff is empty.
+            </summary>
+            <param name="sessionContext">sessionContext.</param>
+            <returns>boolean indicates wether dmff is empty.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.IsDffMainFlowNonKillFailsExists(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            /// Whether dmffn is empty.
+            </summary>
+            <param name="sessionContext">sessionContext.</param>
+            <returns>boolean indicates wether dmffn is empty.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.TryGetTokenFromUnitData(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer,System.String@)">
+            <summary>
+            Try-gets a token from the UBE file from unit scope data.
+            </summary>
+            <param name="tokenName">Name of token to retrieve.</param>
+            <param name="vid">The visual id of the unit to retrieve the token from.</param>
+            <param name="dieId">The die id that is associated with the desired token.</param>
+            <param name="operationType">The operation type (optype) associated with the desired token.</param>
+            <param name="sessionContext">The session context this API is called in.</param>
+            <param name="tokenValue">If this function returns true, this value is populated with the token value taken from the UBE file. Will return all values associated with this token as a string.</param>
+            <returns>True if the token was found with the specified params. Otherwise, false.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDffService.TryGetTokenFromUltData(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer,System.String@)">
+            <summary>
+            Try-gets a token from the UBE file from ULT scope data. Token is retrieved from the ULT linked to the specified dieId.
+            </summary>
+            <param name="tokenName">Name of the token to retrieve.</param>
+            <param name="vid">The visual id of the unit to retrieve the token from.</param>
+            <param name="dieId">The ULT scope to retrieve the token from.</param>
+            <param name="operationType">The operation type (optype) associated with the desired token.</param>
+            <param name="sessionContext">The session context this API is called in.</param>
+            <param name="tokenValue">If this function returns true, this value is populated with the token value taken from the UBE file. Will return all values associated with this token as a string.</param>
+            <returns>True if the token was found with the specified params. Otherwise, false.</returns>
+        </member>
+        <member name="T:Prime.DffService.UltException">
+            <summary>
+            UltException.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.UltException.#ctor(System.String,System.String,System.UInt32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.UltException"/> class.
+            </summary>
+            <param name="file">File exception was thrown in.</param>
+            <param name="function">Function exception was thrown in.</param>
+            <param name="line">Line exception was thrown in.</param>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="M:Prime.DffService.UltException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.UltException"/> class.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="M:Prime.DffService.UltException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.UltException"/> class.
+            </summary>
+            <param name="info">Exception info.</param>
+            <param name="context">Exception context.</param>
+        </member>
+        <member name="M:Prime.DffService.UltException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            GetObjectData.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming Context.</param>
+        </member>
+        <member name="T:Prime.DffService.DutStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DutStorage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.DutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.DutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.DffService.DutStorage`1.GetObject(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.DffService.DutStorage`1.InsertObject(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="objectToSet">Object to store.</param>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.DffService.DutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.DffService.IDutStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:Prime.DffService.IDutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.DffService.IDutStorage`1.GetObject(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.DffService.IDutStorage`1.InsertObject(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="objectToSet">Object to store.</param>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.DffService.IDutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.DffService.ILotStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:Prime.DffService.ILotStorage`1.Reset">
+            <summary>
+            Reset storage data.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.ILotStorage`1.GetObject">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.DffService.ILotStorage`1.InsertObject(`0)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="objectToSet">Object to store.</param>
+        </member>
+        <member name="M:Prime.DffService.ILotStorage`1.GetLock">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.DffService.LotStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.LotStorage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.LotStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.LotStorage`1.Reset">
+            <summary>
+            Reset storage data.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.LotStorage`1.GetObject">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.DffService.LotStorage`1.InsertObject(`0)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="objectToSet">Object to store.</param>
+        </member>
+        <member name="M:Prime.DffService.LotStorage`1.GetLock">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.DffService.PrimitiveTypedDutStorage`1">
+            <summary>
+            Dff service local storage for primitive type.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.PrimitiveTypedDutStorage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.PrimitiveTypedDutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.PrimitiveTypedDutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.DffService.PrimitiveTypedDutStorage`1.GetObject(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.DffService.PrimitiveTypedDutStorage`1.InsertObject(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="objectToSet">Object to store.</param>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.DffService.PrimitiveTypedDutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.DffService.IPrinter">
+            <summary>
+            Print out control class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.IPrinter.PrintoutControlLotType(System.Func{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Prints if it has to.
+            </summary>
+            <param name="msg">The function to build the message to print.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="T:Prime.DffService.PrintoutControl">
+            <summary>
+            Print out control class.
+            </summary>
+        </member>
+        <member name="T:Prime.DffService.UltData">
+            <summary>
+            Ult data class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.UltData.ToString">
+            <summary>
+            Ult data to string.
+            </summary>
+            <returns>Ult data in string.</returns>
+        </member>
+        <member name="M:Prime.DffService.UltData.SetUlt(System.String,System.String,System.String,System.String,Prime.DffService.TpType)">
+            <summary>
+            Set ult.
+            </summary>
+            <param name="lot">Lot.</param>
+            <param name="wafer">Wafer.</param>
+            <param name="xLocation">X location.</param>
+            <param name="yLocation">Y location.</param>
+            <param name="tpType">Tp type.</param>
+        </member>
+        <member name="M:Prime.DffService.UltData.GetUlt">
+            <summary>
+            Get ult.
+            </summary>
+            <returns>Ult.</returns>
+        </member>
+        <member name="T:Prime.DffService.UltQueryInline">
+            <summary>
+            Ult query inline class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.UltQueryInline.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.UltQueryInline"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.UltQueryInline.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DffService.UltQueryInline"/> class.
+            </summary>
+            <param name="ult">Ult.</param>
+            <param name="dieId">Die id.</param>
+            <param name="isInlineSuccessful">Is inline successful.</param>
+        </member>
+        <member name="P:Prime.DffService.UltQueryInline.Ult">
+            <summary>
+            Gets ult.
+            </summary>
+        </member>
+        <member name="P:Prime.DffService.UltQueryInline.DieId">
+            <summary>
+            Gets die id.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.UltQueryInline.SetInlineSuccess">
+            <summary>
+            Set inline success.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.UltQueryInline.ToString">
+            <summary>
+            To string for ult query inline class.
+            </summary>
+            <returns>Ult query inline class in string.</returns>
+        </member>
+        <member name="T:Prime.DffService.Utilities">
+            <summary>
+            Utilities class.
+            </summary>
+        </member>
+        <member name="M:Prime.DffService.Utilities.DecompressBase64ToBinary(System.String,System.Int32,Prime.DffService.FailItuffDataInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Decompress base64 type to binary.
+            </summary>
+            <param name="base64Input">Base64 input.</param>
+            <param name="numberOfBits">Expected bit lenght.</param>
+            <param name="failData">Fail data.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Decompressed value.</returns>
+        </member>
+        <member name="M:Prime.DffService.Utilities.GetDecompressedValue(System.String,System.Text.StringBuilder,System.String,System.Boolean,System.Collections.Generic.List{System.Int32},Prime.DffService.FailItuffDataInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get decompressed value.
+            </summary>
+            <param name="value">Value.</param>
+            <param name="debugStr">Debug string.</param>
+            <param name="source">Source.</param>
+            <param name="isCompressionEnabled">Is compression enabled.</param>
+            <param name="fieldsLength">Fields lenght.</param>
+            <param name="failData">Fail data.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Decompressed value.</returns>
+        </member>
+        <member name="M:Prime.DffService.Utilities.Decompress(System.String,System.Collections.Generic.List{System.Int32},Prime.DffService.FailItuffDataInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Decompress.
+            </summary>
+            <param name="input">Input to decompress.</param>
+            <param name="fieldsLength">Expected field lenght.</param>
+            <param name="failData">Fail data.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Decompress value.</returns>
+        </member>
+        <member name="M:Prime.DffService.Utilities.TruncateStringDataIfNeeded(System.String@,System.Int32)">
+            <summary>
+            Truncate string.
+            </summary>
+            <param name="strgvalData">Input string.</param>
+            <param name="stringLength">length of string to cut.</param>
+        </member>
+        <member name="M:Prime.DffService.Utilities.Compress(System.String,System.Boolean)">
+            <summary>
+            Compress.
+            </summary>
+            <param name="value">Value to compress.</param>
+            <param name="isCompressionEnabled">Is compression enabled flag.</param>
+            <returns>Compress value.</returns>
+        </member>
+        <member name="M:Prime.DffService.Utilities.CompressBinaryToBase64(System.String)">
+            <summary>
+            Compress binary to base 64.
+            </summary>
+            <param name="binaryInput">Binary input.</param>
+            <returns>Compress value.</returns>
+        </member>
+    </members>
+</doc>

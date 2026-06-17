@@ -1,0 +1,933 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Ipo</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Ipo.Common.ConfigurationHandle">
+            <summary>
+            Handler for task related to configuration file.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Common.ConfigurationHandle.sessionContext">
+            <summary>
+            Session context.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Common.ConfigurationHandle.testsToExecute">
+            <summary>
+            Test information to execute.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Common.ConfigurationHandle.loopToExecute">
+            <summary>
+            Loop to execute at test method. It is Loop with input file loop configuration setup at position 0.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.ConfigurationHandle.#ctor(Prime.TestMethods.Ipo.InputFile.JsonFile,Prime.TestMethods.Ipo.Enum.ExecuteMode,Prime.TestMethods.Ipo.Enum.RestoreMode,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Ipo.Common.ConfigurationHandle"/> class.
+            </summary>
+            <param name="configJson">Deserialized configuration json content to process.</param>
+            <param name="executionMode">the Execute mode option.</param>
+            <param name="restoreMode">the Restore mode option.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.ConfigurationHandle.GetTestsToExecute">
+            <summary>
+            Get list of test instance or flow to execute for each iteration.
+            </summary>
+            <returns>Tests to execute.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.ConfigurationHandle.GetLoopToExecute">
+            <summary>
+            Get validated and post processed loop that ready for execution.
+            </summary>
+            <returns>Loop to execute at test method Execute.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.ConfigurationHandle.StoreIterationResult(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Ipo.IpoTestResults}})">
+            <summary>
+            Store the iteration result into shared storage if configured.
+            </summary>
+            <param name="ipoTestResult">Executed test result.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Common.IpoException">
+            <summary>
+            Customized exception for Ipo test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Common.IpoException.IpoExecuteModeException">
+            <summary>
+            Exception for IPO Execute Mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IpoException.IpoExecuteModeException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Ipo.Common.IpoException.IpoExecuteModeException"/> class.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Common.IpoException.IpoExecuteTestSoftwareException">
+            <summary>
+            IPO executed test have Software exception (test retult -1).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IpoException.IpoExecuteTestSoftwareException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Ipo.Common.IpoException.IpoExecuteTestSoftwareException"/> class.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Common.IpoException.IpoExecuteTestAlarmException">
+            <summary>
+            IPO executed test have Alarm exception (test retult -2).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IpoException.IpoExecuteTestAlarmException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Ipo.Common.IpoException.IpoExecuteTestAlarmException"/> class.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Common.Iteration">
+            <summary>
+            Iteraion that hold modifiers to execute.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Common.Iteration.modifiers">
+            <summary>
+            Modifiers to be execute for current iteration.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.Iteration.#ctor(System.Int32,System.Collections.Generic.List{Prime.TestMethods.Ipo.Interface.IModify})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Ipo.Common.Iteration"/> class.
+            </summary>
+            <param name="index">Default index for this iteration. This will be use for datalog post fix by default.</param>
+            <param name="modifiers">List of modifier to apply for this iteration.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.Common.Iteration.IterationIndex">
+            <summary>
+            Gets the default iteration index set by test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.Iteration.Apply">
+            <summary>
+            Execute Modifier Apply.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.Iteration.Restore">
+            <summary>
+            Execute Modifier Restore.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.Iteration.SaveRestore">
+            <summary>
+            Execute Modifier SaveRestore.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Common.IterationCreator">
+            <summary>
+            Create Loop iterations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IterationCreator.CreateLoopIteration(Prime.TestMethods.Ipo.InputFile.LoopSetup,System.Collections.Generic.List{Prime.TestMethods.Ipo.InputFile.PatternInfo},System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create Loop Iterations with Modifiers to apply at each iteration.
+            </summary>
+            <param name="configLoopSetup">Target loop iteration setup in input configuration file.</param>
+            <param name="configPatternInfo">Pattern Information setup in input configuration file.</param>
+            <param name="isRestoreMode">When is true, pre-create setup that needed for restore. Use by PatternModifier.</param>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Loop iterations with modifiers to apply.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IterationCreator.CreateMultiStepModifiers(Prime.TestMethods.Ipo.InputFile.IterationSetup,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Multiple step expansion only support Numeric value of Test Condition modifier and Storage modifier.
+            Assume StepCount = 3, Start = 0.0, Step = 0.1. Expected value = Start + Step(currentCount).
+            at Iteration[0], expected value = 0.0 ~= 0.0 + 0.1(0)
+            at Iteration[1], expected value = 0.1 ~= 0.0 + 0.1(1)
+            at Iteration[2], expected value = 0.2 ~= 0.0 + 0.1(2)
+            This will be apply and execute 3 time with respective expected value.
+            </summary>
+            <param name="iterationSetup">Iteration setup information to create modifiers.</param>
+            <param name="currentStep">It is known as multiplier.</param>
+            <param name="sessionContext">Session Context.</param>
+            <returns>List of expanded modifiers to apply for the same iteration.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IterationCreator.CreateSingleStepModifiers(Prime.TestMethods.Ipo.InputFile.IterationSetup,System.Collections.Generic.List{Prime.TestMethods.Ipo.InputFile.PatternInfo},System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Single step only support String value of Pattern modifier and Storage modifier.
+            </summary>
+            <param name="iterationSetup">Iteration setup information to create modifiers.</param>
+            <param name="configPatternInfo">Pattern information used to create pattern modifier.</param>
+            <param name="isRestoreMode">When is true, pre-create setup that needed for restore. Use by PatternModifier.</param>
+            <param name="sessionContext">Session Context.</param>
+            <returns>List of single step modifiers to apply for the same iteration.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IterationCreator.CalculateExpansionValueToApply(System.Double,System.Double,System.Int32)">
+            <summary>
+            Calculate numerical value to apply based on expansion formula.
+            </summary>
+            <param name="startValue">starting value.</param>
+            <param name="stepValue">step value.</param>
+            <param name="stepMultiplier">multiplier to apply on step value.</param>
+            <returns>Numerical value for modifier to apply.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IterationCreator.CalculateExpansionValueToApply(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Calculate numerical value to apply based on expansion formula.
+            </summary>
+            <param name="startValue">starting value.</param>
+            <param name="stepValue">step value.</param>
+            <param name="stepMultiplier">multiplier to apply on step value.</param>
+            <returns>Numerical value for modifier to apply.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IterationCreator.ConstructMultipleStepSharedStorageModifiers(System.Collections.Generic.List{Prime.TestMethods.Ipo.InputFile.SharedStorage},System.Int32,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Create SharedStorage modifiers with same step.
+            </summary>
+            <param name="setupInfos">Single/Multiple setup that expect to execute at same iteration.</param>
+            <param name="currentStep">It it know as multiplier to apply on start value. Used to calculate value to apply.</param>
+            <param name="sessionContext">Session Context.</param>
+            <param name="isFirstOfExpensionOrSingleModifier">Is FirstOfExpension or SingleModifier.</param>
+            <returns>Modifiers of same step.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IterationCreator.ConstructMultiStepUserVarModifiers(System.Collections.Generic.List{Prime.TestMethods.Ipo.InputFile.UserVariable},System.Int32,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Create Uservar modifiers with same step.
+            </summary>
+            <param name="setupInfos">Single/Multiple setup that expect to execute at same iteration.</param>
+            <param name="currentStep">It it know as multiplier to apply on start value. Used to calculate value to apply.</param>
+            <param name="sessionContext">Session Context.</param>
+            <param name="isFirstOfExpensionOrSingleModifier">Is FirstOfExpension or SingleModifier.</param>
+            <returns>Modifiers of same step.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IterationCreator.ConstructMultiStepTestConditionIteration(System.Collections.Generic.List{Prime.TestMethods.Ipo.InputFile.TestCondition},System.Int32,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Create Test Condition modifiers with same step. The ValueToApply always converted to string.
+            </summary>
+            <param name="setupInfos">Single/Multiple setup that expect to execute at same iteration.</param>
+            <param name="currentStep">It it know as multiplier to apply on start value. Used to calculate value to apply.</param>
+            <param name="sessionContext">Session Context.</param>
+            <param name="isFirstOfExpensionOrSingleModifier">Is FirstOfExpension or SingleModifier.</param>
+            <returns>Modifiers of same step.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.IterationCreator.ConstructPatIteration(System.Collections.Generic.List{Prime.TestMethods.Ipo.InputFile.Pattern},System.Collections.Generic.List{Prime.TestMethods.Ipo.InputFile.PatternInfo},System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create Pattern modifiers with same step.
+            </summary>
+            <param name="setupInfos">Single/Multiple setup that expect to execute at same iteration.</param>
+            <param name="configPatternInfo">Pattern information used to create modifier.</param>
+            <param name="isRestoreMode">When is true, pre-create setup that needed for restore. Use by PatternModifier.</param>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Modifiers of same step.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Common.PatternLogic">
+            <summary>
+            Common code use for Pattern.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.PatternLogic.NormalizeStartAddress(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Convert Configuration Pattern StartAddress to numerical.
+            If provided StartAddress is a label, get actual numerical start address of the label by Pattern name and Pin name (domain specific). The PatternLabel address of the same Pin name might be different at different domain.
+            If provided StartAddress is actual address, no need to post process the information, apply directly to the pin.
+            </summary>
+            <param name="configurationStartAddress">Either StartAddress or LabelName.</param>
+            <param name="patternName">Pattern Name to identify StartAddress and Domain of Label.</param>
+            <param name="pinName">Pin Name identify StartAddress and Domain of Label.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>Numerical StartAddress.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Common.PatternLogic.GetTargetPatterns(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This is code from PatConfigService. It is to find Patterns name in plist that match the provided regular expression.
+            </summary>
+            <param name="plistName">Name of pattern list.</param>
+            <param name="regularExpressionPatternFilter">Pattern regex to match.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>Patterns that matched the pattern regex.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Enum.ExecuteMode">
+            <summary>
+            Execute mode option.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.ExecuteMode.ExecuteAll">
+            <summary>
+            EXEC_ALL causes all IPO iterations to run and all test instances to be executed within each iteration. IPO will ignore all regular test template failures in this mode.  If an alarm or Error is encountered, that will be propagated up.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.ExecuteMode.FirstPass">
+            <summary>
+            FIRST_PASS will execute until either all iterations are complete or one of the target tests exits out of a pass port (Which ports are pass ports are specific to the target templates). If a target test exits out a pass port, IPO will stop execution of further iterations and exit out port 2.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.ExecuteMode.FirstFail">
+            <summary>
+            FIRST_FAIL will execute until either all iterations are complete or one of the target tests exits out of a fail port (Which ports are fail ports are specific to the target templates). If a target test exits out a fail port, IPO will stop execution of further iterations and exit out port 2.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.ExecuteMode.FirstAllInstancePass">
+            <summary>
+            IPO will stop at iteration that PASS all target test and return as pass port (2). If no iteration pass all target test, IPO behave like ExecuteAll and return as pass port (1).
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.ExecuteMode.FirstAllInstanceFail">
+            <summary>
+            IPO will stop at iteration that FAIL all target test and return as pass port (2). If no iteration pass all target test, IPO behave like ExecuteAll and return as pass port (1).
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Enum.RestoreMode">
+            <summary>
+            Restore Option.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.RestoreMode.Enabled">
+            <summary>
+            Restore initial value before modifer is applied at end of last iteration executed.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.RestoreMode.Disabled">
+            <summary>
+            Do not restore modified value at end of last iteration executed.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Enum.StorageDataType">
+            <summary>
+            Data type of value. It is required to call sharedstorage/uservar api that match the data type of value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.StorageDataType.STRING">
+            <summary>
+            Data type is string.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.StorageDataType.DOUBLE">
+            <summary>
+            Data type is double.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.StorageDataType.INT">
+            <summary>
+            Data type is int.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Enum.TestExecuteType">
+            <summary>
+            Data type of Test Execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.TestExecuteType.INSTANCE">
+            <summary>
+            Data type is test instance.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Enum.TestExecuteType.FLOW">
+            <summary>
+            Data type is test flow.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.IIpoExtensions">
+            <summary>
+            Test Method interface for user do customization.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.IIpoExtensions.CustomDatalog(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Ipo.IpoTestResults}})">
+            <summary>
+            This function provide user the ability to customize datalogging.
+            </summary>
+            <param name="ipoTestsResult">Execution port result of test instance or flow.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.Configuration">
+            <summary>
+            This class is structure for configurations object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.Configuration.TestsToExecute">
+            <summary>
+            Gets or sets list of test instance name to execute at each iteration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.Configuration.StoreIterationResult">
+            <summary>
+            Gets or sets the storage information to export iteration result.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.Configuration.PatternInfos">
+            <summary>
+            Gets or sets list of pattern info that will be used for Pattern Modifier.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.Configuration.Loops">
+            <summary>
+            Gets or sets list of loop setup that consist of iteration setup to execute at each iteration. Only maximum 3 loop is allow.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.ExportToSharedStorage">
+            <summary>
+            This class represent the SharedStorage data structure.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.ExportToSharedStorage.Key">
+            <summary>
+            Gets or sets sharedstorage name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.ExportToSharedStorage.Context">
+            <summary>
+            Gets or sets sharedstorage context. Default Context is set to DUT.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.ExportToSharedStorage.ResetPolicy">
+            <summary>
+            Gets or sets sharedstorage reset policy. Default ResetPolicy is set to DEVICE START.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.InputFile.ExportToSharedStorage.StoreIterationResult(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Store the iteration result into shared storage.
+            </summary>
+            <param name="numberOfIterationExecuted">Number of executed iteraion.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.IterationSetup">
+            <summary>
+            This class is structure for iteration object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.IterationSetup.StepCount">
+            <summary>
+            Gets or sets the step count to expand all modifier of the same iteration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.IterationSetup.TestConditions">
+            <summary>
+            Gets or sets the iteration for level modification.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.IterationSetup.SharedStorages">
+            <summary>
+            Gets or sets the iteration for sharedstorage modification.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.IterationSetup.Patterns">
+            <summary>
+            Gets or sets the iteration for pattern modification.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.IterationSetup.UserVars">
+            <summary>
+            Gets or sets the iteration for uservar modification.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.JsonFile">
+            <summary>
+            This class represent the configuration data structure for json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.JsonFile.Configuration">
+            <summary>
+            Gets or sets the configuration. Only single configuration per file.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.LoopSetup">
+            <summary>
+            This class is structure for loop object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.LoopSetup.Iterations">
+            <summary>
+            Gets or sets the iteration setup.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.Pattern">
+            <summary>
+            This class represent the data structure for pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.Pattern.Name">
+            <summary>
+            Gets or sets the name of PatternInfo to use for the pattern modifier.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.Pattern.Pins">
+            <summary>
+            Gets or sets the pin information.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.PatternInfo">
+            <summary>
+            This class is structure for pattern info object that required for pattern modifier.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.PatternInfo.Name">
+            <summary>
+            Gets or sets the name of pattern info. Pattern modifier will provide name that match the intended pattern info to use.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.PatternInfo.NumberOfVectors">
+            <summary>
+            Gets or sets the expected number of vectors (bits) or ExpectedDataSize.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.PatternInfo.PatternModifyInfos">
+            <summary>
+            Gets or sets pattern modify information.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.PatternModifyInfo">
+            <summary>
+            This class represent the data structure for pattern modify information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.PatternModifyInfo.PatternsRegex">
+            <summary>
+            Gets or sets the patterns regex use for pattern modification.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.PatternModifyInfo.PatList">
+            <summary>
+            Gets or sets a plist to apply the PatternRegex for the pattern modification.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.PatternModifyInfo.StartAddress">
+            <summary>
+            Gets or sets the start address to use for pattern modification.
+            Prime will try to convert this into an `uint`. If no success, will treat this as a label in the given pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.PatternModifyInfo.Offset">
+            <summary>
+            Gets or sets the offset from the StartAddress use for pattern modification.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.Pin">
+            <summary>
+            This class represent the data structure for pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.Pin.Name">
+            <summary>
+            Gets or sets the name of the pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.Pin.Data">
+            <summary>
+            Gets or sets the pin data. It is expected to match the NumberOfVectors defined at the PatternInfo.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.SharedStorage">
+            <summary>
+            This class represent the SharedStorage data structure.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.SharedStorage.Key">
+            <summary>
+            Gets or sets sharedstorage name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.SharedStorage.Context">
+            <summary>
+            Gets or sets sharedstorage context. Default Context is set to DUT.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.SharedStorage.ResetPolicy">
+            <summary>
+            Gets or sets sharedstorage reset policy. Default ResetPolicy is set to LOT START.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.SharedStorage.DataType">
+            <summary>
+            Gets or sets the data type of value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.SharedStorage.Value">
+            <summary>
+            Gets or sets value to overwrite.
+            Cannot be use with Start attribute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.SharedStorage.Start">
+            <summary>
+            Gets or sets the start/first value.
+            Must be setup with Step attribute. Cannot be use with Value attribute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.SharedStorage.Step">
+            <summary>
+            Gets or sets the increment value to apply from start value to end value.
+            Must be setup with Start attribute.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.StoreIterationResult">
+            <summary>
+            This class represent the storage information for export iteration result (number of iteration completed).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.StoreIterationResult.SharedStorage">
+            <summary>
+            Gets or sets SharedStorage to export.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.TestCondition">
+            <summary>
+            This class is structure for test condition object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.TestCondition.Name">
+            <summary>
+            Gets or sets the test condition name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.TestCondition.Parameter">
+            <summary>
+            Gets or sets the parameter name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.TestCondition.Start">
+            <summary>
+            Gets or sets the start/first value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.TestCondition.Step">
+            <summary>
+            Gets or sets the increment value to apply from start value to end value.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.TestToExecute">
+            <summary>
+            This class represent the Test to Execute data structure.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.TestToExecute.Name">
+            <summary>
+            Gets or sets full name of Test instance or flow for execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.TestToExecute.TestType">
+            <summary>
+            Gets or sets the type of Test Execution, Instance/Flow.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.TestToExecute.CustomPassingPort">
+            <summary>
+            Gets or sets the declaration of passing ports other than port 1.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.InputFile.UserVariable">
+            <summary>
+            This class represent the UserVar data structure.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.UserVariable.Key">
+            <summary>
+            Gets or sets uservar full name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.UserVariable.DataType">
+            <summary>
+            Gets or sets the data type of value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.UserVariable.Value">
+            <summary>
+            Gets or sets value to overwrite.
+            Cannot be use with Start attribute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.UserVariable.Start">
+            <summary>
+            Gets or sets the start/first value.
+            Must be setup with Step attribute. Cannot be use with Value attribute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.InputFile.UserVariable.Step">
+            <summary>
+            Gets or sets the increment value to apply from start value to end value.
+            Must be setup with Start attribute.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Interface.ILoop">
+            <summary>
+            Interface for Loop.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Interface.ILoop.SaveRestore">
+            <summary>
+            Save the original value before apply modifier.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Interface.ILoop.Restore">
+            <summary>
+            Apply saved value.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Interface.ILoop.Execute(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Ipo.IpoTestResults}})">
+            <summary>
+            Apply modifier and Execute tests (Instance/Flow) that defined in configuration file.
+            Root loop and Stem loop should only apply modifier.
+            Single loop or leaf loop should apply modifier and execute test.
+            TestMethod Execute.
+            </summary>
+            <param name="ipoTestsResult">tests result.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Interface.ILoop.Execute(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Ipo.IpoTestResults}},System.Collections.Generic.Stack{System.Int32})">
+            <summary>
+            Apply modifier and Execute tests (Instance/Flow) that defined in configuration file.
+            Root loop and Stem loop should only apply modifier.
+            Single loop or leaf loop should apply modifier and execute test.
+            Internal Execute.
+            </summary>
+            <param name="ipoTestsResult">tests result.</param>
+            <param name="iterationIndexes">collection of loop index.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Interface.IModify">
+            <summary>
+            Interface for modifier.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Interface.IModify.Apply">
+            <summary>
+            Apply modification of parameter with provided value.
+            Q: The design is Apply(T value)? but IModify will be impact because need to assign type to "IModfy T".
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Interface.IModify.Restore">
+            <summary>
+            Resore the value of parameter that saved.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Interface.IModify.SaveRestore">
+            <summary>
+            Save the initial value of the parameter that will be modify.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.IpoTestResults">
+            <summary>
+            Class for user to post process test method result. The test result can be either test instance or flow.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.IpoTestResults.TestName">
+            <summary>
+            Gets or sets the actual test name of instance or flow.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.IpoTestResults.TestIteraionIndicator">
+            <summary>
+            Gets or sets test iteration indicator. Loop1IterationIndex_Loop2IterationIndex_Loop3IterationIndex.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Loop.LeafLoop.sessionContext">
+            <summary>
+            Session context.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Loop.LeafLoop.iterations">
+            <summary>
+            List of iteration to be execute for current loop.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Loop.LeafLoop.testsToExecute">
+            <summary>
+            Only the inner/leaf loop will have to execute the test instance.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Loop.LeafLoop.executionMode">
+            <summary>
+            Ipo execution mode. The behaviour after getting exit port of executed test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Loop.LeafLoop.#ctor(System.Collections.Generic.List{Prime.TestMethods.Ipo.InputFile.TestToExecute},Prime.TestMethods.Ipo.Enum.ExecuteMode,System.Collections.Generic.List{Prime.TestMethods.Ipo.Common.Iteration},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Ipo.Loop.LeafLoop"/> class.
+            </summary>
+            <param name="testsToExecute">List of tests name to execute by loop.</param>
+            <param name="executeMode">Ipo execution mode. The behaviour after getting exit port of executed test.</param>
+            <param name="iterations">Loop iteration to execute.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Loop.LeafLoop.Execute(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Ipo.IpoTestResults}})">
+            <summary>
+            TestMethod will call this starter Execute with initialize, which will call loop Execute.
+            </summary>
+            <param name="ipoTestsResult">Collection of executed test instance or flow result.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Loop.LeafLoop.Execute(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Ipo.IpoTestResults}},System.Collections.Generic.Stack{System.Int32})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Loop.LeafLoop.Restore">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Loop.LeafLoop.SaveRestore">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Loop.LeafLoop.ExecuteTests(System.Collections.Generic.Stack{System.Int32},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Ipo.IpoTestResults}})">
+            <summary>
+            Execute tests (Instance/Flow) that defined in configuration file.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Loop.RootLoop.sessionContext">
+            <summary>
+            Session context.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Loop.RootLoop.iterations">
+            <summary>
+            List of iteration to be execute for current loop.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.Loop.RootLoop.childLoop">
+            <summary>
+            Nested loop to be execute.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Loop.RootLoop.#ctor(Prime.TestMethods.Ipo.Interface.ILoop,System.Collections.Generic.List{Prime.TestMethods.Ipo.Common.Iteration},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Ipo.Loop.RootLoop"/> class.
+            </summary>
+            <param name="childLoop">Nested loop.</param>
+            <param name="iterations">Loop iteration to execute.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Loop.RootLoop.Execute(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Ipo.IpoTestResults}})">
+            <summary>
+            TestMethod will call this starter Execute with initialize, which will call loop Execute.
+            </summary>
+            <param name="ipoTestsResult">Collection of executed test instance or flow result.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Modifiers.PatternModify">
+            <summary>
+            Modifier for Pattern.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.PatternModify.Apply">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.PatternModify.Restore">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.PatternModify.SaveRestore">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Modifiers.SharedStorageModify`1">
+            <summary>
+            Modfier for SharedStorage.
+            </summary>
+            <typeparam name="T">The generic type parameter of either string, int or double.</typeparam>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.SharedStorageModify`1.#ctor(System.String,`0,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Ipo.Modifiers.SharedStorageModify`1"/> class.
+            </summary>
+            <param name="sharedStorageKey">Sharedstorage key.</param>
+            <param name="valueToApply">Value to apply to sharedstorage key.</param>
+            <param name="context">Sharedstorage context type.</param>
+            <param name="resetPolicy">Sharedstorage reset policy.</param>
+            <param name="sessionContext">Session context.</param>
+            <param name="isFirstOfExpensionOrSingleModifier">Indicating whether the modifier should do SaveRestore and Restore.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.SharedStorageModify`1.Apply">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.SharedStorageModify`1.Restore">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.SharedStorageModify`1.SaveRestore">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Modifiers.TestConditionModify">
+            <summary>
+            Modifier for Test Condition.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.TestConditionModify.#ctor(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Ipo.Modifiers.TestConditionModify"/> class.
+            </summary>
+            <param name="testConditionName">Name of test condition to modify.</param>
+            <param name="parameter">Parameter of test condition to modify.</param>
+            <param name="valueToApply">Value to apply to the parameter.</param>
+            <param name="sessionContext">Session context.</param>
+            <param name="isFirstOfExpensionOrSingleModifier">Indicating whether the modifier should do SaveRestore and Restore.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.TestConditionModify.Apply">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.TestConditionModify.Restore">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.TestConditionModify.SaveRestore">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.Modifiers.UserVariableModify`1">
+            <summary>
+            Modifier for UserVar.
+            </summary>
+            <typeparam name="T">The generic type parameter of either string, int or double.</typeparam>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.UserVariableModify`1.#ctor(System.String,`0,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Ipo.Modifiers.UserVariableModify`1"/> class.
+            </summary>
+            <param name="userVarFullName">Full Name of uservar.</param>
+            <param name="valueToApply">Value to apply to uservar.</param>
+            <param name="sessionContext">Session context.</param>
+            <param name="isFirstOfExpensionOrSingleModifier">Indicating whether the modifier should do SaveRestore and Restore.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.UserVariableModify`1.Apply">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.UserVariableModify`1.Restore">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.Modifiers.UserVariableModify`1.SaveRestore">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Ipo.PrimeIpoTestMethod">
+            <summary>
+            This is Prime Ipo Test Method Verify and Execute.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Ipo.PrimeIpoTestMethod.configurationHandle">
+            <summary>
+            Configuration handle.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.PrimeIpoTestMethod.ConfigurationFile">
+            <summary>
+            Gets or sets ConfigurationFile.
+            Can be use with variable "~HDMT_TPL_DIR".
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.PrimeIpoTestMethod.RestoreMode">
+            <summary>
+            Gets or sets RestoreMode. When is Enabled, Restore modified paramter to initial/snapshot value before modifer is applied after last iteration executed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.PrimeIpoTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.Ipo.IIpoExtensions" />
+        </member>
+        <member name="P:Prime.TestMethods.Ipo.PrimeIpoTestMethod.ExecutionMode">
+            <summary>
+            Gets or sets the Execute mode option.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.PrimeIpoTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.PrimeIpoTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.PrimeIpoTestMethod.Prime#TestMethods#Ipo#IIpoExtensions#CustomDatalog(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Ipo.IpoTestResults}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Ipo.PrimeIpoTestMethod.GetConfigurationJsonFileContent">
+            <summary>
+            Read configuration file and validate the content. Set deserialize object of the configuration file content.
+            </summary>
+            <returns>Validated and deserialize object of configuration file content.</returns>
+        </member>
+    </members>
+</doc>

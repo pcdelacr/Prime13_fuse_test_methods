@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Callbacks</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Callbacks.ICallbacksRegistrarExtensions">
+            <summary>
+            The extension interface for the CallbacksRegistrar Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.ICallbacksRegistrarExtensions.RegisterCallbacks">
+            <summary>
+            The main entry point for registering callback.
+            Within this function the user will call RegisterCallback(CALLBACK) for each of the callbacks.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Callbacks.PrimeCallbacksRegistrarTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Callbacks.PrimeCallbacksRegistrarTestMethod.VoidCallbackDelegate">
+            <summary>
+            The signature for the callbacks.
+            </summary>
+            <param name="args">arguments for the callback.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Callbacks.PrimeCallbacksRegistrarTestMethod.TestMethodExtension">
+            <summary>
+            Gets or Sets **not in use will be removed later with the refactoring of the IfeObject**.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeCallbacksRegistrarTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeCallbacksRegistrarTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeCallbacksRegistrarTestMethod.RegisterCallbacks">
+            <summary>
+            The user should override this function with ITME to register his callbacks.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeCallbacksRegistrarTestMethod.Unload">
+            <summary>
+            Clean up all callbacks before the unload.
+            DO NOT CHANGE THIS CODE!
+            - During unload if callbacks were not cleard from the CallbacksService first then we'll get a tester crash.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeCallbacksRegistrarTestMethod.RegisterCallback(Prime.CallbacksService.CallbackDelegate)">
+            <summary>
+            A function to register a callback to be called later by its name in the code.
+            </summary>
+            <param name="callback">The callback to register.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeCallbacksRegistrarTestMethod.RegisterCallback(Prime.TestMethods.Callbacks.PrimeCallbacksRegistrarTestMethod.VoidCallbackDelegate)">
+            <summary>
+            A function to register a callback to be called later by its name in the code.
+            </summary>
+            <param name="callback">The callback to register.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Callbacks.IRvCallbacksRegistrarExtensions">
+            <summary>
+            The extension interface for the CallbacksRegistrar Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.IRvCallbacksRegistrarExtensions.PopulateRvCallbacks">
+            <summary>
+            The main entry point for registering callback.
+            Within this function the user will call RegisterCallback(CALLBACK) for each of the callbacks.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Callbacks.OperationMode">
+            <summary>
+            The mode of operation for this instance.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Callbacks.OperationMode.REGISTER">
+            <summary>
+            Register the callbacks.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Callbacks.OperationMode.UNREGISTER">
+            <summary>
+            Unregister the callbacks.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Callbacks.PrimeRvCallbacksRegistrarTestMethod">
+            <summary>
+            This Test Method is for registering RV callbacks in the flow.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Callbacks.PrimeRvCallbacksRegistrarTestMethod.Mode">
+            <summary>
+            Gets or sets the registration mode of the RV callbacks in this instance.
+            REGISTER - All callbacks coming from this instance will be triggered at the post of every instance.
+            UNREGISTER - All callbacks coming from this instance will never be triggered.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Callbacks.PrimeRvCallbacksRegistrarTestMethod.TestMethodExtension">
+            <summary>
+            Gets or Sets **not in use will be removed later with the refactoring of the IfeObject**.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeRvCallbacksRegistrarTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeRvCallbacksRegistrarTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeRvCallbacksRegistrarTestMethod.PopulateRvCallbacks">
+            <summary>
+            The user should override this function with ITME to register his callbacks.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeRvCallbacksRegistrarTestMethod.Unload">
+            <summary>
+            Clean up all callbacks before the unload.
+            DO NOT CHANGE THIS CODE!
+            - During unload if callbacks were not cleard from the TestProgramService first then we'll get a tester crash.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Callbacks.PrimeRvCallbacksRegistrarTestMethod.AddRvCallback(Prime.CallbacksService.RvCallbackDelegate)">
+            <summary>
+            A function to register a callback to be called later by its name in the code.
+            </summary>
+            <param name="callback">The callback to register.</param>
+        </member>
+    </members>
+</doc>

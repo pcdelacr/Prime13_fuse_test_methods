@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeVirtualFuseExportToSharedStorageTestMethod" MetaData="dll=Prime.TestMethods.VirtualFuse" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeVirtualFuseExportToSharedStorageTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="Namespace" descriptions="Fuses namespace to export.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="Tags" descriptions="Comma separated tags to use within namespace.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="HcsSharedStorageKey" descriptions="HCSSharedStorageKey to use for writing HCS.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="FdsSharedStorageKey" descriptions="FDSSharedStorageKey to use for writing FDS.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="FuseDescriptorGap" descriptions="The virtual fuse descriptor gap fuse name.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="FuseDataGap" descriptions="The virtual fuse data gap fuse name.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="EnableLatch" descriptions="Enable/Disable the fuse storage latching mechanism.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Enable</Choice>
+          <Choice>Disable</Choice>
+        </Choices>
+        <Default>Disable</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="Threshold" descriptions="Fuse capacity threshold. This threshold will determine exit port and latching logic.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>100</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="GenerateFuseDataMapFile" descriptions="Enable/Disable the fuse data map file generation.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Enable</Choice>
+          <Choice>Disable</Choice>
+        </Choices>
+        <Default>Disable</Default>
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>3</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>HCS and FDS Above Threshold</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>HCS and FDS Below Threshold</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>Default HCS, Zeroed FDS</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>General Failure</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

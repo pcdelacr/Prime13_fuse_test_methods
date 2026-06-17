@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "PinNumbers",
+    "PinsMapping"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "PinNumbers": {
+      "type": "integer"
+    },
+    "PinsMapping": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/Mapping"
+      }
+    }
+  },
+  "definitions": {
+    "Mapping": {
+      "type": "object",
+      "required": [
+        "DataPath",
+        "PinName"
+      ],
+      "properties": {
+        "DataPath": {
+          "type": "integer"
+        },
+        "PinName": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "[a-zA-Z0-9_,]*"
+        }
+      }
+    }
+  }
+}

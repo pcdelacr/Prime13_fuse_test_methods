@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+        <PreHeaders Include="$(MSBuildThisFileDirectory)..\content\preheaders\**\*.xml"/>
+
+        <SchemaFiles Include="$(MSBuildThisFileDirectory)..\content\schemas\**\*.xsd"/>
+        <SchemaFiles Include="$(MSBuildThisFileDirectory)..\content\schemas\**\*.schema.json"/>
+  </ItemGroup>
+  <Target Name="CopyAddionalFIlesToOutDir" AfterTargets="Build">
+    <Copy 
+            SourceFiles="@(PreHeaders)" 
+            DestinationFiles="@(PreHeaders->'$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true"
+		        ContinueOnError="true"/>
+    <Copy 
+            SourceFiles="@(SchemaFiles)" 
+            DestinationFiles="@(SchemaFiles->'$(OutDir)schemas\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true"
+		        ContinueOnError="true"/>
+  </Target>
+</Project>

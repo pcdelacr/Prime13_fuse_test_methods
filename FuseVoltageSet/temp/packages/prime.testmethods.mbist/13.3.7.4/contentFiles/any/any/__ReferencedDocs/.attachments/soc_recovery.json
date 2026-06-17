@@ -1,0 +1,41 @@
+{
+    "Version": 1.0,
+    "RecoveryToken": [ "CORE0", "CORE1","CORE2","CORE3"],
+    "ValidOptions": [],
+    "RecoveryPriority": [],
+    "ErrorValue": "9",
+    "FailValue": "1",
+    "PassValue": "0",
+    "DesignIps": {
+        "CORE0": {
+            "Type": "Full",
+            "Required": ["^MEU0_BP0_WBP0.*"],
+            "RecoveryOptions": {
+                "1": [ "^MEU0_BP1_WBP0.*" ],
+            }
+        },
+        "CORE1": {
+            "Type": "Partial",
+            "Required": [],
+            "RecoveryOptions": {
+                "1": [ "^MEU1_BP0_WBP0_MEM1" ],
+                "2": [ "^MEU1_BP0_WBP0_MEM4" ],
+                "3": [ "^MEU1_BP0_WBP0_MEM2" ],
+            }
+        },
+        "CORE2": {
+            "Type": "Partial",
+            "Required": ["MEU2_BP1_WBP0_MEM1"],
+            "RecoveryOptions": {
+                "1": [ "MEU2_BP1_WBP0_MEM2", "MEU2_BP1_WBP0_MEM4"]
+            }
+        },
+        "CORE3": {
+            "Type": "Full",
+            "Required": [],
+            "RecoveryOptions": {
+                "1": [ "^MEU3.*"],
+            }
+        }
+    }
+}

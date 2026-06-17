@@ -1,0 +1,1481 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.FlowExpressionHandling</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.IAuxiliaryExtensions">
+            <summary>
+            Interface for extending the Shops Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.IAuxiliaryExtensions.AddFunctions">
+            <summary>
+            List of functions to add and use in expression engine.
+            </summary>
+            <returns>List of functions to add.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.#ctor(Prime.DffService.IDffService,Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.UserVarService.IUserVarService,Prime.DatalogService.IDatalogService,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod"/> class.
+            </summary>
+            <param name="dffService">dffService.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="userVarService">userVarService.</param>
+            <param name="datalogService">datalogService.</param>
+            <param name="expressionEngineServices">Group of services used by Expression engine.</param>
+            <param name="functionsServices">Group of services used by functions.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.ValueType">
+            <summary>
+            Defines the data types.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.ValueType.Integer">
+            <summary>
+            Integer.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.ValueType.Double">
+            <summary>
+            Double.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.ValueType.String">
+            <summary>
+            String.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.StorageType">
+            <summary>
+            Defines the different storage types.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.StorageType.UserVar">
+            <summary>
+            UserVar.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.StorageType.SharedStorage">
+            <summary>
+            SharedStorage
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.StorageType.DFF">
+            <summary>
+            DFF.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.EnableType">
+            <summary>
+            Enable type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.EnableType.Enabled">
+            <summary>
+            Enabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.EnableType.Disabled">
+            <summary>
+            Disabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.Expression">
+            <summary>
+            Gets or sets the name of the callback to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.DataType">
+            <summary>
+            Gets or sets the parameters to send to the callback.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.Storage">
+            <summary>
+            Gets or sets the ResultToken storage type.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.Datalog">
+            <summary>
+            Gets or sets datalog enable type.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.ResultToken">
+            <summary>
+            Gets or sets the names of token where the evaluated result will be set.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.ResultPort">
+            <summary>
+            Gets or sets an expression to set exit port based on result.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.TestMethodExtension">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.Prime#TestMethods#FlowExpressionHandling#IAuxiliaryExtensions#AddFunctions">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeAuxiliaryTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngine">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngine" />.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngine.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngine"/> class.
+            </summary>
+            <param name="expression">String expression.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <param name="services">Tuple of services.</param>
+            <param name="servicesForFunctions">Provide services that can be used by functions.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices">
+            <summary>
+            Services used by expressionEngine.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices.#ctor(Prime.DffService.IDffService,Prime.MultiTrialTestService.IMultiTrialTestService,Prime.ConsoleService.IConsoleService,Prime.PlatformService.IPlatformService,Prime.TestProgramService.ITestProgramService,Prime.VminForwardingService.IVminForwardingService,Prime.TestConditionService.ITestConditionService,Prime.SharedStorageService.ISharedStorageService,Prime.UserVarService.IUserVarService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices"/> class.
+            </summary>
+            <param name="dffService">dffService.</param>
+            <param name="multiTrial">multiTrial.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="platformService">platformService.</param>
+            <param name="testProgram">testProgram.</param>
+            <param name="vminForwarding">vminForwarding.</param>
+            <param name="testCondition">testCondition.</param>
+            <param name="sharedStorage">sharedStorage.</param>
+            <param name="userVar">userVar.</param>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices.UserVarService">
+            <summary>
+            Gets userVar service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices.SharedStorageService">
+            <summary>
+            Gets sharedStorage service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices.TestConditionService">
+            <summary>
+            Gets testCondition service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices.VminForwardingService">
+            <summary>
+            Gets vminForwarding service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices.TestProgramService">
+            <summary>
+            Gets testProgram service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices.PlatformService">
+            <summary>
+            Gets platform service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices.ConsoleService">
+            <summary>
+            Gets console service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices.MultiTrialService">
+            <summary>
+            Gets multiTrial service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices.DffService">
+            <summary>
+            Gets dff service.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions">
+            <summary>
+            Functions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.ToInt32(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and convert result value to 32-bit signed integer..
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.ToDouble(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and ToDouble.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.ToString(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and returns a string that represents the current result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Random(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Invoque a pseudo-random number generator and return numbers that meet certain statistical requirements for randomness.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.GetDelimitedData(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expresions an extract Items from a Delimited String. E.g: GetDelimitedData(input, delimiter, index).
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Length(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and gets the number of characters..
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Substring(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and retrieves a substring from result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Bin2Dec(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression with binary result to decimal value.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Bin2Hex(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression with binary result to hexadecimal value.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Dec2Bin(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression with decimal result to binary value..
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Hex2Bin(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression with hexadecimal result to binary value.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Reverse(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and reverses the order of the result in a one-dimensional.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.GetPatSymbolString(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and gets string data into PatSymbol. Able to process binary, integer and hex representation.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.GetCurrentDataBin(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets current data bin from GetAllBins API.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.GetCurrentSoftBin(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets current software bin from GetAllBins API.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.GetCurrentHardBin(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets current hardware bin from GetAllBins API.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.ExecCallback(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and use result in callback triggered.
+            </summary>
+            <param name="functionArgs">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.XorBitWise(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and performs the bitwise exclusive OR operation between the results of first and second expression.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.OrBitWise(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and performs the bitwise OR operation between the results of first and second expression.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.AndBitWise(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and performs the bitwise AND operation between the results of first and second expression.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.NotBitWise(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and Inverts all the bit values in the result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Max(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and get the maximum value in a result sequence..
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Min(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and get the minimum value in a result sequence.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.IsMatch(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and check if first result is matching with the pattern of the second result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Contains(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and check if first result contain the substring from the second result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Replace(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and check if first result contain the substring of second result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.LinearFit(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and performs a simple linear regression on the data using [Math.Numerics Fit.Line and GoodnessOfFit.RSquared].
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.LittleEndian(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expression and converts result a 32-bit Hex value from Big Endian to Little Endian at the byte level. Example: LittleEndian('78ABCDEF') returns 'EFCDAB78'.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.IndexOf(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and using the first result reports the zero-based index of the first occurrence of the specified value in second result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.LastIndexOf(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and using the first result reports the the zero-based index position of the last occurrence of a specified value in second result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.SelectArrayElements(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and using the first result as array extracts a new array in a string using the entered indexes range. Ex: SelectArrayElements('1,2,3', '1-2', ',').
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.SubtractArrays(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions with results as array with the same size subtract values. Ex: SubtractArrays('1,2,3', '1,0,0', ',').
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.ScalarMultiplyArray(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions with the second result as array and multiples each element by the the first result as scalar. Ex: ScalarMultiplyArray(1000, '1,2,3', ',').
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.ArrayMax(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and get the maximum value from result as Array using as delimiter the second result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.ArrayMin(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and get the minimum value from result as Array using as delimiter the second result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.ArrayAverage(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and computes the average of a result sequence.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.ArrayMedian(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and estimates the sample median from result.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.Percentile(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and converts first result array to doubles and calculates the percentile p. p is an int. Second result as percentile, Third result as delimiter.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.ArraySum(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and computes the sum of a first result sequence using the second result as delimiter.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.IQR(NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate expressions and converts first result as string array to doubles and calculates the IQR (p75 - p25). Second result is used as delimiter.
+            </summary>
+            <param name="func">Function object.</param>
+            <param name="services">Services.</param>
+            <param name="context">Current Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.Functions.GetDescription(System.Action{NCalc.FunctionArgs,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices,Prime.SessionService.ISessionContextProviderContainer})">
+            <summary>
+            GetDescription.
+            </summary>
+            <param name="e">e.</param>
+            <returns>Des.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices">
+            <summary>
+            Services used by some functions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices.#ctor(Prime.ConsoleService.IConsoleService,Prime.BinCounterService.IBinCounterService,Prime.CallbacksService.ICallbacksService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices"/> class.
+            </summary>
+            <param name="consoleService">consoleService.</param>
+            <param name="binCounter">binCounter.</param>
+            <param name="callbacks">callbacks.</param>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices.CallbacksService">
+            <summary>
+            Gets callbacks service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices.BinCounter">
+            <summary>
+            Gets binCounter service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices.ConsoleService">
+            <summary>
+            Gets console service.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.SpecSet">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.SpecSet" />.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.SpecSet.ReadToken(System.String,Prime.TestProgramService.ITestProgramService,Prime.TestConditionService.ITestConditionService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if a token exists, returns true if it does. Throws an exception
+            if the token is not in SpecSet format.
+            </summary>
+            <param name="token">SpecSet token name of the form S.[TL].Name.</param>
+            <param name="testProgramService">TestProgramService.</param>
+            <param name="testConditionService">TestConditionService.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>SpecSet string value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.StringExtensions.BinaryToHex(System.String)">
+            <summary>
+            String extension method. Convert the given binary string to a Hex string (no size restrictions).
+            </summary>
+            <param name="data">Binary string.</param>
+            <returns>Hex string.</returns>
+            <exception cref="T:System.ArgumentNullException"> if the input data is null or empty.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.StringExtensions.ToDouble(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Converts string with or without units to double value.
+            Able to handle units multipliers and scientific notation.
+            </summary>
+            <param name="value">string value.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>double value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.StringExtensions.RangeToList(System.String)">
+            <summary>
+            Function to convert a string range into a list of integers.
+            Example ranges: "3,6-8" becomes { 3, 6, 7, 8 }.
+            </summary>
+            <param name="range">Range to convert.</param>
+            <returns>List of indexes.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.StringExtensions.ToBinaryString(System.Collections.BitArray)">
+            <summary>
+            BitArray extension method. Turns a BitArray into a string of 1s and 0s.
+            The BitArray true maps to 1, while false maps to 0.
+            </summary>
+            <param name="data">BitArray to convert.</param>
+            <returns>string.</returns>
+            <exception cref="T:System.ArgumentNullException"> if input BitArray is null.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.StringExtensions.ToBitArray(System.String)">
+            <summary>
+            String extension method. Turns a string of 1s and 0s into a BitArray.
+            A 1 in the string is a true in the BitArray, 0 (or any other character) is false.
+            </summary>
+            <param name="data">String data to convert.</param>
+            <returns>BitArray.</returns>
+            <exception cref="T:System.ArgumentNullException"> if input string is null.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.StringExtensions.GetPatSymbolString(System.String,System.Int32,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Gets string data into PatSymbol. Able to process binary, integer and hex representation.
+            </summary>
+            <param name="data">data string.</param>
+            <param name="expectedSize">data size.</param>
+            <param name="consoleService">consoleService.</param>
+            <returns>Array of PatternSymbol.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.StringExtensions.HexToBinary(System.String,Prime.ConsoleService.IConsoleService,System.Int32)">
+            <summary>
+            String extension method. Converts the Hexadecimal value into a binary value.
+            </summary>
+            <param name="data">Hex value in a string.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="size">Optional size to pad the result to.</param>
+            <returns>binary value in a string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.StringExtensions.HexToBinary(System.Char,Prime.ConsoleService.IConsoleService,System.Int32)">
+            <summary>
+            Char extension method. Converts the Hexadecimal character into a binary value.
+            </summary>
+            <param name="data">Hex value in a string.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="size">Optional size to pad the result to.</param>
+            <returns>binary value in a string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.StringExtensions.ResizeBinary(System.String,System.Int32)">
+            <summary>
+            Resizes the binary number. It will either pad (to the left) with 0s, or cut (from the left) extra bits.)
+            </summary>
+            <param name="data">Binary data.</param>
+            <param name="size">Expected size (0 means return as is).</param>
+            <returns>A resized binary string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.StringExtensions.ToInt(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Converts string to int32.
+            </summary>
+            <param name="value">string value.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>integer result.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.TestProgramExtensions.GetCurrentFlowNumber(Prime.TestProgramService.ITestProgramService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns current instance flow number.
+            </summary>
+            <param name="service">Service interface.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>Flow number.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.TokenHandler.IsTokenFormatAndExists(System.String,Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if a given string is in SharedStorage format ([ULI].[SDIO].Name) and returns
+            true if it is and the token exists. Returns false if the format is wrong
+            or the token doesn't exist.
+            </summary>
+            <param name="token">SharedStorage token name of the form .</param>
+            <param name="consoleService">Console service.</param>
+            <param name="sharedStorageService">SharedStorageService.</param>
+            <param name="session">Prime Session Context Container.</param>
+            <returns>true if the token exists.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.TokenHandler.ReadToken(Prime.SharedStorageService.ISharedStorageService,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reads a SharedStorage token and returns the value as a string.
+            </summary>
+            <param name="sharedStorage">sharedStorageService.</param>
+            <param name="token">SharedStorage token name of the form [ULI].[SDIO].Name.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <returns>string.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the token is in the wrong format.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.TokenHandler.IsTokenFormat(System.String)">
+            <summary>
+            Checks if a given string is in GSDS format (G.[ULI].[SDIO].Name) and returns
+            true if it is.
+            </summary>
+            <param name="token">GSDS token name.</param>
+            <returns>true if the token is in G.[ULI].[SDIO].Name format.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.TokenHandler.WriteToken(Prime.SharedStorageService.ISharedStorageService,System.String,System.Object,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes a gsds token with the given value.
+            </summary>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="token">GSDS token name of the form G.[ULI].[SDI].Name.</param>
+            <param name="value">GSDS value to write.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the token is in the wrong format.</exception>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes">
+            <summary>
+            Defines the valid Hdmt UserVariable types.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes.BOOLEAN">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes.DOUBLE">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes.INTEGER">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes.STRING">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes.ARRAYBOOLEAN">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes.ARRAYDOUBLE">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes.ARRAYINTEGER">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes.ARRAYSTRING">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.TokenExists(Prime.UserVarService.IUserVarService,System.String)">
+            <summary>
+            Returns true if the given UserVar exists, false otherwise.
+            </summary>
+            <param name="userVarService">userVarService.</param>
+            <param name="uservar">Hdmt UserVariable name of form collection.variable .</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ReadAndGetType(Prime.UserVarService.IUserVarService,Prime.ConsoleService.IConsoleService,System.String,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reads the value of the given Hdmt UserVariable without knowing the type.
+            The parameter "type" will be updated with the actual type that was read.
+            </summary>
+            <param name="userVarService">userVarService.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="uservar">Hdmt UserVariable of the form collection.variable .</param>
+            <param name="type">(output) Type of the Hdmt UserVariable.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns>Value as a string. ARRAY types will be a comma-separated string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.Read(Prime.UserVarService.IUserVarService,System.String,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes)">
+            <summary>
+            Reads the value of the given Hdmt UserVariable.
+            </summary>
+            <param name="userVarService">userVarService.</param>
+            <param name="uservar">Hdmt UserVariable of the form collection.variable .</param>
+            <param name="type">Type of the Hdmt UserVariable.</param>
+            <returns>Value as a string. ARRAY types will be a comma-separated string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.WriteResult(Prime.UserVarService.IUserVarService,System.String,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.UserVarHandler.ValidTypes,System.Object)">
+            <summary>
+            Writes a uservar of the given type.
+            </summary>
+            <param name="userVarService">userVarService.</param>
+            <param name="uservar">Hdmt UserVariable of the form collection.variable .</param>
+            <param name="type">Type of the Hdmt UserVariable.</param>
+            <param name="value">String value to write. It will be converted to the correct type, ARRAY types should be a comma-separated string.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod.#ctor(Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.CallbacksService.ICallbacksService,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.ExpressionEngineServices,Prime.TestMethods.FlowExpressionHandling.ExpressionEngine.FunctionsServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod"/> class.
+            </summary>
+            <param name="consoleService">consoleService.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="callbacksService">callbacksService.</param>
+            <param name="expressionEngineServices">Group of services used by Expression engine.</param>
+            <param name="functionsServices">Group of services used by functions.</param>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod.Callback">
+            <summary>
+            Gets or sets the name of the callback to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod.Parameters">
+            <summary>
+            Gets or sets the parameters to send to the callback.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod.ResultToken">
+            <summary>
+            Gets or sets the GSDS token (of the form G.U.S.TokenName) to write the callbacks return value to.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod.ResultPort">
+            <summary>
+            Gets or sets an expression to set exit port based on the callback return value.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeRunCallbackTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.JsonSchemaValidator">
+            <summary>
+            Validates the Json file has the correct format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.JsonSchemaValidator.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.JsonSchemaValidator"/> class.
+            </summary>
+            <param name="schemaFileContent">Schema file path.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.JsonSchemaValidator.ValidateFile(System.String,System.String@)">
+            <summary>
+            Executes the validation for a file with the json schema.
+            </summary>
+            <param name="fileContent">The json file path.</param>
+            <param name="errors">If the method returns false, this field is populated with the errors.</param>
+            <returns>A value indicating if the file passed validation. If false, the errors field is populated with errors.</returns>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Thrown if the file failed schema validation.</exception>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Dff">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Dff" />.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Dff.#ctor(System.String,Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes,System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService,Prime.DffService.IDffService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Dff"/> class.
+            </summary>
+            <param name="param">Parameter in string form.</param>
+            <param name="dataType">DataType of the parameter.</param>
+            <param name="errorText">Text to add to errors, including line/file/parameter information for debug.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="consoleService">Console service.</param>
+            <param name="dffService">Dff service.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Dff.InternalGetValue">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Dff.InternalSetValue(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Expression">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Expression" />.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Expression.#ctor(System.String,Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes,System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService,Prime.DffService.IDffService,Prime.SharedStorageService.ISharedStorageService,Prime.UserVarService.IUserVarService,System.ValueTuple{Prime.BinCounterService.IBinCounterService,Prime.CallbacksService.ICallbacksService,Prime.MultiTrialTestService.IMultiTrialTestService,Prime.PlatformService.IPlatformService,Prime.TestConditionService.ITestConditionService,Prime.TestProgramService.ITestProgramService,Prime.VminForwardingService.IVminForwardingService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Expression"/> class.
+            </summary>
+            <param name="param">Parameter in string form.</param>
+            <param name="dataType">DataType of the parameter.</param>
+            <param name="errorText">Text to add to errors, including line/file/parameter information for debug.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="consoleService">Console service.</param>
+            <param name="dffService">Dff service.</param>
+            <param name="sharedStorageService">SharedStorage service.</param>
+            <param name="userVarService">UserVar service.</param>
+            <param name="servicesOnlyForExpressionEngine">Services required for the ExpressionEngine.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Expression.InternalGetValue">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Literal">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Literal" />.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Literal.#ctor(System.String,Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes,System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Literal"/> class.
+            </summary>
+            <param name="param">Parameter in string form.</param>
+            <param name="dataType">DataType of the parameter.</param>
+            <param name="errorText">Text to add to errors, including line/file/parameter information for debug.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="consoleService">Console service.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Literal.InternalGetValue">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter" />.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.#ctor(System.String,Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType,Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes,System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter"/> class.
+            </summary>
+            <param name="param">Parameter in string form.</param>
+            <param name="paramType">Type of the parameter.</param>
+            <param name="dataType">DataType of the parameter.</param>
+            <param name="errorText">Text to add to errors, including line/file/parameter information for debug.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="consoleService">consoleService.</param>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.ParameterName">
+            <summary>
+            Gets or sets the parameter in string form.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.ParameterType">
+            <summary>
+            Gets the type of the parameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.DataType">
+            <summary>
+            Gets the Data type of the parameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.Session">
+            <summary>
+            Gets the SessionContext to use for this object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.GetValue">
+            <summary>
+            Gets the current value of this parameter.
+            </summary>
+            <returns>Parameter value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.SetValue(System.Object)">
+            <summary>
+            Writes the value to the parameter.
+            </summary>
+            <param name="value">Value to write.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.IsEqual(Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter)">
+            <summary>
+            Checks if this parameter is equivalent to another parameter.
+            </summary>
+            <param name="other">Other parameter.</param>
+            <returns>true if both parameters have the same value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.IsGreaterThan(Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter)">
+            <summary>
+            Checks if this parameter is greater than another parameter.
+            </summary>
+            <param name="other">Other parameter.</param>
+            <returns>true if this parameter greater than the other parameter.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.IsLessThan(Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter)">
+            <summary>
+            Checks if this parameter is less than another parameter.
+            </summary>
+            <param name="other">Other parameter.</param>
+            <returns>true if this parameter less than the other parameter.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.InternalGetValue">
+            <summary>
+            Gets the current value of this parameter.
+            </summary>
+            <returns>Parameter value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.Parameter.InternalSetValue(System.Object)">
+            <summary>
+            Writes the value to the parameter.
+            </summary>
+            <param name="value">Value to write.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.Parameters.SharedStorage">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.SharedStorage" />.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.SharedStorage.#ctor(System.String,Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes,System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.SharedStorage"/> class.
+            </summary>
+            <param name="param">Parameter in string form.</param>
+            <param name="dataType">DataType of the parameter.</param>
+            <param name="errorText">Text to add to errors, including line/file/parameter information for debug.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="consoleService">Console service.</param>
+            <param name="sharedStorageService">SharedStorage service.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.SharedStorage.WriteToken(System.String,System.Object,Prime.SessionService.ISessionContextProviderContainer,Prime.SharedStorageService.ISharedStorageService)">
+            <summary>
+            Writes a SharedStorage token with the given value.
+            </summary>
+            <param name="token">SharedStorage token name of the form G.[ULI].[SDI].Name.</param>
+            <param name="value">SharedStorage value to write.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the token is in the wrong format.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.SharedStorage.IsTokenFormat(System.String)">
+            <summary>
+            Checks if a given string is in SharedStorage format (G.[Scope].[Type].TokenName) and returns
+            true if it is.
+            </summary>
+            <param name="token">SharedStorage token name.</param>
+            <returns>true if the token is in G.[Scope].[Type].TokenName format.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.SharedStorage.ReadToken(System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.SharedStorageService.ISharedStorageService)">
+            <summary>
+            Reads a sharedStorage token and returns the value as a string.
+            </summary>
+            <param name="token">SharedStorage token name of the form G.[Scope].[Type].TokenName.</param>
+            <param name="sessionContext">Prime Session Context Container.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <returns>string.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the token is in the wrong format.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.SharedStorage.InternalGetValue">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.SharedStorage.InternalSetValue(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar" />.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.#ctor(System.String,Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes,System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService,Prime.UserVarService.IUserVarService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar"/> class.
+            </summary>
+            <param name="param">Parameter in string form.</param>
+            <param name="dataType">DataType of the parameter.</param>
+            <param name="errorText">Text to add to errors, including line/file/parameter information for debug.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="consoleService">Console Service.</param>
+            <param name="userVarService">UserVar Service.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes">
+            <summary>
+            Defines the valid Hdmt UserVariable types.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes.BOOLEAN">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes.DOUBLE">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes.INTEGER">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes.STRING">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes.ARRAYBOOLEAN">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes.ARRAYDOUBLE">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes.ARRAYINTEGER">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes.ARRAYSTRING">
+            <summary>Boolean Type.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.InternalGetValue">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.InternalSetValue(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.Write(System.String,Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes,System.Object,Prime.UserVarService.IUserVarService)">
+            <summary>
+            Writes a uservar of the given type.
+            </summary>
+            <param name="uservar">Hdmt UserVariable of the form collection.variable .</param>
+            <param name="type">Type of the Hdmt UserVariable.</param>
+            <param name="value">String value to write. It will be converted to the correct type, ARRAY types should be a comma-separated string.</param>
+            <param name="userVarService">userVarService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.Read(System.String,Prime.TestMethods.FlowExpressionHandling.Parameters.UserVar.ValidTypes,Prime.UserVarService.IUserVarService)">
+            <summary>
+            Reads the value of the given Hdmt UserVariable.
+            </summary>
+            <param name="uservar">Hdmt UserVariable of the form collection.variable .</param>
+            <param name="type">Type of the Hdmt UserVariable.</param>
+            /// <param name="userVarService">userVarService.</param>
+            <returns>Value as a string. ARRAY types will be a comma-separated string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod">
+            <summary>
+            Test Method for expressions evaluation.
+            This TestMethod provides the capability of setting and compare UserVars, SharedStorage, Dff and literal values.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod.#ctor(Prime.ConsoleService.IConsoleService,Prime.DatalogService.IDatalogService,Prime.DffService.IDffService,Prime.FileService.IFileService,Prime.SharedStorageService.ISharedStorageService,Prime.UserVarService.IUserVarService,Prime.BinCounterService.IBinCounterService,Prime.CallbacksService.ICallbacksService,Prime.MultiTrialTestService.IMultiTrialTestService,Prime.PlatformService.IPlatformService,Prime.TestConditionService.ITestConditionService,Prime.TestProgramService.ITestProgramService,Prime.VminForwardingService.IVminForwardingService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod"/> class.
+            </summary>
+            <param name="consoleService">consoleService.</param>
+            <param name="datalogService">datalogService.</param>
+            <param name="dffService">dffService.</param>
+            <param name="fileService">fileService.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="userVarService">userVarService.</param>
+            <param name="binCounterService">binCounterService.</param>
+            <param name="callbacksService">callbacksService.</param>
+            <param name="multiTrialService">multiTrialService.</param>
+            <param name="platformService">platformService.</param>
+            <param name="testConditionService">testConditionService.</param>
+            <param name="testProgramService">testProgramService.</param>
+            <param name="vminForwardingService">vminForwardingService.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod.SkipItuffErrorLoggingStatus">
+            <summary>
+            Enum for Boolean values.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod.SkipItuffErrorLoggingStatus.Disabled">
+            <summary>
+            All errors encountered during the execution of each screenTest will be logged to the ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod.SkipItuffErrorLoggingStatus.Enabled">
+            <summary>
+            No errors will be logged to the ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod.ScreenTestsFile">
+            <summary>
+            Gets or sets Name of the screen tests file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod.ScreenTestSet">
+            <summary>
+            Gets or sets the name of the screenSet to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod.SkipItuffErrorLogging">
+            <summary>
+            Gets or sets the SkipItuffErrorLoggingStatus.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ScreenFile">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ScreenFile" />.
+            This class represents an entire ScreenTest File.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenFile.#ctor(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService,Prime.FileService.IFileService,Prime.DatalogService.IDatalogService,Prime.DffService.IDffService,Prime.SharedStorageService.ISharedStorageService,Prime.UserVarService.IUserVarService,System.ValueTuple{Prime.BinCounterService.IBinCounterService,Prime.CallbacksService.ICallbacksService,Prime.MultiTrialTestService.IMultiTrialTestService,Prime.PlatformService.IPlatformService,Prime.TestConditionService.ITestConditionService,Prime.TestProgramService.ITestProgramService,Prime.VminForwardingService.IVminForwardingService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ScreenFile"/> class.
+            </summary>
+            <param name="screenTestLines">ScreenTest file as a list of string.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="consoleService">Console Service.</param>
+            <param name="fileService">File Service.</param>
+            <param name="datalogService">Datalog Service.</param>
+            <param name="dffService">Dff service.</param>
+            <param name="sharedStorageService">SharedStorage service.</param>
+            <param name="userVarService">UserVar service.</param>
+            <param name="servicesOnlyForExpressionEngine">Services required for the ExpressionEngine.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenFile.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService,Prime.FileService.IFileService,Prime.DatalogService.IDatalogService,Prime.DffService.IDffService,Prime.SharedStorageService.ISharedStorageService,Prime.UserVarService.IUserVarService,System.ValueTuple{Prime.BinCounterService.IBinCounterService,Prime.CallbacksService.ICallbacksService,Prime.MultiTrialTestService.IMultiTrialTestService,Prime.PlatformService.IPlatformService,Prime.TestConditionService.ITestConditionService,Prime.TestProgramService.ITestProgramService,Prime.VminForwardingService.IVminForwardingService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ScreenFile"/> class.
+            </summary>
+            <param name="remoteFileName">Name of the ScreenTest File.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="consoleService">Console Service.</param>
+            <param name="fileService">File Service.</param>
+            <param name="datalogService">Datalog Service.</param>
+            <param name="dffService">Dff service.</param>
+            <param name="sharedStorageService">SharedStorage service.</param>
+            <param name="userVarService">UserVar service.</param>
+            <param name="servicesOnlyForExpressionEngine">Services required for the ExpressionEngine.</param>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ScreenFile.ScreenTestSets">
+            <summary>
+            Gets the Dictionary of all ScreenSets in this file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenFile.GetFile(System.String,Prime.FileService.IFileService)">
+            <summary>
+            Wrapper function for Prime GetFile which actually prints out the name of the file if it isn't found
+            or GetFile fails.
+            </summary>
+            <param name="fileName">Filename to create a local copy of.</param>
+            <param name="fileService">File service.</param>
+            <returns>Local file name.</returns>
+            <exception cref="T:System.IO.FileNotFoundException"> if file was not found.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenFile.IsSchemaValidationEnabled">
+            <summary>
+            Returns if the schema validation should be processed for the configuration files handled by Aleph.
+            By default schema validation is disabled. But if IsSysCFileServiceUp = False (not a VPO or Production) the validation is enabled automatically.
+            This is to avoid the user to be aware of enabling the validation for local/eng runs or forget to set to False the parameter in a production TP to save init time.
+            </summary>
+            <returns>True if schema validation for configuration files should be executed.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ScreenFormatJson">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ScreenFormatJson" />.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenFormatJson.Load(System.String,Prime.FileService.IFileService)">
+            <summary>
+            Reads a JSON File and returns the parsed object.
+            </summary>
+            <param name="configFile">The JSON File with remote path to be parsed.</param>
+            <param name="fileService">File service.</param>
+            <returns>The parsed json object.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ScreenFormatJson.ScreenConfig">
+            <summary>
+            Storages the JsonScreenConfig to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ScreenFormatJson.ScreenConfig.JsonScreenConfig">
+            <summary>
+            Gets or sets the different Screen functions to execute.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ScreenFormatJson.ScreenOptions">
+            <summary>
+            Definition for entries to be included in json configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ScreenFormatJson.ScreenOptions.TestName">
+            <summary>
+            Gets or sets the test name to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ScreenFormatJson.ScreenOptions.TestConfig">
+            <summary>
+            Gets or sets the test configuration.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ScreenSet">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ScreenSet" />.
+            This class represents collection of Screen Tests in a Set which will be executed during a test instance.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenSet.#ctor(System.String,System.String,Prime.ConsoleService.IConsoleService,Prime.DatalogService.IDatalogService,Prime.DffService.IDffService,Prime.SharedStorageService.ISharedStorageService,Prime.UserVarService.IUserVarService,System.ValueTuple{Prime.BinCounterService.IBinCounterService,Prime.CallbacksService.ICallbacksService,Prime.MultiTrialTestService.IMultiTrialTestService,Prime.PlatformService.IPlatformService,Prime.TestConditionService.ITestConditionService,Prime.TestProgramService.ITestProgramService,Prime.VminForwardingService.IVminForwardingService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ScreenSet"/> class.
+            </summary>
+            <param name="set">Name of the set.</param>
+            <param name="file">Name of the file this set is in.</param>
+            <param name="consoleService">Console service.</param>
+            <param name="datalogService">Datalog service.</param>
+            <param name="dffService">Dff service.</param>
+            <param name="sharedStorageService">SharedStorage service.</param>
+            <param name="userVarService">UserVar service.</param>
+            <param name="servicesOnlyForExpressionEngine">Services required for the ExpressionEngine.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenSet.Add(System.Int32,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Decodes and adds the test to this Set from a JSON file.
+            </summary>
+            <param name="lineNumber">Line number of this test.</param>
+            <param name="elements">Test.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenSet.Add(System.ValueTuple{System.Int32,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Decodes and adds the test to this Set from a text file.
+            </summary>
+            <param name="lineNumberAndTest">Line number of this test, and Test.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenSet.Verify">
+            <summary>
+            Validate this ScreenTest Set.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenSet.Execute(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Executes the set.
+            </summary>
+            <param name="sessionContext">Current sessionContext.</param>
+            <returns>Exit port number.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ScreenTest">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ScreenTest" />.
+            This class represents single line in a ScreenTest File (a single Screen Test).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenTest.#ctor(System.String,System.ValueTuple{System.Int32,System.String},Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService,Prime.DatalogService.IDatalogService,Prime.DffService.IDffService,Prime.SharedStorageService.ISharedStorageService,Prime.UserVarService.IUserVarService,System.ValueTuple{Prime.BinCounterService.IBinCounterService,Prime.CallbacksService.ICallbacksService,Prime.MultiTrialTestService.IMultiTrialTestService,Prime.PlatformService.IPlatformService,Prime.TestConditionService.ITestConditionService,Prime.TestProgramService.ITestProgramService,Prime.VminForwardingService.IVminForwardingService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ScreenTest"/> class from a text file.
+            </summary>
+            <param name="file">Name of the file this line was read from.</param>
+            <param name="lineNumberAndTest">Line number of this test, and Test.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="consoleService">Console service.</param>
+            <param name="datalogService">Datalog service.</param>
+            <param name="dffService">Dff service.</param>
+            <param name="sharedStorageService">SharedStorage service.</param>
+            <param name="userVarService">UserVar service.</param>
+            <param name="servicesOnlyForExpressionEngine">Services required for the ExpressionEngine.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenTest.#ctor(System.ValueTuple{System.String,System.Int32},System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer,Prime.ConsoleService.IConsoleService,Prime.DatalogService.IDatalogService,Prime.DffService.IDffService,Prime.SharedStorageService.ISharedStorageService,Prime.UserVarService.IUserVarService,System.ValueTuple{Prime.BinCounterService.IBinCounterService,Prime.CallbacksService.ICallbacksService,Prime.MultiTrialTestService.IMultiTrialTestService,Prime.PlatformService.IPlatformService,Prime.TestConditionService.ITestConditionService,Prime.TestProgramService.ITestProgramService,Prime.VminForwardingService.IVminForwardingService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowExpressionHandling.ScreenTest"/> class from a JSON struct.
+            </summary>
+            <param name="fileNameAndLineNumber">Name of the file this line was read from, and Line number of this line in the file.</param>
+            <param name="elements">test columns from a json screetest object.</param>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="consoleService">Console service.</param>
+            <param name="datalogService">Datalog service.</param>
+            <param name="dffService">Dff service.</param>
+            <param name="sharedStorageService">SharedStorage service.</param>
+            <param name="userVarService">UserVar service.</param>
+            <param name="servicesOnlyForExpressionEngine">Services required for the ExpressionEngine.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedOperations">
+            <summary>
+            Allowed operations on the parameters.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedOperations.SET">
+            <summary>SET operation.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedOperations.APPEND">
+            <summary>APPEND operation.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedOperations.GT">
+            <summary>GREATER-THAN operation.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedOperations.LT">
+            <summary>LESS-THAN operation.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedOperations.GTE">
+            <summary>GREATER-THAN-OR-EQUAL operation.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedOperations.LTE">
+            <summary>LESS-THAN-OR-EQAL operation.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedOperations.EQ">
+            <summary>IS-EQUAL operation.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedOperations.NE">
+            <summary>IS-NOT-EQUAL operation.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedOperations.UNDEF">
+            <summary>Undefined/NotUsed operation.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes">
+            <summary>
+            Allowed types for the DATATYPE column.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes.INT">
+            <summary>INTEGER type (shortcut).</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes.INTEGER">
+            <summary>INTEGER type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes.DOUBLE">
+            <summary>DOUBLE type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes.STRING">
+            <summary>STRING type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes.BINARY">
+            <summary>BINARY type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedDataTypes.UNDEF">
+            <summary>Undefined/NotUsed type.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType">
+            <summary>
+            Allowed parameter types.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.DFF">
+            <summary>Dff type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.CUSTOM">
+            <summary>CUSTOM type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.GLOBAL">
+            <summary>GLOBAL/UserVar type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.USERVAR">
+            <summary>GLOBAL/UserVar type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.SHAREDSTORAGE">
+            <summary>SharedStorage type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.FUNCTION">
+            <summary>FUNCTION type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.LITERAL">
+            <summary>LITERAL type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.TEMP">
+            <summary>TEMP type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.WHICHSOCKET">
+            <summary>WHICHSOCKET type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.LOCATIONSET">
+            <summary>LOCATIONSET type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.CONSOLE">
+            <summary>CONSOLE type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.EXPRESSION">
+            <summary>EXPRESSION type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowExpressionHandling.ScreenTest.AllowedParamType.UNDEF">
+            <summary>UNDEF/Unused type.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowExpressionHandling.ScreenTest.Name">
+            <summary>
+            Gets the name for this test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenTest.VerifyNext(System.Collections.Generic.List{System.String})">
+            <summary>
+            Verify the OnTrue and OnFalse point to valid ports/tests.
+            </summary>
+            <param name="allTestNamesInSet">List of all the valid tests in this set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FlowExpressionHandling.ScreenTest.Execute(Prime.SessionService.ISessionContextProviderContainer,Prime.TestMethods.FlowExpressionHandling.PrimeScreenTestTestMethod.SkipItuffErrorLoggingStatus)">
+            <summary>
+            Execute the test and returns the next test/port to execute.
+            </summary>
+            <param name="sessionContext">Current sessionContext.</param>
+            <param name="skipItuffErrorLogging"> Skip Ituff error logging status.</param>
+            <returns>Next test to execute or exit port.</returns>
+        </member>
+    </members>
+</doc>

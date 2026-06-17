@@ -1,0 +1,1124 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.ThermalService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.ThermalService.ControlSet">
+            <summary>
+            ControlSet class.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.ControlSet.#ctor(System.String,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.ControlSet"/> class.
+            </summary>
+            <param name="name">Name.</param>
+            <param name="index">Index.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ControlSet.GetName">
+            <summary>
+            Gets name.
+            </summary>
+            <returns>Name.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ControlSet.GetIndex">
+            <summary>
+            Gets index.
+            </summary>
+            <returns>Index.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ControlSet.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.ThermalService.PcsData">
+            <summary>
+            PcsData class.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.PcsData.GetPinTokens">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsData.GetSetPoint">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsData.GetMin">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsData.GetMax">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsData.GetAverage">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsData.AddPinValue(System.String,System.Double)">
+            <summary>
+            Add pin to pinToken if not exist.
+            </summary>
+            <param name="pinName">Name of pin.</param>
+            <param name="tjValue">Tj value.</param>
+        </member>
+        <member name="M:Prime.ThermalService.PcsData.AddPinSot(System.String,System.Double)">
+            <summary>
+            Add pin sot to pinToken.
+            </summary>
+            <param name="pinName">Name of pin.</param>
+            <param name="sotValue">Sot value.</param>
+        </member>
+        <member name="M:Prime.ThermalService.PcsData.CalculateSummaryData(System.Double)">
+            <summary>
+            Calculate summary data of min, max and average.
+            </summary>
+            <param name="setPoint">SetPoint value.</param>
+        </member>
+        <member name="T:Prime.ThermalService.PcsPinToken">
+            <summary>
+            PcsPinToken class.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.PcsPinToken"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.PcsPinToken"/> class.
+            </summary>
+            <param name="value">Initialize value.</param>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.GetSot">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.GetTjRise">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.GetTjDrop">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.GetMin">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.GetMax">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.GetAverage">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.GetCount">
+            <summary>
+            Get count.
+            </summary>
+            <returns>Count.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.GetSum">
+            <summary>
+            Get sum.
+            </summary>
+            <returns>Sum.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.SetSot(System.Double)">
+            <summary>
+            Set sot.
+            </summary>
+            <param name="sot">Sot value.</param>
+        </member>
+        <member name="M:Prime.ThermalService.PcsPinToken.AddValue(System.Double)">
+            <summary>
+            Add value.
+            </summary>
+            <param name="value">Value to be added.</param>
+        </member>
+        <member name="T:Prime.ThermalService.PinsModelObject">
+            <summary>
+             Pins model object concrete implementation.
+            </summary>
+        </member>
+        <member name="F:Prime.ThermalService.PinsModelObject.pinList">
+            <summary>
+            Gets list of pins.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.PinsModelObject.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.PinsModelObject"/> class.
+            </summary>
+            <param name="pinList">List of pins in PinModelObject.</param>
+        </member>
+        <member name="M:Prime.ThermalService.PinsModelObject.AddPin(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PinsModelObject.GetPins">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.ThermalService.SotMeasurements">
+            <summary>
+            Sot measurement class.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalService.SotMeasurements.PerPinTemperatures">
+            <summary>
+            Gets or sets per pin temperatures map.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.SotMeasurements.ToString">
+            <summary>
+            Here is where I format my class when it will need to be printed to the console.
+            </summary>
+            <returns>Per pin temperature string.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.ThermalParametricData">
+            <summary>
+            ThermalParametricData class.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.#ctor(Prime.PlatformService.Internal.IThermalParametricData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.ThermalParametricData"/> class.
+            </summary>
+            <param name="parametricData">ParametricData object.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetDiodeName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIbIe1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIbIe2">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIbIe3">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIbLeakageIe1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIbLeakageIe2">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIbLeakageIe3">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIeLeakageIe1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIeLeakageIe2">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIeLeakageIe3">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIeValIe1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIeValIe2">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetIeValIe3">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetTemperature">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetVbeIe1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetVbeIe2">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalParametricData.GetVbeIe3">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.ThermalService.ThermalStorageMulti">
+            <summary>
+            ThermalStorageMulti class.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalService.ThermalStorageMulti.PinValues">
+            <summary>
+            Gets or sets pin values map.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalStorageMulti.ToString">
+            <summary>
+            // Here is where I format my class when it will need to be printed to the console.
+            </summary>
+            <returns>Pin values string.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.ThermalStorageSingle">
+            <summary>
+            ThermalStorageSingle class.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalStorageSingle.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.ThermalStorageSingle"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalService.ThermalStorageSingle.PinValues">
+            <summary>
+            Gets or sets pin values map.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalService.ThermalStorageSingle.MeasType">
+            <summary>
+            Gets or sets measurement type.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalStorageSingle.ToString">
+            <summary>
+            Here is where I format my class when it will need to be printed to the console.
+            </summary>
+            <returns>String of pin and respective value.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.UeiPacketData">
+            <summary>
+            UeiPacketData struct.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.UeiPacketData.#ctor(System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{System.Collections.Generic.List{System.UInt32}}},System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{System.Collections.Generic.List{System.UInt32}}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.UeiPacketData"/> class.
+            </summary>
+            <param name="rx">rx packets.</param>
+            <param name="tx">tx packets.</param>
+        </member>
+        <member name="M:Prime.ThermalService.UeiPacketData.GetRxPackets">
+            <summary>
+            Gets rx packets.
+            </summary>
+            <returns>RxPackets.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.UeiPacketData.GetTxPackets">
+            <summary>
+            Gets TX packets.
+            </summary>
+            <returns>TxPackets.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.UeiPacketHandle">
+            <summary>
+            UeiPacketHandle class.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.UeiPacketHandle.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.UeiPacketHandle"/> class.
+            </summary>
+            <param name="handlePointer">Object pointing to TOS UeiPacketHandle.</param>
+        </member>
+        <member name="M:Prime.ThermalService.UeiPacketHandle.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.UeiPacketHandle"/> class.
+            Every object that inserted in to SHaredStorage must have parmeterless c'tor defined.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalService.UeiPacketHandle.HandlePointer">
+            <summary>
+            Gets Object pointing to TOS UeiPacketHandle.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.UeiPacketHandle.ToString">
+            <summary>
+             Returns "UeiPacketHandle".
+            </summary>
+            <returns>String representation of UeiPacketHandle.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.DtsModes">
+            <summary>
+            Represents SmartTC category types.
+            </summary>
+        </member>
+        <member name="F:Prime.ThermalService.DtsModes.DISABLED">
+            <summary>
+            Level / Instance setup category type
+            </summary>
+        </member>
+        <member name="F:Prime.ThermalService.DtsModes.AVERAGE">
+            <summary>
+            Level power-down category type
+            </summary>
+        </member>
+        <member name="F:Prime.ThermalService.DtsModes.MAX">
+            <summary>
+            Level power-on category type
+            </summary>
+        </member>
+        <member name="T:Prime.ThermalService.IThermalService">
+            <summary>
+            Handles all Thermal related activities.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.VerifyAndGetPinsObject(System.Collections.Generic.List{System.String})">
+            <summary>
+            Receives a list of pins for verifying they exists and return an object for further use.
+            </summary>
+            <param name="pinNames">List of pins to be used.</param>
+            <returns>List of pin object.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.TdauGetMeasurement(Prime.ThermalService.IPinsModelObject,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets TDAU measurements on a list of pins optionally storing them based on Tag.
+            </summary>
+            <param name="pinsToMeasure">List of Pins to measure.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dictionary of pins with measured value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.TdauStoreMeasurement(System.Collections.Generic.Dictionary{System.String,System.Double},System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stores Tdau measurement of pin.
+            </summary>
+            <param name="pinTemperatures">Pins to measure.</param>
+            <param name="storageTag">Storage tag.</param>
+            <param name="otherStoreTag">Other store tag.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.TdauStoreMeasurement(System.Collections.Generic.Dictionary{System.String,System.Double},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stores Tdau measurement of pin.
+            </summary>
+            <param name="pinTemperatures">Pins to measure.</param>
+            <param name="storageTag">Storage tag.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.TdauGetStoredMeasurementByTag(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets stored TDAU measurements matching storage tag.
+            </summary>
+            <param name="tag">Tag to match.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Stored measurement per pin by tag.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.TdauGetStoredMeasurementsByTag(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets stored TDAU measurements matching storage tag.
+            </summary>
+            <param name="tag">Tag to match.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Stored measurements per pin by tag.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.TdauGetParametricValues(System.String)">
+            <summary>
+            Get parametric values for input pins.
+            </summary>
+            <param name="pin">Pins to get parametric information from.</param>
+            <returns>Parametric information per pin.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.TdauProfileStart(Prime.ThermalService.IPinsModelObject,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Starts profiling on input pins at specified sample rate.
+            </summary>
+            <param name="pinsToMeasure">Pins to profile.</param>
+            <param name="sampleRate">Desired sample rate.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.TdauProfileStop(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stops current profiling action.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.TdauProfileGetValues(Prime.ThermalService.IPinsModelObject,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets values stored during profiling.
+            </summary>
+            <param name="pinsToMeasure">Pins get values.</param>
+            <param name="tag">Optional tag to get values from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>List of values recorded by pin.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.UeiStreamingStart(System.Boolean,Prime.ThermalService.IPinsModelObject,Prime.ThermalService.DtsModes)">
+            <summary>
+            Starts TCC streaming.
+            </summary>
+            <param name="isDtc">To determine slave type (true=dtc, false=tcc).</param>
+            <param name="pins">Pins to use for start.</param>
+            <param name="dtsMode">Defines the Dts mode for the UEI streaming.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.UeiStreamingStart(System.Boolean,Prime.ThermalService.IPinsModelObject,Prime.ThermalService.DtsModes,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Starts TCC streaming.
+            This method was not implemented yet for TOS4.
+            </summary>
+            <param name="isDtc">To determine slave type (true=dtc, false=tcc).</param>
+            <param name="pins">Pins to use for start.</param>
+            <param name="dtsMode">Defines the Dts mode for the UEI streaming.</param>
+            <param name="scsGroups">Defines the list of scs groups used in tcc stream mode. Supported only in TOS321.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.UeiStreamingStop(System.Boolean)">
+            <summary>
+            Stops TCC streaming.
+            </summary>
+            <param name="isDtc">To determine slave type (true=dtc, false=tcc).</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.ApplyControlSet(System.String,System.String,System.Int32)">
+            <summary>
+            Applies the given ControlSet to the pin name set on SetPinNameForControlSet.
+            </summary>
+            <param name="pinName">uei pin name in which the ControlSet will be applied. </param>
+            <param name="index">Index of the ControlSet to apply.</param>
+            <param name="activationDelay">amount of milliseconds to wait before actually applying the control set.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.GetCurrentIndexControlSetAttribute(System.String)">
+            <summary>
+            Returns the current controlSet index using a given UEI Slave Pin Name.
+            </summary>
+            <param name="pinName">uei pin name of interest. </param>
+            <returns>Returns the name of the control set name of the index in the hardware based on the data loaded using the AddControlSetMapping.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.GetPcsTokens(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Summarizes all stored measurements to prepare PCS data for printing.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Struct of PCS tokens ready for printing.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.GetProfilePcsTokens(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Summarizes all profile measurements to prepare PCS data for printing.
+            </summary>
+            <param name="profileCollection">Name of the collection in which the measurements were taken.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Struct of PCS tokens ready for printing.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.ClearStoredData(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clear any stored data for Thermal measurements.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.IsUeiClientDtc(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if the UeiClientPort0 resource pin is of type DTC.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>True if UEI client type is DTC.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.HasUei">
+            <summary>
+            If Prime detects or not the UEI.
+            </summary>
+            <returns>If has UEI or not.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.GetThermalHeadTemperatureFromDtc(System.Int32)">
+            <summary>
+            Gets the temperature of the DTC thermal head.
+            </summary>
+            <param name="thermalHeadIndex">thermal head index.</param>
+            <returns>temperature value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.ApplySerialCaptureGroupMap(System.String)">
+            <summary>
+            Applies the supplied SerialCaptureGroupMap contents in the SerialCapture Group Map .scgm.
+            </summary>
+            <param name="serialCaptureGroupMapName">Name of the serial capture group to apply.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.GetSerialCaptureGroupMapInfo(System.String)">
+            <summary>
+            Gets the serial capture group map.
+            </summary>
+            <param name="serialCaptureGroupMapName">Name of the serial capture group to get.</param>
+            <returns>SerialCaptureGroupMapInfo object.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.GetSerialCaptureGroupMapNames">
+            <summary>
+            Gets serial capture group map names.
+            </summary>
+            <returns>List of names of the serial capture groups.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.SetSerialCaptureGroupFilterAlarmEnableState(System.Boolean)">
+            <summary>
+            Enable/disable serial capture group filter alarm.
+            </summary>
+            <param name="enable">True for enable or false for disable.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.GetRcHwSyncTimer">
+            <summary>
+            Gets Rc hardware sync timer.
+            </summary>
+            <returns>Timer value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.GetAllTdauPinNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a list with the names of all the pins of TDAU resource type.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>list of all pin names of TDAU resource type.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.GetLatestUeiStreamingPackets(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get data packets coming from thermal controller.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Object with Rx and Tx packets.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.InitializeUeiPacketHandle(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes handle to capture UEI packets.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.DeleteCurrentUeiPacketHandle(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Discards handle to capture UEI packets.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.GetAllSerialCapturePinNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get all serial capture pin names.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>List of serial captured pin names.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.AdjustCurrentControlSetSetPointValue(System.Boolean,System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Adjust current controlSet set point value.
+            </summary>
+            <param name="isDtc">Is dtc true or false.</param>
+            <param name="adjustValue">Adjust value.</param>
+            <param name="ueiPinName">the uei pin name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalService.ApplyPowerScalar(System.Double,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Apply power scalar.
+            </summary>
+            <param name="powerScalar">Power scalar.</param>
+            <param name="powerSumPinName">Power sum pin name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.ThermalService.IPinsModelObject">
+            <summary>
+            List of pins for Thermal activities.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.IPinsModelObject.AddPin(System.String)">
+            <summary>
+            Add a new pin.
+            </summary>
+            <param name="pinName">The Pin Name.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IPinsModelObject.GetPins">
+            <summary>
+            Get the list of the Pins.
+            </summary>
+            <returns>The list of the Pins.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.IThermalParametricData">
+            <summary>
+            Contains parametric return data.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetDiodeName">
+            <summary>
+            Gets diode name.
+            </summary>
+            <returns>Tdau pin name.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetTemperature">
+            <summary>
+            Gets diode latest temperature reading.
+            </summary>
+            <returns>Temperature value in Celsius.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetVbeIe1">
+            <summary>
+            Emitter base voltage at force current 1.
+            </summary>
+            <returns>Voltage in Volts.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetVbeIe2">
+            <summary>
+            Emitter base voltage at force current 2.
+            </summary>
+            <returns>Voltage in Volts.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetVbeIe3">
+            <summary>
+            Emitter base voltage at force current 3.
+            </summary>
+            <returns>Voltage in Volts.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIbIe1">
+            <summary>
+            Base current at force current 1.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIbIe2">
+            <summary>
+            Base current at force current 2.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIbIe3">
+            <summary>
+            Base current at force current 3.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIeLeakageIe1">
+            <summary>
+            Emitter current leakage at force current 1.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIeLeakageIe2">
+            <summary>
+            Emitter current leakage at force current 2.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIeLeakageIe3">
+            <summary>
+            Emitter current leakage at force current 3.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIbLeakageIe1">
+            <summary>
+            Base current leakage at force current 1.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIbLeakageIe2">
+            <summary>
+            Base current leakage at force current 2.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIbLeakageIe3">
+            <summary>
+            Base current leakage at force current 3.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIeValIe1">
+            <summary>
+            Emitter current at force current 1.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIeValIe2">
+            <summary>
+            Emitter current at force current 2.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IThermalParametricData.GetIeValIe3">
+            <summary>
+            Emitter current at force current 3.
+            </summary>
+            <returns>Current in mili-amperes.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.IPcsPinToken">
+            <summary>
+            Holds PCS information for one Pin.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsPinToken.GetSot">
+            <summary>
+            Gets value for Start of test.
+            </summary>
+            <returns>Start of Measurement value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsPinToken.GetTjRise">
+            <summary>
+            Gets Tj Rise value.
+            </summary>
+            <returns>Tj Rise value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsPinToken.GetTjDrop">
+            <summary>
+            Gets Tj Drop value.
+            </summary>
+            <returns>Tj drop value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsPinToken.GetMin">
+            <summary>
+            Gets Minimum pin temperature.
+            </summary>
+            <returns>Minimum temperature value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsPinToken.GetMax">
+            <summary>
+            Gets Max pin temperature.
+            </summary>
+            <returns>Maximum temperature value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsPinToken.GetAverage">
+            <summary>
+            Gets Average pin temperature.
+            </summary>
+            <returns>Average temperature value.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.IPcsData">
+            <summary>
+            Structure that holds summary PCS tokens data for EOT mode.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsData.GetPinTokens">
+            <summary>
+            Gets Per pin PCS data.
+            </summary>
+            <returns>Dictionary with Pcs token data per Pin.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsData.GetSetPoint">
+            <summary>
+            Gets Thermal Head Set point.
+            </summary>
+            <returns>Temperature set point value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsData.GetMin">
+            <summary>
+            Gets Minimum overall temperature.
+            </summary>
+            <returns>Minimum temperature value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsData.GetMax">
+            <summary>
+            Gets Max overall temperature.
+            </summary>
+            <returns>Maximum temperature value.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IPcsData.GetAverage">
+            <summary>
+            Gets Average temperature.
+            </summary>
+            <returns>Average temperature value.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.IUeiStreamedPacketData">
+            <summary>
+            Class that defines serial capture groups.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.IUeiStreamedPacketData.GetRxPackets">
+            <summary>
+            Gets latest streamed Rx packets from UEI.
+            </summary>
+            <returns>Packets per dut index.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IUeiStreamedPacketData.GetTxPackets">
+            <summary>
+            Gets latest streamed Tx packets from UEI.
+            </summary>
+            <returns>Packets per dut index.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.SerialCaptureGroupMapInfo">
+            <summary>
+            Class that defines serial capture groups.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.SerialCaptureGroupMapInfo.#ctor(System.String,System.Collections.Generic.Dictionary{System.UInt32,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.SerialCaptureGroupMapInfo"/> class.
+            </summary>
+            <param name="groupName">True for enable or false for disable.</param>
+            <param name="groupMap">Group map.</param>
+            <returns>SerialCaptureGroupMapInfo object.</returns>
+        </member>
+        <member name="P:Prime.ThermalService.SerialCaptureGroupMapInfo.SerialCaptureGroupMapName">
+            <summary>
+            Gets or sets the serial capture group map name.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalService.SerialCaptureGroupMapInfo.SerialCaptureGroupMap">
+            <summary>
+            Gets or sets the serial capture groups.
+            </summary>
+        </member>
+        <member name="T:Prime.ThermalService.IDutStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:Prime.ThermalService.IDutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IDutStorage`1.GetObject(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.IDutStorage`1.InsertObject(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="objectToSet">Object to store.</param>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.ThermalService.IDutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.ThermalService.PrimitiveTypeLazyStorage`1">
+            <summary>
+            Taken from Dff service. Modified to calculate return value during access.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.PrimitiveTypeLazyStorage`1.#ctor(System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ThermalService.PrimitiveTypeLazyStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalService.PrimitiveTypeLazyStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PrimitiveTypeLazyStorage`1.GetObject(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PrimitiveTypeLazyStorage`1.InsertObject(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.PrimitiveTypeLazyStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.ThermalService.MeasurementType">
+            <summary>
+            MeasurementType enum.
+            </summary>
+        </member>
+        <member name="F:Prime.ThermalService.MeasurementType.SOT">
+            <summary>
+            SOT.
+            </summary>
+        </member>
+        <member name="F:Prime.ThermalService.MeasurementType.TJ">
+            <summary>
+            TJ.
+            </summary>
+        </member>
+        <member name="F:Prime.ThermalService.MeasurementType.OTHER">
+            <summary>
+            OTHER.
+            </summary>
+        </member>
+        <member name="T:Prime.ThermalService.ThermalService">
+            <inheritdoc cref="T:Prime.ThermalService.IThermalService"/>/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.VerifyPinsObject(System.Collections.Generic.List{System.String})">
+            <summary>
+            Check if pins exist.
+            </summary>
+            <param name="pinNames">Pin names.</param>
+            <returns>True if exist, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.VerifyAndGetPinsObject(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauGetMeasurement(System.Collections.Generic.List{System.String})">
+            <summary>
+            Tdau get measurement of pin.
+            </summary>
+            <param name="pinsToMeasure">Pins to measure.</param>
+            <returns>Pin temperatures map.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauStoreMeasurement(System.Collections.Generic.Dictionary{System.String,System.Double},System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stores Tdau measurement of pin.
+            </summary>
+            <param name="pinTemperatures">Pins to measure.</param>
+            <param name="storageTag">Storage tag.</param>
+            <param name="otherStoreTag">Other store tag.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauStoreMeasurement(System.Collections.Generic.Dictionary{System.String,System.Double},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauGetMeasurement(Prime.ThermalService.IPinsModelObject,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauGetStoredMeasurementByTag(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauGetStoredMeasurementsByTag(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauGetParametricValues(System.String)">
+            <summary>
+            Get parametric values.
+            </summary>
+            <param name="pin">Pin.</param>
+            <returns>List of parametric data object.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.Prime#ThermalService#IThermalService#TdauGetParametricValues(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauProfileStart(System.Collections.Generic.List{System.String},System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Tdau profile start.
+            </summary>
+            <param name="pinsToMeasure">Pins to measure.</param>
+            <param name="sampleRate">Sample rate.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauProfileStart(Prime.ThermalService.IPinsModelObject,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauProfileStop(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stop data collection from pin service.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauProfileGetValues(System.Collections.Generic.List{System.String},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Tdau profile get values.
+            </summary>
+            <param name="pinNames">Pin names.</param>
+            <param name="tag">Tag.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Profile temperatures map.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.TdauProfileGetValues(Prime.ThermalService.IPinsModelObject,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.IsUeiClientDtc(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetThermalHeadTemperatureFromDtc(System.Int32)">
+            <summary>
+            Get thermal head temperature from dtc.
+            </summary>
+            <param name="thermalHeadIndex">Thermal head index.</param>
+            <returns>Thermal head temperature.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.UeiStreamingStart(System.Boolean,System.Collections.Generic.List{System.String},Prime.ThermalService.DtsModes)">
+            <summary>
+            Uei streaming start.
+            </summary>
+            <param name="isDtc">Is Dtc.</param>
+            <param name="pins">Pin list.</param>
+            <param name="dtsMode">DTS mode.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.UeiStreamingStart(System.Boolean,System.Collections.Generic.List{System.String},Prime.ThermalService.DtsModes,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Uei streaming start.
+            </summary>
+            <param name="isDtc">Is Dtc.</param>
+            <param name="pins">Pin list.</param>
+            <param name="dtsMode">DTS mode.</param>
+            <param name="scsGroups">scs groups.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.UeiStreamingStart(System.Boolean,Prime.ThermalService.IPinsModelObject,Prime.ThermalService.DtsModes,System.Collections.Generic.List{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.UeiStreamingStart(System.Boolean,Prime.ThermalService.IPinsModelObject,Prime.ThermalService.DtsModes)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.UeiStreamingStop(System.Boolean)">
+            <summary>
+            Stop Uei streaming.
+            </summary>
+            <param name="isDtc">Is dtc true or false.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.ApplyControlSet(System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetCurrentIndexControlSetAttribute(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.ApplyControlSet(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Apply control set.
+            </summary>
+            <param name="controlSetName">Control set name.</param>
+            <param name="activationDelay">Activation delay.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetPcsTokens(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetProfilePcsTokens(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.SetProfileValuesForPcsCalculation(System.String,System.Collections.Generic.List{System.String},Prime.ThermalService.PcsData)">
+            <summary>
+            Set profile values for pcs calculation.
+            </summary>
+            <param name="profileCollection">Profile collection.</param>
+            <param name="sotPins">List of sot pins.</param>
+            <param name="pcsTokensData">PcsTokensData object.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.HasUei">
+            <summary>
+            Check if there are enabled pins that are connected to UEI resources.
+            </summary>
+            <returns>True if there are enabled pins that are connected to UEI resources.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetSetPointTemperature">
+            <summary>
+            Get set point temperature.
+            </summary>
+            <returns>Set point temperature.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.ExcludePinGroups(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Exclude pin groups.
+            </summary>
+            <param name="pins">Pin list.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Unique pins.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetAllTdauPinNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetLatestUeiStreamingPackets(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.InitializeUeiPacketHandle(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.DeleteCurrentUeiPacketHandle(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetAllSerialCapturePinNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.ApplyPowerScalar(System.Double,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.AdjustCurrentControlSetSetPointValue(System.Boolean,System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.ClearStoredData(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.ApplySerialCaptureGroupMap(System.String)">
+            <summary>
+            Apply serial capture group map name.
+            </summary>
+            <param name="serialCaptureGroupMapName">Serial capture group map name to be apply.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetSerialCaptureGroupMapInfo(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetSerialCaptureGroupMapNames">
+            <summary>
+            Get serial capture group map names.
+            </summary>
+            <returns>List of map names.</returns>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.SetSerialCaptureGroupFilterAlarmEnableState(System.Boolean)">
+            <summary>
+            Set serial capture group filter alarm with enable state.
+            </summary>
+            <param name="enable">Enable with true or false.</param>
+        </member>
+        <member name="M:Prime.ThermalService.ThermalService.GetRcHwSyncTimer">
+            <summary>
+            Get RcHw sync timer.
+            </summary>
+            <returns>Time.</returns>
+        </member>
+    </members>
+</doc>

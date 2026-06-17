@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.MixingDetection</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.MixingDetection.DffToken">
+            <summary>
+            It contains the information of a DffToken.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MixingDetection.DffToken.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.MixingDetection.DffToken"/> class.
+            </summary>
+            <param name="dffToken">Dff token.</param>
+            <param name="sessionContext">This session contest.</param>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.DffToken.Token">
+            <summary>
+            Gets or sets DffToken.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.DffToken.Value">
+            <summary>
+            Gets or sets DFTokenValue.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MixingDetection.DffToken.UpdateDffTokenValue">
+            <summary>
+            Updates Dff Token Value.
+            </summary>
+            <returns>True in case DffToken value updated correctly, otherwise returns false.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.MixingDetection.Json.ConfigurationFileInput">
+            <summary>
+            ConfigurationJsonFileInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.Json.ConfigurationFileInput.UserVar">
+            <summary>
+            Gets or sets UserVar info.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.Json.ConfigurationFileInput.DuplicatedCompareValues">
+            <summary>
+            Gets or sets a value indicating whether gets or sets DuplicatedCompareValues.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.Json.ConfigurationFileInput.DffTokenList">
+            <summary>
+            Gets or sets DffTokenList.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.Json.ConfigurationFileInput.Compares">
+            <summary>
+            Gets or sets Config.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.MixingDetection.Json.ConfigurationFileReader">
+            <summary>
+            MixingDetection Configuration file reader.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MixingDetection.Json.ConfigurationFileReader.#ctor(Prime.TestMethods.MixingDetection.Json.IFileHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.MixingDetection.Json.ConfigurationFileReader"/> class.
+            </summary>
+            <param name="fileHandler">File handler to be set.</param>>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.Json.ConfigurationFileReader.ConfigurationInformation">
+            <summary>
+            Gets or sets the configuration file information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MixingDetection.Json.ConfigurationFileReader.GetConfigurationFile(System.String)">
+            <summary>
+            Parsing array resources input json file.
+            </summary>
+            <param name="jsonFilePath">json hry input file.</param>
+            <returns>Returns the configuration file information.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.MixingDetection.Json.FileHandler">
+            <summary>
+            Main file handler implementation.
+            For basic file IO operations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MixingDetection.Json.FileHandler.Prime#TestMethods#MixingDetection#Json#IFileHandler#ReadAll(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.MixingDetection.Json.IFileHandler">
+            <summary>
+            File handling interfaces.
+            Usage of FileService is preferred.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MixingDetection.Json.IFileHandler.ReadAll(System.String)">
+            <summary>
+            Read all file contents and return it content as string.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>File content as string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.MixingDetection.IO.Json.Entities.Compare">
+            <summary>
+            Gets or sets Compare.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.IO.Json.Entities.Compare.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.IO.Json.Entities.Compare.CatchAll">
+            <summary>
+            Gets or sets a value indicating whether gets or sets CatchAll.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.IO.Json.Entities.Compare.Dff">
+            <summary>
+            Gets or sets DFFTokens.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.MixingDetection.IO.Json.Entities.Dff">
+            <summary>
+            Gets or sets DffToken.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.IO.Json.Entities.Dff.Token">
+            <summary>
+            Gets or sets Token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.IO.Json.Entities.Dff.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.MixingDetection.IO.Json.Entities.UserVar">
+            <summary>
+            Gets or sets UserVar value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.IO.Json.Entities.UserVar.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.IO.Json.Entities.UserVar.CharPos">
+            <summary>
+            Gets or sets CharPos.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.IO.Json.Entities.UserVar.Count">
+            <summary>
+            Gets or sets Count.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.MixingDetection.PrimeMixingDetectionTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.PrimeMixingDetectionTestMethod.ConfigurationFilePath">
+            <summary>
+            Gets or sets configuration file path.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MixingDetection.PrimeMixingDetectionTestMethod.FileHandler">
+            <summary>
+            Gets or sets FileHandler.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MixingDetection.PrimeMixingDetectionTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.MixingDetection.PrimeMixingDetectionTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.MixingDetection.PrimeMixingDetectionTestMethod.VerifyDffTokenFormat(System.String)">
+            <summary>
+            Verify if the dffTokenStructure is correct. A ddf token structure should have three parts: [SSID]:[Dff Optype]:[Token name].
+            </summary>
+            <param name="dffToken">dffToken.</param>
+        </member>
+        <member name="M:Prime.TestMethods.MixingDetection.PrimeMixingDetectionTestMethod.IsSchemaValidationEnabled">
+            <summary>
+            Returns if the schema validation should be processed for the configuration files handled by Aleph.
+            By default schema validation is disabled. But if IsSysCFileServiceUp = False (not a VPO or Production) the validation is enabled automatically.
+            This is to avoid the user to be aware of enabling the validation for local/eng runs or forget to set to False the parameter in a production TP to save init time.
+            </summary>
+            <returns>True is schema validation for configuration files should be executed.</returns>
+        </member>
+    </members>
+</doc>

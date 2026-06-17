@@ -1,0 +1,514 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Callbacks.CallbackManager</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Callbacks.CallbackManager">
+            <summary>
+            CallbackManager main class.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.CallbackManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Callbacks.CallbackManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.CallbackManager.Register(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.Callbacks.CallbackManager.Unregister(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.Callbacks.Datalogs">
+            <summary>
+            Defines the callbacks related to DatalogService.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.Datalogs.PrimeSetTestNameOverride(System.String)">
+            <summary>
+            Set alternative instance name for the upcoming tname datalogs.
+            This alternative instance name will be reset at every end instance..
+            </summary>
+            <param name="altInstanceName">The new alternate Instance Name to replace.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.DieIdBinning">
+            <summary>
+            Defines the callbacks related to the DieIdBinningService.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.DieIdBinning.PrimeSavePortInformationForCurrentDieId(System.String)">
+            <summary>
+            Saves the given port number, associated with current dieIds and flow item name.
+            </summary>
+            <param name="port">The port number to save for die id binning purposes.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.DieIdBinning.PrimeSetAdditionalCurrentDieIds(System.String)">
+            <summary>
+            Set additional current Die Ids to be used when saving port information for current flow item. In IP context.
+            It is designed to be use with DFF Service SetCurrentDieId, which only allows one current dieId at a time.
+            </summary>
+            <param name="dieIds">Die Ids. Comma separated string.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.FlowEvents">
+            <summary>
+            Defines Primes predefined FlowEvent capable callbacks. These callbacks are intended to be used with the
+            FlowEvent infrastructure. All of the callbacks declared here always have the input argument signature of
+            receiving the port number first and then the rest of the input arguments.
+            Ex: {port,arg0,arg1,...}.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.FlowEvents.PrimeSetCurrentTimeSnapShot(System.String)">
+            <summary>
+            Saves a timestamp when the callback gets executed to the given key in sharedStorage.
+            This is intended to be used with FlowEvents. If its not used as flow event provide the
+            key name as second param. When this callback is used as FlowEvent the first parameter
+            will always be the current port number of the given test flow, this is not used and is
+            automatically populated by TOS, hence only key argument is required.
+            Example non flow event: args = "param1,keyName".
+            </summary>
+            <param name="args">Comma separated string of arguments.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Throws if args does not contain two arguments.</exception>
+            <returns>Empty string.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.FlowEvents.StoreCurrentMemoryParameters(System.String)">
+            <summary>
+            Saves private and virtual memory into 2 sharedStorage keys. First key will store private memory and second key will store virtual memory.
+            This is intended to be used with FlowEvents. If its not used as flow event provide the
+            key name as second param. When this callback is used as FlowEvent the first parameter
+            will always be the current port number of the given test flow, this is not used and is
+            automatically populated by TOS, hence only key argument is required.
+            Example non flow event: args = "param1,keyName1,keyName2".
+            </summary>
+            <param name="args">Comma separated string of arguments.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Throws if args does not contain two arguments.</exception>
+            <returns>Empty string.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.FlowEvents.DisableDeflates(System.String)">
+            <summary>
+            Disables deflates.
+            </summary>
+            <param name="args">Args.</param>
+            <returns>Nothing.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.FlowEvents.EnableDeflates(System.String)">
+            <summary>
+            Enable deflates.
+            </summary>
+            <param name="args">Args.</param>
+            <returns>Nothing.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.FlowEvents.PrimeSetDeviceStartTimeSnapshot(System.String)">
+            <summary>
+            Callback intended to be used ONLY as a flow event for the beginning of the TestPlanStart flow.
+            The functionality of this method is to store a snapshot of the current device start time.
+            No argument needs to be passed to this callback when use as a flow event.
+            </summary>
+            <param name="args">Comma separated string of arguments.</param>
+            <returns>Empty string.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.FuseRead">
+            <summary>
+            Defines the callbacks related to FuseReadService.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.FuseRead.PrimeSetSimulationString(System.String)">
+            <summary>
+            Set simulation string through usercode or preinstance with callback.
+            The simulation string will post-process and store to dut level sharedstorage with default reset policy.
+            It will be use at Execute with condition of it is simulation mode and matched sharedstorage key that include configurationName and registerName.
+            </summary>
+            <param name="registerSimulationValue">Register name and simulation string value to override. Format example: CPU0@000111 (single register) or CPU0@000111,CPU1@1111000 (multiple register).</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.FuseRead.PrimePostProcessUltDecode(System.String)">
+            <summary>
+            Compare decoded Lot/Wafer/X/Y values to EI station controller globals. Expectation is that PrimeFuseReadMaskUltDecode Test Method
+            executes prior to this UF execution. Example of usage: PrimePostProcessUltDecode!U1,true,true".
+            </summary>
+            <param name="inputArgument">Comma seperated string with the format of "DieIdNames","isCompareLot","isIgnoreLastChar".</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.IProcessWrapper">
+            <summary>
+            IRamWrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.IProcessWrapper.GetMemorySize64">
+            <summary>
+            Get current process memory size.
+            </summary>
+            <returns>Private and virtual memory sizes.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.IProcessWrapper.GetPrivateMemorySize64">
+            <summary>
+            Get current process private memory size.
+            </summary>
+            <returns>Private memory size.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.IProcessWrapper.GetVirtualMemorySize64">
+            <summary>
+            Get current process virtual memory size.
+            </summary>
+            <returns>Virtual memory size.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.MemorySnapshot">
+            <summary>
+            Defines the callbacks related to PrimeMemorySnapshot.
+            </summary>
+        </member>
+        <member name="F:Prime.Callbacks.MemorySnapshot.processWrapper">
+            <summary>
+            ProcessWrapper used to get the private memory.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.MemorySnapshot.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Callbacks.MemorySnapshot"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.MemorySnapshot.PrimeMemorySnapshot(System.String)">
+            <summary>
+            PrimeMemorySnapshot print the memory used at that given time of the execution.
+            </summary>
+            <param name="customPostfix">Custom postfix set by users and added in tname wrote in ituff.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.MemorySnapshot.SetProcessWrapper(Prime.Callbacks.IProcessWrapper)">
+            <summary>
+            Set process object.
+            </summary>
+            <param name="processWrapper">processWrapper.</param>
+        </member>
+        <member name="M:Prime.Callbacks.MemorySnapshot.GetMemoryPrintout(System.String,System.Int64)">
+            <summary>
+            Get memory printout using mrslt ituff format.
+            </summary>
+            <param name="postfix">Postfix.</param>
+            <param name="memorySize">Memory size.</param>
+            <returns>Memory printout in mrslt ituff format.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.PatternModify">
+            <summary>
+            Defines the callbacks related to SmartTc.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.PatternModify.PrimeEnablePatternModifyCache(System.String)">
+            <summary>
+            Pause monitoring callback of the pins associated to the configName given as input.
+            Checks for existence in activeConfigs.
+            </summary>
+            <param name="arguments">Not used.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.PatternModify.PrimeDisablePatternModifyCache(System.String)">
+            <summary>
+            Resume monitor callback of the pins associated to the configName given as input.
+            </summary>
+            <param name="arguments">Configuration Name.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.PatternModify.PrimeProcessPatConfigServicePendingApplies(System.String)">
+            <summary>
+            Processes all pending PatConfigService applies.
+            </summary>
+            <param name="arguments">Whatever. It will be ignored.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.PatternReader">
+            <summary>
+            Defines the callbacks related to PatternReader.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.PatternReader.PrintPlistContent(System.String)">
+            <summary>
+            Read the patterns from the given plists..
+            </summary>
+            <param name="args">The plist names.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.PatternReader.PrimeReadPatternPinData(System.String)">
+            <summary>
+            Read pin data for specific pattern.
+            Arguments examples:
+            - (MyTokenName2|generic|xxHPCC_DPIN_Dig_slcB_A0|l=Start|6).
+            - (MyTokenName3|generic|HPCC_DPIN_Dig_slcB_by2B_grp|a=1|36).
+            </summary>
+            <param name="args">Arguments needed to readout pin data (token|pattern|pin|a/l=address or label|numberOfVectors).</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.PinMonitor">
+            <summary>
+            Defines the callbacks related to PinMonitor.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.PinMonitor.PrimePinMonitorPause(System.String)">
+            <summary>
+            Pause monitoring callback of the pins associated to the configName given as input.
+            Checks for configName existence in activeConfigs.
+            </summary>
+            <param name="configName">Input configuration name corresponding to a pin configuration in the json file.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.PinMonitor.PrimePinMonitorResume(System.String)">
+            <summary>
+            Resume monitor callback of the pins associated to the configName given as input.
+            Checks for configName existence in pausedConfigs.
+            </summary>
+            <param name="configName">Input configuration name corresponding to a pin configuration in the json file.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Thrown when the PinMonitorService fails to resume the monitor for the provided configName.</exception>
+            <returns>Empty.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.ProcessWrapper">
+            <summary>
+            RamWrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.ProcessWrapper.GetMemorySize64">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Callbacks.ProcessWrapper.GetPrivateMemorySize64">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Callbacks.ProcessWrapper.GetVirtualMemorySize64">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Callbacks.SharedStorage">
+            <summary>
+            Defines the callbacks related to the SharedStorageService.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeGetStringFromDutTable(System.String)">
+            <summary>
+            Reads the given key as an integer value on DUT scope..
+            </summary>
+            <param name="key">The key from the shared storage.</param>
+            <returns>The value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeGetIntegerFromDutTable(System.String)">
+            <summary>
+            Reads the given key as an integer value on DUT scope..
+            </summary>
+            <param name="key">The key from the shared storage.</param>
+            <returns>The value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeGetDoubleFromDutTable(System.String)">
+            <summary>
+            Reads the given key as an integer value on DUT scope..
+            </summary>
+            <param name="key">The key from the shared storage.</param>
+            <returns>The value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeInsertStringToDutTable(System.String)">
+            <summary>
+            Inserts the given key=value as an string on DUT scope.
+            </summary>
+            <param name="arguments">The value to set in the shared storage. Must be of the format=`Key=value`.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeInsertIntegerToDutTable(System.String)">
+            <summary>
+            Inserts the given key=value as an integer on DUT scope.
+            </summary>
+            <param name="arguments">The value to set in the shared storage. Must be of the format=`Key=value`.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeInsertDoubleToDutTable(System.String)">
+            <summary>
+            Inserts the given key=value as an double on DUT scope.
+            </summary>
+            <param name="arguments">The value to set in the shared storage. Must be of the format=`Key=value`.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeGetStringFromIpTable(System.String)">
+            <summary>
+            Reads the given key as an integer value on IP scope..
+            </summary>
+            <param name="key">The key from the shared storage.</param>
+            <returns>The value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeGetIntegerFromIpTable(System.String)">
+            <summary>
+            Reads the given key as an integer value on IP scope..
+            </summary>
+            <param name="key">The key from the shared storage.</param>
+            <returns>The value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeGetDoubleFromIpTable(System.String)">
+            <summary>
+            Reads the given key as an integer value on IP scope..
+            </summary>
+            <param name="key">The key from the shared storage.</param>
+            <returns>The value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeInsertStringToIpTable(System.String)">
+            <summary>
+            Inserts the given key=value as an string on IP scope.
+            </summary>
+            <param name="arguments">The value to set in the shared storage. Must be of the format=`Key=value`.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeInsertIntegerToIpTable(System.String)">
+            <summary>
+            Inserts the given key=value as an integer on IP scope.
+            </summary>
+            <param name="arguments">The value to set in the shared storage. Must be of the format=`Key=value`.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SharedStorage.PrimeInsertDoubleToIpTable(System.String)">
+            <summary>
+            Inserts the given key=value as an double on IP scope.
+            </summary>
+            <param name="arguments">The value to set in the shared storage. Must be of the format=`Key=value`.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.SmartTc">
+            <summary>
+            Defines the callbacks related to SmartTc.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.SmartTc.PrimeEnableSmartTc(System.String)">
+            <summary>
+            Enables the SmartTc.
+            </summary>
+            <param name="args">This argument is to be ignored as the enable smart Tc doesn't need parameters.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.SmartTc.PrimeDisableSmartTc(System.String)">
+            <summary>
+            Disables the SmartTc.
+            </summary>
+            <param name="args">This argument is to be ignored as the disable smart Tc doesn't need parameters.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.TestProgram">
+            <summary>
+            Defines the callbacks related to the TestProgram.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.TestProgram.PrimeExecuteTestInstance(System.String)">
+            <summary>
+            Executes a Prime Test Instance.
+            </summary>
+            <param name="args">The argument will be the name of the test instance to execute.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.TestProgram.PrimeIsForceReverifyNeeded(System.String)">
+            <summary>
+            Determine whether a force reverify is needed.
+            </summary>
+            <param name="args">This argument is to be ignored as this method doesn't need parameters.</param>
+            <returns>Returns true if force reverify is needed, else return false.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.TestProgram.PrimeEnableTestProgramDebug(System.String)">
+            <summary>
+            Enables the test program debug mode.
+            </summary>
+            <param name="args">NA.</param>
+            <returns>Empty string.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.TestProgram.PrimeDisableTestProgramDebug(System.String)">
+            <summary>
+            Disables the test program debug mode.
+            </summary>
+            <param name="args">NA.</param>
+            <returns>Empty string.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.ThreadAlignment">
+            <summary>
+            Defines the callbacks related to SmartTc.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.ThreadAlignment.PrimeAcquireOnlyMeLock(System.String)">
+            <summary>
+            Enables the SmartTc.
+            </summary>
+            <param name="args">This argument is to be ignored as the enable smart Tc doesn't need parameters.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.ThreadAlignment.PrimeReleaseOnlyMeLock(System.String)">
+            <summary>
+            Disables the SmartTc.
+            </summary>
+            <param name="args">This argument is to be ignored as the disable smart Tc doesn't need parameters.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.UserVariable">
+            <summary>
+            Defines the callbacks related to the UserVariableService.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.UserVariable.PrimeGetStringUserVar(System.String)">
+            <summary>
+            Reads the given user variable  name as an string.
+            </summary>
+            <param name="name">The name of the user variable.</param>
+            <returns>The value of the given user variable.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.UserVariable.PrimeGetIntegerUserVar(System.String)">
+            <summary>
+            Reads the given user variable  name as an integer.
+            </summary>
+            <param name="name">The name of the user variable.</param>
+            <returns>The value of the given user variable.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.UserVariable.PrimeGetDoubleUserVar(System.String)">
+            <summary>
+            Reads the given user variable  name as an double.
+            </summary>
+            <param name="name">The name of the user variable.</param>
+            <returns>The value of the given user variable.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.UserVariable.PrimeSetStringUserVar(System.String)">
+            <summary>
+            Sets the given user variable name=value as an string.
+            </summary>
+            <param name="arguments">The user variable and value. Must be of the format=`Key=value`.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.UserVariable.PrimeSetIntegerUserVar(System.String)">
+            <summary>
+            Sets the given user variable name=value as an integer.
+            </summary>
+            <param name="arguments">The user variable and value. Must be of the format=`Key=value`.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="M:Prime.Callbacks.UserVariable.PrimeSetDoubleUserVar(System.String)">
+            <summary>
+            Sets the given user variable name=value as an double.
+            </summary>
+            <param name="arguments">The user variable and value. Must be of the format=`Key=value`.</param>
+            <returns>Empty.</returns>
+        </member>
+        <member name="T:Prime.Callbacks.ICallbackManager">
+            <summary>
+            Scoreboard Service interface.
+            </summary>
+        </member>
+        <member name="M:Prime.Callbacks.ICallbackManager.Register(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Registers all Prime's callbacks.
+            </summary>
+            <param name="sessionContext">Current's instance session context.</param>
+        </member>
+        <member name="M:Prime.Callbacks.ICallbackManager.Unregister(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Unregisters all Prime's callbacks. It should be called during Unload.
+            </summary>
+            <param name="sessionContext">Current's instance session context.</param>
+        </member>
+        <member name="T:Prime.Callbacks.Manager">
+            <summary>
+            Static class with the getter of the ICallbackManager implementation.
+            </summary>
+        </member>
+        <member name="P:Prime.Callbacks.Manager.Get">
+            <summary>
+            Gets or sets the ICallbackManager implementation.
+            </summary>
+        </member>
+    </members>
+</doc>

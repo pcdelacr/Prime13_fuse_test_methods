@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeVminSearchTestMethod" MetaData="dll=Prime.TestMethods.VminSearch" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeVminSearchTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="Patlist" descriptions="Patlist to execute.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>Plist</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="LevelsTc" descriptions="Level test condition to load.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="ApplyEndSequence" descriptions="ApplyEndSequence at the end of the test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>DISABLED</Choice>
+          <Choice>ENABLED</Choice>
+        </Choices>
+        <Default>DISABLED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingsTc" descriptions="Timing test condition to load.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>TimingCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="PrePlist" descriptions="PrePlist callback to plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MaskPins" descriptions="Comma separated string indicating which pins to mask.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VoltageTargets" descriptions="Voltage targets.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="StartVoltages" descriptions="Start voltage values.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="EndVoltageLimits" descriptions="End voltage limits.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="StartVoltagesForRetry" descriptions="Lower start voltages for overshoot.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="StepSize" descriptions="Search step size in Volts.">
+        <Type>
+          <Tester>Double</Tester>
+          <TestProgram>Double</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="FeatureSwitchSettings" descriptions="Feature switch settings.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="FivrCondition" descriptions="FIVR condition name.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MultiPassMasks" descriptions="Comma separated list of mask bit strings needed for multi pass capability.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ScoreboardEdgeTicks" descriptions="Number of resolution ticks to step down when scoreboard mode is enabled.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>0</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="BaseNumbers" descriptions="Comma separated list of numbers  to prefix the scoreboard counters.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PatternNameCounterIndexes" descriptions="Comma separated string of integers which map characters in the pattern name to produce a scoreboard counter.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MaxFailsNum" descriptions="Maximum number of fails that can be processed for scoreboard counters.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>0</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="MaxRepetitionCount" descriptions="Maximum number of times a search can be repeated for recovering purposes.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>0</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="ExecutionMode" descriptions="Execution mode, default behaviour is Search without scoreboard.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Search</Choice>
+          <Choice>SearchWithScoreboard</Choice>
+        </Choices>
+        <Default>Search</Default>
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

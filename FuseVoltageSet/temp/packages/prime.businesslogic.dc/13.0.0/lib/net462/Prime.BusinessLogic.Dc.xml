@@ -1,0 +1,945 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.Dc</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.Dc.Bootstrapper">
+            <summary>
+            Provides bootstrapping method for accessing components.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            A bootstapper for defining compoent into the service collection.
+            </summary>
+            <param name="serviceCollection">Service collection object that stores the components definitions.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.DcCommon">
+            <summary>
+            This class includes helper functions common to all the DC related tests - Dc, FuncDc,  TriggeredDc etc.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.DcCommon.LowLimitDefaultValue">
+            <summary>
+            LOW LIMIT DEFAULT VALUE.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.DcCommon.HighLimitDefaultValue">
+            <summary>
+            HIGH LIMIT DEFAULT VALUE.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.DcCommon.NoSamplingCount">
+            <summary>
+            NO SAMPLING COUNT FOR THIS PIN.
+            Only for NON DUPLICATED PINS!.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcCommon.FailPinsName">
+            <summary>
+            Gets Fail pins name.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcCommon.CreateDcFailPinInfo(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create FailPinInfo object.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <param name="pinChannel">Pin channel.</param>
+            <param name="testInstanceName">Test instance name.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+            <returns>FailPinInfo object.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcCommon.StoreFailPinInfoToSharedStorage(System.Collections.Generic.List{Prime.BusinessLogic.Dc.FailPinInfo},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get storage fail pin information and append with in coming fail pin information. The information will be print at DeviceEndDatalog.
+            </summary>
+            <param name="failPinInfosToStore">List of fail pin information to store.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcCommon.DatalogFailPinInfo(System.Collections.Generic.List{Prime.BusinessLogic.Dc.FailPinInfo},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print list of fail pin information to ituff.
+            </summary>
+            <param name="failPinInfos">list of fail pin information.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcCommon.GetSlotChannelStr(System.String)">
+            <summary>
+            Get pin slot number and pin channel number in standard format.
+            </summary>
+            <param name="pinName">Name of pin.</param>
+            <returns>Standard 7 digit format that consist of pin slot number and pin channel number.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.DatalogExtensions">
+            <summary>
+            test.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DatalogExtensions.GetDcResultFormat(Prime.DatalogService.IDatalogService,Prime.TestMethods.DcDatalogLevel,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            create instance of DcPrinter.
+            </summary>
+            <param name="datalogService">extension.</param>
+            <param name="datalogLevel">provide control over printing data to Ituff - ALL - prints both pass and fail data , FAIL - prints fail.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>DcPrinter Object.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DatalogExtensions.ToUnit(Prime.PlatformService.MeasurementType)">
+            <summary>
+            Translate measurement type to a letter describing the type (e.g Volt -> V).
+            </summary>
+            <param name="measurementType">Measurement type (Volt/Current/etc).</param>
+            <returns>Unit letter.</returns>
+            <exception cref="T:System.ArgumentException">Couldn't translate measurement type to a letter.</exception>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.DcResultFormat">
+            <summary>
+            Represent Dc result printing format.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcResultFormat.#ctor(Prime.TestMethods.DcDatalogLevel,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Dc.DcResultFormat"/> class.
+            </summary>
+            <param name="datalogLevel">provide control over printing data to Ituff - ALL - prints both pass and fail data , FAIL - prints fail.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcResultFormat.SetData(Prime.BusinessLogic.Dc.IDcResult)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcResultFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcResultFormat.ArrangeDataAsCompressFormat">
+             <summary>
+             Prints DC results of the pin to datalog in compress format.
+             </summary>
+             <example>
+             This shows how to print data in ituff compress format.
+             <code>
+             IDcResults dcResults = myDcTest.Execute();
+            
+             dcResults.PrintToDatalogCompressFormat(myLimitsPerPin);
+             </code>
+            
+             ###########################################################################################################################################.
+             Ituff format example to be printed.
+            
+             2_tname_MyTP::MyDcTest_pc
+             2_strgval_3|xxHPCC_DPIN_PMU_slcA_100ohm=0.199986|0.153711|0.177756|xxHPCC_DPIN_PMU_slcA_2Kohm=0.299988|xxHPCC_DPIN_PMU_slcA_50ohm1=0.399990
+             2_comnt_passPins_08004|08007|08001
+            
+             ###########################################################################################################################################.
+             </example>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcResultFormat.ArrangeDataAsCompressFormatWithPinMap">
+             <summary>
+             Prints DC results of the pin to datalog in compress format using pin unique identifier instead the pinName.
+             </summary>
+            
+             <remarks>
+                 <para>
+                     This method require to be defined a PinMap through the PinService,
+                     PinMap should be specified in PinService.json file loaded by aleph infrastructure.
+                 </para>
+             </remarks>
+            
+             <example>
+             This method require PinService.json file by Aleph.
+            
+             -PinService.json file example.
+             <code>
+             {
+                 "xxHPCC_DPIN_PMU_slcA_100ohm": 100,
+                 "xxHPCC_DPIN_PMU_slcA_2Kohm":  101,
+                 "xxHPCC_DPIN_PMU_slcA_50ohm1": 102
+             }
+             </code>
+            
+             - Code example with PinMap implementation.
+             <code>
+             IDcResults dcResults = myDcTest.Execute();
+            
+             dcResults.PrintToDatalogCompressFormatWithPinMap(myLimitsPerPin);
+             </code>
+            
+             ###########################################################################################################################################.
+             Ituff format example to be printed.
+            
+             2_tname_MyTP::MyDcTest_pc
+             2_strgval_3|100=0.199986|0.153711|0.177756|101=0.299988|102=0.399990
+             2_comnt_passPins_08004|08007|08001
+            
+             ###########################################################################################################################################.
+             </example>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.IDcResultFormat">
+            <summary>
+            Dc Printer interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcResultFormat.SetData(Prime.BusinessLogic.Dc.IDcResult)">
+            <summary>
+            Set Dc results data.
+            </summary>
+            <param name="dcEvaluatedResults">dc results object.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.DcResult">
+            <summary>
+            Represents the evaluated Dc measurement results for each pin and pin group.
+            It processes raw measurement data and organizes the results according to pins and pin groups, while also determining if the measurements are within specified limits.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcResult.#ctor(System.Collections.Generic.List{Prime.PlatformService.Internal.IPinMeasurementResult},System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Dc.IPinOrGroupSetup},System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer,Prime.TestMethods.DcDatalogLevel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Dc.DcResult"/> class.
+            Represents the evaluated DC measurement results for each pin and pin group.
+            </summary>
+            <param name="measurementResults">Raw data of DC measurement results.</param>
+            <param name="pinsOrGroupsSetup">Pins or groups setup.</param>
+            <param name="pinToPinGroupInSuperPinGroupMap">Mapping of pins to their respective pin groups in the super pin group.</param>
+            <param name="sessionContext">Session context provider.</param>
+            <param name="datalogLevel">Datalog level.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcResult.ResultsPerPin">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcResult.PassingResultsPerPin">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcResult.FailingResultsPerPin">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcResult.ResultsPerGroupPerPin">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcResult.AreAllResultsWithinLimits">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcResult.PrintToDatalog">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcResult.PrintToConsole">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcResult.ToString(System.String,Prime.BusinessLogic.Dc.ToStringOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcResult.GetConsoleString">
+            <summary>
+            ArrangeDataToConsole.
+            </summary>
+            <returns>Arranged data to print to console.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.ToStringOptions">
+            <summary>
+            Options for how to print the results.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.ToStringOptions.OriginalLimits">
+            <summary>
+            Print the results with the limits that provided when the DcTest object created.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.ToStringOptions.WithDefaultLimits">
+            <summary>
+            Print the results with default limits.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.IDcResult">
+            <summary>
+            Represents the evaluated Dc measurement results for each pin and pin group.
+            It processes raw measurement data and organizes the results according to pins and pin groups, while also determining if the measurements are within specified limits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IDcResult.ResultsPerPin">
+             <summary>
+             <remarks>
+             <para>Gets result blocks per pin.</para>
+             <para>This example demonstrate how to use the <see cref="P:Prime.BusinessLogic.Dc.IDcResult.ResultsPerPin"/> Property to iterate through all the measurements.</para>
+             <para>it travers through the pins, than result blocks, than measurements.</para>
+             <code>
+              var sb = new StringBuilder();
+              const string lineFormatter = "| {0, -30} | {1, 14}  | {2, 9} | {3, 10} | {4, 8} |\n";
+              sb.Append($"Configuration : {this.Configuration}\n");
+              sb.Append("----------------------------------------------------------------------------------------\n");
+              sb.AppendFormat(lineFormatter, "Pin", "Measured Value", "Low Limit", "High Limit", "Result");
+              sb.Append("----------------------------------------------------------------------------------------\n");
+            
+              foreach (var result in evaluatedResults.ResultsPerPin)
+              {
+                  foreach (var measurementsBlock in result.Value)
+                  {
+                      foreach (var singleMeasurement in measurementsBlock.Measurements)
+                      {
+                          sb.AppendFormat(lineFormatter, result.Key, singleMeasurement.ToString("G"), measurementsBlock.LowLimit.ToString("G"), measurementsBlock.HighLimit.ToString("G"), measurementsBlock.IsWithinLimits(singleMeasurement));
+                          sb.Append("----------------------------------------------------------------------------------------\n");
+                      }
+                  }
+              }
+             </code>
+             </remarks>
+             </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IDcResult.ResultsPerGroupPerPin">
+            <summary>
+            <remarks>
+            <para>Gets result blocks per group per pin.</para>
+            <para>This example demonstrate how to use the <see cref="P:Prime.BusinessLogic.Dc.IDcResult.ResultsPerGroupPerPin"/> Property to iterate through all the measurements.</para>
+            <para>it travers through the groups, than pins, than result blocks, than measurements.</para>
+            <code>
+            foreach (var pinGroupDcResults in this.ResultsPerGroupPerPin)
+            {
+                msg.Append("Pingroup ").Append(pinGroupDcResults.Key).AppendLine(" results");
+                foreach (var resultsPerPin in pinGroupDcResults.Value)
+                {
+                    foreach (var pinResultBlock in resultsPerPin.Value)
+                    {
+                        foreach (var measurement in pinResultBlock.Measurements)
+                        {
+                            msg.Append("Pin").Append(resultsPerPin.Key).Append(" - ").AppendLine(measurement.ToString());
+                        }
+                    }
+                }
+            }
+            </code>
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IDcResult.PassingResultsPerPin">
+            <summary>
+            Gets the passing measurements per pin.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IDcResult.FailingResultsPerPin">
+            <summary>
+            Gets the failing measurements per pin.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IDcResult.AreAllResultsWithinLimits">
+            <summary>
+            Gets a value indicating whether all results are within limits.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcResult.PrintToConsole">
+            <summary>
+            Print dc results to console.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcResult.ToString(System.String,Prime.BusinessLogic.Dc.ToStringOptions)">
+            <summary>
+            Convert results to printable string.
+            </summary>
+            <param name="instanceName">instance name.</param>
+            <param name="toStringOptions">Dc setup object.</param>
+            <returns>Printable string.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcResult.ToString(System.String)">
+            <summary>
+            Convert results to printable string.
+            </summary>
+            <param name="instanceName">instance name.</param>
+            <returns>Printable string.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcResult.PrintToDatalog">
+            <summary>
+            Prints dc test results to datalog.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.IPinResultBlock">
+            <summary>
+            Interface for Pin result block containing data for group of measurements with common limits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.PinName">
+            <summary>
+            Gets or sets the pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.PinGroupName">
+            <summary>
+            Gets or sets the pin group name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.SuperPinGroupName">
+            <summary>
+            Gets or sets the super pin group name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.MeasurementType">
+            <summary>
+            Gets or sets the measurement type.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.LowLimit">
+            <summary>
+            Gets or sets the low limit value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.HighLimit">
+            <summary>
+            Gets or sets the high limit value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.Measurements">
+            <summary>
+            Gets the list of pin results with values and pass/fail status.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.PinPassingResults">
+            <summary>
+            Gets the list of passing pin results.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.PinFailingResults">
+            <summary>
+            Gets the list of failing pin results.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.AverageMeasurement">
+            <summary>
+            Gets the average measurement value of the pin results.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinResultBlock.IsAverageMeasurementWithinLimits">
+            <summary>
+            Gets a value indicating whether checks whether the average measurement is withing limits.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IPinResultBlock.AddPinResult(System.Double)">
+            <summary>
+            Add pin result.
+            </summary>
+            <param name="measurement">measurement value.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IPinResultBlock.AddPinResults(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Add pin results list.
+            </summary>
+            <param name="measurements">measurement values list.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IPinResultBlock.AreAllResultsWithinLimits">
+            <summary>
+            Indicated whether all the results for that pin results block are within limits.
+            </summary>
+            <returns>whether all the results for that pin results block are within limits.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IPinResultBlock.IsWithinLimits(System.Double)">
+            <summary>
+            Checks wether the measurement between limits.
+            </summary>
+            <param name="measurement">Measurement value.</param>
+            <returns>wether the measurement between limits.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.PinResultBlock">
+            <summary>
+            Represents a group of measurement results of unique pin and pin group with same setup (high/low limits and measurement type).
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.PinResultBlock.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Dc.PinResultBlock"/> class.
+            Generates PinResultsBlock object.
+            </summary>
+            <param name="unLazyPopulatePassFailLists">Indicates whether to pre-arrange pass and fail lists for optimization.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.PinResultBlock.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Dc.PinResultBlock"/> class.
+            Generates PinResultsBlock object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.PinName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.PinGroupName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.SuperPinGroupName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.MeasurementType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.LowLimit">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.HighLimit">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.Measurements">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.PinPassingResults">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.PinFailingResults">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.AverageMeasurement">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinResultBlock.IsAverageMeasurementWithinLimits">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.PinResultBlock.AreAllResultsWithinLimits">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.PinResultBlock.AddPinResult(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.PinResultBlock.AddPinResults(System.Collections.Generic.IEnumerable{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.PinResultBlock.IsWithinLimits(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.DcParamsResolver">
+            <summary>
+            Provide methods to handle the dc instance parameter, the method will validate or adapt the parametes formats.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.DcParamsResolver.LowLimitDefaultValue">
+            <summary>
+            LOW LIMIT DEFAULT VALUE.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.DcParamsResolver.HighLimitDefaultValue">
+            <summary>
+            HIGH LIMIT DEFAULT VALUE.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.DcParamsResolver.NoSamplingCount">
+            <summary>
+            NO SAMPLING COUNT FOR THIS PIN.
+            Only for NON DUPLICATED PINS!.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcParamsResolver.ToIntList(Prime.TestMethods.TestMethodsParams.CommaSeparatedString)">
+            <summary>
+            Converts a comma-separated string into a list of integers.
+            </summary>
+            <param name="input">input as comma separated string.</param>
+            <returns>List of integers.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcParamsResolver.ToDoubleLimitList(Prime.TestMethods.TestMethodsParams.CommaSeparatedString)">
+            <summary>
+            Converts a comma-separated string of limits into a list of doubles., for example:
+            "0.05mV,0.07mV" to List (double) { 0.00005, 0.00007 },
+            "0.05m" to List (double) { 0.00005 }.
+            </summary>
+            <param name="input">limits as CommaSeparatedString.</param>
+            <returns>List of doubles.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcParamsResolver.ToDoubleLimitList(System.Collections.Generic.List{System.String})">
+            <summary>
+            Converts a list of string limits into a list of doubles, for example:
+            0.05mV, 0.07mV to List (double) { 0.00005, 0.00007 }
+            0.05m to List (double) { 0.00005 }.
+            </summary>
+            <param name="input">limits as list of string.</param>
+            <returns>List of doubles.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcParamsResolver.ToMeasurementType(System.String)">
+            <summary>
+            Converts a string representation of a measurement type into a MeasurementType object.
+            </summary>
+            <param name="measurementTypeString">A string representing a measurement type.</param>
+            <returns>A MeasurementType object if the input string is valid, otherwise throw FatalException.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcParamsResolver.ToMeasurementTypeList(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Converts a list of measurement type strings into a list of MeasurementType objects.
+            </summary>
+            <param name="commaSeparatedTypes">A list of measurement type strings.</param>
+            <returns>A list of MeasurementType objects corresponding to the string input.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcParamsResolver.ToMeasurementTypeList(Prime.TestMethods.TestMethodsParams.CommaSeparatedString)">
+            <summary>
+            Converts a CommaSeparatedString measurement type into a list of MeasurementType objects.
+            </summary>
+            <param name="commaSeparatedTypes">CommaSeparatedString measurement type.</param>
+            <returns>A list of MeasurementType objects corresponding to the CommaSeparatedString input.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcParamsResolver.ValidateLimits(System.Collections.Generic.List{System.Double},System.Int32,System.Double)">
+            <summary>
+            Validates the limits for a given number of pins.
+            </summary>
+            <param name="limits">List of limits.</param>
+            <param name="numberOfPins">number of pins.</param>
+            <param name="limitDefaultValue">default limit value in case of empty value.</param>
+            <returns>List of doubles with values / empty string in the respective place.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcParamsResolver.ValidateMeasurementTypes(System.Collections.Generic.List{Prime.PlatformService.MeasurementType},System.Int32)">
+            <summary>
+            Validates a list of measurement types for a given number of pins.
+            </summary>
+            <param name="measurementTypes">List of measurement types.</param>
+            <param name="numberOfPins">Amount of pins.</param>
+            <returns>List of MeasurementType with either one type for all pins or exact one type per pin.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcParamsResolver.ValidateSamplingCount(System.Collections.Generic.List{System.Int32},System.Collections.Generic.IList{Prime.PinService.IPin})">
+            <summary>
+            Validates the sampling count for a list of pins.
+            </summary>
+            <param name="samplingCountIn">Sampling count parameter received from the instance parameters.</param>
+            <param name="pins">pins to measure.</param>
+            <returns>List of integers representing the sampling count for each pin.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcParamsResolver.CreatePinsAndGroupsSetup(Prime.BusinessLogic.Dc.IDcTestConfiguration)">
+            <summary>
+            Creates a dictionary of pins and groups setup.
+            </summary>
+            <param name="dcSetupConfiguration">Dc setup configration object.</param>
+            <returns>Dictionary of pins and groups setup.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.DcTestConfiguration">
+            <summary>
+            Represent Dc Test configuration.
+            use this class when you provide the instance parameter as is.
+            the class will validate and fix the format if required for the dc parameters.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTestConfiguration.#ctor(System.Collections.Generic.List{System.String},System.Collections.Generic.List{Prime.PlatformService.MeasurementType})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Dc.DcTestConfiguration"/> class.
+            </summary>
+            <param name="pins">Pins as a list of strings.</param>
+            <param name="measurementTypes">Measurement types as a list of strings.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcTestConfiguration.ApplyTestOption">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcTestConfiguration.LevelTestCondition">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcTestConfiguration.DatalogLevel">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcTestConfiguration.SessionContext">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcTestConfiguration.HighLimits">
+            <summary>
+            Sets HighLimits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcTestConfiguration.LowLimits">
+            <summary>
+            Sets LowLimits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.DcTestConfiguration.SamplingCount">
+            <summary>
+            Sets SamplingCount.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTestConfiguration.GetPinList">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTestConfiguration.GetSamplingCount">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTestConfiguration.GetHighLimits">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTestConfiguration.GetLowLimits">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTestConfiguration.GetMeasurementTypes">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.ApplyTestConditionOptions">
+            <summary>
+            Apply test condition options.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.ApplyTestConditionOptions.WithoutSmartTc">
+            <summary>
+            Force apply.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.ApplyTestConditionOptions.SmartTc">
+            <summary>
+            Conditional apply.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Dc.ApplyTestConditionOptions.None">
+            <summary>
+            No apply.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.IDcTestConfiguration">
+            <summary>
+            Represent Dc Test configuration.
+            The Dc Test will use that configuration to receive the pins, limits, measurement types and more...
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IDcTestConfiguration.ApplyTestOption">
+            <summary>
+            Gets or Sets LevelTc type.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IDcTestConfiguration.LevelTestCondition">
+            <summary>
+            Gets or Sets LevelTc name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IDcTestConfiguration.DatalogLevel">
+            <summary>
+            Gets or Sets DatalogLevel.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IDcTestConfiguration.SessionContext">
+            <summary>
+            Gets or Sets Session context.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTestConfiguration.GetHighLimits">
+            <summary>
+            Gets a list of double respresnts the test high limits in Volt or Ampare.
+            </summary>
+            <returns>List of high limits.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTestConfiguration.GetLowLimits">
+            <summary>
+            Gets a list of double respresnts the test low limits in Volt or Ampare.
+            </summary>
+            <returns>List of low limits.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTestConfiguration.GetMeasurementTypes">
+            <summary>
+            Get a list of measurement types.
+            </summary>
+            <returns>List of mesurement types.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTestConfiguration.GetSamplingCount">
+            <summary>
+            Get a list representing the sampling count per mesurement (per pin or pin group).
+            </summary>
+            <returns>List of sampling count.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTestConfiguration.GetPinList">
+            <summary>
+            Get a list of pin object based on user input.
+            </summary>
+            <returns>Pin list.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.DcTest">
+            <summary>
+            DcTest base class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTest.#ctor(Prime.BusinessLogic.Dc.IDcTestConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Dc.DcTest"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTest.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTest.SetSuperPinGroup(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTest.CreateMeasurementTypesPerPinOrGroup(System.Collections.Generic.List{Prime.PinService.IPin},System.Collections.Generic.List{Prime.PlatformService.MeasurementType})">
+            <summary>
+            Arrange measurement types per unique pin or group.
+            if there are duplicates pins it will collide them.
+            in can there is pin intersections between groups, the method will return null.
+            </summary>
+            <param name="pinsOrGroups">Pins to measure.</param>
+            <param name="measurementTypes">Measurement types to measure.</param>
+            <returns>Unique Pins and measurement types arranged in dictionary.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTest.CreateMeasurementTypesPerPin(System.Collections.Generic.List{Prime.PinService.IPin},System.Collections.Generic.List{Prime.PlatformService.MeasurementType})">
+            <summary>
+            Arrange measurement types per unique pin.
+            if there are duplicates pins it will collide them.
+            this method impact performance as it's ask TOS for measurement per pin and not per group.
+            this method is required for instances where there are pin intersection between groups.
+            </summary>
+            <param name="pinsOrGroups">Pins to measure.</param>
+            <param name="measurementTypes">Measurement types to measure.</param>
+            <returns>Unique Pins and measurement types arranged in dictionary.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTest.CheckIntersection(Prime.PinService.IPin,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            checks whether the pin is already existed in former different group, or check if the group has intersection with former group.
+            </summary>
+            <param name="pinOrGroup">Pin or group to check if already exists in different group.</param>
+            <param name="pinAndGroupsMap">Pin and groups map.</param>
+            <returns>Whether there is pin intersections.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.DcTestCreator">
+            <summary>
+            Create a DC Test to be executed.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTestCreator.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Dc.DcTestCreator"/> class.
+            DcTestCreator constructor.
+            </summary>
+            <param name="sessionContextProviderContainer">Session Context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.DcTestCreator.Create(Prime.BusinessLogic.Dc.IDcTestConfiguration)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.IDcTestCreator">
+            <summary>
+            Factory method for generating Dc Test.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTestCreator.Create(Prime.BusinessLogic.Dc.IDcTestConfiguration)">
+            <summary>
+            Create DcTest object with configuration object that hold the dc setup parameters like pins, limtis and more.
+            <list type="bullet">
+            <item>use <b>DcTestConfiguration</b> object if you have raw inputs like comma seperated string of pins.</item>
+            <item>use <b>DcTestResolvedConfiguration</b> object if you already validated the parameters and fixed their format like <![CDATA[ List<MeasurementType> instead of List<string>.]]></item>
+            <item>use <b>DcTestWithSetupConfiguration</b> object if you already create DcSetupConfiguration object before and you want to re-use it.</item>
+            <item>you can also create your own configuration object as long it's implements IDcTestConfiguration interface.</item>
+            </list>
+            <remarks>
+            <para>This example shows how to call the <see cref="M:Prime.BusinessLogic.Dc.IDcTestCreator.Create(Prime.BusinessLogic.Dc.IDcTestConfiguration)"/> method.</para>
+            <code>
+            this.DcTest = this.DcTestCreator.Create(new DcTestConfiguration(
+                    pins: this.Pins,
+                    measurementTypes: this.MeasurementTypes)
+                {
+                    HighLimits = this.HighLimits,
+                    LowLimits = this.LowLimits,
+                    DatalogLevel = this.DatalogLevel,
+                    SamplingCount = this.SamplingCount,
+                    ApplyTestOption = isFlushSmartTcEnabled ? ApplyTestConditionOptions.ForceApply : ApplyTestConditionOptions.ConditionalApply,
+                    LevelTestCondition = this.LevelsTc,
+                });
+            </code>.
+            <para>For more information visit - <see href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki/90056/PRIME">Prime Wiki</see> </para>
+            </remarks>
+            </summary>
+            <param name="dcTestConfiguration">Dc Test Configuration.</param>
+            <returns>DcTest object.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.IDcTest">
+            <summary>
+            A DC Test to be executed.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTest.Execute">
+            <summary>
+            Executes DC test and retrieve dc result.
+            </summary>
+            <returns>Dc result.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTest.SetSuperPinGroup(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Set SuperPinGroup to show as a token in ituff result with datalogLevel=PIN_CHANNEL.
+            </summary>
+            <remarks>The use of this method is intended for Verify only. Please avoid the use in Execute for test time, It apply for all execute calls.</remarks>
+            <param name="superPinGroupMap">Dictionary with pinName or PinGroup as key and SuperPinGroup name to link as value.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTest.GetDcResultFormat">
+            <summary>
+            Get Dc results format for printing to ituff.
+            </summary>
+            <returns>Dc format object.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTest.GetDcResult">
+            <summary>
+            Gets Dc result object, including measurements by group/pin and whether they are pass or fail.
+            this object has functionalities like PrintToDatalog, PrintToConsole and more.
+            </summary>
+            <returns>Dc results with extended data.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTest.GetMeasurementTypes">
+            <summary>
+            Get resolved measurement types list.
+            </summary>
+            <returns>Measurement types list.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTest.GetPins">
+            <summary>
+            Get resolved pins list.
+            </summary>
+            <returns>Pins list as list of IPin objects.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Dc.IDcTest.GetSamplingCount">
+            <summary>
+            Get resolved sampling count list.
+            </summary>
+            <returns>Sampling count list.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.IPinOrGroupSetup">
+            <summary>
+            Represents setup for pin or group (limits, sampling count, measurement type).
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinOrGroupSetup.HighLimits">
+            <summary>
+            Gets or sets pin or group high limits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinOrGroupSetup.LowLimits">
+            <summary>
+            Gets or sets pin or group low limits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinOrGroupSetup.SamplingCount">
+            <summary>
+            Gets or sets pin or group sampling count.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.IPinOrGroupSetup.MeasurementTypes">
+            <summary>
+            Gets or sets pin or group measurement type.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.PinOrGroupSetup">
+            <summary>
+            Represents setup for pin or group (limits, sampling count, measurement type).
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinOrGroupSetup.HighLimits">
+            <summary>
+            Gets or sets pin or group high limits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinOrGroupSetup.LowLimits">
+            <summary>
+            Gets or sets pin or group low limits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinOrGroupSetup.SamplingCount">
+            <summary>
+            Gets or sets pin or group sampling count.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.PinOrGroupSetup.MeasurementTypes">
+            <summary>
+            Gets or sets pin or group measurement type.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Dc.FailPinInfo">
+            <summary>
+            Object to store the values in shared storage.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.FailPinInfo.FailPinName">
+            <summary>
+            Gets or sets the FailPin Name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.FailPinInfo.FailChannelNumber">
+            <summary>
+            Gets or sets the FailPinChannel Number. This is combine of pin slot number and channel number.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Dc.FailPinInfo.InstanceName">
+            <summary>
+            Gets or sets the Instance Name.
+            </summary>
+        </member>
+    </members>
+</doc>

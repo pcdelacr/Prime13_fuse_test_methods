@@ -1,0 +1,1374 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.AnalogMargining</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.AnalogMargining.IAnalogMarginingExtensions">
+            <summary>
+            Interface for extending AnalogMargining Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.IAnalogMarginingExtensions.GetDataFromInput">
+            <summary>
+            Getting ctvs from the user.
+            </summary>
+            <returns>dictionary of ctvs data strings.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.IAnalogMarginingExtensions.LoadConfigurations">
+            <summary>
+            Defining configurations, which been determines by the user.
+            </summary>
+            <returns>Dictionary of configurations.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.IAnalogMarginingExtensions.GetItuffDataFormat(Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffDataForUser)">
+            <summary>
+            Providing Ituff data to the user to define the output format.
+            </summary>
+            <param name="ituffData">The Ituff data.</param>
+            <returns>List of IDatalogFormatBase to print to Ituff.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram">
+            <summary>
+            The Diagram class, which contains matrix of ctvs.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram.#ctor(System.Int32,System.Int32,System.Char,System.Char)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram"/> class.
+            </summary>
+            <param name="numRows">Number of rows in the grid.</param>
+            <param name="numColumns">Number of columns in the grid.</param>
+            <param name="passingChar">Char to be used when passing.</param>
+            <param name="failingChar">Char to be used when failing.</param>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram.CtvDataGrid">
+            <summary>
+            Gets or sets for CtvDataGrid.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram.CtvIndexes">
+            <summary>
+            Gets or sets for CtvIndexes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram.DefeatureIndex">
+            <summary>
+            Gets or sets for DefeatureIndex.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram.PinFinderIndex">
+            <summary>
+            Gets or sets for PinFinderIndex.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram.TopLayer">
+            <summary>
+            Gets or sets for TopLayer.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram.PassingChar">
+            <summary>
+            Gets or sets for PassingChar.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram.FailingChar">
+            <summary>
+            Gets or sets for FailingChar.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram.SetData(System.Int32,System.Int32,System.Char,Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvLogicMode)">
+            <summary>
+            Adding new grid mapping per sequence of layouts.
+            </summary>
+            <param name="numRows">The row number to set the data.</param>
+            <param name="numColumns">The column number to set the data.</param>
+            <param name="ctv">The ctv data to set.</param>
+            <param name="ctvLogic">The ctv logic to be used.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram.ClearData">
+            <summary>
+            Clean diagram data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.DiagramDescription">
+            <summary>
+            DiagramDescription class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.DiagramDescription.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.DiagramDescription"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.DiagramDescription.ValuePerPrameter">
+            <summary>
+            Gets or sets for ValuePerPrameter.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.DieIdFormatChecker">
+            <summary>
+            This class is intended to store all utils and common functions.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.MainClasses.Common.DieIdFormatChecker.DieIdCheck">
+            <summary>
+            Check if the value is a DieId Code.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.DieIdFormatChecker.CheckDieIdFormat(System.String)">
+            <summary>
+            Checks the DieId string format.
+            </summary>
+            <param name="token">token of holding the string token to verified.</param>
+            <returns>Returns a true if the format matches a DieId.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffDataForUser">
+            <summary>
+            ItuffDataForUser class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffDataForUser.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffDataForUser"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffDataForUser.AllDataPairs">
+            <summary>
+            Gets or sets for DataPairs.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffDataForUser.FailingDataPairs">
+            <summary>
+            Gets or sets for DataPairs.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffFormat">
+            <summary>
+            ItuffFormat class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffFormat.PinFinderEnabled">
+            <summary>
+            Gets or sets a value indicating whether PinFinder is Enabled.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffFormat.SetupFormats(System.String)">
+            <summary>
+            Initializes a new instances of the Ituff writers.
+            </summary>
+            <param name="instanceNameParameter">The instance name.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffFormat.GenerateItuffResults(Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration)">
+            <summary>
+            Generating the Ituff results according to the layout calculations result.
+            </summary>
+            <param name="configuration">The configuration object.</param>
+            <returns>ItuffDataForUser object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffFormat.PlotLayout(System.String,Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffFormat.WriteFormatListToItuff(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffFormat.PrintDefinedParameters(Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration,System.Collections.Generic.Dictionary{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions,System.Collections.Generic.List{System.String}},System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffFormat.PrintFailingParameters(Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration,System.Collections.Generic.Dictionary{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions,System.Collections.Generic.List{System.String}},System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffFormat.AddToFormatList(System.Collections.Generic.List{Prime.DatalogService.DatalogSpec.IDatalogFormatBase})">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffPlot">
+            <summary>
+            ItuffPlot class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffPlot.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffPlot"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffPlot.AddHeaderRow(System.String)">
+            <summary>
+            Adding new row to the Header list.
+            </summary>
+            <param name="headerRow">New header row.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffPlot.AddPlotRow(System.String)">
+            <summary>
+            Adding new row to the plot list.
+            </summary>
+            <param name="plotRow">New plot row.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffPlot.GetPlot">
+            <summary>
+            Returning the plot list.
+            </summary>
+            <returns>The Ituff plot list.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffPlot.GetHeader">
+            <summary>
+            Returning the Ituff header list.
+            </summary>
+            <returns>The Ituff header list.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping">
+            <summary>
+            LayoutMapping class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping.#ctor(System.Collections.Generic.List{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layer},System.String,System.String,System.Boolean,Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvLogicMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping"/> class.
+            </summary>
+            <param name="layers">The layout layers defined by the user.</param>
+            <param name="xAxisLayerName">The xAxisLayerName.</param>
+            <param name="yAxisLayerName">The yAxisLayerName.</param>
+            <param name="verticalMapping">True if vertical mapping is to be used.</param>
+            <param name="ctvLogic">The ctv logic mode.</param>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping.Diagrams">
+            <summary>
+            Gets or sets for Diagrams.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping.CtvLogic">
+            <summary>
+            Gets or sets for CtvLogic.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping.PassingChar">
+            <summary>
+            Gets or sets for PassingChar.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping.FailingChar">
+            <summary>
+            Gets or sets for FailingChar.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping.AddGridMapping(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Adding new grid mapping which contains empty diagrams.
+            </summary>
+            <param name="numRows">Number of rows in the grid.</param>
+            <param name="numColumns">Number of columns in the grid..</param>
+            <param name="numGridMappingToBuild">Number of grids to build.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping.CalculateCtvOffsetsPerDiagram(System.Int32)">
+            <summary>
+            Used to calculate prior to execution, the ctvBits to be used by each diagram.
+            </summary>
+            <param name="overlaidLayers">Number of plots overlaid per diagram.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping.BuildDiagram(System.Collections.Generic.List{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.GridDimensions},System.String,System.Int32)">
+            <summary>
+            Building The diagrams with the user input.
+            </summary>
+            <param name="dimensions">The grid dimensions.</param>
+            <param name="data">The grid data.</param>
+            <param name="overlaidLayers">Number of plots overlaid per diagram.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping.BuildDefaultDiagram(System.String,System.Int32)">
+            <summary>
+            Building The diagrams with the user input.
+            </summary>
+            <param name="data">The grid data.</param>
+            <param name="overlaidLayers">Number of plots overlaid per diagram.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping.ClearDiagrams">
+            <summary>
+            Clear diagrams for next ctv data row.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult">
+            <summary>
+            LayoutResult class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.#ctor(Prime.TestMethods.AnalogMargining.MainClasses.Common.Diagram)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult"/> class.
+            </summary>
+            <param name="diagram">List of diagrams for the current layout.</param>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.Diagram">
+            <summary>
+            Gets or sets for Diagram.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.DefeatureIndex">
+            <summary>
+            Gets or sets for DefeatureIndex.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.PinFinderIndex">
+            <summary>
+            Gets or sets for PinFinderIndex.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.TopLayer">
+            <summary>
+            Gets or sets for TopLayer.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.ItuffPlot">
+            <summary>
+            Gets or sets for ItuffPlot.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.DiagramDescription">
+            <summary>
+            Gets or sets for DiagramDescription.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.FailingParameters">
+            <summary>
+            Gets or sets a value indicating which parameters have limits programmed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.PinFinder">
+            <summary>
+            Gets or sets PinFinder indicating which pinName to use in case of failure.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.UpdatePlotData">
+            <summary>
+            Updating the plot data to print to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.UpdatePlotHeader(Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout,Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.AxisData,Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.AxisData)">
+            <summary>
+            Updating the plot header to print to Ituff.
+            </summary>
+            <param name="layout">The layout object.</param>
+            <param name="xAxisData">The x axis data object.</param>
+            <param name="yAxisData">The y axis data object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.UpdatePlotSummary(Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutMapping,Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.AxisData,Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.AxisData)">
+            <summary>
+            Updating the plot summary to print to Ituff.
+            </summary>
+            <param name="layoutMapping">The layout mapping object.</param>
+            <param name="xAxisData">The x axis data object.</param>
+            <param name="yAxisData">The y axis data object.</param>>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult.CheckPlotLimits(System.Collections.Generic.Dictionary{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions,Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput})">
+            <summary>
+            Checking limits.
+            </summary>
+            <param name="limits">The limit class to be used to check.</param>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.Interfaces.IAnalogMarginingItuffFormat">
+            <summary>
+            IAnalogMarginingItuffFormat interface.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.Interfaces.IAnalogMarginingItuffFormat.PinFinderEnabled">
+            <summary>
+            Gets or sets a value indicating whether PinFinder is Enabled.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Interfaces.IAnalogMarginingItuffFormat.SetupFormats(System.String)">
+            <summary>
+            Initializes a new instances of the Ituff writers.
+            </summary>
+            <param name="instanceNameParameter">The instance name.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Interfaces.IAnalogMarginingItuffFormat.GenerateItuffResults(Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration)">
+            <summary>
+            Generating the Ituff results according to the layout calculations result.
+            </summary>
+            <param name="configuration">The configuration object.</param>
+            <returns>ItuffDataForUser object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Interfaces.IAnalogMarginingItuffFormat.PlotLayout(System.String,Prime.TestMethods.AnalogMargining.MainClasses.Common.LayoutResult,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print the plot summary to Ituff.
+            </summary>
+            <param name="configurationName">The configuration name.</param>
+            <param name="layoutResult">The layout result obj.</param>
+            <param name="ctvPin">The pin name from where the ctvData was taken.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Interfaces.IAnalogMarginingItuffFormat.WriteFormatListToItuff(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write to Ituff.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Interfaces.IAnalogMarginingItuffFormat.PrintDefinedParameters(Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration,System.Collections.Generic.Dictionary{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions,System.Collections.Generic.List{System.String}},System.String)">
+            <summary>
+            Write to Ituff with the default StringParsedMetadata format.
+            </summary>
+            <param name="configuration">The configuration object.</param>
+            <param name="ituffData">The Ituff data for user to apply changing format.</param>
+            <param name="dieId">The ssid to be used when printing to ituff.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Interfaces.IAnalogMarginingItuffFormat.PrintFailingParameters(Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration,System.Collections.Generic.Dictionary{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions,System.Collections.Generic.List{System.String}},System.String)">
+            <summary>
+            Write to Ituff with the failing default format.
+            </summary>
+            <param name="configuration">The configuration object.</param>
+            <param name="ituffData">The Ituff data for user to apply changing format.</param>
+            <param name="dieId">The ssid to be used when printing to ituff.</param>
+            <returns>Returns true if any limit failed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.Interfaces.IAnalogMarginingItuffFormat.AddToFormatList(System.Collections.Generic.List{Prime.DatalogService.DatalogSpec.IDatalogFormatBase})">
+            <summary>
+            Write to Ituff with the default format.
+            </summary>
+            <param name="ituffFormatListFromUser">The Ituff format list from user.</param>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.AxisData">
+            <summary>
+            AxisData class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.AxisData.AxisName">
+            <summary>
+            Gets or sets for AxisName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.AxisData.AxisUnits">
+            <summary>
+            Gets or sets for AxisUnits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.AxisData.AxisMultiplier">
+            <summary>
+            Gets or sets for AxisMultiplier.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.AxisData.AxisOffset">
+            <summary>
+            Gets or sets for AxisOffset.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration">
+            <summary>
+            Configuration class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.Name">
+            <summary>
+            Gets or sets for Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.Description">
+            <summary>
+            Gets or sets for Description.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.Layout">
+            <summary>
+            Gets or sets for Layouts.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.OutputInput">
+            <summary>
+            Gets or sets for OutputInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.SharedStorage">
+            <summary>
+            Gets or sets for SharedStorage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.Defeature">
+            <summary>
+            Gets or sets for Defeature.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.PinFinder">
+            <summary>
+            Gets or sets for Defeature.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.SharedStorageEyeParameters">
+            <summary>
+            Gets or sets for SharedStorageEyeParameters.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.DefeatureList">
+            <summary>
+            Gets or sets for DefeatureList.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.PinFinderList">
+            <summary>
+            Gets or sets for PinFinderList.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.SpmHelper">
+            <summary>
+            Gets or sets the SpmHelper that contains an StringParsedMetadataHelper.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.MetaTagEnabled">
+            <summary>
+            Gets or sets a value indicating whether the MetaTag is enabled or not.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.GetExpectedSourceSize">
+            <summary>
+            Calculate the expected data size according to the layers sizes for all the layouts.
+            </summary>
+            <returns>The expected source size.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.SetData(System.String,Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvLogicMode)">
+            <summary>
+            The user sets new data to the gridMapping for each configuration, layout and layer.
+            </summary>
+            <param name="ctvData">The ctv data collected from pins after plist execution.</param>
+            <param name="ctvLogic">The ctv logic mode to set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.LoadLayoutLayers(Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvLogicMode)">
+            <summary>
+            Create layers dictionary from input file.
+            </summary>
+            <param name="ctvLogic">The ctv logic mode to set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.InitializeItuffOutput(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializing the Ituff obj.
+            </summary>
+            <param name="instanceName">The test instance name to be used.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.InitializeSharedStorageOutput">
+            <summary>
+            Initializing the Print SharedStorage obj.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.InitializeDefeature">
+            <summary>
+            Initializing the Defeature obj.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.InitializePinFinder">
+            <summary>
+            Initializing the PinFinder obj.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.SetItuffName(System.String)">
+            <summary>
+            Initializing the Print Measurements obj.
+            </summary>
+            <param name="name">the Ituff name.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.GetItuffName">
+            <summary>
+            Initializing the Print Measurements obj.
+            </summary>
+            <returns>returns the Ituff name.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration.InitializeItuffName">
+            <summary>
+            Initializing the configuration object.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Defeature">
+            <summary>
+            Defeature class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Defeature.#ctor(System.String,System.String,System.String,System.Collections.Generic.List{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Defeature"/> class.
+            </summary>
+            <param name="layerName">the layer name.</param>
+            <param name="defeatureLogic">the defeatureLogic to be used.</param>
+            <param name="sharedStorage">the sharedStorage.</param>
+            <param name="sharedStorageMapInput">the bitMap.</param>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Defeature.SharedStorageMapInput">
+            <summary>
+            Gets or sets PinFinderMapInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Defeature.SharedStorageMap">
+            <summary>
+            Gets or sets PinFinderMap to track defeature.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Defeature.GetLayerName">
+            <summary>
+            Returning the limit layerName name.
+            </summary>
+            <returns>The limit layerName name.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Defeature.GetDefeatureLogic">
+            <summary>
+            Returning the limit layerName name.
+            </summary>
+            <returns>The limit layerName name.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Defeature.GetSharedStorageName">
+            <summary>
+            Returning the sharedStorage token name.
+            </summary>
+            <returns>The sharedStorage.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Defeature.GetSharedStorage(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returning the sharedStorage content.
+            </summary>
+            <returns>The sharedStorage.</returns>
+            <param name="sessionContext">Session context object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Defeature.SetSharedStorage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returning the sharedStorage content.
+            </summary>
+            <param name="data">String data to be set in token.</param>
+            <param name="sessionContext">Session context object.</param>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.GridDimensions">
+            <summary>
+            GridDimensions class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.GridDimensions.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.GridDimensions"/> class.
+            </summary>
+            <param name="beginX">beginX.</param>
+            <param name="beginY">beginY.</param>
+            <param name="endX">endX.</param>
+            <param name="endY">endY.</param>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.GridDimensions.BeginX">
+            <summary>
+            Gets or sets for BeginX.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.GridDimensions.BeginY">
+            <summary>
+            Gets or sets for BeginY.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.GridDimensions.EndX">
+            <summary>
+            Gets or sets for EndX.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.GridDimensions.EndY">
+            <summary>
+            Gets or sets for EndY.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layer">
+            <summary>
+            Layer class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layer.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layer"/> class.
+            </summary>
+            <param name="layerName">the layer name.</param>
+            <param name="layerSize">the layer size.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layer.SetIsGroupedByField">
+            <summary>
+            Updates the isGroupedBy field.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layer.GetIsGroupedByField">
+            <summary>
+            Updates the isGroupedBy field.
+            </summary>
+            <returns>Whether the layer is grouped by or not.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layer.UpdateCurrentIndex">
+            <summary>
+            Updates the current index field.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layer.GetMaxIndex">
+            <summary>
+            Returning the max size.
+            </summary>
+            <returns>The max index.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layer.GetCurrentIndex">
+            <summary>
+            Returning the Current index.
+            </summary>
+            <returns>The Current index.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layer.GetLayerName">
+            <summary>
+            Returning the layer name.
+            </summary>
+            <returns>The layer name.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout">
+            <summary>
+            Layout class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.Name">
+            <summary>
+            Gets or sets for Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.LayersInput">
+            <summary>
+            Gets or sets for Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.Layers">
+            <summary>
+            Gets or sets for Layers.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.GridDimensionsList">
+            <summary>
+            Gets or sets for GridDimensions.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.GroupByLayer">
+            <summary>
+            Gets or sets for groupBy.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.Limits">
+            <summary>
+            Gets or sets for Limits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.LayoutMapping">
+            <summary>
+            Gets or sets for LayoutsMapping.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.LayoutResultList">
+            <summary>
+            Gets or sets for LayoutsResultList.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.XAxisData">
+            <summary>
+            Gets or sets for XAxisData.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.YAxisData">
+            <summary>
+            Gets or sets for YAxisData.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.DefeatureLayerName">
+            <summary>
+            Gets or sets for DefeatureLayerName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.DefeatureTracking">
+            <summary>
+            Gets or sets for DefeatureTracking.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.PinFinderLayerName">
+            <summary>
+            Gets or sets for DefeatureLayerName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.PinFinderTracking">
+            <summary>
+            Gets or sets for PinFinderTracking.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.TopLayersList">
+            <summary>
+            Gets or sets for TopLayersList.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.PrintPlots">
+            <summary>
+            Gets or sets a value indicating whether PrintPlots is enabled or not.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.GetXLayerSize(System.String)">
+            <summary>
+            Returns the x layer size.
+            </summary>
+            <param name="xLayerName">The xLayer name.</param>
+            <returns>The xLayer size.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.GetYLayerSize(System.String)">
+            <summary>
+            Returns the y layer size.
+            </summary>
+            <param name="yLayerName">The ylayer name.</param>
+            <returns>The ylayer size.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.GetExpectedSourceSize">
+            <summary>
+            Calculate the expected data size according to the layers sizes per layout.
+            </summary>
+            <returns>The expected source size.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.SetData(System.String,Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvLogicMode)">
+            <summary>
+            The user sets new data to the gridMapping for each configuration, layout and layer.
+            </summary>
+            <param name="ctvData">The ctv data collected from pins after plist execution.</param>
+            <param name="ctvLogic">The ctv logic mode to set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.ProcessLayout(Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap)">
+            <summary>
+            the indexes of the layers which apply grouping.
+            </summary>
+            <param name="pinFinderMap">The pinFinderMap if defined.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Layout.InitializeLayout(Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvLogicMode,System.String,System.Collections.Generic.List{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap},System.String,System.Collections.Generic.List{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap})">
+            <summary>
+            initializing the layout.
+            </summary>
+            <param name="ctvLogic">The ctv logic mode to set.</param>
+            <param name="defeatureLayerName">The defeature layer name to be used.</param>
+            <param name="defeatureSharedStorageMap">The defeature sequence size to be used for checking.</param>
+            <param name="pinFinderLayerName">The pinFinder layer name to be used.</param>
+            <param name="pinFinderMap">The pinFinder sequence size to be used for checking.</param>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Output">
+            <summary>
+            AxisData class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Output.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Output"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Output.ParametersInput">
+            <summary>
+            Gets or sets for ParametersInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Output.MetaTag">
+            <summary>
+            Gets or sets a value indicating the MetaTag to be used.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Output.ValidateParametersInput">
+            <summary>
+            Validating the parameters input.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput">
+            <summary>
+            Layer class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput"/> class.
+            </summary>
+            <param name="parameter">the layer name.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.#ctor(System.String,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput"/> class.
+            </summary>
+            <param name="parameter">the layer name.</param>
+            <param name="lowLimit">the lowLimit.</param>
+            <param name="highLimit">the highLimit.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput"/> class.
+            </summary>
+            <param name="parameters">List of parameters.</param>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions">
+            <summary>
+            Settings the different eye parametres options.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions.Width">
+            <summary>
+            Width.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions.Height">
+            <summary>
+            Height.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions.CenterX">
+            <summary>
+            CenterX.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions.CenterY">
+            <summary>
+            CenterY.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions.Left">
+            <summary>
+            Left.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions.Right">
+            <summary>
+            Right.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions.Top">
+            <summary>
+            Top.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.EyeParametersOptions.Bottom">
+            <summary>
+            Bottom.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.ParameterName">
+            <summary>
+            Gets or sets for Parameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.Parameter">
+            <summary>
+            Gets or sets for Parameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.LowLimit">
+            <summary>
+            Gets or sets for LowLimit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.HighLimit">
+            <summary>
+            Gets or sets for highLimit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.Parameters">
+            <summary>
+            Gets or sets a list of Parameters to be printed to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.ParameterInput.ValidatePrametersInput(System.String)">
+            <summary>
+            Validating the parameters input.
+            </summary>
+            <param name="parameter">The parametre name.</param>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap">
+            <summary>
+            PerPinMap class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap.#ctor(System.String,System.String,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap"/> class.
+            </summary>
+            <param name="ctvPin">the ctvPin.</param>
+            <param name="dieId">the dieId.</param>
+            <param name="bitSequence">the bitSequence.</param>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap.BitStatus">
+            <summary>
+            Gets or sets for BitStatus.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap.GetIdentifier">
+            <summary>
+            Returning the ctvPin name.
+            </summary>
+            <returns>The limit ctvPin name.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap.GetBitSequence">
+            <summary>
+            Returning the bitSequence token name.
+            </summary>
+            <returns>The bitSequence.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PinFinder">
+            <summary>
+            PinFinder class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PinFinder.#ctor(System.String,System.Collections.Generic.List{Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PerPinMap})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PinFinder"/> class.
+            </summary>
+            <param name="layerName">the layer name.</param>
+            <param name="pinFinderMapInput">the bitMap.</param>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PinFinder.PinFinderMapInput">
+            <summary>
+            Gets or sets PinFinderMapInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PinFinder.PinFinderMap">
+            <summary>
+            Gets or sets PinFinderMap to track PinFinder.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.PinFinder.GetLayerName">
+            <summary>
+            Returning the limit layerName name.
+            </summary>
+            <returns>The limit layerName name.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.SharedStorage">
+            <summary>
+            AxisData class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.SharedStorage.Parameters">
+            <summary>
+            Gets or sets for Parameters.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.SharedStorage.TokenPrefix">
+            <summary>
+            Gets or sets for TokenPrefix.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.SharedStorage.Base">
+            <summary>
+            Gets or sets a value the Base to be used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.SharedStorage.StringSize">
+            <summary>
+            Gets or sets a value the Base to be used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.SharedStorage.Reverse">
+            <summary>
+            Gets or sets a value indicating whether Reverse is to be used or not.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.AnalogMarginingConfigurationInput">
+            <summary>
+            the AnalogMarginingConfigurationInput class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.AnalogMarginingConfigurationInput.Configurations">
+            <summary>
+            Gets or Sets for Configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.JsonSchemaFileValidator">
+            <summary>
+            Class for handling schema validation of TestMethod's configuration json files.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.JsonSchemaFileValidator.schemaFilePath">
+            <summary>
+            The path to look for json schema files.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.JsonSchemaFileValidator.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.JsonSchemaFileValidator"/> class.
+            </summary>
+            <param name="schemaFilePath">Schema file path.</param>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.JsonSchemaFileValidator.ErrorList">
+            <summary>
+            Gets or sets the error list from the schema validation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.JsonSchemaFileValidator.ValidateConfigFile(System.String,System.String)">
+            <summary>
+            Validates the files to the json schema file.
+            </summary>
+            <param name="configFile">File  to validate schema.</param>
+            <param name="schemaFile">Schema file name.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.JsonSchemaFileValidator.ValidateFile(NJsonSchema.JsonSchema,System.String)">
+            <summary>
+            Executes the validation for a file with the json schema.
+            Adds validation errors to a common list.
+            </summary>
+            <param name="schemaValidator">The schema validator instance.</param>
+            <param name="configurationFilePath">The json file path.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.JsonSchemaFileValidator.GetSchemaValidator(System.String)">
+            <summary>
+            Returns a schema validation instance from a json schema file.
+            </summary>
+            <param name="schemaFile">Full file path to load.</param>
+            <returns>Schema validator instance.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.JsonSchemaFileValidator.GetSchemaFileContent(System.String)">
+            <summary>
+            Returns the content of a json schema file from the filesystem.
+            </summary>
+            <param name="schemaFile">Full file path to load.</param>
+            <returns>Text content of the file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.MainClasses.ParsingInputFile.JsonSchemaFileValidator.GetErrorDetails">
+            <summary>
+            Gets all the validation errors detail as a string.
+            </summary>
+            <returns>All validation errors details.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod">
+            <summary>
+            The PrimeAnalogMarginingTestMethod.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ExitPortStatus">
+            <summary>
+            Indicates the ExitPortStatus to calculate the exit port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ExitPortStatus.PASS">
+            <summary>
+            POSITIVE.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ExitPortStatus.DEFEATURE">
+            <summary>
+            NEGATIVE.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ExitPortStatus.FAIL">
+            <summary>
+            NEGATIVE.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ExitPortStatus.DEFAULT">
+            <summary>
+            NEGATIVE.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvLogicMode">
+            <summary>
+            Settings to CtvLogicMode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvLogicMode.POSITIVE">
+            <summary>
+            POSITIVE.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvLogicMode.NEGATIVE">
+            <summary>
+            NEGATIVE.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.PrintPlotsMode">
+            <summary>
+            Settings to PrintPlotsMode .
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.PrintPlotsMode.ENABLED">
+            <summary>
+            Enable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.PrintPlotsMode.DISABLED">
+            <summary>
+            Disable.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.OutputMode">
+            <summary>
+            Settings to OutputMode .
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.OutputMode.ALL">
+            <summary>
+            ALL.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.OutputMode.FAIL_ONLY">
+            <summary>
+            FAIL_ONLY.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvSourceMode">
+            <summary>
+            Settings to CtvSourceMode .
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvSourceMode.SHARED_STORAGE">
+            <summary>
+            SHARED_STORAGE.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvSourceMode.USER_EXTENSION">
+            <summary>
+            USER_EXTENSION.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvSourceMode.PLIST_EXECUTION">
+            <summary>
+            PLIST_EXECUTION.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvLogic">
+            <summary>
+            Gets or sets for CtvLogic.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.PrintPlots">
+            <summary>
+            Gets or sets for PrintPlots.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.Mode">
+            <summary>
+            Gets or sets for Mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvCapturePins">
+            <summary>
+            Gets or sets comma separated pins for CTV capture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvDataSharedStorageKey">
+            <summary>
+            Gets or sets for CtvDataSharedStorageKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ConfigurationInputFile">
+            <summary>
+            Gets or sets ResourcesFile input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.DieIdRename">
+            <summary>
+            Gets or sets the DieIdRename.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.BitSelectionList">
+            <summary>
+            Gets or sets the DieIdRename.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.TestMethodExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvSource">
+            <summary>
+            Gets or sets for CtvSource.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.Configurations">
+            <summary>
+            Gets or sets for ConfigurationsList.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ItuffFormat">
+            <summary>
+            Gets or sets for the ItuffFormat.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.CtvData">
+            <summary>
+            Gets or sets for CtvData.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.PortStatus">
+            <summary>
+            Gets or sets for ExitPortStatus.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.Verify">
+            <summary>
+            Verify params.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ForceReVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.Execute">
+            <summary>
+            Execute.
+            </summary>
+            <returns>return the number of the exit port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.Prime#TestMethods#AnalogMargining#IAnalogMarginingExtensions#LoadConfigurations">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.Prime#TestMethods#AnalogMargining#IAnalogMarginingExtensions#GetDataFromInput">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.Prime#TestMethods#AnalogMargining#IAnalogMarginingExtensions#GetItuffDataFormat(Prime.TestMethods.AnalogMargining.MainClasses.Common.ItuffDataForUser)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ProcessLayoutConfiguration(System.String,System.String)">
+            <summary>
+            The user sets new data to the gridMapping for each configuration, layout and layer.
+            </summary>
+            <param name="ctvData">The ctv data collected from pins after plist execution.</param>
+            <param name="ctvPin">The pin name from where the ctvData was taken.</param>
+            <returns>Returns true if the layouts were processed successfully.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.GetCtvData">
+            <summary>
+            Executing the functional test and collect the ctvs according to the appropriate pins..
+            </summary>
+            <returns>dictionary of ctvs data per pin.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ValidateSourceDataMatchingExpectedData(System.Int32)">
+            <summary>
+            Checks if the source data we get by execute the plist is matching the expected data we need.
+            </summary>
+            <param name="sourceDataSize">The size of the source data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.ProcessLayoutResults(Prime.TestMethods.AnalogMargining.MainClasses.JsonClasses.Configuration,System.String)">
+            <summary>
+            Checks all the layout results processed successfully.
+            </summary>
+            <param name="configuration">The configuration object.</param>
+            <param name="ctvPin">The pin name from where the ctvData was taken.</param>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.SetDieIdRename">
+            <summary>
+            Function that validates and sets the dieIdRenameParam list from TestMethod parameters.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.AnalogMargining.PrimeAnalogMarginingTestMethod.GetDieIdRename(System.String)">
+            <summary>
+            Function that renames from pin name to die name.
+            </summary>
+            <param name="pin"> The pin name. </param>
+            <returns> Returns the die name. </returns>
+        </member>
+    </members>
+</doc>

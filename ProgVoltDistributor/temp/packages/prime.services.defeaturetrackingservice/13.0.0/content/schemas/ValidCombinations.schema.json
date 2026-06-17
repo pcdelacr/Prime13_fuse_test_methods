@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+	 "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ValidCombinations": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/ValidCombinationsElement" },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "ValidCombinations"
+  ],
+  "definitions": {
+    "ValidCombinationsElement": {
+      "type": "object",
+      "properties": {
+        "Set": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "Vector": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/nonEmptyString" },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "Set",
+        "Vector"
+      ],
+      "additionalProperties": false
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

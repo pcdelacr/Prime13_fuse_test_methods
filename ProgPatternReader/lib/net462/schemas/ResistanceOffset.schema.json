@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "Loadboards"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Loadboards": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/TiuConfiguration"
+      }
+    }
+  },
+  "definitions": {
+    "TiuConfiguration": {
+      "type": "object",
+      "required": [
+        "TiuName",
+        "Duts"
+      ],
+      "properties": {
+        "TiuName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Duts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/DutConfiguration"
+          }
+        }
+      }
+    },
+    "DutConfiguration": {
+      "type": "object",
+      "required": [
+        "DutID",
+        "Resistances"
+      ],
+      "properties": {
+        "DutID": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Resistances": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/PinConfiguration"
+          }
+        }
+      }
+    },
+    "PinConfiguration": {
+      "type": "object",
+      "required": [
+        "PinName",
+        "ResistanceOffset"
+      ],
+      "properties": {
+        "PinName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ResistanceOffset": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

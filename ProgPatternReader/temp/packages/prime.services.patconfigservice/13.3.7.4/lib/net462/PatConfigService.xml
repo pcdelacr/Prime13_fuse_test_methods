@@ -1,0 +1,848 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.PatConfigService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.PatConfigService.Common.PatternModificationType">
+            <summary>
+            Pattern modification type.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.Common.PatternModificationType.PinData">
+            <summary>
+            Pin data type.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.Common.PatternModificationType.Ctv">
+            <summary>
+            CTV (Capture This Vector) type.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.Common.PatternModificationType.Mtv">
+            <summary>
+            MTV (Mask This Vector) type.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.Common.PatternModificationType.Lrpt">
+            <summary>
+            LRPT (Local Repeat) type
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.Common.PatternModificationType.Instruction">
+            <summary>
+            Instruction type.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.Common.PatternModificationType.Fuse">
+            <summary>
+            Fuse type.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.Common.PatternModificationType.Mix">
+            <summary>
+            Mixed type.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.Common.PatternModificationType.Undefined">
+            <summary>
+            Undefined.
+            </summary>
+        </member>
+        <member name="T:Prime.PatConfigService.Configuration.Elements.CtvConfigurationElement">
+            <summary>
+            CtvConfigurationElement class.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Definition.PatternsAddressEvaluator.CalculateInterleaveAdressInPattern(System.UInt64,System.UInt64,System.UInt32,Prime.PatConfigService.AdvanceGetHandleOptions)">
+            <summary>
+            this funcction convert fusedef adress to the patmod interleave adress.
+            LABEL_START_VECTOR_INDEX_ADD_0+MOD(PAT_MOD_LIVE_ADDRESS,BLOCK_SIZE)*RATIO+INT(PAT_MOD_LIVE_ADDRESS/BLOCK_SIZE)*GAP + INT(PAT_MOD_LIVE_ADDRESS/BLOCK_SIZE)*(BLOCK_SIZE*RATIO).
+            </summary>
+            example : for labelStartAddress-1000 , fusedefAdress- 30, ratio-1, DataBlockSize-3, GapSize-5 the "real" address in the paaten will be = 1000+(30%3)*1+(30/3)*5+(30/3)*(3*1)=1080
+            <param name="labelStartAddress">labelStartAddress.</param>
+            <param name="fusedefAdress">fusedefAdress.</param>
+            <param name="ratio">ratio.</param>
+            <param name="advanceOptions">advanceOptions.</param>
+            <returns>the new address.</returns>
+        </member>
+        <member name="T:Prime.PatConfigService.Handle.Interfaces.IConfigurationHandle">
+            <summary>
+            Handle for a pattern configuration.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IConfigurationHandle.GetDefinitionElements">
+            <summary>
+            Get all definition elements in this object.
+            </summary>
+            <returns>List of child elements.</returns>
+        </member>
+        <member name="T:Prime.PatConfigService.Handle.Interfaces.IElementData">
+            <summary>
+            IElementData.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.SetData(System.String)">
+            <summary>
+            Set the modify data for the PatConfigHandle.
+            </summary>
+            <param name="data">modify data input.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.SetData(System.String,System.UInt64)">
+            <summary>
+            Set the modify data for the PatConfigHandle.
+            </summary>
+            <param name="data">modify data input.</param>
+            <param name="subConfigIndex">the index of required sub config.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.SetData(System.String,System.String)">
+            <summary>
+            Set the modify data for the PatConfigHandle.
+            </summary>
+            <param name="data">modify data input.</param>
+            <param name="subConfigName">the name of required sub config.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.FillData(Prime.PatConfigService.PatternSymbol)">
+            <summary>
+            Repeat the pattern symbol character for the range of pattern vectors which is targeted to pattern modify.
+            </summary>
+            <param name="symbol">pattern symbol.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.FillData(Prime.PatConfigService.PatternSymbol,System.UInt64)">
+            <summary>
+            Repeat the pattern symbol character for the range of pattern vectors which is targeted to pattern modify.
+            </summary>
+            <param name="symbol">pattern symbol.</param>
+            <param name="subConfigIndex">the index of required sub config.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.FillData(Prime.PatConfigService.PatternSymbol,System.String)">
+            <summary>
+            Repeat the pattern symbol character for the range of pattern vectors which is targeted to pattern modify.
+            </summary>
+            <param name="symbol">pattern symbol.</param>
+            <param name="subConfigName">the name of required sub config.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.ResetToDefault">
+            <summary>
+            Reset the modify data that are stored to the default data. If no default data being specified in json,
+            it will clear the modify data only.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.ResetToDefault(System.UInt64)">
+            <summary>
+            Reset the modify data that are stored to the default data. If no default data being specified in json,
+            it will clear the modify data only.
+            </summary>
+            <param name="subConfigIndex">the index of required sub config.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.ResetToDefault(System.String)">
+            <summary>
+            Reset the modify data that are stored to the default data. If no default data being specified in json,
+            it will clear the modify data only.
+            </summary>
+            <param name="subConfigName">the name of required sub config.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.IsSymbolDefined">
+            <summary>
+            Check if modify data is a symbol to "fill".
+            </summary>
+            <returns>true if modify data is a symbol.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.IsDataSet">
+            <summary>
+            Check if user set data or we have default data.
+            </summary>
+            <returns>true if user set data or we have default data, else false.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementData.GetRawData">
+            <summary>
+            Gets the modify data of this configuration element.
+            </summary>
+            <returns>modify data string.</returns>
+        </member>
+        <member name="T:Prime.PatConfigService.Handle.Interfaces.IElementDebug">
+            <summary>
+            IElementDebug.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDebug.DebugString">
+            <summary>
+            Get a debug string builder.
+            </summary>
+            <returns>StringBuilder with debug info.</returns>
+        </member>
+        <member name="T:Prime.PatConfigService.Handle.Interfaces.IElementDefinition">
+            <summary>
+            IElementDefinition.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.GetName">
+            <summary>
+            Get configuration name of this element.
+            </summary>
+            <returns>Configuration name.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.GetModificationType">
+            <summary>
+            Get the element type.
+            </summary>
+            <returns>Type.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.IsFoundPatternsToModify">
+            <summary>
+            Indicates if patterns to modify were found in this handle based on inputs.
+            </summary>
+            <returns>True if patterns were found.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.CompareTo(Prime.PatConfigService.Handle.Interfaces.IElementDefinition)">
+            <summary>
+            Compare two element definition objects. Returns true if both elements modify the same location.
+            </summary>
+            <param name="other">Other element definition object.</param>
+            <returns>True is both objects modify the same pattern modify location.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.GetElementDefinitionDump">
+            <summary>
+            Get the element definition as string bulider.
+            </summary>
+            <returns>String builder of element definition.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.GetNumberOfConfigurationElements">
+            <summary>
+            Returns number of configuration elements config in the handle.
+            </summary>
+            <returns>The number of configuration elements in the handle.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.GetExpectedDataSize">
+            <summary>
+            Returns Expected data size for current Handle (when setting data).
+            </summary>
+            <returns>The Expected size of the data.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.GetExpectedDataSize(System.UInt64)">
+            <summary>
+            Returns Expected data size for a specific sub config in the  Handle.
+            </summary>
+            <param name="subConfigIndex">the index of required sub config.</param>
+            <returns>The Expected size of the data for specific sub config. will throw exception if the index is out of range.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.GetExpectedDataSize(System.String)">
+            <summary>
+            Returns Expected data size for a specific sub config in the  Handle.
+            </summary>
+            <param name="elementName">The element name whos expected data is requeted.</param>
+            <returns>The expected size of the data for specific sub config. will throw exception if the index is out of range.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.GetPatternsName">
+            <summary>
+            Get All loadedPatterns names that the modify will be applied.
+            </summary>
+            <returns>a set of all pattern names.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IElementDefinition.GetConfigurationName">
+            <summary>
+            Gets the patternName of the configuration the handle contains.
+            </summary>
+            <returns>the patternName of its configuration patternName.</returns>
+        </member>
+        <member name="T:Prime.PatConfigService.Handle.Interfaces.IStorable">
+            <summary>
+            IStorable interface.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.Handle.Interfaces.IStorable.IsStorable">
+            <summary>
+            Returns an indication if this object is flagged for storing.
+            </summary>
+            <returns>True / False.</returns>
+        </member>
+        <member name="T:Prime.PatConfigService.AdvanceGetHandleOptions">
+            <summary>
+            class to set advance options to GetHandle.
+            </summary>
+        </member>
+        <member name="P:Prime.PatConfigService.AdvanceGetHandleOptions.InPkgApplyToPkgOnly">
+            <summary>
+            Gets or sets a value indicating whether in PKG IP set if the modify will be applied to all IP or to PKG only.
+            </summary>
+        </member>
+        <member name="P:Prime.PatConfigService.AdvanceGetHandleOptions.ToBeStored">
+            <summary>
+            Gets or sets a value indicating whether in the configuration is going to be stored.
+            </summary>
+        </member>
+        <member name="P:Prime.PatConfigService.AdvanceGetHandleOptions.Ratio">
+            <summary>
+            Gets or sets a value indicating whether in the configuration is going to be stored.
+            </summary>
+        </member>
+        <member name="P:Prime.PatConfigService.AdvanceGetHandleOptions.DataBlockSize">
+            <summary>
+            Gets or sets a value indicating whether in the configuration is going to be stored.
+            </summary>
+        </member>
+        <member name="P:Prime.PatConfigService.AdvanceGetHandleOptions.GapSize">
+            <summary>
+            Gets or sets a value indicating whether in the configuration is going to be stored.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.AdvanceGetHandleOptions.ToString">
+            <summary>
+            Convert this object to string for cache entry.
+            </summary>
+            <returns>String.</returns>
+        </member>
+        <member name="T:Prime.PatConfigService.Internal.IPatConfigService">
+            <summary>
+            Handles all Pattern and Fuse Config activities.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.Internal.IPatConfigService.ApplyWithCache(System.Collections.Generic.List{Prime.PatConfigService.IPatConfigHandle},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Apply the modify data based on the list of PatConfigHandles to the loadedPatterns.
+            </summary>
+            <param name="handles">list of PatConfigHandles.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Internal.IPatConfigService.ApplyWithCache(Prime.PatConfigService.IPatConfigHandle,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Apply the modify data based on the PatConfigHandle to the loadedPatterns.
+            </summary>
+            <param name="handle">PatConfigHandle.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Internal.IPatConfigService.IsServiceActive">
+            <summary>
+            Indicates if service is active. Needed only for the GatewayService - to be removed when EVG is not around anymore.
+            </summary>
+            <returns>True if service is active.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Internal.IPatConfigService.DoesConfigurationExist(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Determines if a configuration exists in the shared storage.
+            This can be used during aleph-init stages to give early errors.
+            </summary>
+            <param name="configurationName">Configuration patternName.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Is enabled.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.Internal.IPatConfigService.GetPatConfigDefinitionHandleWithPlist(System.String,System.String,System.String,Prime.PatConfigService.AdvanceGetHandleOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the specific PatConfigHandle that matched the configuration patternName.
+            It will contain PatConfig metadata and the pattern names that contains inside the plist that match the regex.
+            It also set the modify data with user input.
+            </summary>
+            <param name="configurationName">configuration patternName.</param>
+            <param name="plist">plist patternName.</param>
+            <param name="regEx">Regular Expression to reduce loadedPatterns in handler that not match it.</param>
+            <param name="advanceOptions">Advance options.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for PatConfigHandle.</returns>
+        </member>
+        <member name="T:Prime.PatConfigService.Internal.IPatConfigSetPointHandle">
+            <summary>
+            Handle for a PatConfig SetPoints.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.Internal.IPatConfigSetPointHandle.ApplySetPointWithCache(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Apply the requested SetPoint.
+            </summary>
+            <param name="setPointName">Name of the set point to apply.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.Internal.IPatConfigSetPointHandle.ApplySetPointDefaultWithCache(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Apply default SetPoint as defined in the configuration file.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.PatConfigService.IPatConfigHandle">
+            <summary>
+            Handle for a pattern configuration.
+            </summary>
+        </member>
+        <member name="T:Prime.PatConfigService.SetPointHandleCheckerSymbol">
+            <summary>
+            Symbol for set point handle checker.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.SetPointHandleCheckerSymbol.ModuleDoesNotExist">
+            <summary>
+            Module doesn't exist.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.SetPointHandleCheckerSymbol.GroupDoesNotExist">
+            <summary>
+            Group doesn't exist.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.SetPointHandleCheckerSymbol.SetPointDoesNotExist">
+            <summary>
+            Set point doesn't exist.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.SetPointHandleCheckerSymbol.Exist">
+            <summary>
+            all exist.
+            </summary>
+        </member>
+        <member name="T:Prime.PatConfigService.EngineeringMode">
+            <summary>
+            Symbol to select engineering mode operation.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.EngineeringMode.Production">
+            <summary>
+            Normal Production Mode, no additional functionality
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.EngineeringMode.EngineeringSafe">
+            <summary>
+            Engineering Mode to add new configurations but no overrides from different files.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.EngineeringMode.EngineeringUnsafe">
+            <summary>
+            Engineering Mode to add new configurations and any override is allowed.
+            </summary>
+        </member>
+        <member name="T:Prime.PatConfigService.IPatConfigService">
+            <summary>
+            Handles all Pattern and Fuse Config activities.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.ProcessPendingApplies(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Processes all pending <seealso cref="M:Prime.PatConfigService.IPatConfigService.Apply(System.Collections.Generic.List{Prime.PatConfigService.IPatConfigHandle},Prime.SessionService.ISessionContextProviderContainer)"/>.
+            This method is responsible for waiting the queued operations that modify pattern.
+            The method ensures these tasks are processed in the context of the provided session.
+            Any user code performing a pattern read must explicitly call this method to ensure that the pattern data is up-to-date.
+            </summary>
+            <param name="sessionContext">The session context provider container which encapsulates the session-specific information
+            required for processing the tasks. This context is essential for ensuring that the tasks are executed in the correct session scope,
+            maintaining the integrity and isolation of session data.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.CreateHandle(System.Collections.Generic.List{Prime.PatConfigService.PatternModifyConfiguration},System.String,System.String,System.UInt16,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a handle on the fly without the need of a previous Aleph configuration.
+            </summary>
+            <param name="configurations">The list of configurations for this handle.</param>
+            <param name="plist">The plist to filter the patterns to modify.</param>
+            <param name="regularExpressionPatternFilter">The regular expression to filter the list of patterns.</param>
+            <param name="ratio">The ratio of the data. Default=[1].</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>An on-the-fly IPatConfigHandle based on the list of configurations.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetPatConfigHandle(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the specific PatConfigHandle that matched the configuration Name
+            It will contain PatConfig metadata and the modify data.
+            </summary>
+            <param name="configurationName">configuration name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for PatConfigHandle.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetPatConfigHandle(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the specific PatConfigHandle that matched the configuration name.
+            It will contain PatConfig metadata and set the modify data with user input.
+            </summary>
+            <param name="configurationName">configuration name.</param>
+            <param name="regEx">Regular Expression to reduce patterns in handler that not match it.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for PatConfigHandle.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetPatConfigHandle(System.String,Prime.PatConfigService.AdvanceGetHandleOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the specific PatConfigHandle that matched the configuration name
+            It will contain PatConfig metadata and the modify data.
+            </summary>
+            <param name="configurationName">configuration name.</param>
+            <param name="advanceOptions">Advance options.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for PatConfigHandle.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetPatConfigHandle(System.String,System.String,Prime.PatConfigService.AdvanceGetHandleOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the specific PatConfigHandle that matched the configuration name.
+            It will contain PatConfig metadata and set the modify data with user input.
+            </summary>
+            <param name="configurationName">configuration name.</param>
+            <param name="regEx">Regular Expression to reduce patterns in handler that not match it.</param>
+            <param name="advanceOptions">Advance options.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for PatConfigHandle.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetPatConfigHandleWithPlist(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the specific PatConfigHandle that matched the configuration name.
+            It will contain PatConfig metadata and the modify data and also the pattern names that contains inside the plist
+            that match the regex.
+            </summary>
+            <param name="configurationName">configuration name.</param>
+            <param name="plist">plist name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for PatConfigHandle.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetPatConfigHandleWithPlist(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the specific PatConfigHandle that matched the configuration name.
+            It will contain PatConfig metadata and the pattern names that contains inside the plist that match the regex.
+            It also set the modify data with user input.
+            </summary>
+            <param name="configurationName">configuration name.</param>
+            <param name="plist">plist name.</param>
+            <param name="regEx">Regular Expression to reduce patterns in handler that not match it.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for PatConfigHandle.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetPatConfigHandleWithPlist(System.String,System.String,Prime.PatConfigService.AdvanceGetHandleOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the specific PatConfigHandle that matched the configuration name.
+            It will contain PatConfig metadata and the modify data and also the pattern names that contains inside the plist
+            that match the regex.
+            </summary>
+            <param name="configurationName">configuration name.</param>
+            <param name="plist">plist name.</param>
+            <param name="advanceOptions">Advance options.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for PatConfigHandle.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetPatConfigHandleWithPlist(System.String,System.String,System.String,Prime.PatConfigService.AdvanceGetHandleOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the specific PatConfigHandle that matched the configuration name.
+            It will contain PatConfig metadata and the pattern names that contains inside the plist that match the regex.
+            It also set the modify data with user input.
+            </summary>
+            <param name="configurationName">configuration name.</param>
+            <param name="plist">plist name.</param>
+            <param name="regEx">Regular Expression to reduce patterns in handler that not match it.</param>
+            <param name="advanceOptions">Advance options.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for PatConfigHandle.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetStoredConfigurationNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the list of all stored configuration names in the shared storage.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>list of stored configuration names.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetStorableHandles(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets list of all handles masked as storable.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>all handles marked as storable.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.Apply(System.Collections.Generic.List{Prime.PatConfigService.IPatConfigHandle},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Apply the modify data based on the list of PatConfigHandles to the patterns.
+            </summary>
+            <param name="handles">list of PatConfigHandles.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.Apply(Prime.PatConfigService.IPatConfigHandle,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Apply the modify data based on the PatConfigHandle to the patterns.
+            </summary>
+            <param name="handle">PatConfigHandle.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.ReApplyStoredData(System.Collections.Generic.List{Prime.PatConfigService.IPatConfigHandle},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reapply the stored data to the list of PatConfigHandles.
+            </summary>
+            <param name="handles">List of PatConfigHandle.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetSetPointHandle(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get Handle for Set Point.
+            </summary>
+            <param name="module">name of the module to get set point.</param>
+            <param name="group">name of the group to get handle for.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for set point.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetSetPointHandle(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get Handle for Set Point with plist.
+            </summary>
+            <param name="module">name of the module to get set point.</param>
+            <param name="group">name of the group to get handle for.</param>
+            <param name="plist">plist name to apply the set point on.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for set point.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetSetPointHandleWithRegEx(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get Handle for Set Point.
+            </summary>
+            <param name="module">name of the module to get set point.</param>
+            <param name="group">name of the group to get handle for.</param>
+            <param name="regEx">RegEx to reduce handle pattern size.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for set point.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.GetSetPointHandleWithRegEx(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get Handle for Set Point with plist.
+            </summary>
+            <param name="module">name of the module to get set point.</param>
+            <param name="group">name of the group to get handle for.</param>
+            <param name="plist">plist name to apply the set point on.</param>
+            <param name="regEx">RegEx to reduce handle pattern size.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>pointer for set point.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.IsSetPointHandleExist(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            To check is set point collateral availability.
+            </summary>
+            <param name="module">module name.</param>
+            <param name="group">group name.</param>
+            <param name="setPoint">set point name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>return checker symbol that indicate all exist or missing certain collateral.</returns>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.InitEngineeringMode(Prime.PatConfigService.EngineeringMode,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            To check is set point collateral availability.
+            </summary>
+            <param name="mode">Engineering Mode given by enum.</param>
+            <param name="engineeringFiles">Engineering files to load configurations from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.DisableGlobalCache">
+            <summary>
+            Disables the service's internal cache.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigService.EnableGlobalCache">
+            <summary>
+            Enables the service's internal cache.
+            </summary>
+        </member>
+        <member name="T:Prime.PatConfigService.IPatConfigSetPointHandle">
+            <summary>
+            Handle for a PatConfig SetPoints.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigSetPointHandle.ApplySetPoint(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Apply the requested SetPoint.
+            </summary>
+            <param name="setPointName">Name of the set point to apply.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PatConfigService.IPatConfigSetPointHandle.ApplySetPointDefault(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            pply default SetPoint as defined in the configuration file.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.PatConfigService.PatternModifyConfiguration">
+            <summary>
+            Defines a configuration for a pattern modify.
+            </summary>
+        </member>
+        <member name="P:Prime.PatConfigService.PatternModifyConfiguration.StartAddress">
+            <summary>
+            Gets or sets the start address, which can be a label or a number. If it's empty, the pattern modify will happen using the StartAddressOffset as the absolute address.
+            </summary>
+        </member>
+        <member name="P:Prime.PatConfigService.PatternModifyConfiguration.StartAddressOffset">
+            <summary>
+            Gets or sets the offset from the start address.
+            </summary>
+        </member>
+        <member name="P:Prime.PatConfigService.PatternModifyConfiguration.Pins">
+            <summary>
+            Gets or sets the list of target pins.
+            </summary>
+        </member>
+        <member name="P:Prime.PatConfigService.PatternModifyConfiguration.ExpectedDataSize">
+            <summary>
+            Gets or sets expected the size of data for the pattern modify.
+            </summary>
+        </member>
+        <member name="T:Prime.PatConfigService.PatternSymbol">
+            <summary>
+            Indicates the pattern symbol character.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.Zero">
+            <summary>
+            ZERO.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.One">
+            <summary>
+            ONE.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.L">
+            <summary>
+            L.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.H">
+            <summary>
+            H.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.X">
+            <summary>
+            X.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.Z">
+            <summary>
+            Z.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.R">
+            <summary>
+            R.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.E">
+            <summary>
+            E.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.T">
+            <summary>
+            T.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.K">
+            <summary>
+            K.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.C">
+            <summary>
+            C.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.S">
+            <summary>
+            S.
+            </summary>
+        </member>
+        <member name="F:Prime.PatConfigService.PatternSymbol.Undefined">
+            <summary>
+            Undefined.
+            </summary>
+        </member>
+        <member name="T:Prime.PatConfigService.PatConfigService">
+            <summary>
+            PatConfigService implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.InitEngineeringMode(Prime.PatConfigService.EngineeringMode,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetPatConfigHandle(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetPatConfigHandle(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetPatConfigHandle(System.String,Prime.PatConfigService.AdvanceGetHandleOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetPatConfigHandle(System.String,System.String,Prime.PatConfigService.AdvanceGetHandleOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetPatConfigHandleWithPlist(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetPatConfigHandleWithPlist(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetPatConfigHandleWithPlist(System.String,System.String,Prime.PatConfigService.AdvanceGetHandleOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetPatConfigHandleWithPlist(System.String,System.String,System.String,Prime.PatConfigService.AdvanceGetHandleOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.CreateHandle(System.Collections.Generic.List{Prime.PatConfigService.PatternModifyConfiguration},System.String,System.String,System.UInt16,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetPatConfigDefinitionHandleWithPlist(System.String,System.String,System.String,Prime.PatConfigService.AdvanceGetHandleOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetStoredConfigurationNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetStorableHandles(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.Apply(System.Collections.Generic.List{Prime.PatConfigService.IPatConfigHandle},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.Apply(Prime.PatConfigService.IPatConfigHandle,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.ReApplyStoredData(System.Collections.Generic.List{Prime.PatConfigService.IPatConfigHandle},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.ApplyWithCache(System.Collections.Generic.List{Prime.PatConfigService.IPatConfigHandle},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.ApplyWithCache(Prime.PatConfigService.IPatConfigHandle,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.DisableGlobalCache">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.EnableGlobalCache">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.IsServiceActive">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.DoesConfigurationExist(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetSetPointHandle(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetSetPointHandle(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetSetPointHandleWithRegEx(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.GetSetPointHandleWithRegEx(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.PatConfigService.IsSetPointHandleExist(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PatConfigService.SetpointsObjects.SetpointGroupHandle.ApplySetPoint(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PatConfigService.Storage.StaticDutStorage">
+            <summary>
+            Local Dut storage.
+            </summary>
+        </member>
+    </members>
+</doc>

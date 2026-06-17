@@ -1,0 +1,517 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.BinMatrixService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BinMatrixService.BinMatrixData">
+            <summary>
+            BinMatrixData class.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.BinMatrixData.BomGroupName">
+            <summary>
+            Gets or sets bom group name.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.BinMatrixData.ActiveBom">
+            <summary>
+            Gets or sets active bom.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.BinMatrixData.NumOfFlows">
+            <summary>
+            Gets or sets number of flows.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.BinMatrixData.BinMatrixXmlPath">
+            <summary>
+            Gets or sets bin matrix xml path.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.BinMatrixData.LocalBinMatrixXmlPath">
+            <summary>
+            Gets or sets local bin matrix xml path.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.BinMatrixData.OlbBinTypeValue">
+            <summary>
+            Gets or sets olb bin type value.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.BinMatrixData.FlowSpecList">
+            <summary>
+            Gets or sets flow spec list.
+            </summary>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixData.ToStringAttributesTable">
+            <summary>
+            String structure of spec list flow.
+            </summary>
+            <returns>Spec list flow string.</returns>
+        </member>
+        <member name="T:Prime.BinMatrixService.BinMatrixService">
+            <summary>
+            BinMatrix Service implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.Prime#Base#IAlephAble#IAlephAble#GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.GetActiveBomGroup(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.GetActiveBom(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.GetNumberOfFlows(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.GetSpecInfo(System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.GetOlbBinType(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get olb bin type.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>OlbBinType string value.</returns>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.PopulateDataFromFile(System.String)">
+            <summary>
+            Parse xml object to current instance object.
+            </summary>
+            <param name="filePath">File path.</param>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.ParseXmlFile(Prime.BinMatrixService.BinMatrixData,System.String)">
+            <summary>
+            Parse xml file to binMatrix object.
+            </summary>
+            <param name="binMatrixData">Bin matrix data object.</param>
+            <param name="filePath">Path of aleph file.</param>
+        </member>
+        <member name="M:Prime.BinMatrixService.BinMatrixService.PopulateAndCheckOlbBinType(Prime.BinMatrixService.BinMatrixData)">
+            <summary>
+            Check olb_bin_type correctness immediately after parse.
+            </summary>
+            <param name="binMatrixData">BinMatrixData object.</param>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.ActiveFlowList">
+            <summary>
+            Holds ActiveFlowList configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.ActiveFlowList.Flow">
+            <summary>
+            Gets or sets list of flow.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.Attribute">
+            <summary>
+            Holds attribute configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Attribute.Name">
+            <summary>
+            Gets or sets attribute name.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Attribute.DataType">
+            <summary>
+            Gets or sets data type.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Attribute.Unit">
+            <summary>
+            Gets or sets unit.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Attribute.Multiplier">
+            <summary>
+            Gets or sets multiplier.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Attribute.Value">
+            <summary>
+            Gets or sets value.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.AttributePerBOM">
+            <summary>
+            Holds Attribute per BOM structure configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.AttributePerBOM.BOM">
+            <summary>
+            Gets or sets BOM list.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.AttributePerBOM.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.AttributePerBOM.DataType">
+            <summary>
+            Gets or sets data type.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.AttributePerBOM.Unit">
+            <summary>
+            Gets or sets unit.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.AttributePerBOM.Multiplier">
+            <summary>
+            Gets or sets multiplier.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.BinMatrixAttribute">
+            <summary>
+            Holds attribute configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BinMatrixAttribute.Name">
+            <summary>
+            Gets or sets attribute name.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BinMatrixAttribute.DataType">
+            <summary>
+            Gets or sets data type.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BinMatrixAttribute.Unit">
+            <summary>
+            Gets or sets unit.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BinMatrixAttribute.Multiplier">
+            <summary>
+            Gets or sets multiplier.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BinMatrixAttribute.Value">
+            <summary>
+            Gets or sets value.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.BinMatrixXML">
+            <summary>
+            Holds BinMatrix XML configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BinMatrixXML.BinMatrixRevision">
+            <summary>
+            Gets or sets bin matrix revision.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BinMatrixXML.ProductFamily">
+            <summary>
+            Gets or sets product family.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BinMatrixXML.SupportedProduct">
+            <summary>
+            Gets or sets supported product.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BinMatrixXML.BOMGroupTable">
+            <summary>
+            Gets or sets BOM group table.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.BOM">
+            <summary>
+            Holds BOM structure configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BOM.Name">
+            <summary>
+            Gets or sets BOM name.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BOM.Value">
+            <summary>
+            Gets or sets value.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.BOMGroup">
+            <summary>
+            Holds BOM group configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BOMGroup.Name">
+            <summary>
+            Gets or sets BOM group name attribute.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BOMGroup.BOMList">
+            <summary>
+            Gets or sets BOM list.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BOMGroup.ActiveFlowList">
+            <summary>
+            Gets or sets active flow list.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BOMGroup.InactiveFlowList">
+            <summary>
+            Gets or sets inactive flow list.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.BOMGroupTable">
+            <summary>
+            Holds BOM group table configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BOMGroupTable.BOMGroups">
+            <summary>
+            Gets or sets list of BOM groups.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.BOMList">
+            <summary>
+            Holds BOMList configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.BOMList.BOM">
+            <summary>
+            Gets or sets BOM.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.Flow">
+            <summary>
+            Holds Flow configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Flow.Attributes">
+            <summary>
+            Gets or sets attributes.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Flow.AttributePerBOM">
+            <summary>
+            Gets or sets attribute per BOM.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Flow.Index">
+            <summary>
+            Gets or sets index.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Flow.Bin">
+            <summary>
+            Gets or sets bin.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Flow.BinName">
+            <summary>
+            Gets or sets binName.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.InactiveFlowList">
+            <summary>
+            Holds inactive flow list configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.InactiveFlowList.Abc">
+            <summary>
+            Gets or sets abc.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.Product">
+            <summary>
+            Holds product configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Product.Name">
+            <summary>
+            Gets or sets product name.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.Product.ProductID">
+            <summary>
+            Gets or sets product id.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.Config.SupportedProduct">
+            <summary>
+            Holds supported product configuration structure.
+            </summary>
+        </member>
+        <member name="P:Prime.BinMatrixService.Cs.Config.SupportedProduct.Product">
+            <summary>
+            Gets or sets product.
+            </summary>
+        </member>
+        <member name="T:Prime.BinMatrixService.Cs.DataLoader.XmlParser">
+            <summary>
+            Xml Parser class for BinMatrixService.
+            </summary>
+        </member>
+        <member name="M:Prime.BinMatrixService.Cs.DataLoader.XmlParser.ParseConfigFile``1(System.String)">
+            <summary>
+            Parse xml config file.
+            </summary>
+            <typeparam name="T">Generic object type deserialized from xml.</typeparam>
+            <param name="fileName">Aleph file name.</param>
+            <returns>Deserialized xml object type.</returns>
+        </member>
+        <member name="T:Prime.BinMatrixService.IBinMatrixService">
+            <summary>
+            Bin Matrix service.
+            </summary>
+        </member>
+        <member name="M:Prime.BinMatrixService.IBinMatrixService.GetActiveBomGroup(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the active bom group.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Active Bom group.</returns>
+        </member>
+        <member name="M:Prime.BinMatrixService.IBinMatrixService.GetActiveBom(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the active bom.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Active Bom.</returns>
+        </member>
+        <member name="M:Prime.BinMatrixService.IBinMatrixService.GetNumberOfFlows(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the number of flows.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Number of flows.</returns>
+        </member>
+        <member name="M:Prime.BinMatrixService.IBinMatrixService.GetOlbBinType(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get olb_bin_type in BinMatrix.xml.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>return value of olb_bin_type.</returns>
+        </member>
+        <member name="M:Prime.BinMatrixService.IBinMatrixService.GetSpecInfo(System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates and returns an spec info object.
+            </summary>
+            <param name="flowId">Flow number.</param>
+            <param name="specName">Spec name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>ISpecInfo object.</returns>
+        </member>
+        <member name="T:Prime.BinMatrixService.ISpecInfo">
+            <summary>
+            Spec Info interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BinMatrixService.ISpecInfo.GetName">
+            <summary>
+            Gets the name.
+            </summary>
+            <returns>Name.</returns>
+        </member>
+        <member name="M:Prime.BinMatrixService.ISpecInfo.GetDataType">
+            <summary>
+            Gets the data type.
+            </summary>
+            <returns>Data type.</returns>
+        </member>
+        <member name="M:Prime.BinMatrixService.ISpecInfo.GetUnit">
+            <summary>
+            Gets the unit.
+            </summary>
+            <returns>Unit name.</returns>
+        </member>
+        <member name="M:Prime.BinMatrixService.ISpecInfo.GetMultiplier">
+            <summary>
+            Gets the multiplier.
+            </summary>
+            <returns>Multiplier.</returns>
+        </member>
+        <member name="M:Prime.BinMatrixService.ISpecInfo.GetData">
+            <summary>
+            Gets the data.
+            </summary>
+            <returns>Data name.</returns>
+        </member>
+        <member name="T:Prime.BinMatrixService.SpecInfo">
+            <summary>
+            SpecInfo class.
+            </summary>
+        </member>
+        <member name="M:Prime.BinMatrixService.SpecInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BinMatrixService.SpecInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.BinMatrixService.SpecInfo.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BinMatrixService.SpecInfo"/> class.
+            </summary>
+            <param name="specName">Spec name.</param>
+            <param name="specDataType">Spec data type.</param>
+            <param name="specUnit">Spec unit.</param>
+            <param name="specMultiplier">Spec multiplier.</param>
+            <param name="specValue">Spec value.</param>
+        </member>
+        <member name="M:Prime.BinMatrixService.SpecInfo.#ctor(Prime.BinMatrixService.SpecInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BinMatrixService.SpecInfo"/> class.
+            </summary>
+            <param name="other">Other specInfo object.</param>
+        </member>
+        <member name="M:Prime.BinMatrixService.SpecInfo.ToString">
+            <summary>
+            SpecInfo to string.
+            </summary>
+            <returns>Empty string.</returns>
+        </member>
+        <member name="T:Prime.BinMatrixService.SpecList">
+            <summary>
+            SpecList class.
+            </summary>
+        </member>
+        <member name="M:Prime.BinMatrixService.SpecList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BinMatrixService.SpecList"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.BinMatrixService.SpecList.#ctor(Prime.BinMatrixService.SpecList)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BinMatrixService.SpecList"/> class.
+            </summary>
+            <param name="other">Other specList object.</param>
+        </member>
+        <member name="M:Prime.BinMatrixService.SpecList.Insert(Prime.BinMatrixService.SpecInfo)">
+            <summary>
+            Insert specInfo to dictionary.
+            </summary>
+            <param name="spec">SpecInfo object.</param>
+        </member>
+        <member name="M:Prime.BinMatrixService.SpecList.GetSpecByName(System.String)">
+            <summary>
+            Get spec info by name.
+            </summary>
+            <param name="specName">Spec name.</param>
+            <returns>SpecData object.</returns>
+        </member>
+        <member name="M:Prime.BinMatrixService.SpecList.IsSpecExist(System.String)">
+            <summary>
+            Check if spec exist.
+            </summary>
+            <param name="specName">Spec name.</param>
+            <returns>True if exist, otherwise false.</returns>
+        </member>
+    </members>
+</doc>

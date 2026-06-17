@@ -1,0 +1,1047 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.LotSession</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.TesterTypeHandler">
+            <summary>
+            Manages all logic related to obtaining the current tester type.
+            In case the current tester type stored in SysCUserVars.SC_MODULE_TYPE is invalid,
+            the tester type will be assumed as undefined. This common class is intended to be used
+            by LotStartDatalog test method and LotEndFinalize test methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TesterTypeHandler.Initialize(Prime.UserVarService.IUserVarService)">
+            <summary>
+            Initalizes services used by <see cref="T:Prime.TestMethods.TesterTypeHandler"/>.
+            </summary>
+            <param name="userVarService">userVarService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TesterTypeHandler.GetTesterType">
+            <summary>
+            Obtains the current tester type value from SysCUserVars.SC_MODULE_TYPE.
+            Then checks if its valid, otherwise it will return an undefined tester type.
+            </summary>
+            <returns>Tester type if valid, otherwise undefined.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.FooterLevel3">
+            <summary>
+            Manages all logic related to level 3 for ituff footer.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.FooterLevel3.FooterLevel3Format">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.FooterLevel3.BuildFooter">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format">
+            <summary>
+            The level3 Footer formatter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format.PassCounters">
+            <summary>
+            Gets or sets the PassCounters for this lot.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format.FailCounters">
+            <summary>
+            Gets or sets the FailCounters for this lot.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format.HardLotBins">
+            <summary>
+            Gets or sets the Hard Bins for this lot.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format.Clear">
+            <summary>
+            Clear the interal data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format">
+            <summary>
+            The level3 Footer formatter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format.IBins">
+            <summary>
+            Gets or sets the ibinctr token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format.FBins">
+            <summary>
+            Gets or sets the fbinctr token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format.DBins">
+            <summary>
+            Gets or sets the dbinctr token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format.UnitCountForSite">
+            <summary>
+            Gets or sets the total token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format.LotEndDate">
+            <summary>
+            Gets or sets the enddate token.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format.Clear">
+            <summary>
+            Clear the interal data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.FooterLevel4">
+            <summary>
+            Manages all logic related to level 4 for ituff footer.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LotSession.FooterLevel4.DatetimeFormat">
+            <summary>
+            Represents the datetime format that ituff can support. This is used for generating timestamps with the right format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.FooterLevel4.#ctor(System.DateTime,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LotSession.FooterLevel4"/> class.
+            </summary>
+            <param name="lotEndDate">Contains date for lot end.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.FooterLevel4.FooterLevel4Format">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.FooterLevel4.BuildFooter">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.FooterLevel5">
+            <summary>
+            Manages all logic related to level 5 for ituff footer.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.FooterLevel5.FooterLevel5Format">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.FooterLevel5.BuildFooter">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.FooterLevel6">
+            <summary>
+            Manages all logic related to level 6 for ituff footer.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.FooterLevel6.FooterLevel6Format">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.FooterLevel6.BuildFooter">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.FooterLevel7">
+            <summary>
+            Manages all logic related to level 7 for ituff footer.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.FooterLevel7.FooterLevel7Format">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.FooterLevel7.BuildFooter">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.IFooterLevel">
+            <summary>
+            Interface implements basic methods for footer levels. Getting the footer string
+            and building each footer.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.IFooterLevel.BuildFooter">
+            <summary>
+            Method builds the footer for the respective level.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.ILotEndDatalogExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.ILotEndDatalogExtensions.ModifyLotLevel7Footer(System.Text.StringBuilder)">
+            <summary>
+            Called at execute once level 7 footer is built.
+            Method to be implemented by user to modify level 7 footer values before they are printed out.
+            This allows the user to modify this level as desired, for example adding new items or modifying
+            existing ones. Default implementation outputs basic working level 7 footer format.
+            </summary>
+            <param name="footerData">Contains lot level 7 footer data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.ILotEndDatalogExtensions.ModifyLotLevel6Footer(System.Text.StringBuilder)">
+            <summary>
+            Called at execute once level 6 footer is built.
+            Method to be implemented by user to modify level 6 footer values before they are printed out.
+            This allows the user to modify this level as desired, for example adding new items or modifying
+            existing ones. Default implementation outputs basic working level 6 footer format.
+            </summary>
+            <param name="footerData">Contains lot level 6 footer data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.ILotEndDatalogExtensions.ModifyLotLevel5Footer(System.Text.StringBuilder)">
+            <summary>
+            Called at execute once level 5 footer is built.
+            Method to be implemented by user to modify level 5 footer values before they are printed out.
+            This allows the user to modify this level as desired, for example adding new items or modifying
+            existing ones. Default implementation outputs basic working level 5 footer format.
+            </summary>
+            <param name="footerData">Contains lot level 5 footer data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.ILotEndDatalogExtensions.ModifyLotLevel4Footer(Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format)">
+            <summary>
+            Called at execute once level 4 footer is built.
+            Method to be implemented by user to modify level 4 footer values before they are printed out.
+            This allows the user to modify this level as desired, for example adding new items or modifying
+            existing ones. Default implementation outputs basic working level 4 footer format.
+            </summary>
+            <param name="footerData">Contains lot level 4 footer data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.ILotEndDatalogExtensions.ModifyLotLevel3Footer(Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format)">
+            <summary>
+            Called at execute once level 3 footer is built.
+            Method to be implemented by user to modify level 3 footer values before they are printed out.
+            This allows the user to modify this level as desired, for example adding new items or modifying
+            existing ones. Default implementation outputs basic working level 3 footer format.
+            </summary>
+            <param name="footerData">Contains lot level 3 footer data.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod">
+            <summary>
+            PrimeLotEndDatalogTestMethod is in charge of all Lot end related data logging.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod.LotFooterTimeKey">
+            <summary>
+            Represents shared storage key where the lot footer end time is saved.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.LotSession.ILotEndDatalogExtensions" />
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod.Datalog">
+            <inheritdoc cref="T:Prime.DatalogService.IDatalogService" />
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod.Prime#TestMethods#LotSession#ILotEndDatalogExtensions#ModifyLotLevel7Footer(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod.Prime#TestMethods#LotSession#ILotEndDatalogExtensions#ModifyLotLevel6Footer(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod.Prime#TestMethods#LotSession#ILotEndDatalogExtensions#ModifyLotLevel5Footer(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod.Prime#TestMethods#LotSession#ILotEndDatalogExtensions#ModifyLotLevel4Footer(Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel4Format)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotEndDatalogTestMethod.ModifyLotLevel3Footer(Prime.TestMethods.LotSession.LotEndDatalog.FooterLevel3Format)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.PrimeLotEndFinalizeTestMethod">
+            <summary>
+            PrimeLotEndFinalizeTestMethod is in charge of doing any necessary logic after a Lot run is completed.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotEndFinalizeTestMethod.#ctor(Prime.TestProgramService.ITestProgramService,Prime.TelemetryService.Internal.ITelemetryService,Prime.TesterService.Internal.ITesterService,Prime.UserVarService.IUserVarService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LotSession.PrimeLotEndFinalizeTestMethod"/> class.
+            </summary>
+            <param name="testProgramService">testProgramService.</param>
+            <param name="telemetryService">telemetryService.</param>
+            <param name="testerService">testerService.</param>
+            <param name="userVarService">userVarService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotEndFinalizeTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotEndFinalizeTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.HeaderLevel3">
+            <summary>
+            Manages all logic related to level 3.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.HeaderLevel3.HeaderLevel3Format">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel3.BuildHeader">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.HeaderLevel4">
+            <summary>
+            Manages all logic related to level 4.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel4.#ctor(System.String,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LotSession.HeaderLevel4"/> class.
+            </summary>
+            <param name="flowStep">Contains flow step value as read from test method.</param>
+            <param name="console">Console implementation.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.HeaderLevel4.HeaderLevel4Format">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel4.BuildHeader">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel4.PrepareMttItuffItems(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Prepare all multi trial test ituff strings that will be send to ituff.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format">
+            <summary>
+            The level4 header formatter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.StartTime">
+            <summary>
+            Gets or sets the begindt token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.EnableTbinShip">
+            <summary>
+            Gets or sets a value indicating whether to print the ptype_TB token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.TesterId">
+            <summary>
+            Gets or sets the sysid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.OperationId">
+            <summary>
+            Gets or sets the oprtr token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.OwnerMail">
+            <summary>
+            Gets or sets the ownremail token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.Site">
+            <summary>
+            Gets or sets the facid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.Temperature">
+            <summary>
+            Gets or sets the tempr token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.WaferId">
+            <summary>
+            Gets or sets the wafid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.TpTestboardId">
+            <summary>
+            Gets or sets the ldbid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.EiHandlerId">
+            <summary>
+            Gets or sets the hndid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.SummaryName">
+            <summary>
+            Gets or sets the smrynam token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.IsFunctionalClassTestFlow">
+            <summary>
+            Gets or sets a value indicating whether to print the spbicrqd token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.ProberId">
+            <summary>
+            Gets or sets the prber token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.Prbcd">
+            <summary>
+            Gets or sets the prbcd token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.Eleczhtfstpn">
+            <summary>
+            Gets or sets the eleczhtfstpn token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.Eleczht">
+            <summary>
+            Gets or sets the eleczht token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.FrevSpec">
+            <summary>
+            Gets or sets the FRV_SPEC token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.MtlRev">
+            <summary>
+            Gets or sets the DFF_MTL_Revision token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.BomRecipeValue">
+            <summary>
+            Gets or sets the flex_bom_recipe token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.BomHri">
+            <summary>
+            Gets or sets the flex_bom_hri token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.EepromTiudesignid">
+            <summary>
+            Gets or sets the EEPROM_TIUDESIGNID token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.TplPath">
+            <summary>
+            Gets or sets the tplpath token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.StplPath">
+            <summary>
+            Gets or sets the stplpath token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.EnvPath">
+            <summary>
+            Gets or sets the envpath token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.SocPath">
+            <summary>
+            Gets or sets the socpath token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.LoadTime">
+            <summary>
+            Gets or sets the TSS_CfgLoadDelta token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.DelayLotTime">
+            <summary>
+            Gets or sets the DelayLotTime token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.FlowInitExecTime">
+            <summary>
+            Gets or sets the FlowInitExecTimeSiteC token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.AdditionalTsAttrbiutes">
+            <summary>
+            Gets the additional TS attributes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.ProcessStepSeq">
+            <summary>
+            Gets or sets the PROCESS_STEP_SEQUENCE token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.MidasAttr">
+            <summary>
+            Gets or sets midas attr.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.AriesAttr">
+            <summary>
+            Gets or sets aries attr.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.CurrentProcessStep">
+            <summary>
+            Gets or sets the CURRENT_PROCESS_STEP token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.CurrentProcessType">
+            <summary>
+            Gets or sets the CURRENT_PROCESS_TYPE token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.IntroMethod">
+            <summary>
+            Gets or sets the introtype token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.BritaCheckSum">
+            <summary>
+            Gets or sets the BRITA_CHECKSUM token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.BritaVersion">
+            <summary>
+            Gets or sets the BRITA_VERSION token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.ExternalHeaders">
+            <summary>
+            Gets or sets the external header coming from other external components.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format.Clear">
+            <summary>
+            Clear the interal data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format">
+            <summary>
+            The level5 header formatter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format.FlowStep">
+            <summary>
+            Gets or sets the flstpid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format.Location">
+            <summary>
+            Gets or sets the lcode token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format.MemoryStats">
+            <summary>
+            Gets or the memory statistics tokens.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format.Clear">
+            <summary>
+            Clear the interal data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format">
+            <summary>
+            The level6 header formatter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.HandlerFile">
+            <summary>
+            Gets or sets the hndfile token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.StplFile">
+            <summary>
+            Gets or sets the stplfile token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.SocFile">
+            <summary>
+            Gets or sets the socfile token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.EnvFile">
+            <summary>
+            Gets or sets the envfile token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.PinIndexTable">
+            <summary>
+            Gets or sets the PININDEXTABLE token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.LotName">
+            <summary>
+            Gets or sets the lotid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.Package">
+            <summary>
+            Gets or sets the packg token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.ProductId">
+            <summary>
+            Gets or sets the prdct token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.EngId">
+            <summary>
+            Gets or sets the engid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.DieSelect">
+            <summary>
+            Gets or sets the dieslct token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.Sspec">
+            <summary>
+            Gets or sets the sspec token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.FabId">
+            <summary>
+            Gets or sets the fabid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.ProgramName">
+            <summary>
+            Gets or sets the prgnm token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.TesterType">
+            <summary>
+            Gets or sets the testertype token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.FusedLot">
+            <summary>
+            Gets or sets the fusedlot token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.DffOptype">
+            <summary>
+            Gets or sets the DFF_OPTYPE token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.DffWriteOptype">
+            <summary>
+            Gets or sets the DFF_WRITE_OPTYPE token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.DffReadOptype">
+            <summary>
+            Gets or sets the DFF_READ_OPTYPE token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.SubDieInfo">
+            <summary>
+            Gets or the ssid, sscat, Ssprdct, ssdesc tokens.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.AdditionalLevel6HeaderData">
+            <summary>
+            Gets or sets additional data for level 6.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format.Clear">
+            <summary>
+            Clear the interal data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format">
+            <summary>
+            The level6 header formatter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format.FileCreationTime">
+            <summary>
+            Gets or sets the filcret token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format.Fmtver">
+            <summary>
+            Gets or sets the fmtver token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format.Dsrcprg">
+            <summary>
+            Gets or sets the dsrcprg token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format.UltDbRequired">
+            <summary>
+            Gets or sets a value indicating whether the ULT_DB_REQD token is printed.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format.Clear">
+            <summary>
+            Clear the interal data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.HeaderLevel5">
+            <summary>
+            Manages all logic related to level 5.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LotSession.HeaderLevel5.TotalMemoryCapacity">
+            <summary>
+            Name to use when printing total memory capacity to ituff file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel5.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LotSession.HeaderLevel5"/> class.
+            </summary>
+            <param name="flowStep">Contains flow step value as read from test method.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.HeaderLevel5.HeaderLevel5Format">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel5.BuildHeader">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel5.AppendMemoryStats">
+            <summary>
+            Gets memory statistics that were profiled by prior TMs and appends them to the ituff writer.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.HeaderLevel6">
+            <summary>
+            Manages all logic related to level 6.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel6.#ctor(System.String,System.String,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LotSession.HeaderLevel6"/> class.
+            </summary>
+            <param name="flowStep">Contains flow step value as read from test method.</param>
+            <param name="programName">Contains test program name as read from test method.</param>
+            <param name="console">Console implementation.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.HeaderLevel6.HeaderLevel6Format">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel6.BuildHeader">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.HeaderLevel7">
+            <summary>
+            Manages all logic related to level 7.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel7.#ctor(Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LotSession.HeaderLevel7"/> class.
+            </summary>
+            <param name="console">Console implementation.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.HeaderLevel7.HeaderLevel7Format">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.HeaderLevel7.BuildHeader">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.IHeader">
+            <summary>
+            Interface implements basic methods for header levels. Getting the header string
+            and building each header.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.IHeader.BuildHeader">
+            <summary>
+            Method builds the header for the respective level.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.ILotStartDatalogExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.ILotStartDatalogExtensions.ModifyLotLevel7Header(Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format)">
+            <summary>
+            Called at execute once level 7 header is built.
+            Method to be implemented by user to modify level 7 header values before they are printed out.
+            This allows the user to modify this level as desired, for example adding new items or modifying
+            existing ones. Default implementation outputs basic working level 7 header format.
+            </summary>
+            <param name="headerData">Contains lot level 7 header data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.ILotStartDatalogExtensions.ModifyLotLevel6Header(Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format)">
+            <summary>
+            Called at execute once level 6 header is built.
+            Method to be implemented by user to modify level 6 header values before they are printed out.
+            This allows the user to modify this level as desired, for example adding new items or modifying
+            existing ones. Default implementation outputs basic working level 6 header format.
+            </summary>
+            <param name="headerData">Contains lot level 6 header data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.ILotStartDatalogExtensions.ModifyLotLevel5Header(Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format)">
+            <summary>
+            Called at execute once level 5 header is built.
+            Method to be implemented by user to modify level 5 header values before they are printed out.
+            This allows the user to modify this level as desired, for example adding new items or modifying
+            existing ones. Default implementation outputs basic working level 5 header format.
+            </summary>
+            <param name="headerData">Contains lot level 5 header data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.ILotStartDatalogExtensions.ModifyLotLevel4Header(Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format)">
+            <summary>
+            Called at execute once level 4 header is built.
+            Method to be implemented by user to modify level 4 header values before they are printed out.
+            This allows the user to modify this level as desired, for example adding new items or modifying
+            existing ones. Default implementation outputs basic working level 4 header format.
+            </summary>
+            <param name="headerData">Contains lot level 4 header data.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.PcatLevel4Variables">
+            <summary>
+            Class manages loading and formatting Pcat level 4 variables into given level 4 lot level for printing.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PcatLevel4Variables.ProcessPcatVars(Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format)">
+            <summary>
+            Method adds to the logLevel supplied the Pcat variables strings for printing to ituff.
+            </summary>
+            <param name="headerLevel4Format">Current log level to add Pcat strings to.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod">
+            <summary>
+            PrimeLotStartDatalogTestMethod is in charge of all Lot start related data logging.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.LotFooterTimeKey">
+            <summary>
+            Represents shared storage key where the lot footer end time is saved.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.DatetimeFormat">
+            <summary>
+            Represents the datetime format that ituff can support. This is used for generating timestamps with the right format.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.UserVarCollection">
+            <summary>
+            UserVar collection string.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.StreamDestinations">
+            <summary>
+            Stream destination enum.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.StreamDestinations.OUTPUT_TO_FILE">
+            <summary>
+            Output to files only.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.StreamDestinations.OUTPUT_TO_FILE_AND_PUDL">
+            <summary>
+            Outputs to files and pudls for outputs.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.StreamDestination">
+            <summary>
+            Gets or sets enablePudl.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.LotSession.ILotStartDatalogExtensions" />
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.Console">
+            <inheritdoc cref="T:Prime.ConsoleService.IConsoleService" />
+        </member>
+        <member name="P:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.InternalDatalog">
+            <inheritdoc cref="T:Prime.DatalogService.IDatalogService" />
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.Prime#TestMethods#LotSession#ILotStartDatalogExtensions#ModifyLotLevel7Header(Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel7Format)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.Prime#TestMethods#LotSession#ILotStartDatalogExtensions#ModifyLotLevel6Header(Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel6Format)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.Prime#TestMethods#LotSession#ILotStartDatalogExtensions#ModifyLotLevel5Header(Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel5Format)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotStartDatalogTestMethod.Prime#TestMethods#LotSession#ILotStartDatalogExtensions#ModifyLotLevel4Header(Prime.TestMethods.LotSession.LotStartDatalog.HeaderLevel4Format)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.RasterHeader">
+            <summary>
+            Manages all logic related to raster header.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.RasterHeader.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LotSession.RasterHeader"/> class.
+            </summary>
+            <param name="flowStep">Contains flow step value as read from test method.</param>
+            <param name="programName">Contains test program name as read from test method.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.RasterHeader.BuildHeader">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.RasterHeader.GetHeader">
+            <summary>
+            Get the header to print.
+            </summary>
+            <returns>the formatted header.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.TFileHeader">
+            <summary>
+            Manages all logic related to TFile header.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.TFileHeader.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LotSession.TFileHeader"/> class.
+            </summary>
+            <param name="flowStep">Contains flow step value as read from test method.</param>
+            <param name="programName">Contains test program name information.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.TFileHeader.BuildHeader">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.TFileHeader.GetHeader">
+            <summary>
+            Get the header to print.
+            </summary>
+            <returns>the formatted header.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.PrimeLotStartSetupTestMethod">
+            <summary>
+            PrimeLotStartSetupTestMethod is in charge of initializing and verifying any kind of requirement before a Lot run can be executed.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotStartSetupTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotStartSetupTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.PrimeLotStartSetupTestMethod.VerifyStncDataUserVar(System.String)">
+            <summary>
+            Validates a given station controller userVar exists and is not empty.
+            </summary>
+            <param name="userVar">Station controller userVar to check.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.LotTelemetryConstants">
+            <summary>
+            Telemetry constants.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LotSession.LotTelemetryConstants.LotSessionId">
+            <summary>
+            LotSessionId cosntant.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LotSession.StringBuilderExtensions">
+            <summary>
+            Extend ther string builder for Appending level's headers and footers.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LotSession.StringBuilderExtensions.Append(System.Text.StringBuilder,System.Int32,System.String,System.String)">
+            <summary>
+            Appends the level, token and value to the StringBuilder
+            Only when the the value is non empty.
+            </summary>
+            <param name="data">The string builder object.</param>
+            <param name="level">the ituff level.</param>
+            <param name="token">the ituff token.</param>
+            <param name="value">the ituff value.</param>
+            <returns>the StringBuilder with the appended data.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeSortSiupTestMethod" MetaData="dll=Prime.TestMethods.Dc" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeSortSiupTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="AlarmPortRedirect" descriptions="Enabling param will route TOS alarms out port 3">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Enabled</Choice>
+          <Choice>Disabled</Choice>
+        </Choices>
+        <Default>Enabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="Patlist" descriptions="Plist">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>Plist</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="TimingsTc" descriptions="Timings">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>TimingCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="LevelsTc" descriptions="Levels">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="AlarmLevelsTc" descriptions="The levels to apply in case of an alarm">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PrePlist" descriptions="An action to run before the plist begins">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MaskPins" descriptions="A comma separated list of pins to mask during pattern execution">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="Pins" descriptions="A comma separated list of pins/rails that will be measured">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MeasurementTypes" descriptions="A comma separated measurement type (Current, Voltage)">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ConfigFile" descriptions="The configuration file">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>File</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ConfigSet" descriptions="The section within the config file to execute">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="LowLimits" descriptions="A comma separated list of low limits corresponding to the list of pins">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="HighLimits" descriptions="A comma separated list of high limits corresponding to the list of pins">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TriggerMapName" descriptions="The trigger map to execute if the plist has triggers contained in it">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="EnableFlushSmartTc" descriptions="Choice to enable or disable the flushing the SmartTC cache">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Enabled</Choice>
+          <Choice>Disabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="SharedStoragePrefix" descriptions="Set a prefix for the shared storage token. All rails in the TM will get the same prefix">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="DTSPins" descriptions="A comma separated list of pins used for DTS measurements">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default>ZZ_SORT_CDIE_TAP_TDO</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="DTSEnableDisable" descriptions="Choose if the TM will take DTS measurements">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Enabled</Choice>
+          <Choice>Disabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="LevelsToModify" descriptions="The levels aligned to where the measurements will be taken. This is the levels block that will get its clamps and IRange modified">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ClampPinsToModify" descriptions="A comma separated list of pins that will get its clamp limits modified">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ClampHigh" descriptions="A comma separated list of clamp limits aligned to ClampPinsToModify">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ClampLow" descriptions="A comma separated list of clamp limits aligned to ClampPinsToModify">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ModifyIRange" descriptions="A comma separated list of IRanges aligned to ClampPinsToModify">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="WrapItuffLines" descriptions="Will the ituff lines wrap in the case of the string length limit being reached">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Enabled</Choice>
+          <Choice>Disabled</Choice>
+        </Choices>
+        <Default>Enabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="CompressItuffLines" descriptions="Will the ituff lines get compressed into DEFLATE32">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Enabled</Choice>
+          <Choice>Disabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="EnablePerRailFailPorts" descriptions="Will each pin under test exit a different port on failure. TM will always exit the port of the first failure">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Enabled</Choice>
+          <Choice>Disabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>4-99</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Per-rail fail port</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>3</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>ALARM PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PATTERN FAILURE PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>LIMITS FAILURE PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

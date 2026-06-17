@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Prime.Services.DffService</id>
+    <version>13.3.7.4</version>
+    <authors>MPE MIT ATE Test Methods</authors>
+    <projectUrl>https://dev.azure.com/mit-us/PRIME</projectUrl>
+    <description>Package Description</description>
+    <releaseNotes>'Merged PR 10583: update Readme on Read/Write Optype Setup'
+'Merged PR 10477: [DFF] Capability to read from UBE in case of duplicates for Dummy Die with ULT as EMPTY'
+'Merged PR 10346: adding DLE check and update the strgval truncate value'
+'Merged PR 10200:  New set of API to search for tokens within VID level. New param for PrimeGetDffTestMethod to utilize new API behavior.'
+'Merged PR 10080: [HDBI][PrimeDffFooterPrintTestMethod] Capability to print MTL into ITUFF'
+'Merged PR 9613: [DFF] Fixed stack die delimiter'
+'Merged PR 9574: Merged PR 9487: [DffService] Fix GetAllWriteableTokensForCurrentOptype error without TIME token rules in MTL'</releaseNotes>
+    <copyright>Copyright (2005) (2025) Intel Corporation</copyright>
+    <repository type="git" url="https://mit-us@dev.azure.com/mit-us/PRIME/_git/PRIME" commit="844be61cd7141529d49e2a33078c0df8b76bd0f9" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.IAlephable" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.PrimeAttributes" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.CallbacksService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DatalogService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FileService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PerformanceService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlatformService.Interface" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionContextMessageIds" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TelemetryService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TpSettingsService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.UserVarService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ValueTuple" version="4.5.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.IAlephable" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.PrimeAttributes" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.CallbacksService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DatalogService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FileService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PerformanceService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlatformService.Interface" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionContextMessageIds" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TelemetryService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TpSettingsService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.UserVarService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ComponentModel.Composition" version="6.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework=".NETFramework4.6.2" />
+    </frameworkAssemblies>
+    <contentFiles>
+      <files include="any/any/__ReferencedDocs/.attachments/image-17d99a00-c14e-408d-a115-337a47fbb0e4.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-1eae33fc-0569-449b-9327-11ee1049827f.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-2b427613-2fdd-4028-9ef8-c9f4ea1b8013.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-6b5a2478-e638-4841-9152-af9ed8474915.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-873bcc17-b790-4453-99c4-d0d626000e98.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-d815beb0-ca2e-43ce-b8fe-e6f29fb73612.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/DffService.md" buildAction="None" />
+    </contentFiles>
+  </metadata>
+</package>

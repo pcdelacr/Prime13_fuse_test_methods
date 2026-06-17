@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.VminNormalizer</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.VminNormalizer.IVminNormalizingHandler">
+            <summary>
+            Dc Printer interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.IVminNormalizingHandler.Initialize(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}},System.String)">
+            <summary>
+            Set the list of corners per domain that their instances will be targeted to do vmin normalizing.
+            </summary>
+            <param name="cornersPerDomains">collection of corner domains.</param>
+            <param name="callbackName">the name of the callback as registered.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.IVminNormalizingHandler.Initialize(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}},System.String,System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Set the list of corners per domain that their instances will be targeted to do vmin normalizing.
+            </summary>
+            <param name="cornersPerDomains">collection of corner domains.</param>
+            <param name="callbackName">the name of the callback as registered.</param>
+            <param name="instancesToIgnore">List of instances to ignore.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.IVminNormalizingHandler.IsCurrentInstanceTargeted(System.String,System.ValueTuple{System.String,System.String,System.Int32}[])">
+            <summary>
+            Checks if the current instance is targeted to do vmin normalizing.
+            </summary>
+            <param name="instanceName">the instance name.</param>
+            <param name="powerDomainCornerFlow">the instance's  domains and corner.</param>
+            <returns>true if the instance is targeted and not a part of the exclude list. else, false.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.IVminNormalizingHandler.Enable">
+            <summary>
+            Enable the Vmin normalizing feature for the TP.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.IVminNormalizingHandler.Disable">
+            <summary>
+            Disable the Vmin normalizing feature for the TP.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.IVminNormalizingHandler.IsEnabled">
+            <summary>
+             Checks if the normalizing feature is enabled.
+            </summary>
+            <returns>true id enabled, else, false.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.IVminNormalizingHandler.Normalize(Prime.BusinessLogic.VminNormalizer.VminNormalizeParameters,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Normalize the vmin using the callback.
+            </summary>
+            <param name="vminNormalizeParametes">object containing the normalizing parameters.</param>
+            <param name="sessionContext">session context.</param>
+            <returns> tuple of lists- ( NormalizedForwardedVmins, fuseVmins).</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.IVminNormalizingHandler.GetVminNormalizeParametersContainer">
+            <summary>
+             Get an empty object of VminNormalizeParameters.
+            </summary>
+            <returns>VminNormalizeParameters object.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.VminNormalizer.VminNormalizeParameters">
+            <summary>
+            VminNormalizeParametes class.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.VminNormalizer.VminNormalizeParameters.PowerDomainCornerFlow">
+            <summary>
+            Gets or sets Domain.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.VminNormalizer.VminNormalizeParameters.InstanceName">
+            <summary>
+            Gets or sets the instance name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.VminNormalizer.VminNormalizeParameters.Temperatures">
+            <summary>
+            Gets or sets the Dts list of values, needs to be as the number of cores.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.VminNormalizer.VminNormalizeParameters.Vmins">
+            <summary>
+            Gets or sets the Vmin to normalize.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.VminNormalizer.VminNormalizeParameters.StepsForCurrentInstance">
+            <summary>
+            Gets or sets the steps for current instance.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.VminNormalizer.VminNormalizeParameters.StepSize">
+            <summary>
+            Gets or sets the Resolution of the steps.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.VminNormalizeParameters.InitializePowerDomainCornerFlow(System.ValueTuple{System.String,System.String,System.Int32}[])">
+            <summary>
+            Initialize the PowerDomainCornerFlows.
+            </summary>
+            <param name="powerDomainCornerFlow">powerDomainCornerFlow.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.VminNormalizer.VminNormalizerStorage">
+            <summary>
+            VminNormalizerStorage class.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.VminNormalizer.VminNormalizerStorage.InstancesToIgnore">
+            <summary>
+            Gets or sets the list containing the instance's names to ignore targeting.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.VminNormalizer.VminNormalizerStorage.CornersPerDomains">
+            <summary>
+            Gets or sets the collection of corners per domains to target- with VminNormalizing feature.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.VminNormalizer.VminNormalizerStorage.IsEnabled">
+            <summary>
+            Gets or sets a value indicating whether VminNormalizing feature is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.VminNormalizer.VminNormalizerStorage.CallbackName">
+            <summary>
+            Gets or sets the callback name.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler">
+            <summary>
+            VminNormalizingHandler.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler"/> class.
+            </summary>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler.Disable">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler.Enable">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler.IsCurrentInstanceTargeted(System.String,System.ValueTuple{System.String,System.String,System.Int32}[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler.IsEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler.Initialize(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler.Initialize(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}},System.String,System.Collections.Generic.HashSet{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler.Normalize(Prime.BusinessLogic.VminNormalizer.VminNormalizeParameters,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.VminNormalizer.VminNormalizingHandler.Prime#BusinessLogic#VminNormalizer#IVminNormalizingHandler#GetVminNormalizeParametersContainer">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

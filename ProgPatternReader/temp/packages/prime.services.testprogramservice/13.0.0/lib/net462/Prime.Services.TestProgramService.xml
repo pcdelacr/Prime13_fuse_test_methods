@@ -1,0 +1,943 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.TestProgramService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestProgramService.FlowControlData">
+            <summary>
+            FlowControlData class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.FlowControlData.#ctor(System.String,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.FlowControlData"/> class.
+            </summary>
+            <param name="domainName">domain name for flowcontrol data.</param>
+            <param name="currentFlowIndex">current flow index.</param>
+            <param name="dffTokenName">dff token name.</param>
+            <param name="useDff">whether or not to use dff.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.FlowControlData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.FlowControlData"/> class.
+            Every object that inserted in to SHaredStorage must have parmeterless c'tor defined.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.FlowControlData.DomainName">
+            <summary>
+            Gets or Sets domain name for flowcontrol data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.FlowControlData.CurrentFlowIndex">
+            <summary>
+            Gets or Sets current flow index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.FlowControlData.DffTokenName">
+            <summary>
+            Gets or Sets dff token name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.FlowControlData.UseDff">
+            <summary>
+            Gets or Sets a value indicating whether or not to use dff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.FlowControlData.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestProgramService.FlowLoopConfiguration">
+            <summary>
+            CallbackWrapper class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.FlowLoopConfiguration.#ctor(Prime.PlatformService.Internal.ILoopConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.FlowLoopConfiguration"/> class.
+            </summary>
+            <param name="loopConfiguration">Object used for constructing the flow loop configuration.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.FlowLoopConfiguration.IsLoopTypeCount">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestProgramService.FlowLoopConfiguration.GetMaxLoop">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestProgramService.FlowLoopConfiguration.GetBreakExpression">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestProgramService.FlowLoopConfiguration.GetResolvedMaxLoopValue">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestProgramService.FlowLoopStatus">
+            <summary>
+            FlowLoopStatus class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.FlowLoopStatus.#ctor(Prime.PlatformService.Internal.ILoopStatus)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.FlowLoopStatus"/> class.
+            </summary>
+            <param name="loopStatusObject">Object used for constructing the flow loop status.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.FlowLoopStatus.GetCompletedLoopCount">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestProgramService.FlowLoopStatus.GetCompletedTimeInSeconds">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestProgramService.FlowLoopStatus.GetTotalLoop">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestProgramService.InstanceNameForMatching">
+            <summary>
+            InstanceNameForMatching class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.InstanceNameForMatching.FlowItemNames">
+            <summary>
+            Gets or sets list of flow item names.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.InstanceNameForMatching.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestProgramService.PortBinInfo">
+            <summary>
+            PortBinInfo class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.PortBinInfo.PortWithBin">
+            <summary>
+            Gets or sets dictionary of port/bin pairs.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.PortBinInfo.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestProgramService.PrimeInitController">
+            <summary>
+            structure which holds all information needed for init.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.PrimeInitController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.PrimeInitController"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.PrimeInitController.IsForceFullInit">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestProgramService.PrimeInitController.IsForceReVerify">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestProgramService.PrimeInitController.IsUserForceFullInit">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestProgramService.PrimeInitControllerWrapper">
+            <summary>
+            structure which holds all information needed for init.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.PrimeInitControllerWrapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.PrimeInitControllerWrapper"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.PrimeInitControllerWrapper.IsForceFullInit">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestProgramService.PrimeInitControllerWrapper.IsForceReVerify">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestProgramService.PrimeInitControllerWrapper.IsUserForceFullInit">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestProgramService.SocketCount">
+            <summary>
+            CallbackWrapper class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.SocketCount.#ctor(System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.SocketCount"/> class.
+            </summary>
+            <param name="dutIndex">DUT index of socket.</param>
+            <param name="unitCount">unit count of socket.</param>
+            <param name="cleanCount">clean count of socket.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.SocketCount.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.SocketCount"/> class.
+            Every object that inserted in to SHaredStorage must have parmeterless c'tor defined.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.SocketCount.DutIndex">
+            <summary>
+            Gets or sets dut index for socket.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.SocketCount.UnitCount">
+            <summary>
+            Gets or sets unit count.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.SocketCount.CleanCount">
+            <summary>
+            Gets or sets clean count.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.SocketCount.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestProgramService.SocketDownData">
+            <summary>
+            CallbackWrapper class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.SocketDownData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.SocketDownData"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.SocketDownData.DutID2SocketDown">
+            <summary>
+            Gets or Sets Dictionary mapping DutId to whether the socket is down.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.SocketDownData.TestOrderGroupCount">
+            <summary>
+            Gets or Sets count for test order group.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.SocketDownData.HasAnySocketDown">
+            <summary>
+            Returns if any socket down data exists.
+            </summary>
+            <returns>Value indicating whether any socket down data exists.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.SocketDownData.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestProgramService.TestProgramServiceStorage">
+            <summary>
+            PortBinInfo class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.TestProgramServiceStorage.StoredSocketDownData">
+            <summary>
+            Gets or sets socketDownData information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.TestProgramServiceStorage.IsDieIdPostExecuteEnabled">
+            <summary>
+            Gets or sets a value indicating whether die id post execute is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.TestProgramServiceStorage.BritaChecksumInstanceNames">
+            <summary>
+            Gets or sets a value indicating whether die id post execute is enabled.
+            </summary>
+        </member>
+        <member name="T:Prime.TestProgramService.TraceFlowItem">
+            <summary>
+            TraceFlowItem class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.TraceFlowItem.#ctor(Prime.PlatformService.ITraceFlowItem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.TraceFlowItem"/> class.
+            </summary>
+            <param name="traceFlowItem">TestPlan trace flow item object.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.TraceFlowItem.GetParent">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TraceFlowItem.GetFlowableName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TraceFlowItem.GetFlowItemName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TraceFlowItem.GetExitPort">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TraceFlowItem.GetBinName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TraceFlowItem.GetCounters">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TraceFlowItem.GetStatuses">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TraceFlowItem.GetUserVars">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestProgramService.Internal.IPrimeInitController">
+            <summary>
+            Provides to control knobs for Prime Init for TT savings.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.Internal.IPrimeInitController.IsForceFullInit">
+            <summary>
+            Gets or sets a value indicating whether forcing full init without any optimizations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.Internal.IPrimeInitController.IsUserForceFullInit">
+            <summary>
+            Gets or sets a value indicating whether the user defined the forcing full init without any optimizations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestProgramService.Internal.IPrimeInitController.IsForceReVerify">
+            <summary>
+            Gets or sets a value indicating whether it should run ForceReVerify or not.
+            </summary>
+        </member>
+        <member name="T:Prime.TestProgramService.Internal.ITestProgramService">
+            <summary>
+            Provides the services related to the test program.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.Internal.ITestProgramService.GetPrimeInitController">
+            <summary>
+            Get the Prime init controller object.
+            </summary>
+            <returns>Priem init controller.</returns>
+        </member>
+        <member name="T:Prime.TestProgramService.ITestProgramService">
+            <summary>
+            Provides the services related to the test program.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.ExecuteTestInstance(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute the given test instance <paramref name="name"/> doing the proper handling of the of the test name (tname) for datalogging used by during that test instance's execution (<paramref name="testNameToOverrideDatalogging"/>).
+            </summary>
+            <param name="name">The name of the test instance to execute.</param>
+            <param name="testNameToOverrideDatalogging">The test name (tname) to use for datalogging during the test instance=[<paramref name="name"/>]'s execution. If it's empty, the service will use the value provided in <paramref name="name"/>.</param>
+            <param name="contextSession">The current/caller context session.</param>
+            <returns>The resulting port of the execution of the test instance=[<paramref name="name"/>].</returns>
+            <example>
+            For example:
+            <code>
+            var instanceToExecute = "calleeTestInstance";
+            var resultPort = Prime.Base.ServiceStore&lt;ITestProgramService&gt;.Service.ExecuteInstanceName(instanceToExecute, $"{instanceToExecute}_firstTime", contextSession);
+            Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.Print($"TestInstance=[{instanceToExecute}] exited port=[{resultPort}] on its first execution");
+            resultPort = Prime.Base.ServiceStore&lt;ITestProgramService&gt;.Service.ExecuteInstanceName(instanceToExecute, $"{instanceToExecute}_secondTime", contextSession);
+            Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.Print($"TestInstance=[{instanceToExecute}] exited port=[{resultPort}] on its second execution");
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.SetBritaChecksumInstanceNames(System.Collections.Generic.List{System.String})">
+            <summary>
+            Sets the list of test instance for Brita's checksum.
+            </summary>
+            <param name="britaChecksumInstanceNames">The list of test instance for Brita's checksum.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetBritaChecksumInstanceNames">
+            <summary>
+            Gets a previously populated list of test instance for Brita's checksum.
+            </summary>
+            <returns>The list of test instance for Brita's checksum.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsSingleDieSortTestFlow">
+            <summary>
+            Returns true if SCVars.SC_TEST_FLOW is set to "SDTSORT", "SDSORT" or "SDSSORT".
+            </summary>
+            <returns>True when is Single Die Sort test flow.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsWaferSortTestFlow">
+            <summary>
+            Returns true if SCVars.SC_TEST_FLOW is set to "SSORT" or "SORT".
+            </summary>
+            <returns>True when is Wafer Sort test flow.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsSortTestFlow">
+            <summary>
+            Returns true if SCVars.SC_TEST_FLOW is set to any type of Sort Test.
+            </summary>
+            <returns>True when is either Single Die Sort or Wafer Sort test flow.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsPackageTestFlow">
+            <summary>
+            Returns true if SCVars.SC_TEST_FLOW is set to any type of Package Test.
+            </summary>
+            <returns>True when in Package Test flow.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsFunctionalClassTestFlow">
+            <summary>
+            Returns true if SCVars.SC_TEST_FLOW is set to "CLASS".
+            </summary>
+            <returns>True when in Functional Class Test flow.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsCombinedClassTestFlow">
+            <summary>
+            Returns true if SCVars.SC_TEST_FLOW is set to "CCLASS".
+            </summary>
+            <returns>True when in Combined Class test flow.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsStructuralClassTestFlow">
+            <summary>
+            Returns true if SCVars.SC_TEST_FLOW is set to "SCLASS".
+            </summary>
+            <returns>True when in Structural Class test flow.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsQaTestFlow">
+            <summary>
+            Returns true if SCVars.SC_TEST_FLOW is set to "QA".
+            </summary>
+            <returns>True when in Quality Assurance test flow.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetCurrentTestInstanceParameter(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets current test instance parameter value.
+            </summary>
+            <param name="parameter">Name of parameter to get.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+            <returns>String representation of parameter value.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetCurrentTestInstanceParameters(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets all parameters for current test instance.
+            </summary>
+            <param name="sessionContext">Current instance's context session.</param>
+            <returns>Dictionary containing all parameters as string pairs [parameter name, parameter value] for current test instance.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetInstanceParameters(System.String,System.String)">
+            <summary>
+            Gets all parameters of specific type and test instance required by user.
+            </summary>
+            <param name="name">Name of the test instance to get parameters for.</param>
+            <param name="type">Parameter type choosed to return parameters.</param>
+            <returns>Dictionary containing all parameters as string pairs [parameter name, parameter value] for chosen test instance and type.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetCurrentInstanceParameters(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets all parameters of specified type in current Instance.
+            </summary>
+            <param name="type">Parameter type choosed to return parameters.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+            <returns>Dictionary containing all parameters as string pairs [parameter name, parameter value] for current parameter and chosen type.type.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetCurrentInstancePlistParameters(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets all Plist parameters for current instance.
+            </summary>
+            <param name="sessionContext">Current instance's context session.</param>
+            <returns>Dictionary containing all Plist parameters as string pairs [parameter name, parameter value] for current test instance.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetCurrentInstanceTimingConditionParameters(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets all Timing Condition parameters for current instance.
+            </summary>
+            <param name="sessionContext">Current instance's context session.</param>
+            <returns>Dictionary containing all TimingC ondition parameters as string pairs [parameter name, parameter value] for current test instance.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetCurrentInstanceLevelsConditionParameters(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets all Levels Condition parameters for current instance.
+            </summary>
+            <param name="sessionContext">Current instance's context session.</param>
+            <returns>Dictionary containing all Levels ondition parameters as string pairs [parameter name, parameter value] for current test instance.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetLoopingStatus(System.String)">
+            <summary>
+            Gets current loop execution status for specified flow item.
+            </summary>
+            <param name="flowItemName">Name of the flow item (flow or test) to be checked upon.</param>
+            <returns>Returns current loop value and total loop value, use GetCurrentLoop and GetTotalLoop to get the information.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.SetLoopConfig(System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            Sets current loop execution status for specified flow item.
+            </summary>
+            <param name="flowItemName">Name of the flow item (flow or test) to be set.</param>
+            <param name="countLoopType">Boolean that shows whether flow loop type is Count (true) or DurationInSeconds (false).</param>
+            <param name="maxLoopValue">Maximum allowed loop value.</param>
+            <param name="breakRangeExpression">Expression to show what exit port range to break out of the loop.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetLoopConfig(System.String)">
+            <summary>
+            Gets current loop execution configuration details for specified flow item.
+            </summary>
+            <param name="flowItemName">Name of the flow item (flow or test) to be checked upon.</param>
+            <returns>Returns loop type, maximum loop value, and break range expression, use IsLoopTypeCount, GetMaxLoop and GetBreakExpression.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetDefinedDutsIndex">
+            <summary>
+            Gets a list of the defined DUTs index.
+            </summary>
+            <returns>A list of the defined DUTs index.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetCurrentEepromSocketSerialNumber">
+            <summary>
+            Gets the current EEPROM socket serial number.
+            </summary>
+            <returns>Current EEPROM socket serial number.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.SetDomainCurrentFlow(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets Domain Flow current flow.
+            </summary>
+            <param name="domainName">Name of the domain to be set.</param>
+            <param name="flowIndex"> Value to be set for the given domain name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetDomainCurrentFlow(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets Domain Flow current flow.
+            </summary>
+            <param name="domainName">Name of the domain to be set.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> Return current flow index for given Domain.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.CreateFlowDomain(System.String,System.Int32,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create Flow Control Domain structure.
+            </summary>
+            <param name="domainName">Name of the domain to be set.</param>
+            <param name="flowIndex">Value of Domain Flow.</param>
+            <param name="dffTokenName">Name of DFF token.</param>
+            <param name="useDff">User DFF token value as Source for Fork.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsDffEnableForDomainFlow(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get if DFF is enabled for a given domain Flow.
+            </summary>
+            <param name="domainName">Name of the domain to be set.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>True if DFF override is enable.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetDffTokenNameForDomainFlow(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get DFF Token Name for a given domain flow.
+            </summary>
+            <param name="domainName">Name of the domain to be set.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>DFF token Name.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetFlowBins">
+            <summary>
+            Gets the bin info of the current flow.
+            </summary>
+            <returns>List of strings that contain the bin info of the current flow.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetFlowStatuses(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the status info of current flow.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A map of flow item name and status of current flow.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetAllFlowTraceData">
+            <summary>
+            Gets all flow trace items.
+            </summary>
+            <returns>List of flow trace items.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.SetFirstFailBin(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the first fail bin from binList and sets it.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetNamesOfAllTestTypeFlowItems">
+            <summary>
+            Gets all instance name with flow type 'Flow'.
+            </summary>
+            <returns>List of strings that contain all instance name.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetNamesOfAllTestTypeTestItems">
+            <summary>
+            Gets all instance name with flow type 'Test'.
+            </summary>
+            <returns>List of strings that contain all instance name.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetInstanceNamesAndPorts">
+            <summary>
+            Gets all instance names and port.
+            </summary>
+            <returns>List of strings that contain instance names and port.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.ConvertToTracePath(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Converts flow items paths to Trace-like paths.
+            </summary>
+            <param name="flow">List of string containing flow item with type 'flow'.</param>
+            <param name="test">List of string containing flow item with type 'test'.</param>
+            <returns>List of strings that contain instance names.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IncrementUnitCountForSite(System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Increments by one the unit count fo the corresponding dutIndex.
+            </summary>
+            <param name="dutIndex">Current dut index.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Total unit count for site incremented by one.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetUnitCountForSite(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the total count by summing up each individual counts for every DUT.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Unsigned integer indicating the accumulative unit count.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetUnitCountForEachSocket(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the total count by summing up each individual counts for every DUT/Socket.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Unsigned integer indicating the accumulative unit count per every socket ID.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetCleanCountForEachSocket(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets all current clean count values for each dutIndex.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A map of dutIndex and clean count value.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsPrimeInstance(System.String)">
+            <summary>
+            Check if the given test class name is for a Prime test instance or not.
+            </summary>
+            <param name="testClassName">The name of the test class to check.</param>
+            <returns>If it's a Prime class name or not.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.InitializeTestOrderGroupCount">
+            <summary>
+            Initialize the SocketDown data for the current lot session.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.ResetTestOrderGroupCountForDut">
+            <summary>
+            Resets struct containing socket down for the corresponding DUT by setting value to false.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.UpdateTestOrderGroupCount">
+            <summary>
+            Updates the test order group count and return its value.
+            </summary>
+            <returns>Integer indicating the test order group count number.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.IsDieIdPostExecuteEnabled">
+            <summary>
+            Gets if the post execute dieId port saving is enabled.
+            </summary>
+            <returns>True if DieId port saving post execute must be executed by test instance kernel.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetPortInfoForInstanceName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets port information for the flow.
+            </summary>
+            <param name="instanceName">Instance name for the flow item.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dictionary of flow item name with list of the ports for the flow item.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.GetBinForCurrentInstancePortNumber(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the bin number for a given port of the current instance.
+            </summary>
+            <param name="portNumber">The port number from which to get the assigned bin.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The assigned bin number for the given instance port.
+            Returns a default value of 0 if bin values have not yet been populated in memory
+            or if the bin value was not found.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITestProgramService.ResetSocketCount(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Resets the new table to store the socket count information per DUT.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.TestProgramService.IFlowLoopConfiguration">
+            <summary>
+            Contains loop type, maximum loop value, and break range expression for specified flow item.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.IFlowLoopConfiguration.IsLoopTypeCount">
+            <summary>
+            Gets the flow loop execution type.
+            </summary>
+            <returns>Returns Count or DurationInSeconds.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.IFlowLoopConfiguration.GetMaxLoop">
+            <summary>
+            Gets the maximum allowed flow loop execution value.
+            </summary>
+            <returns>Returns maximum loop value.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.IFlowLoopConfiguration.GetBreakExpression">
+            <summary>
+            Gets the early exit port range expression.
+            </summary>
+            <returns>Returns break range expression.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.IFlowLoopConfiguration.GetResolvedMaxLoopValue">
+            <summary>
+            Gets the resolved max loop value from the flow loop item.
+            </summary>
+            <returns>The actual max value of the loop.</returns>
+        </member>
+        <member name="T:Prime.TestProgramService.IFlowLoopStatus">
+            <summary>
+            Returns current loop value and total loop value for specified flow item.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.IFlowLoopStatus.GetCompletedLoopCount">
+            <summary>
+            Gets the current loop execution value.
+            </summary>
+            <returns>Returns current loop value.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.IFlowLoopStatus.GetCompletedTimeInSeconds">
+            <summary>
+            Gets the current lapsed time of a loop Flow Item.
+            </summary>
+            <returns>Returns Time in Seconds.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.IFlowLoopStatus.GetTotalLoop">
+            <summary>
+            Gets the total loop execution value.
+            </summary>
+            <returns>Returns total loop value.</returns>
+        </member>
+        <member name="T:Prime.TestProgramService.ITraceFlowItem">
+            <summary>
+            Returns current loop value and total loop value for specified flow item.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.ITraceFlowItem.GetParent">
+            <summary>
+            Gets Parent of flowItem.
+            </summary>
+            <returns>parent name.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITraceFlowItem.GetFlowableName">
+            <summary>
+            Gets flowable name of trace flow item.
+            </summary>
+            <returns>flowable name of trace flow item.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITraceFlowItem.GetFlowItemName">
+            <summary>
+            Gets flow item name.
+            </summary>
+            <returns>Flow item name.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITraceFlowItem.GetExitPort">
+            <summary>
+            Gets exit port for trace flow item.
+            </summary>
+            <returns>exit port.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITraceFlowItem.GetBinName">
+            <summary>
+            Gets bin name for trace flow item.
+            </summary>
+            <returns>Bin Name.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITraceFlowItem.GetCounters">
+            <summary>
+            Gets list of counters for trace flow item.
+            </summary>
+            <returns>List of Counters.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITraceFlowItem.GetStatuses">
+            <summary>
+            Get flow status for trace flow item.
+            </summary>
+            <returns>Status of flow either pass/fail.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.ITraceFlowItem.GetUserVars">
+            <summary>
+            Get user variables for trace flow item.
+            </summary>
+            <returns>Status of flow either pass/fail.</returns>
+        </member>
+        <member name="T:Prime.TestProgramService.TestProgramService">
+            <summary>
+            TestProgramService implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestProgramService.TestProgramService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.ExecuteTestInstance(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.SetBritaChecksumInstanceNames(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetBritaChecksumInstanceNames">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsSingleDieSortTestFlow">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsWaferSortTestFlow">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsSortTestFlow">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsPackageTestFlow">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsFunctionalClassTestFlow">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsCombinedClassTestFlow">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsStructuralClassTestFlow">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsQaTestFlow">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetCurrentTestInstanceParameter(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetCurrentTestInstanceParameters(Prime.SessionService.ISessionContextProviderContainer)">
+            <param name="sessionContext"></param>
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetInstanceParameters(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetCurrentInstanceParameters(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetCurrentInstancePlistParameters(Prime.SessionService.ISessionContextProviderContainer)">
+            <param name="sessionContext"></param>
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetCurrentInstanceTimingConditionParameters(Prime.SessionService.ISessionContextProviderContainer)">
+            <param name="sessionContext"></param>
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetCurrentInstanceLevelsConditionParameters(Prime.SessionService.ISessionContextProviderContainer)">
+            <param name="sessionContext"></param>
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetLoopingStatus(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.SetLoopConfig(System.String,System.Boolean,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetLoopConfig(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetDefinedDutsIndex">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetCurrentEepromSocketSerialNumber">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.SetDomainCurrentFlow(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetDomainCurrentFlow(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.CreateFlowDomain(System.String,System.Int32,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsDffEnableForDomainFlow(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetDffTokenNameForDomainFlow(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetFlowBins">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetFlowStatuses(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetAllFlowTraceData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.SetFirstFailBin(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetNamesOfAllTestTypeFlowItems">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetNamesOfAllTestTypeTestItems">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetInstanceNamesAndPorts">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.ConvertToTracePath(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IncrementUnitCountForSite(System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetUnitCountForSite(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetUnitCountForEachSocket(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetCleanCountForEachSocket(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsPrimeInstance(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.InitializeTestOrderGroupCount">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.ResetTestOrderGroupCountForDut">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.UpdateTestOrderGroupCount">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.IsDieIdPostExecuteEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetPortInfoForInstanceName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetBinForCurrentInstancePortNumber(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.ResetSocketCount(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetPrimeInitController">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetAlephFilesRegEx">
+            <summary>
+            Gets files RegEx.
+            </summary>
+            <returns>Always empty.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.GetAlephInitPriority">
+            <summary>
+            Gets Aleph priority.
+            </summary>
+            <returns>Always medium.</returns>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.AlephInit(System.Collections.Generic.List{System.String})">
+            <summary>
+            Aleph init.
+            </summary>
+            <param name="alephFiles">Files.</param>
+        </member>
+        <member name="M:Prime.TestProgramService.TestProgramService.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

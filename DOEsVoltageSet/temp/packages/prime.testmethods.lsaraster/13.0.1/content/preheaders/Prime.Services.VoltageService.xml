@@ -1,0 +1,2384 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.VoltageService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.VoltageService.Base.ConsoleLogger">
+            <summary>
+            Utility methods for the whole service.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ConsoleLogger.LogPinVoltageAppliedValues(System.Collections.Generic.Dictionary{System.String,System.Double},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs the applied pin voltage values to the console.
+            </summary>
+            <param name="appliedValues">Applied voltage values.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ConsoleLogger.LogFivrAppliedDomains(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain},System.Collections.Generic.List{System.Double},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs the applied Fivr domains to the console.
+            </summary>
+            <param name="patModConfig">pattern modify configuration.</param>
+            <param name="domainNames">Applied domain names.</param>
+            <param name="domains">Applied domains.</param>
+            <param name="values">Applied values.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ConsoleLogger.LogTimingAttributesAppliedValues(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs the applied timing attributes values to the console.
+            </summary>
+            <param name="appliedValues">Applied values.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.VoltageService.Base.ExpressionManager">
+            <summary>
+            In charge of managing expression related logic.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ExpressionManager.#ctor(System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.IReadOnlyCollection{System.String},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Base.ExpressionManager"/> class.
+            </summary>
+            <param name="expressions">Expressions to support.</param>
+            <param name="symbols">Possible symbols in the expressions.</param>
+            <param name="expressionName">Expression name to use.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ExpressionManager.SetActiveExpression(System.String)">
+            <summary>
+            Sets an active expression via a name.
+            </summary>
+            <param name="expressionName">Expression to use.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ExpressionManager.ResolveDoubleExpression(System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <summary>
+            Resolved expression with provided values.
+            </summary>
+            <param name="resolvedValueForSymbol">Values for each symbol.</param>
+            <returns>Resolved expression value.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ExpressionManager.ResolveBoolExpression(System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <summary>
+            Resolves a boolean expression.
+            </summary>
+            <param name="resolvedValueForSymbol">Values for each symbol.</param>
+            <returns>Resolved expression value.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.Base.ExtensionMethods">
+            <summary>
+            Adds useful Extension methods for the service.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ExtensionMethods.TryGetIndexOf``1(System.Collections.Generic.List{``0},``0,System.Int32@)">
+            <summary>
+            Tries to get the index of a value in a List.
+            </summary>
+            <typeparam name="T">Type.</typeparam>
+            <param name="list">List.</param>
+            <param name="valueToFind">Value to find.</param>
+            <param name="index">Index.</param>
+            <returns>True if value was found.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.Base.RepeatedHandler">
+            <summary>
+            Class to manage one to one relationship (by index) between a list of names and values, where some names
+            could be repeated.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Base.RepeatedHandler.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Base.RepeatedHandler"/> class.
+            </summary>
+            <param name="allNames">Target names.</param>
+        </member>
+        <member name="P:Prime.VoltageService.Base.RepeatedHandler.UniqueNames">
+            <summary>
+            Gets Unique names.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Base.RepeatedHandler.GetResolvedValues(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Gets the proper resolved values.
+            </summary>
+            <param name="values">Input values to resolve.</param>
+            <returns>Filtered and fixed value list.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Throws if list of values is bigger than expected value size.</exception>
+        </member>
+        <member name="T:Prime.VoltageService.Base.Utility">
+            <summary>
+            Utility methods for the whole service.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Base.Utility.AreDoubleValuesEqual(System.Double,System.Double)">
+            <summary>
+            Indicates if two double values are equal or not.
+            </summary>
+            <param name="value1">Value1.</param>
+            <param name="value2">Value2.</param>
+            <returns>True if equal.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Base.Utility.HasRepeated``1(System.Collections.Generic.ICollection{``0})">
+            <summary>
+            Returns true if a list of elements has repeated elements.
+            </summary>
+            <typeparam name="T">Type of list.</typeparam>
+            <param name="elements">Elements.</param>
+            <returns>True if repeated found.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Base.Utility.GetRepeatedBinaryString(System.Int32,System.String)">
+            <summary>
+            Gets a binary string repeated n times.
+            </summary>
+            <param name="repeatValue">Times to repeat string.</param>
+            <param name="binaryValue">Binary string.</param>
+            <returns>New binary string repeated n times.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Base.Utility.GetBinaryValue(System.Int64,System.Int32)">
+            <summary>
+            Converts a long value to binary string. Will cut resulting binary string if its too long.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <param name="maximumSize">Maximum size of binary string.</param>
+            <returns>Binary string of maximum of expected size.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Base.Utility.PadBinaryStringToSize(System.String,System.Int32)">
+            <summary>
+            Takes a binary string and fits it to a final size by padding with leading 0s.
+            </summary>
+            <param name="binaryString">Binary string.</param>
+            <param name="size">Size to fit into.</param>
+            <returns>New binary string.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Base.Utility.GetCommonItemList``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Takes two lists and returns the common items between them as a list.
+            </summary>
+            <typeparam name="T">Type of list.</typeparam>
+            <param name="list1">List1.</param>
+            <param name="list2">List2.</param>
+            <returns>List of common items.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.Base.ValueRecord">
+            <summary>
+            ValueRecord class keeps tracks of target values and attributes.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ValueRecord.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Base.ValueRecord"/> class.
+            </summary>
+            <param name="targetNames">Target names to keep track of.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ValueRecord.ClearAll">
+            <summary>
+            Clears all ValueRecord information.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ValueRecord.RecordAppliedVoltages(System.Collections.Generic.List{Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain},System.Collections.Generic.List{System.Double})">
+            <summary>
+            Records list of applied domain values.
+            </summary>
+            <param name="domains">Domain name.</param>
+            <param name="voltages">Voltage values.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ValueRecord.AddNewTargetFromReference(System.String,System.String)">
+            <summary>
+            Adds a new target from a reference.
+            </summary>
+            <param name="target">Target.</param>
+            <param name="reference">Reference.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ValueRecord.GetAppliedValuePerTarget">
+            <summary>
+            Returns.
+            </summary>
+            <returns>Values per Target.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ValueRecord.RecordAppliedValue(System.String,System.Double)">
+            <summary>
+            Records an applied value.
+            </summary>
+            <param name="target">Target name.</param>
+            <param name="value">Value applied.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ValueRecord.RecordAppliedTimingAttributeValue(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Records applied timing attribute values.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <param name="appliedValues">Applied value dictionary.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ValueRecord.GetTargetReferenceList">
+            <summary>
+            Gets list of target reference list.
+            </summary>
+            <returns>Target reference list.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ValueRecord.GetAppliedTimingAttributesValuesPerPin">
+            <summary>
+            Gets the applied timing attributes per pin.
+            </summary>
+            <returns>Dictionary with applied timing attributes per pin.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Base.ValueRecord.GetVoltageTargetNames">
+            <summary>
+            Gets voltage target names.
+            </summary>
+            <returns>List with voltage target names.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.ConditionConfigurationHandler">
+            <summary>
+            Handles condition configuration.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.ConditionConfigurationHandler.#ctor(Prime.SharedStorageService.Internal.IUnsafeRow{Prime.VoltageService.ConfigurationFiles.Structures.Conditions.ConditionConfiguration},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.ConditionConfigurationHandler"/> class.
+            </summary>
+            <param name="unsafeRow">Unsafe row to get info from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.ConditionConfigurationHandler.ConditionExists(System.String)">
+            <summary>
+            Checks if if a condition exists.
+            </summary>
+            <param name="condition">Condition name.</param>
+            <returns>True if exists.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.ConditionConfigurationHandler.GetDomainData(System.String)">
+            <summary>
+            Gets the domain data for a given condition name.
+            </summary>
+            <param name="condition">Condition name.</param>
+            <returns>Domain data for given condition name.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Throw if not found.</exception>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Parser">
+            <summary>
+            Configuration files, parser class.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.ConfigurationFiles.Parser.ParseConditionConfiguration(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Loads a configuration object from all the files.
+            </summary>
+            <param name="filesContents">The files contents.</param>
+            <returns>The configuration object.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.ConfigurationFiles.Parser.ParseDomainFiles(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Loads a configuration object from all the files.
+            </summary>
+            <param name="filesContents">The files contents.</param>
+            <returns>The configuration object.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.Condition">
+            <summary>
+            Json serializing class for condition object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.Condition.Name">
+            <summary>
+            Gets or sets name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.Condition.Domains">
+            <summary>
+            Gets or sets domains.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.ConditionConfiguration">
+            <summary>
+            Json serializing class for condition configuration object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.ConditionConfiguration.Conditions">
+            <summary>
+            Gets or sets condition information.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.DomainData">
+            <summary>
+            Json serializing class for domain data object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.DomainData.Name">
+            <summary>
+            Gets or sets name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.DomainData.Voltage">
+            <summary>
+            Gets or sets voltage.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.DomainData.GuardBand">
+            <summary>
+            Gets or sets guard band.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.VoltageSource">
+            <summary>
+            Json serializing class for voltage object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.VoltageSource.Type">
+            <summary>
+            Gets or sets type.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Conditions.VoltageSource.Value">
+            <summary>
+            Gets or sets value.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Attribute">
+            <summary>
+            Json serializing class for attribute object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Attribute.Name">
+            <summary>
+            Gets or sets attribute name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Attribute.Expression">
+            <summary>
+            Gets or sets expression.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Attribute.StepSize">
+            <summary>
+            Gets or sets the step size.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.ConditionalPatternModify">
+            <summary>
+            Supports conditional pattern Modify.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.ConditionalPatternModify.PatternModifyName">
+            <summary>
+            Gets or sets PatternModifyName.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.ConditionalPatternModify.Module">
+            <summary>
+            Gets or sets module name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.ConditionalPatternModify.Group">
+            <summary>
+            Gets or sets group.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.ConditionalPatternModify.Selector">
+            <summary>
+            Gets or sets selector.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.ConditionalPatternModify.SetPointForTrue">
+            <summary>
+            Gets or sets SetPointForTrue.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.ConditionalPatternModify.SetPointForFalse">
+            <summary>
+            Gets or sets SetPointForFalse.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DacCalibration">
+            <summary>
+            Json serializing class for DAC calibration.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DacCalibration.Slope">
+            <summary>
+            Gets or sets the slope.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DacCalibration.Offset">
+            <summary>
+            Gets or sets the offset.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DisabledDomains">
+            <summary>
+            Json serializing class for Disabled domains.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DisabledDomains.Type">
+            <summary>
+            Gets or sets type.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DisabledDomains.Value">
+            <summary>
+            Gets or sets value.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DlvrPin">
+            <summary>
+            Json serializing class for Dlvr pin object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DlvrPin.PinName">
+            <summary>
+            Gets or sets pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DlvrPin.VoltageExpressions">
+            <summary>
+            Gets or sets voltage expressions.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DlvrPin.MinValue">
+            <summary>
+            Gets or sets min value.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DlvrPin.MaxValue">
+            <summary>
+            Gets or sets max value.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DlvrPin.StepSize">
+            <summary>
+            Gets or sets step size.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain">
+            <summary>
+            Json serializing class for domain object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain.IsEnabled">
+            <summary>
+            Gets or sets a value indicating whether Domain is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain.Name">
+            <summary>
+            Gets or sets domain name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain.DefaultValue">
+            <summary>
+            Gets or sets default value.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain.DpsPinName">
+            <summary>
+            Gets or sets the dps pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain.PatternModify">
+            <summary>
+            Gets or sets the Pattern modify.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain.DacCalibration">
+            <summary>
+            Gets or sets the DAC calibration.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain.IsFivrDomain">
+            <summary>
+            Indicates if the domain is of Fivr type.
+            </summary>
+            <returns>True if domain is Fivr type.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration">
+            <summary>
+            Json serializing class for Domain configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration.DisabledDomains">
+            <summary>
+            Gets or sets disabled domains.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration.Domains">
+            <summary>
+            Gets or sets Domains.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration.DomainGroups">
+            <summary>
+            Gets or sets domain groups.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration.DlvrPins">
+            <summary>
+            Gets or sets Dlvr pins.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration.TimingAttributes">
+            <summary>
+            Gets or sets timing attributes.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration.PatternModify">
+            <summary>
+            Gets or sets conditional pattern modifies.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainGroup">
+            <summary>
+            Json serializing class for domain group.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainGroup.Name">
+            <summary>
+            Gets or sets the domain group names.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainGroup.DomainNames">
+            <summary>
+            Gets or sets the domain names.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainPatternModify">
+            <summary>
+            Json serializing class for Domain pattern modify.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainPatternModify.InitialVoltage">
+            <summary>
+            Gets or sets the initial voltage.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainPatternModify.Offset">
+            <summary>
+            Gets or sets the offset.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.InitialVoltage">
+            <summary>
+            Json serializing class for initial voltage object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.InitialVoltage.Multiplier">
+            <summary>
+            Gets or sets the multiplier value.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.InitialVoltage.Configuration">
+            <summary>
+            Gets or sets configuration name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.InitialVoltage.NumberOfTargets">
+            <summary>
+            Gets or sets the number of targets.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.InitialVoltage.PatternRegex">
+            <summary>
+            Gets or sets PatternRegex.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Offset">
+            <summary>
+            Json serializing class for offset object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Offset.Type">
+            <summary>
+            Gets or sets the Type.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Offset.MagnitudeConfiguration">
+            <summary>
+            Gets or sets the magnitude configuration name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Offset.MagnitudePatternRegex">
+            <summary>
+            Gets or sets the magnitude pattern regex.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Offset.SignConfiguration">
+            <summary>
+            Gets or sets the sign configuration name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Offset.SignPatternRegex">
+            <summary>
+            Gets or sets the sign pattern regex.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Offset.SignInversion">
+            <summary>
+            Gets or sets sign inversion.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Offset.InvertSign">
+            <summary>
+            Gets a value indicating whether to invert sign when calculating binary fuse value.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Offset.IsSingleOffSetConfig">
+            <summary>
+            Indicates of the offset has only one configuration.
+            </summary>
+            <returns>True if no sign is used.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.ConfigurationFiles.Structures.Domains.Offset.IsOffsetConfiguration">
+            <summary>
+            Indicates if there is an offset configuration available.
+            </summary>
+            <returns>True if offset available.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.RequiredAttribute">
+            <summary>
+            Json serializing class for attribute object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.RequiredAttribute.Name">
+            <summary>
+            Gets or sets attribute name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.RequiredAttribute.Value">
+            <summary>
+            Gets or sets expression.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.TimingAttribute">
+            <summary>
+            Json serializing class for timing attribute object.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.TimingAttribute.PinName">
+            <summary>
+            Gets or sets the pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.TimingAttribute.Domain">
+            <summary>
+            Gets or sets the domain name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.TimingAttribute.Attributes">
+            <summary>
+            Gets or sets attributes.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.TimingAttribute.RequiredAttributes">
+            <summary>
+            Gets or sets required attributes.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Structures.Domains.VoltageExpression">
+            <summary>
+            Json serializing class for voltage expression.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.VoltageExpression.ExpressionName">
+            <summary>
+            Gets or sets expression name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ConfigurationFiles.Structures.Domains.VoltageExpression.ExpressionValue">
+            <summary>
+            Gets or sets expression value.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.ConfigurationFiles.Validator">
+            <summary>
+            Validates input file information.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.ConfigurationFiles.Validator.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.ConfigurationFiles.Validator"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.ConfigurationFiles.Validator.ValidateConditionConfiguration(Prime.VoltageService.ConfigurationFiles.Structures.Conditions.ConditionConfiguration,Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration)">
+            <summary>
+            Validates condition configuration information is correct and valid.
+            </summary>
+            <param name="conditionConfig">Condition configuration.</param>
+            <param name="domainConfig">Domain configuration.</param>
+        </member>
+        <member name="M:Prime.VoltageService.ConfigurationFiles.Validator.ValidateDomainConfiguration(Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration)">
+            <summary>
+            Validates the domain configuration information is correct and valid.
+            </summary>
+            <param name="configuration">Domain configuration.</param>
+        </member>
+        <member name="M:Prime.VoltageService.ConfigurationFiles.Validator.ValidateRailConfiguration(Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration)">
+            <summary>
+            Validates Rail related configurations.
+            </summary>
+            <param name="configuration">Domain configuration.</param>
+        </member>
+        <member name="T:Prime.VoltageService.DomainConfigurationHandler">
+            <summary>
+            Wraps DomainConfiguration object and provide utility methods to access the domain configuration information.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.DomainConfigurationHandler.#ctor(Prime.SharedStorageService.Internal.IUnsafeRow{Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.DomainConfigurationHandler"/> class.
+            </summary>
+            <param name="unsafeRow">Unsafe row to get info from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.VoltageService.DomainConfigurationHandler.DomainConfig">
+            <summary>
+            Gets domainConfig.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.DomainConfigurationHandler.DomainExists(System.String)">
+            <summary>
+            Returns whether a domain exists or not.
+            </summary>
+            <param name="domainName">Domain name to find.</param>
+            <returns>True if domain exists.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.DomainConfigurationHandler.IsDomainEnabled(System.String)">
+            <summary>
+            Returns whether a domain is enabled or not.
+            </summary>
+            <param name="domainName">Domain name to check.</param>
+            <returns>True if enabled.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.DomainConfigurationHandler.GetDomain(System.String)">
+            <summary>
+            Returns a domain found via its name.
+            </summary>
+            <param name="domainName">Domain to get.</param>
+            <returns>Domain object.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.DomainConfigurationHandler.IsDomainGroup(System.String)">
+            <summary>
+            Returns if a name is a domainGroup or not.
+            </summary>
+            <param name="name">Name to check.</param>
+            <returns>True if name is a domain group.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.DomainConfigurationHandler.GetDomainList(System.String)">
+            <summary>
+            Gets the domain list of a given domain group name.
+            </summary>
+            <param name="domainGroupName">Domain group name.</param>
+            <returns>List of domain names in the group.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.DomainConfigurationHandler.GetAllDomainGroups">
+            <summary>
+            Gets all domain groups available.
+            </summary>
+            <returns>All domain groups.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.DomainConfigurationHandler.TryGetDomainGroup(System.String,Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainGroup@)">
+            <summary>
+            Tries to get a Domain group. Bool is true if found and out var is not null.
+            </summary>
+            <param name="domainGroupName">Domain group to find.</param>
+            <param name="foundGroup">Found group.</param>
+            <returns>Domain group.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.DomainConfigurationHandler.GetDomainGroupName(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Gets the domain group name of a given domain name and a list of possible domainGroups.
+            </summary>
+            <param name="domainName">Domain name to find group name of.</param>
+            <param name="possibleDomainGroups">List of possible domain groups.</param>
+            <returns>Group name of the domain if found, otherwise empty.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.DomainConfigurationHandler.GetDomainsByInitialPatMod(System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Gets the domains filtered by an initial PatMod.
+            </summary>
+            <param name="initialPatMods">Initial PatMods to filter.</param>
+            <returns>Filtered domains.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.FIVR.Base.DomainExecutionData">
+            <summary>
+            Class intended to manage and prepare FIVR domain's data for execution of the voltage values.
+            This class resolves:
+                - Grouping of dependent domains.
+                - Managing of negative input values.
+                - Repeated domains.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.DomainExecutionData.#ctor(System.Collections.Generic.List{System.String},Prime.VoltageService.DomainConfigurationHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.FIVR.Base.DomainExecutionData"/> class.
+            </summary>
+            <param name="domainNames">Domain names.</param>
+            <param name="handler">Domain handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.Base.DomainExecutionData.DomainValues">
+            <summary>
+            Gets or sets list of domain values.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.DomainExecutionData.GetConfigurationNames">
+            <summary>
+            Gets the configurations and regex names.
+            </summary>
+            <returns>List of configuration and regex pairs.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.DomainExecutionData.GetDomainNames">
+            <summary>
+            Gets list of domain names.
+            </summary>
+            <returns>List of domain names.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.DomainExecutionData.GetDomainsPerPatModConfig">
+            <summary>
+            Gets domains per patmod configuration.
+            </summary>
+            <returns>List of patpod and domains.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.DomainExecutionData.SetDomainValues(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Sets up the domain values right before applying.
+            Does some processing to make sure values are proper.
+            </summary>
+            <param name="values">Values to apply.</param>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.DomainExecutionData.GetCurrentResolvedValuesPerDomain">
+            <summary>
+            Gets the current values for each domain. This filters domain groups and disabled domains.
+            </summary>
+            <returns>Resolved values per domain.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.DomainExecutionData.UpdateValues(System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <summary>
+            Updates values with a new set of values based on domain name.
+            </summary>
+            <param name="targetAndNewValue">Dictionary of domain name and new value.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If a target is not valid.</exception>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.DomainExecutionData.GetTargetDomains">
+            <summary>
+            `Target domains` does not mean that the returned domains are all the indicated by the
+            initialDomainFilter parameter. The latter is the base of the target domains, because domain groups
+            and other domains, that share the same initial voltage patmod config, are considered too.
+            </summary>
+            <returns>List of target domains.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.FIVR.Base.FivrVoltageBase">
+            <summary>
+            Basic functionality used by all Fivr objects.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.FivrVoltageBase.#ctor(System.Collections.Generic.List{System.String},Prime.VoltageService.DomainConfigurationHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.FIVR.Base.FivrVoltageBase"/> class.
+            </summary>
+            <param name="targetDomains">Target domains.</param>
+            <param name="handler">Domain configuration handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.Base.FivrVoltageBase.ValueRecord">
+            <summary>
+            Gets or sets value record.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.FivrVoltageBase.ApplyDomains(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Double},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain}})">
+            <summary>
+            Applies domains.
+            </summary>
+            <param name="domainNames">Domain names to apply.</param>
+            <param name="domainValues">Domain values to apply.</param>
+            <param name="domainListPerPatModConfig">Domains for each patMod config.</param>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.Base.FivrVoltageBase.PopulateConfigHandlers(System.Collections.Generic.List{System.Tuple{System.String,System.String}},System.String)">
+            <summary>
+            Populates the configuration handlers from patConfig.
+            </summary>
+            <param name="configurations">Configuration names.</param>
+            <param name="plist">Plist.</param>
+        </member>
+        <member name="T:Prime.VoltageService.FIVR.DataStructures.FivrDomainFuseValue">
+            <summary>
+            Contains domain information related to the fuse values to set.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.DataStructures.FivrDomainFuseValue.InitialValue">
+            <summary>
+            Gets or sets initial value.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.DataStructures.FivrDomainFuseValue.OffsetSign">
+            <summary>
+            Gets or sets a value indicating whether offset sign is positive or negative.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.DataStructures.FivrDomainFuseValue.InvertOffsetSign">
+            <summary>
+            Gets or sets a value indicating whether offset sign should be inverted..
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.DataStructures.FivrDomainFuseValue.OffsetMagnitude">
+            <summary>
+            Gets or sets offset fuse magnitude.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.DataStructures.FivrDomainFuseValue.Domain">
+            <summary>
+            Gets or sets a domain value.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters">
+            <summary>
+            Contains parameters for creating Fivr Objects.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters.TargetDomains">
+            <summary>
+            Gets or sets TargetDomains.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters.TargetDomainsToRecord">
+            <summary>
+            Gets or sets TargetDomainsToRecord.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters.Voltages">
+            <summary>
+            Gets or sets Voltages.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters.GuardBands">
+            <summary>
+            Gets or sets Guardbands.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters.Plist">
+            <summary>
+            Gets or sets plist.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.FIVR.FivrCondition">
+            <summary>
+            Fivr Condition object.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrCondition.#ctor(Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters,Prime.VoltageService.DomainConfigurationHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.FIVR.FivrCondition"/> class.
+            </summary>
+            <param name="fivrObjectParameters">Fivr input params.</param>
+            <param name="handler">Domain configuration handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrCondition.Prime#VoltageService#IVoltage#GetAppliedValuesPerTarget">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrCondition.Prime#VoltageService#IVoltage#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrCondition.Prime#VoltageService#IVoltage#Restore">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrCondition.Prime#VoltageService#IFivrCondition#ApplyConditionWithOverride(System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrCondition.Prime#VoltageService#IFivrCondition#ApplyCondition">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrCondition.Prime#VoltageService#IFivrCondition#GetCurrentResolvedValuesPerDomain">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.VoltageService.FIVR.FivrDomain">
+            <summary>
+            Fivr Domain class.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomain.#ctor(Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters,Prime.VoltageService.DomainConfigurationHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.FIVR.FivrDomain"/> class.
+            </summary>
+            <param name="fivrDomainParams">Input parameters.</param>
+            <param name="handler">Domain configuration handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomain.Prime#VoltageService#IFivrDomains#Apply(System.Collections.Generic.List{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomain.Prime#VoltageService#IVoltage#GetAppliedValuesPerTarget">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomain.Prime#VoltageService#IVoltage#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomain.Prime#VoltageService#IVoltage#Restore">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails">
+            <summary>
+            Supports FivrDomains and conditions with the use of rails.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails.#ctor(Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters,Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters,Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters,Prime.VoltageService.DomainConfigurationHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails"/> class.
+            </summary>
+            <param name="fivrDomainParams">Fivr domain params.</param>
+            <param name="fivrObjectParameters">Fivr conditions params.</param>
+            <param name="railParams">Rail params.</param>
+            <param name="handler">Domain condition handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails.GetAppliedValuesPerTarget">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails.Restore">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails.Apply(System.Collections.Generic.List{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails.OverrideDlvrExpression(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails.ApplyConditionWithOverride(System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails.ApplyCondition">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainAndConditionWithRails.GetCurrentResolvedValuesPerDomain">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.VoltageService.FIVR.FivrDomainExecutor">
+            <summary>
+            Class in charge of executing FivrDomains.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainExecutor.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.FIVR.FivrDomainExecutor"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainExecutor.PopulateConfigHandlers(System.Collections.Generic.List{System.Tuple{System.String,System.String}},System.String)">
+            <summary>
+            Populates the configuration handlers required for the pattern modifications.
+            </summary>
+            <param name="configurations">Configurations.</param>
+            <param name="plist">Plist for handlers.</param>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainExecutor.CalculateFuseValues(System.Collections.Generic.List{Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain},System.Collections.Generic.List{System.Double})">
+            <summary>
+            Calculates Fuse values for given domains and values.
+            Methodology varies if independent domains or dependent.
+            </summary>
+            <param name="domainList">List of domains.</param>
+            <param name="values">Values.</param>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainExecutor.ApplyFuseValues">
+            <summary>
+            Applies the calculated fuse values.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainExecutor.Reset">
+            <summary>
+            Resets.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainExecutor.GetFuseValuesForDomain(System.String)">
+            <summary>
+            Get the fuse values for the given domain name.
+            </summary>
+            <param name="domainName">domain name.</param>
+            <returns>Fivr domain fuse values.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainExecutor.GetCalibratedValueForSingleFuse(System.Int32,System.Int64,System.Boolean)">
+            <summary>
+            FIVR in 7nm uses a single fuse which the value to apply needs to be calibrated.
+            Currently a single fuse means 7nm FIVR is in use.
+            Example:
+            8 bits for a 7nm fuse. DAC value should be calibrated to the medium value hence
+            max value of 8 bits is 256 and medium or half would be 128.
+            128 is the calibration value.
+            Hence formula is 2 power of N bits - 1.
+            </summary>
+            <param name="fuseSize">Fuse size in bits.</param>
+            <param name="value">Value to calibrate.</param>
+            <param name="sign">Current sign of input value. Positive or negative.</param>
+            <returns>Calibrated value for single fuse (7nm FIVR).</returns>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainExecutor.GetBinaryString(System.Int64,System.Int32,System.Int32)">
+            <summary>
+            Gets a binary string for a given value into a desired size. Resulting string can be repeated on demand.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <param name="desiredSize">Desired size for binary string.</param>
+            <param name="repeatValue">Number of repeats, should be 1 for most cases.</param>
+            <returns>Value converted to binary string.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.FIVR.FivrDomainsAndCondition">
+            <summary>
+            Class supports both Fivr domain and Fivr condition capabilities.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainsAndCondition.#ctor(Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters,Prime.VoltageService.FIVR.DataStructures.FivrObjectParameters,Prime.VoltageService.DomainConfigurationHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.FIVR.FivrDomainsAndCondition"/> class.
+            </summary>
+            <param name="fivrDomainParameters">Parameters for domain object.</param>
+            <param name="fivrConditionParameters">Parameter for Condition object.</param>
+            <param name="handler">Domain configuration handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainsAndCondition.Prime#VoltageService#IFivrDomains#Apply(System.Collections.Generic.List{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainsAndCondition.Prime#VoltageService#IFivrCondition#ApplyCondition">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainsAndCondition.Prime#VoltageService#IFivrCondition#ApplyConditionWithOverride(System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainsAndCondition.Prime#VoltageService#IVoltage#GetAppliedValuesPerTarget">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainsAndCondition.Prime#VoltageService#IFivrCondition#GetCurrentResolvedValuesPerDomain">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainsAndCondition.Prime#VoltageService#IVoltage#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrDomainsAndCondition.Prime#VoltageService#IVoltage#Restore">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.VoltageService.FIVR.FivrFusesCalculator">
+            <summary>
+            Class is in charge of calculating fuse values for FIVR.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrFusesCalculator.GetFuseValuesForIndependentDomains(Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Calculates a Fuse for the case when domains are independent.
+            </summary>
+            <param name="domain">Independent domain.</param>
+            <param name="value">Value to use for fuse.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>FivrFuse object with appropriate values.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrFusesCalculator.GetFuseValuesUsingVidOffsetMethod(Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain,System.Double,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Calculates fuse values for a dependent domain that requires VID offset methodology.
+            </summary>
+            <param name="domain">Domain.</param>
+            <param name="voltageValueForInitialFuse">Value of initial fuse.</param>
+            <param name="forceVoltageValue">Value actually desired for this Fivr.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>FivrDomainFuse configured using VID methodology.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.FIVR.FivrFusesCalculator.GetFuseValuesUsingCalibrationOffsetMethod(Prime.VoltageService.ConfigurationFiles.Structures.Domains.Domain,System.Double,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Calculates fuse values for a dependent domain that requires CALIBRATION offset methodology.
+            </summary>
+            <param name="domain">Domain.</param>
+            <param name="voltageValueForInitialFuse">Value of initial fuse.</param>
+            <param name="forceVoltageValue">Value actually desired for this Fivr.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>FivrDomainFuse configured using CALIBRATION methodology.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.Internal.IVoltageService">
+            <summary>
+            Prime Internal usages of VoltageService.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.IVoltageService">
+            <summary>
+            Handles all voltages applications to the DUT(DPS, VDAC, FIVR, DLVR, etc..)
+            <para>For deeper details of this service, see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?pagePath=/Prime Customer Wiki/Releases/RELEASE_PLACEHOLDER/VoltageService">the sdk</a>.</para>
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="N:Prime.ConsoleService"/></item>
+            <item><see cref="N:Prime.FileService"/></item>
+            <item><see cref="N:Prime.PinService"/></item>
+            <item><see cref="N:Prime.PlatformService"/></item>
+            <item><see cref="N:Prime.PlistService"/></item>
+            <item><see cref="N:Prime.SharedStorageService"/></item>
+            <item><see cref="N:Prime.UserVarService"/></item>
+            <item><see cref="N:Prime.PatConfigService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateVForceForPinAttribute(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS voltage test object to apply voltages to dps pins.
+            </summary>
+            <param name="pinNames">A list containing the names of the DPS pins.</param>
+            <param name="attributes">The attributes and its values per pin to apply with the application of the VForce.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttribute object configured to provided <paramref name="pinNames"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Missing attributes for a pin. Empty pin list. A pin does not exist.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Parameters are hard-coded only to simplify the example. This should be avoided.
+            List&lt;string&gt; pinNames = new List&lt;string>{ "PinOne", "PinTwo"};
+            Dictionary&lt;string, Dictionary&lt;string, string>> attributes= new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"PinOne", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"PinTwo", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            var dpsObject = Prime.Base.ServiceStore&lt;IVoltageService>.CreateVForceForPinAttribute(pinNames, attributes, someSessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateVForceForPinTestCondition(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS voltage object to modify a provided test condition voltage value for the given pins.
+            </summary>
+            <param name="pinNames">A list containing the names of the DPS pins.</param>
+            <param name="attributes">The attributes and its values per pin to apply with the application of the VForce.</param>
+            <param name="testConditionName">Test condition name to modify.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttribute object configured to provided <paramref name="pinNames"/> and <paramref name="testConditionName"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Missing attributes for a pin. Empty pin list. A pin does not exist. Test condition does not exist.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Parameters are hard-coded only to simplify the example. This should be avoided.
+            List&lt;string&gt; pinNames = new List&lt;string>{ "PinOne", "PinTwo"};
+            var testConditionName = "someDpsCondition";
+            Dictionary&lt;string, Dictionary&lt;string, string>> attributes= new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"PinOne", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"PinTwo", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            var dpsObject = Prime.Base.ServiceStore&lt;IVoltageService>.CreateVForceForPinAttribute(pinNames, attributes, testConditionName, someSessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateFivrForDomains(System.Collections.Generic.List{System.String},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new FIVR voltage test object to apply voltages to FIVR domains or domain groups.
+            </summary>
+            <param name="domainNames">A list containing the FIVR domain names.</param>
+            <param name="plist">Plist name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IFivrDomains object to the FIVR features from the VoltageService <seealso cref="T:Prime.VoltageService.IFivrDomains"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Plist does not exist. Domain does not exist. Domain group does not exist. Empty list of domains.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Parameters are hard-coded only to simplify the example. This should be avoided.
+            List&lt;string&gt; domainNames = new List&lt;string&gt;{ "SA", "CORE0", "RING0" };
+            string plist = "PlistName";
+            var fivrForDomains= Prime.Base.ServiceStore&lt;IVoltageService>.CreateFivrForDomains(domainNames, plist, someSessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateFivrForCondition(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new FIVR voltage test object to apply voltages to FIVR domains specified in the FIVR condition definition.
+            </summary>
+            <param name="conditionName">FIVR condition name.</param>
+            <param name="plist">Plist name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IFivrCondition object to the FIVR features from the VoltageService <seealso cref="T:Prime.VoltageService.IFivrCondition"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Plist does not exist. Condition name does not exist.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            var fivrConditionName = "CORE_SAFE_VALUE";
+            string plist = "PlistName";
+            var fivrForDomains= Prime.Base.ServiceStore&lt;IVoltageService>.CreateFivrForCondition(fivrConditionName, plist, someSessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateFivrForDomainsAndCondition(System.Collections.Generic.List{System.String},System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new FIVR voltage test object to apply voltages to FIVR domains and supports targeting a FIVR condition.
+            </summary>
+            <param name="domainNames">A list containing the FIVR domain names.</param>
+            <param name="conditionName">FIVR condition name.</param>
+            <param name="plist">Plist name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IFivrDomainsAndCondition interface to the FIVR features from the VoltageService <seealso cref="T:Prime.VoltageService.IFivrDomainsAndCondition"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Plist does not exist. Condition name does not exist. Domain does not exist. Domain group does not exist. Domain list empty.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            var fivrConditionName = "CORE_SAFE_VALUE";
+            List&lt;string&gt; domainNames = new List&lt;string&gt;{ "SA", "CORE0", "RING0" };
+            string plist = "PlistName";
+            var fivrForDomains= Prime.Base.ServiceStore&lt;IVoltageService>.CreateFivrForDomainsAndCondition(domainNames, fivrConditionName, plist, someSessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateFivrDomainsAndConditionWithRails(System.Collections.Generic.List{System.String},System.String,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new FIVR voltage test object to apply FIVR domains, targeting a FIVR condition and supports applying rails configurations.
+            </summary>
+            <param name="domainNames">A list containing the FIVR domain names.</param>
+            <param name="conditionName">FIVR condition name.</param>
+            <param name="plist">Plist name.</param>
+            <param name="railConfigurationNames">A list containing the rail configuration names.</param>
+            <param name="dlvrPinAttributes">Pin attributes for every dlvr pin.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IFivrDomainsAndConditionWithRails object to the FIVR features from the VoltageService <seealso cref="T:Prime.VoltageService.IFivrDomainsAndConditionWithRails"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Plist does not exist. Condition name does not exist. Domain does not exist. Domain group does not exist. Domain list empty. Rail configuration does not exist. Missing pin attributes for DLVR.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            List&lt;string&gt; domainNames = new List&lt;string&gt;{ "SA", "CORE0", "RING0" };
+            string plist = "PlistName";
+            string conditionName = "ALL_DOMAINS";
+            List&lt;string&gt; railConfigurationNames = new List&lt;string&gt;{"PinOne", "ConfigSetPointOne", "PinTwo"};
+            Dictionary&lt;string, Dictionary&lt;string, string>> dlvrPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+            {"PinOne", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"PinTwo", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }}};
+            this.domainObjectWithConditionAndRailSupport = Prime.Base.ServiceStore&lt;IVoltageService>.CreateFivrDomainsAndConditionWithRails(domainNames, conditionName, plist, railConfigurationNames, dlvrPinAttributes, someSessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateFivrDomainsAndConditionWithRails(System.Collections.Generic.List{System.String},System.String,System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new FIVR voltage test object to apply FIVR domains, targeting a FIVR condition and supports applying rails configurations as long as DLVR are not used.
+            </summary>
+            <param name="domainNames">A list containing the FIVR domain names.</param>
+            <param name="conditionName">FIVR condition name.</param>
+            <param name="plist">Plist name.</param>
+            <param name="railConfigurationNames">A list containing the rail configuration names except DLVR.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IFivrDomainsAndConditionWithRails object to the FIVR features from the VoltageService <seealso cref="T:Prime.VoltageService.IFivrDomainsAndConditionWithRails"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Plist does not exist. Condition name does not exist. Domain does not exist. Domain group does not exist. Domain list empty. Rail configuration does not exist. Using a DLVR configuration..</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            List&lt;string> domainNames = new List&lt;string>{ "SA", "CORE0", "RING0" };
+            string plist = "PlistName";
+            string conditionName = "ALL_DOMAINS";
+            List&lt;string> railConfigurationNames = new List&lt;string>{"ConfigSetPointOne", "TimingPin"};
+            var domainObjectWithConditionAndRailSupport = Prime.Base.ServiceStore&lt;IVoltageService>.CreateFivrDomainsAndConditionWithRails(domainNames, conditionName, plist, railConfigurationNames, someSessionContext);
+            </code>
+            </example>
+            DVLR rail configurations are not supported due to not providing the necessary pin attributes. Method is meant to be used when DLVR are not needed.
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateVForceForPinAttributeWithRails(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS domain voltage object to apply DPS domains and applying rail configurations.
+            </summary>
+            <param name="domainNames">A list containing the DPS domain names.</param>
+            <param name="plist">Plist name.</param>
+            <param name="domainPinAttributes">Domain pin attributes.</param>
+            <param name="railConfigurationNames">A list containing the rail configuration names.</param>
+            <param name="dlvrPinAttributes">Dlvr pin attributes.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttributeWithRails interface to the DPS features from the VoltageService <seealso cref="T:Prime.VoltageService.IVForcePinAttributeWithRails"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Domain does not exist. Plist does not exist. Domain pin attributes missing. Rail configurations do not exist. Missing DLVR attributes.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            List&lt;string> domainNames = new List&lt;string>{ "DPS1", "DPS2", "DPS3" };
+            var plist = "PLIST";
+            List&lt;string> railConfigurationNames = new List&lt;string>{"PinOne", "ConfigSetPointOne", "PinTwo"};
+            Dictionary&lt;string, Dictionary&lt;string, string>> dlvrPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"PinOne", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"PinTwo", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            Dictionary&lt;string, Dictionary&lt;string, string>> domainPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"DomainPin1", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"DomainPin2", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            this.dpsDomainObjectWithRailSupport = Prime.Base.ServiceStore&lt;IVoltageService>.CreateVForcePinAttributeWithRails(domainNames, plist, domainPinAttributes, railConfigurationNames, dlvrPinAttributes, someSessionContext);
+            </code>
+            </example>
+            This is meant to be used with DPS domains only. DPS domains are defined in the domain input file to the service. They work similar to a DPS pin but also support DPS domain groups.
+            <para>Plist allows the rail conditional pattern modify to be only done on the provided plist.</para>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateVForceForPinAttributeWithRails(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS domain voltage object to apply DPS domains and applying rail configurations as long as DLVR is not used.
+            </summary>
+            <param name="domainNames">A list containing the DPS domain names.</param>
+            <param name="plist">Plist name.</param>
+            <param name="domainPinAttributes">Domain pin attributes.</param>
+            <param name="railConfigurationNames">A list containing the rail configuration names.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttributeWithRails interface to the DPS features from the VoltageService <seealso cref="T:Prime.VoltageService.IVForcePinAttributeWithRails"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Domain does not exist. Plist does not exist. Domain pin attributes missing. Rail configurations do not exist. Using DLVR rail configuration.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            List&lt;string> domainNames = new List&lt;string>{ "DPS1", "DPS2", "DPS3" };
+            var plist = "PLIST";
+            List&lt;string> railConfigurationNames = new List&lt;string>{"ConfigSetPointOne", "Timing0"};
+            Dictionary&lt;string, Dictionary&lt;string, string>> domainPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"DomainPin1", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"DomainPin2", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            this.dpsDomainObjectWithRailSupport = Prime.Base.ServiceStore&lt;IVoltageService>.CreateVForcePinAttributeWithRails(domainNames, plist, domainPinAttributes, railConfigurationNames, someSessionContext);
+            </code>
+            </example>
+            This is meant to be used with DPS domains only. DPS domains are defined in the domain input file to the service. They work similar to a DPS pin but also support DPS domain groups.
+            <para>Plist allows the rail conditional pattern modify to be only done on the provided plist.</para>
+            <para>Does not support DLVR since no pin attributes are provided for DLVR.</para>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateVForceForPinAttributeWithRails(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS domain voltage object to apply DPS domains and applying rail configurations.
+            </summary>
+            <param name="domainNames">A list containing the DPS domain names.</param>
+            <param name="domainPinAttributes">Domain pin attributes.</param>
+            <param name="railConfigurationNames">A list containing the rail configuration names.</param>
+            <param name="dlvrPinAttributes">Dlvr pin attributes.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttributeWithRails interface to the DPS features from the VoltageService <seealso cref="T:Prime.VoltageService.IVForcePinAttributeWithRails"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Domain does not exist. Domain pin attributes missing. Rail configurations do not exist. Missing DLVR attributes.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            List&lt;string> domainNames = new List&lt;string>{ "DPS1", "DPS2", "DPS3" };
+            List&lt;string> railConfigurationNames = new List&lt;string>{"PinOne", "ConfigSetPointOne", "PinTwo"};
+            Dictionary&lt;string, Dictionary&lt;string, string>> dlvrPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"PinOne", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"PinTwo", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            Dictionary&lt;string, Dictionary&lt;string, string>> domainPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"DomainPin1", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"DomainPin2", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            this.dpsDomainObjectWithRailSupport = Prime.Base.ServiceStore&lt;IVoltageService>.CreateVForcePinAttributeWithRails(domainNames, domainPinAttributes, railConfigurationNames, dlvrPinAttributes, someSessionContext);
+            </code>
+            </example>
+            This is meant to be used with DPS domains only. DPS domains are defined in the domain input file to the service. They work similar to a DPS pin but also support DPS domain groups.
+            <para>No plist is provided so if conditional pattern modifies are used they will affect all patterns they are configured to modify. Refer to <see cref="N:Prime.PatConfigService"/> for more details.</para>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateVForceForPinAttributeWithRails(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS domain voltage object to apply DPS domains and applying rail configurations as long as DLVR is not used.
+            </summary>
+            <param name="domainNames">A list containing the DPS domain names.</param>
+            <param name="domainPinAttributes">Domain pin attributes.</param>
+            <param name="railConfigurationNames">A list containing the rail configuration names.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttributeWithRails interface to the DPS features from the VoltageService <seealso cref="T:Prime.VoltageService.IVForcePinAttributeWithRails"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Domain does not exist. Domain pin attributes missing. Rail configurations do not exist. Using DLVR rail configuration.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            List&lt;string> domainNames = new List&lt;string>{ "DPS1", "DPS2", "DPS3" };
+            List&lt;string> railConfigurationNames = new List&lt;string>{"ConfigSetPointOne", "Timing0"};
+            Dictionary&lt;string, Dictionary&lt;string, string>> domainPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"DomainPin1", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"DomainPin2", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            var dpsDomainObjectWithRailSupport = Prime.Base.ServiceStore&lt;IVoltageService>.CreateVForcePinAttributeWithRails(domainNames, domainPinAttributes, railConfigurationNames, someSessionContext);
+            </code>
+            </example>
+            This is meant to be used with DPS domains only. DPS domains are defined in the domain input file to the service. They work similar to a DPS pin but also support DPS domain groups.
+            <para>Plist allows the rail conditional pattern modify to be only done on the provided plist.</para>
+            <para>Does not support DLVR since no pin attributes are provided for DLVR.</para>
+            <para>No plist is provided so if conditional pattern modifies are used they will affect all patterns they are configured to modify. Refer to <see cref="N:Prime.PatConfigService"/> for more details.</para>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateVForceForPinTestConditionWithRails(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS domain voltage object to apply DPS domains to edit a test condition voltage value. Supports applying rail configurations.
+            </summary>
+            <param name="domainNames">A list containing the DPS domain names.</param>
+            <param name="plist">Plist name.</param>
+            <param name="domainPinAttributes">Domain pin attributes.</param>
+            <param name="testCondition">Test condition name.</param>
+            <param name="railConfigurationNames">A list containing the rail configuration names.</param>
+            <param name="dlvrPinAttributes">Dlvr pin attributes.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttributeWithRails interface to the DPS features from the VoltageService <seealso cref="T:Prime.VoltageService.IVForcePinAttributeWithRails"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Domain does not exist. Plist does not exist. Domain pin attributes missing. Test condition does not exist. Rail configurations do not exist. Missing DLVR attributes..</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            List&lt;string> domainNames = new List&lt;string>{ "DPS1", "DPS2", "DPS3" };
+            var plist = "PLIST";
+            var testCondition = "TestCondition";
+            List&lt;string> railConfigurationNames = new List&lt;string>{"PinOne", "ConfigSetPointOne", "PinTwo"};
+            Dictionary&lt;string, Dictionary&lt;string, string>> dlvrPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"PinOne", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"PinTwo", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            Dictionary&lt;string, Dictionary&lt;string, string>> domainPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"DomainPin1", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"DomainPin2", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            this.dpsDomainObjectWithRailSupport = Prime.Base.ServiceStore&lt;IVoltageService>.CreateVForceForPinTestConditionWithRails(domainNames, plist, domainPinAttributes, testCondition, railConfigurationNames, dlvrPinAttributes, someSessionContext);
+            </code>
+            </example>
+            This is meant to be used with DPS domains only. DPS domains are defined in the domain input file to the service. They work similar to a DPS pin but also support DPS domain groups.
+            <para>Plist allows the rail conditional pattern modify to be only done on the provided plist.</para>
+            <para>Test condition will be modified, similar to <see cref="M:Prime.VoltageService.IVoltageService.CreateVForceForPinTestCondition(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,Prime.SessionService.ISessionContextProviderContainer)"/> use case.</para>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateVForceForPinTestConditionWithRails(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS domain voltage object to apply DPS domains to edit a test condition voltage value. Supports applying rail configurations except DLVR.
+            </summary>
+            <param name="domainNames">A list containing the DPS domain names.</param>
+            <param name="plist">Plist name.</param>
+            <param name="domainPinAttributes">Domain pin attributes.</param>
+            <param name="testCondition">Test condition name.</param>
+            <param name="railConfigurationNames">A list containing the rail configuration names.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttributeWithRails interface to the DPS features from the VoltageService <seealso cref="T:Prime.VoltageService.IVForcePinAttributeWithRails"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Domain does not exist. Plist does not exist. Domain pin attributes missing. Test condition does not exist. Rail configurations do not exist.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            List&lt;string> domainNames = new List&lt;string>{ "DPS1", "DPS2", "DPS3" };
+            var plist = "PLIST";
+            var testCondition = "TestCondition";
+            List&lt;string> railConfigurationNames = new List&lt;string>{"PinOne", "ConfigSetPointOne", "PinTwo"};
+            Dictionary&lt;string, Dictionary&lt;string, string>> domainPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"DomainPin1", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"DomainPin2", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            this.dpsDomainObjectWithRailSupport = Prime.Base.ServiceStore&lt;IVoltageService>.CreateVForceForPinTestConditionWithRails(domainNames, plist, domainPinAttributes, testCondition, railConfigurationNames, someSessionContext);
+            </code>
+            </example>
+            This is meant to be used with DPS domains only. DPS domains are defined in the domain input file to the service. They work similar to a DPS pin but also support DPS domain groups.
+            <para>Plist allows the rail conditional pattern modify to be only done on the provided plist.</para>
+            <para>Test condition will be modified, similar to <see cref="M:Prime.VoltageService.IVoltageService.CreateVForceForPinTestCondition(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,Prime.SessionService.ISessionContextProviderContainer)"/> use case.</para>
+            <para>Does not support DLVR since no pin attributes are provided for DLVR.</para>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateVForceForPinTestConditionWithRails(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS domain voltage object to apply DPS domains to edit a test condition voltage value. Supports applying rail configurations.
+            </summary>
+            <param name="domainNames">A list containing the DPS domain names.</param>
+            <param name="domainPinAttributes">Domain pin attributes.</param>
+            <param name="testCondition">Test condition name.</param>
+            <param name="railConfigurationNames">A list containing the rail configuration names.</param>
+            <param name="dlvrPinAttributes">Dlvr pin attributes.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttributeWithRails interface to the DPS features from the VoltageService <seealso cref="T:Prime.VoltageService.IVForcePinAttributeWithRails"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Domain does not exist. Domain pin attributes missing. Test condition does not exist. Rail configurations do not exist. Missing DLVR attributes..</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            List&lt;string> domainNames = new List&lt;string>{ "DPS1", "DPS2", "DPS3" };
+            var testCondition = "TestCondition";
+            List&lt;string> railConfigurationNames = new List&lt;string>{"PinOne", "ConfigSetPointOne", "PinTwo"};
+            Dictionary&lt;string, Dictionary&lt;string, string>> dlvrPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"PinOne", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"PinTwo", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            Dictionary&lt;string, Dictionary&lt;string, string>> domainPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"DomainPin1", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"DomainPin2", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            this.dpsDomainObjectWithRailSupport = Prime.Base.ServiceStore&lt;IVoltageService>.CreateVForceForPinTestConditionWithRails(domainNames, domainPinAttributes, testCondition, railConfigurationNames, dlvrPinAttributes, someSessionContext);
+            </code>
+            </example>
+            This is meant to be used with DPS domains only. DPS domains are defined in the domain input file to the service. They work similar to a DPS pin but also support DPS domain groups.
+            <para>Plist allows the rail conditional pattern modify to be only done on the provided plist.</para>
+            <para>Test condition will be modified, similar to <see cref="M:Prime.VoltageService.IVoltageService.CreateVForceForPinTestCondition(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,Prime.SessionService.ISessionContextProviderContainer)"/> use case.</para>
+            <para>No plist is provided so if conditional pattern modifies are used they will affect all patterns they are configured to modify. Refer to <see cref="N:Prime.PatConfigService"/> for more details.</para>
+            </remarks>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltageService.CreateVForceForPinTestConditionWithRails(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS domain voltage object to apply DPS domains to edit a test condition voltage value. Supports applying rail configurations except DLVR configurations.
+            </summary>
+            <param name="domainNames">A list containing the DPS domain names.</param>
+            <param name="domainPinAttributes">Domain pin attributes.</param>
+            <param name="testCondition">Test condition name.</param>
+            <param name="railConfigurationNames">A list containing the rail configuration names.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttributeWithRails interface to the DPS features from the VoltageService <seealso cref="T:Prime.VoltageService.IVForcePinAttributeWithRails"/>.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Domain does not exist. Domain pin attributes missing. Test condition does not exist. Rail configurations do not exist..</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            List&lt;string> domainNames = new List&lt;string>{ "DPS1", "DPS2", "DPS3" };
+            var testCondition = "TestCondition";
+            List&lt;string> railConfigurationNames = new List&lt;string>{"PinOne", "ConfigSetPointOne", "PinTwo"};
+            Dictionary&lt;string, Dictionary&lt;string, string>> domainPinAttributes = new Dictionary&lt;string, Dictionary&lt;string, string>>{
+                {"DomainPin1", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            {"DomainPin2", { "AtributeNameOne", "AtributeValueOne" }, { "AtributeNameTwo", "AtributeValueTwo" }},
+            };
+            this.dpsDomainObjectWithRailSupport = Prime.Base.ServiceStore&lt;IVoltageService>.CreateVForceForPinTestConditionWithRails(domainNames, domainPinAttributes, testCondition, railConfigurationNames, someSessionContext);
+            </code>
+            </example>
+            This is meant to be used with DPS domains only. DPS domains are defined in the domain input file to the service. They work similar to a DPS pin but also support DPS domain groups.
+            <para>Plist allows the rail conditional pattern modify to be only done on the provided plist.</para>
+            <para>Test condition will be modified, similar to <see cref="M:Prime.VoltageService.IVoltageService.CreateVForceForPinTestCondition(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,Prime.SessionService.ISessionContextProviderContainer)"/> use case.</para>
+            <para>No plist is provided so if conditional pattern modifies are used they will affect all patterns they are configured to modify. Refer to <see cref="N:Prime.PatConfigService"/> for more details.</para>
+            <para>Does not support DLVR since no pin attributes are provided for DLVR.</para>
+            </remarks>
+        </member>
+        <member name="T:Prime.VoltageService.IVoltage">
+            <summary>
+            A voltage test object to apply voltages to dps pins or domains.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltage.GetAppliedValuesPerTarget">
+            <summary>
+            Gets the applied value per target.
+            </summary>
+            <returns>The applied value per target.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltage.Reset">
+            <summary>
+            Reset the calculated or saved data from the previous applies.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.IVoltage.Restore">
+            <summary>
+            Restore the voltages to the initial values (when the test object was created).
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.IVForcePinAttribute">
+            <summary>
+            A voltage test object to apply voltages to dps pins or domains.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.IVForcePinAttribute.Apply(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Applies the specified list of voltages to the corresponding pins or domains.
+            </summary>
+            <param name="values">Voltage values for the pin or domain.</param>
+        </member>
+        <member name="M:Prime.VoltageService.IVForcePinAttribute.GetRestoreValues">
+            <summary>
+            Returns the current restore values for the corresponding pins.
+            </summary>
+            <returns>The restore values per pin.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.IFivrDomains">
+            <summary>
+            A voltage test object to apply voltages to dps pins or domains.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.IFivrDomains.Apply(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Applies the specified list of voltages to the corresponding pins or domains.
+            </summary>
+            <param name="values">Voltage values for the pin or domain.</param>
+        </member>
+        <member name="T:Prime.VoltageService.IFivrCondition">
+            <summary>
+            A voltage test object to apply voltages to domains.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.IFivrCondition.ApplyConditionWithOverride(System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <summary>
+            Applies the specified list of voltages to the corresponding domains. This method can override the
+            values specified in the configuration file.
+            </summary>
+            <param name="values">Values by domain name to override.</param>
+        </member>
+        <member name="M:Prime.VoltageService.IFivrCondition.ApplyCondition">
+            <summary>
+            Applies the voltages indicated in the FIVR condition.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.IFivrCondition.GetCurrentResolvedValuesPerDomain">
+            <summary>
+            Gets the current resolved value per domain considering guardband values.
+            </summary>
+            <returns>The resolved value per domain.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.IFivrDomainsAndCondition">
+            <summary>
+            A voltage test object to apply voltages to domains.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.IFivrDomainsAndConditionWithRails">
+            <summary>
+            A voltage test object to apply voltages to domains, conditions and executes a rail configuration.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.IFivrDomainsAndConditionWithRails.OverrideDlvrExpression(System.String,System.String)">
+            <summary>
+            Changes the expression name of a DLVR pin to the new given expression via name.
+            </summary>
+            <param name="expressionName">Expression name.</param>
+            <param name="pinName">Dlvr pin name.</param>
+        </member>
+        <member name="T:Prime.VoltageService.IVForcePinAttributeWithRails">
+            <summary>
+            Creates a new DPS voltage test object with rail configurations.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.IVForcePinAttributeWithRails.OverrideDlvrExpression(System.String,System.String)">
+            <summary>
+            Changes the expression name of a DLVR pin to the new given expression via name.
+            </summary>
+            <param name="expressionName">Expression name.</param>
+            <param name="pinName">Dlvr pin name.</param>
+        </member>
+        <member name="T:Prime.VoltageService.Pin.Base.DpsTestConditionVoltage">
+            <summary>
+            Dps.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsTestConditionVoltage.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Pin.Base.DpsTestConditionVoltage"/> class.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <param name="pinAttributes">Pin attributes needed for VForce.</param>
+            <param name="testCondition">Test condition name.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsTestConditionVoltage.ApplyMethodology(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.VoltageService.Pin.Base.DpsVForceVoltage">
+            <summary>
+            Dps.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsVForceVoltage.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Pin.Base.DpsVForceVoltage"/> class.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <param name="pinAttributes">Pin attributes.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsVForceVoltage.ApplyMethodology(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.VoltageService.Pin.Base.DpsVoltageBase">
+            <summary>
+            Basic voltage handler class for pins.
+            </summary>
+        </member>
+        <member name="F:Prime.VoltageService.Pin.Base.DpsVoltageBase.VForceAttribute">
+            <summary>
+            String contains the VForce attribute name as a string.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsVoltageBase.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Pin.Base.DpsVoltageBase"/> class.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <param name="pinAttributes">Pin attribute.</param>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.Base.DpsVoltageBase.RestoreValue">
+            <summary>
+            Gets the restore value.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.Base.DpsVoltageBase.CurrentValue">
+            <summary>
+            Gets the current value.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.Base.DpsVoltageBase.PinName">
+            <summary>
+            Gets PinName.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.Base.DpsVoltageBase.PinAttributes">
+            <summary>
+            Gets PinAttributes.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsVoltageBase.Clean">
+            <summary>
+            Cleans the object values.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsVoltageBase.Apply(System.Double)">
+            <summary>
+            Applies the given value if its not already applied.
+            </summary>
+            <param name="value">Input value to apply.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsVoltageBase.ApplyMethodology(System.Double)">
+            <summary>
+            Defines the apply methodology to be used. to be defined by inheriting classes.
+            </summary>
+            <param name="valueToApply">Value to apply.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsVoltageBase.GetRestoreValueInitialState">
+            <summary>
+            Gets restore value but forcing initial state check in case it was not done already.
+            </summary>
+            <returns>Restore value.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsVoltageBase.Restore">
+            <summary>
+            Restores VForce value to the restore value.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsVoltageBase.ApplyVForcePinAttribute(System.Double)">
+            <summary>
+            Applies voltage via setting the VForce attribute to the DPS pin.
+            </summary>
+            <param name="value">Voltage value to apply.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.DpsVoltageBase.SetInitialState">
+            <summary>
+            Only set up the initial value if nothing has been applied before.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.Pin.Base.IDpsVoltage">
+            <summary>
+            Common interface for Dps voltage objects.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.Base.IDpsVoltage.PinName">
+            <summary>
+            Gets Pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.Base.IDpsVoltage.CurrentValue">
+            <summary>
+            Gets current value.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.Base.IDpsVoltage.RestoreValue">
+            <summary>
+            Gets restore value.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.IDpsVoltage.Apply(System.Double)">
+            <summary>
+            Applies the given value if its not already applied.
+            </summary>
+            <param name="value">Input value to apply.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.IDpsVoltage.GetRestoreValueInitialState">
+            <summary>
+            Gets restore value but forcing initial state check in case it was not done already.
+            </summary>
+            <returns>Restore value.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.IDpsVoltage.Restore">
+            <summary>
+            Restores VForce value to the restore value.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.Base.IDpsVoltage.Clean">
+            <summary>
+            Cleans the object values.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.Pin.DataStructures.DpsObjectParameters">
+            <summary>
+            Dps object parameters.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.DataStructures.DpsObjectParameters.#ctor(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Pin.DataStructures.DpsObjectParameters"/> class.
+            </summary>
+            <param name="pinNames">Pin names.</param>
+            <param name="pinAttributes">Pin attributes.</param>
+            <param name="dpsDomainList">Dps domain list.</param>
+            <param name="dpsDomainsPerGroup">Dps domain per group.</param>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.DataStructures.DpsObjectParameters.PinNameList">
+            <summary>
+            Gets pinName list.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.DataStructures.DpsObjectParameters.DpsDomainList">
+            <summary>
+            Gets DpsDomainList.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.DataStructures.DpsObjectParameters.DomainGroupSize">
+            <summary>
+            Gets DomainGroupSize.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.DataStructures.DpsObjectParameters.PinAttributes">
+            <summary>
+            Gets PinAttributes.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.Pin.DataStructures.PinWithRailsParameters">
+            <summary>
+            Parameter bag for Pin with Rails.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.DataStructures.PinWithRailsParameters.#ctor(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Pin.DataStructures.PinWithRailsParameters"/> class.
+            </summary>
+            <param name="domainNames">DomainNames.</param>
+            <param name="plist">Plist.</param>
+            <param name="domainPinAttributes">DomainPinAttributes.</param>
+            <param name="railConfigurationNames">RailConfigurationNames.</param>
+            <param name="dlvrPinAttributes">DlvrPinAttributes.</param>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.DataStructures.PinWithRailsParameters.DomainNames">
+            <summary>
+            Gets DomainNames.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.DataStructures.PinWithRailsParameters.Plist">
+            <summary>
+            Gets Plist.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.DataStructures.PinWithRailsParameters.DomainPinAttributes">
+            <summary>
+            Gets DomainPinAttributes.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.DataStructures.PinWithRailsParameters.RailConfigurationNames">
+            <summary>
+            Gets RailConfigurationNames.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.DataStructures.PinWithRailsParameters.DlvrPinAttributes">
+            <summary>
+            Gets DlvrPinAttributes.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.DataStructures.PinWithRailsParameters.TestCondition">
+            <summary>
+            Gets or sets TestCondition.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.Pin.PinVoltageContainer">
+            <summary>
+            Supports applying voltage values to a DPS pin.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.Pin.PinVoltageContainer.ValueRecord">
+            <summary>
+            Gets or sets valueRecord.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainer.CreateVForceForPinAttribute(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new DPS voltage test object to apply voltages to dps pins.
+            </summary>
+            <param name="pinNames">A list containing the names of the DPS pins.</param>
+            <param name="attributes">The attributes and its values per pin to apply with the application of the VForce.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttribute interface to the DPS features from the VoltageService.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainer.CreateVForceForPinTestCondition(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new TestCondition voltage test object to apply the voltage value of a TestCondition.
+            </summary>
+            <param name="pinNames">A list containing the names of the pins to which the voltage must be applied to.</param>
+            <param name="attributes">The attributes and its values per pin to apply with the application of the VForce.</param>
+            <param name="testConditionName">The name of the test condition to apply.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>IVForcePinAttribute interface to the TestCondition features from the VoltageService.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainer.Apply(System.Collections.Generic.List{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainer.GetAppliedValuesPerTarget">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainer.GetRestoreValues">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainer.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainer.Restore">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.VoltageService.Pin.PinVoltageContainerWithRail">
+            <summary>
+            Supports DPS pins with rails.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainerWithRail.#ctor(Prime.VoltageService.ValueRecordParameters,Prime.VoltageService.Pin.DataStructures.DpsObjectParameters,Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters,System.String,Prime.VoltageService.DomainConfigurationHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Pin.PinVoltageContainerWithRail"/> class.
+            </summary>
+            <param name="recordParameters">Record parameters.</param>
+            <param name="dpsObjectParameters">Dps object parameters.</param>
+            <param name="railParameters">Rail parameters.</param>
+            <param name="testCondition">Test condition name.</param>
+            <param name="handler">Domain configuration handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainerWithRail.CreateVForcePinTestConditionWithRails(Prime.VoltageService.ValueRecordParameters,Prime.VoltageService.Pin.DataStructures.DpsObjectParameters,Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters,System.String,Prime.VoltageService.DomainConfigurationHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Pin.PinVoltageContainerWithRail"/> class.
+            </summary>
+            <param name="recordParameters">Record parameters.</param>
+            <param name="dpsObjectParameters">Dps object parameters.</param>
+            <param name="railParameters">Rail parameters.</param>
+            <param name="testCondition">Test condition name.</param>
+            <param name="handler">Domain configuration handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>PinVoltageContainerWithRail using test condition.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainerWithRail.CreateVForcePinAttributeWithRails(Prime.VoltageService.ValueRecordParameters,Prime.VoltageService.Pin.DataStructures.DpsObjectParameters,Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters,Prime.VoltageService.DomainConfigurationHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.Pin.PinVoltageContainerWithRail"/> class.
+            </summary>
+            <param name="recordParameters">Record parameters.</param>
+            <param name="dpsObjectParameters">Dps object parameters.</param>
+            <param name="railParameters">Rail parameters.</param>
+            <param name="handler">Domain configuration handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>PinVoltageContainerWithRail using pin attribute.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainerWithRail.Apply(System.Collections.Generic.List{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainerWithRail.Restore">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainerWithRail.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainerWithRail.OverrideDlvrExpression(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainerWithRail.GetRestoreValues">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.Pin.PinVoltageContainerWithRail.GetAppliedValuesPerTarget">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters">
+            <summary>
+            Configuration Parameters for Rails.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters.#ctor(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters"/> class.
+            </summary>
+            <param name="plist">Plist.</param>
+            <param name="railConfigurations">Rail configurations.</param>
+            <param name="pinAttributes">Pin attributes.</param>
+            <param name="verifyPlistForRail">Verify for plist.</param>
+        </member>
+        <member name="P:Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters.RailConfigurations">
+            <summary>
+            Gets RailConfigs.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters.Plist">
+            <summary>
+            Gets Plist.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters.PinAttributes">
+            <summary>
+            Gets PinAttributes.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters.VerifyPlistForRail">
+            <summary>
+            Gets a value indicating whether to check the Plist.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.RailConfigurations.DlvrHandler">
+            <summary>
+            Dlvr Handler.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.DlvrHandler.#ctor(System.Collections.Generic.IReadOnlyCollection{Prime.VoltageService.ConfigurationFiles.Structures.Domains.DlvrPin},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.RailConfigurations.DlvrHandler"/> class.
+            </summary>
+            <param name="configurations">Dlvr configurations available.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.DlvrHandler.SetPinNames(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},Prime.VoltageService.Base.ValueRecord)">
+            <summary>
+            Sets the active pin names and their attributes.
+            </summary>
+            <param name="pinNames">Pin names.</param>
+            <param name="attributes">Pin required attributes.</param>
+            <param name="symbols">Possible symbols for the expressions.</param>
+            <param name="valueRecord">Value record reference.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Throw if pin configuration isn't found.</exception>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.DlvrHandler.SetActiveDlvrExpression(System.String,System.String)">
+            <summary>
+            Activates a dlvr expression for a given pin name.
+            </summary>
+            <param name="pinName">PinName or dlvr name.</param>
+            <param name="expressionName">Expression name to use.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Throw if pin name doesn't exist or no expressions found.</exception>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.DlvrHandler.Restore">
+            <summary>
+            Restores the Dps values for the handler.
+            </summary>
+            <returns>Values post restore action.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.DlvrHandler.Reset">
+            <summary>
+            Resets object.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.DlvrHandler.Execute(System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <summary>
+            Executes and applies the desired values to the DLVR.
+            </summary>
+            <param name="appliedValueTokens">Previously applied tokens.</param>
+            <returns>New applied values.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.DlvrHandler.DoesDlvrExist(System.String)">
+            <summary>
+            Checks if a configuration exists.
+            </summary>
+            <param name="dlvrName">Config name to check if it exists.</param>
+            <returns>True if exists.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.DlvrHandler.HasActiveConfigurations">
+            <summary>
+            Indicates whether there are any active configurations.
+            </summary>
+            <returns>True if yes.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.RailConfigurations.PatternModifyHandler">
+            <summary>
+            Supports conditional pattern modify logic.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.PatternModifyHandler.#ctor(System.Collections.Generic.IEnumerable{Prime.VoltageService.ConfigurationFiles.Structures.Domains.ConditionalPatternModify},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.RailConfigurations.PatternModifyHandler"/> class.
+            </summary>
+            <param name="patModModifies">Input pattern modifies to support.</param>
+            <param name="plist">Plist for each pattern modify.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.PatternModifyHandler.GetPlist">
+            <summary>
+            Returns plist.
+            </summary>
+            <returns>Plist.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.PatternModifyHandler.HasActiveConfigurations">
+            <summary>
+            Indicates whether there are any active configurations.
+            </summary>
+            <returns>True if yes.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.PatternModifyHandler.SetPatternModify(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Sets the active pattern modifies.
+            </summary>
+            <param name="patternModifies">Pattern modifies to activate.</param>
+            <param name="symbols">Possible target names for expressions.</param>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.PatternModifyHandler.Execute(System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <summary>
+            Executes and applies the active pattern modifies.
+            </summary>
+            <param name="tokens">Possible tokens with their updated values.</param>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.PatternModifyHandler.DoesPatternModifyExist(System.String)">
+            <summary>
+            Check if exists.
+            </summary>
+            <param name="patternModifyName">Name to check.</param>
+            <returns>True if exists.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.RailConfigurations.Rails">
+            <summary>
+            Provides Rails functionality.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.Rails.#ctor(Prime.VoltageService.RailConfigurations.DataStructures.RailConfigurationParameters,Prime.VoltageService.Base.ValueRecord,Prime.VoltageService.ConfigurationFiles.Structures.Domains.DomainConfiguration,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.RailConfigurations.Rails"/> class.
+            </summary>
+            <param name="railParameters">Rail params.</param>
+            <param name="valueRecord">Value record to reference and use.</param>
+            <param name="domainConfig">Domain config.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.Rails.Restore">
+            <summary>
+            Restores all pin information to previous state.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.Rails.Reset">
+            <summary>
+            Resets dlvr information.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.Rails.OverrideDlvrExpression(System.String,System.String)">
+            <summary>
+            Overrides expression of a Dlvr pin.
+            </summary>
+            <param name="expressionName">Expression name.</param>
+            <param name="pinName">Configuration name.</param>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.Rails.Execute">
+            <summary>
+            Executes the rail configurations that are active.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.RailConfigurations.TimingAttributeHandler">
+            <summary>
+            Manages applying timing attributes to hardware pins.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.TimingAttributeHandler.#ctor(System.Collections.Generic.IEnumerable{Prime.VoltageService.ConfigurationFiles.Structures.Domains.TimingAttribute},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.RailConfigurations.TimingAttributeHandler"/> class.
+            </summary>
+            <param name="timingAttributes">Timing attributes.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.TimingAttributeHandler.Execute(System.Collections.Generic.Dictionary{System.String,System.Double},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Double}})">
+            <summary>
+            Applies the timing attributes.
+            </summary>
+            <param name="appliedValueTokens">Previously applied tokens with value.</param>
+            <param name="appliedAttributeValues">Previously applied attributes with value.</param>
+            <returns>Newly applied values.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.TimingAttributeHandler.SetPinNames(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Sets the active pin names and updates relevant information to use them.
+            </summary>
+            <param name="pinNames">Pin names.</param>
+            <param name="symbols">Symbols.</param>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.TimingAttributeHandler.HasActiveConfigurations">
+            <summary>
+            Indicates whether there are any active configurations.
+            </summary>
+            <returns>True if yes.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.TimingAttributeHandler.Restore">
+            <summary>
+            Restores the attributes to their original values.
+            </summary>
+            <returns>Restore values.</returns>
+        </member>
+        <member name="M:Prime.VoltageService.RailConfigurations.TimingAttributeHandler.DoesTimingAttributeExist(System.String)">
+            <summary>
+            Does a config exist.
+            </summary>
+            <param name="timingConfigurationName">Name to check.</param>
+            <returns>True if exists.</returns>
+        </member>
+        <member name="T:Prime.VoltageService.ValueRecordParameters">
+            <summary>
+            Value record parameters.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.ValueRecordParameters.#ctor(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Tuple{System.String,System.String}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.ValueRecordParameters"/> class.
+            </summary>
+            <param name="targets">Targets.</param>
+            <param name="targetPerReference">Targets per reference.</param>
+        </member>
+        <member name="P:Prime.VoltageService.ValueRecordParameters.TargetsToRecord">
+            <summary>
+            Gets targets to record.
+            </summary>
+        </member>
+        <member name="P:Prime.VoltageService.ValueRecordParameters.TargetPerReference">
+            <summary>
+            Gets targets per reference.
+            </summary>
+        </member>
+        <member name="T:Prime.VoltageService.VoltageService">
+            <inheritdoc cref="T:Prime.VoltageService.IVoltageService"/>/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VoltageService.VoltageService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateVForceForPinAttribute(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateVForceForPinTestCondition(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateFivrForDomains(System.Collections.Generic.List{System.String},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateFivrForCondition(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateFivrForDomainsAndCondition(System.Collections.Generic.List{System.String},System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateFivrDomainsAndConditionWithRails(System.Collections.Generic.List{System.String},System.String,System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateFivrDomainsAndConditionWithRails(System.Collections.Generic.List{System.String},System.String,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateVForceForPinTestConditionWithRails(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateVForceForPinTestConditionWithRails(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateVForceForPinTestConditionWithRails(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateVForceForPinTestConditionWithRails(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateVForceForPinAttributeWithRails(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateVForceForPinAttributeWithRails(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateVForceForPinAttributeWithRails(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#VoltageService#IVoltageService#CreateVForceForPinAttributeWithRails(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#Base#IAlephAble#IAlephAble#GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#Base#IAlephAble#IAlephAble#GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#Base#IAlephAble#IAlephAble#AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VoltageService.VoltageService.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

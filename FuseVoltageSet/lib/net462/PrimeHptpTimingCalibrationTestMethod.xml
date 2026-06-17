@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeHptpTimingCalibrationTestMethod" MetaData="dll=Prime.TestMethods.Hptp" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeHptpTimingCalibrationTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="Patlist" descriptions="Gets or sets Patlist to execute the timing calibration on.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>Plist</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MaskPins" descriptions="Gets or sets comma separated pins for mask.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingCalibratePins" descriptions="Gets or sets comma separated pins for timing calibration.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingCalibrationNames" descriptions="Gets or sets comma separated Params for timing calibration.(it is parameter TimingCalibrateTxNames, its for backward competibility)">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingCalibrateTxNames" descriptions="Gets or sets comma separated TX param for timing calibration.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingCalibrateRxNames" descriptions="Gets or sets comma separated RX param for timing calibration.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingCalPatmodConfiguration" descriptions="Gets or sets the configuration to patch the termination codes in the timing calibration pattern.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="StartLargeOffset" descriptions="Gets or sets the static value for the starting point in the Y axis for the 1D shmoo.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="XAxisDriveOffsetParameter" descriptions="Gets or sets the name of the global drive offset parameter for the RX pins. XAxisDriveOffsetParameter is deprecated, please use SmallCalibrationOffsetParameter and LargeCalibrationOffsetParameter.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="SmallCalibrationOffsetParameter" descriptions="Gets or sets the name of the global drive/strobe offset parameter. Use along with LargeCalibrationOffsetParameter and CalibrationMode parameters.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="YAxisStrobeOffsetParameter" descriptions="Gets or sets the name of the global strobe offset parameter for the TX pins. YAxisStrobeOffsetParameter is deprecated, please use SmallCalibrationOffsetParameter and LargeCalibrationOffsetParameter.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="LargeCalibrationOffsetParameter" descriptions="Gets or sets the name of the global drive/strobe offset parameter. Use along with SmallCalibrationOffsetParameter and CalibrationMode parameters.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingsTc" descriptions="Gets or sets TimingsTc for plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>TimingCondition</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingCalibrationRange" descriptions="Gets or sets the maximum swing range for the timing calibration to take place.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="CalTDRRegisterFieldSequence" descriptions="Gets or sets the field sequence value of the cal tdr register to be patmod into the pattern.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="OutputTokenPrefix" descriptions="Gets or sets the prefix used in the output timing token.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="OutputTokenPostfix" descriptions="Gets or sets the postfix used in the output timing token, leave empty for no post fix.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="EyeWidthLimit" descriptions="Gets or sets the eyewidth limit.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ResetToNominal" descriptions="Gets or sets the option to restore the timing specs after the test is executed.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>FALSE</Choice>
+          <Choice>TRUE</Choice>
+        </Choices>
+        <Default>TRUE</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="CalibrationMode" descriptions="Gets or sets calibration mode.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>TX_BASED</Choice>
+          <Choice>RX_BASED</Choice>
+        </Choices>
+        <Default>TX_BASED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="MaxCaptures" descriptions="Gets or sets maximum number of captures admited before pattern execution is stopped.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>9999</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="LevelsTc" descriptions="Gets or sets LevelsTc for plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ExecutionMode" descriptions="The Execution Mode of Calibration and Override.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>TIMING_CALIBRATION</Choice>
+          <Choice>TIMING_OVERRIDE</Choice>
+          <Choice>TERMSHIFTCODE_PATMOD</Choice>
+          <Choice>VOX_OVERRIDE</Choice>
+          <Choice>PATMOD_AND_TIMING_OVERRIDE</Choice>
+        </Choices>
+        <Default>TIMING_CALIBRATION</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingOverrideDriveParams" descriptions="Gets or sets the name of the global drive offset parameter for Timing Override.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingOverrideDriveValues" descriptions="Gets or sets comma separated values for the name of the perpin strobe offset param, can be a number or SharedstorageToken.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingOverrideDriveOffset" descriptions="Gets or sets the value for additional offset require for drive param.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingOverrideStrobeParams" descriptions="Gets or sets comma separated params of the name of the perpin strobe offset parameter.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TimingOverrideStrobeValues" descriptions="Gets or sets comma separated values for the name of the perpin strobe offset param, can be a number or SharedstorageToken.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VoxTxOverridePins" descriptions="Gets or sets comma separated values for the name of the perpin strobe offset param, can be a number or SharedstorageToken.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VoxRxOverridePins" descriptions="Gets or sets comma separated values for the name of the perpin strobe offset param, can be a number or SharedstorageToken.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VoxTxOverrideParams" descriptions="Gets or sets comma separated values for the name of the perpin strobe offset param.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VoxRxOverrideParams" descriptions="Gets or sets comma separated values for the name of the perpin strobe offset param.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VoxSupplyParam" descriptions="Gets or sets Vox Supply Parameter.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

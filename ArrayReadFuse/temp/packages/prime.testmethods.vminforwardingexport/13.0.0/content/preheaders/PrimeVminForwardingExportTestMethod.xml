@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeVminForwardingExportTestMethod" MetaData="dll=Prime.TestMethods.VminForwardingExport" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeVminForwardingExportTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="OperationMode" descriptions="TM operation mode.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Snapshot</Choice>
+          <Choice>Export</Choice>
+        </Choices>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="SnapshotKey" descriptions="Shared storage's key used to save the snapshot data.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="FrequencyPrintMultiplier" descriptions="Multiplier to be applied to the frequency values printed into the export token with frequency values.">
+        <Type>
+          <Tester>Double</Tester>
+          <TestProgram>Double</TestProgram>
+        </Type>
+        <Default>1.0</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="AllFlowExpansion" descriptions="Indicates if all flows values will be printed into the export token with frequency id.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>FALSE</Choice>
+          <Choice>TRUE</Choice>
+        </Choices>
+        <Default>FALSE</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="ExportDataLog" descriptions="Indicates if Search and Check data will be export as the interpolator results.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>FALSE</Choice>
+          <Choice>TRUE</Choice>
+        </Choices>
+        <Default>FALSE</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="AllowBypassCorners" descriptions="Indicates if a bypass corner is allowed. If true print -9.999 if false will throw exception.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>FALSE</Choice>
+          <Choice>TRUE</Choice>
+        </Choices>
+        <Default>FALSE</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PreProcessMode" descriptions="The data processing mode mechanism.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>None</Choice>
+          <Choice>Interpolation</Choice>
+          <Choice>InterpolationWithForwardingUpdate</Choice>
+        </Choices>
+        <Default>None</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="ExportType" descriptions="Export type.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>SharedStorageUPSTokens</Choice>
+        </Choices>
+        <Default>SharedStorageUPSTokens</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="ExportKeys" descriptions="Export comma separated keys available to export the data.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MaxFlowNumber" descriptions="Maximum expected flow number to export data.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>1</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="IncludeDisabledCornerAtExport" descriptions="Indicates whether the Export procedure should check if the corner was disabled in one point.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>FALSE</Choice>
+          <Choice>TRUE</Choice>
+        </Choices>
+        <Default>FALSE</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PrintOnlyPassingFlowAtFrequencyNameToken" descriptions="Indicates whether the Export token for all flows with frequency name includes only the passing flow onwards data, leaving the lower failed flows with empty data, but with the flow separator.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>FALSE</Choice>
+          <Choice>TRUE</Choice>
+        </Choices>
+        <Default>FALSE</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PreProcessInput" descriptions="Preprocess data (ie: interpolation objects string token) input.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

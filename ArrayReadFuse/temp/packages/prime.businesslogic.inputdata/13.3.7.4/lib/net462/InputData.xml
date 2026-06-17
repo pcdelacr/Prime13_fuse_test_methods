@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.InputData</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.InputData.DoubleFromSharedStorage">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleFromSharedStorage.Build(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Builds a IInputDouble for the shared storage type from the given input.
+            </summary>
+            <param name="key">The shared storage key.</param>
+            <param name="context">The shared storage context.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A StringFromSharedStorage based on the inputs.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleFromSharedStorage.Get">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleFromSharedStorage.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.DoubleFromUserVarWithCollection">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleFromUserVarWithCollection.Build(System.String,System.String)">
+            <summary>
+            Builds a new instance of the <see cref="T:Prime.BusinessLogic.InputData.DoubleFromUserVarWithoutCollection"/> class.
+            </summary>
+            <param name="collection">The collection of the user variable.</param>
+            <param name="name">The user variable name.</param>
+            <returns>A new IInputDouble for the given user variable collection and name.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If user variable does not exist.</exception>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleFromUserVarWithCollection.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleFromUserVarWithCollection.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.DoubleFromUserVarWithoutCollection">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleFromUserVarWithoutCollection.Build(System.String)">
+            <summary>
+            Builds a new instance of the <see cref="T:Prime.BusinessLogic.InputData.DoubleFromUserVarWithoutCollection"/> class.
+            </summary>
+            <param name="name">The user variable name.</param>
+            <returns>A new IInputDouble for the given user variable name.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If user variable does not exist.</exception>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleFromUserVarWithoutCollection.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleFromUserVarWithoutCollection.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.DoubleLiteral">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleLiteral.Build(System.String)">
+            <summary>
+            Builds a IInputDouble of literal type from the given input.
+            </summary>
+            <param name="input">User input, expected to be a valid double.</param>
+            <returns>The IInputDouble based on the given input.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If unable to convert the input to an `double`.</exception>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleLiteral.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.DoubleLiteral.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.IInputDataFactory">
+            <summary>
+            A set of functions working of factories depending on the data type.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IInputDataFactory.CreateInputString(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates an IInputString object based on the input.
+            </summary>
+            <param name="input">The input to use.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The given IInputString based on the input.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If the function is unable to determine the type of input.</exception>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IInputDataFactory.CreateInputInteger(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates an IInputInteger object based on the input.
+            </summary>
+            <param name="input">The input to use.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The given IInputInteger based on the input.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If the function is unable to determine the type of input and it's not a valid integer.</exception>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IInputDataFactory.CreateInputDouble(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates an IInputDouble object based on the input.
+            </summary>
+            <param name="input">The input to use.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The given IInputDouble based on the input.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If the function is unable to determine the type of input and it's not a valid double.</exception>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.FactoryBuilder">
+            <summary>
+            Builds a default IInputDataFactory.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.FactoryBuilder.Build">
+            <summary>
+            Builds a default IInputDataFactory.
+            </summary>
+            <returns>A default IInputDataFactory.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.IInputDouble">
+            <summary>
+            Abstracts the an input data of type string.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IInputDouble.Get">
+            <summary>
+            Resolves and return the value of the given user setting.
+            </summary>
+            <returns>The double type at the moment of the call.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IInputDouble.IsLiteral">
+            <summary>
+            Check wether the double value is literal or not.
+            </summary>
+            <returns>True - the value is literal, false - otherwise.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.IInputInteger">
+            <summary>
+            Abstracts the an input data of type string.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IInputInteger.Get">
+            <summary>
+            Resolves and return the value of the given user setting.
+            </summary>
+            <returns>The int type at the moment of the call.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IInputInteger.IsLiteral">
+            <summary>
+            Check wether the integer value is literal or not.
+            </summary>
+            <returns>True - the value is literal, false - otherwise.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.IInputString">
+            <summary>
+            Abstracts the an input data of type string.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IInputString.Get">
+            <summary>
+            Resolves and return the value of the given user setting.
+            </summary>
+            <returns>The string type at the moment of the call.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IInputString.TryGet">
+            <summary>
+            Retrieve Shared Storage, Dff and Uservar value of the input string.
+            </summary>
+            <returns>
+            If true, it will return dynamic value.
+            If false, it will return empty string.
+            </returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IInputString.IsLiteral">
+            <summary>
+            Check wether the string is literal or not.
+            </summary>
+            <returns>True - the value is literal, false - otherwise.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.InputDataFactory">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.InputDataFactory.CreateInputString(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.InputDataFactory.CreateInputInteger(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.InputDataFactory.CreateInputDouble(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.IntegerFromSharedStorage">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerFromSharedStorage.Build(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Builds a IInputInteger for the shared storage type from the given input.
+            </summary>
+            <param name="key">The shared storage key.</param>
+            <param name="context">The shared storage context.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A StringFromSharedStorage based on the inputs.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerFromSharedStorage.Get">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerFromSharedStorage.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.IntegerFromUserVarWithCollection">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerFromUserVarWithCollection.Build(System.String,System.String)">
+            <summary>
+            Builds a new instance of the <see cref="T:Prime.BusinessLogic.InputData.IntegerFromUserVarWithoutCollection"/> class.
+            </summary>
+            <param name="collection">The collection of the user variable.</param>
+            <param name="name">The user variable name.</param>
+            <returns>A new IInputInteger for the given user variable collection and name.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If user variable does not exist.</exception>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerFromUserVarWithCollection.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerFromUserVarWithCollection.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.IntegerFromUserVarWithoutCollection">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerFromUserVarWithoutCollection.Build(System.String)">
+            <summary>
+            Builds a new instance of the <see cref="T:Prime.BusinessLogic.InputData.IntegerFromUserVarWithoutCollection"/> class.
+            </summary>
+            <param name="name">The user variable name.</param>
+            <returns>A new IInputInteger for the given user variable name.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If user variable does not exist.</exception>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerFromUserVarWithoutCollection.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerFromUserVarWithoutCollection.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.IntegerLiteral">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerLiteral.Build(System.String)">
+            <summary>
+            Builds a IInputInteger of literal type from the given input.
+            </summary>
+            <param name="input">User input, expected to be a valid integer.</param>
+            <returns>The IInputInteger based on the given input.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If unable to convert the input to an `int`.</exception>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerLiteral.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.IntegerLiteral.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.StringFromDff">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDff.Build(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Builds an based on the inputs.
+            </summary>
+            <param name="token">The Dff token.</param>
+            <param name="operationType">The Dff operation type.</param>
+            <param name="targetId">The Dff target Id.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A IInputString based on the inputs.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDff.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDff.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.StringFromDffForCurrentOperationType">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentOperationType.Build(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Builds an based on the inputs.
+            </summary>
+            <param name="token">The Dff token.</param>
+            <param name="targetId">The Dff target Id.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A IInputString based on the inputs.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentOperationType.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentOperationType.TryGet">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentOperationType.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.StringFromDffForCurrentTargetId">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentTargetId.Build(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Builds an based on the inputs.
+            </summary>
+            <param name="token">The Dff token.</param>
+            <param name="operationType">The Dff operation type.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A IInputString based on the inputs.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentTargetId.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentTargetId.TryGet">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentTargetId.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.StringFromDffForCurrentTargetIdAndOperationType">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentTargetIdAndOperationType.Build(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Builds an based on the inputs.
+            </summary>
+            <param name="token">The Dff token.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A IInputString based on the inputs.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentTargetIdAndOperationType.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentTargetIdAndOperationType.TryGet">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromDffForCurrentTargetIdAndOperationType.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.StringFromSharedStorage">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromSharedStorage.Build(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Builds a IInputString for the shared storage type from the given input.
+            </summary>
+            <param name="key">The shared storage key.</param>
+            <param name="context">The shared storage context.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A StringFromSharedStorage based on the inputs.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromSharedStorage.Get">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromSharedStorage.TryGet">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromSharedStorage.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.StringFromUserVarWithCollection">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromUserVarWithCollection.Build(System.String,System.String)">
+            <summary>
+            Builds a new instance of the <see cref="T:Prime.BusinessLogic.InputData.StringFromUserVarWithoutCollection"/> class.
+            </summary>
+            <param name="collection">The collection of the user variable.</param>
+            <param name="name">The user variable name.</param>
+            <returns>A new IInputString for the given user variable collection and name.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromUserVarWithCollection.Get">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromUserVarWithCollection.TryGet">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromUserVarWithCollection.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.StringFromUserVarWithoutCollection">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromUserVarWithoutCollection.Build(System.String)">
+            <summary>
+            Builds a new instance of the <see cref="T:Prime.BusinessLogic.InputData.StringFromUserVarWithoutCollection"/> class.
+            </summary>
+            <param name="name">The user variable name.</param>
+            <returns>A new IInputString for the given user variable name.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If user variable does not exist.</exception>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromUserVarWithoutCollection.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromUserVarWithoutCollection.TryGet">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringFromUserVarWithoutCollection.IsLiteral">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.InputData.StringLiteral">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringLiteral.Build(System.String)">
+            <summary>
+            Builds an based on the inputs.
+            </summary>
+            <param name="input">The shared storage input.</param>
+            <returns>A StringLiteral based on the inputs.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringLiteral.Get">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringLiteral.TryGet">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.InputData.StringLiteral.IsLiteral">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Idsk</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Idsk.PrimeIdskTestMethod">
+            <summary>
+            Test Method for Intra Die Statistical Kill (IDSK).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idsk.PrimeIdskTestMethod.#ctor(Prime.DatalogService.IDatalogService,Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Idsk.PrimeIdskTestMethod"/> class.
+            </summary>
+            <param name="datalogService">datalogService.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Idsk.PrimeIdskTestMethod.BitLogicType">
+            <summary>
+            Enum for acceptable bitlogic used in outlier detection.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idsk.PrimeIdskTestMethod.BitLogicType.AND">
+            <summary>
+            AND.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idsk.PrimeIdskTestMethod.BitLogicType.OR">
+            <summary>
+            OR.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idsk.PrimeIdskTestMethod.VminInput">
+            <summary>
+            Gets or sets Incoming VMIN string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idsk.PrimeIdskTestMethod.OutlierVector">
+            <summary>
+            Gets or sets Outgoing tracking structure GSDS to be used later by DieRecovery.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idsk.PrimeIdskTestMethod.BitLogic">
+            <summary>
+            Gets or sets Kill for zscore AND/OR vmin_delta. AND by default.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idsk.PrimeIdskTestMethod.StdDevFloor">
+            <summary>
+            Gets or sets Minimum standard deviation allowed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idsk.PrimeIdskTestMethod.StdDevCeiling">
+            <summary>
+            Gets or sets Maximum standard deviation allowed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idsk.PrimeIdskTestMethod.ZscoreLimit">
+            <summary>
+            Gets or sets Sigma kill limit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idsk.PrimeIdskTestMethod.VminDelta">
+            <summary>
+            Gets or sets Maximum vmin difference allowed.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idsk.PrimeIdskTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Idsk.PrimeIdskTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Idsk.PrimeIdskTestMethod.SplitInputStingToArray">
+            <summary>
+            Split GSDS string with vmin values into an Array of doubles.
+            </summary>
+            <returns>Array of doubles.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Idsk.PrimeIdskTestMethod.GetValidVminValues(System.Double[])">
+            <summary>
+            Filter invalid values aka -999.
+            </summary>
+            <param name="vminArray">Raw array wiht vmin values form GSDS.</param>
+            <returns>List with all vmin invalid values removed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Idsk.PrimeIdskTestMethod.CalculateVminMean(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Calculate mean value.
+            </summary>
+            <param name="validVminValues">Array with valid vmin values.</param>
+            <returns>Mean of vmin values.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Idsk.PrimeIdskTestMethod.CalculateVminStandardDeviation(System.Collections.Generic.List{System.Double},System.Double)">
+            <summary>
+            Calculate standard deviation.
+            </summary>
+            <param name="vminArrayFiltered"> Vmin array input.</param>
+            <param name="mean">Mean value for valid array values.</param>
+            <returns>Caluculated standard deviation value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Idsk.PrimeIdskTestMethod.AdjustStandardDeviation(System.Double)">
+            <summary>
+            Adjust standard deviation based on users values.
+            </summary>
+            <param name="stddev">Raw standard deviation calculated.</param>
+            <returns>Adjusted standard deviation.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Idsk.PrimeIdskTestMethod.WriteToItuff(System.Double[],System.String)">
+            <summary>
+            Write to ituff with needed information.
+            </summary>
+            <param name="vminArray">Raw vmin input list.</param>
+            <param name="outlierVectorString">string containing outliers.</param>
+        </member>
+    </members>
+</doc>

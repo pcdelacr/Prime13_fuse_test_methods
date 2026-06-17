@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Scoreboard</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Scoreboard.IScoreboardExtensions">
+            <summary>
+            Interface for extending Scoreboard Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.IScoreboardExtensions.ProcessCtvPerPin(Prime.TestMethods.TestInstanceResults,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Processes per pin ctv capture. This function is used to determine exit port of execution.
+            </summary>
+            <param name="results">The object for holding the exit port and complete DC results.</param>
+            <param name="ctvData">CTV data collected by functional test.</param>
+            <returns>True if test passed, false if test failed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.IScoreboardExtensions.ProcessFailures(Prime.TestMethods.TestInstanceResults,Prime.FunctionalService.ICaptureFailureTest)">
+            <summary>
+            Processes failure capture test. This function is used to determine exit port of execution.
+            </summary>
+            <param name="results">The object for holding the exit port and complete DC results.</param>
+            <param name="captureFailureTest">captureFailureTest to be processed.</param>
+            <returns>True if test passed, false if test failed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.IScoreboardExtensions.ProcessCtvPerCycle(Prime.TestMethods.TestInstanceResults,Prime.FunctionalService.ICaptureCtvPerCycleTest)">
+            <summary>
+            Processes captureCtvPerCycle test This function is used to determine exit port of execution.
+            </summary>
+            <param name="results">The object for holding the exit port and complete DC results.</param>
+            <param name="captureCtvPerCycleTest">Per cycle ctv test to be processed.</param>
+            <returns>True if test passed, false if test failed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.IScoreboardExtensions.CreateTestInstanceResults">
+            <summary>
+            Called prior to any test in Execute to generate the test instance results object.
+            </summary>
+            <returns>The test instance results object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.IScoreboardExtensions.GetDynamicPinMask">
+            <summary>
+            Gets the list of pins to mask execution after execution. The test method will merge this list with the ones from the test instance parameter.
+            </summary>
+            <returns>The list of mask pins.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod">
+            <summary>
+            Test method responsible for executing different variations of functional test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.#ctor(Prime.BusinessLogic.ScoreboardLogger.IScoreboardFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod"/> class.
+            </summary>
+            <param name="scoreboardFactory">The IScoreboardFactory object for dependency injection.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.CtvCycleCaptureMode">
+            <summary>
+            Enum to determine state of CTV cycle capture mode. Enabled means ctv capture is by cycle, disabled means ctv capture will be by pin.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.CtvCycleCaptureMode.ENABLED">
+            <summary>
+            ENABLED sets ctv capture to be by cycle.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.CtvCycleCaptureMode.DISABLED">
+            <summary>
+            DISABLED sets ctv capture to be by pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.CtvCapturePins">
+            <summary>
+            Gets or sets comma separated pins for CTV capture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.CtvCapturePerCycleMode">
+            <summary>
+            Gets or sets CTV capture mode. If DISABLED (default), CTV capture will be per pin. If ENABLED it will be per cycle.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.TestMethodExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.PatternNameCounterIndexes">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.MaxFailsNum">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.BaseNumbers">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.FunctionalTest">
+            <summary>
+            Gets the functional test to capture failures.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.ExitPort">
+            <summary>
+            Gets or sets the custom port to be overriden by user..
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.Prime#TestMethods#Scoreboard#IScoreboardExtensions#CreateTestInstanceResults">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.Prime#TestMethods#Scoreboard#IScoreboardExtensions#ProcessCtvPerPin(Prime.TestMethods.TestInstanceResults,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.Prime#TestMethods#Scoreboard#IScoreboardExtensions#ProcessFailures(Prime.TestMethods.TestInstanceResults,Prime.FunctionalService.ICaptureFailureTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.Prime#TestMethods#Scoreboard#IScoreboardExtensions#ProcessCtvPerCycle(Prime.TestMethods.TestInstanceResults,Prime.FunctionalService.ICaptureCtvPerCycleTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Scoreboard.PrimeScoreboardTestMethod.Prime#TestMethods#Scoreboard#IScoreboardExtensions#GetDynamicPinMask">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

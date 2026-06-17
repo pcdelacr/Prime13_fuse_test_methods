@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "Voltages"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLenght": 1
+    },
+    "Voltages": {
+      "type": "object",
+      "items": {
+        "$ref": "#/definitions/Voltages"
+      }
+    }
+  },
+  "description": "Only one Voltages can be define.",
+  "maxProperties": 1,
+  "additionalProperties": false,
+  "definitions": {
+    "Voltages": {
+      "type": "object",
+      "required": [
+        "Voltage"
+      ],
+      "properties": {
+        "Voltage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Voltage"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Voltage": {
+      "type": "object",
+      "required": [
+        "Name",
+        "Operand",
+        "PowerPin"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Operand": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "PowerPin": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PowerPin"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PowerPin": {
+      "type": "object",
+      "required": [
+        "Name"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "Value"
+          ]
+        },
+        {
+          "required": [
+            "sharedstorage"
+          ]
+        }
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "sharedstorage": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/sharedstorage"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "sharedstorage": {
+      "type": "object",
+      "minItems": 1,
+      "maxItems": 1,
+      "required": [
+        "Name",
+        "Scope"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Scope": {
+          "type": "string",
+          "enum": [
+            "DUT",
+            "LOT"
+          ],
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

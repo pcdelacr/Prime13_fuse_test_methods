@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.ResistanceOffset.Aleph</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.ResistanceOffset.Bootstrapper">
+            <summary>
+            Provides bootstrapping method for accessing components.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            A bootstapper for defining component into the service collection.
+            </summary>
+            <param name="serviceCollection">Service collection object that stores the components definitions.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.ResistanceOffset.Builder">
+            <summary>
+            Builds a default ResistanceOffsetHandler object.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.Builder.Build">
+            <summary>
+            Builds a default ResistanceOffsetHandler object.
+            </summary>
+            <returns>A default ResistanceOffsetHandler object.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.ResistanceOffset.IResistanceOffsetHandler">
+            <summary>
+            Business Logic for enabling user-defined resistance offsets for DC tests.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.IResistanceOffsetHandler.GetResistanceOffset(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets resistance offset for selected pin from Shared Storage.
+            </summary>
+            <param name="pinName">Name of pin in question.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Double showing offset for current pin.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.IResistanceOffsetHandler.TryGetResistanceOffset(System.String,System.Double@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets resistance offset for selected pin from Shared Storage.
+            </summary>
+            <param name="pinName">Name of pin in question.</param>
+            <param name="resistanceOffset">Double showing offset for current pin.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Boolean showing specified pin offset existence.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.ResistanceOffset.Parser.Parser">
+            <summary>
+            Parse the incoming Json file and loads data to shared storage.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.Parser.Parser.ParseAndStore(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Parse the incoming json file. Load to shared storage.
+            </summary>
+            <param name="resistanceOffsetFileJsonString">The content of the json file.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile">
+            <summary>
+            ResistanceOffsetHandler Json file root.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile.LoadBoards">
+            <summary>
+            Gets or sets the loadboards.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile.LoadBoardsInput">
+            <summary>
+            Loadboards node.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile.LoadBoardsInput.TiuName">
+            <summary>
+            Gets or sets the TIU name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile.LoadBoardsInput.Duts">
+            <summary>
+            Gets or sets the Duts List.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile.LoadBoardsInput.DutsInput">
+            <summary>
+            Duts node.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile.LoadBoardsInput.DutsInput.DutID">
+            <summary>
+            Gets or sets the Duts List.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile.LoadBoardsInput.DutsInput.Resistances">
+            <summary>
+            Gets or sets the Resistances List.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile.LoadBoardsInput.DutsInput.ResistancesInput">
+            <summary>
+            Resistances node.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile.LoadBoardsInput.DutsInput.ResistancesInput.PinName">
+            <summary>
+            Gets or sets the PinName.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.ResistanceOffset.Parser.ResistanceOffsetFile.LoadBoardsInput.DutsInput.ResistancesInput.ResistanceOffset">
+            <summary>
+            Gets or sets the ResistanceOffsetHandler value.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.ResistanceOffset.ResistanceOffsetAlephable">
+            <summary>
+            Gets the active bom group.
+            </summary>
+            <returns>Active Bom group.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.ResistanceOffsetAlephable.AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.ResistanceOffsetAlephable.GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.ResistanceOffsetAlephable.GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.ResistanceOffsetAlephable.GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.ResistanceOffsetAlephable.ParseInputFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Parse the input file.
+            </summary>
+            <param name="inputFilePath">Full path.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.ResistanceOffset.ResistanceOffsetHandler">
+            <summary>
+            Implements the IResistanceOffsetService ifc.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.ResistanceOffsetHandler.TryGetResistanceOffset(System.String,System.Double@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.ResistanceOffset.ResistanceOffsetHandler.GetResistanceOffset(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

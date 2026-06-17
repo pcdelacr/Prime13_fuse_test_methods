@@ -1,0 +1,438 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Hvqk</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Hvqk.PrimeHvqkManagerTestMethod">
+            <summary>
+            test Method responsible to manage the Hvqk Test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.PrimeHvqkManagerTestMethod.HvqkModes">
+            <summary>
+            Enumerated type for selecting modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hvqk.PrimeHvqkManagerTestMethod.HvqkModes.START">
+            <summary>
+            Start Mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hvqk.PrimeHvqkManagerTestMethod.HvqkModes.END">
+            <summary>
+            End Mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkManagerTestMethod.HvqkMode">
+            <summary>
+            Gets or sets HvqkMode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkManagerTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkManagerTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.PerStepFlowAction">
+            <summary>
+            Enumerated type for selecting per flow action.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hvqk.PerStepFlowAction.CONTINUE">
+            <summary>
+            Continue action.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hvqk.PerStepFlowAction.EXIT">
+            <summary>
+            Exit action.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hvqk.PerStepFlowAction.FAIL">
+            <summary>
+            Fail out action.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.VoltageStepCondition">
+            <summary>
+            Enumerated type for selecting voltage step condition.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hvqk.VoltageStepCondition.PASS">
+            <summary>
+            Stores value into shared storage only when voltage step result is pass.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hvqk.VoltageStepCondition.FAIL">
+            <summary>
+            Stores value into shared storage only when voltage step result is fail.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hvqk.VoltageStepCondition.ALWAYS">
+            <summary>
+            Always stores value into shared storage regardless of voltage step result.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.HvqkConfigJsonFile">
+            <summary>
+            This class represents the data structure of the HVQK Config json input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.DomainName">
+            <summary>
+            Gets or sets Domain_Name value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.InstanceName">
+            <summary>
+            Gets or sets Instance_Name value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStart">
+            <summary>
+            Gets or sets Voltage_Start value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStop">
+            <summary>
+            Gets or sets Voltage_Stop value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.Pin">
+            <summary>
+            Gets or sets Pin of pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageSteps">
+            <summary>
+            Gets or sets Voltage Steps list.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep">
+            <summary>
+            This class represents each voltage steps structure contained in the configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.Name">
+            <summary>
+            Gets or sets Name of the voltage steps.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.AlarmAction">
+            <summary>
+            Gets or sets Alarm action on per step flow.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.PlistExecFailAction">
+            <summary>
+            Gets or sets Plist Exec Fail action on per step flow.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.Vforce">
+            <summary>
+            Gets or sets Vforce details list.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.SharedStorage">
+            <summary>
+            Gets or sets the shared storage data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.VforceDetails">
+            <summary>
+            This class represents each Vforce structure contained in the configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.VforceDetails.ForceValue">
+            <summary>
+            Gets or sets Force Value of Vforce.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.VforceDetails.PlistOverride">
+            <summary>
+            Gets or sets Plist Override of Vforce.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.VforceDetails.LevelsBlockDirect">
+            <summary>
+            Gets or sets Pin of pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.VforceDetails.TriggerItem">
+            <summary>
+            Gets or sets TriggerMap.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.SharedStorageData">
+            <summary>
+            This class represents the shared storage information in which to store the step execution result.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.SharedStorageData.TokenName">
+            <summary>
+            Gets or sets the key under which to store the shared storage value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.SharedStorageData.TokenValue">
+            <summary>
+            Gets or sets the value to be stored into the shared storage when the condition is met.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep.SharedStorageData.Condition">
+            <summary>
+            Gets or sets the condition that defines when to store the value into shared storage.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile">
+            <summary>
+            This class represents the data structure of the HVQK Metadata json input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile.VoltageIndicators">
+            <summary>
+            Gets or sets SetPoints list.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile.StandardIdOverride">
+            <summary>
+            Gets or sets standard id override, the prefix of the instance name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile.HvqkInstances">
+            <summary>
+            Gets or sets SetPoints list.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile.VoltageIndicator">
+            <summary>
+            This class represents each voltage indicator structure contained in the configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile.VoltageIndicator.Name">
+            <summary>
+            Gets or sets voltage indicator name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile.VoltageIndicator.VoltageSteps">
+            <summary>
+            Gets or sets Configuration list.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile.HvqkInstance">
+            <summary>
+            This class represents each voltage indicator structure contained in the configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile.HvqkInstance.Name">
+            <summary>
+            Gets or sets voltage indicator name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile.HvqkInstance.InstancesMapping">
+            <summary>
+            Gets or sets Intances_Mapping list.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.IHvqkExtensions">
+            <summary>
+            Interface for extending the Hvqk Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.IHvqkExtensions.ExecutePreStepUserCode">
+            <summary>
+            This is the extension for PreStep UC.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.IHvqkExtensions.ExecutePrePlistUserCode">
+            <summary>
+            This is the extension for PrePlist UC.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.IHvqkExtensions.ExecutePostPlistUserCode">
+            <summary>
+            This is the extension for PostPlist UC.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.IHvqkExtensions.ExecutePostStepUserCode">
+            <summary>
+            This is the extension for PostStep UC.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.IHvqkExtensions.UpdateCaptureFailureTest(Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep)">
+            <summary>
+            This is the extension for UpdateCaptureFailureTest UC.
+            </summary>
+            /// <param name="voltageStep">Containing details of current voltage step.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod">
+            <summary>
+            Test Method responsible for executing Hvqk test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.VoltageStepConfigFile">
+            <summary>
+            Gets or sets of the directory of the HvqkConfigJson file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.HvqkConfigJson">
+            <summary>
+            Gets or sets the HvqkConfigJsonFile file data contents.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.FuncTest">
+            <summary>
+            Gets or sets the functional object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.PowerDownLevel">
+            <summary>
+            Gets or sets Custom PowerDown Level for post execution flow.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.PowerUpLevel">
+            <summary>
+            Gets or sets Custom PowerUp Level for pre execution flow.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.AlarmHandleDelay">
+            <summary>
+            Gets or sets Alarm Handle Delay time in millisecond.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.DtsConfigurationName">
+            <summary>
+            Gets or sets The Configuration when DTS processing is needed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.TestMethodExtension">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.GetCurrentVoltageStep">
+            <summary>
+            Returns the Current Voltage Step.
+            </summary>
+            <returns>the Current Voltage Step.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.Prime#TestMethods#Hvqk#IHvqkExtensions#ExecutePreStepUserCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.Prime#TestMethods#Hvqk#IHvqkExtensions#ExecutePrePlistUserCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.Prime#TestMethods#Hvqk#IHvqkExtensions#ExecutePostPlistUserCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.Prime#TestMethods#Hvqk#IHvqkExtensions#ExecutePostStepUserCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.Prime#TestMethods#Hvqk#IHvqkExtensions#UpdateCaptureFailureTest(Prime.TestMethods.Hvqk.HvqkConfigJsonFile.VoltageStep)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.PrimeHvqkTestMethod.ApplyHvqkStress">
+            <summary>
+            Apply hvqk stress.
+            </summary>
+            <returns>Return true if alarm occurred in last functional test.</returns>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Throw exception when voltage step string to double conversion fail.</exception>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.IMetadata">
+            <summary>
+            Provides methods for Hvqk Metadata Populations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.IMetadata.PopulateMetaDataDataBase(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Populate hvqk metadata database from directory HVQKVars.PATH_TO_METADATA.
+            </summary>
+            <param name="sessionContext">instance of the test method.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.MapResult">
+            <summary>
+            This class represents the data structure of the HVQK Instance Map Results.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.MapResult.DomainResultMap">
+            <summary>
+            Gets or sets value indicator whether alarm happen.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.MapResult.DomainResult">
+            <summary>
+            This class represents the lower data structure of the HVQK Domain Map Results.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.MapResult.DomainResult.DomainStepName">
+            <summary>
+            Gets or sets waterfall Domain Step Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.MapResult.DomainResult.InstanceResultMap">
+            <summary>
+            Gets or sets value indicator whether alarm happen.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hvqk.MapResult.InstanceResult">
+            <summary>
+            This class represents the lowerest data structure of the HVQK Instance Map Results.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.MapResult.InstanceResult.VoltageStepName">
+            <summary>
+            Gets or sets waterfall Voltage Step Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.MapResult.InstanceResult.StepResult">
+            <summary>
+            Gets or sets waterfall result value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hvqk.MapResult.InstanceResult.AlarmOccured">
+            <summary>
+            Gets or sets value indicator whether alarm happen.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hvqk.Metadata.PopulateDataResultsMap(Prime.TestMethods.Hvqk.HvqkMetaDataJsonFile,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This function populate the Hvqk DataResults DataBase right after metadata is created.
+            </summary>
+        </member>
+    </members>
+</doc>

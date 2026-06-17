@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HdmtOs.Sdk.TestClass.BaseTypes.Attributes</name>
+    </assembly>
+    <members>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ChoicesAttribute">
+            <summary>
+                Defines the choices possible for the property it's used on.
+            </summary>
+            <example>
+                [Choices("Choice1", "Choice2", "Choice3")]
+                public string ChoiceExample {get; set;}
+            </example>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ChoicesAttribute.Choices">
+            <summary>
+            Possible choices for the parameter 
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ChoicesAttribute.#ctor(System.String[])">
+            <summary>
+            Creates an instance of <see cref="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ChoicesAttribute"/> with the given string choices
+            </summary>
+            <param name="choices">String choices</param>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ChoicesAttribute.#ctor(System.Double[])">
+            <summary>
+            Creates an instance of <see cref="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ChoicesAttribute"/> with the given string choices
+            </summary>
+            <param name="choices">Double choices</param>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ChoicesAttribute.#ctor(System.Int32[])">
+            <summary>
+            Creates an instance of <see cref="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ChoicesAttribute"/> with the given string choices
+            </summary>
+            <param name="choices">Int choices</param>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.DefaultValueAttribute">
+            <inheritdoc cref="T:System.ComponentModel.DefaultValueAttribute"/>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.DefaultValueAttribute.#ctor(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.DefaultValueAttribute.#ctor(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.DefaultValueAttribute.#ctor(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.DescriptionAttribute">
+            <inheritdoc cref="T:System.ComponentModel.DescriptionAttribute"/>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.DescriptionAttribute.#ctor(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ExitPortAttribute">
+            <summary>
+                Defines exit ports for test classes
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ExitPortAttribute.FromPort">
+            <summary>
+            Inclusive Port Start
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ExitPortAttribute.ToPort">
+            <summary>
+            Inclusive Port End
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ExitPortAttribute.PassFail">
+            <summary>
+            Pass or fail status 
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ExitPortAttribute.Description">
+            <summary>
+            Description of the exit port
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ExitPortAttribute.#ctor(HdmtOs.Sdk.TestClass.BaseTypes.Attributes.PassFailStatus,System.String,System.Int32)">
+            <summary>
+            Creates an instance of ExitPortAttribute
+            </summary>
+            <param name="passFail">Pass Fail Status</param>
+            <param name="description">Description</param>
+            <param name="port">Port</param>
+            <example>
+                [ExitPort(PassFailStatus.Fail, "Fail Example", port: 0)]
+            </example>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ExitPortAttribute.#ctor(HdmtOs.Sdk.TestClass.BaseTypes.Attributes.PassFailStatus,System.String,System.Int32,System.Int32)">
+            <summary>
+            Creates an instance of ExitPortAttribute
+            </summary>
+            <param name="passFail">Pass Fail Status</param>
+            <param name="description">Description</param>
+            <param name="from">Inclusive start port</param>
+            <param name="to">Inclusive end port</param>
+            <remarks>
+            </remarks>
+            <example>
+                [ExitPort(PassFailStatus.Fail, "Fail Example", from: 0, to: 0)]
+                [ExitPort(PassFailStatus.Pass, "Pass Example", from: 1, to: 5)]
+            </example>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.HdmtOsTestClassAttribute">
+            <summary>
+            Defines an HdmtOsTestClass.
+            </summary>
+            <remarks>
+                Used for TestClass discovery on test program load
+            </remarks>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.HdmtOsTestClassMixinAttribute">
+            <summary>
+            Mixin another test class into the decorated test class with attribute HdmtOsTestClassMixin
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.HdmtOsTestClassMixinAttribute.Name">
+            <summary>
+            Name of test class to mixin
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.HdmtOsTestClassMixinAttribute.#ctor(System.String)">
+            <param name="name">Name of test class to mixin</param>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.HdmtOsTestClassParameterAttribute">
+            <summary>
+            Defines an HdmtOsTestClass parameters
+            </summary>
+            <remarks>
+                Used for TestClass parameter discovery on test program load
+            </remarks>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ParameterType">
+            <summary>
+            Supported parameter types for <see cref="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ParameterTypeAttribute" />
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ParameterTypeAttribute">
+            <summary>
+            Sets the parameter type
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ParameterTypeAttribute.Type">
+            <summary>
+            Type of Parameter
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ParameterTypeAttribute.#ctor(HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ParameterType)">
+            <summary>
+            Creates an instance of <see cref="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.ParameterTypeAttribute"/>
+            </summary>
+            <param name="type">Type of parameter</param>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.RequiredAttribute">
+            <inheritdoc cref="T:System.ComponentModel.DataAnnotations.RequiredAttribute"/>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.TestClassLoaderAttribute">
+             <summary>
+             Specifies the TestClassLoader for the HdmtOsTestClass
+             </summary>
+             <remarks>
+             The TestProgramHost will instantiate the TestClassLoader instead of the class
+             this attribute is specified on.
+            
+             The TestContext.TestInformation.LoadDll will reference the loadDll
+             
+             The TestClassLoader will be responsible for instantiating the HdmtOsTestClass
+             </remarks>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.TestClassLoaderAttribute.LoaderClassName">
+            <summary>
+            Class name of the TestClassLoader
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.TestClassLoaderAttribute.#ctor(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:HdmtOs.Sdk.TestClass.BaseTypes.Attributes.TestClassLoaderAttribute"/>
+            </summary>
+            <param name="loaderClassName">Class name of the TestClassLoader</param>
+        </member>
+    </members>
+</doc>

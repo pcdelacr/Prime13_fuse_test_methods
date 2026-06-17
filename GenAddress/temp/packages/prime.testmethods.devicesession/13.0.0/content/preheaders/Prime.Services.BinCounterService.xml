@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.BinCounterService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BinCounterService.BinCounterService">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.BackupCurrentCounters">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.CreateBin(System.String,System.Int32,System.String,System.String,System.Boolean,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.CreateCounter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.Exists(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetBin">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetBinsForLot">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetCompactBinSetByTosAlarm">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetCountersForLot">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetCountersForUnit">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetCurrentDataBin">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetCurrentHardBin">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetCurrentSoftBin">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetExtendedBinSetByTosAlarm">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetFailCountersForLot">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetFailCountersForUnit">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetPassCountersForLot">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetPassCountersForUnit">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetSortBin(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.GetTopParentBinId(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.IsReservedBinSetByTosAlarm">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.RestoreBackedUpCounters">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.SetAllBins(System.UInt32,System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinCounterService.SetBin(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BinCounterService.BinInfo">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.BinCounterService.BinInfo.BinID">
+            <summary>
+            Sets the bin ID.
+            </summary>
+        </member>
+        <member name="P:Prime.BinCounterService.BinInfo.BinName">
+            <summary>
+            Sets the bin name.
+            </summary>
+        </member>
+        <member name="P:Prime.BinCounterService.BinInfo.BinCount">
+            <summary>
+            Sets the bin count.
+            </summary>
+        </member>
+        <member name="P:Prime.BinCounterService.BinInfo.IsHardBin">
+            <summary>
+            Sets a value indicating whether this is a hard bin.
+            </summary>
+        </member>
+        <member name="M:Prime.BinCounterService.BinInfo.GetBinCount">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinInfo.GetBinID">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinInfo.GetBinName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinCounterService.BinInfo.IsHardbin">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BinCounterService.IBinCounterService">
+            <summary>
+            These tests are to validate exposure for all BinCounter APIs from TOS.
+            </summary>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetBin">
+            <summary>
+            Gets the currently set bin.
+            </summary>
+            <returns>Integer showing current set bin.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.Exists(System.Int32)">
+            <summary>
+            Checks whether specified bin exists or not.
+            </summary>
+            <param name="binId">ID of the bin in question.</param>
+            <returns>Boolean showing specified bin existence.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.CreateBin(System.String,System.Int32,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Adds specified bin to bin definitions.
+            </summary>
+            <param name="binName">Name of newly created bin.</param>
+            <param name="binID">ID of newly created bin.</param>
+            <param name="binGroupName">Bin group name of newly created bin.</param>
+            <param name="parentName">Parent group name of newly created bin.</param>
+            <param name="isLeafBin">Specifies if newly created bin is a leaf bin.</param>
+            <param name="description">Description of newly created bin (OPTIONAL).</param>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetSortBin(System.Int32)">
+            <summary>
+            Gets the sortBinID associated to a specific binID.
+            </summary>
+            <param name="binId">ID of the sort bin in question.</param>
+            <returns>Integer showing ID of corresponding sort bin.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If HdmtApi::GetSortBin fail.</exception>
+            <remarks>
+            <example>This is a code example:
+            <code>
+            int binId = 1;
+            int sortBin = Prime.Base.ServiceStore&lt;IBinCounterService&gt;.Service.GetSortBin(binId);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.SetBin(System.Int32)">
+            <summary>
+            Sets current bin to specified binID.
+            </summary>
+            <param name="bin">ID of current bin to set.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If HdmtApi::SetBin fail.</exception>
+            <remarks>
+            <example>This is a code example:
+            <code>
+            int binToSet = 1;
+            Prime.Base.ServiceStore&lt;IBinCounterService&gt;.Service.SetBin(binToSet);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetCurrentHardBin">
+            <summary>
+            Gets current hardware bin from GetAllBins API.
+            </summary>
+            <returns>Integer containing the current hardware bin.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If HdmtApi::GetAllBins fail or no HardBin value.</exception>
+            <remarks>
+            <example>This is a code example:
+            <code>
+            uint hardBin = Prime.Base.ServiceStore&lt;IBinCounterService&gt;.Service.GetCurrentHardBin();
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetCurrentSoftBin">
+            <summary>
+            Gets current software bin from GetAllBins API.
+            </summary>
+            <returns>Integer containing the current software bin.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If HdmtApi::GetAllBins fail or no SoftBin value.</exception>
+            <remarks>
+            <para>SoftBin and DataBin are equivalent in TOS3.</para>
+            <example>This is a code example:
+            <code>
+            uint softBin = Prime.Base.ServiceStore&lt;IBinCounterService&gt;.Service.GetCurrentSoftBin();
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetCurrentDataBin">
+            <summary>
+            Gets current data bin from GetAllBins API.
+            </summary>
+            <returns>Integer containing the current data bin.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If HdmtApi::GetAllBins fail or no DataBin value.</exception>
+            <remarks>
+            <para>SoftBin and DataBin are equivalent in TOS3.</para>
+            <example>This is a code example:
+            <code>
+            uint dataBin = Prime.Base.ServiceStore&lt;IBinCounterService&gt;.Service.GetCurrentDataBin();
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.SetAllBins(System.UInt32,System.UInt32)">
+            <summary>
+            Sets TOS softbin and databin only.  The hardbin parameter is not exposed here
+            as its value is ignored by the actual TOS API.
+            </summary>
+            <param name="softBin">Integer of selected softBin.</param>
+            <param name="dataBin">Integer of selected dataBin.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If HdmtApi::SetAllBins fail.</exception>
+            <remarks>
+            <para>Why no HardBin? HardBin value will be ignore by HdmtApi::SetAllBins API.</para>
+            <example>This is a code example:
+            <code>
+            uint softBin = 1;
+            uint dataBin = 2;
+            Prime.Base.ServiceStore&lt;IBinCounterService&gt;.Service.SetAllBins(softBin, dataBin);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetCountersForLot">
+            <summary>
+            Gets all counters for this lot.
+            </summary>
+            <returns>Map containing counter names and values for this lot.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If HdmtApi::GetCountersForLot fail.</exception>
+            <remarks>
+            <example>This is a code example:
+            <code>
+            var counters = Prime.Base.ServiceStore&lt;IBinCounterService&gt;.Service.GetCountersForLot();
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.BackupCurrentCounters">
+            <summary>
+            Backs up the currently incremented counters.
+            </summary>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.RestoreBackedUpCounters">
+            <summary>
+            Restores the backed-up counters.
+            </summary>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetBinsForLot">
+            <summary>
+            Gets all bin information from this lot.
+            </summary>
+            <returns>Vector containing bin information.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetTopParentBinId(System.Int32)">
+            <summary>
+            Gets the bin ID of a bin's top-most parent bin.
+            </summary>
+            <param name="binId">ID of selected bin.</param>
+            <returns>Integer of bin's top-most parent bin.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.CreateCounter(System.String)">
+            <summary>
+            Adds new counter.
+            </summary>
+            <param name="counterName">Name of newly created counter.</param>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetCountersForUnit">
+            <summary>
+            Get Map of Unit Counters.
+            </summary>
+            <returns>Unit Counters dictionary.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetPassCountersForUnit">
+            <summary>
+            Gets a list containing the value of the pass counters for unit.
+            </summary>
+            <returns>List containing the pass bin counters value information.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetFailCountersForUnit">
+            <summary>
+            Gets a list containing the value of the fails counters for unit.
+            </summary>
+            <returns>List containing the fails bin counters value information.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetPassCountersForLot">
+            <summary>
+            Gets a list containing the value of the pass counters for lot.
+            </summary>
+            <returns>List containing the pass bin counters value information.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetFailCountersForLot">
+            <summary>
+            Gets a list containing the value of the fail counters for lot.
+            </summary>
+            <returns>List containing the fail bin counters value information.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.IsReservedBinSetByTosAlarm">
+            <summary>
+            Checks if a reserved bin is set by TOS alarm.
+            </summary>
+            <returns>Boolean showing if reserved bin is set by TOS alarm.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetCompactBinSetByTosAlarm">
+            <summary>
+            Gets corresponding 4-digit bin from GetReservedBinSetByTosAlarm API.
+            </summary>
+            <returns>Integer containing 4-digit bin.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinCounterService.GetExtendedBinSetByTosAlarm">
+            <summary>
+            Gets corresponding 8-digit bin from GetReservedBinSetByTosAlarm API.
+            </summary>
+            <returns>Integer containing 8-digit bin.</returns>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            if(Prime.Base.ServiceStore&lt;IBinCounterService&gt;.Service.IsReservedBinSetByTosAlarm())
+            {
+                var EightDigitbin = Prime.Base.ServiceStore&lt;IBinCounterService&gt;.Service.GetExtendedBinSetByTosAlarm();
+            }
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="T:Prime.BinCounterService.IBinInfo">
+            <summary>
+            Contains name, count, hardbin status, and ID for particular bin.
+            </summary>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinInfo.GetBinName">
+            <summary>
+            Gets the bin name.
+            </summary>
+            <returns>String for bin name.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinInfo.GetBinCount">
+            <summary>
+            Gets the bin count.
+            </summary>
+            <returns>Integer for bin count.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinInfo.IsHardbin">
+            <summary>
+            Checks that the bin is a hardBin..
+            </summary>
+            <returns>Boolean to show hardBin status.</returns>
+        </member>
+        <member name="M:Prime.BinCounterService.IBinInfo.GetBinID">
+            <summary>
+            Gets the bin ID.
+            </summary>
+            <returns>Integer for bin ID.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Prime.Services.PatConfigService</id>
+    <version>13.3.7.4</version>
+    <authors>MPE MIT ATE Test Methods</authors>
+    <projectUrl>https://dev.azure.com/mit-us/PRIME</projectUrl>
+    <description>Package Description</description>
+    <releaseNotes>'Merged PR 10886: Report engineering DLL version in console and ituff'
+'Merged PR 10779: Cheery Pick for Prime Tickets'
+'Merged PR 10787: VoltageService - Allow for setting ratios in FLAME mode (and overriding ratios in for pat mod configs)'
+'Merged PR 10466: Merged PR 10345: [FuseDb][PatConfig][Functional] Accept pin group as pin alias.'
+'Merged PR 10385: [57696] [PatConfigService] OnTheFlyHandleWithData to use configurable ConsoleService - 13xxxx'
+'Merged PR 10089: [56784] [Prime.Services.PatConfigService] Move PatConfig BackgroundQueue prints to Telemetry'
+'Merged PR 10038: [PatConfigService]  PatConfig service patch 13.1.1 changes to 13.xx.xx'</releaseNotes>
+    <copyright>Copyright (2005) (2025) Intel Corporation</copyright>
+    <repository type="git" url="https://mit-us@dev.azure.com/mit-us/PRIME/_git/PRIME" commit="844be61cd7141529d49e2a33078c0df8b76bd0f9" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.IAlephable" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.PrimeAttributes" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.Utilities" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DffService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FileService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FuseDBService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ParallelTasksService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PatternService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PinService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlatformService.Interface" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlistService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionContextMessageIds" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TelemetryService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.UserVarService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Microsoft.Automata.SRM" version="1.2.2-PRIME" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="NJsonSchema-PRIME-CUSTOM" version="10.5.2" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Newtonsoft.Json" version="[12.0.3]" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ValueTuple" version="4.5.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.IAlephable" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.PrimeAttributes" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.Utilities" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DffService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FileService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FuseDBService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ParallelTasksService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PatternService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PinService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlatformService.Interface" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlistService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionContextMessageIds" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TelemetryService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.UserVarService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Microsoft.Automata.SRM" version="1.2.2-PRIME" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="NJsonSchema-PRIME-CUSTOM" version="10.5.2" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Newtonsoft.Json" version="[13.0.3]" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ComponentModel.Composition" version="6.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework=".NETFramework4.6.2" />
+    </frameworkAssemblies>
+    <contentFiles>
+      <files include="any/any/__ReferencedDocs/.attachments/FuseDefParser-0621e934-8d97-4d72-ad38-a5cdbd3616ea.zip" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-0782755d-101d-4261-a9ca-7d4d5037bc38.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-18967029-54dd-43a2-afc4-76713254191c.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-1d039392-54e0-404c-a542-10e74de9b5c9.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-20b58db4-f81f-4eab-b1b3-62668d52fb67.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-2443fb3a-ffea-4d64-94a1-064b5b028cc9.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-4a208d74-f083-45f7-8033-ee446c453608.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-4feef7bf-1d23-4a27-a7a6-0f802348b2a0.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-574338f1-df00-41e6-9e33-d701a3cffc05.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-6f59256a-b326-4c60-8ad3-1c1dd332dd78.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-77981a8a-20af-4c5a-842f-be7c659f2c80.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-7a8b6410-e88b-4ce3-86bb-522191a9af96.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-8d5f526d-c7c9-4ec7-9226-73dc489a4fa8.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-a60c95ad-5260-4077-a2e6-c8349775cb1c.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-ac9fad75-44d0-4987-b365-6b49acb797b2.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-de6a5384-0c44-48f2-bd3d-45e75c2eb873.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-dedafa7f-8acb-4740-b3b2-2c20d4b6ade3.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-e13e4481-4759-4e68-88b1-660902c980ad.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-e9075aae-3724-4fff-a028-d8d7cb57bf77.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-eba99ab3-6fb0-4663-b3b5-61e54b43f37e.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/image-fcb82b07-f60c-460f-b999-b10a311b3624.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/PatConfigService.md" buildAction="None" />
+    </contentFiles>
+  </metadata>
+</package>

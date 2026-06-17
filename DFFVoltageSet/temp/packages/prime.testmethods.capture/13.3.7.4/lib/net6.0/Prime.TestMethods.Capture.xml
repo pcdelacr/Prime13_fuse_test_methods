@@ -1,0 +1,746 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Capture</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Capture.BinaryOperations">
+            <summary>
+            Contains common operations for converting binary values.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.BinaryOperations.AsBitString(System.Collections.Generic.IReadOnlyList{System.Boolean})">
+            <summary>
+            Convert this bool array into a binary string.
+            </summary>
+            <param name="array">An bool array that represents a binary value.</param>
+            <returns>A string containing the binary info stored in the array.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.BinaryOperations.AsBitString(System.Collections.Generic.IReadOnlyList{System.Boolean},System.Int32,System.Boolean)">
+            <summary>
+            Convert this bool array into a binary string.
+            </summary>
+            <param name="array">An bool array that represents a binary value.</param>
+            <param name="minWidth">The string will be padded to match the length of this value if not already.</param>
+            <param name="leftAlignMsb">Align MSB to the left most character.</param>
+            <returns>A string containing the binary info stored in the array.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.BinaryOperations.AsBitArray(System.Int32)">
+            <summary>
+            Convert an integer into a binary value represented as a boolean array.
+            </summary>
+            <param name="num">Value of to convert into bool array representing the binary value.</param>
+            <returns>A bool array containing the value of the integer. Index 0 is the LSB.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.BinaryOperations.AsBitArray(System.Int32,System.Int32)">
+            <summary>
+            Convert an integer into a binary value represented as a boolean array.
+            </summary>
+            <param name="num">Value of to convert into bool array representing the binary value.</param>
+            <param name="minWidth">The array will be padded to match the length of this value if not already.</param>
+            <returns>A bool array containing the value of the integer. Index 0 is the LSB.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.BinaryOperations.AsBitArray(System.String)">
+            <summary>
+            Convert a string value into a binary value represented as a boolean array.
+            </summary>
+            <param name="value">String value to convert. Value is assumed to have the MSB as left aligned (index 0 is the MSB of the string).</param>
+            <returns>A binary value represented as a boolean array. Index 0 of array is the LSB.</returns>
+            <exception cref="T:System.ArgumentException">If the string contains characters other than '1' or '0', this exception is thrown.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.BinaryOperations.AsBitArray(System.String,System.Int32)">
+            <summary>
+            Convert a string value into a binary value represented as a boolean array.
+            </summary>
+            <param name="value">String value to convert. Value is assumed to have the MSB as left aligned (index 0 is the MSB of the string).</param>
+            <param name="minWidth">The array will be padded to match the length of this value if not already.</param>
+            <returns>A binary value represented as a boolean array. Index 0 of array is the LSB.</returns>
+            <exception cref="T:System.ArgumentException">If the string contains characters other than '1' or '0', this exception is thrown.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.BinaryOperations.AreEqual(System.Collections.Generic.IReadOnlyList{System.Boolean},System.Collections.Generic.IReadOnlyList{System.Boolean})">
+            <summary>
+            Given two boolean arrays representing binary values, check that the two arrays represent the same value.
+            </summary>
+            <param name="left">Left array.</param>
+            <param name="right">Right array.</param>
+            <returns>True if the two binary values are equal. False otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod">
+            <summary>
+            CapturePackets executes a functional test, then stores a string containing
+            failing data into SharedStorage depending on the mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.#ctor(Prime.ConsoleService.IConsoleService,Prime.FunctionalService.IFunctionalService,Prime.PinService.IPinService,Prime.PlistService.IPlistService,Prime.SharedStorageService.ISharedStorageService,Prime.TestMethods.Capture.IStopwatch)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod" /> class.
+            </summary>
+            <param name="consoleService">Console service.</param>
+            <param name="functionalService">Functional service.</param>
+            <param name="pinService">Pin service.</param>
+            <param name="plistService">Plist service.</param>
+            <param name="sharedStorageService">SharedStorageService.</param>
+            <param name="stopwatch">Stopwatch.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.TotalCaptureCount">
+            <summary>
+            Gets or sets the total amount of failures allowed if using PerCycleFails to generate packets. Ignored otherwise.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.KeyForSharedStorage">
+            <summary>
+            Gets or sets the key to use when inserting the final binary string into shared storage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.Sequence">
+            <summary>
+            Gets or sets a sequence of integer values that will be used to sequence packets in "Wave"
+            These values will be checked against the id value of each packet.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.DataPins">
+            <summary>
+            Gets or sets pins to used to collect data for packet generation.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.IdPins">
+            <summary>
+            Gets or sets pins to used to id incoming cycles.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.ValidPins">
+            <summary>
+            Gets or sets pins to used to determine if incoming cycle is valid.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.ValidValues">
+            <summary>
+            Gets or sets the values each valid pin should display for an incoming cycle to be considered valid.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.InvalidPacketTolerance">
+            <summary>
+            Gets or sets the maximum allowed incomplete packets allowed when executing the algorithm.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.Timeout">
+            <summary>
+            Gets or sets the maximum allowed time in milliseconds to innerExecute this instance before exiting out port 0.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.PacketSize">
+            <summary>
+            Gets or sets the expected size of complete packets for this test instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.FunctionalDataToUse">
+            <summary>
+            Gets or sets the type of functional test data that will be used to generate packets.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.ReversePacketOutput">
+            <summary>
+            Gets or sets a boolean value that determines whether to reverse the bits of the output packets before placing them into
+            SharedStorage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.LevelsTc">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.TimingsTc">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.Patlist">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.MaskPins">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.GetDataFromCycle(System.String,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Gets the cycle data for a given cycle given a mapping of Pin -> vector data.
+            </summary>
+            <returns>Data for cycle from the pins defined in pinNames.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.WillHaltTestExecution">
+            <summary>
+            Determine if test method execution should continue or not.
+            </summary>
+            <exception cref="T:System.NotImplementedException">
+            If a <see cref="T:Prime.TestMethods.Capture.FunctionalDataToParse" /> is defined that has not been
+            implemented yet.
+            </exception>
+            <returns>If the test method should stop execution.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper to inject required dependencies during runtime.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeCapturePacketsTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.BaseAlgorithm">
+            <summary>
+            Performs operations shared between all algorithms.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.BaseAlgorithm.#ctor(Prime.FunctionalService.ICaptureFailureTest,System.Collections.Generic.List{System.Func{System.ValueTuple{System.Boolean,System.Func{System.String}}}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Capture.BaseAlgorithm"/> class.
+            </summary>
+            <param name="captureFailureTest">CaptureFailureTest.</param>
+            <param name="conditionsToHaltTestInstanceExecution">Conditions that cause the test instance to exit port 2 after functional test execution.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.IAlgorithmForExecution">
+            <summary>
+            Defines a class that executes a functional test and returns data from functional execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.IAlgorithmForExecution.ExecuteFunctionalTest">
+            <summary>
+            Executes the functional test, then determines if any functional fails occurred.
+            </summary>
+            <returns>True if no pattern fails occurred, false if at least one was found.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.IAlgorithmForExecution.WillHaltAfterFunctionalTest(System.Func{System.String}@)">
+            <summary>
+            Determines if the functional test encountered some condition that should prevent this test instance from
+            continuing execution.
+            </summary>
+            <param name="debugMessage">If this function returns true, this value is populated with the debug message
+            as to why the test method needs to halt execution.</param>
+            <returns>If true, the test instance should halt execution and report port 2.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.IAlgorithmForExecution.GetDataFromFunctionalTest(System.Func{System.Boolean},System.String@)">
+            <summary>
+            Get data from functional test, then convert it into a string based off of the mode of the test method.
+            Returns true if data was converted within the timeout limit (if timeout was set to zero, algorithm will
+            always return true). False if timeout is exceeded.
+            </summary>
+            <param name="isTimeoutExceeded">Function that returns true when the timeout is exceeded. Causes the function to exit and return false.</param>
+            <param name="dataFromFunctionalTest">Populated with data from functional test if algorithm was successful.</param>
+            <returns>True if algorithm execution time was within timeout, false otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PerPinModeWithCtv">
+            <summary>
+            Algorithm for the collection of binary data for each pin using ctv, then concatenating the data for each pin
+            in sequence.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PerPinModeWithCtv.#ctor(Prime.FunctionalService.ICaptureFailureAndCtvPerPinTest,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Func{System.ValueTuple{System.Boolean,System.Func{System.String}}}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Capture.PerPinModeWithCtv"/> class.
+            </summary>
+            <param name="ctvPerPinTest"><see cref="T:Prime.FunctionalService.ICaptureFailureAndCtvPerPinTest"/> to retrieve functional data from.</param>
+            <param name="pins">List of pins used for the functional test.</param>
+            <param name="conditionsToHaltTestInstanceExecution">Conditions that cause the test instance to exit port 2 after functional test execution.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PerPinModeWithCtv.GetDataFromFunctionalTest(System.Func{System.Boolean},System.String@)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PerPinModeWithPatternFails">
+            <summary>
+            Algorithm for the collection of binary data for each pin using pattern fails, then concatenating the data for
+            each pin in sequence.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PerPinModeWithPatternFails.#ctor(Prime.FunctionalService.ICaptureFailureTest,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Func{System.ValueTuple{System.Boolean,System.Func{System.String}}}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Capture.PerPinModeWithPatternFails"/> class.
+            </summary>
+            <param name="captureFailureTest">A pattern fail test.</param>
+            <param name="pins">List of pins used for the functional test.</param>
+            <param name="conditionsToHaltTestInstanceExecution">Conditions that cause the test instance to exit port 2 after functional test execution.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PerSequenceModeWithCtv">
+            <summary>
+            For executing a <see cref="T:Prime.FunctionalService.ICaptureFailureAndCtvPerPinTest"/> to convert ctvs into data sequenced by cycle.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PerSequenceModeWithCtv.#ctor(Prime.FunctionalService.ICaptureFailureAndCtvPerCycleTest,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Func{System.ValueTuple{System.Boolean,System.Func{System.String}}}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Capture.PerSequenceModeWithCtv"/> class.
+            </summary>
+            <param name="ctvPerPinTest"><see cref="T:Prime.FunctionalService.ICaptureFailureAndCtvPerPinTest"/> to retrieve functional data from.</param>
+            <param name="pins">List of pins used for the functional test.</param>
+            <param name="conditionsToHaltTestInstanceExecution">Conditions that cause the test instance to exit port 2 after functional test execution.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PerSequenceModeWithCtv.GetDataFromFunctionalTest(System.Func{System.Boolean},System.String@)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PerSequenceModeWithPatternFails">
+            <summary>
+            For executing a <see cref="T:Prime.FunctionalService.ICaptureFailureTest"/> to convert pattern failures into data sequenced by cycle.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PerSequenceModeWithPatternFails.#ctor(Prime.FunctionalService.ICaptureFailureTest,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Func{System.ValueTuple{System.Boolean,System.Func{System.String}}}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Capture.PerSequenceModeWithPatternFails"/> class.
+            Uses pattern failures to capture data from functional test execution.
+            </summary>
+            <param name="captureFailureTest">A pattern fail test.</param>
+            <param name="pinList">List of pins used for the functional test.</param>
+            <param name="conditionsToHaltTestInstanceExecution">Conditions that cause the test instance to exit port 2 after functional test execution.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PerSequenceModeWithPatternFails.GetDataFromFunctionalTest(System.Func{System.Boolean},System.String@)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod">
+            <summary>
+            CaptureVectors executes a functional test, then stores a string containing
+            failing data into SharedStorage depending on the mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.#ctor(Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.FunctionalService.IFunctionalService,Prime.PlistService.IPlistService,Prime.TestMethods.Capture.IStopwatch)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod"/> class.
+            </summary>
+            <param name="consoleService">ConsoleService.</param>
+            <param name="sharedStorageService">SharedStorageService.</param>
+            <param name="functionalService">FunctionalService.</param>
+            <param name="plistService">PlistService.</param>
+            <param name="stopwatch">Stopwatch.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.DecodingMode">
+            <summary>
+            Decides how to decode the incoming ctvData.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.DecodingMode.PerPin">
+            <summary>
+            Concatenate incoming fail data by iterating through each failing cycle,
+            then appending the binary data to a string in the order of the pins.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.DecodingMode.PerSequence">
+            <summary>
+            Concatenate incoming fail data by iterating through each pin defined
+            by the user, then appending all the failing data for the given pin to a string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.LevelsTc">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.TimingsTc">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.Patlist">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.Pins">
+            <summary>
+            Gets or sets all pins used for capture of vectors.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.MaskPins">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.TotalCaptureCount">
+            <summary>
+            Gets or sets the total amount of failures allowed if using PerCycleFails to generate vectors. Ignored otherwise.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.KeyForSharedStorage">
+            <summary>
+            Gets or sets the key to use when inserting the final binary string into shared storage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.FunctionalDataToUse">
+            <summary>
+            Gets or sets the type of functional test data that will be used to generate vectors.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.Mode">
+            <summary>
+            Gets or sets the decoding mode for this test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.Timeout">
+            <summary>
+            Gets or sets how long this test method should take to execute (in ms) before exiting out of port 0.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.ReverseVectorOutput">
+            <summary>
+            Gets or sets a boolean value that determines whether to reverse the bits of the output vectors before placing them into SharedStorage.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper to inject required dependencies during runtime.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeCaptureVectorsTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod">
+            <summary>
+            HptpCapturePackets executes a functional test, then stores a string containing failing data into SharedStorage depending on the mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.#ctor(Prime.ConsoleService.IConsoleService,Prime.FunctionalService.IFunctionalService,Prime.PatternService.IPatternService,Prime.PinService.IPinService,Prime.PlistService.IPlistService,Prime.SharedStorageService.ISharedStorageService,Prime.TestMethods.Capture.IStopwatch)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod"/> class.
+            </summary>
+            <param name="consoleService">Console service.</param>
+            <param name="functionalService">Functional service.</param>
+            <param name="patternService">Pattern service.</param>
+            <param name="pinService">Pin service.</param>
+            <param name="plistService">Plist service.</param>
+            <param name="sharedStorageService">Shared storage service.</param>
+            <param name="stopwatch">Stopwatch.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.LevelsTc">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.TimingsTc">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.Patlist">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.Pins">
+            <summary>
+            Gets or sets list of pins to retrieve payloads from for packet generation.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.MaskPins">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.TotalCaptureCount">
+            <summary>
+            Gets or sets the total amount of failures allowed if using PerCycleFails to generate packets. Ignored otherwise.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.KeyForSharedStorage">
+            <summary>
+            Gets or sets the key to use when inserting the final binary string into shared storage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.Sequence">
+            <summary>
+            Gets or sets a sequence of integers that will be used to sequence packets in "Wave"
+            These integers will be checked against the sequence value of each packet.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.DataBits">
+            <summary>
+            Gets or sets indexes of bits of packet data used marked as data for output.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.IdBits">
+            <summary>
+            Gets or sets indexes of packet data used to determine the sequence of packet data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.ValidBits">
+            <summary>
+            Gets or sets indexes of packet data used to determine the validity of packet data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.ValidValues">
+            <summary>
+            Gets or sets the binary values the valid bits should display to consider the packet data as valid.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.InvalidPacketTolerance">
+            <summary>
+            Gets or sets the maximum allowed invalid packets allowed when executing the algorithm.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.Timeout">
+            <summary>
+            Gets or sets the maximum allowed time in milliseconds to innerExecute this instance before exiting out port 0.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.PacketSize">
+            <summary>
+            Gets or sets the expected size of complete packets for this test instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.AlignmentLabel">
+            <summary>
+            Gets or sets a string representing a label contained in functional test content.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.LabelOffset">
+            <summary>
+            Gets or sets an integer indicating the offset the alignment label (or from the first vector) where pattern begins strobing for packet data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.ReversePacketOutput">
+            <summary>
+            Gets or sets a boolean value that determines whether to reverse the bits of the output packets before placing them into SharedStorage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.MainPatternRegex">
+            <summary>
+            Gets or sets a string representing a the regex to find the main pattern that is used for packet data retrieval.
+            If the regex matches to more than one domain, the first pattern that the regex matched to will be used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.DomainRegex">
+            <summary>
+            Gets or sets a string representing a the regex to use when matching to the domain to use when collecting strobing data from the main pattern.
+            If the regex matches to more than one domain, the first domain that the regex matched to will be used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.ValidFailingPatternsRegex">
+            <summary>
+            Gets or sets a string representing a regex to use when filtering patterns that contain packet information. If a pattern fails that doesn't match the defined regex, the test method will exit out of port 2.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.MapUserBitsToHptpIndexes(System.Int32)">
+            <summary>
+            Maps the index of a flattened payload to the xy-location (xy -> x: vectorIndex, y: pinIndex) to the
+            four scrambled cycles collected from HPTP (High Performance Test Port).
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper to inject required dependencies during runtime.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.PrimeHptpCapturePacketsTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.FunctionalDataToParse">
+            <summary>
+            Decides which type of data to use to create packets.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.FunctionalDataToParse.CTV">
+            <summary>
+            Uses vector data obtained by using CTV instructions to create packets.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.FunctionalDataToParse.PerCycleFails">
+            <summary>
+            Use vector data constructed from per cycle failures to create packets.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.Bool">
+            <summary>
+            True or false.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.Bool.True">
+            <summary>
+            True.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.Bool.False">
+            <summary>
+            False.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.Shared">
+            <summary>
+            Contains elements that are shared between Capture methodologies.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.Shared.One">
+            <summary>
+            Character representing binary 1.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.Shared.Zero">
+            <summary>
+            Character representing binary 0.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.Shared.EmptyString">
+            <summary>
+            Points to an empty string.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Shared.CheckIfTestContainsFails(Prime.FunctionalService.ICaptureFailureTest)">
+            <summary>
+            Take a functional test and check if it contains fails.
+            </summary>
+            <param name="functionalTest">Functional test to check.</param>
+            <returns>If fails were not found and a debug string explaining that the test had no fails.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Shared.AddIpNameToPinsIfExists(System.Collections.Generic.List{System.String}@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            If an IP scope exists for this test instance, add it to the list of pins.
+            </summary>
+            <param name="pins">Pins to add IP scope to if one exists.</param>
+            <param name="ctx">Session context of test method.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Shared.CheckPinExists(System.Collections.Generic.IReadOnlyList{System.String},Prime.PinService.IPinService,System.String@)">
+            <summary>
+            Checks that all pins in provided list exist. If so, return true, otherwise, if any pin does not exist,
+            return false.
+            </summary>
+            <param name="pins">Pins to check exist on TOS.</param>
+            <param name="pinService">PinService.</param>
+            <param name="debugMessage">If function returns false, populated with missing pins.</param>
+            <returns>True if all pins exist, otherwise, if any are do not exist, return false.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Shared.CreatePacketsUsingWaveAlgorithm(System.Collections.Generic.IEnumerable{Prime.TestMethods.Capture.Shared.Payload},System.UInt32,Prime.TestMethods.Capture.Shared.SequenceValueComparator,System.UInt32,System.Boolean,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer,System.String@)">
+            <summary>
+            Uses the wave algorithm to sequence payloads into packets.
+            </summary>
+            <param name="payloads">Payloads created by reading data from functional test execution.</param>
+            <param name="packetLength">Length of a complete packet.</param>
+            <param name="sequenceValueComparator">Compares against the sequence value of a payload, then determines how far it is in a packet's sequence.</param>
+            <param name="invalidPacketTolerance">Amount of incomplete packets allowed before considering this algorithm execution as a failure.</param>
+            <param name="isHptp">If true, modifies packet output to conform to requirements for HPTP (alight most recent packet to the left of string, align sequencing of payloads from right to left). Otherwise, use requirements for normal CapturePackets.</param>
+            <param name="consoleService">Console service.</param>
+            <param name="ctx">Session context.</param>
+            <param name="completePackets">String containing all complete packets.</param>
+            <returns>If true, algorithm executed successfully. If false, the algorithm encountered a fail condition.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Shared.IsFunctionalTestFailingOnUnexpectedPin(Prime.FunctionalService.ICaptureFailureTest,System.Collections.Generic.List{System.String})">
+            <summary>
+            Determines if a functional test failed on a pin not defined by the user.
+            </summary>
+            <param name="captureFailureTest">A functional test that captured pattern failures.</param>
+            <param name="pins">Pins that are expected to fail.</param>
+            <returns>True if functional test failed on pins not defined by pins parameter, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Shared.IsFunctionalTestFailingOnAmblePattern(Prime.FunctionalService.ICaptureFailureTest,System.Collections.Generic.List{System.String})">
+            <summary>
+            Determines if a functional test failed on an amble pattern.
+            </summary>
+            <param name="captureFailureTest">A functional test that captured pattern failures.</param>
+            <param name="amblePatterns">Patterns that are amble patterns.</param>
+            <returns>True if functional test failed on pins not defined by pins parameter, false otherwise. If true, returns a debug message populated in second param.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.Shared.Payload">
+            <summary>
+            Parts of payload required for wave algorithm.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.Shared.Payload.SequenceValue">
+            <summary>
+            Sequence value for the payload.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.Shared.Payload.DataValue">
+            <summary>
+            Data value for the payload.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Capture.Shared.Payload.Cycles">
+            <summary>
+            Cycles used to construct the payload.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Shared.Payload.#ctor(System.Collections.Generic.IReadOnlyList{System.Boolean},System.Collections.Generic.IReadOnlyList{System.Boolean},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Capture.Shared.Payload"/> struct.
+            </summary>
+            <param name="sequenceValue">Sequence value for the payload.</param>
+            <param name="dataValue">Data value for the payload.</param>
+            <param name="cycles">Cycles used to construct this payload.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.Shared.SequenceValueComparator">
+            <summary>
+            Compares against the sequence value of payloads to determine where in the sequence it lies.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Capture.Shared.SequenceValueComparator.TotalNumberOfSequenceValues">
+            <summary>
+            Gets total number of sequence values this comparator contains.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Shared.SequenceValueComparator.Create(System.Collections.Generic.List{System.Int32},System.Int32)">
+            <summary>
+            Converts list of sequence values as integers into a comparator for the wave algorithm.
+            Used for determining where a payload is in a packet's sequence.
+            </summary>
+            <param name="sequenceValues">User provided sequence values as integers.</param>
+            <param name="numberOfBitsDefined">Number of sequence bits defined by the user. All binary values will be padded to match this length.</param>
+            <returns>Sequence integers converted into binary values, represented as bool arrays.</returns>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Thrown if a provided integer values exceeds the number of defined id bits.</exception>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.IStopwatch">
+            <summary>
+            Keeps track of elapsed time of test instance. Used for mocking timeouts when under unit test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.IStopwatch.Start">
+            <summary>
+            Start the stopwatch.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.IStopwatch.Stop">
+            <summary>
+            Stop the stopwatch.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.IStopwatch.Restart">
+            <summary>
+            Restart the stopwatch.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.IStopwatch.GetElapsedTimeInMilliseconds">
+            <summary>
+            Get the elapsed time since the start of the timer.
+            </summary>
+            <returns>Time elapsed since the start of the timer.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Capture.Stopwatch">
+            <summary>
+            Wrapper class for C# stopwatch. Used in production to keep track of timeout conditions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Stopwatch.Start">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Stopwatch.Stop">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Stopwatch.Restart">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Capture.Stopwatch.GetElapsedTimeInMilliseconds">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

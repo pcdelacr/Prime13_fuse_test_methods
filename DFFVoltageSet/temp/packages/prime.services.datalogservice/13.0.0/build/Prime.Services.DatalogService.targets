@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+        <CustomStreamFiles Include="$(MSBuildThisFileDirectory)..\content\CustomStream\*.*"/>
+    </ItemGroup>
+    <Target Name="CopyDatalogServiceAddionalFIlesToOutDir" AfterTargets="Build">
+    <Copy 
+            SourceFiles="@(CustomStreamFiles)" 
+            DestinationFiles="@(CustomStreamFiles->'$(OutDir)CustomStream\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true"
+		        ContinueOnError="true"/>
+  </Target>
+</Project>

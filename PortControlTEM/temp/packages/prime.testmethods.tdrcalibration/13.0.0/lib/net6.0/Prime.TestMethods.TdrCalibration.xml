@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.TdrCalibration</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.TdrCalibration.Calibration.CalibrationFactory">
+            <summary>
+            Calibration Factory.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.Calibration.CalibrationFactory.CalibrationHandler">
+            <summary>
+            Gets or sets the handler that does TDR calibration.
+            </summary>
+            This property should implement custom getter, the getter should check if the CalibrationHandler is null or not.
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.Calibration.CalibrationFactory.CalibrateFromFile">
+            <summary>
+            Gets or sets a value indicating whether the requested calibration is using a file.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TdrCalibration.Calibration.CalibrationWithFileHandler">
+            <summary>
+            This class will handle the calibration process using a file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.Calibration.CalibrationWithFileHandler.Prime#TestMethods#TdrCalibration#Calibration#ICalibration#DoCalibration(System.String,System.Collections.Generic.List{System.String},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.TdrCalibration.Calibration.ICalibration">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.Calibration.ICalibration.IsTiuCalibrated(System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if the TIU with name specified is calibrated previously.
+            </summary>
+            <param name="tiuName">The name of TIU.</param>
+            <param name="pinGroups">The name of pinGroups calibrated.</param>
+            <param name="token">Shared storage access token.</param>
+            <returns>True if the TIU is calibrated.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.Calibration.ICalibration.DoCalibration(System.String,System.Collections.Generic.List{System.String},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Command to do TDR calibration on the TIU.
+            </summary>
+            <param name="pinGroupName">The name of the Pin Group.</param>
+            <param name="ignoredPins">The list of the ignored Pins.</param>
+            <param name="fileName">The name of the output TDR calibration file.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.Calibration.ICalibration.StoreCalibrationInfo(System.Boolean,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Method to store the calibration information into the SharedStorage.
+            </summary>
+            <param name="calibrationStatus">The status of the calibration, True if success, False if failed..</param>
+            <param name="tiuName">The name of currently docked TIU.</param>
+            <param name="pinGroup">The name of pinGroups calibrated.</param>
+            <param name="token">Shared storage access token.</param>
+        </member>
+        <member name="T:Prime.TestMethods.TdrCalibration.Calibration.NewCalibrationProcessHandler">
+            <summary>
+            This class handles the process to do new TDR calibrations for the TIU.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.Calibration.NewCalibrationProcessHandler.Prime#TestMethods#TdrCalibration#Calibration#ICalibration#IsTiuCalibrated(System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.Calibration.NewCalibrationProcessHandler.Prime#TestMethods#TdrCalibration#Calibration#ICalibration#DoCalibration(System.String,System.Collections.Generic.List{System.String},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.Calibration.NewCalibrationProcessHandler.Prime#TestMethods#TdrCalibration#Calibration#ICalibration#StoreCalibrationInfo(System.Boolean,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.TdrCalibration.Calibration.TiuCalibrationInfo">
+            <summary>
+            Calibration criteria for TDR.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.Calibration.TiuCalibrationInfo.CalibratedPinGroups">
+            <summary>
+            Gets or sets dictionary of PinGroup -> CalibrationStatus.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.Calibration.TiuCalibrationInfo.DockedTiuName">
+            <summary>
+            Gets or sets the docked TIU name.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.ExecuteTdrCalibration">
+            <summary>
+            Setting test method to always or not execute Tdr Calibration.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.ExecuteTdrCalibration.FALSE">
+            <summary>
+            TestMethod selected to not execute Tdr Calibration.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.ExecuteTdrCalibration.TRUE">
+            <summary>
+            TestMethod selects to always execute Tdr Calibration.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.LoadFromFile">
+            <summary>
+            Test method will load the calibration data from file.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.LoadFromFile.FALSE">
+            <summary>
+            Test method will not load the calibration data from file generated by PrimeTdrCalibrationTestMethod previously.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.LoadFromFile.TRUE">
+            <summary>
+            Test method will load the calibration data from file generated by PrimeTdrCalibrationTestMethod previously.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.TdrHiLimit">
+            <summary>
+            Gets or sets High limit of the calibration value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.TdrLoLimit">
+            <summary>
+            Gets or sets Low limit of the calibration value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.PinGroups">
+            <summary>
+            Gets or sets comma separated PinGroups to do TDR calibration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.IgnoredPins">
+            <summary>
+            Gets or sets comma separated IgnoredPins to exclude from TDR calibration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.LoadDataFromFile">
+            <summary>
+            Gets or sets calibration files for each PinGroups to be calibrated.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.AlwaysExecute">
+            <summary>
+            Gets or sets AlwaysExecute to do TDR calibration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.TdrOverrides">
+            <summary>
+            Gets or sets an input file for manually overrides TDR calibration values.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.TdrOverrideOptions.PinGroup">
+            <summary>
+            Gets or sets the list of rail configurations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.TdrOverrideOptions.File">
+            <summary>
+            Gets or sets TDR overrides file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TdrCalibration.PrimeTdrCalibrationTestMethod.TdrOverrideOptions.IgnoredPins">
+            <summary>
+            Gets or sets the list of rail configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TdrCalibration.TdrResultPrinter">
+            <summary>
+            IConsolePrintable implementation to do the result printouts.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.TdrResultPrinter.#ctor(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Double}},System.Double,System.Double,System.Collections.Generic.IEnumerable{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TdrCalibration.TdrResultPrinter"/> class.
+            </summary>
+            <param name="results">The TDR Calibration results to be printed.</param>
+            <param name="hiLimit">High limit.</param>
+            <param name="lowLimit">Low limit.</param>
+            <param name="ignoredPins">The ignored pins.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.TdrResultPrinter.Print">
+            <summary>
+            Prints.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TdrCalibration.TdrResultPrinter.PrintOverride">
+            <summary>
+            Prints when override from file.
+            </summary>
+        </member>
+    </members>
+</doc>

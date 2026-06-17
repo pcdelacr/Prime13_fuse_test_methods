@@ -1,0 +1,137 @@
+{
+  "Configuration": {
+    "TestsToExecute": [
+      {
+        "Name": "Ipo::IpoBasicTest_SharedStorage_P1",
+        "Type": "INSTANCE"
+      }
+    ],
+    "StoreIterationResult": {
+      "SharedStorage": {
+        "Key": "IpoIterationResultKey"
+      }
+    },
+    "Loop": [
+      {
+        "Id": "100-MultipleStep-SS",
+        "Iteration": [
+          {
+            "Id": "010-TwoItem",
+            "StepCount": 2,
+            "SharedStorage": [
+              {
+                "DataType": "DOUBLE",
+                "ResetPolicy": "NEVER_RESET",
+                "Key": "SharedStorage.KeyA",
+                "Context": "DUT",
+                "Start": 0,
+                "Step": 0.1
+              },
+              {
+                "DataType": "DOUBLE",
+                "ResetPolicy": "NEVER_RESET",
+                "Key": "SharedStorage.KeyB",
+                "Context": "DUT",
+                "Start": 0,
+                "Step": 0.2
+              }
+            ]
+          },
+          {
+            "Id": "011-OneItem",
+            "StepCount": 3,
+            "SharedStorage": [
+              {
+                "DataType": "INT",
+                "ResetPolicy": "NEVER_RESET",
+                "Key": "SharedStorage.KeyC",
+                "Context": "DUT",
+                "Start": 0,
+                "Step": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "200-SingleStep-SS",
+        "Iteration": [
+          {
+            "Id": "020-TwoItem",
+            "SharedStorage": [
+              {
+                "DataType": "STRING",
+                "ResetPolicy": "RESET_AT_LOT_START",
+                "Key": "SharedStorage.FuseString0",
+                "Context": "DUT",
+                "Value": "0000"
+              },
+              {
+                "DataType": "STRING",
+                "ResetPolicy": "RESET_AT_LOT_START",
+                "Key": "SharedStorage.FuseString1",
+                "Context": "DUT",
+                "Value": "1111"
+              }
+            ]
+          },
+          {
+            "Id": "021-OneItem-Toggle",
+            "SharedStorage": [
+              {
+                "DataType": "STRING",
+                "ResetPolicy": "RESET_AT_LOT_START",
+                "Key": "SharedStorage.FuseString0",
+                "Context": "DUT",
+                "Value": "AAAA"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "300-Toggle-SS",
+        "Iteration": [
+          {
+            "Id": "030-Toggle",
+            "SharedStorage": [
+              {
+                "DataType": "STRING",
+                "ResetPolicy": "RESET_AT_DEVICE_START",
+                "Key": "SharedStorage.FuseString0011",
+                "Context": "DUT",
+                "Value": "0011"
+              },
+              {
+                "DataType": "STRING",
+                "ResetPolicy": "RESET_AT_DEVICE_START",
+                "Key": "SharedStorage.FuseString1100",
+                "Context": "DUT",
+                "Value": "1100"
+              }
+            ]
+          },
+          {
+            "Id": "031-Toggle",
+            "SharedStorage": [
+              {
+                "DataType": "STRING",
+                "ResetPolicy": "RESET_AT_DEVICE_START",
+                "Key": "SharedStorage.FuseString0011",
+                "Context": "DUT",
+                "Value": "1100"
+              },
+              {
+                "DataType": "STRING",
+                "ResetPolicy": "RESET_AT_DEVICE_START",
+                "Key": "SharedStorage.FuseString1100",
+                "Context": "DUT",
+                "Value": "0011"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

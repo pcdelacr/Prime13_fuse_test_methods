@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "Arrays"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Arrays": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/Arrays"
+      }
+    }
+  },
+  "definitions": {
+    "Resources": {
+      "type": "object",
+      "required": [
+        "Id",
+        "Name",
+        "Type",
+        "RepairPath"
+      ],
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "RepairPath": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Arrays": {
+      "type": "object",
+      "minItems": 1,
+      "required": [
+        "Name",
+        "Resources"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Resources": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Resources"
+          }
+        }
+      }
+    }
+  }
+}

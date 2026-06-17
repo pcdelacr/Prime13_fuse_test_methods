@@ -1,0 +1,616 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Kernel.Kernel</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Kernel.BypassHandler">
+            <summary>
+            This class handles the logic of the current instance bypass.
+            Current reasons in order of priority:
+            [1] BypassPort's parameter value >= 0;
+            [2] Simba's bypass. This will set the port=[1].
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.BypassHandler.BypassPort">
+            <summary>
+            Gets the BypassPort number.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.BypassHandler.IsBypass">
+            <summary>
+            Gets a value indicating whether the test instance is bypassed or not.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.BypassHandler.ResolveInstanceBypassFromParameters(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Resolves if the current instance has to be bypassed or not due to:
+            - BypassPort parameter.
+            </summary>
+            <param name="instanceParameters">The current instance's parameters.</param>
+        </member>
+        <member name="T:Prime.Kernel.CurrentCallingPathProvider">
+            <summary>
+            Current Calling Path Provider.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.CurrentCallingPathProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.CurrentCallingPathProvider"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.CurrentCallingPathProvider.CallingPath">
+            <summary>
+            Gets or sets the calling path of current execution instance.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.CurrentCallingPathProvider.HandleMessage">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Kernel.IKernelSharedStorage">
+            <summary>
+            The kernel SharedStorage interface.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.IKernelSharedStorage.SharedStorageLock">
+            <summary>
+            Gets or sets the lock object for accessing the Kernel SharedStorage.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.IKernelSharedStorage.IsAnyCsDllLoaded">
+            <summary>
+            Gets or sets  a value indicating whether any C# dlls were loaded already to indicate if just started loading process.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.IKernelSharedStorage.LoadedDebugTestMethodDllContainers">
+            <summary>
+            Gets or sets list of loaded TestMethodDllContainer.
+            A DllContainer per each dll compiled in Debug mode, to allow Dynamic Reload.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.IKernelSharedStorage.LoadedInstancesPerTestMethodDll">
+            <summary>
+            Gets or sets list of loaded instances per dll name.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.IKernelSharedStorage.GlobalTelemetryConsumer">
+            <summary>
+            Gets the global logger of this AppDomain.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.IKernelSharedStorage.GlobalLoggerSessionId">
+            <summary>
+            Gets the global logger session ID.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.IKernelSharedStorage.PrimeTempDllContainer">
+            <summary>
+            Gets or sets the "PrimeTempDllContainer" for the loading sequence.
+            This DllContainer will be deleted right after the loading sequence ended.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.IKernelSharedStorage.LoadedReleaseTestMethodsDllsContainer">
+            <summary>
+            Gets or sets the "LoadedReleaseTestMethodsDllsContainer" for the loading sequence.
+            This DllContainer will contain all the dlls that were compiled in Release mode.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.IKernelSharedStorage.IsSingleAppDomain">
+            <summary>
+            Gets or sets a value indicating whether the TP is loaded as Single AppDomain or Multi AppDomain.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.IKernelSharedStorage.MefExportsAsDictionary">
+            <summary>
+            Gets or sets <see cref="P:Prime.Kernel.IKernelSharedStorage.MefExportsAsDictionary"/>.
+            The Key is the Service interface type and the value is the Service implementaion.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.IKernelSharedStorage.FlushAndShutdownTelemetryConsumer">
+            <summary>
+            Gracefully shuts down the telemetry loggers.
+            </summary>
+        </member>
+        <member name="T:Prime.Kernel.ITestMethodDllContainer">
+            <summary>
+            The TestMethod dll container.
+            TOS3 container will be the AppDomain of the TM.
+            TOS4 container will be the Assembly of the TM.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethodDllContainer.LoadAssembly(System.String)">
+            <summary>
+            Load an assembly from the current container.
+            </summary>
+            <param name="dllFullPath">the dll full path to load.</param>
+            <returns>loaded assembly.</returns>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethodDllContainer.Unload">
+            <summary>
+            Unload the dll container.
+            </summary>
+            <returns>boolean value indicating whether the unload succeeded or not.</returns>
+        </member>
+        <member name="T:Prime.Kernel.IUserCodeDllHandler">
+            <summary>
+            UserCode Dll Handler interface.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.IUserCodeDllHandler.CheckIfModifiedUserCodeDll(Prime.SessionService.ISessionContextProviderContainer,System.DateTime)">
+            <summary>
+            return True if is a user code dll and
+            the sub-system is enabled and
+            the dll was modified from last load.
+            </summary>
+            <param name="sessionContext">Session context for this operation.</param>
+            <param name="loadedTimeStamp">The timestamp of the loaded dll.</param>
+            <returns>True according to description above.</returns>
+        </member>
+        <member name="M:Prime.Kernel.IUserCodeDllHandler.Copy(System.String)">
+            <summary>
+            Copy the dll from its remote path to load path.
+            </summary>
+            <param name="copyToPathAndName">Full Path to copy the dll to (including dll name).</param>
+        </member>
+        <member name="T:Prime.Kernel.KernelHelper">
+            <summary>
+            The interface for tor Kernel helper classes per TOS3 and TOS4.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.KernelHelper"/> class.
+            </summary>
+            <param name="instanceName">the instance name.</param>
+            <param name="dllName">the TM dll name.</param>
+            <param name="binDir">TOS bin dir.</param>
+            <param name="testMethodNameSpace">TM namespace.</param>
+            <param name="testMethodName">TM name.</param>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.InstanceParameters">
+            <summary>
+            Gets or sets the InstanceParameters of the instance.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.BinDir">
+            <summary>
+            Gets the TOS bin dir.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.TestMethodNameSpace">
+            <summary>
+            Gets the TM namespace.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.InstanceName">
+            <summary>
+            Gets the instance name.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.DllName">
+            <summary>
+            Gets the dll name.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.DllFullPathToLoad">
+            <summary>
+            Gets the dll full path to load from.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.LoadedDllTimeStamp">
+            <summary>
+            Gets or sets the timestamp of the loaded dll.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.TestMethodName">
+            <summary>
+            Gets The TM name.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.KernelSharedStorage">
+            <summary>
+            Gets or sets The KernelSharedStorage instance.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.IsDebug">
+            <summary>
+            Gets or sets a value indicating whether running in debug LogLevel or not.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.WinLogger">
+            <summary>
+            Gets or sets the WinLogger object.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelHelper.IsDebugDll">
+            <summary>
+            Gets or sets a value indicating whether this dll compiled in Debug mode.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.UnloadDebugTestMethodDll(System.String)">
+            <summary>
+            Unload a Test Methods dll.
+            </summary>
+            <param name="dllName">the name of the dll to unload.</param>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.CreateTestInstanceObjectFromDll(System.Func{Prime.SessionService.ISessionContextProviderContainer})">
+            <summary>
+            Create new TestInstance.
+            </summary>
+            <returns>new instance.</returns>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.LoadSequenceCompleted(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Mark the load sequence as completed.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.DisposeTestInstance">
+            <summary>
+            Unload a single TestInstance.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.PostVerify">
+            <summary>
+            Do the PostVerify work per TOS version.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.PreExecute(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            PreExecute.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.PostExecute(System.Int32,System.Boolean,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            PostExecute.
+            Once all service from AnchorService's PostExecuteLegacy migrated then add all of them to the kernel's PostExecute and delete the KernelHelper.PostExecute function.
+            </summary>
+            <param name="portResults">portResults.</param>
+            <param name="isBypass">isBypass.</param>
+            <param name="isDieIdPostExecute">isDieIdPostExecute.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.HandleBypass(System.Int32)">
+            <summary>
+            HandleBypass.
+            </summary>
+            <param name="port">instance exit port.</param>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.GetSimbaBypass(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            GetSimbaBypass.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>If is bypass and the port in case simba has the current instance to be bypassed.</returns>
+        </member>
+        <member name="M:Prime.Kernel.KernelHelper.PrintDllInformation(System.Tuple{System.String,System.String})">
+            <summary>
+            Print the dll information for the load.
+            </summary>
+            <param name="additionalInfo">additional info to print.</param>
+        </member>
+        <member name="T:Prime.Kernel.Tos4KernelHelper">
+            <summary>
+            TOS3 KernelHelper.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.Tos4KernelHelper.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.Tos4KernelHelper"/> class.
+            </summary>
+            <param name="instanceName">the instance name.</param>
+            <param name="dllName">the dll name.</param>
+            <param name="binDir">TOS binDir.</param>
+            <param name="testMethodName">the name of the TM.</param>
+        </member>
+        <member name="M:Prime.Kernel.Tos4KernelHelper.UnloadDebugTestMethodDll(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Kernel.Tos4KernelHelper.CreateTestInstanceObjectFromDll(System.Func{Prime.SessionService.ISessionContextProviderContainer})">
+            <summary>
+            Create new Test Instance in a target LoadContext.
+            LoadContext logic:
+            1. Load the dll into "PrimeTemp" LoadContext - the temp LoadContext will always be unloaded at the end of the load sequence.
+            2. Once dll was loaded into "PrimeTemp" check if it was compiled in Debug or in Release mode.
+            2.a. If Release mode => load the dll into the "PrimeTestMethods" LoadContext. Dlls in this LoadContext will not be checked for Dynamic Reload.
+            2.b. If Debug mode => load the dll into a separated LoadContext to allow Dynamic Reload later.
+            3. Load the dll to the LoadContext decided in step #2.
+            4. Create the Test Instance from the loaded dll in step #3.
+            </summary>
+            <returns>The new created Test Instance.</returns>
+        </member>
+        <member name="M:Prime.Kernel.Tos4KernelHelper.PrimeAssemblyLoadContext.Load(System.Reflection.AssemblyName)">
+            <summary>
+            This override method allow referenced assembly to be resolved here.
+            If cannot be resolved then return null.
+            </summary>
+            <param name="assemblyName">name of the assembly to resolve.</param>
+            <returns>the resolved assembly. or null.</returns>
+        </member>
+        <member name="T:Prime.Kernel.KernelSharedStorage">
+            <summary>
+            Common storage for all kernel instances to manage the loaded AppDomains and instances.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelSharedStorage.SharedStorageLock">
+            <summary>
+            Gets or sets the lock object for accessing the Kernel SharedStorage.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelSharedStorage.IsAnyCsDllLoaded">
+            <summary>
+            Gets or sets  a value indicating whether any C# dlls were loaded already to indicate if just started loading process.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelSharedStorage.LoadedDebugTestMethodDllContainers">
+            <summary>
+            Gets or sets list of loaded TestMethodDllContainer.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelSharedStorage.LoadedReleaseTestMethodsDllsContainer">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.Kernel.KernelSharedStorage.LoadedInstancesPerTestMethodDll">
+            <summary>
+            Gets or sets list of loaded instances per AppDomain.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelSharedStorage.GlobalTelemetryConsumer">
+            <summary>
+            Gets the global logger of this AppDomain.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelSharedStorage.GlobalLoggerSessionId">
+            <summary>
+            Gets the global logger session ID.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.KernelSharedStorage.PrimeTempDllContainer">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.Kernel.KernelSharedStorage.IsSingleAppDomain">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.Kernel.KernelSharedStorage.MefExportsAsDictionary">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Kernel.KernelSharedStorage.GetKernelSharedStorage">
+            <summary>
+            Get the KernelSharedStorage singleton.
+            </summary>
+            <returns>KernelSharedStorage singleton.</returns>
+        </member>
+        <member name="M:Prime.Kernel.KernelSharedStorage.CreateGlobalTelemetryConsumer">
+            <summary>
+            Create the global consumer logger.
+            </summary>
+            <returns>ILogger implementation.</returns>
+        </member>
+        <member name="T:Prime.Kernel.PerInstanceProfiler">
+            <summary>
+            Profiles the test time and private bytes per test instance.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.PerInstanceProfiler.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.PerInstanceProfiler"/> class for the given instance name.
+            </summary>
+            <param name="instanceName">The name of the current instance.</param>
+        </member>
+        <member name="M:Prime.Kernel.PerInstanceProfiler.DatalogAsync">
+            <summary>
+            Stops the profiler for the current instance at the end of current instance's Execute.
+            </summary>
+        </member>
+        <member name="T:Prime.Kernel.PrimeKernel">
+            <summary>
+            The prime kernel class - this is the heart class of Prime C# loading and execution.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.PrimeKernel"/> class.
+            </summary>
+            <param name="binDir">TOS bin dir - where TOS copy the DLLs into at pre-load.</param>
+            <param name="testClassName">The name of the test class as appears in the PH file.</param>
+            <param name="instanceName">The name of the current instance.</param>
+            <param name="dllName">The name of the dll contains this the Test Method code itself.</param>
+        </member>
+        <member name="P:Prime.Kernel.PrimeKernel.KernelHelper">
+            <summary>
+            Gets or sets the kernelHelper for this instance.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.PrimeKernel.TestInstance">
+            <summary>
+            Gets or sets the concrete test instance.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.PrimeKernel.InstanceLogger">
+            <summary>
+            Gets or sets the instance logger.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.Load(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            CreateGlobalLogger the concrete instance during TP load.
+            </summary>
+            <param name="instanceParameters">pairs of instance name and its value.</param>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.Verify(System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean)">
+            <summary>
+            The verify function
+            Execute the Verify stage with the instance parameters.
+            The entry points for this functions are:
+            [1] The bPostInit (PrimeInstance.cpp) on a call from the HdmtApi::VerifyInstance or the `Verify` on the GUI.
+                In this case, the calledByExecute=false.
+            [2] The bExecute (PrimeInstance.cpp) on the case of "m_pIHdmtTest->GetDirtyFlagValue()" is true.
+                In this case, the calledByExecute=true.
+            </summary>
+            <param name="instanceParameters">pairs of instance name and its value.</param>
+            <param name="calledByExecute">true if Verify called by execute.</param>
+            <returns>pass or fail status.</returns>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.Execute(System.Collections.Generic.IReadOnlyList{System.String})">
+            <summary>
+            The execute function.
+            Execute the Test Method execution and handle the exceptions.
+            </summary>
+            <param name="currentTestCallingPath">Current Test Execution Calling Path.</param>
+            <returns>instance exit port and Bypass status.</returns>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.Unload">
+            <summary>
+            Trigger unload of the whole Prime
+            Will destroy all instances and unload all AppDomains.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.AlarmTriggeredDuringVerify">
+            <summary>
+            Query the Kernel if an alarm has been triggered during the latest execution of <see cref="M:Prime.Kernel.PrimeKernel.Verify(System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean)"/>.
+            </summary>
+            <returns>A value indicating if an alarm occurred during verify.</returns>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.UnloadTestInstance(Prime.Kernel.PrimeKernel)">
+            <summary>
+            Unload a concrete test instance from a PrimeKernel instance.
+            </summary>
+            <param name="primeKernel">the prime kernel instance.</param>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.InitializeServiceStore">
+            <summary>
+            Initialize the Service Store = load all the services implementations dlls.
+            Making this as a standalone function in order o mock it for UT and skip the ServiceStore initialization.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.CreateUserCodeDllHandler(System.String)">
+            <summary>
+            Create a user code dll handler for a given dll.
+            </summary>
+            <param name="dllName">The current dll name.</param>
+            <returns>A user code handler.</returns>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.CreateTestInstance">
+            <summary>
+            Create new instance at the target AppDomain.
+            </summary>
+            <returns>The new created test instance marshaled to the target AppDomain.</returns>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.InitializeSessionContext">
+            <summary>
+            Initialize the session context from all sessionContextProvidables services.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.RemoveFolderAndFiles(System.String)">
+            <summary>
+            help function to cleanup of all files and folder recursively in prime's temp folder.
+            </summary>
+            <param name="dirPath">path to delete the file and folders from.</param>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.CreateSessionContextProvider">
+            <summary>
+            Create an ISessionContextProviderContainer for a TM that requires it in its CTOR DI.
+            </summary>
+            <returns>ISessionContextProviderContainer.</returns>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.InnerVerify(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Boolean)">
+            <summary>
+            The entry points for this functions are:
+            [1] The Kernel.Verify, which the calledByExecute's value will depend on who the caller of the Kernel.Verify.
+            [2] The Kernel.Execute, when the Kernel.IsTestInstanceUndefined(). In this case the calledByExecute=true.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.SetProfileMode">
+            <summary>
+            SetProfileMode.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.PrimeKernel.SetPerformanceProfile(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            SetPerformanceProfile.
+            </summary>
+            <param name="instanceParameters">instanceParameters.</param>
+        </member>
+        <member name="T:Prime.Kernel.Telemetry.TelemetryMessages">
+            <summary>
+            Kernel logger messages.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.Telemetry.TelemetryMessages.LogKernelExecuted(MPE.MIT.Logging.ILogger,System.Boolean)">
+            <summary>
+            Log kernel executed.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="isBypassed">Is the instance bypassed.</param>
+        </member>
+        <member name="M:Prime.Kernel.Telemetry.TelemetryMessages.LogKernelVerified(MPE.MIT.Logging.ILogger,System.Boolean)">
+            <summary>
+            Log kernel verified.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="isBypassed">Is the instance bypassed.</param>
+        </member>
+        <member name="T:Prime.Kernel.Telemetry.TelemetryPerformanceScopes">
+            <summary>
+            Logger performance scopes.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.Telemetry.TelemetryPerformanceScopes.GetExecutePerformanceScope(MPE.MIT.Logging.ILogger,System.Boolean)">
+            <summary>
+            Get kernel execute performance scope.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="isBypassed">Is the instance bypassed.</param>
+            <returns>The performance scope.</returns>
+        </member>
+        <member name="M:Prime.Kernel.Telemetry.TelemetryPerformanceScopes.GetVerifyPerformanceScope(MPE.MIT.Logging.ILogger,System.Boolean)">
+            <summary>
+            Get kernel verify performance scope.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="callByExecute">Indicate this verify was called from an execute.</param>
+            <returns>The performance scope.</returns>
+        </member>
+        <member name="T:Prime.Kernel.UserCodeDllHandler">
+            <summary>
+            Handles the user code dll reload logic.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.UserCodeDllHandler.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.UserCodeDllHandler"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.UserCodeDllHandler.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.UserCodeDllHandler"/> class.
+            </summary>
+            <param name="dllName">Dll name for this object.</param>
+        </member>
+        <member name="M:Prime.Kernel.UserCodeDllHandler.CheckIfModifiedUserCodeDll(Prime.SessionService.ISessionContextProviderContainer,System.DateTime)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Kernel.UserCodeDllHandler.Copy(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Kernel.WinLogger">
+            <summary>
+            WinLogger class to log information to HdmtApp console and to WinEvent when ConsoleService not necessary available.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.WinLogger.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.WinLogger"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.WinLogger.Log(System.String,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            Log information to WindowEvent logger and to the HdmtApp.exe Console.
+            Use this when ConsoleService is not necessary available.
+            </summary>
+            <param name="message">message to log.</param>
+            <param name="logSeverity">the severity of the log.</param>
+        </member>
+    </members>
+</doc>

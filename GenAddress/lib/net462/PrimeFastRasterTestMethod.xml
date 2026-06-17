@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeFastRasterTestMethod" MetaData="dll=Prime.TestMethods.Array" />
+    <Imports>
+      <FileName>PrimeRepairTestMethod.xml</FileName>
+      <FileName>PrimeFastRasterTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>PrimeRepairTestMethod</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="MaxDefectCount" descriptions="Max number of defects that will be processed by the repair instance">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>0</Default>
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts />
+  </TestLibrary>
+</TestLibraryInterfaces>

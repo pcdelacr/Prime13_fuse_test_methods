@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Base.IAlephable</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Base.IAlephAble.AlephInitPriority">
+            <summary>
+            The priority of a service to be initialized by Aleph.
+            </summary>
+        </member>
+        <member name="F:Prime.Base.IAlephAble.AlephInitPriority.HIGH">
+            <summary>
+            High
+            </summary>
+        </member>
+        <member name="F:Prime.Base.IAlephAble.AlephInitPriority.MEDIUM">
+            <summary>
+            Medium
+            </summary>
+        </member>
+        <member name="F:Prime.Base.IAlephAble.AlephInitPriority.LOW">
+            <summary>
+            Low
+            </summary>
+        </member>
+        <member name="T:Prime.Base.IAlephAble.IAlephAble">
+            <summary>
+            A Service which is IAlephAble will be initialized by Aleph during INIT.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.IAlephAble.IAlephAble.GetAlephFilesRegEx">
+            <summary>
+            ***** This method will be removed in a future version. Please use GetConfigurationFileInfo instead. ****
+            Returns a RegEx pattern describes the required input files for the Service.
+            </summary>
+            <returns>The RegEx pattern.</returns>
+        </member>
+        <member name="M:Prime.Base.IAlephAble.IAlephAble.GetAlephInitPriority">
+            <summary>
+            Returns the INIT priority requested by the Service.
+            </summary>
+            <returns>High, Medium or Low.</returns>
+        </member>
+        <member name="M:Prime.Base.IAlephAble.IAlephAble.AlephInit(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initialize method of the Service to be called by Aleph.
+            </summary>
+            <param name="alephFiles">The list of the input files for the Service.</param>
+        </member>
+        <member name="M:Prime.Base.IAlephAble.IAlephAble.GetConfigurationFilesInfo">
+            <summary>
+            Returns a dictionary with the regex of the file and the schema file to validate.
+            A service can have multiple files (with unique regex) with different/same schema file.
+            Key = regex value, Value = json schema file to validate.
+            </summary>
+            <returns>Collection of regex and the associated schema file to validate.</returns>
+        </member>
+    </members>
+</doc>

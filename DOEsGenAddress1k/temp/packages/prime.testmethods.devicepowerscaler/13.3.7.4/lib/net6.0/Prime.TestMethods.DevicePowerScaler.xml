@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.DevicePowerScaler</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.DevicePowerScaler.Common.ConfigurationHandle">
+            <summary>
+            Handler for task related to configuration file.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DevicePowerScaler.Common.ConfigurationHandle.sessionContext">
+            <summary>
+            Session context.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Common.ConfigurationHandle.#ctor(Prime.TestMethods.DevicePowerScaler.InputFile.Configuration,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DevicePowerScaler.Common.ConfigurationHandle"/> class.
+            </summary>
+            <param name="configJson">Deserialized configuration json content to process.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Common.ConfigurationHandle.ValidatePowerSumPinNamesExist">
+            <summary>
+            Check PowerSumPinsSetting PinName exist.
+            </summary>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Pin is not exist.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Common.ConfigurationHandle.PopulateTestInstancesWithRegex">
+            <summary>
+            Get all test instances from test plan and populate TestInstancesToApply with regex.
+            </summary>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">No test instance matching regex found.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Common.ConfigurationHandle.CheckForDuplicateTestInstancesToApply">
+            <summary>
+            Check for duplicate TestInstancesToApply across PowerSumPinsSetting object.
+            One pin object can have multiple test regex, but it should not have duplicate test instance names. e.g. PinA has TestRegex1 and TestRegex2, but both regex should not match the same test instance name.
+            Multiple pin objects cannot have duplicated test instance names. e.g. PinA has TestRegex1 and PinB has TestRegex2, but both regex should not match the same test instance name.
+            </summary>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Duplicate test found among pin setting.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Common.ConfigurationHandle.CalculatePSFBase">
+            <summary>
+            Evaluate PSF Equation and set PSF Base.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Common.ConfigurationHandle.CalculateTestPSFToApply">
+            <summary>
+            Calculates and applies the Power Sum Factor (PSF) for each test in the configuration.
+            </summary>
+            <remarks>This method iterates through the configured power sum pin settings and calculates the
+            PSF to apply for each test based on the base PSF value and the test-specific multiplier. The calculated PSF
+            is then assigned to the corresponding test.</remarks>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Common.ConfigurationHandle.ValidateTestPSFToApply">
+            <summary>
+            Check Tests PSF Multiplier within range.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DevicePowerScaler.Common.TestToApply">
+            <summary>
+            This class is structure for TestToApply object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.Common.TestToApply.TestInstanceName">
+            <summary>
+            Gets the test instance name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.Common.TestToApply.PinName">
+            <summary>
+            Gets the pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.Common.TestToApply.PSFToApply">
+            <summary>
+            Gets the PSF value to apply. It is calculated by multiplying the PSFMultiplier with the PSF Equation.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DevicePowerScaler.InputFile.Configuration">
+            <summary>
+            This class is structure for configurations object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.Configuration.PSF">
+            <summary>
+            Gets or sets PSF object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.Configuration.PowerSumPinsSetting">
+            <summary>
+            Gets or sets list of power sum pins setting.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DevicePowerScaler.InputFile.ConfigurationJsonFile">
+            <summary>
+            This class represent the configuration data structure for json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.ConfigurationJsonFile.Configuration">
+            <summary>
+            Gets or sets the configuration. Only single configuration per file.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DevicePowerScaler.InputFile.PowerSumPinSetting">
+            <summary>
+            This class is structure for power sum pin setting object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.PowerSumPinSetting.PinName">
+            <summary>
+            Gets or sets pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.PowerSumPinSetting.Tests">
+            <summary>
+            Gets or sets list of test setting.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.PowerSumPinSetting.PinScope">
+            <summary>
+            Gets or sets pin scope. This information will be set by the test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DevicePowerScaler.InputFile.PSF">
+            <summary>
+            This class is structure for Power Scale Factor (PSF) object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.PSF.Equation">
+            <summary>
+            Gets or sets equation to calculate base PSF.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.PSF.HighLimit">
+            <summary>
+            Gets or sets maximum PSF. Value is validated with json schema with maximum allowed PSF of 10.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.PSF.LowLimit">
+            <summary>
+            Gets or sets minimum PSF. Value is validated with json schema with minimum allowed PSF of 0.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.PSF.PSFBase">
+            <summary>
+            Gets or sets PSF Base that calculated with equation. This information will be set by the test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DevicePowerScaler.InputFile.Test">
+            <summary>
+            This class is structure for Test object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.Test.Type">
+            <summary>
+            Gets or sets test type.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.Test.Regex">
+            <summary>
+            Gets or sets test regex. This will be use to get matching test instance names.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.Test.PSFMultiplier">
+            <summary>
+            Gets or sets PSF multiplier. This will be use to multiply the calculated PSF Equation. Value is validated with json schema with range [0.0, 10.0].
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.Test.TestInstancesToApply">
+            <summary>
+            Gets or sets the test instances that match the regex. This information will be set by the test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.InputFile.Test.PSFToApply">
+            <summary>
+            Gets or sets the PSF to apply for test instance. This information will be set by the test method.
+            PSFToApply is calculated by multiplying the PSFMultiplier with the PSF Equation.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DevicePowerScaler.PrimeDevicePowerScalerTestMethod">
+            <summary>
+            This is Prime DevicePowerScaler Test Method Verify and Execute.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DevicePowerScaler.PrimeDevicePowerScalerTestMethod.configurationHandle">
+            <summary>
+            Configuration handle.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.PrimeDevicePowerScalerTestMethod.ConfigurationFile">
+            <summary>
+            Gets or sets ConfigurationFile.
+            Can be use with variable "~HDMT_TPL_DIR".
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.PrimeDevicePowerScalerTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.PrimeDevicePowerScalerTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator">
+            <summary>
+            Validate the Json file has the correct format.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator.SchemaFilePathEnvironmentVariableName">
+            <summary>
+            This is Test Program Environment Variable that set as "$PRIME_VERSION_DIR\resources\schemas".
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator.SchemaFilePath">
+            <summary>
+            Gets or sets the Schema file path for this TM.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator.ErrorList">
+            <summary>
+            Gets or sets the error list from the schema validation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator.ValidateFile(System.String)">
+            <summary>
+            Executes the validation for json file with the json schema.
+            Adds validation errors to a common list.
+            </summary>
+            <param name="jsonFilePath">The json file path to be validate.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator.GetValidatedConfiguration">
+            <summary>
+            Get Configuration object that construct with Configuration json file and validated with json schema.
+            </summary>
+            <returns>Deserialized configuration object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator.GetJsonFileContent(System.String)">
+            <summary>
+            Get the content of a json file with filesystem.
+            </summary>
+            <param name="jsonFile">Full Path to json file.</param>
+            <returns>Text content of the file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator.GetSchemaValidator(System.String)">
+            <summary>
+            Get schema validator instance with rule defined in json schema file.
+            </summary>
+            <param name="schemaFile">Full path to schema file.</param>
+            <returns>Schema validator instance.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.DevicePowerScaler.Schema.JsonSchemaValidator.GetErrorDetails">
+            <summary>
+            Gets all the validation errors detail as a string.
+            </summary>
+            <returns>All validation errors details.</returns>
+        </member>
+    </members>
+</doc>

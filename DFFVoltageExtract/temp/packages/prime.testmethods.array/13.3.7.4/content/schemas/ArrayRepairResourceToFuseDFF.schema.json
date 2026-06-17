@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "FuseToDFF": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/FuseToDFFElement" }
+    },
+    "ResourceToFuse": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/ResourceToFuseElement" }
+    }
+  },
+  "required": [
+    "FuseToDFF",
+    "ResourceToFuse"
+  ],
+  "definitions": {
+    "FuseToDFFElement": {
+      "type": "object",
+      "properties": {
+        "Fuse": {
+          "type": "string"
+        },
+        "DFF": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Fuse",
+        "DFF"
+      ],
+      "additionalProperties": false
+    },
+    "ResourceToFuseElement": {
+      "type": "object",
+      "properties": {
+        "ResourceName": {
+          "type": "string"
+        },
+        "Fuse": {
+          "type": "string"
+        },
+        "DataBits": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "uniqueItems": true
+        },
+        "EnableBits": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "ResourceName",
+        "Fuse",
+        "DataBits",
+        "EnableBits"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

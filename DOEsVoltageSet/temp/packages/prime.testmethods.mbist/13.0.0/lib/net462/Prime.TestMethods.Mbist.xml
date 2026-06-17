@@ -1,0 +1,3110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Mbist</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Mbist.ConfigurationFileHandler">
+            <summary>
+            This class handles all the logic of the static configuration dictionaries.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.ConfigurationFileHandler.ResetConfigurationFileHandler">
+            <summary>
+            Resets the File Time Stamp.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.ConfigurationFileHandler.GetRecoveryJson(System.String)">
+            <summary>
+            Gets the current Recovery.
+            </summary>
+            <param name="recoveryConfiguration">associated file name to retrieve HryInfo.</param>
+            <returns>HryInfo object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.ConfigurationFileHandler.GetParsedHryInfo(System.String)">
+            <summary>
+            Gets the current HryInfo.
+            </summary>
+            <param name="hryConfiguration">associated file name to retrieve HryInfo.</param>
+            <returns>HryInfo object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.ConfigurationFileHandler.GetMappingJson(System.String)">
+            <summary>
+            Gets the current MappingInfo.
+            </summary>
+            <param name="mappingConfiguration">associated file name to retrieve MappingInfo.</param>
+            <returns>HryInfo object.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.BiraCorrection">
+            <summary>
+            Bira correction class stores bira correction information of each controller register.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BiraCorrection.#ctor(System.Collections.Generic.KeyValuePair{System.String,Prime.TestMethods.Mbist.Json.Map.CorrectBiraJson})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.BiraCorrection"/> class.
+            Constructor with pre-populate arguments.
+            </summary>
+            <param name="correctBiraJson">correctBira information from json file.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BiraCorrection.Offset">
+            <summary>
+            Gets the offset information from bira correction.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BiraCorrection.Register">
+            <summary>
+            Gets the register name from bira correction.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BiraCorrection.Inputs">
+            <summary>
+            Gets 'Input' information from bira correction.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BiraCorrection.Outputs">
+            <summary>
+            Gets 'Output' information from bira correction.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BiraCorrection.GetDebugPrintInfo">
+            <summary>
+            Retrieve bira correction information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Bisr">
+            <summary>
+            Bisr class stores each bisr controller information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Bisr.#ctor(System.String,System.String,Prime.TestMethods.Mbist.BisrChain)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Bisr"/> class.
+            Constructor with pre-populate arguments.
+            </summary>
+            <param name="captureData">bisr controller name.</param>
+            <param name="captureComments">bira name.</param>
+            <param name="bisrChain">bira chain reference.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Bisr.BisrControllerName">
+            <summary>
+            Gets the bisr controller name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Bisr.CaptureData">
+            <summary>
+            Gets the capture data range.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Bisr.BisrChain">
+            <summary>
+            Gets the bisr chain data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Bisr.CaptureComments">
+            <summary>
+            Gets the capture comments.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Bisr.GetDebugPrintInfo">
+            <summary>
+            Retrieve Bisr information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.BisrChain">
+            <summary>
+            Bisr chain class stores each bisr chain information.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.BisrChain.bisrRepairShare">
+            <summary>
+            key = register, value = a list of Memories class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BisrChain.#ctor(System.String,Prime.TestMethods.Mbist.Json.Hry.BisrChainJson,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.BisrChain"/> class.
+            Constructor with pre-populate arguments.
+            </summary>
+            <param name="bisrChainName">Bisr chain name.</param>
+            <param name="bisrChain">Json bisr chain information from the hry configuration file.</param>
+            <param name="bisrRepairShare">Json bisr repair chain information from the hry configuration file.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrChain.BufferSize">
+            <summary>
+            Gets the Buffer size.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrChain.ZeroCounterBits">
+            <summary>
+            Gets the zero count bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrChain.FuseBoxSize">
+            <summary>
+            Gets the fuse box size.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrChain.FuseBoxAddressBits">
+            <summary>
+            Gets the fuse box address bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrChain.MaxFuseBoxProgrammingSessions">
+            <summary>
+            Gets the fuse box programming session number.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrChain.TotalLength">
+            <summary>
+            Gets the bisr chain total lenght.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrChain.BisrChainName">
+            <summary>
+            Gets the bisr chain name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrChain.Chains">
+            <summary>
+            Gets the bisr chain name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrChain.BisrPatConfigSetPoint">
+            <summary>
+            Gets or sets Bisr patconfig setpoint object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BisrChain.IsMemoryInRepairShare(System.String,System.String)">
+            <summary>
+            Gets whether the memory is in RepairShare.
+            </summary>
+            <param name="captureComment">Capture comment to check.</param>
+            <param name="hryMemory">Hry memory name.</param>
+            <returns>whether the memory is in RepairShare.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BisrChain.GetDebugPrintInfo">
+            <summary>
+            retrieve bisrChain information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.BisrMappingData">
+            <summary>
+            Bisr mapping data class stores mapping data from mapping configuration file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BisrMappingData.#ctor(System.String,System.String,Prime.TestMethods.Mbist.Json.Map.BisrDataJson)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.BisrMappingData"/> class.
+            Constructor with pre-populate arguments.
+            </summary>
+            <param name="shortName">short prefix attach as storage/dff tag.</param>
+            <param name="bisrChainName">bisr chain name.</param>
+            <param name="bisrDataJson">Bisr chain data from json file.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrMappingData.BisrChainName">
+            <summary>
+            Gets bisr chain name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrMappingData.BiraCorrections">
+            <summary>
+            <para>
+            Gets the bira correction information.
+            Key = register name, e.g. 'PM0_BP2_WBP0_MEM16_CS_SCOL0_FUSE_REG'.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrMappingData.FusePadding">
+            <summary>
+            Gets the FusePadding size.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrMappingData.Reverse">
+            <summary>
+            Gets a value indicating whether Reverse or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrMappingData.BisrDatalogTag">
+            <summary>
+            Gets the datalog pre/post tag information for SS, Dff, and ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BisrMappingData.GetDebugPrintInfo">
+            <summary>
+            Retrieve Bisr mapping data information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BisrMappingData.CreateBiraCorrectionMapping(Prime.TestMethods.Mbist.Json.Map.BisrDataJson)">
+            <summary>
+            Sets the Bisr mapping data to bisrChain.
+            </summary>
+            <param name="bisrDataJson">mapping json file data.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.BisrSet">
+            <summary>
+            BisrSet class stores each bisr set information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BisrSet.#ctor(System.Int32,Prime.TestMethods.Mbist.Json.Hry.ControllerSetJson,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.TestMethods.Mbist.BisrChain})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.BisrSet"/> class.
+            Constructor.
+            </summary>
+            <param name="captureCount">Controller group capture count.</param>
+            <param name="controllers">Control set information of the json hry configuration file.</param>
+            <param name="bisrChains">Bisr chain information.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrSet.CaptureCount">
+            <summary>Gets the capture count value.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrSet.Type">
+            <summary>Gets the controller type.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BisrSet.BisrControllers">
+            <summary>Gets the bisr controller type.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BisrSet.GetDebugPrintInfo">
+            <summary>
+            Retrieve bisr set information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Bisr.ReplacementBits">
+            <summary>
+            Bira Replacements class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Bisr.ReplacementBits.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Bisr.ReplacementBits"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Bisr.ReplacementBits.Replacements">
+            <summary>
+            Gets the replacement bits dictionary.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Bisr.ReplacementBits.AddReplacement(System.Int32,System.Char)">
+            <summary>
+            Adds an index replacement pair when it doesn't already exist.
+            </summary>
+            <param name="index">Index of the replacement.</param>
+            <param name="replacement">Replacement char.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Bisr.ReplacementBits.GetDebugPrintInfo">
+            <summary>
+            Retrieve current range information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Controller">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Controller.#ctor(System.String,System.Collections.Generic.List{Prime.TestMethods.Mbist.Json.Hry.ControllerJson},Prime.TestMethods.Mbist.DataStruct.ControllerSet.ControllerTypes,System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Mbist.DataStruct.MemoryLocation})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Controller"/> class.
+            Constructor.
+            </summary>
+            <param name="name">Controller name.</param>
+            <param name="controllerData">Controller information taken from the hry configuration file.</param>
+            <param name="type">Controller set type.</param>
+            <param name="hryMemoryLocation">Hry memory locations.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Controller.Name">
+            <summary>
+            Gets the controller name.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Controller.ExtractResults(System.String,Prime.TestMethods.Mbist.InstanceConfigurations,Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Extracts the controller results.
+            </summary>
+            <param name="ctvResults">String containing the ctv results from the functional test.</param>
+            <param name="instanceConfigurations">Parameter object for accessing varies parameter values.</param>
+            <param name="hryResults">A class containing the current hry results.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Controller.SetMemoryErrorFlag(Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults)">
+            <summary>
+            Set all Memories in controller to 'ControllerFailure'.
+            </summary>
+            <param name="hryResults">A class containing the current hry results.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Controller.UpdateMemorySymbolsToPass(Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults@)">
+            <summary>
+            Updates the Memories hry symbol to pass.
+            </summary>
+            <param name="hryResults">A class containing the current hry results.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Controller.GetMemoryQuantity">
+            <summary>
+            Gets the memory quantity..
+            </summary>
+            <returns>The memory quantity.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Controller.AddMemoryNamesToList(System.Collections.Generic.List{System.String})">
+            <summary>
+            Adds the memory names to the list.
+            </summary>
+            <param name="memoryNames">List of memory names.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Controller.GetDebugPrintInfo">
+            <summary>
+            Retrieve controller information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.ControllerSet">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.ControllerSet.#ctor(System.Int32,Prime.TestMethods.Mbist.Json.Hry.ControllerSetJson,System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Mbist.DataStruct.MemoryLocation})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.ControllerSet"/> class.
+            Constructor.
+            </summary>
+            <param name="captureCount">Controller group capture count.</param>
+            <param name="controllers">Control set information of the json hry configuration file.</param>
+            <param name="hryMemoryLocation">Hry memory locations.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.ControllerSet.ControllerTypes">
+            <summary>Hry controller types.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.ControllerSet.ControllerTypes.Bisr">
+            <summary>Bisr type in raw format.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.ControllerSet.ControllerTypes.ExtractBira">
+            <summary>ExtractBira type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.ControllerSet.ControllerTypes.GoId">
+            <summary>GoId type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.ControllerSet.ControllerTypes.RaBits">
+            <summary>RaBits type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.ControllerSet.ControllerTypes.Vfdm">
+            <summary>Vfdm repair type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.ControllerSet.ControllerTypes.BisrCompressFuse">
+            <summary>Bisr type in compress fuse format.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.ControllerSet.CaptureCount">
+            <summary>Gets the capture count value.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.ControllerSet.Type">
+            <summary>Gets the controller type.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.ControllerSet.Controllers">
+            <summary>Gets the controller type.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.ControllerSet.ExtractResults(System.String,Prime.TestMethods.Mbist.InstanceConfigurations,Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Extracts the controller results.
+            </summary>
+            <param name="ctvResults">String containing the ctv results from the functional test.</param>
+            <param name="instanceConfigurations">Parameter object for accessing varies parameter values.</param>
+            <param name="hryResults">A class containing the current hry results.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.ControllerSet.UpdateMemorySymbolsToPass(Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults@)">
+            <summary>
+            Updates the Memories hry symbol to pass.
+            </summary>
+            <param name="hryResults">A class containing the current hry results.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.ControllerSet.GetMemoryQuantity">
+            <summary>
+            Gets the memory quantity..
+            </summary>
+            <returns>The memory quantity.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.ControllerSet.AddMemoryNamesToList(System.Collections.Generic.List{System.String})">
+            <summary>
+            Adds the memory names to the list.
+            </summary>
+            <param name="memoryNames">List of memory names.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.ControllerSet.IsBira">
+            <summary>
+            Whether the controller set is of Bira type.
+            </summary>
+            <returns>Whether the current controller set is of type bira.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.ControllerSet.SetControllerErrorFlag(Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults)">
+            <summary>
+            Extracts the controller results.
+            </summary>
+            <param name="hryResults">A class containing the current hry results.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.ControllerSet.GetDebugPrintInfo">
+            <summary>
+            Retrieve controller set information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Execution.BiraExtractExecution">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.Execution.BiraExtractExecution.biraRegisters">
+            <summary>
+            Gets the bira registers.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.BiraExtractExecution.#ctor(Prime.TestMethods.Mbist.Json.Hry.ControllerJson)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Execution.BiraExtractExecution"/> class.
+            Constructor.
+            </summary>
+            <param name="jsonExecution">Json execution information.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.BiraExtractExecution.GetDebugPrintInfo">
+            <summary>
+            Retrieve bira registers information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.BiraExtractExecution.ExtractMemoryResults(System.String,Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits,System.Boolean,Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.BiraExtractExecution.ExtractBiraRegisters(System.String,Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults@)">
+            <summary>
+            Extracts the Bira register information from the ctv result string.
+            </summary>
+            <param name="ctvResults">String containing the CTV results.</param>
+            <param name="controllerResults">Controller results.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Execution.BiraRegister">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.BiraRegister.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Execution.BiraRegister"/> class.
+            Constructor with pre-populate arguments.
+            </summary>
+            <param name="biraName">bira name.</param>
+            <param name="bisrName">bisr name.</param>
+            <param name="capture">bits to be captured.</param>
+            <param name="replaceBits">bits to be replaced.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Execution.BiraRegister.IsReversed">
+            <summary>
+            Gets a value indicating whether this bira register ctv result is reversed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Execution.BiraRegister.BiraName">
+            <summary>
+            Gets the bira name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Execution.BiraRegister.BisrName">
+            <summary>
+            Gets the bisr name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Execution.BiraRegister.CaptureBits">
+            <summary>
+            Gets the capture bits range.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Execution.BiraRegister.ReplaceBits">
+            <summary>
+            Gets the replace bits range.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.BiraRegister.GetDebugPrintInfo">
+            <summary>
+            retrieve Bira Registers information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase">
+            <summary>
+            This class contains information related to the hry execution information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.#ctor(Prime.TestMethods.Mbist.Json.Hry.ControllerJson)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase"/> class.
+            Constructor.
+            </summary>
+            <param name="jsonExecution">Json execution information.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.Status">
+            <summary>
+            Gets the execution Status index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.Algo">
+            <summary>
+            Gets the execution Algo range indexes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.MemoryRange">
+            <summary>
+            Gets the execution memory range indexes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.PAlgo">
+            <summary>
+            Gets the execution palgo range indexes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.Memories">
+            <summary>
+            Gets the execution memory location indexes index.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.ExtractExecutionResults(System.String,Prime.TestMethods.Mbist.InstanceConfigurations,Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.GetMemoryIndices">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.GetDebugPrintInfo">
+            <summary>
+            Retrieve execution information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.ExtractMemoryResults(System.String,Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits,System.Boolean,Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Extract memory results.
+            </summary>
+            <param name="ctvResults">String with the ctv results.</param>
+            <param name="statusBits">Status bits instance with the current execution Status results.</param>
+            <param name="isBiraBuild">Whether is bira build mode.</param>
+            <param name="controllerResults">Controller results.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.GetFailingMemories(System.String)">
+            <summary>
+            Gets the failing Memories from the ctv results.
+            </summary>
+            <param name="ctvResults">CTV string.</param>
+            <returns>Failing Memories.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.PrintMemoryCaptureBitData(System.String)">
+            <summary>
+            Gets the failing Memories from the ctv results.
+            </summary>
+            <param name="ctvResults">CTV string.</param>
+            <returns>Failing Memories.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.SetMemories(System.Collections.Generic.Dictionary{System.Int32,System.String})">
+            <summary>
+            sets the full jsonMemories map.
+            </summary>
+            <param name="jsonMemories">Input parameter - full jsonMemories map.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.ExecutionBase.AddMemory(System.Int32,System.String)">
+            <summary>
+            sets a single memory to jsonMemories.
+            </summary>
+            <param name="index">Input parameter - memory index.</param>
+            <param name="jsonRange">Input parameter - memory range.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Execution.GoIdExecution">
+            <summary>
+            GoIdExecution class contains the logic of the goid hry type.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.GoIdExecution.#ctor(Prime.TestMethods.Mbist.Json.Hry.ControllerJson)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Execution.GoIdExecution"/> class.
+            Constructor.
+            </summary>
+            <param name="jsonExecution">Json go id execution information.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.GoIdExecution.ExtractMemoryResults(System.String,Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits,System.Boolean,Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Execution.IExecution">
+            <summary>
+            IExecution interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.IExecution.ExtractExecutionResults(System.String,Prime.TestMethods.Mbist.InstanceConfigurations,Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Extracts the execution results from the ctvResults parameter.
+            </summary>
+            <param name="ctvResults">Resulting ctv from running the functional test.</param>
+            <param name="instanceConfigurations">Parameter object for accessing varies parameter values.</param>
+            <param name="controllerResults">Controller results instance.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.IExecution.GetMemoryIndices">
+            <summary>
+            Gets a list of the memory indices of the current execution.
+            </summary>
+            <returns>list of the memory indices of the current execution.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.IExecution.GetDebugPrintInfo">
+            <summary>
+            Retrieve execution information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Execution.RaBitsExecution">
+            <summary>
+            RaBits class contains the logic of the ra bits hry execution type.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.RaBitsExecution.#ctor(Prime.TestMethods.Mbist.Json.Hry.ControllerJson)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Execution.RaBitsExecution"/> class.
+            Constructor.
+            </summary>
+            <param name="jsonExecution">Json execution information.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.RaBitsExecution.ExtractMemoryResults(System.String,Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits,System.Boolean,Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Execution.VfdmExecution">
+            <summary>
+            VfdmExecution class contains the logic of the vfdm hry execution type.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.VfdmExecution.#ctor(Prime.TestMethods.Mbist.Json.Hry.ControllerJson)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Execution.VfdmExecution"/> class.
+            Constructor.
+            </summary>
+            <param name="jsonExecution">Json execution information.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Execution.VfdmExecution.ExtractMemoryResults(System.String,Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits,System.Boolean,Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.HryInfo">
+            <summary>
+            HryInfo class stores information from the Hry configuration file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HryInfo.#ctor(Prime.TestMethods.Mbist.Json.Hry.HryJson)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.HryInfo"/> class.
+            Constructor.
+            </summary>
+            <param name="hryJsonData">Json Hry look up table.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.HryInfo.HryMemoryLocation">
+            <summary>
+            Gets the Mbist controller name and relative index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.HryInfo.BisrChainData">
+            <summary>
+            Gets the Bisr Chain Data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HryInfo.GetDebugPrintInfo">
+            <summary>
+            Print HryInfo stored data.
+            </summary>
+            <returns>Hry info element data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HryInfo.GetDecoderSetsWithLocations(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.TestMethods.Mbist.BisrMappingData},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get Bisr sets related to a specific plist.
+            </summary>
+            <param name="plist">Patlist name.</param>
+            <param name="bisrMapping">bisr mapping data.</param>
+            <param name ="sessionContext">session context.</param>
+            <returns>The bisr and controller sets the decoder needs.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.HrySymbol">
+            <summary>
+            Hry Symbol class.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.SymbolPriority">
+            <summary>
+            Priority value for each hry symbol.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol">
+            <summary>
+            Possible char values in the Hry string.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.Untested">
+            <summary>
+            Untested - represented as U in Hry. Per Memory.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.Pass">
+            <summary>
+            Pass - represented as 1 in Hry. Per Memory.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.Fail">
+            <summary>
+            Fail - represented as 0 in Hry. Per Memory.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.Repairable">
+            <summary>
+            Repairable - represented as Y in Hry. Per Memory.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.Unrepairable">
+            <summary>
+            UnRepairable - represented as N in Hry. Per Memory.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.SuccessfulRepair">
+            <summary>
+            SuccessfulRepair - represented as P in Hry. Post Repair mode ONLY, per memory : y - > 1 = passRetest.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.FailRepair">
+            <summary>
+            FailRepair - represented as F in Hry. Post Repair mode ONLY, per memory : y - > 0 = failRetest.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.InconsistentPostFailure">
+            <summary>
+            InconsistentPostFailure - represented as 7 in Hry. Post Repair mode ONLY, per memory : 1 -> 0 = inconsistent.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.InconsistentPassStatusAndFailedGoId">
+            <summary>
+            InconsistentPassStatusAndFailedGoId - represented as 6 in Hry. Applies to all Memories for the execution, requires mem level.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.InconsistentFailStatusAndPassingGoId">
+            <summary>
+            InconsistentPassStatusAndFailedGoId - represented as 5 in Hry. Applies to all Memories for the execution, requires mem level.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.PatternBadWait">
+            <summary>
+            PatternBadWait - represented as W in Hry. Applies to all Memories for all executions.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.FailedOnOtherPins">
+            <summary>
+            FailedOnOtherPins - represented as B in Hry. Applies to all Memories for all executions.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.PatternMisprogram">
+            <summary>
+            PatternMisprogram - represented as M in Hry. Applies to all Memories for all executions.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.ControllerFailure">
+            <summary>
+            ControllerFailure - represented as 8 in Hry. Applies to all Memories for all executions.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.FailedToRepairIfNoShareWouldBeRepairable">
+            <summary>
+            FailedToRepairIfNoShareWouldBeRepairable - represented as D in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.Unrepairable6To8Fails">
+            <summary>
+            Unrepairable6To8Fails - represented as E in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.Unrepairable9To12Fails">
+            <summary>
+            Unrepairable9To12Fails - represented as G in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.RepairMassFailure">
+            <summary>
+            RepairMassFailure - represented as H in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.NoRasterDataForPreHryFail">
+            <summary>
+            NoRasterDataForPreHryFail - represented as J in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.InconsistentHryPassRasterFail">
+            <summary>
+            InconsistentHryPassRasterFail - represented as K in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol.UnrepairableDueToOtherControllers">
+            <summary>
+            UnrepairableDueToOtherControllers - represented as L in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HrySymbol.GetHigherPrioritySymbol(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol,Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Compares both of the values sent as parameters and returns the biggest one.
+            </summary>
+            <param name="existingSymbol">First symbol.</param>
+            <param name="newSymbol">Second symbol.</param>
+            <returns>Biggest value between those sent as parameters. If both are equal sends the first one.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HrySymbol.GetRepairShareBiraUpdateSymbol(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol,Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Gets the update symbol for post bira based on the existing symbol and the new symbol.
+            </summary>
+            <param name="existingSymbol">First symbol.</param>
+            <param name="newSymbol">Second symbol.</param>
+            <returns>The post bira update symbol .</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HrySymbol.GetPostRepairUpdateSymbol(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol,Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Gets the update symbol for post repair based on the existing symbol and the new symbol.
+            </summary>
+            <param name="existingSymbol">First symbol.</param>
+            <param name="newSymbol">Second symbol.</param>
+            <returns>The post repair update symbol .</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HrySymbol.IsMemoryFail(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Gets whether the current symbol is a considered a fail for the memory.
+            </summary>
+            <param name="symbol">Current symbol.</param>
+            <returns>Whether the current symbol is a fail.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HrySymbol.IsMemoryPassRecovery(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Gets whether the current symbol is a considered a fail for the memory in recovery.
+            </summary>
+            <param name="symbol">Current symbol.</param>
+            <returns>Whether the current symbol is a pass in recovery.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HrySymbol.IsMemoryFailRecovery(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Gets whether the current symbol is a considered a fail for the memory in recovery.
+            </summary>
+            <param name="symbol">Current symbol.</param>
+            <returns>Whether the current symbol is a fail in recovery.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HrySymbol.IsInconsistent(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>Returns whether the hryChar is inconsitent.</summary>
+            <param name = "hryChar" >Hry char.</param>
+            <returns>whether the hryChar is inconsitent.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HrySymbol.IsRepairable(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>Returns whether the hryChar is Repairable.</summary>
+            <param name = "hryChar" >Hry char.</param>
+            <returns>whether the hryChar is Repairable.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.HrySymbol.IsUnrepairable(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>Returns whether the hryChar is fail.</summary>
+            <param name = "hryChar" >Hry char.</param>
+            <returns>whether the hryChar is fail.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.BisrTags">
+            <summary>
+            This class contains the Bisr datalog tag information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.BisrTags.#ctor(System.String,System.String,Prime.TestMethods.Mbist.Json.Map.BisrDataJson)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.BisrTags"/> class to populate bisr datalog tags.
+            </summary>
+            <param name="shortName">This is the 'SHORTNAME' from Map json file.</param>
+            <param name="controllerName">Bisr chain name.</param>
+            <param name="bisrDataJson">Bisr data from Map json file.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.BisrTags.DffToken">
+            <summary>
+            Gets the Dff token name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.BisrTags.SharedStorageTag">
+            <summary>
+            Gets the sharedstorage tag name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.BisrTags.ItuffPrefix">
+            <summary>
+            Gets the ituff prefix.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.BisrTags.IsHry">
+            <summary>
+            Gets a value indicating whether gets Hry mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.BisrTags.WriteToSharedStorage(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to shared storage.
+            </summary>
+            <param name="postfix">postfix to append to SS tag.</param>
+            <param name="data">data to be writen to shared storage.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.BisrTags.WriteToItuff(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to ituff.
+            </summary>
+            <param name="testName">current test name.</param>
+            <param name="data">data to be writen to ituff.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.BisrTags.WriteToDff(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to Dff.
+            </summary>
+            <param name="data">data to be writen to dff.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.BisrTags.GetValueFromSharedStorage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read Hry string from shared storage.
+            </summary>
+            <param name="postfix">postfix to be added to current tag.</param>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.BisrTags.GetValueFromDff(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read Hry string from shared storage.
+            </summary>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.BisrTags.GetDebugPrintInfo">
+            <summary>
+            Retrieve BisrTags information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.DatalogTags">
+            <summary>
+            This class contains the HRY/Recovery datalog tag information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.DatalogTags.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.DatalogTags"/> class.
+            </summary>
+            <param name="sharedStorageKey">Shared storage key.</param>
+            <param name="dffToken">Dff token.</param>
+            <param name="ituffPrefix">Ituff prefix.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.DatalogTags.DffToken">
+            <summary>
+            Gets the dff token name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.DatalogTags.SharedStorageTag">
+            <summary>
+            Gets the sharedstorage tag name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.DatalogTags.ItuffPrefix">
+            <summary>
+            Gets the ituff prefix.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.DatalogTags.WriteToSharedStorage(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to shared storage.
+            </summary>
+            <param name="shortPinName">Short pin name.</param>
+            <param name="data">data to be writen to shared storage.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.DatalogTags.WriteToItuff(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to ituff.
+            </summary>
+            <param name="shortPinName">Short pin name.</param>
+            <param name="data">data to be writen to ituff.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.DatalogTags.WriteToDff(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to Dff.
+            </summary>
+            <param name="shortPinName">Short pin name.</param>
+            <param name="data">data to be writen to dff.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.DatalogTags.GetValueFromSharedStorage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read Hry string from shared storage.
+            </summary>
+            <param name="shortPinName">Short pin name.</param>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.DatalogTags.GetValueFromDff(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read Hry string from shared storage.
+            </summary>
+            <param name="shortPinName">Short pin name.</param>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.DatalogTags.GetDebugPrintInfo">
+            <summary>
+            Retrieve DatalogTags information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.MappingInfo">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.MappingInfo.#ctor(Prime.TestMethods.Mbist.Json.Map.MapJson,Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestModes,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.MappingInfo"/> class.
+            Constructor.
+            </summary>
+            <param name="mbistTestMode">Mbist test mode.</param>
+            <param name="mapJsonData">Mapping json file object.</param>
+            <param name="ituffExtension">ituff token name extension.</param>
+            <param name="pins">Pin names.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.MappingInfo.PinToShortName">
+            <summary>
+            Gets the PinToShortName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.MappingInfo.HryStorageTags">
+            <summary>
+            Gets the Hry prefix to prepend to storage/dff/ituff token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.MappingInfo.RecoveryStorageTags">
+            <summary>
+            Gets the recovery prefix to prepend to storage/dff/ituff token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.MappingInfo.BisrMapping">
+            <summary>
+            Gets the Mbist controller name and relative index.
+            Key = bisr chain name.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.MappingInfo.GetDebugPrintInfo">
+            <summary>
+            Retrieve Bisr mapping information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.MappingInfo.SetBisrMappingData(System.String,System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Mbist.Json.Map.BisrDataJson})">
+            <summary>
+            Set Bisr chain mapping info.
+            </summary>
+            <param name="shortName">shortName.</param>
+            <param name="bisrChainMappingData">bisr chain mapping information.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.MemoryLocation">
+            <summary>
+            This class contains the Memory location information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.MemoryLocation.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.MemoryLocation"/> class.
+            </summary>
+            <param name="index">Index.</param>
+            <param name="powerDomain">Power domain.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.MemoryLocation.Index">
+            <summary>
+            Gets the memory index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.MemoryLocation.PowerDomain">
+            <summary>
+            Gets the memory power domain.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Ip">
+            <summary>
+            Ip class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Ip.#ctor(Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryIpsJson,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.TestMethods.Mbist.DataStruct.MemoryLocation},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Ip"/> class.
+            </summary>
+            <param name="ipJson">Json ip information.</param>
+            <param name="hryLocation">Dictionary with the hry memory locations.</param>
+            <param name="runningIp">Name of the running IP.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Ip.Type">
+            <summary>
+            Gets the Recovery type.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Ip.OptionalMemoriesBySkus">
+            <summary>
+            Gets the optional Memories associated to an Sku.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Ip.RequiredMemories">
+            <summary>
+            Gets the required Memories of the current Ip.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Ip.AreThereRequiredMemories">
+            <summary>
+            Gets a value indicating whether there are any required Memories.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Ip.AreThereDuplicates">
+            <summary>
+            Gets a value indicating whether there are any duplicates.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Ip.GetAllIpIndices">
+            <summary>
+            Extract all Memories by idx.
+            </summary>
+            <returns> Returns List of Memories used for this recovery option.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Ip.GetDebugPrintInfo">
+            <summary>
+            retrieve Ips information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.IpMemories">
+            <summary>
+            Ip Memories class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.IpMemories.#ctor(System.Collections.Generic.List{System.ValueTuple{System.String,System.Int32}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.IpMemories"/> class.
+            </summary>
+            <param name="memories">List of Memories with their respective index.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.IpMemories.Indices">
+            <summary>
+            Gets the list of indices.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.IpMemories.MemoryNames">
+            <summary>
+            Gets the list of memory names.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.IpMemories.GetDebugPrintInfo">
+            <summary>
+            retrieve Ip memories information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Recovery">
+            <summary>
+            Recovery class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Recovery.#ctor(Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryJson,System.Boolean,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.TestMethods.Mbist.DataStruct.MemoryLocation},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Recovery"/> class.
+            </summary>
+            <param name="recoveryJson">Recovery json.</param>
+            <param name="isDownBin">Whether is bin down.</param>
+            <param name="hryStringReference">Dictionary of memory name to memory location with the hry string information.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Recovery.IsDownBin">
+            <summary>
+            Gets a value indicating whether is down bin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Recovery.IsRecoveryEnabled">
+            <summary>
+            Gets a value indicating whether recovery is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Recovery.RecoveryIndices">
+            <summary>
+            Gets the recovery indices.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Recovery.RecoveryTokens">
+            <summary>
+            Gets the Recovery token name.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Recovery.WriteData(System.Collections.Generic.List{System.Char},System.Boolean,Prime.TestMethods.Mbist.DataStruct.DatalogTags,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write Recovery Data to dff and shared storage.
+            </summary>
+            <param name = "newRecoveryData">List of recovery chars.</param>
+            <param name="isUseDff"> Whether to read from DFF or Shared Storage.</param>
+            <param name="datalogTags"> Datalog tags.</param>
+            <param name="shortPinName">Short pin name.</param>
+            <param name="sessionContext">Session Context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Recovery.Execute(System.Collections.Generic.Dictionary{System.Int32,Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol},System.Collections.Generic.List{System.Char})">
+            <summary>
+            Execute recovery.
+            </summary>
+            <param name = "hryString" > Hry string results.</param>
+            <param name="originalRecoveryData">Original recovery data.</param>
+            <returns> Returns recovery results object with results from the check.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Recovery.GetGlobalRecoveryValue(Prime.TestMethods.Mbist.InstanceConfigurations,Prime.TestMethods.Mbist.DataStruct.DatalogTags,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the Global Recovery Value.
+            </summary>
+            <param name="instanceConfigurations">Parsed parameters.</param>
+            <param name="tags">Tags.</param>
+            <param name="shortPinName">Short pin name.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>Returns the global recovery string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Recovery.SetBisrIndicesToFailRecovery(System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData},Prime.TestMethods.Mbist.DataStruct.RecoveryResults)">
+            <summary>
+            SetBisrIndicesToFailRecovery.
+            </summary>
+            <param name="bisrChains">bisrChains.</param>
+            <param name="recoveryResults">recoveryResults to change.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Recovery.InitializeRecoveryString(System.Boolean,Prime.TestMethods.Mbist.DataStruct.DatalogTags,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Replaces the recovery data with passing values.
+            </summary>
+            <param name="isUseDff"> Whether to read from DFF or Shared Storage.</param>
+            <param name="datalogTags"> Datalog tags.</param>
+            <param name="shortPinName">Short pin name.</param>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Initial recovery string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Recovery.GetDebugPrintInfo">
+            <summary>
+            retrieve Recovery information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.RecoveryCharacters">
+            <summary>
+            RecoveryCharacters Class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryCharacters.#ctor(System.Char,System.Char,System.Char)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.RecoveryCharacters"/> class.
+            </summary>
+            <param name="pass">Pass char value.</param>
+            <param name="fail">Fail char value.</param>
+            <param name="error">Error char value.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryCharacters.Pass">
+            <summary>
+            Gets the Pass character.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryCharacters.Error">
+            <summary>
+            Gets the Error character.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryCharacters.Fail">
+            <summary>
+            Gets the Fail character.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryCharacters.GetNewRecoveryData(System.Int32)">
+            <summary>
+            GetNewRecoveryData.
+            </summary>
+            <param name="length">Size of the new recovery data.</param>
+            <returns>NewRecoveryData.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryCharacters.IsRecoveryFailedChar(System.Char)">
+            <summary>
+            Gets whether the input char is a failed recovery char.
+            </summary>
+            <param name="currentChar">Char value to compare.</param>
+            <returns>IsRecoveryFailedChar.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryCharacters.GetDebugPrintInfo">
+            <summary>
+            retrieve bisrChain information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.RecoveryMemoryResults">
+            <summary>
+            RecoveryMemoryResults class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryMemoryResults.#ctor(System.Collections.Generic.Dictionary{System.Int32,Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.RecoveryMemoryResults"/> class.Loops through indexes to see which fails or if they pass.</summary>
+            <param name = "hryString" > Hry string results.</param>
+            <param name = "indexList" > List of memory/controller indexs to check.</param>
+            <returns> Returns List k.</returns>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryMemoryResults.HasHryStringAllRecoveryIndices">
+            <summary>
+            Gets a value indicating whether HasHryStringAllRecoveryIndices.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryMemoryResults.AreAllMemoriesPassing">
+            <summary>
+            Gets a value indicating whether AreAllMemoriesPassing.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryMemoryResults.AreAllMemoriesUntested">
+            <summary>
+            Gets a value indicating whether AreAllMemoriesUntested.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.RecoveryResults">
+            <summary>
+            Recovery results class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.#ctor(System.Collections.Generic.List{System.Char},System.Int32,Prime.TestMethods.Mbist.DataStruct.RecoveryCharacters)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.RecoveryResults"/> class.
+            </summary>
+            <param name="initialRecoveryString">Initial recovery string value.</param>
+            <param name="recoverySize">recoverySize.</param>
+            <param name="recoveryCharacters">recoveryCharacters.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.IsValidRecovery">
+            <summary>
+            Gets a value indicating whether the recovery options are valid.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.RecoveryString">
+            <summary> Gets Updated Recovery String.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.MemoriesToRemove">
+            <summary>
+            Gets the Memories to be removed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.InitialRecoveryString">
+            <summary>
+            Gets or sets the initial recovery string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.Priority">
+            <summary>
+            Gets or sets recovery Priority.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.VerifyRecoveryValidity(System.Collections.Generic.List{System.Collections.Generic.List{System.String}},System.Collections.Generic.List{System.Int32},System.Boolean)">
+            <summary>
+            Check results.
+            </summary>
+            <param name = "validOptions" > List of valid recovery skews.</param>
+            <param name = "priorities" > List of priorities for validoptions.</param>
+            <param name = "isRecoveryDownBin" > Allow recovery downbin.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.ExecuteRecoveryForRequiredMemories(System.Char,System.Char,Prime.TestMethods.Mbist.DataStruct.RecoveryMemoryResults,System.Int32,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            ExecuteRecoveryForMustPassMemories.
+            </summary>
+            <param name="currentRecovery">currentRecovery.</param>
+            <param name="initialValue">initialValue.</param>
+            <param name="result">result.</param>
+            <param name="tokenLocation">itemName.</param>
+            <param name="memoriesToDisable">memoriesToDisable.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.ExecutePartialRecovery(System.Collections.Generic.Dictionary{System.Int32,Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol},System.Char,System.Int32,Prime.TestMethods.Mbist.DataStruct.RecoveryToken,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            ExecutePartialRecovery logic.
+            </summary>
+            <param name="hryString">hryString.</param>
+            <param name="initialRecoveryChar">initialRecoveryChar.</param>
+            <param name="tokenLocation">tokenLocation.</param>
+            <param name="token">token.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.ExecuteFullRecovery(System.Collections.Generic.Dictionary{System.Int32,Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol},System.Char,System.Int32,Prime.TestMethods.Mbist.DataStruct.RecoveryToken,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            ExecuteFullRecovery.
+            </summary>
+            <param name="hryString">hryString.</param>
+            <param name="initialRecoveryChar">initialRecoveryChar.</param>
+            <param name="tokenLocation">tokenLocation.</param>
+            <param name="token">token.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.SetIndicesToFailedRecovery(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            SetIndicesToFailedRecovery.
+            </summary>
+            <param name="indices">indices.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryResults.AddMemoriesToRemove(System.Collections.Generic.List{System.String})">
+            <summary>.</summary>
+            <param name = "memoriesToRemove" > List of memory/controller indexs to remove.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.RecoveryToken">
+            <summary>
+            Recovery token class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryToken.#ctor(System.String,Prime.TestMethods.Mbist.DataStruct.Ip)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.RecoveryToken"/> class.
+            </summary>
+            <param name="tokenName">tokenName.</param>
+            <param name="designIp">designIp.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryToken.TokenName">
+            <summary>
+            Gets the token name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.RecoveryToken.DesignIp">
+            <summary>
+            Gets the design ip.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.RecoveryToken.GetDebugPrintInfo">
+            <summary>
+            retrieve bisrChain information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Vfdm.FuseBlock.FuseBlock.FuseBlock.IBlock">
+            <summary>
+            Fuse block interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DataStruct.Vfdm.Fuse.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.DataStruct.Vfdm.Fuse"/> class.
+            </summary>
+            <param name="rawValue">Fuse RawValue.</param>
+            <param name="isAvailable">Whether this fuse is available or not.</param>
+            <param name="isEnableFirst">Whether enable is first.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Vfdm.Fuse.IsAvailable">
+            <summary>
+            Gets or sets a value indicating whether fuse is available.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Vfdm.Fuse.FuseValue">
+            <summary>
+            Gets or sets the value in fuse value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DataStruct.Vfdm.Fuse.IsEnableFirst">
+            <summary>
+            Gets or sets a value indicating whether enable is first or not.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.DataStruct.Vfdm.IFuse">
+            <summary>
+            Single fuse interface.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Range">
+            <summary>
+            The range class contains the start and end indexes.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Range.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Range"/> class.
+            </summary>
+            <param name="startIndex">Start index of the range.</param>
+            <param name="endIndex">End index of the range.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Range.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Range"/> class.
+            </summary>
+            <param name="jsonRange">Unparsed range from the json.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Range.IsReversed">
+            <summary>
+            Gets a value indicating whether range is reversed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Range.StartIndex">
+            <summary>
+            Gets the start index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Range.EndIndex">
+            <summary>
+            Gets the end index.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Range.GetStringInRange(System.String)">
+            <summary>
+            Gets a string inside the range.
+            </summary>
+            <param name="data">String with data to be extracted from.</param>
+            <returns>string of characters inside the range.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Range.GetUnreversedStringInRange(System.String)">
+            <summary>
+            Gets the a string inside the range from the smaller index to the biggest index.
+            </summary>
+            <param name="data">String with data to be extracted from.</param>
+            <returns>string of characters inside the range from the smaller index to the biggest index.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Range.IsCtvInRangeFailing(System.String)">
+            <summary>
+            Gets the a string inside the range.
+            </summary>
+            <param name="data">String with data to be extracted from.</param>
+            <returns>string of characters inside the range.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Range.GetDebugPrintInfo">
+            <summary>
+            Retrieve current range information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.BisrForDecoder">
+            <summary>
+            BisrForDecoder class handles the processing bisr result.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Decoder.BisrForDecoder.bisrChain">
+            <summary>
+            Gets the bisr chain data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.BisrForDecoder.#ctor(Prime.TestMethods.Mbist.Bisr,System.Collections.Generic.List{System.String},Prime.TestMethods.Mbist.BisrMappingData,Prime.TestMethods.Mbist.DataStruct.ControllerSet.ControllerTypes)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.BisrForDecoder"/> class.
+            </summary>
+            <param name="bisr">A bisr set.</param>
+            <param name="hryMemoryNames">List of hry memory names.</param>
+            <param name="bisrMappingData">bisr mapping data.</param>
+            <param name="type">Controller type.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.BisrForDecoder.MemoryNameToBisrIndex">
+            <summary>
+            Gets the Memory name to bisr indices.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.BisrForDecoder.CaptureCommentsMatchingMemories">
+            <summary>
+            Gets the indices of all capture comments that contain an Hry memory or their repair share.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.BisrForDecoder.BiraCorrectionIndices">
+            <summary>
+            Gets the BisrCorrectionIndices list for each BisrSet.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.BisrForDecoder.CaptureData">
+            <summary>
+            Gets the capture data range.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.BisrForDecoder.Type">
+            <summary>Gets the controller type.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.BisrForDecoder.ProcessBisrCtvResult(Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults,Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData,System.String,Prime.TestMethods.Mbist.InstanceConfigurations)">
+            <summary>
+            Process per Bisr ctv result.
+            </summary>
+            <param name="hryResults">Processed hry results.</param>
+            <param name="bisrResultData">BisrResult  reference to be updated.</param>
+            <param name="perBisrSetCtvs">ctv result binary string.</param>
+            <param name="parsedParams">Parsed params containing all the Mbist modes.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.BisrForDecoder.SetMemoryNameToBisrIndex(System.Collections.Generic.List{System.String},System.Collections.Generic.IReadOnlyList{System.String})">
+            <summary>
+            Sets capture comment and bira correction index of the current plist.
+            </summary>
+            <param name="hryMemoryNames">Hry memory names of current plist.</param>
+            <param name="captureComments">Bisr capture comments.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.BisrForDecoder.SetBiraCorrectionIndices(System.Collections.Generic.List{System.String},System.Collections.Generic.IReadOnlyList{System.String},Prime.TestMethods.Mbist.BisrMappingData)">
+            <summary>
+            Sets capture comment and bira correction index of the current plist.
+            </summary>
+            <param name="hryMemoryNames">Hry memory names of current plist.</param>
+            <param name="captureComments">Bisr CaptureComments.</param>
+            <param name="bisrMappingData">Bisr mapping data.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.BisrSetForDecoder">
+            <summary>
+            BisrSetForDecoder class stores the entire plist Bisr set information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.BisrSetForDecoder.#ctor(Prime.TestMethods.Mbist.BisrSet,System.Int32,System.Collections.Generic.List{System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.TestMethods.Mbist.BisrMappingData})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.BisrSetForDecoder"/> class.
+            </summary>
+            <param name="bisrSet">A bisr set.</param>
+            <param name="location">Index inside the results CTV where the bisr set starts.</param>
+            <param name="hryMemoryNames">List of hry memory names.</param>
+            <param name="bisrMapping">bisr mapping data.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.BisrSetForDecoder.Location">
+            <summary>
+            Gets the ControllerSetWithLocations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.BisrSetForDecoder.CaptureCount">
+            <summary>Gets the capture count value.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.BisrSetForDecoder.Type">
+            <summary>Gets the controller type.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.BisrSetForDecoder.Bisrs">
+            <summary>Gets the controller dictionary.</summary>
+            key = bisr controll/chain name.
+            value = Bisr data.
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.BisrDecoder">
+            <summary>BisrDecoder decoder. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.BisrDecoder.#ctor(System.Collections.Generic.List{Prime.TestMethods.Mbist.Decoder.BisrSetForDecoder},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.BisrDecoder"/> class.
+            </summary>
+            <param name="bisrSetsWithLocations">The list of controller sets with their locations.</param>
+            <param name="sessionContext">current session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.BisrDecoder.BisrSetsWithLocations">
+            <summary>
+            Gets - stores each bisrSet and its bit start location in the ctv result string.
+            Key = BisrSet.
+            Value = start bit location.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.BisrDecoder.ProcessPlistCtvResults(Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults,Prime.TestMethods.Mbist.Decoder.Bisr.BisrResults,System.String,Prime.TestMethods.Mbist.InstanceConfigurations)">
+            <summary>
+            Processes the plist ctv results.
+            </summary>
+            <param name="hryResults">Hry result data.</param>
+            <param name="bisrResults">Bisr results reference to be updated.</param>
+            <param name="perPlistCtvResults">Ctv results of the functional test.</param>
+            <param name="parsedParams">Parsed params containing all the Mbist modes.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.BisrDecoder.IsThereAnyBisrSet">
+            <summary>
+            checks whether there is any bisr set.
+            </summary>
+            <returns>true if there are any bisr set.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData">
+            <summary>
+            This class contains Bisr result data of the current instance and pin.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.#ctor(Prime.TestMethods.Mbist.BisrChain,Prime.TestMethods.Mbist.BisrMappingData,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Int32}},Prime.TestMethods.Mbist.InstanceConfigurations,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData"/> class.
+            </summary>
+            <param name="bisrChain">current bisr chain.</param>
+            <param name="bisrMappingData">Bisr mapping data.</param>
+            <param name="memoryNameToBisrIndex">per bisr capture comments.</param>
+            <param name="parsedParams">Parsed params containing all the Mbist modes.</param>
+            <param name="sessionContext">current session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.RawData">
+            <summary>
+            Gets RawData stores the bisr ctv bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.FuseToApply">
+            <summary>
+            Gets FuseToApply after compress/decompress of bisr ctv data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.FuseTotalAfterBurn">
+            <summary>
+            Gets FuseTotalAfterBurn after compress/decompress of bisr ctv data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.IsFuseCompressed">
+            <summary>
+            Gets a value indicating whether fuse is compressed or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.IsFuseAvailable">
+            <summary>
+            Gets a value indicating whether fuse is available or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.CurrentSession">
+            <summary> Gets or sets Current Session # to fuse.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.GetDebugPrintInfo">
+            <summary>
+            retrieve Bisr result information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.ProcessBisrResult(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.List{Prime.TestMethods.Mbist.BiraCorrectionIndex},Prime.TestMethods.Mbist.Modes.BisrModes,Prime.TestMethods.Mbist.DataStruct.ControllerSet.ControllerTypes)">
+            <summary>
+            Process compressed bisr chain result.
+            </summary>
+            <param name="perBisrCtvResult">ctv result binary string data.</param>
+            <param name="bisrCaptureCommentsIndices">Indices of Bisr capture comment matches hry memory names or repair shares that contain hry Memories.</param>
+            <param name="biraCorrectionIndices">Bira correction index of current bisr controller.</param>
+            <param name="bisrMode">Bisr mode.</param>
+            <param name="type">Controller type.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.ResetResultData">
+            <summary>
+            Resets the content of the Bisr Result data instance.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.SetErrorConditionData">
+            <summary>
+            Resets the content of the Bisr Result data instance.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.ClearUnrepairableFuses(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Clears the 'RawData' failed memory bits.
+            </summary>
+            <param name="failedMemories">Failed Memories.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.InitializeBisrResult">
+            <summary>
+            Initialize bisr data and decompress bisr fuse string as instructed.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.SetBisrResultData">
+            <summary>
+            Sets bisr default result data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.InitializeBisrResultData">
+            <summary>
+            Sets bisr default result data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.CompressChains(System.String)">
+            <summary>
+            Process compressed bisr chain result.
+            </summary>
+            <param name="perBisrCtvResult">ctv result binary string data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.ProcessBiraCorrection(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{Prime.TestMethods.Mbist.BiraCorrectionIndex})">
+            <summary>
+            Process bira correction.
+            </summary>
+            <param name="perBisrCtvs">current bisr ctv data.</param>
+            <param name="bisrCaptureCommentsIndices">Bisr capture comment bisrCaptureCommentIndexPair matches hry memory names.</param>
+            <param name="biraCorrectionIndices">current bisr bira correction index.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.CreateFusePaddingBetweenChains(System.Collections.Generic.List{System.String})">
+            <summary>Create Pointers to Data Per PD.</summary>
+            <param name = "perChainCompressedData" > List of PD Chain lengths.</param>
+            <returns>List<String></String> of compressed session pointers.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.Results.BisrResultData.ConvertIntegerToBinaryWithPadding(System.Int32)">
+            <summary>Returns the zero count section padded to correct size.</summary>
+            <param name = "zeroQty" > int count of zeros found.</param>
+            <returns>String for Zero compress value.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.Bisr.BisrResults">
+            <summary>
+            This class contains the Hry string results of the current instance and pin.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.BisrResults.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.Bisr.BisrResults"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Bisr.BisrResults.BisrResultData">
+            <summary>
+            Gets bisr result data.
+            key = bisr controller name, value = BisrResultData.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Bisr.BisrResults.FailBisrCompression">
+            <summary>
+            Gets or sets a value indicating whether there are any failing bisr compressions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.BisrResults.InitializeBisrResults(System.Collections.Generic.List{Prime.TestMethods.Mbist.BisrChain},System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.TestMethods.Mbist.BisrMappingData},Prime.TestMethods.Mbist.InstanceConfigurations,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialize Bisr results.
+            </summary>
+            <param name="currentBisrChains">current bisr chain list.</param>
+            <param name="bisrMappingData">bisr mapping data.</param>
+            <param name="instanceConfigurations">test instance parameters .</param>
+            <param name="sessionContext">sessiont contact.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.BisrResults.AreThereFailingBisrCompressions">
+            <summary>
+            Gets whether there are any bisr compressions.
+            </summary>
+            <returns>Whether there are any failing bisr compressions.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Bisr.BisrResults.ClearBisrCompressions(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Gets the condition whether there are any bisr compression failed.
+            </summary>
+            <param name="failedMemories">Failed Memories.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.DecoderSets">
+            <summary>
+            DecoderSets class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.DecoderSets.#ctor(System.Collections.Generic.List{System.ValueTuple{Prime.TestMethods.Mbist.DataStruct.ControllerSet,System.Int32}},System.Collections.Generic.List{System.ValueTuple{Prime.TestMethods.Mbist.BisrSet,System.Int32}},System.Int32,System.Int32,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.TestMethods.Mbist.BisrMappingData})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.DecoderSets"/> class.
+            </summary>
+            <param name="controllerSetWithLocations">A list of controller sets with their respective start index inside the CTV string.</param>
+            <param name="bisrSetWithLocations">A list of bisr sets with their respective start index inside the CTV string.</param>
+            <param name="dtsCtvStartIndex">First ctv index after controller sets and bisr sets.</param>
+            <param name="globalHryStringLength">Global Hry String Lenght.</param>
+            <param name="bisrMappingData">bisr mapping data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.DecoderSets.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.DecoderSets"/> class.
+            </summary>
+            <param name="globalHryStringLength">Global Hry String Lenght.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.DecoderSets.ControllerSetWithLocations">
+            <summary>
+            Gets the ControllerSetWithLocations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.DecoderSets.BisrSetForDecoders">
+            <summary>
+            Gets the BisrSetForDecoders.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.DecoderSets.DtsCtvStartIndex">
+            <summary>
+            Gets the last used ctv location.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.DecoderSets.GlobalHryStringLength">
+            <summary>
+            Gets the global hry string length.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.DecoderSets.IsThereAnyBisr">
+            <summary>
+            Gets whether there are any bisr.
+            </summary>
+            <returns>Whether there are any bisr.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.DecoderSets.GetDebugPrintInfo">
+            <summary>
+            Print DecodeSet data.
+            </summary>
+            <returns>Debug information.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.FlowStatus">
+            <summary>
+            Flow Status class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.FlowStatus.Status">
+            <summary>
+            Flow result flags.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Decoder.FlowStatus.Status.Fail">
+            <summary>
+            Mbist fails.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Decoder.FlowStatus.Status.FullPass">
+            <summary>
+            The pin doesnt have any fails.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Decoder.FlowStatus.Status.Repairable">
+            <summary>
+            Repairable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Decoder.FlowStatus.Status.Recovery">
+            <summary>
+            Recovery.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Decoder.FlowStatus.Status.RepairRecovery">
+            <summary>
+            RepairRecovery.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Decoder.FlowStatus.Status.Error">
+            <summary>
+            Error.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Decoder.FlowStatus.Status.UndetermineResult">
+            <summary>
+            UndetermineResult.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Decoder.FlowStatus.Status.Reset">
+            <summary>
+            Reset.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Decoder.FlowStatus.Status.FailedBisrCompression">
+            <summary>
+            FailedBisrCompression.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.FlowStatus.GetNewStatus(Prime.TestMethods.Mbist.Decoder.FlowStatus.Status,Prime.TestMethods.Mbist.Decoder.FlowStatus.Status)">
+            <summary>
+            Compares the flow Status flag and returns the one with higher priority.
+            </summary>
+            <param name="currentStatus">current flowflag.</param>
+            <param name="newStatus">flow flag to be compared.</param>
+            <returns>A higher priority flow flag.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.FlowStatus.GetHigherPriorityStatusPort(Prime.TestMethods.Mbist.Decoder.FlowStatus.Status,Prime.TestMethods.Mbist.Decoder.FlowStatus.Status)">
+            <summary>
+            Compares the flow Status flag and returns the one with higher priority.
+            </summary>
+            <param name="currentStatus">current flowflag.</param>
+            <param name="newStatus">flow flag to be compared.</param>
+            <returns>A higher priority flow flag.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.Hry.HryDecoder">
+            <summary>Hry decoder. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.HryDecoder.#ctor(System.Collections.Generic.List{System.ValueTuple{Prime.TestMethods.Mbist.DataStruct.ControllerSet,System.Int32}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.Hry.HryDecoder"/> class.
+            </summary>
+            <param name="controllerSetsWithLocations">The list of controller sets with their locations.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.HryDecoder.ProcessPlistCtvResults(System.String,Prime.TestMethods.Mbist.InstanceConfigurations,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Processes the plist ctv results.
+            </summary>
+            <param name="perPlistCtvResult">Ctv results of the functional test.</param>
+            <param name="instanceConfigurations">Parameter object for accessing varies parameter values.</param>
+            <param name="sessionContext">session context.</param>
+            <returns>Hry results of processing the ctv obtained in the functional test.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.HryDecoder.GetFullPassHryResults">
+            <summary>
+            Get passing full hry results.
+            </summary>
+            <returns>An hry results object with all its values set as pass.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults">
+            <summary>
+            The range class contains the start and end indices.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.#ctor(System.Collections.Generic.List{System.Int32},System.Boolean,System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Mbist.DataStruct.Bisr.ReplacementBits})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults"/> class.
+            </summary>
+            <param name="indices">Maximun controller index.</param>
+            <param name="shouldUpdateAllMemories">Should update all Memories.</param>
+            <param name="bisrBiraReplacements">Bira replacement bits by bisr.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.BisrBiraReplacements">
+            <summary>
+            Gets the current Bisr bira ctv replacements.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.IsGlobalFailure">
+            <summary>
+            Gets a value indicating whether the result is a global failure.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.ShouldUpdateAllMemories">
+            <summary>
+            Gets a value indicating whether all Memories should be updated to the new value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.MemoryHrySymbols">
+            <summary>
+            Gets the memory hry symbols of the execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.GetFailingIndices">
+            <summary>
+            Gets the failing memory indices.
+            </summary>
+            <returns>Failing memory indices.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.AddUntestedMemories(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Adds or updates memory symbol.
+            </summary>
+            <param name="memoryIndices">Index of the memory index inside the controller.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.AddOrUpdateMemorySymbol(System.Int32,Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Adds or updates memory symbol.
+            </summary>
+            <param name="memoryIndex">Index of the memory index inside the controller.</param>
+            <param name="newSymbol">New symbol to be added or updated.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.UpdateAllMemorySymbols(System.Collections.Generic.List{System.Int32},Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Adds or updates memory symbol.
+            </summary>
+            <param name="memoryIndices">List of memory indices.</param>
+            <param name="newSymbol">New symbol to be added or updated.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.SetGlobalControllerFailure(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Update Memories to a global controller failure.
+            </summary>
+            <param name="newSymbol">Symbol of the global controller failure.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.ControllerResults.PrintMemoryHrySymbols">
+            <summary>
+            Prints the content of MemoryHrySymbols.
+            </summary>
+            <returns>list of memory index and their symbols.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl">
+            <summary>
+            HryResultFlowControl.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl.#ctor(System.Collections.Generic.List{System.Int32},System.Collections.Generic.Dictionary{System.Int32,Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl"/> class.
+            </summary>
+            <param name="recoveryIndices">Recovery location indices.</param>
+            <param name="currentHry">Current hry locations to symbols.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl.IsSkipRecovery">
+            <summary>
+            Gets or sets a value indicating whether the current flow is skip recovery.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl.DoAllRecoveryIpsPass">
+            <summary>
+            Gets or sets a value indicating whether the recovery passes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl.DoAllNonRecoveryIpsPass">
+            <summary>
+            Gets or sets a value indicating whether the non recovery ips pass.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl.IsRepairableFound">
+            <summary> Gets or sets a value indicating whether there is any repairable or successful repair value.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl.HasGlobalFailures">
+            <summary>
+            Gets or sets a value indicating whether global failures are in the current Hry string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl.UnrepairableMemories">
+            <summary>
+            Gets or sets list of unrepairable Memories.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl.IsRepairableFlow">
+            <summary>
+            Gets whether the repairable flow should be executed.
+            </summary>
+            <returns>whether the repairable flow should be executed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl.DoAllIpsPass">
+            <summary>
+            Gets whether all the IPs are passing.
+            </summary>
+            <returns>whether all the IPs are passing.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResultFlowControl.AreOnlyRecoveryIpsFailing">
+            <summary>
+            Gets whether the recovery IPs are the only ones failing.
+            </summary>
+            <returns>whether the recovery IPs are the only ones failing.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults">
+            <summary>
+            This class contains the Hry string results of the current instance and pin.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults"/> class.
+            </summary>
+            <param name="currentHrySize">Size of the current hry string that will be used by the hry decoder.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults.BisrBiraReplacements">
+            <summary>
+            Gets the current Bisr bira ctv replacements.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults.CurrentHry">
+            <summary>
+            Gets the current hry string.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults.UpdateMemorySymbol(System.Int32,Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Adds or updates memory symbol.
+            </summary>
+            <param name="memoryIndex">Index of the memory index inside the controller.</param>
+            <param name="newSymbol">New symbol to be added or updated.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults.UpdateMemorySymbols(System.Collections.Generic.IEnumerable{System.Int32},Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Adds or updates memory symbol.
+            </summary>
+            <param name="hryStringIndices">Memory locations dictionary.</param>
+            <param name="newSymbol">New symbol to be added or updated.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults.UpdateAllMemorySymbols(Prime.TestMethods.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Adds or updates all memory to symbol.
+            </summary>
+            <param name="newSymbol">New symbol to be added or updated.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults.GetHryResultFlowControl(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Gets the HryResultFlowControl resulting from the current hry symbols.
+            </summary>
+            <param name="recoveryIndices">Recovery indexes.</param>
+            <returns>a HryResultFlowControl instances.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.HryResults.GetUpdatedGlobalHry(System.Collections.Generic.List{System.Char},Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestModes)">
+            <summary>
+            Gets the updated Global Hry string.
+            </summary>
+            <param name="globalHry">Global Hry string.</param>
+            <param name="testMode">Current instance mbist mode.</param>
+            <returns>Updated global hry.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits">
+            <summary>
+            The range class contains the start and end indices.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits.#ctor(System.Collections.Generic.List{System.Int32},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits"/> class.
+            </summary>
+            <param name="indices">Status indices in the data ctv.</param>
+            <param name="ctvData">data ctv.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits.IsSingleBit">
+            <summary>
+            Gets a value indicating whether the Status is single bit per field.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits.PreStatus">
+            <summary>
+            Gets the pre Status value which is compossed by pre done and pre go.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits.PostStatus">
+            <summary>
+            Gets the post Status value which is compossed by post done and post go.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits.ArePreStatusBitsFailing">
+            <summary>
+            Gets a value indicating whether the Status is passing.
+            </summary>
+            <returns>Whether the Status is passing.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits.IsPostFailing">
+            <summary>
+            Gets a value indicating whether the Status is passing.
+            </summary>
+            <returns>Whether the Status is passing.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.Hry.Results.StatusBits.GetDebugPrintInfo">
+            <summary>
+            retrieve Status Bit information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.#ctor(Prime.TestMethods.Mbist.Decoder.DecoderSets,Prime.TestMethods.Mbist.DataStruct.DatalogTags,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Decoder.PinDecoder"/> class.
+            </summary>
+            <param name="decoderSet">Controller set for current plist.</param>
+            <param name="hryTags">Hry Tags.</param>
+            <param name="sessionContext">current sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.GetDtsCtvs(System.String)">
+            <summary>Gets the dts ctvs.</summary>
+            <param name="ctvResults">Ctv results string.</param>
+            <returns>the dts ctvs. Or in other words, the ctvs that were not used during the plist ctv processing.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.InitializeBisrResultData(Prime.TestMethods.Mbist.InstanceConfigurations,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.TestMethods.Mbist.BisrChain},System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.TestMethods.Mbist.BisrMappingData})">
+            <summary>
+            Process plist result on each pin and updates Hry and Bisr results.
+            </summary>
+            <param name="instanceConfigurations">test instance parameter modes.</param>
+            <param name="bisrChains">All bisr chains.</param>
+            <param name="bisrMappingData">Bisr controller mapping data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.ProcessFailingPlistCtvResults(System.String,System.Collections.Generic.List{System.Int32},Prime.TestMethods.Mbist.InstanceConfigurations)">
+            <summary>
+            Process plist result on each pin and updates Hry and Bisr results.
+            </summary>
+            <param name="perPinPlistCtvResult">per pin ctv result.</param>
+            <param name="recoveryIndices">Recovery indices.</param>
+            <param name="instanceConfigurations">test instance parameter modes.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.ProcessPassingPlistCtvResults">
+            <summary>
+            Get full pass hry results.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.PrintResults(System.String,Prime.TestMethods.Mbist.InstanceConfigurations)">
+            <summary>
+            Process plist result on each pin and updates Hry and Bisr results.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <param name="instanceConfigurations">test instance parameter modes.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.GetHryResultFlowControl(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Gets the HryResultFlowControl resulting from the current hry symbols.
+            </summary>
+            <param name="recoveryIndices">Recovery indexes.</param>
+            <returns>a HryResultFlowControl instances.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.InitializeGlobalHry(System.String,Prime.TestMethods.Mbist.InstanceConfigurations)">
+            <summary>
+            Initializes the global Hry value.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.UpdateGlobalHry(Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestModes)">
+            <summary>
+            Updates the global Hry value.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.SaveGlobalHry(System.String,Prime.TestMethods.Mbist.InstanceConfigurations)">
+            <summary>
+            Updates the global Hry value.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Decoder.PinDecoder.ReadGlobalHry(System.String)">
+            <summary>
+            Updates the global Hry value.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.BiraCorrectionIndex">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BiraCorrectionIndex.BiraRegisterKey">
+            <summary>
+            Gets or Sets bira register key name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BiraCorrectionIndex.IsOutputMode">
+            <summary>
+            Gets or sets a value indicating whether it is offset mode or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BiraCorrectionIndex.EnableBitIndex">
+            <summary>
+            Gets or sets the new updated index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BiraCorrectionIndex.Offset">
+            <summary>
+            Gets or sets the new updated index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BiraCorrectionIndex.IndexList">
+            <summary>
+            Gets or sets the Offset mode updated index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.BiraCorrectionIndex.CurrentToUpdatedIndex">
+            <summary>
+            Gets or sets the Output mode currentIndex updated index.
+            Key = capture comment index.
+            Value = replacement value index.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.BiraCorrectionIndex.BuildBiraCorrection(System.Text.StringBuilder,System.Text.StringBuilder,System.Collections.Generic.Dictionary{System.Int32,System.Char})">
+            <summary>
+            Builds the Bira correction.
+            </summary>
+            <param name="updatedCtvData">Updated ctv data.</param>
+            <param name="currentBisr">Current bisr.</param>
+            <param name="correctionResult">Correction result.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.InstanceConfigurations">
+            <summary>
+            This class contains the parsed Mbist parameters.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.InstanceConfigurations.#ctor(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestModes)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.InstanceConfigurations"/> class.
+            </summary>
+            <param name="dffOperationModes">List of dff modes.</param>
+            <param name="clearVariableModes">List of clear modes.</param>
+            <param name="ituffModes">List of ituff modes.</param>
+            <param name="bisrModes">List of bisr modes.</param>
+            <param name="mbistTestMode">Mbist test mode.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.InstanceConfigurations.DffOperationModes">
+            <summary>
+            Gets the dff operation modes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.InstanceConfigurations.ClearVariableModes">
+            <summary>
+            Gets the clear variable modes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.InstanceConfigurations.ItuffModes">
+            <summary>
+            Gets the ituff modes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.InstanceConfigurations.BisrModes">
+            <summary>
+            Gets the bisr modes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.InstanceConfigurations.MaskedPins">
+            <summary>
+            Gets the Masked pins for the functional test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.InstanceConfigurations.MbistTestMode">
+            <summary>
+            Gets the Mbist Test Mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.InstanceConfigurations.SetMaskedPins(System.Collections.Generic.List{System.String})">
+            <summary>
+            Sets the masked pins.
+            </summary>
+            <param name="maskedPins">Masked pins list.</param>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Fails when the pin name is not found in the pin service.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.InstanceConfigurations.GetDebugPrintInfo">
+            <summary>
+            retrieve instanceConfigurations information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Hry.BiraRegisterJson">
+            <summary>
+            Bira register class stores bira information of each controller from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BiraRegisterJson.BiraName">
+            <summary>Gets or sets JSON Element - Bira name in bira regs.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BiraRegisterJson.BisrName">
+            <summary>Gets or sets JSON Element - Bisr name in bira regs.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BiraRegisterJson.Capture">
+            <summary>Gets or sets JSON Element - Capture bits in bira regs.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BiraRegisterJson.Replace">
+            <summary>Gets or sets JSON Element - Bits to be replaced name in bira regs.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Hry.BisrChainJson">
+            <summary>
+            Bisr chain class stores bisr chain information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BisrChainJson.BufferSize">
+            <summary>Gets or sets JSON Element - bisr chain buffer size.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BisrChainJson.ZeroCounterBits">
+            <summary>Gets or sets JSON Element - bisr chain number of zero count bits.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BisrChainJson.FuseBoxSize">
+            <summary>Gets or sets JSON Element - bisr chain fuse box size.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BisrChainJson.FuseBoxAddressBits">
+            <summary>Gets or sets JSON Element - bisr chain number of fuse box address bits.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BisrChainJson.MaxFuseBoxProgrammingSessions">
+            <summary>Gets or sets JSON Element - bisr chain number of max fuse box progrmming sessions.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BisrChainJson.TotalLength">
+            <summary>Gets or sets JSON Element - bisr chain total fuse bit length.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BisrChainJson.Chains">
+            <summary>Gets or sets JSON Element - bisr chain number of per chain length.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Hry.BisrControllerJson">
+            <summary>
+            controller class stores controller information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BisrControllerJson.CaptureData">
+            <summary>Gets or sets JSON Element - Bisr controller capture data.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.BisrControllerJson.CaptureComments">
+            <summary>Gets or sets JSON Element - Bisr controller capture comments.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Hry.ControllerGroupsJson">
+            <summary>Hry Controller group class.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerGroupsJson.CaptureCount">
+            <summary>Gets or sets JSON Element - capture count.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerGroupsJson.ControllerSets">
+            <summary>Gets or sets JSON Element - stores controller set.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Hry.ControllerJson">
+            <summary>
+            controller class stores controller information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerJson.Status">
+            <summary>
+            Gets or sets JSON Element - Controller Status bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerJson.Algo">
+            <summary>
+            Gets or sets JSON Element - Controller Algo bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerJson.Palgo">
+            <summary>
+            Gets or sets JSON Element - Controller Palgo bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerJson.Memories">
+            <summary>
+            Gets or sets JSON Element - Controller Memories bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerJson.BiraRegisters">
+            <summary>
+            Gets or sets JSON Element - Controller bira registers.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Hry.ControllerSetJson">
+            <summary>
+            Controller set class stores information as a set from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerSetJson.Type">
+            <summary>Gets or sets JSON Element - controller type.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerSetJson.Patterns">
+            <summary>Gets or sets JSON Element - pattern list associated with a controller set.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerSetJson.Controllers">
+            <summary>Gets or sets JSON Element - controllers with in the same controller set.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ControllerSetJson.BisrControllers">
+            <summary>Gets or sets JSON Element - controllers with in the same controller set.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Hry.ExecutionJson">
+            <summary>
+            Execution class stores controller execution information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ExecutionJson.Status">
+            <summary>
+            Gets or sets JSON Element - Controller Status bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ExecutionJson.Algo">
+            <summary>
+            Gets or sets JSON Element - Controller Algo bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ExecutionJson.Palgo">
+            <summary>
+            Gets or sets JSON Element - Controller Palgo bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ExecutionJson.Memories">
+            <summary>
+            Gets or sets JSON Element - Controller Memories bits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.ExecutionJson.BiraRegisters">
+            <summary>
+            Gets or sets JSON Element - Controller bira registers.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Hry.HryJson">
+            <summary>
+            Top level Hry class stores information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.HryJson.Version">
+            <summary>
+            Gets or sets jSON Element - version number.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.HryJson.MemoryLocationToPowerDomain">
+            <summary>
+            Gets or sets JSON Element - Memory locations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.HryJson.BisrChain">
+            <summary>
+            Gets or sets JSON Element - gets Bisr chain data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.HryJson.BisrRepairShare">
+            <summary>
+            Gets or sets JSON Element - gets the repair share data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Hry.HryJson.ControllerGroups">
+            <summary>
+            Gets or sets JSON Element - gets controller groups.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Map.BisrDataJson">
+            <summary>
+            Top level BisrDataJson class stores information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.BisrDataJson.CorrectBira">
+            <summary>Gets or sets JSON Element - gets 'CORRECT_BIRA' data.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.BisrDataJson.PaddingChar">
+            <summary>Gets or sets JSON Element - PADCHAR.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.BisrDataJson.NameSpace">
+            <summary>Gets or sets JSON Element - gets 'NAMESPACE' data.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.BisrDataJson.VfdmRepair">
+            <summary>Gets or sets a value indicating whether vfdm repair is enabled Element.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.BisrDataJson.FusePadding">
+            <summary>Gets or sets JSON Element - gets 'FUSEPADDING' data.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.BisrDataJson.Reverse">
+            <summary>Gets or sets a value indicating whether Reverse is false on BISR.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Map.CorrectBiraJson">
+            <summary>
+            Top level Hry class stores information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.CorrectBiraJson.Enable">
+            <summary>Gets or sets JSON Element of 'ENABLE' name.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.CorrectBiraJson.Offset">
+            <summary>Gets or sets JSON Element - 'OFFSET' name.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.CorrectBiraJson.Input">
+            <summary>Gets or sets JSON Element - INPUT name.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.CorrectBiraJson.Output">
+            <summary>Gets or sets JSON Element - OUTPUT name.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Map.MapJson">
+            <summary>
+            Top level Hry class stores information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.MapJson.Version">
+            <summary>Gets or sets JSON Element - version number.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.MapJson.MultiDie">
+            <summary>Gets or sets JSON Element - MULTIDIE data.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.MapJson.MultiCore">
+            <summary>Gets or sets JSON Element - MULTICORE data.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.MapJson.HryMap">
+            <summary>Gets or sets JSON Element - gets 'Hry' data.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.MapJson.BisrChainMap">
+            <summary>Gets or sets JSON Element - gets 'BISR_CHAINS' data.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.MapJson.RecoveryMap">
+            <summary>Gets or sets JSON Element - gets 'RECOVERY' data.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.MapJson.VminMap">
+            <summary>Gets or sets JSON Element - gets 'VMIN' data.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Map.MultiDieJson">
+            <summary>
+            Top level Hry class stores information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.MultiDieJson.Voltage">
+            <summary>Gets or sets JSON Element - gets the voltages.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.MultiDieJson.ShortName">
+            <summary>Gets or sets JSON Element - gets the pin short name.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Map.StorageTagsJson">
+            <summary>
+            A class stores datalog tags information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.StorageTagsJson.Dff">
+            <summary>Gets or sets JSON Element - DFF name.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.StorageTagsJson.SharedStorage">
+            <summary>Gets or sets JSON Element - SHAREDSTORAGE name.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Map.StorageTagsJson.Ituff">
+            <summary>Gets or sets ituff datalog tag JSON Element - ITUFF name.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryIpsJson">
+            <summary>
+            Top level Hry class stores information from json file.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryIpsJson.RecoveryIpTypes">
+            <summary>Hry controller types.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryIpsJson.RecoveryIpTypes.Partial">
+            <summary>Partial recovery type.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryIpsJson.RecoveryIpTypes.Full">
+            <summary>Full recovery type.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryIpsJson.Type">
+            <summary>
+            Gets or sets JSON Element - Types - Full or Partial.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryIpsJson.RequiredMemories">
+            <summary>
+            Gets or sets JSON Element - Required recovery token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryIpsJson.OptionalMemories">
+            <summary>
+            Gets or sets JSON Element - Recovery options.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryJson">
+            <summary>
+            Top level Hry class stores information from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryJson.Version">
+            <summary>
+            Gets or sets JSON Element - version number.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryJson.RecoveryTokens">
+            <summary>
+            Gets or sets JSON Element - Recovery token name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryJson.ValidOptions">
+            <summary>
+            Gets or sets JSON Element - valid options.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryJson.RecoveryPriority">
+            <summary>
+            Gets or sets JSON Element - recovery priority.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryJson.ErrorValue">
+            <summary>
+            Gets or sets JSON Element - Error value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryJson.FailValue">
+            <summary>
+            Gets or sets JSON Element - Fail value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryJson.PassValue">
+            <summary>
+            Gets or sets JSON Element - Pass value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.RecoveryJson.RecoveryJson.DesignIps">
+            <summary>
+            Gets or sets JSON Element - Design Ips.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Vfdm.DirectBlocksJson">
+            <summary>
+            Json direct blocks class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Vfdm.DirectBlocksJson.FusePositions">
+            <summary>
+            Gets or sets the fuse position.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Vfdm.DirectBlocksJson.EnablePositions">
+            <summary>
+            Gets or sets the enabled position.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Vfdm.DirectBlocksJson.Controller">
+            <summary>
+            Gets or sets the vfdm controllers.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Vfdm.VfdmControllersJson">
+            <summary>
+            Json Vmdf controller class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Vfdm.VfdmControllersJson.FuseMemoryMap">
+            <summary>
+            Gets or sets fuse memory dictionary.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Vfdm.VirtualBlocksJson">
+            <summary>
+            Json virtual blocks class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Vfdm.VirtualBlocksJson.FusePositions">
+            <summary>
+            Gets or sets fuse position.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Vfdm.VirtualBlocksJson.Controller">
+            <summary>
+            Gets or sets the vfdm controllers.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Json.Vfdm.VirtualFuseConfigJson">
+            <summary>
+            Json virtual fuse configuration class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Vfdm.VirtualFuseConfigJson.Version">
+            <summary>
+            Gets or sets the document version.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Vfdm.VirtualFuseConfigJson.VirtualBlocksSsNames">
+            <summary>
+            Gets or sets the vfdm virtual direct blocks for repair.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Json.Vfdm.VirtualFuseConfigJson.DirectBlocksSsNames">
+            <summary>
+            Gets or sets the vfdm direct blocks for repair.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Modes.BisrModes">
+            <summary>BisrModes modes. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Modes.BisrModes.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Modes.BisrModes"/> class.
+            </summary>
+            <param name="bisrModes">bisrMode.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.BisrModes.IsBiraBuild">
+            <summary>Gets a value indicating whether the it is a bira build condition. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.BisrModes.IsCompressed">
+            <summary>Gets a value indicating whether the BisrModes is compressed. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.BisrModes.IsUncompressed">
+            <summary>Gets a value indicating whether the BisrModes is uncompressed. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.BisrModes.IsPatMod">
+            <summary>Gets a value indicating whether the BisrModes is pat mod. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Modes.BisrModes.IsSet">
+            <summary>Gets a value indicating whether there are any BisrModes. </summary>
+            <returns>value indicating whether there are any BisrModes.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Modes.BisrModes.GetDebugPrintInfo">
+            <summary>
+            retrieve BisrMode information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Modes.ClearVariableModes">
+            <summary>
+            ClearVariableModes modes.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Modes.ClearVariableModes.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Modes.ClearVariableModes"/> class.
+            </summary>
+            <param name="clearVarModes">bisrMode.</param>
+            <remarks>Note: Let's decide whether we want to delete the all version.
+            Note2: Since the json format is changing, can the new labels contain camel case or other naming convention across all the names.
+            </remarks>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.ClearVariableModes.IsHry">
+            <summary>Gets a value indicating whether it is HRY mode. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.ClearVariableModes.IsRecovery">
+            <summary>Gets a value indicating whether it is Recovery mode. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.ClearVariableModes.IsVfdm">
+            <summary>Gets a value indicating whether it is VFDM mode. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.ClearVariableModes.IsBisr">
+            <summary>Gets a value indicating whether it is Bisr mode. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Modes.ClearVariableModes.GetDebugPrintInfo">
+            <summary>
+            retrieve ClearVariables information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Modes.DffOperationModes">
+            <summary>DffOperationModes modes. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Modes.DffOperationModes.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Modes.DffOperationModes"/> class.
+            </summary>
+            <param name="dffModes">bisrMode.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.DffOperationModes.IsWrite">
+            <summary>
+            Gets a value indicating whether the DffMode is write.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.DffOperationModes.IsRead">
+            <summary>
+            Gets a value indicating whether the DffMode is read.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.DffOperationModes.IsRecovery">
+            <summary>
+            Gets a value indicating whether the DffMode is recovery.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.DffOperationModes.IsBisr">
+            <summary>
+            Gets a value indicating whether the DffMode is bisr.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Modes.DffOperationModes.GetDebugPrintInfo">
+            <summary>
+            retrieve DffOperation information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Modes.ItuffModes">
+            <summary>
+            ItuffModes modes.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Modes.ItuffModes.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.Modes.ItuffModes"/> class.
+            </summary>
+            <param name="ituffModes">bisrMode.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.ItuffModes.IsHry">
+            <summary>Gets a value indicating whether it is in HRY mode. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.Modes.ItuffModes.IsBisrCompressionFail">
+            <summary>Gets a value indicating whether there is any bisr compression failed. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Modes.ItuffModes.GetDebugPrintInfo">
+            <summary>
+            retrieve bisrChain information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.PinExecutor">
+            <summary>
+            Executes the logic related to each of the Pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PinExecutor.Status">
+            <summary>
+            Gets or Sets Status.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.PrimeMbistTestMethod">
+            <summary>
+            Mbist test method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.ctvPins">
+            <summary>
+            Stores Hry/bisrChain info per pin (future SSN support). Key = pin name / Value = PinDecoder.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestModes">
+            <summary>
+            Test class modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestModes.Hry">
+            <summary>
+            Hry mode - used when running PRE/Raster/Post for any repair. Only supports single execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestModes.KitchenSink">
+            <summary>
+            KitchenSink mode - not updating Hry tokens.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestModes.PostRepair">
+            <summary>
+            Post Repair mode - Retest logic in a separate instance that runs on all Memories previously recorded as "repairable" or "Y".
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestModes.RepairShareBira">
+            <summary>
+            Repair Share Bira mode - Retest after Hry for repair sharing to allow Memories that fail to update Failing Memories to repairable/unrepairable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestModes.Initialize">
+            <summary>
+            Initialize Mbist HRY, Bisr and Recovery data - performs Bisr fuse decompress as instructed (BisrMode = 'compress').
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.PrimeMbistTestMethod.EnabledStates">
+            <summary>
+            Enabled States.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.EnabledStates.Disabled">
+            <summary>
+            Disabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.EnabledStates.Enabled">
+            <summary>
+            Collect recoverable IPs.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.LevelsTc">
+            <summary>
+            Gets or sets the Symbol of the levels file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.CtvCapturePins">
+            <summary>
+            Gets or sets comma separated pins for CTV capture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.FailCaptureCount">
+            <summary>
+            <para>
+            Gets or sets FailCaptureCount.
+            Setting this parameter to 1 will set stop-on-first-fail.
+            Any value greater than 1 will run full plist unless used in combination with ReturnOn plist options.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.PrintToItuff">
+            <summary>
+            Gets or sets which values should be printed to the ituff. Possible values are: 'hry' and 'bisrcompfail'.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.RecoveryModeDownbin">
+            <summary>
+            Gets or sets set the recovery mode of the instance's MbistTestMode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.BisrMode">
+            <summary>
+            Gets or sets mode used to store BISR data in TP. Possible values are 'compress', 'patmod', 'birabuild' and 'uncompress'.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.DffOperation">
+            <summary>
+            Gets or sets the dff operation modes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MappingConfigurationFile">
+            <summary> Gets or sets  Mapping Configuration file. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.ClearVariables">
+            <summary>
+            Gets or sets mode for clearing or not global Hry string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestMode">
+            <summary>
+            Gets or sets enables default or post repair flows.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.ItuffNameExtenstion">
+            <summary>
+            Gets or sets the Ituff name extension which is added to the hry tag when printing to the ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.LookupTableConfigurationFile">
+            <summary>
+            Gets or sets LookupTableConfigurationFile.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.RecoveryConfigurationFile">
+            <summary>
+            Gets or sets RecoveryConfigurationFile.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.IgnoreResetFail">
+            <summary> Gets or sets to ignore reset fail.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.FunctionalTest">
+            <summary>
+            Gets or sets the functional test to capture failures.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.Utils.StringUtils">
+            <summary>
+            StringUtils class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.Utils.StringUtils.Contains1(System.String)">
+            <summary>
+            Gets whether the current string contains 1 and therefore is failing.
+            </summary>
+            <param name="str">Current string.</param>
+            <returns>Whether the current string is failing.</returns>
+        </member>
+    </members>
+</doc>

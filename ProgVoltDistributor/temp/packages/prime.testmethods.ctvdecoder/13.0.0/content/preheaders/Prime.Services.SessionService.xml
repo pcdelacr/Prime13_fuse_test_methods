@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.SessionService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.SessionService.Internal.IServiceStoreProxy">
+            <summary>
+            A proxy to service store to make the service testable.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.Internal.IServiceStoreProxy.GetAllSessionContextProvidable">
+            <summary>
+            Get all session context providable services from ServiceStore.
+            </summary>
+            <returns>List of Services with SessionContextProvidable.</returns>
+        </member>
+        <member name="T:Prime.SessionService.Internal.ISessionService">
+            <summary>
+            Session Service internal interface.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.Internal.ISessionService.SetCurrentThreadSessionContextContainer(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the container of the running thread.
+            </summary>
+            <param name="sessionContextProviderContainer">The session context provider container.</param>
+        </member>
+        <member name="M:Prime.SessionService.Internal.ISessionService.RemoveCurrentThreadSessionContextProviderContainer">
+            <summary>
+            Removes the current thread container from storage.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.Internal.ISessionService.SetCurrentThreadLogger(MPE.MIT.Logging.Context.IContextLogger)">
+            <summary>
+            Set the logger of the running thread.
+            </summary>
+            <param name="currentThreadLogger">The context logger.</param>
+        </member>
+        <member name="M:Prime.SessionService.Internal.ISessionService.RemoveCurrentThreadLogger">
+            <summary>
+            Removes the current thread logger from storage.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.Internal.ISessionService.CreateBasicSessionContextProviderContainer(System.String,System.UInt32,System.UInt32,System.String)">
+            <summary>
+            Create a new sessionContext container.
+            </summary>
+            <param name="instanceName">The current instance name.</param>
+            <param name="dutId">DutId of the instance.</param>
+            <param name="ipId">IpId of the instance.</param>
+            <param name="ipName">IpName of the instance.</param>
+            <returns>SessionContextProviderContainer.</returns>
+        </member>
+        <member name="M:Prime.SessionService.Internal.ISessionService.CreateBasicSessionContextProviderContainer(System.String,System.UInt32,System.UInt32,System.String,System.Boolean)">
+            <summary>
+            Create a new sessionContext container.
+            </summary>
+            <param name="instanceName">The current instance name.</param>
+            <param name="dutId">DutId of the instance.</param>
+            <param name="ipId">IpId of the instance.</param>
+            <param name="ipName">IpName of the instance.</param>
+            <param name="populateAllProviders">whether to iterate through all services that has sessionContextProviders and populate them. Default is true.</param>
+            <returns>SessionContextProviderContainer.</returns>
+        </member>
+        <member name="T:Prime.SessionService.ISessionService">
+            <summary>
+            Session service interface.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.ISessionService.GetCurrentThreadSessionContextContainer">
+            <summary>
+            <para>Gets the current thread session context provider container, if previously set.</para>
+            </summary>
+            <remarks>
+            <para>If current thread didn't set the container before, this function will throw FatalException.</para>
+            <para>In a regular flow this function is not expected to throw.</para>
+            </remarks>
+            <returns>The current session context container.</returns>
+        </member>
+        <member name="M:Prime.SessionService.ISessionService.TryGetCurrentThreadSessionContextContainer(Prime.SessionService.ISessionContextProviderContainer@)">
+            <summary>
+            <para>Tries to get the current thread session context provider container, if previously set.</para>
+            </summary>
+            <param name="sessionContext">Session context container for current thread if available.</param>
+            <returns>True if session context container is available for current thread.</returns>
+        </member>
+        <member name="M:Prime.SessionService.ISessionService.GetCurrentThreadLogger">
+            <summary>
+            <para>Gets the current thread session logger, if previously set.</para>
+            </summary>
+            <returns>Null if current thread didn't set the logger before, or the logger itself.</returns>
+        </member>
+        <member name="T:Prime.SessionService.ISessionContextProvidable">
+            <summary>
+            Interface to define the concrete class provides session token services.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.ISessionContextProvidable.AddProviders(Prime.SessionService.ISessionContextProviderContainer@)">
+            <summary>
+            This method insert a new provider to the container
+            using container.AddProviders(new SessionContextTokenProvider()).
+            </summary>
+            <param name="container">The provider's container.</param>
+        </member>
+        <member name="T:Prime.SessionService.ISessionContextProvider">
+            <summary>
+            Provider interface.
+            </summary>
+        </member>
+        <member name="P:Prime.SessionService.ISessionContextProvider.MsgId">
+            <summary>
+            Gets the MessageId of this provider.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.ISessionContextProvider.Verify(Prime.SessionService.ISessionContextProviderContainer,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            In case a provider needs to refresh its data on instance's Verify it can implement that logic in this function.
+            </summary>
+            <param name="container">The current sessionContextContainer, in case the Provider's Verify function requires any data from it.</param>
+            <param name="instanceParameters">The dictionary of the current instance's parameters.</param>
+        </member>
+        <member name="M:Prime.SessionService.ISessionContextProvider.RefreshOnExecute(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            In case a provider needs to refresh its data on instance's Execute it can implement that logic in this function.
+            </summary>
+            <param name="container">The current sessionContextContainer, in case the Provider's Verify function requires any data from it.</param>
+        </member>
+        <member name="T:Prime.SessionService.ISessionContextProviderContainer">
+            <summary>
+            Interface for all methods required to use by session context consumers.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.ISessionContextProviderContainer.AddOrUpdateProvider``1(Prime.SessionService.SessionContextProvider{``0})">
+            <summary>
+            <para>Registers or updates a provider based on its message Id.</para>
+            </summary>
+            <typeparam name="T">The specific provider message response.</typeparam>
+            <param name="provider">The new provider.</param>
+        </member>
+        <member name="M:Prime.SessionService.ISessionContextProviderContainer.GetResponse``1(System.Guid)">
+            <summary>
+            <para>Gets a response to a specific message stored in the container.</para>
+            </summary>
+            <remarks>If the specific message ID doesn't have a provider, an exception will be thrown.</remarks>
+            <typeparam name="T">Message return type.</typeparam>
+            <param name="messageId">The message ID to service.</param>
+            <returns>Message response.</returns>
+        </member>
+        <member name="M:Prime.SessionService.ISessionContextProviderContainer.VerifyAllProviders(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            <para>To be called by Prime Kernel's Verify to refresh the providers data (if needed).</para>
+            </summary>
+            <param name="instanceParameters">The dictionary of the current instance's parameters.</param>
+        </member>
+        <member name="M:Prime.SessionService.ISessionContextProviderContainer.RefreshOnExecuteAllProviders">
+            <summary>
+            <para>To be called by Prime Kernel's Execute to refresh the providers data (if needed).</para>
+            </summary>
+        </member>
+        <member name="T:Prime.SessionService.ISessionContextResponseHandler`1">
+            <summary>
+            Interface for a sessionContext Provider.
+            </summary>
+            <typeparam name="T">The specific provider message response.</typeparam>
+        </member>
+        <member name="M:Prime.SessionService.ISessionContextResponseHandler`1.HandleMessage">
+             <summary>
+             Any provider must implement this abstract method.
+             Method should check from the message if the specific MsgId can be handled.
+             If yes, down cast the message to the specific concrete response by Msg type.
+                If incoming concrete response type doesn't match the Msg response type, an exception will be thrown.
+            
+             The response is returned inside the response field.
+             </summary>
+             <returns>An object of type T based on the message Id.</returns>
+        </member>
+        <member name="T:Prime.SessionService.ServiceStoreProxy">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.SessionService.ServiceStoreProxy.Prime#SessionService#Internal#IServiceStoreProxy#GetAllSessionContextProvidable">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.SessionService.InstanceMetaDataSessionContextExtensions">
+            <summary>
+            Provides extension methods to shortcut the access to the InstanceMetaData properties from SessionContext.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.InstanceMetaDataSessionContextExtensions.GetInstanceName(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the instance name.
+            </summary>
+            <param name="sessionContext">the sessionContext.</param>
+            <returns>the instance name.</returns>
+        </member>
+        <member name="M:Prime.SessionService.InstanceMetaDataSessionContextExtensions.GetIpName(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the IP name.
+            </summary>
+            <param name="sessionContext">the sessionContext.</param>
+            <returns>the IP name.</returns>
+        </member>
+        <member name="M:Prime.SessionService.InstanceMetaDataSessionContextExtensions.GetDutId(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the DutId name.
+            </summary>
+            <param name="sessionContext">the sessionContext.</param>
+            <returns>the DutId name.</returns>
+        </member>
+        <member name="M:Prime.SessionService.InstanceMetaDataSessionContextExtensions.GetIpId(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the IpId name.
+            </summary>
+            <param name="sessionContext">the sessionContext.</param>
+            <returns>the IpId name.</returns>
+        </member>
+        <member name="M:Prime.SessionService.InstanceMetaDataSessionContextExtensions.GetIds(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets both Dut and Ip ids.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns>The DutId and IpId.</returns>
+        </member>
+        <member name="T:Prime.SessionService.InstanceMetaProvider">
+            <summary>
+            Provide SessionContext instance name.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.InstanceMetaProvider.#ctor(System.String,System.UInt32,System.UInt32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SessionService.InstanceMetaProvider"/> class.
+            </summary>
+            <param name="instanceName">The current instance name.</param>
+            <param name="dutId">DutId of the instance.</param>
+            <param name="ipId">IpId of the instance.</param>
+            <param name="ipName">IpName of the instance.</param>
+        </member>
+        <member name="M:Prime.SessionService.InstanceMetaProvider.HandleMessage">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SessionService.InstanceMetaProvider.Verify(Prime.SessionService.ISessionContextProviderContainer,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.SessionService.InstanceMetaProvider.InstanceMetaData">
+            <summary>
+            Provide instance meta data.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.InstanceMetaProvider.InstanceMetaData.#ctor(System.String,System.UInt32,System.UInt32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SessionService.InstanceMetaProvider.InstanceMetaData"/> class.
+            </summary>
+            <param name="name">Instance name.</param>
+            <param name="dutId">DutId of the instance.</param>
+            <param name="ipId">IpId of the instance.</param>
+            <param name="ipName">IpName of the instance.</param>
+        </member>
+        <member name="P:Prime.SessionService.InstanceMetaProvider.InstanceMetaData.Name">
+            <summary>
+            Gets the instance name.
+            </summary>
+        </member>
+        <member name="P:Prime.SessionService.InstanceMetaProvider.InstanceMetaData.DutId">
+            <summary>
+            Gets the instance dut id.
+            </summary>
+        </member>
+        <member name="P:Prime.SessionService.InstanceMetaProvider.InstanceMetaData.IpId">
+            <summary>
+            Gets the instance ip id.
+            </summary>
+        </member>
+        <member name="P:Prime.SessionService.InstanceMetaProvider.InstanceMetaData.IpName">
+            <summary>
+            Gets the instance ip name.
+            </summary>
+        </member>
+        <member name="P:Prime.SessionService.InstanceMetaProvider.InstanceMetaData.Parameters">
+            <summary>
+            Gets the instance parameters.
+            </summary>
+        </member>
+        <member name="T:Prime.SessionService.SessionContextProvider`1">
+            <summary>
+            Defines a session context token provider.
+            Any provider must implement the handleCommand API.
+            See specific info in the method documentation.
+            </summary>
+            <typeparam name="T">The specific provider message response.</typeparam>
+        </member>
+        <member name="M:Prime.SessionService.SessionContextProvider`1.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SessionService.SessionContextProvider`1"/> class.
+            </summary>
+            <param name="msgIdOfThisProvider">MsgId of this provider.</param>
+        </member>
+        <member name="P:Prime.SessionService.SessionContextProvider`1.MsgId">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SessionService.SessionContextProvider`1.HandleMessage">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SessionService.SessionContextProvider`1.Verify(Prime.SessionService.ISessionContextProviderContainer,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SessionService.SessionContextProvider`1.RefreshOnExecute(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SessionService.SessionContextProvider`1.InitializeLifetimeService">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.SessionService.SessionContextProviderContainer">
+            <summary>
+            Session context providers' container.
+            </summary>
+        </member>
+        <member name="M:Prime.SessionService.SessionContextProviderContainer.AddOrUpdateProvider``1(Prime.SessionService.SessionContextProvider{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SessionService.SessionContextProviderContainer.GetResponse``1(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SessionService.SessionContextProviderContainer.VerifyAllProviders(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SessionService.SessionContextProviderContainer.RefreshOnExecuteAllProviders">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SessionService.SessionContextProviderContainer.InitializeLifetimeService">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.SessionService.SessionService">
+            <summary>
+            SessionService implementation.
+            </summary>
+        </member>
+    </members>
+</doc>

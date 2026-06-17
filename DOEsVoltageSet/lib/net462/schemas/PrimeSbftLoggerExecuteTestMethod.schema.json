@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": [ "LFSR", "SCANOUT", "PARTITION", "SOSIG", "CHAIN", "END_LFSR", "FULL" ]
+    },
+    "test_name": {
+      "type": "string"
+    },
+    "post_pattern_cleanup": {
+      "type": "boolean"
+    },
+    "num_clks_forward": {
+      "type": "integer"
+    },
+    "num_clks_backwards": {
+      "type": "integer"
+    },
+    "num_patterns": {
+      "type": "integer"
+    },
+    "max_failing_patterns": {
+      "type": "integer"
+    },
+    "preamble_re_prefixes": {
+      "type": "string"
+    },
+    "midamble_re_prefixes": {
+      "type": "string"
+    },
+    "call_dft_label": {
+      "type": "string"
+    },
+    "call_dump_label": {
+      "type": "string"
+    },
+    "mclk_reset_limit": {
+      "type": "integer"
+    },
+    "target_pattern": {
+      "type": "string"
+    },
+    "target_mclk": {
+      "type": "string"
+    },
+    "end_mclk": {
+      "type": "string"
+    },
+    "tap_files": {
+      "type": "object",
+      "properties": {
+        "lfsr": {
+          "type": "string"
+        },
+        "scanout": {
+          "type": "string"
+        },
+        "scanout_sign": {
+          "type": "string"
+        },
+        "chain_test": {
+          "type": "string"
+        }
+      }
+    },
+    "partition_tap_files": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "file": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "file"
+          ]
+        }
+      ]
+    },
+    "output_directory": {
+      "type": "string"
+    },
+    "mclk_offset": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "mode",
+    "test_name",
+    "preamble_re_prefixes",
+    "midamble_re_prefixes",
+    "output_directory",
+  ],
+  "dependencies": {
+    "num_patterns": {
+      "properties": {
+        "mode": {
+          "const": "FULL"
+        }
+      },
+      "required": [ "mode" ]
+    },
+    "max_failing_patterns": {
+      "properties": {
+        "mode": {
+          "const": "FULL"
+        }
+      },
+      "required": [ "mode" ]
+    }
+  }
+}

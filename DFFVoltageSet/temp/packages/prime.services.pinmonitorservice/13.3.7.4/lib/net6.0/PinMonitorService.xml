@@ -1,0 +1,917 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.PinMonitorService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.PinMonitorService.DataStructures.BaseLimits">
+            <summary>
+            Base pin limits to be evaluated per measurement.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.BaseLimits.#ctor(PinMonitorService.DataStructures.Parser.IValueDefinition,PinMonitorService.DataStructures.Parser.IValueDefinition,PinMonitorService.DataStructures.Parser.IValueDefinition,PinMonitorService.DataStructures.Parser.IValueDefinition,PinMonitorService.DataStructures.Parser.IValueDefinition)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.BaseLimits"/> class.
+            </summary>
+            <param name="setPoint">target value that tolerances are based around.</param>
+            <param name="upperTolerance">upper tolerance.</param>
+            <param name="lowerTolerance">lower tolerance.</param>
+            <param name="averageUpperTolerance">average upper tolerance.</param>
+            <param name="averageLowerTolerance">average lower tolerance.</param>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.BaseLimits.SetPoint">
+            <summary>
+            Gets or sets setpoint.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.BaseLimits.UpperTolerance">
+            <summary>
+            Gets or sets upper tolerance.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.BaseLimits.LowerTolerance">
+            <summary>
+            Gets or sets lower tolerance.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.BaseLimits.AverageUpperTolerance">
+            <summary>
+            Gets or sets average upper tolerance.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.BaseLimits.AverageLowerTolerance">
+            <summary>
+            Gets or sets average lower tolerance.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.Configuration">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.Configuration"/> class .
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Configuration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.Configuration"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Configuration.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.Configuration"/> class.
+            </summary>
+            <param name="name">config name.</param>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Configuration.ExcludeList">
+            <summary>
+            Gets or sets the list of excluded instance names.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Configuration.Name">
+            <summary>
+            Gets or sets the name for the configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Configuration.MonitorState">
+            <summary>
+            Gets monitoring state.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Configuration.Pins">
+            <summary>
+            Gets or sets the list of Pin configurations.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Configuration.AddPinConfig(Prime.PinMonitorService.DataStructures.Pin,System.Text.StringBuilder)">
+            <summary>
+            Add a new pin configuration definition.
+            </summary>
+            <param name="pinConfig">pin object.</param>
+            <param name="errorLogger">error logger object.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Configuration.InitializePinSettings(Prime.PinMonitorService.DumpModes,System.Boolean)">
+            <summary>
+            Updates logger and immediate kill values for all pins monitored.
+            </summary>
+            <param name="dumpMode">Global dump mode to set appropriate dump logger for each data pin.</param>
+            <param name="immediateKill">Immediate kill mode for each pin.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Configuration.PrintStatsForAllPins(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print per pin and type statistic data to ituff.
+            In addition, a limit check is performed.
+            </summary>
+            <param name="tagName">tag name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Tuple containing the output port based on limit checks and a list of any kill alarms generated.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Configuration.GenerateDataAndEvaluate(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IEnumerable{System.Double}}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Data evaluation for all pins in config.
+            </summary>
+            <param name="perPinPerMeasurementStreamData">streaming data per pin per measure type.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>List of comment formatters with ituff data and any potential kill alarms that were generated.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Configuration.UpdateState(Prime.PinMonitorService.DataStructures.MonitoringState.MonitorState)">
+            <summary>
+            Update the monitoring state.
+            In case where the state transition is invalid, a fatal exception will be thrown.
+            Valid states transitions:
+            INITIAL -> ACTIVE.
+            ACTIVE -> ACTIVE / PAUSED / STOPPED.
+            PAUSED -> ACTIVE/ PAUSED / STOPPED.
+            RESUMED -> RESUMED / PAUSED / STOPPED.
+            STOPPED -> ACTIVE / STOPPED.
+            </summary>
+            <param name="newState">new monitoring state.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Configuration.ResetConfig">
+            <summary>
+            Reset all pins under config.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.Configurations">
+            <summary>
+            PinMonitor Configurations.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Configurations.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.Configurations"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Configurations.PinMonitorConfigs">
+            <summary>
+            Gets or sets pin monitor configurations.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Configurations.GetConfiguration(System.String)">
+            <summary>
+            Get configuration by config name.
+            </summary>
+            <param name="configName">configuration name.</param>
+            <returns>if config name exists return the configuration object.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">throw exception if configuration not found.</exception>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.Constants.IntegrityHighPort">
+            <summary>
+            Exit port when integrity high limit is exceeded.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.Constants.IntegrityLowPort">
+            <summary>
+            Exit port when integrity low limit is exceeded.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.Constants.MaxTooHighPort">
+            <summary>
+            Exit port when thermal high limit is exceeded  (TjRise exceeded UpperTolerance).
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.Constants.MinTooLowPort">
+            <summary>
+            Exit port when thermal low limit is exceeded  (TjDroop exceeded LowerTolerance).
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.Constants.SuccessPort">
+            <summary>
+            Exit port when the execution is successful.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.Constants.FailPort">
+            <summary>
+            Exit port when there is a failure in the execution.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.Constants.MaxValue">
+            <summary>
+            Default maximum known value.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.Constants.MinValue">
+            <summary>
+            Default minimum known value.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.Data">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.Data"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Data.#ctor(System.String,Prime.PinMonitorService.DataStructures.PinMeasurementType,Prime.PinMonitorService.DataStructures.PinLimits)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.Data"/> class.
+            Gets or sets limit.
+            </summary>
+            <param name="pinName">name of the pin.</param>
+            <param name="type"> type of data it represents.</param>
+            <param name="perTypeLimits">limits per type.</param>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Data.AverageAvg">
+            <summary>
+            Gets or sets the running average of the data set.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Data.AverageMin">
+            <summary>
+            Gets or sets the average of th minimum values.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Data.AverageMax">
+            <summary>
+            Gets or sets the average of the minimum values.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Data.Minimum">
+            <summary>
+            Gets or sets the minimum value.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Data.Maximum">
+            <summary>
+            Gets or sets the maximum value.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Data.StartOfTest">
+            <summary>
+            Gets or sets the start of test value.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Data.TjRise">
+            <summary>
+            Gets or sets the tjRise value.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Data.TjDroop">
+            <summary>
+            Gets or sets the tjDroop value.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Data.TotalStd">
+            <summary>
+            Gets or sets std.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Data.Evaluate(System.Collections.Generic.IEnumerable{System.Double},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            calculate max, min, avg, sot, tjRise and tjDroop values.
+            </summary>
+            /// <param name="streamedData">list of source values.</param>
+            /// <param name="sessionContext">session context of caller.</param>
+            <returns>List of potential immediate kill messages.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Data.PrintProfile(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{Prime.DatalogService.DatalogSpec.IComntFormat})">
+            <summary>
+            print data to ituff.
+            </summary>
+            <param name="streamedData">list of values.</param>
+            <param name="commentFormat">list of comment formatters.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Data.InitializeStats">
+            <summary>
+            Initialize all stats data.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Data.CheckLimits(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks limit range.
+            </summary>
+            <returns>Tuple containing the output port based on limit checks and a list of any kill alarms generated.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Data.GetDataByStatType(Prime.PinMonitorService.DataStructures.StatTypes.StatType)">
+            <summary>
+            Get data corresponded to stat type.
+            </summary>
+            <param name="statType">tat type.</param>
+            <returns>stat data per stat type.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Data.PrintToItuff(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print data to ituff.
+            </summary>
+            /// <param name="data">Data to be printed to ituff.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.DumpModes.AverageInstanceLogger">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.DumpModes.AverageInstanceLogger"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.DumpModes.AverageInstanceLogger.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.DumpModes.AverageInstanceLogger"/> class.
+            </summary>
+            <param name="prefixDataSummary">prefix message for logging.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.DumpModes.AverageInstanceLogger.PrintProfile(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{Prime.DatalogService.DatalogSpec.IComntFormat})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.DumpModes.DumpingMode">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.DumpModes.DumpingMode"/> struct.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.DumpModes.DumpingMode.AverageInstance">
+            <summary>
+            logs average values.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.DumpModes.DumpingMode.Full">
+            <summary>
+            logs full data.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.DumpModes.DumpingMode.Stats">
+            <summary>
+            log stats.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.DumpModes.DumpLoggerConsts">
+            <summary>
+            Initializes <see cref="T:Prime.PinMonitorService.DataStructures.DumpModes.IDumpModeLogger"/> struct.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.DumpModes.DumpLoggerConsts.ProfileSeparator">
+            <summary>
+            Gets symbol to separate profile fields.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.DumpModes.DumpLoggerConsts.RemoveOnHoldSamples">
+            <summary>
+            Gets a value indicating whether if on hold samples should be removed or not.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.DumpModes.EmptyProfileLogger">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.DumpModes.EmptyProfileLogger"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.DumpModes.EmptyProfileLogger.PrintProfile(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{Prime.DatalogService.DatalogSpec.IComntFormat})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.DumpModes.FullProfileLogger">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.DumpModes.AverageInstanceLogger"/> struct.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.DumpModes.FullProfileLogger.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.DumpModes.FullProfileLogger"/> class.
+            </summary>
+            <param name="prefixDataSummary">.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.DumpModes.FullProfileLogger.PrintProfile(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{Prime.DatalogService.DatalogSpec.IComntFormat})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.DumpModes.IDumpModeLogger">
+            <summary>
+            Initializes <see cref="T:Prime.PinMonitorService.DataStructures.DumpModes.IDumpModeLogger"/> interface.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.DumpModes.IDumpModeLogger.PrintProfile(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{Prime.DatalogService.DatalogSpec.IComntFormat})">
+            <summary>
+            Prints information according to the selected mode.
+            </summary>
+            <param name="data">data to be printed.</param>
+            <param name="commentFormat">comment ituff formatter.</param>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.IntegrityLimits">
+            <summary>
+            Integrity pin limits.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.IntegrityLimits.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.IntegrityLimits"/> class.
+            </summary>
+            <param name="integrityLowLimit">integrity low limit.</param>
+            <param name="integrityHighLimit">integrity high limit.</param>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.IntegrityLimits.IntegrityHighLimit">
+            <summary>
+            Gets integrity high limit.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.IntegrityLimits.IntegrityLowLimit">
+            <summary>
+            Gets integrity low limit.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.MonitoringState">
+            <summary>
+            Monitoring State.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.MonitoringState.MonitorState">
+            <summary>
+            configuration monitoring state.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.MonitoringState.MonitorState.INITIAL">
+            <summary>
+            initial state.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.MonitoringState.MonitorState.ACTIVE">
+            <summary>
+            Active state.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.MonitoringState.MonitorState.STOPPED">
+            <summary>
+            Stopped state.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.MonitoringState.MonitorState.RESUMED">
+            <summary>
+            Resumed State.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.MonitoringState.MonitorState.PAUSED">
+            <summary>
+            Paused state.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.Pin">
+            <summary>
+            pin Object.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Pin.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.Pin"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Pin.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.Pin"/> class.
+            </summary>
+            <param name="name">pin name.</param>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Pin.Name">
+            <summary>
+            Gets name.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.Pin.DataPerMeasurementType">
+            <summary>
+            Gets type to data.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Pin.AddDataForMeasurementType(Prime.PinMonitorService.DataStructures.PinMeasurementType,Prime.PinMonitorService.Parser.PerPinTypeDefinition,System.Text.StringBuilder)">
+            <summary>
+            Add data per pin name and type.
+            </summary>
+            <param name="measurementType">measure type.</param>
+            <param name="pinTypeDefinition">limits per pin and type.</param>
+            <param name="errorLogger">StringBuilder Object for error logging.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Pin.PrintProfile(Prime.PinMonitorService.DataStructures.PinMeasurementType,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{Prime.DatalogService.DatalogSpec.IComntFormat})">
+            <summary>
+            Generate profiling data.
+            </summary>
+            <param name="measurementType">measurement type.</param>
+            <param name="measurementStreamData">data for a pin and measurement type.</param>
+            <param name="commentFormat">list of comment writers.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Pin.Evaluate(Prime.PinMonitorService.DataStructures.PinMeasurementType,System.Collections.Generic.List{System.Double},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Calculate max min and avg values for the data.
+            </summary>
+            <param name="measurementType">Data measurement type.</param>
+            <param name="perMeasurementData">data per measurement type.</param>
+            <param name="sessionContext">session context.</param>
+            <returns>List of potential immediate kill messages.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Pin.PrintProfileAndEvaluate(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IEnumerable{System.Double}},System.Boolean,System.Collections.Generic.List{Prime.DatalogService.DatalogSpec.IComntFormat},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print profile and evaluate.
+            </summary>
+            <param name="pinData">pin data.</param>
+            <param name="skipEvaluation">flag indicating whether ignoring evaluation or not.</param>
+            <param name="commentFormat">list of comment writers.</param>
+            <param name="sessionContext">session context.</param>
+            <returns>Any generated kill alarms.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Pin.GenerateStatsAndCheckLimits(System.String,System.Collections.Generic.List{Prime.DatalogService.DatalogSpec.IMrsltFormat},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Generate statistic data per pin and for all measurement types specified by user.
+            Limits check will be performed for all stats data.
+            </summary>
+            <param name="tagName">tage name.</param>
+            <param name="formattersList">numeric ituff writers list.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Tuple containing the output port based on limit checks and a list of any kill alarms generated.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.Pin.ResetPinStats">
+            <summary>
+            Reset pin stats data.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.PinLimits">
+            <summary>
+            Pin limit interface.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.PinLimits.#ctor(Prime.PinMonitorService.DataStructures.BaseLimits,Prime.PinMonitorService.DataStructures.IntegrityLimits)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.PinLimits"/> class.
+            </summary>
+            <param name="baseLimits">Base pin limits.</param>
+            <param name="integrityLimits">Integrity pin limits.</param>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.PinLimits.BaseLimits">
+            <summary>
+            Gets or sets limits.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.PinLimits.IntegrityLimits">
+            <summary>
+            Gets integrity limits.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.PinMeasurementType">
+            <summary>
+            Pin measurement type.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.PinMeasurementType.Thermal">
+            <summary>
+            Thermal - Units = C.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.PinMeasurementType.Current">
+            <summary>
+            Current - Units = A.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.PinMeasurementType.Voltage">
+            <summary>
+            Voltage - Units = V.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.StatTypes">
+            <summary>
+            Stats Type.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.StatTypes.StatType">
+            <summary>
+            Stats Types.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.StatTypes.StatType.MAX">
+            <summary>
+            max.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.StatTypes.StatType.MIN">
+            <summary>
+            min.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.StatTypes.StatType.AVG">
+            <summary>
+            avg.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.StatTypes.StatType.STDDEV">
+            <summary>
+            std.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.StatTypes.StatType.SOT">
+            <summary>
+            sot.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.StatTypes.StatType.TJRISE">
+            <summary>
+            tjRise.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DataStructures.StatTypes.StatType.TJDROOP">
+            <summary>
+            tjDroop.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DataStructures.VirtualPin">
+            <summary>
+            pin Object.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DataStructures.VirtualPin.#ctor(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DataStructures.VirtualPin"/> class.
+            </summary>
+            <param name="name">pin name.</param>
+            <param name="groupedPins">List of pins to be used by virtual pin.</param>
+        </member>
+        <member name="P:Prime.PinMonitorService.DataStructures.VirtualPin.GroupedPins">
+            <summary>
+            Gets name.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.Parser.PerPinTypeDefinition">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.Parser.PerPinTypeDefinition"/> struct.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PerPinTypeDefinition.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PerPinTypeDefinition.SetPoint">
+            <summary>
+            Gets or sets setpoint.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PerPinTypeDefinition.UpperTolerance">
+            <summary>
+            Gets or sets upper tolerance.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PerPinTypeDefinition.LowerTolerance">
+            <summary>
+            Gets or sets lower tolerance.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PerPinTypeDefinition.AverageUpperTolerance">
+            <summary>
+            Gets or sets average upper tolerance.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PerPinTypeDefinition.AverageLowerTolerance">
+            <summary>
+            Gets or sets average lower tolerance.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PerPinTypeDefinition.PcsDatalogSelector">
+            <summary>
+            Gets or sets PCS datalog selector to be appended to PCS datalog prints.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PerPinTypeDefinition.IntegrityHighLimit">
+            <summary>
+            Gets or sets integrity high limit.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PerPinTypeDefinition.IntegrityLowLimit">
+            <summary>
+            Gets or sets integrity low limit.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.Parser.PinConfiguration">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.Parser.PinConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PinConfiguration.Name">
+            <summary>
+            Gets or sets name of the pin.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PinConfiguration.Types">
+            <summary>
+            Gets or sets definitions for the per pin configurations.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PinConfiguration.GroupedPins">
+            <summary>
+            Gets or sets List of pins to build virtual pin.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PinConfiguration.TestClassToExclude">
+            <summary>
+            Gets or sets the test classes to ignore.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.Parser.PinMonitorJsonConfiguration">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.Parser.PinMonitorJsonConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PinMonitorJsonConfiguration.Name">
+            <summary>
+            Gets or sets name of the configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PinMonitorJsonConfiguration.Pins">
+            <summary>
+            Gets or sets list of pins.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PinMonitorJsonConfiguration.TestClassToExclude">
+            <summary>
+            Gets or sets limit test class to ignore.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.Parser.PinMonitorJsonConfigurations">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.Parser.PinMonitorJsonConfigurations"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.PinMonitorService.Parser.PinMonitorJsonConfigurations.Configurations">
+            <summary>
+            Gets or sets List of all configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.DumpModes">
+            <summary>
+            Global pin dump modes.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DumpModes.AverageInstance">
+            <summary>
+            Average Instance
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DumpModes.Full">
+            <summary>
+            Prints the pin data after each instance in ituff and also stats at the "Stop" mode.
+            </summary>
+        </member>
+        <member name="F:Prime.PinMonitorService.DumpModes.Stats">
+            <summary>
+            Only prints statistics at the "Stop" mode.
+            </summary>
+        </member>
+        <member name="T:Prime.PinMonitorService.IPinMonitorService">
+            <summary>
+            Service for monitoring Pin via SensorCollection API.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.IPinMonitorService.StartMonitor(System.String,Prime.PinMonitorService.DumpModes,System.Int32,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Starts the monitoring of the pins associated to the configName provided as input.
+            Two configurations with the same name cannot be started at the same time.
+            </summary>
+            <param name="configName">Input configuration name corresponding to a configuration element in the json file.</param>
+            <param name="pinsDumpMode">Dump mode applicable to all pins.</param>
+            <param name="samplingInterval">Sampling interval in milliseconds.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="immediateKill">Whether or not monitor uses immediateKill feature.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.IPinMonitorService.StopMonitor(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stops the monitoring of the pins associated to the configName provided as input.
+            Checks for existence in active configurations.
+            </summary>
+            <param name="configName">Input configuration name corresponding to a configuration element in the json file.</param>
+            <param name="tagName">Ituff suffix tag to differentiate Stages of Stop Monitor.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>1 or 0 respectively for Passing or Failing limits check.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.IPinMonitorService.StopAllMonitor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stops the monitoring of the pins associated to all the active config names.
+            </summary>
+            <param name="tagName">Ituff suffix tag to differentiate Stages of StopAll Monitor.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.IPinMonitorService.PauseMonitor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Pauses the monitoring of the pins associated to the configName provided as input.
+            Checks for existence in active configurations.
+            </summary>
+            <param name="configName">Input configuration name corresponding to a configuration element in the json file.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.IPinMonitorService.ResumeMonitor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Resumes the monitoring of pins associated to the configName given as input.
+            Checks for existence in paused configurations.
+            </summary>
+            <param name="configName">Input configuration name corresponding to a configuration element in the json file.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>true or false resulting in resuming the monitor config.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.IPinMonitorService.IsConfigValid(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if the config name provided as input is defined in the json file.
+            </summary>
+            <param name="configName">Input configuration name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>True (Valid) or False.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.IPinMonitorService.GetAlarms(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the list of pin monitor alarms that have been thrown.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>List of pin monitor alarms.</returns>
+        </member>
+        <member name="T:Prime.PinMonitorService.DutStorage`1">
+            <summary>
+            Tester service local storage.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DutStorage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.DutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.DutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.DutStorage`1.GetObject(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.DutStorage`1.InsertObject(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="objectToSet">Object to store.</param>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.DutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.PinMonitorService.IDutStorage`1">
+            <summary>
+            Tester service local storage.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:Prime.PinMonitorService.IDutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.IDutStorage`1.GetObject(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.PinMonitorService.IDutStorage`1.InsertObject(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="objectToSet">Object to store.</param>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.PinMonitorService.IDutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.PinMonitorService.PinMonitorService">
+            <summary>
+            PinService implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PinMonitorService.PinMonitorService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinMonitorService.PinMonitorService"/> class.
+            </summary>
+        </member>
+        <member name="T:PinMonitorService.DataStructures.Parser.DoubleValue">
+            <summary>
+            Value as a uservar.
+            </summary>
+        </member>
+        <member name="T:PinMonitorService.DataStructures.Parser.IValueDefinition">
+            <summary>
+            Interface which defines a value.
+            </summary>
+        </member>
+        <member name="M:PinMonitorService.DataStructures.Parser.IValueDefinition.GetValue">
+            <summary>
+            Returns underlying value of the variable.
+            </summary>
+            <returns>double value of the variable or raw value.</returns>
+        </member>
+        <member name="M:PinMonitorService.DataStructures.Parser.IValueDefinition.IsValid">
+            <summary>
+            Validates the input data.
+            </summary>
+            <returns>Whether or not input data is valid.</returns>
+        </member>
+        <member name="T:PinMonitorService.DataStructures.Parser.NonNegativeDoubleValue">
+            <summary>
+            Value as a uservar.
+            </summary>
+        </member>
+        <member name="T:PinMonitorService.DataStructures.Parser.UserVarValue">
+            <summary>
+            Value as a uservar.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Kernel.Telemetry</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Kernel.LoggerProvider.PrimeJsonFileLogger">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.Kernel.LoggerProvider.PrimeJsonFileLogger.#ctor(MPE.MIT.Logging.Async.ILogEventFormatter{Newtonsoft.Json.Linq.JObject},MPE.MIT.Logging.Async.ILogEventSerializer{Newtonsoft.Json.Linq.JObject,System.String},MPE.MIT.Logging.File.FileLoggerOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.LoggerProvider.PrimeJsonFileLogger"/> class.
+            </summary>
+            <param name="logEventFormatter">The logger formatter.</param>
+            <param name="logEventSerializer">The logger serializer.</param>
+            <param name="options">The logger options.</param>
+        </member>
+        <member name="M:Prime.Kernel.LoggerProvider.PrimeJsonFileLogger.Log(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter">
+            <summary>
+            Prime Json log formatter that handles incoming events.
+            Ituff performanceCounter events are returning an empty JObject to be later skipped during log - check <see cref="T:Prime.Kernel.LoggerProvider.PrimeJsonFileLogger"/>.
+            As MIT JsonLogEventFormatter can't be overriden, the code here is a duplicate of official formatter with 1 difference in FormatPerformance
+            method.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.UtcNow">
+            <summary>
+            Gets teh current utc time.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.FormatException(System.UInt32,MPE.MIT.Logging.LogLevel,System.Exception,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.FormatError(System.UInt32,MPE.MIT.Logging.LogLevel,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.FormatUsage(System.UInt32,MPE.MIT.Logging.LogLevel,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.FormatTrace(System.UInt32,MPE.MIT.Logging.LogLevel,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.FormatPerformance(System.UInt32,MPE.MIT.Logging.LogLevel,System.String,System.String,System.DateTimeOffset,System.TimeSpan,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.FormatRequest(System.UInt32,MPE.MIT.Logging.LogLevel,System.String,System.String,System.DateTimeOffset,System.TimeSpan,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys">
+            <summary>
+            JSon formatter keys.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.OrderParamName">
+            <summary>
+            The order param name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.AreaParamName">
+            <summary>
+            The area key name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.TimestampParamName">
+            <summary>
+            The timestamp key name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.LogTypeParamName">
+            <summary>
+            The log type key name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.LogLevelParamName">
+            <summary>
+            The log level key name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.MessageParamName">
+            <summary>
+            The message key name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.OperationNameParamName">
+            <summary>
+            The operation name key name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.StartTimeParamName">
+            <summary>
+            The start time key name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.DurationParamName">
+            <summary>
+            The duration key name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.SuccessParamName">
+            <summary>
+            The success key name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.LoggerProvider.PrimeJsonLogEventFormatter.Keys.ParametersParamName">
+            <summary>
+            The parameters key name.
+            </summary>
+        </member>
+        <member name="T:Prime.Kernel.Telemetry.LoggerProvider.PrimeJsonFileLoggerProvider">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.Kernel.Telemetry.LoggerProvider.PrimeJsonFileLoggerProvider.#ctor(MPE.MIT.Logging.File.FileLoggerOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Kernel.Telemetry.LoggerProvider.PrimeJsonFileLoggerProvider"/> class.
+            </summary>
+            <param name="options">The file logger options.</param>
+        </member>
+        <member name="M:Prime.Kernel.Telemetry.LoggerProvider.PrimeJsonFileLoggerProvider.CreateLogger">
+            <summary>
+            Create the logger.
+            </summary>
+            <returns>The logger.</returns>
+        </member>
+        <member name="T:Prime.Kernel.Telemetry.TelemetryConstants">
+            <summary>
+            Telemetry related constants.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.Telemetry.TelemetryConstants.TelemetryGlobalEnableVariable">
+            <summary>
+            The TP environment variable to globally enable/disable the telemetry framework.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.Telemetry.TelemetryConstants.TelemetryLogFilesFolder">
+            <summary>
+            The telemetry log files folder.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.Telemetry.TelemetryConstants.TelemetryLogFilePrefix">
+            <summary>
+            The prefix for all log files.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.Telemetry.TelemetryConstants.TelemetryLevelParameterName">
+            <summary>
+            The telemetry level parameter name.
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.Telemetry.TelemetryConstants.TesterId">
+            <summary>
+            SCVar that holds the tester ID (Tester Name).
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.Telemetry.TelemetryConstants.SiteId">
+            <summary>
+            SCVar that holds the Site ID (Cell Name).
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.Telemetry.TelemetryConstants.SessionType">
+            <summary>
+            SCVar that holds the Session Type (Telemetry target).
+            </summary>
+        </member>
+        <member name="F:Prime.Kernel.Telemetry.TelemetryConstants.FacilityId">
+            <summary>
+            SCVar that holds the Facility ID.
+            </summary>
+        </member>
+        <member name="T:Prime.Kernel.Telemetry.TelemetryLoggerBuilder">
+            <summary>
+            Responsible for building the telemetry loggers.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.Telemetry.TelemetryLoggerBuilder.BuildContextLogger(Prime.SessionService.ISessionContextProviderContainer,MPE.MIT.Logging.ILogger,Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel,System.String,Prime.Kernel.ITestMethod)">
+            <summary>
+            Builds a context logger.
+            </summary>
+            <param name="sessionContext">The sessionContext for this operation.</param>
+            <param name="parent">The parent logger for this context logger.</param>
+            <param name="instanceLogLevel">The log level.</param>
+            <param name="testMethodName">The test method name.</param>
+            <param name="testInstance">The test method.</param>
+            <returns>The context logger.</returns>
+        </member>
+        <member name="M:Prime.Kernel.Telemetry.TelemetryLoggerBuilder.BuildGlobalLogger(System.String,System.String)">
+            <summary>
+            Builds a global logger based on a TP env variable.
+            </summary>
+            <param name="logFileNameSuffix">The log files base name suffix.</param>
+            <param name="globalLoggerSessionId">The global session ID for all events generated by this global logger.</param>
+            <returns>THe global logger.</returns>
+        </member>
+        <member name="T:Prime.Kernel.Telemetry.TelemetryLogLevelResolver">
+            <summary>
+            Responsible for extracting the telemetry parameter.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.Telemetry.TelemetryLogLevelResolver.ResolveLogLevel(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Resolves the log level from instance parameters.
+            </summary>
+            <param name="instanceParameters">The dictionary of instance parameters.</param>
+            <returns>The log level.</returns>
+        </member>
+        <member name="M:Prime.Kernel.Telemetry.TelemetryLogLevelResolver.ResolveLogLevel(System.String)">
+            <summary>
+            Resolves the log level from instance parameters.
+            </summary>
+            <param name="parameterValue">The log level parameter value.</param>
+            <returns>The log level.</returns>
+        </member>
+        <member name="T:Prime.Kernel.TelemetryInitializer">
+            <summary>
+            Methods to initialize the telemetry framework.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.TelemetryInitializer.Init">
+            <summary>
+            A method to initialize the telemetry framework.
+            Need to be executed during service store init flow after MEF initialization.
+            </summary>
+        </member>
+    </members>
+</doc>

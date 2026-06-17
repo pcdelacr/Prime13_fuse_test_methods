@@ -1,0 +1,854 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.FuseAtClass</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.FuseAtClass.IO.UserVarHandler">
+            <summary>
+            User var handling methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.UserVarHandler.GetStringValueOrUserVarName(System.String)">
+            <summary>
+            Gets the value of a string user var or returns the same string that was the parameter.
+            </summary>
+            <param name="userVarName">Name of the user var. </param>
+            <returns>The value of the user var or if it doesnt exist, the name.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.UserVarHandler.SetTSAttrUserVar(System.String,System.String)">
+            <summary>
+            Sets the value of a user var from TsAttr collection.
+            </summary>
+            <param name="userVarName">Name of the user var.</param>
+            <param name="value">Name of the value.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.IO.Xml.FileHandler.FileHandler">
+            <summary>
+            Main file handler implementation.
+            For basic file IO operations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.FileHandler.FileHandler.Prime#TestMethods#FuseAtClass#IO#Xml#FileHandler#IFileHandler#ReadAll(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.IO.Xml.FileHandler.IFileHandler">
+            <summary>
+            File handling interfaces.
+            Usage of FileService is preferred.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.FileHandler.IFileHandler.ReadAll(System.String)">
+            <summary>
+            Read all file contents and return it content as string.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>File content as string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.IO.Xml.Parsers.FrfParser">
+            <summary>
+            Parses the Frf file into the Frf class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.Parsers.FrfParser.ParseFrfFile(Prime.TestMethods.FuseAtClass.IO.Xml.FileHandler.IFileHandler,System.String)">
+            <summary>
+            Parses the Lrf file into an Lrf object.
+            </summary>
+            <param name="fileHandler">File handler.</param>
+            <param name="filePath">Lrf file path.</param>
+            <returns>Lrf object.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.IO.Xml.Parsers.LrfParser">
+            <summary>
+            Parses the Lrf file into the Lrf class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.Parsers.LrfParser.ParseLrfFile(Prime.TestMethods.FuseAtClass.IO.Xml.FileHandler.IFileHandler,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Parses the Lrf file into an Lrf object.
+            </summary>
+            <param name="fileHandler">File handler.</param>
+            <param name="filePath">Lrf file path.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>Lrf object.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.IO.Xml.XmlFilesReader">
+            <summary>
+            Reads and serializes the XML files.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.XmlFilesReader.#ctor(Prime.TestMethods.FuseAtClass.IO.Xml.FileHandler.IFileHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FuseAtClass.IO.Xml.XmlFilesReader"/> class.
+            </summary>
+            <param name="fileHandler">File handler.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.XmlFilesReader.DeserializeInput``1(System.String,System.String)">
+            <summary>
+            Generic method for deserializing passed in input of type T.
+            </summary>
+            <typeparam name="T"> Type of which to deserialize the input file into. </typeparam>
+            <param name="filePath">Relative file path. </param>
+            <param name="schemaFileName">Relative schema file path. </param>
+            <returns> An object of type T.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.XmlFilesReader.RetrieveTextFromFile(System.String)">
+            <summary>
+            Given a filepath, use Prime services to retrieve text from the given file.
+            </summary>
+            <param name="filePath"> Filepath to the file to retrieve text from. </param>
+            <returns> String containing the file's text. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Bin">
+            <summary>
+            This class contains a planning and a pass bin.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Bin.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Bin"/> class.
+            </summary>
+            <param name="passBin">Pass bin.</param>
+            <param name="planningBin">Planning bin.</param>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Bin.PassBin">
+            <summary>
+            Gets the pass bin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Bin.PlanningBin">
+            <summary>
+            Gets the planning bin.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Bin.Equals(Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Bin)">
+            <summary>
+            Checks whether the bin in the parameter is equal to this.
+            </summary>
+            <param name="bin">Bin to compare.</param>
+            <returns>Whether the bin in the parameter is equal to this.</returns>returns
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Frf">
+            <summary>
+            Contains the Frf information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Frf.Frv">
+            <summary>
+            Gets or sets the FRV.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Frf.Revision">
+            <summary>
+            Gets or sets the Revision.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Frf.Mode">
+            <summary>
+            Gets or sets the Mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Frf.SspecToBins">
+            <summary>
+            Gets sspec to bin dictionary.
+            </summary>
+            bom -> sspec -> Bins
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Frf.SetTsAttrUserVars">
+            <summary>
+            Sets the value of the Ts Attributes related to the Lrf file.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf">
+            <summary>
+            Contains the Lrf information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.LotId">
+            <summary>
+            Gets or sets the Log Id.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.AssemblyName">
+            <summary>
+            Gets or sets Assembly name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.Mrv">
+            <summary>
+            Gets or sets the MRV (machine readable variable).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.Frv">
+            <summary>
+            Gets or sets FRV.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.Revision">
+            <summary>
+            Gets or sets the Revision.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.AssemblyRevision">
+            <summary>
+            Gets or sets the revision obtained from the assembly information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.Device">
+            <summary>
+            Gets or sets the device obtained from the assembly information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.Package">
+            <summary>
+            Gets or sets the package obtained from the assembly information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.Step">
+            <summary>
+            Gets or sets the step obtained from the assembly information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.FbaSolveId">
+            <summary>
+            Gets or sets the Fba solve id.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.Mode">
+            <summary>
+            Gets or sets the mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.Qty">
+            <summary>
+            Gets or sets the quantity.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.SspecToElements">
+            <summary>
+            Gets the sspec to elements dictionary.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.GetBom">
+            <summary>
+            Gets the BOM.
+            </summary>
+            <returns>BOM.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.SetTsAttrUserVars">
+            <summary>
+            Sets the value of the Ts Attributes related to the Lrf file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.ParsedFiles.Lrf.ValidateAllAgainstUserVars(System.String)">
+            <summary>
+            Performs all the execute checks.
+            </summary>
+            <param name="mrvUserVar">The name of the user var in which the mvr value is stored.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager">
+            <summary>
+            Reads and serializes the XML files.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager.#ctor(System.String,Prime.TestMethods.FuseAtClass.IO.Xml.FileHandler.IFileHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager"/> class.
+            </summary>
+            <param name="frfFilePath">Path of the frf file.</param>
+            <param name="fileHandler">File handler.</param>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager.FrfFile">
+            <summary>
+            Gets the Parsed Frf object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager.LrfFile">
+            <summary>
+            Gets or sets the Parsed Lrf object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager.ParseLrf(System.String,Prime.TestMethods.FuseAtClass.IO.Xml.FileHandler.IFileHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Validates the Mrv.
+            </summary>
+            <param name="lrfFilePath">Name of the user var where the mrv is.</param>
+            <param name="fileHandler">File handler.</param>
+            <param name="sessionContext">TM session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager.ValidateFactMode(Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.FactExecutionMode)">
+            <summary>
+            Validates the Fact  Mode in the parameter matches the ones in the FRF and LRF files.
+            </summary>
+            <param name="factMode">Fact mode.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager.ValidateFrv">
+            <summary>
+            Validates the FRV in LRF matches the one in FRF.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager.ValidateLrfValuesAgainstUserVars(System.String)">
+            <summary>
+            Validates the all the Lrf values against the corresponding user vars.
+            </summary>
+            <param name="mrvUserVar">Name of the mrv user var.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager.ValidateVersionMatch(Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.VersionMatchOptions,System.Int32)">
+            <summary>
+            Validates version in LRF matches the one in FRF depending on the version match.
+            </summary>
+            <param name="versionMatchType">Type of version match.</param>
+            <param name="versionOffset">Version allowed offset.</param>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager.CreateSspecBinsTriadList">
+            <summary>
+            Creates a list of comma delimited strings with all the pass bin-sspec-fact bin triads.
+            </summary>
+            <returns>List of comma delimited strings the pass bin-sspec-fact bin triads taken from the input files.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.IO.Xml.InputFileManager.SetTsAttrUserVars">
+            <summary>
+            Sets the Ts Attributes in the user vars.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.ParsedData.FrfBin">
+            <summary>
+            Element on the Lrf file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.ParsedData.FrfBin.PassPlanningBin">
+            <summary>
+            Gets the Bins related to the fact bin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.ParsedData.FrfBin.FactBin">
+            <summary>
+            Gets or sets the Fact Bin.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.ParsedData.LrfElement">
+            <summary>
+            Element on the Lrf file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.ParsedData.LrfElement.Priority">
+            <summary>
+            Gets or sets the Priority.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.ParsedData.LrfElement.FbaFuseQty">
+            <summary>
+            Gets or sets the Fba Fuse Qty.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.ParsedData.LrfElement.SbReservedQty">
+            <summary>
+            Gets or sets the Sb Reserved Qty.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.ParsedData.LrfElement.Bins">
+            <summary>
+            Gets or sets the bin pair (planning and pass bin).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.ParsedData.LrfElement.Sspec">
+            <summary>
+            Gets or sets the Sspec.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.ParsedData.LrfElement.GetTsAttrString">
+            <summary>
+            Gets the element string to save in the Ts Attibutes.
+            </summary>
+            <returns>The string joining the values of all the attribute.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod">
+            <summary>
+            Fuse At Class test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.SharedStorageContext">
+            <summary>
+            The context of the shared storage.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.SharedStorageContext.LOT">
+            <summary>
+            Data is shared across DUTs and IPs
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.SharedStorageContext.DUT">
+            <summary>
+            Data is shared across all IPs under current DUT
+            Data is not shared across different parallel DUTs in mDUT.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.FactExecutionMode">
+            <summary>
+            Represents fact execution modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.FactExecutionMode.OFF">
+            <summary>
+            This mode will skip the fact execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.FactExecutionMode.LotLevel">
+            <summary>
+            This will execute the lot level mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.FactExecutionMode.UnitLevel">
+            <summary>
+            This will execute the lot unit mode.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.VersionMatchOptions">
+            <summary>
+            Represents the version match options available.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.VersionMatchOptions.EXACT">
+            <summary>
+            Ensures the versions are the same.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.VersionMatchOptions.OFFSET">
+            <summary>
+            Ensure the versions are within a range.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.VersionMatchOptions.DONT_CARE">
+            <summary>
+            Does not check the versions.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.FactRulesFilePath">
+            <summary>
+             Gets or sets the FRF file path or a user var that contains it.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.LotReservationFilePath">
+            <summary>
+             Gets or sets the LRF file path or a user var that contains it.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.MrvUserVar">
+            <summary>
+             Gets or sets the name of the user var that contains the Mrv against which to check the mrv value in the LRF file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.OpTypeUserVar">
+            <summary>
+             Gets or sets the name of the user var that contains the OpType against which to check the current OpType value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.FactMode">
+            <summary>
+             Gets or sets the fact mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.VersionMatch">
+            <summary>
+             Gets or sets the name of the user var that contains the Mrv against which to check the mrv value in the LRF file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.SspecBinsMappingObjectKey">
+            <summary>
+             Gets or sets the key of the SspecBinMapping to be used on the shared storage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.SspecBinsMappingObjectContext">
+            <summary>
+            Gets or sets the shared storage context in which the SspecBinsMapping object is stored.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.VersionOffset">
+            <summary>
+             Gets or sets the offset non matching version can have if VersionMatch is OFFSET.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.FileHandler">
+            <summary>
+            Gets or sets the file handler.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.PrimeFuseAtClassTestMethod.SetMapsToSharedStorage">
+            <summary>
+            Sets to the shared storage a comma delimited string with all the pass bin-sspec-fact bin triads.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.PassBinToSspecAndFuseAtClassBin">
+            <summary>
+            Pass Bin to Sspec And Fuse At Class Bin Converter class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.PassBinToSspecAndFuseAtClassBin.Convert(System.String,System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Translate the sspec into the Fact Bin.
+            </summary>
+            <param name="sspecBinsMappingKey">The shared storage key where the sspecBin are saved.</param>
+            <param name="passBin">The shared storage key where the passBin to translate is.</param>
+            <param name="context">The shared storage context.</param>
+            <param name="sessionContext">This session contest.</param>
+            <returns>Sspec-fact bin.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod">
+            <summary>
+            Sspec To Fuse At Class Bin Converter test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.SharedStorageContext">
+            <summary>
+            The context of the shared storage.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.SharedStorageContext.LOT">
+            <summary>
+            Data is shared across DUTs and IPs
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.SharedStorageContext.DUT">
+            <summary>
+            Data is shared across all IPs under current DUT
+            Data is not shared across different parallel DUTs in mDUT.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.SspecBinsMappingObjectKey">
+            <summary>
+            Gets or sets the shared storage key where the SspecBinsMapping object, which is a comma delimited string of
+            passBin:sspec:factBin, is stored.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.SspecBinsMappingObjectContext">
+            <summary>
+            Gets or sets the shared storage context in which the SspecBinsMapping object is stored.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.PassBinKey">
+            <summary>
+            Gets or sets the shared storage key where the PassBin is stored.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.SspecKey">
+            <summary>
+            Gets or sets the shared storage key where the Sspec should be stored.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.FactBinKey">
+            <summary>
+            Gets or sets the shared storage key where the Fuse At Class bin should be stored.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.PrimePassBinToSspecAndFuseAtClassBinConverterTestMethod.ValidateNotEmptyKeys(System.String,System.String)">
+            <summary>
+            Validated that the shared storage key is not empty.
+            </summary>
+            <param name="key">Shared storage key.</param>
+            <param name="parameterName">Parameter name.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.SspecFactBin">
+            <summary>
+            SSPEC-FactBin pair.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.SspecFactBin.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FuseAtClass.SspecFactBin"/> struct.
+            </summary>
+            <param name="sspec">Sspec.</param>
+            <param name="factBin">FactBin.</param>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.SspecFactBin.Sspec">
+            <summary>
+            Gets the Sspec.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.SspecFactBin.FactBin">
+            <summary>
+            Gets the FactBin.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod">
+            <summary>
+            Sspec To Fuse At Class Bin Converter test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod.SharedStorageContext">
+            <summary>
+            The context of the shared storage.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod.SharedStorageContext.LOT">
+            <summary>
+            Data is shared across DUTs and IPs
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod.SharedStorageContext.DUT">
+            <summary>
+            Data is shared across all IPs under current DUT
+            Data is not shared across different parallel DUTs in mDUT.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod.SspecBinsMappingObjectKey">
+            <summary>
+            Gets or sets the shared storage key where the SspecBinsMapping object, which is a comma delimited string of
+            passBin:sspec:factBin, is stored.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod.SspecBinsMappingObjectContext">
+            <summary>
+            Gets or sets the shared storage context in which the SspecBinsMapping object is stored.
+            </summary>
+            note: put decorator for enum
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod.SspecKey">
+            <summary>
+            Gets or sets the shared storage key where the Sspec is stored.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod.FactBinKey">
+            <summary>
+            Gets or sets the shared storage key where the Result should be stored.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.PrimeSspecToFuseAtClassBinConverterTestMethod.ValidateNotEmptyKeys(System.String,System.String)">
+            <summary>
+            Validated that the shared storage key is not empty.
+            </summary>
+            <param name="key">Shared storage key.</param>
+            <param name="parameterName">Parameter name.</param>
+        </member>
+        <member name="T:Prime.TestMethods.FuseAtClass.SspecToFuseAtClassBin">
+            <summary>
+            Sspec To Fuse At Class Bin Converter class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FuseAtClass.SspecToFuseAtClassBin.Convert(System.String,System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Translate the sspec into the Fact Bin.
+            </summary>
+            <param name="sspecBinsMappingKey">The shared storage key where the sspecBin are saved.</param>
+            <param name="sspec">The shared storage key where the sspec to translate is.</param>
+            <param name="context">The shared storage context.</param>
+            <param name="sessionContext">This session contest.</param>
+            <returns>The fact bin.</returns>
+        </member>
+        <member name="T:FaCT">
+            <remarks/>
+        </member>
+        <member name="P:FaCT.FinishedGood">
+            <remarks/>
+        </member>
+        <member name="P:FaCT.FRV">
+            <remarks/>
+        </member>
+        <member name="P:FaCT.revision">
+            <remarks/>
+        </member>
+        <member name="P:FaCT.mode">
+            <remarks/>
+        </member>
+        <member name="T:FaCTFinishedGood">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGood.SmallLotDecisionFlags">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGood.BOM">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGood.name">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGood.type">
+            <remarks/>
+        </member>
+        <member name="T:FaCTFinishedGoodSmallLotDecisionFlags">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodSmallLotDecisionFlags.Enable">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodSmallLotDecisionFlags.PriorityLimit">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodSmallLotDecisionFlags.ProjectedUnitCount">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodSmallLotDecisionFlags.ReceivingPriorityLimit">
+            <remarks/>
+        </member>
+        <member name="T:FaCTFinishedGoodBOM">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodBOM.Flow">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodBOM.PDE_name">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodBOM.SFP_name">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodBOM.FACT_bin">
+            <remarks/>
+        </member>
+        <member name="T:FaCTFinishedGoodBOMFlow">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodBOMFlow.index">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodBOMFlow.pass_bin">
+            <remarks/>
+        </member>
+        <member name="P:FaCTFinishedGoodBOMFlow.planning_bin">
+            <remarks/>
+        </member>
+        <member name="T:Mode">
+            <remarks/>
+        </member>
+        <member name="F:Mode.LotLevel">
+            <remarks/>
+        </member>
+        <member name="F:Mode.UnitLevel">
+            <remarks/>
+        </member>
+        <member name="F:Mode.OFF">
+            <remarks/>
+        </member>
+        <member name="T:OperationInfoType">
+            <remarks/>
+        </member>
+        <member name="P:OperationInfoType.transaction_log">
+            <remarks/>
+        </member>
+        <member name="P:OperationInfoType.op_flex_params">
+            <remarks/>
+        </member>
+        <member name="P:OperationInfoType.element_list">
+            <remarks/>
+        </member>
+        <member name="P:OperationInfoType.OperationName">
+            <remarks/>
+        </member>
+        <member name="P:OperationInfoType.ServiceName">
+            <remarks/>
+        </member>
+        <member name="T:op_flex_paramType">
+            <remarks/>
+        </member>
+        <member name="P:op_flex_paramType.name">
+            <remarks/>
+        </member>
+        <member name="P:op_flex_paramType.value">
+            <remarks/>
+        </member>
+        <member name="P:op_flex_paramType.Value">
+            <remarks/>
+        </member>
+        <member name="T:op_flex_paramTypeName">
+            <remarks/>
+        </member>
+        <member name="F:op_flex_paramTypeName.lot_id">
+            <remarks/>
+        </member>
+        <member name="F:op_flex_paramTypeName.assembly_name">
+            <remarks/>
+        </member>
+        <member name="F:op_flex_paramTypeName.qty">
+            <remarks/>
+        </member>
+        <member name="F:op_flex_paramTypeName.hri">
+            <remarks/>
+        </member>
+        <member name="F:op_flex_paramTypeName.mrv">
+            <remarks/>
+        </member>
+        <member name="F:op_flex_paramTypeName.frv">
+            <remarks/>
+        </member>
+        <member name="F:op_flex_paramTypeName.revision">
+            <remarks/>
+        </member>
+        <member name="F:op_flex_paramTypeName.fba_solve_id">
+            <remarks/>
+        </member>
+        <member name="F:op_flex_paramTypeName.mode">
+            <remarks/>
+        </member>
+        <member name="T:flex_output_paramType">
+            <remarks/>
+        </member>
+        <member name="P:flex_output_paramType.name">
+            <remarks/>
+        </member>
+        <member name="P:flex_output_paramType.nameSpecified">
+            <remarks/>
+        </member>
+        <member name="P:flex_output_paramType.value">
+            <remarks/>
+        </member>
+        <member name="P:flex_output_paramType.Value">
+            <remarks/>
+        </member>
+        <member name="T:flex_output_paramTypeName">
+            <remarks/>
+        </member>
+        <member name="F:flex_output_paramTypeName.priority">
+            <remarks/>
+        </member>
+        <member name="F:flex_output_paramTypeName.planning_bin">
+            <remarks/>
+        </member>
+        <member name="F:flex_output_paramTypeName.pass_bin">
+            <remarks/>
+        </member>
+        <member name="F:flex_output_paramTypeName.sspec">
+            <remarks/>
+        </member>
+        <member name="F:flex_output_paramTypeName.fba_fuse_qty">
+            <remarks/>
+        </member>
+        <member name="F:flex_output_paramTypeName.sb_reserved_qty">
+            <remarks/>
+        </member>
+        <member name="T:elementType">
+            <remarks/>
+        </member>
+        <member name="P:elementType.type">
+            <remarks/>
+        </member>
+        <member name="P:elementType.value">
+            <remarks/>
+        </member>
+        <member name="P:elementType.flex_output_params">
+            <remarks/>
+        </member>
+        <member name="T:elementTypeType">
+            <remarks/>
+        </member>
+        <member name="F:elementTypeType.index">
+            <remarks/>
+        </member>
+    </members>
+</doc>

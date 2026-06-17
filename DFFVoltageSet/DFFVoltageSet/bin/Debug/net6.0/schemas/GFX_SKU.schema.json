@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Area": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "RefArea": {
+            "type": "string"
+          },
+          "UpsRecoveryGroupStorageKey": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "type": "string",
+                "pattern": "[a-zA-Z0-9_]+"
+              }
+            },
+            "required": [
+              "Name"
+            ]
+          },
+          "RecoveryGroups": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "type": "string",
+                  "pattern": "[A-Z0-9_]+"
+                }
+              },
+              "required": [
+                "Name"
+              ]
+            }
+          },
+          "SKUs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "Group": {
+                  "type": "string",
+                  "pattern": "[a-zA-Z0-9_]+"
+                },
+                "SKU": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "properties": {
+                      "Name": {
+                        "type": "string",
+                        "pattern": "[A-Z0-9_]+"
+                      },
+                      "Recovery": {
+                        "type": "string",
+                        "pattern": "[01]+"
+                      },
+                      "Fuses": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                          "type": "object",
+                          "minProperties": 1,
+                          "properties": {
+                            "Name": {
+                              "type": "string",
+                              "pattern": "[a-zA-Z0-9_]+"
+                            },
+                            "Value": {
+                              "type": "string",
+                              "pattern": "[01]+"
+                            }
+                          },
+                          "required": [
+                            "Name",
+                            "Value"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "Name",
+                      "Recovery",
+                      "Fuses"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "Group",
+                "SKU"
+              ]
+            }
+          }
+        },
+        "required": [
+          "Name",
+          "UpsRecoveryGroupStorageKey",
+          "RecoveryGroups",
+          "SKUs"
+        ]
+      }
+    }
+  },
+  "required": [
+    "Area"
+  ]
+}

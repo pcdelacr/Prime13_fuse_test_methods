@@ -1,0 +1,41 @@
+{
+  "Configuration": {
+    "PSF": {
+      "Equation": "ToDouble(GetDelimitedData([G.U.S.DFF_SSA1_S], '|', 0)) * 0.5 + ToDouble(GetDelimitedData([G.U.S.DFF_SSA1_S], '|', 3)) / 2", // Equation using SICC, IDV, CDYN from DFF. It is per part(unit).
+      "HighLimit": 10,
+      "LowLimit": 0
+    },
+    "PowerSumPinsSetting": [
+      {
+        "PinName": "IPA::POWERSUM_09",
+        "Tests": [
+          {
+            "Type": "Functional_1",
+            "Regex": "PrimeFuncCaptureCtvFuncTest.*",
+            "PSFMultiplier": 3
+          },
+          {
+            "Type": "Functional_2",
+            "Regex": "SoftwareTrigger.*",
+            "PSFMultiplier": 4
+          }
+        ]
+      },
+      {
+        "PinName": "IPB::POWERSUM_09",
+        "Tests": [
+          {
+            "Type": "Functional_1",
+            "Regex": "PrimeFuncCaptureCtvFuncTest.*",
+            "PSFMultiplier": 5
+          },
+          {
+            "Type": "Functional_2",
+            "Regex": "SoftwareTrigger.*",
+            "PSFMultiplier": 6
+          }
+        ]
+      }
+    ]
+  }
+}

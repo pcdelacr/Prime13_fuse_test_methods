@@ -1,0 +1,1272 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Gfx.Aleph</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Area.Area">
+            <summary>
+            Area class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Area.Area"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.#ctor(Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput,System.Collections.Generic.List{Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Area.Area"/> class.
+            </summary>
+            <param name="areaInput"> the area input object from json file.</param>
+            <param name="subAreas"> the subAreas input objects.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Area.Area.Name">
+            <summary>
+            Gets or sets for Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Area.Area.SubAreasData">
+            <summary>
+            Gets or sets for SubAreasData.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Area.Area.HryHierarchy">
+            <summary>
+            Gets or sets for hryHierarchy.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Area.Area.Contents">
+            <summary>
+            Gets or sets for contentGroup.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetCurrentName">
+            <summary>
+            Returns the Name.
+            </summary>
+            <returns>the Name.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.SetCurrentArea(System.String)">
+            <summary>
+            Changing the name.
+            </summary>
+            <param name="name">Name of the current area.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetSubAreaData">
+            <summary>
+            Returns list of sub areas.
+            </summary>
+            <returns>List of sub areas.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetContent(System.String)">
+            <summary>
+            Return the content object.
+            </summary>
+            <param name="contentName">Name of the content.</param>
+            <returns>Content object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetUpsRecoveryStorageKey">
+            <summary>
+            Returns the Ups Recovery Storage Key.
+            </summary>
+            <returns>StorageKey.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.IsSkuExists(System.String)">
+            <summary>
+            Checks if the sku exists.
+            </summary>
+            <param name="sku">Name of the sku.</param>
+            <returns>true - If the sku exist, false - otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetRecoveryGroupsNames">
+            <summary>
+            Returns the recovery groups list.
+            </summary>
+            <returns>List of recovery groups.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetSkuBounds">
+            <summary>
+            Return the area sku bounds.
+            </summary>
+            <returns>Start and end skus.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.ValidateSkuBounds(System.String,System.String)">
+            <summary>
+            Return true if the sku bounds are valid, false otherwise.
+            </summary>
+            <param name="startSku">Name of the startSku.</param>
+            <param name="endSku">Name of the endSku.</param>
+            <returns>if SkuBounds are Valid returns true, otherwise returns false.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetStartSku">
+            <summary>
+            Returning the start sku.
+            </summary>
+            <returns>The sku object - otherwise an exception will be thrown.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetEndSku">
+            <summary>
+            Returning the end sku.
+            </summary>
+            <returns>The sku object - otherwise an exception will be thrown.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetSku(System.String)">
+            <summary>
+            Returning the sku.
+            </summary>
+            <param name="skuName">Name of the sku.</param>
+            <returns>The sku object - otherwise an exception will be thrown.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetSkuDefaultRecovery(System.String)">
+            <summary>
+            Returns the sku recovery group.
+            </summary>
+            <param name="skuName">Name of the sku.</param>
+            <returns>the sku recovery group.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.MatchSkuByRecovery(Prime.TestMethods.Gfx.Aleph.Sku.Sku,Prime.TestMethods.Gfx.Aleph.Sku.Sku,System.Text.StringBuilder,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Returning the matching sku by recovery.
+            </summary>
+            <param name="startSku">The start sku name.</param>
+            <param name="endSku">The end sku name.</param>
+            <param name="recovery">The recovery string.</param>
+            <param name="failingRecoveryGroupsNames">The names of the failing recovery groups.</param>
+            <param name="recoveryGroupFailChar">the recovery group fail char.</param>
+            <returns>Sku result object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetNumberOfRecoveryGroups">
+            <summary>
+            Returns the number of recovery groups in the recovery groups list.
+            </summary>
+            <returns>number of recovery groups for the current area.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetFinalStartSku(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returning the global start sku.
+            </summary>
+            <param name="startSku">the name of start sku.</param>
+            <param name="globalStartSkuKey">the shared storage key for the start sku.</param>
+            <param name="sessionContext">sessionContext.</param>
+            <returns>global start sku object - otherwise an exception will be thrown.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.GetFinalEndSku(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returning the global end sku.
+            </summary>
+            <param name="endSku">the name of end sku.</param>
+            <param name="globalEndSkuKey">the shared storage key for the end sku.</param>
+            <param name="sessionContext">sessionContext.</param>
+            <returns>global end sku object - otherwise an exception will be thrown.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.InsertSkuFusesIntoSharedStorage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Inserting the sku fuses into shared storage.
+            </summary>
+            <param name="skuName">the sku name.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.Area.CreateSubAreasData(System.Collections.Generic.List{Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput})">
+            <summary>
+            this functions creates the .
+            </summary>
+            <param name="subAreas"> the subAreas input objects.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus">
+            <summary>
+             RecoveryGroupStatus class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus"/> class.
+            </summary>
+            <param name="name">Recovery group name.</param>
+            <param name="index">the recovery group index.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus.Name">
+            <summary>
+            Gets or sets for Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus.Index">
+            <summary>
+            Gets or sets for Index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus.Tags">
+            <summary>
+            Gets or sets for TagsPerContent .
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus.AddTestMethodTag(System.String,System.String,Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses,System.Boolean)">
+            <summary>
+            Add tag to the collection, if its already exist adding the eid statuses.
+            </summary>
+            <param name="tagName">The tag name.</param>
+            <param name="contentName">The content name.</param>
+            <param name="eidsStatuses">The eids statuses.</param>
+            <param name="isOverride">Whether to create new eids statuses or to add it to the current tag eids.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus.AddUserTag(System.String,System.String,Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses,Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            Add tag to the collection, if its already exist adding the eid statuses.
+            </summary>
+            <param name="tagName">The tag name.</param>
+            <param name="contentName">The content name.</param>
+            <param name="eidsStatuses">The eids statuses.</param>
+            <param name="hrySymbol">The pass/fail status to all eids.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.RecoveryGroupStatus.ClearTags">
+            <summary>
+            Clears all the saved tags in the area.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData">
+            <summary>
+            SubAreaData class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.#ctor(Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData"/> class.
+            </summary>
+            <param name="areaInput"> the area input object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.#ctor(Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput,System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData"/> class.
+            </summary>
+            <param name="areaInput">the area input object.</param>
+            <param name="mainAreaRecoveryGroups">The main area recovery groups list.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.CreateSkus(System.Collections.Generic.List{Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuGroupInput})">
+            <summary>
+            Creates a new sku data base sku name to sku object.
+            </summary>
+            <param name="skuGroupsInput">The data base of skus input.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetUpsRecoveryStorageKey">
+            <summary>
+            Returns the Ups Recovery Storage Key.
+            </summary>
+            <returns>StorageKey.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetName">
+            <summary>
+            Returns the Name.
+            </summary>
+            <returns>the Name.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.IsSkuExists(System.String)">
+            <summary>
+            Checks if the sku exists.
+            </summary>
+            <param name="sku">Name of the sku.</param>
+            <returns>true - If the sku exist, false - otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetRecoveryGroupsNames">
+            <summary>
+            Returns the recovery groups list.
+            </summary>
+            <returns>List of recovery groups.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetSkuBounds">
+            <summary>
+            Return the area sku bounds.
+            </summary>
+            <returns>Start and end skus.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.ValidateSkuBounds(System.String,System.String)">
+            <summary>
+            Return true if the sku bounds are valid, false otherwise.
+            </summary>
+            <param name="startSku">Name of the startSku.</param>
+            <param name="endSku">Name of the endSku.</param>
+            <returns>if SkuBounds are Valid returns true, otherwise returns false.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetStartSku">
+            <summary>
+            Returning the start sku.
+            </summary>
+            <returns>The sku object - otherwise an exception will be thrown.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetEndSku">
+            <summary>
+            Returning the end sku.
+            </summary>
+            <returns>The sku object - otherwise an exception will be thrown.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetRecoveryGrouNumber">
+            <summary>
+            Returning the number of reovery groups.
+            </summary>
+            <returns>The number of reovery groups.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetFinalStartSku(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returning the global start sku-
+            if the start sku is empty: check if start sku was entered to shared storage in  GFX start TM. If yes, return it. else, return the default start sku as defined for the current area.
+            if the start sku is not empty: return the sku object for the input sku name.
+            </summary>
+            <param name="localStartSku">the name of start sku.</param>
+            <param name="globalStartSkuKey">the shared storage key for the start sku.</param>
+            <param name="sessionContext">sessionContext.</param>
+            <returns>global sku object - otherwise an exception will be thrown.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetFinalEndSku(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returning the global end sku-
+            if the end sku is empty: check if end sku was entered to shared storage in  GFX start TM. If yes, return it. else, return the default end sku as defined for the current area.
+            if the end sku is not empty: return the sku object for the input sku name.
+            </summary>
+            <param name="localEndSku">the name of end sku.</param>
+            <param name="globalEndSkuKey">the shared storage key for the end sku.</param>
+            <param name="sessionContext">sessionContext.</param>
+            <returns>global end sku object - otherwise an exception will be thrown.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetSkuRecovery(System.String)">
+            <summary>
+            Returns the sku recovery group.
+            </summary>
+            <param name="skuName">Name of the sku.</param>
+            <returns>the sku recovery group.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.MatchSkuByRecovery(Prime.TestMethods.Gfx.Aleph.Sku.Sku,Prime.TestMethods.Gfx.Aleph.Sku.Sku,System.Text.StringBuilder,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Returns the sku that matches the recovery.
+            </summary>
+            <param name="startSku">The start sku name.</param>
+            <param name="endSku">The end sku name.</param>
+            <param name="recovery">The recovery string.</param>
+            <param name="failingRecoveryGroupsNames">The names of the failing recovery groups.</param>
+            <param name="recoveryGroupFailChar">the recovery group fail char.</param>
+            <returns>the sku result object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetSku(System.String)">
+            <summary>
+            Returns the sku recovery group.
+            </summary>
+            <param name="skuName">Name of the sku.</param>
+            <returns>the sku object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.InsertSkuFusesIntoSharedStorage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Inserting the sku fuses into shared storage.
+            </summary>
+            <param name="skuName">the sku name.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetValidatedRecoveryGroups(System.Collections.Generic.List{Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.RecoveryGroupsInput},System.Collections.Generic.List{System.String})">
+            <summary>
+            this function gets the recovery group input objects, checks if there are duplications and returns a list of the recovery group names (because the order is important).
+            </summary>
+            <param name="refAreaRecoveryGroups">a list of recovery group input objects.</param>
+            <param name="mainAreaRecoveryGroup">the main area list of recovery group strings.</param>
+            <returns> a list of the recovery group names.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Area.SubAreaData.GetSkuByRecovery(System.Text.StringBuilder,System.String)">
+            <summary>
+            Returns the sku recovery group.
+            </summary>
+            <param name="recovery">the recovery of the sku.</param>
+            <param name="recoveryGroupFailChar">the recovery group fail char.</param>
+            <returns>the sku object.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.DictionaryTupleKeyJsonConverter">
+            <summary>
+            Define a custom JsonConverter for the Dictionary with tuple keys.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.DictionaryTupleKeyJsonConverter.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.DictionaryTupleKeyJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.DictionaryTupleKeyJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidAreaConfigInput">
+            <summary>
+            EidAreaConfigInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidAreaConfigInput.Name">
+            <summary>
+            Gets or sets for name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidAreaConfigInput.HryHierarchy">
+            <summary>
+            Gets or sets for HryHierarchy.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidAreaConfigInput.ContentList">
+            <summary>
+            Gets or sets for ContentList.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidConfigInput">
+            <summary>
+            EidConfigInput class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidConfigInput.Areas">
+            <summary>
+            Gets or Sets for Area.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidDbConfigInput">
+            <summary>
+            Eids.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidDbConfigInput.MaxSize">
+            <summary>
+            Gets or sets for MaxSize.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidDbConfigInput.EidsInput">
+            <summary>
+            Gets or sets for EidList.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidDbConfigInput.CreateHryRawDataBaseString(Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy)">
+            <summary>
+            create Hry Raw Data Base String.
+            </summary>
+            <param name="hryHierarchy">hryHierarchy object for symbols.</param>
+            <returns>String of theHry Raw Data Base String.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidInput">
+            <summary>
+            EidInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidInput.Id">
+            <summary>
+            Gets or sets for Id.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidInput.PartId">
+            <summary>
+            Gets or sets for PartId.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidInput.RecoveryGroup">
+            <summary>
+            Gets or sets for RecoveryGroup.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidInput.HryLevelsInput">
+            <summary>
+            Gets or sets for HryLevels.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidInput.Validate(System.Int32,System.Int32,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Validate eid.
+            </summary>
+            <param name="maxSize">max Size of eids.</param>
+            <param name="firstHryLevelsSize">first HryLevelsSize.</param>
+            <param name="firstHryLevelKey">first HryLevel key.</param>
+            <param name="currHryLevels">cureent hryLevel list.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.FuseInput">
+            <summary>
+            FuseInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.FuseInput.Name">
+            <summary>
+            Gets or sets for name .
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.FuseInput.Value">
+            <summary>
+            Gets or sets for value .
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.RecoveryGroupsInput">
+            <summary>
+            RecoveryGroupsInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.RecoveryGroupsInput.Name">
+            <summary>
+            Gets or sets for name.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput">
+            <summary>
+            SkuAreaConfigInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput.Name">
+            <summary>
+            Gets or sets for name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput.RefArea">
+            <summary>
+            Gets or sets for RefArea.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput.StorageKey">
+            <summary>
+            Gets or sets for StorageKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput.RecoveryGroups">
+            <summary>
+            Gets or sets for RecoveryGroups.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuAreaConfigInput.SkusGroups">
+            <summary>
+            Gets or sets for SkusList.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuConfigInput">
+            <summary>
+            SkuConfigInput class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuConfigInput.Areas">
+            <summary>
+            Gets or Sets for Area.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuGroupInput">
+            <summary>
+            SkuDbInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuGroupInput.Group">
+            <summary>
+            Gets or sets for Group .
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuGroupInput.Skus">
+            <summary>
+            Gets or sets for SkuGrps .
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.UpsRecoveryGroupStorageKeyInput">
+            <summary>
+            UpsRecoveryGroupStorageKeyInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.UpsRecoveryGroupStorageKeyInput.Name">
+            <summary>
+            Gets or sets for name.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Content.Content">
+            <summary>
+            ContentInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Content.Content.Name">
+            <summary>
+            Gets or sets for name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Content.Content.EidDb">
+            <summary>
+            Gets or sets for eids.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Content.Content.EidsPerRecoveryGroup">
+            <summary>
+            Gets or sets Eids Per RecoveryGroup.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Content.Content.HryTreeNode">
+            <summary>
+            Gets or sets for hryTree.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Content.Content.HryTreeHieght">
+            <summary>
+            Gets or sets for hryTree.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Content.Content.HryRawString">
+            <summary>
+            Gets or sets for HryRawString.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Content.Content.UpdateHryTreeHrySymbols(System.Collections.Generic.Dictionary{System.ValueTuple{System.Int32,System.Int32},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol})">
+            <summary>
+            Updates the statuses of the hry tree.
+            </summary>
+            <param name="eidStatuses">List of eid statuses.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Content.Content.Initialize(Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol,Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy)">
+            <summary>
+            initialize the content object with the eids per recoveryGroups dictionary.
+            </summary>
+            <param name="eidNotTestedSymbol">The eid not tested symbol obj.</param>
+            <param name="hryHierarchy">hryHierarchy object for symbols.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Content.Content.GetHryTreeLevelForDatalog(System.Int32)">
+            <summary>
+            Returns data of hry tree route for datalog.
+            </summary>
+            <returns>The result list.</returns>
+            <param name="levelNum"> the level number.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Content.Content.GetEidsIdsPerRecoveryGroup">
+            <summary>
+            gets only the eids ids for each Recovery Group.
+            </summary>
+            <returns>dictionary of Eids Ids per Recovery Group.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Content.Content.GetEids">
+            <summary>
+            Returning all the eids.
+            </summary>
+            <returns>List of eids.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Content.Content.BuildHryTree(Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            BuildHryTree.
+            </summary>
+            <param name="eidNotTestedSymbol"> The eid not tested slevelNumymbol obj.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses">
+            <summary>
+            EidsStatuses.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.#ctor(System.Collections.Generic.Dictionary{System.ValueTuple{System.Int32,System.Int32},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses"/> class.
+            </summary>
+            <param name="hrySymbolsPerEid">Initializes the object with an existing dictionary.</param>
+            <param name="hrySymbolForUserTag">Initializes the object with an existing hrySymbol.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.AddEidStatus(System.ValueTuple{System.Int32,System.Int32},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            Adding eid status to the dictionary.
+            </summary>
+            <param name="eid"> the eid obj.</param>
+            <param name="hrySymbol"> the hry symbol obj.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.UpdateEidsStatuses(Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            Updates all eids status with the symbol passed to the function.
+            </summary>
+            <param name="symbol">symbol to update all eids with.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.UpdateEidsWithFailStatuses(System.Collections.Generic.HashSet{System.Int32},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol,Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            This function updates EidStatuses object with the failing Eids provided in function parameters.
+            </summary>
+            <param name="failingEids">failing eids.</param>
+            <param name="passSymbol">passSymbol.</param>
+            <param name="failSymbol">failSymbol.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.UpdateEidsStatuses(Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses)">
+            <summary>
+            Adding eids status to the dictionary, if the eid exist it will take the high priority eid.
+            </summary>
+            <param name="eidsStatuses"> the eid statuses dictionary to add.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.UpdateSingleEidStatus(System.ValueTuple{System.Int32,System.Int32},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            updates an existing eid status according to ist priority.
+            </summary>
+            <param name="eidKey">the (Id,PartId) of the updated eid.</param>
+            <param name="eidValue">the statuse of the updated eid.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.UpdateEidsStatusesWithDoaSymbol(Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            updates an existing eid status according to ist priority.
+            </summary>
+            <param name="hrySymbol">the statuse of the updated eid.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.GetEidsIds">
+            <summary>
+            Gets the ids from the (id,partId),hrySymbol collection.
+            </summary>
+            <returns>a list of the eids ids.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.GetFailingEidsPartIds">
+            <summary>
+            Gets the part ids from the (id,partId),hrySymbol collection.
+            </summary>
+            <returns>a list of the eids part ids.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.GetFailingEidsIds">
+            <summary>
+            Gets the ids from the (id,partId),hrySymbol collection.
+            </summary>
+            <returns>a list of the eids ids.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.GetEidStatusByPartId(System.Int32)">
+            <summary>
+            Gets the ids from the (id,partId),hrySymbol collection.
+            </summary>
+            <returns>a list of the eids ids.</returns>
+            <param name="partId">The eid part id.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.GetEids">
+            <summary>
+            Gets the a list of tuples (id,partId).
+            </summary>
+            <returns>a list of the eids ids and part ids.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.GetHrySymbolsPerEid">
+            <summary>
+            Gets eids statuses per eidIds and PartIds.
+            </summary>
+            <returns>a list of the eids ids.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.AreAllEidsPassing">
+            <summary>
+            Indicates whther the eids are passing eids or have at least one failing eid.
+            </summary>
+            <returns>If there at least one failing eid return false, else - returning true.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.SetHrySymbolFroUserTag(Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            Set new hry symbol for the user tag.
+            </summary>
+            <param name="hrySymbol">The hry symbol obj.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.GetHrySymbolForUserTag">
+            <summary>
+            Get the hry symbol for the user tag.
+            </summary>
+            <returns>hry symbol for the user tag.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.UpdateAllEidsWithUserTagStatus">
+            <summary>
+            this functions updates all eids with the user tag status. If user tag status doesn't exists throw exception.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.ResetSingleEidStatus(System.ValueTuple{System.Int32,System.Int32},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            Reset the statuse of the input eid to not tested status.
+            </summary>
+            <param name="eidKey">the (Id,PartId) of the updated eid.</param>
+            <param name="notTestedHrySymbol">the hry symbol for not tested status.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.ResetPassingEidsFlag">
+            <summary>
+            Reset the is pass flag.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.UpdateWithFailStatuses(System.Collections.Generic.HashSet{System.Int32},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol,Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol,Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses.EidOrParIdIdentifier)">
+            <summary>
+            UpdateWithFailStatuses.
+            </summary>
+            <param name="failingEids">failing eids.</param>
+            <param name="passSymbol">passSymbol.</param>
+            <param name="failSymbol">failSymbol.</param>
+            <param name="getIdentifier">this is a delegate that returns either eid or partid based on usage.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.GfxAleph">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.GfxAleph.SubAreaToAreaMappingKey">
+            <summary>
+            the shared storage key to SubArea to Area mapping.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.GfxAleph.SystemTagsKey">
+            <summary>
+            the shared storage key to SystemTags.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.UpdateAreasWithEidConfigurationData(System.String,System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Gfx.Aleph.Area.Area})">
+            <summary>
+            This function reads the Eid input file and updates the areas objects using the eid gonfiguration file data.
+            </summary>
+            <param name="eidFilePath">The eid configuration file path.</param>
+            <param name="areas">List of areas to update.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.GetAreasWithSkuConfigurationData(System.String)">
+            <summary>
+            This function reads the sku input file and creates areas objects using the sku gonfiguration file data.
+            </summary>
+            <param name="skuFilePath">The sku configuration file path.</param>
+            <returns>Dictionery of areas where the keys are the areas names.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.CreateRecoveryGroupStatuses(Prime.TestMethods.Gfx.Aleph.Area.Area)">
+            <summary>
+             This function creates a List of recovery group statuses for area or sub area.
+            </summary>
+            <param name="areaOrSubArea"> Name of the area or sub area.</param>
+            <returns>List of recovery group statuses.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.Prime#Base#IAlephAble#IAlephAble#GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.CheckItemsUniquenessForEidFile(Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.EidConfigInput)">
+            <summary>
+            This function go over the elements in the eid input file and validate the items uniqueness.
+            </summary>
+            <param name="input">The parsed configuration of eid object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.CheckItemsUniquenessForSkuFile(Prime.TestMethods.Gfx.Aleph.ConfigurationFiles.SkuConfigInput)">
+            <summary>
+            This function go over the elements in the sku input file and validate the items uniqueness.
+            </summary>
+            <param name="input">The parsed configuration of eid object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.InsertAreasToSharedStorage(System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Gfx.Aleph.Area.Area},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            this function saves the areas objects that created during the parsing to shared storage where the key is the area's name.
+            in addition, create and saves to shared storage a dictionary that maps sub areas to theirs main areas where the key is aconst key : "subAreaToAreaMapping".
+            </summary>
+            <param name="areas"> List of areas.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.GfxAleph.InsertRecoveryGroupStatusesPerAreaToSharedStorage(System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Gfx.Aleph.Area.Area},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+             This function creates and saves to shared storage a dictionary that matches for every area name a list of recovery group statuses.
+            In addition, creates and saves to shared storage an objets thats holds all the tags names that were insert to shared sorage by the system or the user.
+            </summary>
+            <param name="areas"> List of areas.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy">
+            <summary>
+            HryHierarchy.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy.EidNotTestedSymbol">
+            <summary>
+            Gets or sets for EidNotTestedSymbol.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy.EidNotExistSymbol">
+            <summary>
+            Gets or sets for EidNotExistSymbol.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy.HrySymbols">
+            <summary>
+            Gets or sets for HrySymbols.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy.HrySymbolToStatus">
+            <summary>
+            Gets or sets for hrySymbol to status .
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy.Initialize">
+            <summary>
+            Initialize the HryHierarchy's HrySymbol objects and dictionaries.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy.IsHrySymbolValid(System.String,System.Boolean)">
+            <summary>
+            Validate Hry Symbol.
+            </summary>
+            <param name="symbol">symbol.</param>
+            <param name="isDoa">isDoa symbol.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy.GetHRYSymbols(System.String)">
+            <summary>
+            Checks if the symbols are valid.
+            </summary>
+            <param name="symbol">The eid Symbol.</param>
+            <returns>The hry symbol object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.HryHierarchy.GetEidNotTestedSymbol">
+            <summary>
+            Get the hry symbol for EidNotTestedSymbol.
+            </summary>
+            <returns>EidNotTestedSymbol.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Hry.HryStatus">
+            <summary>
+            Settings to enable or disable .
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Hry.HryStatus.PASS">
+            <summary>
+            PASS.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Hry.HryStatus.FAIL">
+            <summary>
+            FAIL.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Hry.HryStatus.DOA">
+            <summary>
+            DOA.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Hry.HryStatus.NOT_EXIST">
+            <summary>
+            not exist.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Hry.HryStatus.NOT_TESTED">
+            <summary>
+            not tested.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol">
+            <summary>
+            HrySymbol.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol"/> class.
+            </summary>
+            <param name="symbol">the symbol.</param>
+            <param name="status">the status.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol.HryStatus">
+            <summary>
+            Gets or sets for Status.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol.Priority">
+            <summary>
+            Gets or sets the HrySymbol priority.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol.ValidateHryStatus">
+            <summary>
+            Validate input file's HryStatus.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol.GetSymbol">
+            <summary>
+            returning the symbol.
+            </summary>
+            <returns>symbol string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol.GetStatus">
+            <summary>
+            returning the status.
+            </summary>
+            <returns>status string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Hry.TreeNode">
+            <summary>
+            Hry TreeNode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.TreeNode.#ctor(System.String,System.Int32,Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Hry.TreeNode"/> class.
+            </summary>
+            <param name="name"> the node name.</param>
+            <param name="eidId">the eid id.</param>
+            <param name="hrySymbol">the node hrySymbol.</param>
+            <param name="currLevel">the node level.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.TreeNode.GetSubTree">
+            <summary>
+            gets the subTrees of the current node.
+            </summary>
+            <returns>return the subTrees of the node.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.TreeNode.GetStatus">
+            <summary>
+            gets the status of the current node.
+            </summary>
+            <returns>return the status of the node.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.TreeNode.GetName">
+            <summary>
+            return the name of the level of node or the mane of the leaf.
+            </summary>
+            <returns>return the name of the node.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.TreeNode.UpdateHrySymbol(System.ValueTuple{System.Int32,System.Int32},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol,System.Boolean@)">
+            <summary>
+            Update the object status.
+            </summary>
+            <param name="eidKey">The eidKey (id, PartId).</param>
+            <param name="eidStatus">the status.</param>
+            <param name="eidFound">eidFound.</param>
+            <returns>returns the hrySymbol.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.TreeNode.HandleSubTree(System.ValueTuple{System.Int32,System.Collections.Generic.List{System.String}},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            adding subTrees to the root.
+            </summary>
+            <param name="eidLevels">pair of eidId and its HryLevels.</param>
+            <param name="status">the initilize status of the subTrees. </param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Hry.TreeNode.GetHryTreeLevelForDatalog(System.Int32,System.Collections.Generic.List{System.ValueTuple{System.String,System.String,System.Int32}},System.ValueTuple{System.String,System.String,System.Int32})">
+            <summary>
+            Returns data of hry tree route for datalog.
+            </summary>
+            <param name="levelNum"> the level number.</param>
+            <param name="hryTreePaths"> the hry tree stauses per paths to print to datalog.</param>
+            <param name="currentPath"> the current hry tree path to print to datalog.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Sku.Sku">
+            <summary>
+            SkuInput.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.Sku.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Sku.Sku"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Sku.Sku.Name">
+            <summary>
+            Gets or sets for name .
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Sku.Sku.Recovery">
+            <summary>
+            Gets or sets for recovery .
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Sku.Sku.Fuses">
+            <summary>
+            Gets or sets for Fuses .
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Sku.Sku.Index">
+            <summary>
+            Gets or sets for index .
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.Sku.IsRecoveryMatch(System.String,System.String)">
+            <summary>
+            returns if the input recovery is match the sku's recovery.
+            </summary>
+            <param name="recovery">the recovery of the sku.</param>
+            <param name="recoveryGroupFailChar">the recovery group fail char.</param>
+            <returns> true if matches, false if not.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.Sku.InsertFusesIntoSharedStorage(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            inserting the fuses for the current sku into the shared storage.
+            </summary>
+            <param name="sessionContext">the session context object.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult">
+            <summary>
+            SkuResult class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.#ctor(Prime.TestMethods.Gfx.Aleph.Sku.Sku,Prime.TestMethods.Gfx.Aleph.Sku.Sku,Prime.TestMethods.Gfx.Aleph.Sku.Sku,System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult"/> class.
+            </summary>
+            <param name="recoverySku">The sku from evaluation.</param>
+            <param name="startSku">The start sku.</param>
+            <param name="endSku">The end sku.</param>
+            <param name="failingRecoveryGroupsNames">The names of the failing recovery groups.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult"/> class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.SkuFoundStatus">
+            <summary>
+            Indicates the Sku Found Status character.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.SkuFoundStatus.FOUND_BEFORE_BOUNDIRES">
+            <summary>
+            SKUFOUNDSTATUS_FOUND_BEFORE_BOUNDIRES.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.SkuFoundStatus.FOUND_EQUAL_START_SKU">
+            <summary>
+            KUFOUNDSTATUS_FOUND_EQUAL_START_SKU.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.SkuFoundStatus.FOUND_BETWEEN_START_AND_END_SKU">
+            <summary>
+            SKUFOUNDSTATUS_FOUND_BETWEEN_START_AND_END_SKU.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.SkuFoundStatus.FOUND_EQUAL_END_SKU">
+            <summary>
+            SKUFOUNDSTATUS_FOUND_EQUAL_END_SKU.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.SkuFoundStatus.FOUND_AFTER_BOUNDIRES">
+            <summary>
+            SKUFOUNDSTATUS_FOUND_AFTER_BOUNDIRES.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.SkuFoundStatus.NOT_FOUND">
+            <summary>
+            SKUFOUNDSTATUS_NOT_FOUND.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.SkuFoundStatus.DOA">
+            <summary>
+            SKUFOUNDSTATUS_DOA.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.GetSkuName">
+            <summary>
+            Returns SKU name.
+            </summary>
+            <returns>Sku name.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.GetRecovery">
+            <summary>
+            Returns SKU recovery string.
+            </summary>
+            <returns>SKU recovery string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.GetFoundStatus">
+            <summary>
+            Returns found status.
+            </summary>
+            <returns>status.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.GetFailRecoveryGroups">
+            <summary>
+            Returns list of the fail recovery groups.
+            </summary>
+            <returns>list of the fail recovery groups.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.CalculateDoaPort">
+            <summary>
+            Calculates the exit port for the SKU result when Doa is detected.
+            </summary>
+            <returns>exit port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.CalculatePort">
+            <summary>
+            Calculates the exit port for the SKU result.
+            </summary>
+            <returns>exit port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.AddSubAreasSkuResult(System.String)">
+            <summary>
+            Adding a new sku result.
+            </summary>
+            <param name="skuResult">Th e sub area sku result.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.GetSubAreasSkusResult">
+            <summary>
+            Returns the skus resukt of the sub areas.
+            </summary>
+            <returns>List of skus result.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Sku.SkuResult.SetFailRecoveryGroups(System.Collections.Generic.List{System.String})">
+            <summary>
+            Set the failing recovery groups.
+            </summary>
+            <param name="failRecoveryGroups">List of the fail recovery groups.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Tag.Tag">
+            <summary>
+            Tag class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Tag.Tag.#ctor(System.String,Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses,Prime.TestMethods.Gfx.Aleph.Tag.Tag.Type,Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Tag.Tag"/> class.
+            </summary>
+            <param name="contentName">The content name.</param>
+            <param name="eidsStatuses">Object of eidStatuses.</param>
+            <param name="type">the tag type.</param>
+            <param name="hrySymbol">The hry symbol object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Tag.Tag.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Aleph.Tag.Tag"/> class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Aleph.Tag.Tag.Type">
+            <summary>
+            Indicates the Sku Found Status character.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Tag.Tag.Type.USER_TAG">
+            <summary>
+            TYPE_USER_TAG.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Aleph.Tag.Tag.Type.TEST_METHOD_TAG">
+            <summary>
+            TYPE_TEST_METHOD_TAG.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Aleph.Tag.Tag.EidsStatusesPerContent">
+            <summary>
+            Gets or Sets for EidsStatusesPerContent.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Tag.Tag.AddEidsStatuses(Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses,System.Boolean,System.String)">
+            <summary>
+            Add the eid statuses to the tag.
+            </summary>
+            <param name="eidsStatuses">The eids statuses.</param>
+            <param name="isOverride">Whether to add the eids to the current eids or to override them.</param>
+            <param name="contentName">The content name.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Tag.Tag.UpdateTagType">
+            <summary>
+            updating the tag type after writing to it in the test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Tag.Tag.GetEidsStatuses">
+            <summary>
+            Returning the eid statuses of the tag.
+            </summary>
+            <returns>The eids statuses of the tag.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Tag.Tag.GetContentsInTag">
+            <summary>
+            get the tag's contents in a list.
+            </summary>
+            <returns>The tag's contents.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Aleph.Tag.Tag.GetEidsStatusesForUserTag">
+            <summary>
+            Returning the eid statuses of the tag.
+            </summary>
+            <returns>The eids statuses of the tag.</returns>
+        </member>
+    </members>
+</doc>

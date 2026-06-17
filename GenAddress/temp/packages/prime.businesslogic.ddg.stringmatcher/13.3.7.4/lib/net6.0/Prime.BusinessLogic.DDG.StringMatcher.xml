@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.DDG.StringMatcher</name>
+    </assembly>
+    <members>
+        <member name="T:DDG.AllMatcher">
+            <summary>
+            Matches all strings.
+            </summary>
+        </member>
+        <member name="P:DDG.AllMatcher.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.AllMatcher.Is(System.String)">
+            <summary>
+            Checks if patterns is a wildcard.
+            </summary>
+            <param name="pattern">Pattern to match.</param>
+            <returns>true when matched.</returns>
+        </member>
+        <member name="M:DDG.AllMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.AllMatcher.IsMatch(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DDG.EndsWithMatcher">
+            <summary>
+            Represents a string matcher that filters strings based on whether they end with a specific pattern.
+            </summary>
+        </member>
+        <member name="M:DDG.EndsWithMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.EndsWithMatcher"/> class.
+            </summary>
+            <param name="pattern">Pattern.</param>
+        </member>
+        <member name="P:DDG.EndsWithMatcher.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.EndsWithMatcher.Is(System.String,System.String@)">
+            <summary>
+            Determines if the given pattern is an ends with pattern and returns the pattern without the ends with operator.
+            </summary>
+            <param name="pattern">The pattern to check.</param>
+            <param name="outPattern">The pattern without the ends with operator.</param>
+            <returns><c>true</c> if the pattern is an ends with pattern; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:DDG.EndsWithMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.EndsWithMatcher.IsMatch(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DDG.ExactMatcher">
+            <summary>
+            Represents an exact string matcher.
+            </summary>
+        </member>
+        <member name="M:DDG.ExactMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.ExactMatcher"/> class.
+            </summary>
+            <param name="pattern">The pattern to match.</param>
+        </member>
+        <member name="P:DDG.ExactMatcher.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.ExactMatcher.Is(System.String,System.String@)">
+            <summary>
+            Determines if the given pattern is an exact match and returns the matched pattern.
+            </summary>
+            <param name="pattern">The pattern to check.</param>
+            <param name="outPattern">The matched pattern.</param>
+            <returns><c>true</c> if the pattern is an exact match; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:DDG.ExactMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.ExactMatcher.IsMatch(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DDG.FastRegexMatcher">
+            <summary>
+            Represents a fast regex matcher for string matching.
+            </summary>
+        </member>
+        <member name="M:DDG.FastRegexMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.FastRegexMatcher"/> class.
+            </summary>
+            <param name="pattern">The regex pattern to match.</param>
+        </member>
+        <member name="P:DDG.FastRegexMatcher.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.FastRegexMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.FastRegexMatcher.IsMatch(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DDG.IStringMatcher">
+            <summary>
+            Represents a string matcher interface.
+            </summary>
+        </member>
+        <member name="P:DDG.IStringMatcher.Type">
+            <summary>
+            Gets the type of the matcher.
+            </summary>
+        </member>
+        <member name="M:DDG.IStringMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <summary>
+            Filters the original collection based on certain criteria.
+            </summary>
+            <param name="originalCollection">The original collection of strings.</param>
+            <returns>A sorted set of filtered strings.</returns>
+        </member>
+        <member name="M:DDG.IStringMatcher.IsMatch(System.String)">
+            <summary>
+            Determines if the input string matches a certain criteria.
+            </summary>
+            <param name="input">The input string to match.</param>
+            <returns>True if the input string matches the criteria; otherwise, false.</returns>
+        </member>
+        <member name="T:DDG.MatcherBuilder">
+            <summary>
+            Factory method.
+            </summary>
+        </member>
+        <member name="F:DDG.MatcherBuilder.RegexSpecialChars">
+            <summary>
+            List all regex special characters.
+            </summary>
+        </member>
+        <member name="F:DDG.MatcherBuilder.WildCardRegex">
+            <summary>
+            Regex to capture wildcards at the end or beginning of a pattern.
+            </summary>
+        </member>
+        <member name="P:DDG.MatcherBuilder.Cache">
+            <summary>
+            Gets cache of string matchers.
+            </summary>
+        </member>
+        <member name="M:DDG.MatcherBuilder.Get(System.String)">
+            <summary>
+            Builds a string matcher based on the given pattern.
+            </summary>
+            <param name="pattern">The pattern to build the string matcher for.</param>
+            <returns>The built string matcher.</returns>
+        </member>
+        <member name="M:DDG.MatcherBuilder.TryGetFirstMatch(System.String,System.Text.RegularExpressions.Regex,System.String@)">
+            <summary>
+            Tries to get the first match of the given pattern using the provided matching regex.
+            </summary>
+            <param name="pattern">The pattern to match.</param>
+            <param name="matchingRegex">The regex used for matching.</param>
+            <param name="outPattern">The output pattern if a match is found.</param>
+            <returns>True if a match is found, otherwise false.</returns>
+        </member>
+        <member name="T:DDG.PartialMatcher">
+            <summary>
+            Represents a partial string matcher that implements the <see cref="T:DDG.IStringMatcher"/> interface.
+            </summary>
+        </member>
+        <member name="M:DDG.PartialMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.PartialMatcher"/> class.
+            </summary>
+            <param name="pattern">The pattern to match.</param>
+        </member>
+        <member name="P:DDG.PartialMatcher.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.PartialMatcher.Is(System.String,System.String@)">
+            <summary>
+            Determines if the given pattern is a partial match and returns the matched pattern.
+            </summary>
+            <param name="pattern">The pattern to check.</param>
+            <param name="outPattern">The matched pattern.</param>
+            <returns><c>true</c> if the pattern is a partial match; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:DDG.PartialMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.PartialMatcher.IsMatch(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DDG.SlowRegexMatcher">
+            <summary>
+            Represents a string matcher that uses a slow regular expression matching algorithm.
+            </summary>
+        </member>
+        <member name="M:DDG.SlowRegexMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.SlowRegexMatcher"/> class with the specified pattern.
+            </summary>
+            <param name="pattern">The regular expression pattern to match.</param>
+        </member>
+        <member name="P:DDG.SlowRegexMatcher.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.SlowRegexMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.SlowRegexMatcher.IsMatch(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DDG.StartsWithMatcher">
+            <summary>
+            Represents a string matcher that filters strings based on whether they start with a specific pattern.
+            </summary>
+        </member>
+        <member name="M:DDG.StartsWithMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.StartsWithMatcher"/> class.
+            </summary>
+            <param name="pattern">The pattern to match.</param>
+        </member>
+        <member name="P:DDG.StartsWithMatcher.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.StartsWithMatcher.Is(System.String,System.String@)">
+            <summary>
+            Determines if the given pattern is a valid starts with pattern and returns the modified pattern.
+            </summary>
+            <param name="pattern">The pattern to check.</param>
+            <param name="outPattern">The modified pattern.</param>
+            <returns><c>true</c> if the pattern is valid; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:DDG.StartsWithMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DDG.StartsWithMatcher.IsMatch(System.String)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

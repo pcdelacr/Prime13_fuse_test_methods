@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.TimeUnderStressService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TimeUnderStressService.ConfigurationManager">
+            <summary>
+            Base mode class to hold different modes.
+            </summary>
+        </member>
+        <member name="T:Prime.TimeUnderStressService.DataStructures.Configuration">
+            <summary>
+            TimeUnderStressConfiguration.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.Name">
+            <summary>
+            Gets or sets the unique configuration name.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.CustomDffToken">
+            <summary>
+            Gets or sets the custom DFF token to be used for storage of start time in DFF (for resume scenarios) as well as unique identifier of the configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.TemporaryTokensToPrint">
+            <summary>
+            Gets or sets list of temporary tokens to print during loop status mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.DieName">
+            <summary>
+            Gets or sets the die name to be used for storage of start time in DFF (for resume scenarios) as well as unique identifier of the configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.FlowItemName">
+            <summary>
+            Gets or sets the flow item name.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.IsAutoDetectMode">
+            <summary>
+            Gets or sets a value indicating whether or not the configuration is auto detect.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.TargetStressTime">
+            <summary>
+            Gets or sets the target loop time.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.MaxFlowLoopTime">
+            <summary>
+            Gets or sets the maximum flow loop time.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.NonStressTime">
+            <summary>
+            Gets or sets nonStressTime (xTime).
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.SamplingInterval">
+            <summary>
+            Gets or sets samplingInterval at which stress time will be calculated.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.StandardStartTime">
+            <summary>
+            Gets or sets the starting stress time for standard mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.StartingStressTime">
+            <summary>
+            Gets or sets the regular starting stress time.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.StressTime">
+            <summary>
+            Gets or sets stressTime (sTime).
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.VoltageSetup">
+            <summary>
+            Gets or sets the voltage setup.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.FlushSetup">
+            <summary>
+            Gets or sets the Flush setup.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.Logger">
+            <summary>
+            Gets or sets the ituff logger.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.Configuration.LoopTypeChecked">
+            <summary>
+            Gets or sets a value indicating whether the type of loop for the current configuration has already been checked.
+            </summary>
+        </member>
+        <member name="T:Prime.TimeUnderStressService.DataStructures.FlushSetup">
+            <summary>
+            Setup variable in order to flush datalogs.
+            </summary>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.DataStructures.FlushSetup.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TimeUnderStressService.DataStructures.FlushSetup"/> class.
+            Setup used to flush the datalogs.
+            </summary>
+            <param name="flushTimeSpan">Minimum time span of the flush API calls.</param>
+            <param name="datalogUserBin">User specified bin to log at the temporary flush logs.</param>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.FlushSetup.DatalogUserBin">
+            <summary>
+            Gets or sets user bin to data log at flush command.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.FlushSetup.FlushTimeSpan">
+            <summary>
+            Gets or sets flush time span.
+            </summary>
+        </member>
+        <member name="T:Prime.TimeUnderStressService.DataStructures.VoltageSetup">
+            <summary>
+            Class to hold voltage setup.
+            </summary>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.DataStructures.VoltageSetup.#ctor(System.Collections.Generic.IList{System.String},System.Int32,System.Collections.Generic.IReadOnlyList{System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TimeUnderStressService.DataStructures.VoltageSetup"/> class.
+            Set up for all the voltage pins to read.
+            </summary>
+            <param name="voltageSupplies">List of voltage pins.</param>
+            <param name="samplingInterval">Sampling interval.</param>
+            <param name="thresholdVoltage">Threshold voltage for all pins.</param>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.VoltageSetup.SamplingInterval">
+            <summary>
+            Gets sampling interval of the voltage pins to stream.
+            </summary>
+        </member>
+        <member name="P:Prime.TimeUnderStressService.DataStructures.VoltageSetup.VoltageSuppliesThresholdMapping">
+            <summary>
+            Gets threshold voltage of the pins to determine the stress condition met or not.
+            </summary>
+        </member>
+        <member name="T:Prime.TimeUnderStressService.EmptyLogger">
+            <summary>
+            EmptyLogger.
+            </summary>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.EmptyLogger.LogInstanceData(System.Int32,System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TimeUnderStressService.ILogger">
+            <summary>
+            ILogger.
+            </summary>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ILogger.LogInstanceData(System.Int32,System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            LogInstanceData.
+            </summary>
+            <param name="stressTime">stressTime.</param>
+            <param name="nonStressTime">nonStressTime.</param>
+            <param name="currentInstance">currentInstance.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ILogger.WriteStrgvalToDatalog(System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes a value to datalog using the strgval format with the given postfix.
+            </summary>
+            <param name="value">value to write.</param>
+            <param name="postFix">postfix to append.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ILogger.WriteStrgvalToDatalog(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes a value to datalog using the strgval format with the given postfix.
+            </summary>
+            <param name="value">value to write.</param>
+            <param name="postFix">postfix to append.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ILogger.WriteStrgvalToDatalog(System.Double,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes a value to datalog using the strgval format with the given postfix.
+            </summary>
+            <param name="value">value to write.</param>
+            <param name="postFix">postfix to append.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ILogger.WriteComntToDatalog(System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes an int value to datalog using the comnt format with the given postfix.
+            </summary>
+            <param name="value">value to write.</param>
+            <param name="postFix">postfix to append.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ILogger.WriteComntToDatalog(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes a value to datalog using the comnt format with the given postfix.
+            </summary>
+            <param name="value">value to write.</param>
+            <param name="postFix">postfix to append.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="T:Prime.TimeUnderStressService.ITimeUnderStressService">
+            <summary>
+            This service is for logging time under stress data to shared storage.
+            </summary>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.Start(System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Starts data collection on given dps resource list. If per-instance datalog is enabled then datalog prints will be in the format:
+            0_tname_{InstanceName}_TUSLog
+            0_strgval{Total Non Stress Time in ms}|{Total Stress Time in ms}
+            Datalogging will occur on Stop() calls and during post execute.
+            </summary>
+            <param name="datalogEnabled">If the per-instance datalog is enabled or not.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <example>
+            Example code to Start Time Under Stress monitoring from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.Start(&lt;configurationName&gt;,&lt;voltageSuppliesThresholdMapping&gt;,&lt;samplingInterval&gt;,&lt;datalogEnabled&gt;,&lt;sessionContext&gt;)
+            </code>
+            </example>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Thrown when there is an active Time Under Stress configuration.</exception>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.Stop(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stops data collection on previously defined dps resource list. Writes stress/non-stress time to shared storage and datalog.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <example>
+            Example code to Stop Time Under Stress monitoring from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.Stop(&lt;sessionContext&gt;)
+            </code>
+            </example>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Thrown when there is no active Time Under Stress configuration.</exception>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.StopAll(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stops data collection on any active configuration. Writes stress/non-stress time to shared storage and datalog.
+            Will not error out in case there are no active configurations.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <example>
+            Example code to Stop All Time Under Stress monitoring from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.StopAll(&lt;sessionContext&gt;)
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.GetStressTime(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets currently stored stress time and writes to datalog if enabled. Stress time is updated using the Stop() function and during post execute.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Stress time in milliseconds.</returns>
+            <example>
+            Example code to Get Stress Time from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.GetStressTime(&lt;sessionContext&gt;)
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.GetNonStressTime(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets currently stored non-stress time. Non-stress time is updated using the Stop() function and during post execute.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Non Stress time in milliseconds.</returns>
+            <example>
+            Example code to Get Stress Time from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.GetNonStressTime(&lt;sessionContext&gt;)
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.IsTimeUnderStressActive(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks whether there is an active Time Under Stress Profile.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Whether or not there is a TUS profile active.</returns>
+            <example>
+            Example code to check Is Time Under Stress Active from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.IsTimeUnderStressActive(&lt;sessionContext&gt;)
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.SaveStressTimes(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Inserts stress time and non-stress time into Shared Storage.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <example>
+            Example code to Save Stress Times from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.SaveStressTimes(&lt;sessionContext&gt;)
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.LoopStatus(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Executes the LoopStatus validation over a TUS configuration.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>LoopStatus result:
+            Continue -> Continue port.
+            Exit -> Exit port.
+            Exceeded -> Flow loop above the given limit.
+            </returns>
+            <example>
+            Example code to run LoopStatus from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.LoopStatus(&lt;sessionContext&gt;)
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.GetConfiguration(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Retrieves the current TUS configuration from Storage.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The TUS configuration retrieved from Storage. If existing.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">In case no configuration is found.</exception>
+            <example>
+            Example code to GetConfiguration from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.GetConfiguration(&lt;sessionContext&gt;)
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.SetConfiguration(Prime.TimeUnderStressService.DataStructures.Configuration,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Saves the current TUS configuration in Storage.
+            </summary>
+            <param name="configuration">The TUS configuration to be stored.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <example>
+            Example code to SetConfiguration from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.SetConfiguration(&lt;configuration&gt;, &lt;sessionContext&gt;)
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.ITimeUnderStressService.DeleteConfiguration(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Deletes the current TUS configuration from Storage.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <example>
+            Example code to DeleteConfiguration from service.
+            <code>
+            Base.ServiceStore&lt;ITimeUnderStressService&gt;.Service.DeleteConfiguration(&lt;sessionContext&gt;)
+            </code>
+            </example>
+        </member>
+        <member name="T:Prime.TimeUnderStressService.Logger">
+            <summary>
+            Logger.
+            </summary>
+        </member>
+        <member name="T:Prime.TimeUnderStressService.LoopStatus">
+            <summary>
+            LoopStatus mode for Time Under Stress logger.
+            </summary>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.LoopStatus.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TimeUnderStressService.LoopStatus"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.LoopStatus.Execute">
+            <summary>
+            Executes the LoopStatus check for a specific TUS configuration.
+            </summary>
+            <returns>Port number based on the LoopStatus verifications:
+            1 -> Continue port.
+            2 -> Exit port.
+            -1 -> Flow loop above the given limit.
+            </returns>
+        </member>
+        <member name="T:Prime.TimeUnderStressService.TimeUnderStressConstants">
+            <summary>
+            Constants to be used in the entire TimeUnderStress logger project.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.StressTimeTag">
+            <summary>
+            Standard tag for stress time.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.NonStressTimeTag">
+            <summary>
+            Standard tag for non stress time.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.DoRemoveOnHoldDutStreamingSamples">
+            <summary>
+            Flag to determine whether or not to remove on hold streaming samples.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.CollectionDataType">
+            <summary>
+            Collection data type to be considered.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.TusConfigurationKey">
+            <summary>
+            Prefix for the TUS configuration object in shared storage.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.MaxAllowedTimeDiff">
+            <summary>
+            Maximum allowed time difference between sum of sTime and xTime compared to CompletedLoopTime.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.ExecuteFailPort">
+            <summary>
+            Port for Execution failure.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.MilliSecondsDenoter">
+            <summary>
+            Number to convert milliseconds to seconds.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.StressTimePerDieSavedForLoopStatus">
+            <summary>
+            Shared Storage token name to store Stress time per die.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.TimeDiffStartAndLastSnapshot">
+            <summary>
+            Key name to hold Time Difference from start to last snapshot.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.TimeOfLastFlush">
+            <summary>
+            Gets or sets the last time when ituff flush was called.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.LoopStatusAutoStimeItuffTag">
+            <summary>
+            LoopStatusAutoStimeItuffTag.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.LoopStatusAutoXtimeItuffTag">
+            <summary>
+            LoopStatusAutoXtimeItuffTag.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.LoopStatusAutoSummaryItuffTag">
+            <summary>
+            LoopStatusAutoSummaryItuffTag.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.LoopStatusStandardSummaryItuffTag">
+            <summary>
+            LoopStatusStandardSummaryItuffTag.
+            </summary>
+        </member>
+        <member name="F:Prime.TimeUnderStressService.TimeUnderStressConstants.LoopStatusStandardStimeItuffTag">
+            <summary>
+            LoopStatusStandardStimeItuffTag.
+            </summary>
+        </member>
+        <member name="T:Prime.TimeUnderStressService.TimeUnderStressService">
+            <inheritdoc cref="T:Prime.TimeUnderStressService.TimeUnderStressService"/>/>
+        </member>
+        <member name="M:Prime.TimeUnderStressService.TimeUnderStressService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TimeUnderStressService.TimeUnderStressService"/> class.
+            </summary>
+        </member>
+        <member name="T:TimeUnderStressService.DataStructures.LoopStatusResult">
+            <summary>
+            LoopStatus results.
+            </summary>
+        </member>
+        <member name="F:TimeUnderStressService.DataStructures.LoopStatusResult.Exit">
+            <summary>
+            Target stress time has been reached.
+            </summary>
+        </member>
+        <member name="F:TimeUnderStressService.DataStructures.LoopStatusResult.Continue">
+            <summary>
+            Target stress time is not reached yet.
+            </summary>
+        </member>
+        <member name="F:TimeUnderStressService.DataStructures.LoopStatusResult.Exceeded">
+            <summary>
+            Flow loop above the given limit.
+            </summary>
+        </member>
+    </members>
+</doc>

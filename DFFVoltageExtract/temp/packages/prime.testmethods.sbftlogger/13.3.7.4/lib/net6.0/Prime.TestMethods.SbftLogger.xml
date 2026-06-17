@@ -1,0 +1,815 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.SbftLogger</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.ChainLengths">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.ChainLengths.Scanout">
+            <summary>
+            Gets or sets the length of the scanout chain.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.ChainLengths.Iscan">
+            <summary>
+            Gets or sets the length of the iscan chain.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.ChainLengths.Lfsr">
+            <summary>
+            Gets or sets the length of the LFSR.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.ChainLengths.DrPaddedBitsShifts">
+            <summary>
+            Gets or sets the number of dummy DR bits required based upon TAP architecture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.ChainLengths.CtvPaddedBits">
+            <summary>
+            Gets or sets the number of dummy CTV bits used during chain captures. The template will “pad” CTVs with additional dummy captures at the start and end of each scanout, iscan, and lfsr capture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.ChainLengths.Mclk">
+            <summary>
+            Gets or sets the length of the internal register that stores the MCLK cycles and is needed to properly program the TAP to stop the SBFT test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.ChainLengths.MclkBitOffsetHi">
+            <summary>
+            Gets or sets mclk debug counter register offset.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.CharacterMap">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.CharacterMap.One">
+            <summary>
+            Gets or sets the instruction register pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.CharacterMap.Zero">
+            <summary>
+            Gets or sets the direction register pins.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.DesignConfigurationFile">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.DesignConfigurationFile.DesignName">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.DesignConfigurationFile.ChainLengths">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.DesignConfigurationFile.Fubs">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.DesignConfigurationFile.TapPins">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.DesignConfigurationFile.TapLink">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.Fub">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.Fub.Bitpos">
+            <summary>
+            Gets or sets the position within the LFSR of the fub signature.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.Fub.Partition">
+            <summary>
+            Gets or sets the “cluster” name within IA Architecure.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.Fub.Fubname">
+            <summary>
+            Gets or sets the name of the unique fub within the partition corresponding the signature bitpos and partition.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.Fubs">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.Fubs.SegmentLength">
+            <summary>
+            Gets or sets the Length of each FUB’s LFSR signature used during LFSR capture. .
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.Fubs.Priority">
+            <summary>
+            Gets or sets the priority ordering of the FUB partitions that determines which partition is data logged when more than one fails.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.Fubs.Fub">
+            <summary>
+            Gets or sets the Fub.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.HFPins">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.HFPins.Tms">
+            <summary>
+            Gets or sets the instruction register pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.HFPins.Tdi">
+            <summary>
+            Gets or sets the direction register pins.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.HFRegister">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.HFRegister.Ir">
+            <summary>
+            Gets or sets the instruction register pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.HFRegister.Dr">
+            <summary>
+            Gets or sets the direction register pins.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.TapLink">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.TapLink.Header">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.TapLink.Footer">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.TapLink.CharacterMap">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.TapPins">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.TapPins.Tms">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.TapPins.Tdi">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.TapPins.Tdo">
+            <summary>
+            Gets or sets the Fub.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Design.ConfigurationFile.Structures.TapPins.Tck">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.PrimeSbftLoggerDesignTestMethod">
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.PrimeSbftLoggerDesignTestMethod.ConfigurationFile">
+            <summary>
+            Gets or sets the Configuration file path.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.PrimeSbftLoggerDesignTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.PrimeSbftLoggerDesignTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.PrimeSbftLoggerDesignTestMethod.IsSchemaValidationEnabled">
+            <summary>
+            Returns if the schema validation should be processed for the configuration files handled by Aleph.
+            By default schema validation is disabled. But if IsSysCFileServiceUp = False (not a VPO or Production) the validation is enabled automatically.
+            This is to avoid the user to be aware of enabling the validation for local/eng runs or forget to set to False the parameter in a production TP to save init time.
+            </summary>
+            <returns>True if schema validation for configuration files should be executed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.SbftLoggerExecute.SbftFileHeader.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SbftLogger.SbftLoggerExecute.SbftFileHeader"/> class.
+            </summary>
+            <param name="programName">Contains test program name information.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.SbftLoggerExecute.SbftFileHeader.GetHeader">
+            <summary>
+            Get the header to print.
+            </summary>
+            <returns>the formatted header.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.SbftLoggerExecute.Structures.ModifyPatternConfiguration">
+            <summary>
+            Configuration for the Pattern Modify section.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.SbftLoggerExecute.Structures.ModifyPatternConfiguration.Component">
+            <summary>
+            Gets or sets the component type of modification.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.SbftLoggerExecute.Structures.ModifyPatternConfiguration.Offset">
+            <summary>
+            Gets or sets the Offset.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.SbftLoggerExecute.Structures.ModifyPatternConfiguration.NumberOfVectors">
+            <summary>
+            Gets or sets the NumberOfVectors.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.SbftLoggerExecute.Structures.ModifyPatternConfiguration.DataToModify">
+            <summary>
+            Gets or sets the DataToModify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.SbftLoggerExecute.Structures.ModifyPatternConfiguration.Label">
+            <summary>
+            Gets or sets the Label.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.SbftLoggerExecute.Structures.ModifyPatternConfiguration.Pattern">
+            <summary>
+            Gets or sets the Pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.SbftLoggerExecute.Structures.ModifyPatternConfiguration.Pin">
+            <summary>
+            Gets or sets the Pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.SbftLoggerExecute.Structures.ModifyPatternConfiguration.SessionContext">
+            <summary>
+            Gets or sets the SessionContext.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.SbftLoggerExecute.WaferLocation.IWaferLocation">
+            <summary>
+            Interface to handle the logic for creating raster header for Device Test Methods.
+            As location differs for Wafer and SingleDie test types, this interface provides the extensions to implement the corresponding logic for each test flow.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.SbftLoggerExecute.WaferLocation.IWaferLocation.GetXCoordinate">
+            <summary>
+            Gets the DUT X coordinate.
+            </summary>
+            <returns>DUT X coordinate on the wafer.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.SbftLoggerExecute.WaferLocation.IWaferLocation.GetYCoordinate">
+            <summary>
+            Gets the DUT Y coordinate.
+            </summary>
+            <returns>DUT Y coordinate on the wafer.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.SbftLoggerExecute.WaferLocation.WaferLocation">
+            <summary>
+            Extracts wafer Location from user vars to be used by the raster header.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.SbftLoggerExecute.WaferLocation.WaferLocation.GetXCoordinate">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.SbftLoggerExecute.WaferLocation.WaferLocation.GetYCoordinate">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.FileHandler">
+            <summary>
+            Main file handler implementation.
+            For basic file IOs operations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.FileHandler.CreateDirectory(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.FileHandler.CreateFile(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.FileHandler.WriteToFile(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.IFileHandler">
+            <summary>
+            File handling interfaces.
+            Usage of FileService is preferred.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.IFileHandler.CreateFile(System.String)">
+            <summary>
+            Read all file contents and return it content as string.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>FileStream.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.IFileHandler.CreateDirectory(System.String)">
+            <summary>
+            Read all file contents and return it content as string.
+            </summary>
+            <param name="directoryPath">File full path.</param>
+            <returns>DirectoryInfo.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.IFileHandler.WriteToFile(System.String)">
+            <summary>
+            Read all file contents and return it content as string.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>StreamWriter.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.ModifyMode">
+            <summary>
+            Operation mode for the extension.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.ModifyMode.REG">
+            <summary>
+            REG.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.ModifyMode.MCLK">
+            <summary>
+            MCLK.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.ModifyMode.CTV_GENERIC">
+            <summary>
+            CTVGENERIC.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod">
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod.ConfigurationFile">
+            <summary>
+            Gets or sets the Configuration file path.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod.DesignSettingsName">
+            <summary>
+            Gets or sets the Configuration file path.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod.Patlist">
+            <summary>
+            Gets or sets the PatList.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod.DatalogPlist">
+            <summary>
+            Gets or sets the DatalogPlist.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod.LevelsTc">
+            <summary>
+            Gets or sets the LevelsTc.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod.TimingsTc">
+            <summary>
+            Gets or sets the TimingsTc.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod.Domain">
+            <summary>
+            Gets or sets the Domain.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SbftLogger.PrimeSbftLoggerExecuteTestMethod.IsSchemaValidationEnabled">
+            <summary>
+            Returns if the schema validation should be processed for the configuration files handled by Aleph.
+            By default, schema validation is disabled. But if IsSysCFileServiceUp = False (not a VPO or Production) the validation is enabled automatically.
+            This is to avoid the user to be aware of enabling the validation for local/eng runs or forget to set to False the parameter in a production TP to save init time.
+            </summary>
+            <returns>True is schema validation for configuration files should be executed.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.SbftLoggerConstants">
+            <summary>
+            VadtlOverallConstants.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.SbftLoggerConstants.PinData">
+            <summary>
+            PinData.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.SbftLoggerConstants.Operand">
+            <summary>
+            Operand.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.SbftLoggerConstants.Mtv">
+            <summary>
+            Mtv.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.SbftLoggerConstants.Ctv">
+            <summary>
+            Ctv.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.SbftLoggerConstants.Logical1">
+            <summary>
+            Logical1.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.SbftLoggerConstants.InstructionFromArgSplitChar">
+            <summary>
+            InstructionFromArgSplitChar.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.SbftLoggerConstants.CallOpcode">
+            <summary>
+            Call opcode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.SbftLoggerConstants.ChainData">
+            <summary>
+            ChainData.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SbftLogger.SbftLoggerConstants.ChainType">
+            <summary>
+            ChainType.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.Mode">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.TestName">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.PostPatternCleanup">
+            <summary>
+            Gets or sets a value indicating whether the pattern will clean after the execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.NumClksForward">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.NumClksBackwards">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.NumPatterns">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.MaxFailingPatterns">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.PreambleRePrefixes">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.MidambleRePrefixes">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.CallDftLabel">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.CallDumpLabel">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.MclkResetLimit">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.TargetPattern">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.TargetMclk">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.EndMclk">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.TapFiles">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.PartitionTapFiles">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.OutputDirectory">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.ExecuteConfigurationFile.MclkOffset">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.PartitionTapFiles">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.PartitionTapFiles.Name">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.PartitionTapFiles.File">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.TapFiles">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.TapFiles.Lfsr">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.TapFiles.Scanout">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.TapFiles.ScanoutSign">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Execute.ConfigurationFile.Structures.TapFiles.ChainTest">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Shared.ChainLengths">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.ChainLengths.Scanout">
+            <summary>
+            Gets or sets the length of the scanout chain.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.ChainLengths.Iscan">
+            <summary>
+            Gets or sets the length of the iscan chain.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.ChainLengths.Lfsr">
+            <summary>
+            Gets or sets the length of the LFSR.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.ChainLengths.DrPaddedBitsShifts">
+            <summary>
+            Gets or sets the number of dummy DR bits required based upon TAP architecture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.ChainLengths.CtvPaddedBits">
+            <summary>
+            Gets or sets the number of dummy CTV bits used during chain captures. The template will “pad” CTVs with additional dummy captures at the start and end of each scanout, iscan, and lfsr capture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.ChainLengths.Mclk">
+            <summary>
+            Gets or sets the lenth of the internal register that stores the MCLK cycles and is needed to properly program the TAP to stop the SBFT test. .
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Shared.CharacterMap">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.CharacterMap.One">
+            <summary>
+            Gets or sets the instruction register pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.CharacterMap.Zero">
+            <summary>
+            Gets or sets the direction register pins.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Shared.DesignSetting">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.DesignSetting.DesignName">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.DesignSetting.ChainLengths">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.DesignSetting.Fubs">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.DesignSetting.TapPins">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.DesignSetting.TapLink">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Shared.Fub">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.Fub.Bitpos">
+            <summary>
+            Gets or sets the position within the LFSR of the fub signature.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.Fub.Partition">
+            <summary>
+            Gets or sets the “cluster” name within IA Architecure.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.Fub.Fubname">
+            <summary>
+            Gets or sets the name of the unique fub within the partition corresponding the signature bitpos and partition.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Shared.Fubs">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.Fubs.SegmentLength">
+            <summary>
+            Gets or sets the Length of each FUB’s LFSR signature used during LFSR capture. .
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.Fubs.Priority">
+            <summary>
+            Gets or sets the priority ordering of the FUB partitions that determines which partition is data logged when more than one fails.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.Fubs.Fub">
+            <summary>
+            Gets or sets the Fub.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Shared.HFPins">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.HFPins.Tms">
+            <summary>
+            Gets or sets the instruction register pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.HFPins.Tdi">
+            <summary>
+            Gets or sets the direction register pins.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Shared.HFRegister">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.HFRegister.Ir">
+            <summary>
+            Gets or sets the instruction register pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.HFRegister.Dr">
+            <summary>
+            Gets or sets the direction register pins.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Shared.TapLink">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.TapLink.Header">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.TapLink.Footer">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.TapLink.CharacterMap">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SbftLogger.Shared.TapPins">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.TapPins.Tms">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.TapPins.Tdi">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.TapPins.Tdo">
+            <summary>
+            Gets or sets the Fub.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SbftLogger.Shared.TapPins.Tck">
+            <summary>
+            Gets or sets the Pin names of the TAP signals from the pindef file.
+            </summary>
+        </member>
+    </members>
+</doc>

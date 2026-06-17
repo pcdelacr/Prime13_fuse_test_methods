@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.SortRMALogger</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod">
+            <summary>
+            The PrimeSortRMALoggerTestMethod class is a test method designed to log Readable Memory Address (RMA) data to ITUFF based on the specified capture mode.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod.RMALoggerMode">
+            <summary>
+            Display RMA (Readable Memory Address) on ITUFF.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod.RMALoggerMode.ENABLED">
+            <summary>
+            Enables ITUFF printing
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod.RMALoggerMode.DISABLED">
+            <summary>
+            Disables ITUFF printing
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod.RMALogger">
+            <summary>
+            Gets or sets RMA Logger capture mode. If DISABLED (default), no RMA data will be printed to the ITUFF.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod.RMATupleMapping">
+            <summary>
+            Gets or sets the mapping for extracting a pattern's tuple.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod.CustomVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod.Execute">
+            <summary>
+            Check the capture mode and, if enabled, retrieves failure data from the functional test, organizes it by pattern, and writes the results to ITUFF.
+            </summary>
+            <returns>Exit port number.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod.Prime#TestMethods#Functional#IFunctionalExtensions#ProcessFailures(Prime.FunctionalService.ICaptureFailureTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod.PatternToTuple(System.String)">
+            <summary>
+            Takes a pattern name and returns the tuple using the stored tuple mapping.
+            </summary>
+            <param name="pattern">The full name of a pattern.</param>
+            <returns>The tuple.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortRMALogger.PrimeSortRMALoggerTestMethod.PrintToItuff(System.String)">
+            <summary>
+            Prints the input to the ITUFF.
+            </summary>
+            <param name="message">Message to print.</param>
+        </member>
+    </members>
+</doc>

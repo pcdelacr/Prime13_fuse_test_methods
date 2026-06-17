@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.ConsoleService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.ConsoleService.ConsoleService">
+            <summary>
+            ConsoleService implementation.
+            </summary>
+        </member>
+        <member name="T:Prime.ConsoleService.ConsoleSessionContextProvider">
+            <summary>
+            The console log level provider.
+            </summary>
+        </member>
+        <member name="M:Prime.ConsoleService.ConsoleSessionContextProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ConsoleService.ConsoleSessionContextProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.ConsoleService.ConsoleSessionContextProvider.HandleMessage">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.ConsoleService.PrimeConsoleLogLevel">
+            <summary>
+            The log level to print to messages to the console.
+            </summary>
+        </member>
+        <member name="F:Prime.ConsoleService.PrimeConsoleLogLevel.Disabled">
+            <summary>
+            No debug messages will be printed.
+            </summary>
+        </member>
+        <member name="F:Prime.ConsoleService.PrimeConsoleLogLevel.Enabled">
+            <summary>
+            Only Test Method debug messages will be printed.
+            </summary>
+        </member>
+        <member name="T:Prime.ConsoleService.IConsoleService">
+            <summary>
+            <para>ConsoleService - Prints data to the console.</para>
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.ISessionService"/>.</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.ConsoleService.IConsoleService.Print(System.String)">
+            <summary>
+            Prints input message always.
+            </summary>
+            <param name="message">The message to print.</param>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.Print("Message to be printed");
+            </code>
+            Code example:
+            <code>
+            Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.Print($"Setting value={this.ValueToStore} to the key={this.KeyToStore}");
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.ConsoleService.IConsoleService.PrintEmphasize(System.String)">
+            <summary>
+            Prints input message always in emphasized color (red).
+            </summary>
+            <param name="message">The message to print.</param>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.PrintEmphasize("Message to be printed");
+            </code>
+            Code example:
+            <code>
+            Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.PrintEmphasize($"Setting value={this.ValueToStore} to the key={this.KeyToStore}");
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.ConsoleService.IConsoleService.PrintDebug(System.Func{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            The construction and printing of the message will occur only when debug mode is enabled.
+            </summary>
+            <param name="message">Function returning the message to print.</param>
+            <param name="sessionContext">The current session context object.</param>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.PrintDebug(() => "Message to be printed", this.SessionContext);
+            </code>
+            Code example:
+            <code>
+            Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.PrintDebug(() => $"Setting value={this.ValueToStore} to the key={this.KeyToStore}", this.SessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.ISessionContextProviderContainer"/>.</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.ConsoleService.IConsoleService.PrintError(System.String,Prime.SessionService.ISessionContextProviderContainer,System.Int32,System.String,System.String)">
+            <summary>
+            Prints error message to the console.
+            </summary>
+            <param name="errorMessage">The message to print.</param>
+            <param name="sessionContext">The current session context object.</param>
+            <param name="sourceLineNumber">The caller line number, keep empty will auto-populate by the compiler.</param>
+            <param name="memberName">The caller function, keep empty will auto-populate by the compiler.</param>
+            <param name="sourceFilePath">The caller file, Keep empty will auto-populate by the compiler.</param>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.PrintError("Number of userVars must match the number of pins.\n", sessionContext);
+            </code>
+            Code example:
+            <code>
+            Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.PrintError($"UserVar=[{userVarName}] doesn't exists.\n", sessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.ConsoleService.IConsoleService.PrintError(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Prints error message with stack trace to the console.
+            </summary>
+            <param name="errorMessage">The message to print.</param>
+            <param name="stackTrace">The stack trace coming from the exception.</param>
+            <param name="sessionContext">The current session context object.</param>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            try
+            {
+                Prime.Base.ServiceStore&lt;IDffService&gt;.Service.SetDff(olbName, dataBin, this.tpTypeDieId, this.SessionContext);
+            }
+            catch (Prime.Base.Exceptions.DffException ex)
+            {
+                ex.GetConsolePrintout(this.InstanceName, out var errorMessage, out var stackTrace);
+                Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.PrintError(errorMessage, stackTrace, sessionContext);
+            }
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.ConsoleService.IConsoleService.PrintError(System.Exception,Prime.SessionService.ISessionContextProviderContainer,System.Int32,System.String,System.String)">
+            <summary>
+            Prints error message with stack trace to the console.
+            </summary>
+            <param name="exception">The exception to print.</param>
+            <param name="sessionContext">The current session context object.</param>
+            <param name="sourceLineNumber">The caller line number, keep empty will auto-populate by the compiler.</param>
+            <param name="memberName">The caller function, keep empty will auto-populate by the compiler.</param>
+            <param name="sourceFilePath">The caller file, Keep empty will auto-populate by the compiler.</param>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            try
+            {
+                Prime.Base.ServiceStore&lt;IDffService&gt;.Service.SetDff(olbName, dataBin, this.tpTypeDieId, this.SessionContext);
+            }
+            catch (Prime.Base.Exceptions.DffException ex)
+            {
+                Prime.Base.ServiceStore&lt;IConsoleService&gt;.Service.PrintError(ex, sessionContext);
+            }
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="T:Prime.ConsoleService.Internal.IConsoleService">
+            <summary>
+            Console service interface.
+            </summary>
+        </member>
+        <member name="M:Prime.ConsoleService.Internal.IConsoleService.DumpPrintDebugRecall(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Dumps the accumulated debug console if the feature was enabled.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.ConsoleService.Internal.IConsoleService.ClearPrintDebugRecall(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clears the accumulated debug console if the feature was enabled.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="T:Prime.ConsoleService.PrintDebugRecallContextProvider">
+            <summary>
+            Debug console context provider.
+            </summary>
+        </member>
+        <member name="M:Prime.ConsoleService.PrintDebugRecallContextProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ConsoleService.PrintDebugRecallContextProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.ConsoleService.PrintDebugRecallContextProvider.HandleMessage">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.ConsoleService.PrintDebugRecallContextProvider.PrintDebugRecall">
+            <summary>
+            Debug console.
+            </summary>
+        </member>
+    </members>
+</doc>

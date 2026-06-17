@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimePinMonitorTestMethod" MetaData="dll=Prime.TestMethods.PinMonitor" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimePinMonitorTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="DumpMode" descriptions="The Dump mode.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>AverageInstance</Choice>
+          <Choice>Full</Choice>
+          <Choice>Stats</Choice>
+        </Choices>
+        <Default>Full</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="Mode" descriptions="The Monitor modes.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Start</Choice>
+          <Choice>Stop</Choice>
+          <Choice>StopAll</Choice>
+        </Choices>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="ConfigurationName" descriptions="The Configuration Name.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="SamplingInterval" descriptions="Sampling interval in milliseconds.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>4</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TagName" descriptions="The suffix Tag Name for ituff purpose only.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>5</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT - INTEGRITY HIGH LIMIT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>4</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT - INTEGRITY LOW LIMIT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>3</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT - THERMAL HIGH LIMIT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT - THERMAL LOW LIMIT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

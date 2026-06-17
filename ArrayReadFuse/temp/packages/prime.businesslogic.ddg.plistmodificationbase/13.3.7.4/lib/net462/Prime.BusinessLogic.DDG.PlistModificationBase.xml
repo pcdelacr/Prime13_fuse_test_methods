@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.DDG.PlistModificationBase</name>
+    </assembly>
+    <members>
+        <member name="T:DDG.IPlistElementOptions">
+            <summary>
+            Interface for PlistElementOptions.
+            </summary>
+        </member>
+        <member name="P:DDG.IPlistElementOptions.PlistName">
+            <summary>
+            Gets the name of the Plist.
+            </summary>
+        </member>
+        <member name="P:DDG.IPlistElementOptions.PlistObject">
+            <summary>
+            Gets the Plist object.
+            </summary>
+        </member>
+        <member name="M:DDG.IPlistElementOptions.Find(System.String)">
+            <summary>
+            Recursive find for PlistElementOptions.
+            </summary>
+            <param name="plistName">Plist name.</param>
+            <returns>Node.</returns>
+        </member>
+        <member name="M:DDG.IPlistElementOptions.Dispose">
+            <summary>
+            Cleans the PlistElementOptions instances for the specified session context.
+            </summary>
+        </member>
+        <member name="M:DDG.IPlistElementOptions.UpdateSinglePlistElementOption(System.UInt32,System.Collections.Generic.KeyValuePair{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            Updates a single Plist element option.
+            </summary>
+            <param name="index">The index of the option.</param>
+            <param name="option">The key-value pair representing the option.</param>
+            <param name="variables">The dictionary of variables.</param>
+        </member>
+        <member name="M:DDG.IPlistElementOptions.Restore">
+            <summary>
+            Restores the Plist element options.
+            </summary>
+        </member>
+        <member name="M:DDG.IPlistElementOptions.Resolve">
+            <summary>
+            Resolves the Plist element options.
+            </summary>
+        </member>
+        <member name="T:DDG.IPlistModifications">
+            <summary>
+            Interface for pattern modification. Helper for Prime PatConfig.
+            </summary>
+        </member>
+        <member name="M:DDG.IPlistModifications.GetPlistElementOptions(Prime.PlistService.IPlistObject,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Builds/Fetches plist element options object.
+            </summary>
+            <param name="plist">Plist object.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+            <returns>Plist element options object.</returns>
+        </member>
+        <member name="M:DDG.IPlistModifications.GetPlistTreeInfo(Prime.PlistService.IPlistObject,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Builds/Fetches plist tree information.
+            </summary>
+            <param name="plist">Plist object.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+            <param name="getHwExecutionSeq">Reads hardware execution sequence.</param>
+            <returns>Plist tree information.</returns>
+        </member>
+        <member name="M:DDG.IPlistModifications.Clean(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Removes tree node from concurrent data structure.
+            </summary>
+            <param name="plist">Plist name. If empty it will delete the entire tree.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+        </member>
+        <member name="M:DDG.IPlistModifications.Clean(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Cleans the plist tree and plist options.
+            </summary>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+        </member>
+        <member name="M:DDG.IPlistModifications.RestorePlistElementOptions(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Restores plist element options.
+            </summary>
+            <param name="plist">Plist name. If empty it will delete the entire tree.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+        </member>
+        <member name="T:DDG.IPlistTreeInfo">
+            <summary>
+            Represents a plist tree.
+            </summary>
+        </member>
+        <member name="P:DDG.IPlistTreeInfo.PlistObject">
+            <summary>
+            Gets the plist object.
+            </summary>
+        </member>
+        <member name="P:DDG.IPlistTreeInfo.PlistName">
+            <summary>
+            Gets the parent PlistName.
+            </summary>
+        </member>
+        <member name="P:DDG.IPlistTreeInfo.Children">
+            <summary>
+            Gets the plist children objects.
+            </summary>
+        </member>
+        <member name="P:DDG.IPlistTreeInfo.Contents">
+            <summary>
+            Gets the plist contents.
+            </summary>
+        </member>
+        <member name="P:DDG.IPlistTreeInfo.PatternOccurrences">
+            <summary>
+            Gets the plist pattern occurrences in HW execution order.
+            </summary>
+        </member>
+        <member name="M:DDG.IPlistTreeInfo.Find(System.String)">
+            <summary>
+            Recursive find for PlistElementOptions.
+            </summary>
+            <param name="plistName">Plist name.</param>
+            <returns>Node.</returns>
+        </member>
+        <member name="M:DDG.IPlistTreeInfo.Dispose">
+            <summary>
+            Clears the children and removes the instance from the Instances dictionary.
+            </summary>
+        </member>
+        <member name="T:DDG.PlistElementOptions">
+            <summary>
+            Defines a plist tree.
+            </summary>
+        </member>
+        <member name="F:DDG.PlistElementOptions.Instances">
+            <summary>
+            Stores all plist element options instances.
+            </summary>
+        </member>
+        <member name="M:DDG.PlistElementOptions.#ctor(Prime.PlistService.IPlistObject,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.PlistElementOptions"/> class.
+            </summary>
+            <param name="plistObject">Parent plist object.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+        </member>
+        <member name="M:DDG.PlistElementOptions.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:DDG.PlistElementOptions"/> class.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistElementOptions.PlistName">
+            <inheritdoc />
+        </member>
+        <member name="P:DDG.PlistElementOptions.PlistObject">
+            <inheritdoc />
+        </member>
+        <member name="P:DDG.PlistElementOptions.Console">
+            <summary>
+            Gets a variable holding Prime.Services.ConsoleService or null depending on the current instances LogLevel.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistElementOptions.SessionContext">
+            <summary>
+            Gets a variable containing the ISessionContextProviderContainer for this instance.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistElementOptions.ElementOptionsDirtyFlag">
+            <summary>
+            Gets or sets a value indicating whether plist element options are dirty.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistElementOptions.RestoreElementsOptions">
+            <summary>
+            Gets the element options to restore.
+            </summary>
+        </member>
+        <member name="M:DDG.PlistElementOptions.Find(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistElementOptions.UpdateSinglePlistElementOption(System.UInt32,System.Collections.Generic.KeyValuePair{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistElementOptions.Restore">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistElementOptions.Resolve">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistElementOptions.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistElementOptions.CreateInstance(Prime.PlistService.IPlistObject,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new instance of the <see cref="T:DDG.PlistElementOptions"/> class if it doesn't already exist in the container.
+            </summary>
+            <param name="plistObject">Parent plist object.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+            <returns>The created or existing instance of <see cref="T:DDG.PlistElementOptions"/>.</returns>
+        </member>
+        <member name="M:DDG.PlistElementOptions.Clean(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Cleans the PlistElementOptions instances for the specified session context.
+            </summary>
+            <param name="plist">PList name.</param>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:DDG.PlistElementOptions.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Cleans the PlistElementOptions instances for the specified session context without restoring to the original state.
+            </summary>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:DDG.PlistElementOptions.Restore(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Restores the PlistElementOptions instances for the specified session context.
+            </summary>
+            <param name="plist">PList name.</param>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:DDG.PlistElementOptions.RestorePlistElementOptions">
+            <summary>
+            Restores plist element options.
+            </summary>
+        </member>
+        <member name="T:DDG.PlistModifications">
+            <summary>
+            Singleton for PatternModifications service.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistModifications.Service">
+            <summary>
+            Gets or sets Dlvr service implementation.
+            </summary>
+        </member>
+        <member name="T:DDG.PlistModificationsImpl">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistModificationsImpl.GetPlistElementOptions(Prime.PlistService.IPlistObject,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistModificationsImpl.GetPlistTreeInfo(Prime.PlistService.IPlistObject,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistModificationsImpl.Clean(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistModificationsImpl.Clean(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistModificationsImpl.RestorePlistElementOptions(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:DDG.PlistTreeInfo">
+            <summary>
+            Defines a plist tree.
+            </summary>
+        </member>
+        <member name="F:DDG.PlistTreeInfo.Instances">
+            <summary>
+            Stores all instances of PlistTreeImmutable.
+            </summary>
+        </member>
+        <member name="M:DDG.PlistTreeInfo.#ctor(Prime.PlistService.IPlistObject,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.PlistTreeInfo"/> class.
+            </summary>
+            <param name="plistObject">Parent plist object.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+            <param name="getHwExecutionSeq">Reads HW execution sequence.</param>
+        </member>
+        <member name="M:DDG.PlistTreeInfo.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:DDG.PlistTreeInfo"/> class.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistTreeInfo.PlistObject">
+            <inheritdoc />
+        </member>
+        <member name="P:DDG.PlistTreeInfo.PlistName">
+            <inheritdoc />
+        </member>
+        <member name="P:DDG.PlistTreeInfo.Children">
+            <inheritdoc />
+        </member>
+        <member name="P:DDG.PlistTreeInfo.Contents">
+            <inheritdoc />
+        </member>
+        <member name="P:DDG.PlistTreeInfo.PatternOccurrences">
+            <inheritdoc />
+        </member>
+        <member name="P:DDG.PlistTreeInfo.Console">
+            <summary>
+            Gets a variable holding Prime.Services.ConsoleService or null depending on the current instances LogLevel.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistTreeInfo.SessionContext">
+            <summary>
+            Gets a variable containing the ISessionContextProviderContainer for this instance.
+            </summary>
+        </member>
+        <member name="M:DDG.PlistTreeInfo.Find(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:DDG.PlistTreeInfo.Dispose">
+            <summary>
+            Clears the children and removes the instance from the Instances dictionary.
+            </summary>
+        </member>
+        <member name="M:DDG.PlistTreeInfo.CreateInstance(Prime.PlistService.IPlistObject,Prime.SessionService.ISessionContextProviderContainer,System.Boolean)">
+            <summary>
+            Creates a PlistTreeImmutable instance.
+            </summary>
+            <param name="plistObject">Parent plist object.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+            <param name="getHwExecutionSeq">Reads HW execution sequence.</param>
+            <returns>Object.</returns>
+        </member>
+        <member name="M:DDG.PlistTreeInfo.Clean(System.String)">
+            <summary>
+            Cleans the PlistTreeImmutable instances.
+            </summary>
+            <param name="plistName">Plist name to clean. If null or empty, clears all instances.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,73 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "required": [ "UserVar", "DuplicatedCompareValues", "DFFTokenList", "Compares"],
+    "properties": {
+        "UserVar": {
+            "type": "object",
+            "description": "Contains the UserVar name that is needed for a comparison",
+            "required": [ "Name", "CharPos", "Count"],
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "description": "UserVar name"
+                },
+                "CharPos": {
+                    "type": "string",
+                    "description": "Indicates the position of the start character needed to be indexed from with the UserVar value string"
+                },
+                "Count": {
+                    "type": "string",
+                    "description": "Indicates the character count from the start character"
+                }
+            }
+        },
+        "DuplicatedCompareValues": {
+            "type": "boolean",
+            "description": "Indicates duplication of CompareValue are permitted" 
+        },
+        "DFFTokenList": {
+            "type": "array",
+            "description": "Specifies the DFF token list",
+            "items": {
+                "type": "string"
+            }
+        },
+        "Compares": {
+            "type": "array",
+            "description": "The value that will be used to compare against the UserVar sub-string value",
+            "items": {
+            "type":"object",
+            "required": ["Value", "DFF"], 
+            "properties": {
+                "Value": {
+                    "type": "string"
+                },
+                "CatchAll": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "DFF" : {
+                    "type": "array",
+                    "items": {"$ref" : "#/definitions/DFF"}
+                }
+            }
+        }
+    }    
+    },
+    "definitions": {
+        "DFF": {
+            "type": "object",
+            "description": "Specifies the DFF token name and its value. ",
+            "required": [ "Token", "Value" ],
+            "properties": {
+                "Token": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,119 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "required": [ "Subflows" ],
+    "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },        
+        "Subflows": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "$ref": "#/definitions/SubflowItem"
+            }
+        }
+    },
+    "definitions": {
+        "SubflowItem": {
+            "type": "object",
+            "required": [
+                "Name",
+                "IP"
+            ],
+            "properties": {
+                "Name": {
+                    "$ref": "#/definitions/NonEmptyString"
+                },
+                "IP": {
+                    "$ref": "#/definitions/IP"
+                }
+            }
+        },
+        "IP": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "$ref": "#/definitions/IpDefinition"
+            }
+        },
+        "IpDefinition": {
+            "type": "object",
+            "required": [ "Name", "Destinations", "BitWidth", "Sockets" ],
+            "properties": {
+                "Name": { "$ref": "#/definitions/NonEmptyString" },
+                "Destinations": { "$ref": "#/definitions/Destinations"},
+                "BitWidth": { "$ref": "#/definitions/NonZeroInteger"},
+                "Sockets": { "$ref": "#/definitions/Sockets" }
+            }
+        },
+        "Destinations": {
+            "type": "array",
+            "minItems": 1,
+            "items": { 
+                "type": "string",
+                "enum": [ "Storage", "Datalog" ]
+            }
+        },
+        "Sockets": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/definitions/SocketsDefinition" }
+        },
+        "SocketsDefinition": {
+            "type": "object",
+            "required": [ "Name", "ReportItems", "Inputs" ],
+            "properties": {
+                "Name": { "$ref": "#/definitions/NonEmptyString" },
+                "ReportItems": { "$ref": "#/definitions/ReportItems" },
+                "Inputs": { "$ref": "#/definitions/Inputs" }
+            }
+        },
+        "ReportItems": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "string",
+                "enum": [ "Vector", "GoodCount", "BadCount" ]                    
+            }
+        },
+        "Inputs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/definitions/InputsDefinition" }
+        },
+        "InputsDefinition": {
+          "type": "object",
+          "required": [ "Structure", "BitMap", "SourceType" ],
+          "properties": {
+            "Structure": { "$ref": "#/definitions/NonEmptyString" },
+            "BitMap": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/definitions/ZeroInteger" }
+            },
+            "SourceType": { "$ref": "#/definitions/SourceType" },
+            "SourceName": { "$ref": "#/definitions/NonEmptyString" }
+          }
+        },
+        "SourceType": {
+          "type": "string",
+          "enum" : [ "Service", "Storage", "UserVar" ] 
+        },
+        "NonEmptyString": {
+            "type": "string",
+            "minLength": 1
+        },
+        "NonZeroInteger": {
+            "type": "integer",
+            "minimum": 1
+        },
+        "ZeroInteger": {
+            "type": "integer",
+            "minimum": 0
+        }
+    }
+}

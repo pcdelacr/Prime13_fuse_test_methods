@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.ScoreboardLogger</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.ScoreboardLogger.IScoreboardFactory">
+            <summary>
+            Interface to abstract the building of a packet handler based on a given configurationName.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.IScoreboardFactory.CreateLogger(System.Int32,System.String,System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns an interface to a Scoreboard Logger which can process Scoreboard data.
+            </summary>
+            <param name="baseNumber">The base number under which to store Scoreboard counters.</param>
+            <param name="patternNameMap">A string of comma-separated integers which map characters in the
+            pattern name to produce a scoreboard counter.
+            Positive indexes starting at 0 map to characters at the start of the string to map and forward.
+            Negative indexes starting at -1 map to characters at the end of the string to map and backwards.</param>
+            <param name="maxFails">The max number of fails that can be processed.
+            If the maximum number of failures is reached then a single additional counter will be logged. This maxfails counter will
+            consist of the base number plus a string made up with instances of the character '9' only. The number of 9s used will be
+            equal to the number of indexes on the PatternNameMap. For example, with Base Number "1234" and a
+            PatternNameMap containing 5 indexes, the maxfails counter to be logged is "123499999".</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Scoreboard Logger.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.IScoreboardFactory.CreateResults(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns an object of the IScoreboardResults to retrieve the scoreboard results of the current DUT.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>An IScoreboardResults.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.ScoreboardLogger.FactoryBuilder">
+            <summary>
+            Builds a default IInputDataFactory.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.FactoryBuilder.Build">
+            <summary>
+            Builds a default IInputDataFactory.
+            </summary>
+            <returns>A default IInputDataFactory.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.ScoreboardLogger.IScoreboardLogger">
+            <summary>
+            Scoreboard Logger interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.IScoreboardLogger.ProcessFailData(System.Collections.Generic.List{System.String})">
+            <summary>
+            Clear existing data and processes scoreboard data.
+            </summary>
+            <param name="failingPatternsNames">The failure pattern names to process.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.IScoreboardLogger.ProcessFailData(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.ValueTuple{System.String,System.String}}})">
+            <summary>
+            Clear existing data and processes scoreboard data.
+            </summary>
+            <param name="failingExecutionInfo">The failure execution info (occurences/burstIDs...).</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.IScoreboardLogger.PrintCountersToItuff(System.String)">
+            <summary>
+            Print scoreboard counters to ituff.
+            </summary>
+            <param name="tnamePostfix">Test instance name postfix.</param>>
+        </member>
+        <member name="T:Prime.BusinessLogic.ScoreboardLogger.IScoreboardResults">
+            <summary>
+            Scoreboard Service interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.IScoreboardResults.GetAllCounters">
+            <summary>
+            Returns all the counters that have been processed by all loggers.
+            </summary>
+            <returns>A list with all the counters from all Loggers.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.ScoreboardLogger.ScoreboardDataManager">
+            <summary>
+            This class manages the scoreboard data in the shared storage.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardDataManager.#ctor(Prime.SharedStorageService.ISharedStorageService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.ScoreboardLogger.ScoreboardDataManager"/> class.
+            </summary>
+            <param name="sharedStorageService">Shared Storage service.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardDataManager.WriteScoreboardCounters(System.Int32,System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Stores scoreboard counters into the shared storage.
+            </summary>
+            <param name="baseNumber">The base number for the counters to be stored.</param>
+            <param name="scoreboardCounters">A hashset containing the scoreboard counters to store.
+            The counters must be prefixed with the base number.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardDataManager.ReadScoreboardCounters(System.Int32)">
+            <summary>
+            Returns the current scoreboard counters for the given base number.
+            </summary>
+            <param name="baseNumber">The base number of the counters to be read.</param>
+            <returns>A hashset with the counters prefixed with the base number.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardDataManager.GetBaseNumberList">
+            <summary>
+            Returns a the base numbers that have been stored in the shared storage.
+            </summary>
+            <returns>A hashset containing the base numbers that have been saved in the shared storage.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardDataManager.AddBaseNumberToList(System.Int32)">
+            <summary>
+            Updates the Shared Storage list of base numbers with the current base number.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.ScoreboardLogger.ScoreboardFactory">
+            <summary>
+            Builds a default ScoreboardLogger object.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardFactory.CreateLogger(System.Int32,System.String,System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardFactory.CreateResults(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger">
+            <summary>
+            Implementation of the Scoreboard Logger interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.#ctor(Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.LoggerParams,Prime.BusinessLogic.ScoreboardLogger.ScoreboardDataManager,Prime.DatalogService.IDatalogService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger"/> class.
+            </summary>
+            <param name="parameters">Struct with users parameters required.</param>
+            <param name="dataManager">The scoreboard data manager which accesses the shared storage.</param>
+            <param name="datalogService">Datalog service.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.ProcessFailData(System.Collections.Generic.List{System.String})">
+            <inheritdoc cref="T:Prime.BusinessLogic.ScoreboardLogger.IScoreboardLogger"/>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.ProcessFailData(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.ValueTuple{System.String,System.String}}})">
+            <inheritdoc cref="T:Prime.BusinessLogic.ScoreboardLogger.IScoreboardLogger"/>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.PrintCountersToItuff(System.String)">
+            <inheritdoc cref="T:Prime.BusinessLogic.ScoreboardLogger.IScoreboardLogger"/>>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.GetMappedString(System.String,System.String)">
+            <summary>
+            Returns a string containing the characters that are mapped by the provided index map.
+            </summary>
+            <param name="stringToMap">The string from which to map the indexed characters.</param>
+            <param name="indexMap">A string with comma-separated integer indexes.
+            Each index represents the position of a corresponding character in the string to map.
+            Positive indexes starting at 0 map to characters at the start of the string to map and forward.
+            Negative indexes starting at -1  map to characters at the end of the string to map and backwards.</param>
+            <returns>The string of characters that were mapped with the index map.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.LoggerParams">
+            <summary>
+            Simple struct with user params.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.LoggerParams.BaseNumber">
+            <summary>
+            The base number under which to store Scoreboard counters.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.LoggerParams.PatternNameMap">
+            <summary>
+            A string of comma-separated integers which map characters in the
+            pattern name to produce a scoreboard counter.
+            Positive indexes starting at 0 map to characters at the start of the string to map and forward.
+            Negative indexes starting at -1 map to characters at the end of the string to map and backwards.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.LoggerParams.MaxFails">
+            <summary>
+            The max number of fails that can be processed.
+            If a negative number is passed the maximum possible value will be used.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.LoggerParams.#ctor(System.Int32,System.String,System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.ScoreboardLogger.ScoreboardLogger.LoggerParams"/> struct.
+            </summary>
+            <param name="baseNumber">The base number under which to store Scoreboard counters.</param>
+            <param name="patternNameMap">A string of comma-separated integers which map characters in the
+            pattern name to produce a scoreboard counter.
+            Positive indexes starting at 0 map to characters at the start of the string to map and forward.
+            Negative indexes starting at -1 map to characters at the end of the string to map and backwards.</param>
+            <param name="maxFails">The max number of fails that can be processed.
+            If a negative number is passed the maximum possible value will be used.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.ScoreboardLogger.ScoreboardResults">
+            <summary>
+            ScoreBoard Service main class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardResults.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.ScoreboardLogger.ScoreboardResults"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.ScoreboardLogger.ScoreboardResults.GetAllCounters">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

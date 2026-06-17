@@ -1,0 +1,564 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.DcService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.DcService.DcResults">
+            <summary>
+            DcResults.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.DcResults.#ctor(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}}},System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DcService.DcResults"/> class.
+            </summary>
+            <param name="perGroupPerPinResults">raw data of DcResults.</param>
+            <param name="pinToPinGroupInSuperPinGroupMap">SuperPinGroup map.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DcService.DcResults.#ctor(System.Collections.Generic.List{Prime.DcService.IPinGroupDcResults},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DcService.DcResults"/> class.
+            </summary>
+            <param name="results">Pin groups results.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DcService.DcResults.PrintToDatalog(Prime.DcService.DatalogLevel,Prime.DcService.DcSetup)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.DcResults.PrintToDatalog(Prime.DcService.DatalogLevel,Prime.DcService.DcSetup,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.DcResults.GetAllPinGroupsDcResults">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.DcResults.GetPinGroupDcResults(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.DcResults.SlicePerPinMeasurements(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Get a vector{double} contains ALL measurements per single pin/pinGroup.
+            </summary>
+            <returns>Vector{Vector{double}} , each Vector{double} represent single measurement.
+                        all measurements per pin|
+                            | number of measurements per pin
+                            or PinGroup.</returns>
+        </member>
+        <member name="M:Prime.DcService.DcResults.PrintToDatalogCompressFormatWithPinMap(Prime.DcService.DcSetup)">
+             <summary>
+             Prints DC results of the pin to datalog in compress format using pin unique identifier instead the pinName.
+             </summary>
+             <param name="perPinSetup">per pin limits - first low ,  second high.</param>
+            
+             <remarks>
+                 <para>
+                     This method require to be defined a PinMap through the PinService,
+                     PinMap should be specified in PinService.json file loaded by aleph infrastructure.
+                 </para>
+             </remarks>
+            
+             <example>
+             This method require PinService.json file by Aleph.
+            
+             -PinService.json file example.
+             <code>
+             {
+                 "xxHPCC_DPIN_PMU_slcA_100ohm": 100,
+                 "xxHPCC_DPIN_PMU_slcA_2Kohm":  101,
+                 "xxHPCC_DPIN_PMU_slcA_50ohm1": 102
+             }
+             </code>
+            
+             - Code example with PinMap implementation.
+             <code>
+             IDcResults dcResults = myDcTest.Execute();
+            
+             dcResults.PrintToDatalogCompressFormatWithPinMap(myLimitsPerPin);
+             </code>
+            
+             ###########################################################################################################################################.
+             Ituff format example to be printed.
+            
+             2_tname_MyTP::MyDcTest_pc
+             2_strgval_3|100=0.199986|0.153711|0.177756|101=0.299988|102=0.399990
+             2_comnt_passPins_08004|08007|08001
+            
+             ###########################################################################################################################################.
+             </example>
+        </member>
+        <member name="M:Prime.DcService.DcResults.PrintToDatalogCompressFormat(Prime.DcService.DcSetup)">
+             <summary>
+             Prints DC results of the pin to datalog in compress format.
+             </summary>
+             <param name="perPinSetup">per pin limits - first low ,  second high.</param>
+             <example>
+             This shows how to print data in ituff compress format.
+             <code>
+             IDcResults dcResults = myDcTest.Execute();
+            
+             dcResults.PrintToDatalogCompressFormat(myLimitsPerPin);
+             </code>
+            
+             ###########################################################################################################################################.
+             Ituff format example to be printed.
+            
+             2_tname_MyTP::MyDcTest_pc
+             2_strgval_3|xxHPCC_DPIN_PMU_slcA_100ohm=0.199986|0.153711|0.177756|xxHPCC_DPIN_PMU_slcA_2Kohm=0.299988|xxHPCC_DPIN_PMU_slcA_50ohm1=0.399990
+             2_comnt_passPins_08004|08007|08001
+            
+             ###########################################################################################################################################.
+             </example>
+        </member>
+        <member name="T:Prime.DcService.DcResults.Limits">
+            <summary>
+            DcTest Limits.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.DcResults.Limits.#ctor(System.Tuple{System.Double,System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DcService.DcResults.Limits"/> class.
+            </summary>
+            <param name="pinLimits">{loLimit, hiLimit} tuple.</param>
+        </member>
+        <member name="P:Prime.DcService.DcResults.Limits.LoLimit">
+            <summary>
+            Gets the Lo limit value.
+            </summary>
+        </member>
+        <member name="P:Prime.DcService.DcResults.Limits.HiLimit">
+            <summary>
+            Gets the Hi limit value.
+            </summary>
+        </member>
+        <member name="T:Prime.DcService.DcService">
+            <summary>
+            DC Service.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.DcService.GetLevelDcWithoutSmartTc(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{Prime.PlatformService.MeasurementType},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.DcService.GetLevelDcTestWithSmartTc(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{Prime.PlatformService.MeasurementType},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.DcService.GetDcTest(System.Collections.Generic.List{System.String},System.Collections.Generic.List{Prime.PlatformService.MeasurementType},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.DcService.CreateDcResults(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}}},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.DcService.MergeDcResults(System.Collections.Generic.List{Prime.DcService.IDcResults},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DcService.DcTest">
+            <summary>
+            DcTest.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.DcTest.#ctor(System.Collections.Generic.List{System.String},System.Collections.Generic.List{Prime.PlatformService.MeasurementType},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DcService.DcTest"/> class.
+            </summary>
+            <param name="measurePins">List of measure pin.</param>
+            <param name="measurementTypes">List of measure type per pin.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DcService.DcTest.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.DcTest.SetSuperPinGroup(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.DcTest.ApplyLevels">
+            <summary>
+            To be overriden by specific DcTest implementation.
+            </summary>
+        </member>
+        <member name="T:Prime.DcService.DcSetup">
+            <summary>
+            Dc setup for all measurements.
+            </summary>
+        </member>
+        <member name="P:Prime.DcService.DcSetup.PerPinDcSetupData">
+            <summary>
+            Gets all Dc Setup data for all pins or group.
+            </summary>
+        </member>
+        <member name="T:Prime.DcService.IDcResults">
+            <summary>
+            Stored Dc Results for all pinGroups.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.IDcResults.PrintToDatalog(Prime.DcService.DatalogLevel,Prime.DcService.DcSetup)">
+            <summary>
+            Prints DC results of the pin to datalog.
+            </summary>
+            <param name="datalogLevel">provide control over printing data to Ituff - ALL - prints both pass and fail data , FAIL - prints fail.</param>
+            <param name="perPinSetup">per pin limits - first low ,  second high.</param>
+        </member>
+        <member name="M:Prime.DcService.IDcResults.PrintToDatalog(Prime.DcService.DatalogLevel,Prime.DcService.DcSetup,System.String)">
+            <summary>
+            Prints DC results of the pin to datalog.
+            </summary>
+            <param name="datalogLevel">provide control over printing data to Ituff - ALL - prints both pass and fail data , FAIL - prints fail.</param>
+            <param name="perPinSetup">per pin limits - first low ,  second high.</param>
+            <param name="tnamePostFix">optional tag to add to tname.</param>
+        </member>
+        <member name="M:Prime.DcService.IDcResults.GetAllPinGroupsDcResults">
+            <summary>
+            Returns all measured pingroups results.
+            </summary>
+            <returns>all measured pingroups  results.</returns>
+        </member>
+        <member name="M:Prime.DcService.IDcResults.GetPinGroupDcResults(System.String)">
+            <summary>
+            Returns all measured pingroups results.
+            </summary>
+            <param name="groupName">pingroup name whose results needs to be retrieved.</param>
+            <returns>specific pingroup results.</returns>
+        </member>
+        <member name="T:Prime.DcService.DatalogLevel">
+            <summary>
+            The datalog level for Ituff printout(ALL, FAIL_ONLY, COMPRESS, PINMAP_COMPRESS).
+            </summary>
+        </member>
+        <member name="F:Prime.DcService.DatalogLevel.ALL">
+            <summary>
+            Print fail and pass results.
+            </summary>
+        </member>
+        <member name="F:Prime.DcService.DatalogLevel.FAIL_ONLY">
+            <summary>
+            Print fail results only.
+            </summary>
+        </member>
+        <member name="F:Prime.DcService.DatalogLevel.COMPRESS">
+             <summary>
+             Print all result in ituff compress format.
+             ###########################################################################################################################################
+             Ituff format example to be printed.
+            
+             2_tname_MyTP::MyDcTest_pc
+             2_strgval_3|xxHPCC_DPIN_PMU_slcA_100ohm=0.199986|0.153711|0.177756|xxHPCC_DPIN_PMU_slcA_2Kohm=0.299988|xxHPCC_DPIN_PMU_slcA_50ohm1=0.399990
+             2_comnt_passPins_08004|08007|08001
+            
+             ###########################################################################################################################################
+             </summary>
+        </member>
+        <member name="F:Prime.DcService.DatalogLevel.PINMAP_COMPRESS">
+             <summary>
+             Print all result in ituff compress format and pinMapId.
+             ###########################################################################################################################################
+             Ituff format example to be printed.
+            
+             2_tname_MyTP::MyDcTest_pc
+             2_strgval_3|100=0.199986|0.153711|0.177756|101=0.299988|102=0.399990
+             2_comnt_passPins_08004|08007|08001
+            
+             ###########################################################################################################################################
+             </summary>
+        </member>
+        <member name="F:Prime.DcService.DatalogLevel.PIN_DETAIL">
+             <summary>
+             Print DPS pin name and SuperPinGroup (if used), Pin Channel is printed as a comnt if pin failed.
+             ###########################################################################################################################################
+            
+             2_tname_<TIN>"MyTestInstanceName"</TIN><SPG>_"MySuperPinGroupName"</SPG>_<PN>"MyPinName"</PN><PF>_"MyCustomPosFixText"</PF>
+             2_mrslt_<DR>"MyPinResult"</DR>
+             2_msunit_<U>MyValueUnit</U>
+             2_comnt_FailData_<CN>"MyChannelNumber"</CN>
+            
+             Note: - TIN = Test Instance Name
+                   - SPG = Super Pin Group name (if used)
+                   - PN  = Pin Name
+                   - PF  = Post fix text (if used)
+                   - DR  = Double Result
+                   - U   = Unit
+                   - CN  = Channel Number (if pin failed comnt line is printed)
+            
+             Example:
+                 2_tname_MyTestInstanceName_MySuperPinGroup1_MyPinName1_MyCustomPostFix
+                 2_mrslt_0.3450
+                 2_msunit_V
+                 2_tname_MyTestInstanceName_MyPinName2_MyCustomPostFix
+                 2_mrslt_-0.0230
+                 2_msunit_V
+                 2_comnt_FailData_2
+            
+             Example note: - First ituff has myPinName1 defined in MySuperPinGroup, Result is pass.
+                           - Second ituff has myPinName2 no defined in any super pin group but has result failed and printed the channel in last line.
+            
+             ###########################################################################################################################################
+             </summary>
+        </member>
+        <member name="T:Prime.DcService.IDcService">
+            <summary>
+            This Service handles all DC related activities.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.IDcService.GetLevelDcWithoutSmartTc(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{Prime.PlatformService.MeasurementType},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates DC test with LevelsTc block provided, forced to apply levels ignoring SmartTc cache.
+            </summary>
+            <param name="measurePins">List of measure pins.</param>
+            <param name="levelName">Name of the LevelsTc block.</param>
+            <param name="measurementTypes">Measurement type -  Current or Voltage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>DcTest object.</returns>
+        </member>
+        <member name="M:Prime.DcService.IDcService.GetLevelDcTestWithSmartTc(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{Prime.PlatformService.MeasurementType},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates DC test with LevelsTc block provided, applies levels only if different to SmartTc Cache.
+            </summary>
+            <param name="measurePins">List of measure pins.</param>
+            <param name="levelName">Name of the LevelsTc block.</param>
+            <param name="measurementTypes">Measurement type -  Current or Voltage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>DcTest object.</returns>
+        </member>
+        <member name="M:Prime.DcService.IDcService.GetDcTest(System.Collections.Generic.List{System.String},System.Collections.Generic.List{Prime.PlatformService.MeasurementType},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates DC test without LevelsTc block provided.
+            </summary>
+            <param name="measurePins">List of measure pins.</param>
+            <param name="measurementTypes">Measurement type -  Current or Voltage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            /// <returns>DcTest object.</returns>
+        </member>
+        <member name="M:Prime.DcService.IDcService.CreateDcResults(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create DcResults with grouped results in a dictionary.
+            </summary>
+            <param name="results">Results grouped by pinGroups and pins.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>DcResult object.</returns>
+        </member>
+        <member name="M:Prime.DcService.IDcService.MergeDcResults(System.Collections.Generic.List{Prime.DcService.IDcResults},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Merge multiples DcResult in unique object.
+            </summary>
+            <param name="dcResults">List of DcResult to join.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>DcTest object.</returns>
+        </member>
+        <member name="T:Prime.DcService.IDcTest">
+            <summary>
+            A DC Test to be executed.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.IDcTest.Execute">
+            <summary>
+            Executes DC test and retrieve the measurements results.
+            </summary>
+            <returns>DcResults object.</returns>
+        </member>
+        <member name="M:Prime.DcService.IDcTest.SetSuperPinGroup(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Set SuperPinGroup to show as a token in ituff result with datalogLevel=PIN_CHANNEL.
+            </summary>
+            <remarks>The use of this method is intended for Verify only. Please avoid the use in Execute for test time, It apply for all execute calls.</remarks>
+            <param name="superPinGroupMap">Dictionary with pinName or PinGroup as key and SuperPinGroup name to link as value.</param>
+        </member>
+        <member name="T:Prime.DcService.IPinDcResults">
+            <summary>
+            Stored Dc Results for a pin.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.IPinDcResults.PrintToConsole">
+            <summary>
+            Prints DC results of the pin to console.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.IPinDcResults.GetPinDcResults">
+            <summary>
+            Returns pin DC results.
+            </summary>
+            <returns>specific pingroup results.</returns>
+        </member>
+        <member name="M:Prime.DcService.IPinDcResults.GetPinName">
+            <summary>
+            Returns pin name.
+            </summary>
+            <returns>pin name.</returns>
+        </member>
+        <member name="M:Prime.DcService.IPinDcResults.GetSuperPinGroupName">
+            <summary>
+            Return SuperPinGroup name.
+            </summary>
+            <returns>If exist return superPinGroup, otherwise return empty.</returns>
+        </member>
+        <member name="M:Prime.DcService.IPinDcResults.SetSuperPinGroupName(System.String)">
+            <summary>
+            Set SuperPinGroupName linkened with this pin.
+            </summary>
+            <param name="superPinGroupName">Group name.</param>
+        </member>
+        <member name="T:Prime.DcService.IPinGroupDcResults">
+            <summary>
+            Stored Dc Results for a pingroup.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.IPinGroupDcResults.PrintToConsole">
+            <summary>
+            Prints DC results of the pingroup to console.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.IPinGroupDcResults.GetAllPinsDcResults">
+            <summary>
+            Returns results of the pingroup.
+            </summary>
+            <returns>results of the pingroup.</returns>
+        </member>
+        <member name="M:Prime.DcService.IPinGroupDcResults.GetPinDcResults(System.String)">
+            <summary>
+            Returns DC results of specific pin.
+            </summary>
+            <param name="pinName">pin name whose results needs to be retrieved.</param>
+            <returns>specific pin results.</returns>
+        </member>
+        <member name="M:Prime.DcService.IPinGroupDcResults.GetPinGroupName">
+            <summary>
+            Returns pin group name.
+            </summary>
+            <returns>pin group name.</returns>
+        </member>
+        <member name="T:Prime.DcService.PerPinDcSetup">
+            <summary>
+            DC Setup per pin measurement.
+            </summary>
+        </member>
+        <member name="P:Prime.DcService.PerPinDcSetup.PinName">
+            <summary>
+            Gets or sets pinName.
+            </summary>
+        </member>
+        <member name="P:Prime.DcService.PerPinDcSetup.PinLimits">
+            <summary>
+            Gets pinLimits per pin or group.
+            </summary>
+        </member>
+        <member name="P:Prime.DcService.PerPinDcSetup.SamplingCount">
+            <summary>
+            Gets sampling count per pin or group measurement.
+            </summary>
+        </member>
+        <member name="P:Prime.DcService.PerPinDcSetup.MeasurementTypes">
+            <summary>
+            Getss measurement type per pin or group.
+            </summary>
+        </member>
+        <member name="T:Prime.DcService.MeasurementOnlyDcTest">
+            <summary>
+            Measurement only DcTest.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.MeasurementOnlyDcTest.#ctor(System.Collections.Generic.List{System.String},System.Collections.Generic.List{Prime.PlatformService.MeasurementType},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DcService.MeasurementOnlyDcTest"/> class.
+            </summary>
+            <param name="measurePins">Pins to measure on.</param>
+            <param name="measurementTypes">Measurement types.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DcService.MeasurementOnlyDcTest.ApplyLevels">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DcService.PinDcResults">
+            <summary>
+            PinDcResults.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.PinDcResults.#ctor(System.String,System.Collections.Generic.List{System.Double},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DcService.PinDcResults"/> class.
+            </summary>
+            <param name="pinName">The underline PinName.</param>
+            <param name="pinResults">The pinNames' results.</param>
+            <param name="superPinGroupName">SuperPinGroup name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DcService.PinDcResults.PrintToConsole">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.PinDcResults.GetPinDcResults">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.PinDcResults.GetPinName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.PinDcResults.GetSuperPinGroupName">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DcService.PinDcResults.SetSuperPinGroupName(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DcService.PinGroupDcResults">
+            <summary>
+            PinGroupDcResults.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.PinGroupDcResults.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}},System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DcService.PinGroupDcResults"/> class.
+            </summary>
+            <param name="pinGroupName">The pin group name.</param>
+            <param name="perPinResults">List of group's pin result objects.</param>
+            <param name="pinToPinGroupInSuperPinGroupMap">SuperPinGroup map.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DcService.PinGroupDcResults.#ctor(System.String,System.Collections.Generic.List{Prime.DcService.IPinDcResults})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DcService.PinGroupDcResults"/> class.
+            </summary>
+            <param name="pinGroupsName">The pin group name.</param>
+            <param name="perPinResults">List of group's pin result objects.</param>
+        </member>
+        <member name="M:Prime.DcService.PinGroupDcResults.PrintToConsole">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.PinGroupDcResults.GetAllPinsDcResults">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.PinGroupDcResults.GetPinDcResults(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DcService.PinGroupDcResults.GetPinGroupName">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DcService.SmartTcDcTest">
+            <summary>
+            Smart TC DCTest.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.SmartTcDcTest.#ctor(System.Collections.Generic.List{System.String},Prime.TestConditionService.ITestCondition,System.Collections.Generic.List{Prime.PlatformService.MeasurementType},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DcService.SmartTcDcTest"/> class.
+            </summary>
+            <param name="measurePins">Pins to measure on.</param>
+            <param name="levels">Levels TestCondition object.</param>
+            <param name="measurementTypes">Measurement types.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DcService.SmartTcDcTest.ApplyLevels">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DcService.WithoutSmartTcDcTest">
+            <summary>
+            DCTest with no smarTc.
+            </summary>
+        </member>
+        <member name="M:Prime.DcService.WithoutSmartTcDcTest.#ctor(System.Collections.Generic.List{System.String},Prime.TestConditionService.ITestCondition,System.Collections.Generic.List{Prime.PlatformService.MeasurementType},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DcService.WithoutSmartTcDcTest"/> class.
+            </summary>
+            <param name="measurePins">Pins to measure on.</param>
+            <param name="levels">Levels TestCondition object.</param>
+            <param name="measurementTypes">Measurement types.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DcService.WithoutSmartTcDcTest.ApplyLevels">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

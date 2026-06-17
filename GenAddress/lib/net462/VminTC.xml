@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="VminTC" MetaData="dll=Prime.TestMethods.VminSearch" />
+    <Imports>
+      <FileName>PrimeVminSearchTestMethod.xml</FileName>
+      <FileName>VminTCCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>PrimeVminSearchTestMethod</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="CornerIdentifiers" descriptions="Gets or sets comma separated corner identifiers.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="CtvPins" descriptions="Gets or sets CTV capture pins.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="DtsConfiguration" descriptions="Gets or sets DTS configuration name. Empty configuration name means DTS capture move is disabled.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="FailCaptureCount" descriptions="Gets or sets FailCaptureCount. Default 1 will set stop-on-first-fail. Any value greater than 1 will run full plist unless used in combination with ReturnOn plist options.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>1</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="FlowIndex" descriptions="Gets or sets the current FlowIndex.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="FlowIndexCallbackName" descriptions="Gets or sets the current FlowIndexCallbackName.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ForwardingMode" descriptions="Gets or sets forwarding mode.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Input</Choice>
+          <Choice>Output</Choice>
+          <Choice>InputOutput</Choice>
+          <Choice>None</Choice>
+        </Choices>
+        <Default>None</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="InitialMaskBits" descriptions="Gets or sets forwarding mode.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="LimitGuardband" descriptions="Gets or sets LimitGuardband to be used with VminForwarding SearchGuardbandEnabled option.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PinMap" descriptions="Gets or sets recovery map name. User can enter Json stream or input file.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PostInstancePlist" descriptions="Gets or sets PostInstancePlist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>Plist</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PreloadParameters" descriptions="Gets or sets the configuration name for PreloadParameters. Parameters will be evaluated during CustomPreVerify.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PrintPatternsOccurrences" descriptions="Print failing patterns occurrences to ituff.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Yes</Choice>
+          <Choice>No</Choice>
+        </Choices>
+        <Default>No</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="RecoveryMode" descriptions="Gets or sets DieRecovery update mode.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Default</Choice>
+          <Choice>RecoveryPort</Choice>
+          <Choice>RecoveryLoop</Choice>
+          <Choice>RecoveryTimingRetest</Choice>
+          <Choice>RecoveryMemoryTimingRetest</Choice>
+          <Choice>NoRecovery</Choice>
+        </Choices>
+        <Default>Default</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="RecoveryOptions" descriptions="Gets or sets DieRecoveryOutgoing_ rule.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="RecoveryTimingsTc" descriptions="Gets or sets a new timings for RecoveryTimingRetest.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>TimingCondition</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="RecoveryTrackingIncoming" descriptions="Gets or sets an recovery tracking name to be sourced.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="RecoveryTrackingOutgoing" descriptions="Gets or sets recovery tracking name to be updated.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ScoreboardPerPatternFails" descriptions="Gets or sets scoreboard per pattern capture fails limit. Default is 1.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>1</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="StartVoltagesOffset" descriptions="Gets or sets an offset to the calculated start voltage.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TestMode" descriptions="Gets or sets test mode.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>MultiVmin</Choice>
+          <Choice>SingleVmin</Choice>
+          <Choice>Functional</Choice>
+          <Choice>Scoreboard</Choice>
+        </Choices>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="TriggerLevelsCondition" descriptions="Gets or sets trigger levels test condition name.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TriggerMap" descriptions="Gets or sets trigger map.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VminResult" descriptions="Gets or sets vmin result. Stores value in SharedStorage using comma-separated key names with Context.DUT.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VoltageConverter" descriptions="Gets or sets a list of voltage overrides from VminForwarding.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="VoltagesOffset" descriptions="Gets or sets an offset to applied voltage.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ExecutionMaxFailMode" descriptions="Gets or sets the execution mode when the maximum number of failures is reached during plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>AbortOnFail</Choice>
+          <Choice>ContinueOnFail</Choice>
+          <Choice>Default</Choice>
+          <Choice>ExitPListOnFail</Choice>
+          <Choice>ReturnOnFail</Choice>
+        </Choices>
+        <Default>Default</Default>
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>Passed.</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Failed search and failed recovery rules.</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Passed search but failed recovery rules.</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>3</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Failed search and passed recovery rules.</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>4</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Failed DTS monitor.</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>5</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Failed pattern amble.</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PrimeSDKAbstraction</name>
+    </assembly>
+    <members>
+        <member name="T:PrimeSDKAbstraction.IPlugin">
+            <summary>
+            Defines the common interface for Prime's plugins.
+            </summary>
+        </member>
+        <member name="T:PrimeSDKAbstraction.IPrimeSdk">
+            <summary>
+            Interface for PrimeSDK Service Abstractions.
+            Provides methods for managing DFF values, shared storage, ITUFF data, runtime variables, and more.
+            </summary>
+        </member>
+        <member name="P:PrimeSDKAbstraction.IPrimeSdk.Utilities">
+            <summary>
+            Gets the Prime SDK utilities.
+            </summary>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.TryGetDff(System.String,System.String@)">
+            <summary>
+            Get DFF value.
+            </summary>
+            <param name="token">The token name.</param>
+            <param name="dffValue">The dff value.</param>
+            <returns>boolean indicating whether succeeded to retrieve dff, The DFF value associated with the token will be populated in the dffValue parameter.</returns>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.PrintToConsole(System.String)">
+            <summary>
+            Prints a message to the console.
+            </summary>
+            <param name="message">The message to print.</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.PrintError(System.String)">
+            <summary>
+            Prints an error message to the console.
+            </summary>
+            <param name="message">The error message to print.</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.PrintDebug(System.String)">
+            <summary>
+            Prints a debug message to the console.
+            </summary>
+            <param name="message">The debug message to print.</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.TryGetScUserVarValue(System.String,System.String@)">
+            <summary>
+            Retrieves the value of a system configuration variable.
+            </summary>
+            <param name="variableName">The name of the variable.</param>
+            <param name="variableValue">The value of the variable.</param>
+            <returns>Whether it succeeded to get the value of the variable.</returns>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.SetDff(System.String,System.String)">
+            <summary>
+            Sets a DFF value for a given token.
+            </summary>
+            <param name="token">The token name.</param>
+            <param name="value">The value to set.</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.SetRuntimeVariable``1(System.String,``0,System.Boolean)">
+            <summary>
+            Sets a runtime variable.
+            </summary>
+            <typeparam name="T">The type of the runtime variable.</typeparam>
+            <param name="token">The token name.</param>
+            <param name="value">The value to set.</param>
+            <param name="resetPerDie">Indicates whether the variable should reset per die.</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.SetRuntimeVariable(System.String,System.String,System.Boolean)">
+            <summary>
+            Sets a runtime variable.
+            </summary>
+            <param name="token">The token name.</param>
+            <param name="value">The value to set.</param>
+            <param name="resetPerDie">Indicates whether the variable should reset per die.</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.TryGetRuntimeVariable``1(System.String,``0@)">
+            <summary>
+            Retrieves a runtime variable value.
+            </summary>
+            <typeparam name="T">The type of the runtime variable.</typeparam>
+            <param name="token">The token name.</param>
+            <param name="value">The retrieved value.</param>
+            <returns>True if the runtime variable was successfully retrieved; otherwise, false.</returns>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.AddQueriableItuffTokens(System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Adds a set of queryable ITUFF tokens.
+            </summary>
+            <param name="tokens">The set of tokens to add.</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.WriteStringDataToItuff(System.String,System.String)">
+            <summary>
+            Writes string data to ITUFF with a specified postfix.
+            </summary>
+            <param name="value">The data to write.</param>
+            <param name="postFix">The postfix to append to the TNAME.</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.WriteCommentDataToItuff(System.String,System.String)">
+            <summary>
+            Writes comment data to ITUFF with a specified postfix.
+            </summary>
+            <param name="value">The data to write.</param>
+            <param name="postFix">The postfix to append to the TNAME.</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.TryReadFile(System.String,System.String@)">
+            <summary>
+            Reads the contents of a file.
+            </summary>
+            <param name="path">The file path.</param>
+            <param name="fileContent">The file content.</param>
+            <returns>Whether it succeeded to read file or not.</returns>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.GetNormalizedFilePath(System.String)">
+            <summary>
+            Returns normalized full path of a relative file path provided - (starting from  "." as first character, ~HDMT_TPL_DIR , user vars and).
+            As well resolves @LATEST_REV@ dynamic token in the file path
+            When @LATEST_REV@ token appears in the file path , Prime will determine the revision directory by looking for a file called latest.txt
+            (in the path instead of @LATEST_REV@ token).
+            It expects the first line of the file to contain the name (and not the full path) of the revision directory.
+            Prime will not check if the directory in the latest.txt file actually exists.
+            If the directory does not exist, it will fail later during the test program when it tries to access files in the directory.
+            the below mechanism
+            Example: PUP_DOWNLOADS_DIR = "I:\ulat\cttr\release\icl\ICLXXDXH60UX\@LATEST_REV@"
+            Prime will:
+            1. Replace @LATEST_REV@ token with latest.txt
+            2. Read the contents of I:\ulat\cttr\release\icl\ICLXXDXH60UX\latest.txt (for example it will return 1000)
+            3. Resolve the directory path as - I:\ulat\cttr\release\icl\ICLXXDXH60UX\1000.
+            </summary>
+            <param name="path">Path to an existing local or remote file.</param>
+            <returns>resolved full file path.</returns>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.TryGetFile(System.String,System.String@)">
+            <summary>
+            Attempts to retrieve the contents of a file.
+            </summary>
+            <param name="path">The file path.</param>
+            <param name="file">The file contents if found.</param>
+            <returns>True if the file exists; otherwise, false.</returns>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.DoesCallbackExists(System.String)">
+            <summary>
+            Checks if a callback exists for a given name.
+            </summary>
+            <param name="callbackName">The name of the callback.</param>
+            <returns>True if the callback exists; otherwise, false.</returns>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.RegisterCallback(System.Reflection.MethodInfo)">
+             <summary>
+             Registers a callback method.
+             <example>
+             Example usage:
+             <code>
+             // Get the method info for a callback method
+             MethodInfo callbackMethod = typeof(MyClass).GetMethod(
+                 "MyCallbackMethod",
+                 BindingFlags.Public | BindingFlags.Static);
+            
+             // Register the callback with Prime SDK
+             this.PrimeSDK.RegisterCallback(callbackMethod);
+            
+             // Example callback method implementation
+             public static string MyCallbackMethod(string parameter)
+             {
+                 // Callback logic here
+                 return "Callback result";
+             }
+             </code>
+             </example>
+             </summary>
+             <param name="callbackName">The method information for the callback.</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdk.TryGetItuffData(System.String,System.String@)">
+            <summary>
+            Pulls the ITUFF Snippet for a specific Instance.
+            </summary>
+            <param name="tname">The Instance name for pull ITUFF data for.</param>
+            <param name="data">The output data of specified tname.</param>
+            <returns>True if data exists, otherwise - failse. Also, data variable will be populated with The Ituff Snippet for the required instance.</returns>
+        </member>
+        <member name="T:PrimeSDKAbstraction.IPrimeSdkUtilities">
+            <summary>
+            Interface for Prime SDK utilities.
+            </summary>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPrimeSdkUtilities.DeflateCompress32(System.String)">
+            <summary>
+            Compresses a string using Deflate compression algorithm.
+            </summary>
+            <param name="input">input string.</param>
+            <returns>Deflated result.</returns>
+        </member>
+        <member name="T:PrimeSDKAbstraction.MLPluginBase">
+            <summary>
+            This is a base class for a plugin.
+            </summary>
+        </member>
+        <member name="P:PrimeSDKAbstraction.MLPluginBase.PrimeSDK">
+            <summary>
+            Gets or sets the PrimeSDK instance.
+            </summary>
+        </member>
+        <member name="P:PrimeSDKAbstraction.MLPluginBase.InputFile">
+            <summary>
+            Gets or sets the input file path.
+            </summary>
+        </member>
+        <member name="P:PrimeSDKAbstraction.MLPluginBase.Parameters">
+            <summary>
+            Gets or sets the plugin parameters.
+            </summary>
+        </member>
+        <member name="M:PrimeSDKAbstraction.MLPluginBase.RunPrediction">
+            <inheritdoc/>
+        </member>
+        <member name="M:PrimeSDKAbstraction.MLPluginBase.Setup(System.IServiceProvider,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:PrimeSDKAbstraction.MLPluginBase.CustomSetup">
+            <summary>
+            Custom setup method for the plugin, this will be executed during the Init.
+            </summary>
+        </member>
+        <member name="M:PrimeSDKAbstraction.MLPluginBase.ResolveParameters(System.String)">
+            <summary>
+            This method resolves the parameters from the raw string input and populate them at this.Parameters property.
+            it can be overridden by the plugin to implement custom logic for parameter resolution if user chooses to steam custom string and parse it by custom logic.
+            </summary>
+            <param name="rawParameters">rawParameters.</param>
+        </member>
+        <member name="T:PrimeSDKAbstraction.IMLModelPlugin">
+            <summary>
+            Demo for plug in.
+            </summary>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IMLModelPlugin.Setup(System.IServiceProvider,System.String,System.String)">
+            <summary>
+            Do something.
+            </summary>
+            <param name="serviceProvider">services implementations.</param>
+            <param name="inputFilePath">inputFilePath.</param>
+            <param name="rawParameters">Raw paremeters, contains key and values. exmaple: [Parameter1=Value1|Parameter2=Value2].</param>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IMLModelPlugin.RunPrediction">
+            <summary>
+            Do something.
+            </summary>
+        </member>
+        <member name="T:PrimeSDKAbstraction.IPupModelPluginCallbacks">
+            <summary>
+            Demo for plug in.
+            </summary>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPupModelPluginCallbacks.GetExecutionMode(System.String)">
+            <summary>
+            Checks which kind of execution mode is required for this unit.
+            </summary>
+            <param name="plistName">Plist name.</param>
+            <returns>Decision: Full / Short / Monitor.</returns>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPupModelPluginCallbacks.ExecuteEndFlowModel(System.String)">
+            <summary>
+            Executes end flow model.
+            </summary>
+            <param name="args">name of the plist.</param>
+            <returns>true  -  if the plist if targeted , false - otherwise.</returns>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IPupModelPluginCallbacks.GetPupSetupData">
+            <summary>
+            Gets the pup setup data.
+            </summary>
+            <returns>Returns the targeted plists and per model versions.</returns>
+        </member>
+        <member name="T:PrimeSDKAbstraction.IVminNormalizerModelPluginCallbacks">
+            <summary>
+            Demo for plug in.
+            </summary>
+        </member>
+        <member name="M:PrimeSDKAbstraction.IVminNormalizerModelPluginCallbacks.NormalizeVoltage(PrimeSDKAbstraction.PluginVminNormalizeParameters)">
+            <summary>
+            Normalizes the voltage.
+            </summary>
+            <param name="vminParams">Object contains the vmin parameters.</param>
+            <returns>model data.</returns>
+        </member>
+        <member name="T:PrimeSDKAbstraction.PluginVminNormalizeParameters">
+            <summary>
+            PluginVminNormalizeParameters.
+            </summary>
+        </member>
+        <member name="P:PrimeSDKAbstraction.PluginVminNormalizeParameters.PowerDomainCornerFlow">
+            <summary>
+            Gets or sets Domain.
+            </summary>
+        </member>
+        <member name="P:PrimeSDKAbstraction.PluginVminNormalizeParameters.InstanceName">
+            <summary>
+            Gets or sets the instance name.
+            </summary>
+        </member>
+        <member name="P:PrimeSDKAbstraction.PluginVminNormalizeParameters.Temperatures">
+            <summary>
+            Gets or sets the Dts list of values, needs to be as the number of cores.
+            </summary>
+        </member>
+        <member name="P:PrimeSDKAbstraction.PluginVminNormalizeParameters.Vmins">
+            <summary>
+            Gets or sets the Vmin to normalize.
+            </summary>
+        </member>
+        <member name="P:PrimeSDKAbstraction.PluginVminNormalizeParameters.StepsForCurrentInstance">
+            <summary>
+            Gets or sets the steps for current instance.
+            </summary>
+        </member>
+        <member name="P:PrimeSDKAbstraction.PluginVminNormalizeParameters.StepSize">
+            <summary>
+            Gets or sets the Resolution of the steps.
+            </summary>
+        </member>
+    </members>
+</doc>

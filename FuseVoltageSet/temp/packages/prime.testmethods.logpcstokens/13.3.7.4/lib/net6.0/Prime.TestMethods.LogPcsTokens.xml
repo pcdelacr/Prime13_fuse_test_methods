@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.LogPcsTokens</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.LogPcsTokens.TesterType">
+            <summary>
+            Tester type (Hdmt/Hbi).
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LogPcsTokens.TesterType.Hbi">
+            <summary>
+            Hbi type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LogPcsTokens.TesterType.Hdmt">
+            <summary>
+            Hdmt type.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LogPcsTokens.ITokenLogger">
+            <summary>
+            Interface for logging PCS tokens.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.ITokenLogger.LogTokens(System.String,System.UInt32,System.Boolean)">
+            <summary>
+            Logs PCS tokens.
+            </summary>
+            <param name="dutId">Current Dut id.</param>
+            <param name="dutIndex">Current Dut index.</param>
+            <param name="forceAries">Forces ARIES ituff output.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.ITokenLogger.GetTesterType">
+            <summary>
+            Get the tester type of the TokenLogger.
+            </summary>
+            <returns>Tester type of the TokenLogger.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LogPcsTokens.PrimeLogPcsTokensTestMethod">
+            <summary>
+            Test method is in charge of logging PCS tokens to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.PrimeLogPcsTokensTestMethod.#ctor(Prime.ConsoleService.IConsoleService,Prime.PlatformService.IPlatformService,Prime.TesterService.ITesterService,System.Collections.Generic.IEnumerable{Prime.TestMethods.LogPcsTokens.ITokenLogger})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LogPcsTokens.PrimeLogPcsTokensTestMethod"/> class.
+            </summary>
+            <param name="consoleService">consoleService.</param>
+            <param name="platformService">platformService.</param>
+            <param name="testerService">testerService.</param>
+            <param name="tokenLoggers">tokenLoggers.</param>
+        </member>
+        <member name="P:Prime.TestMethods.LogPcsTokens.PrimeLogPcsTokensTestMethod.ForceAries">
+            <summary>
+            Gets or sets ForceAries. Forces all ituff output to ARIES even if MIDAS is enabled.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.PrimeLogPcsTokensTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.PrimeLogPcsTokensTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.LogPcsTokens.PrimeLogPcsTokensTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.PrimeLogPcsTokensTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LogPcsTokens.TokenLoggerBase">
+            <summary>
+            Contains shared methods between token loggers.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerBase.#ctor(Prime.TestProgramService.ITestProgramService,Prime.DatalogService.IDatalogService,Prime.TesterService.ITesterService,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LogPcsTokens.TokenLoggerBase"/> class.
+            </summary>
+            <param name="testProgramService">testProgramService.</param>
+            <param name="datalogService">datalogService.</param>
+            <param name="testerService">testerService.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerBase.LogTokens(System.String,System.UInt32,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerBase.GetTesterType">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerBase.GetCurrentSocketCounts(System.UInt32)">
+            <summary>
+            Obtains socket count object containing the current different socket counters given by the Dut index.
+            </summary>
+            <param name="dutIndex">Current Dut index.</param>
+            <returns>Current socket count corresponding to dutIndex.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerBase.GetReplacementCounterItuffItem(System.UInt32,System.Int32,System.String)">
+            <summary>
+            Gets replacement counter ituff format item.
+            </summary>
+            <param name="currentSocketUnits">Current socket units.</param>
+            <param name="dutIndex">Dut index.</param>
+            <param name="dutId">Dut id.</param>
+            <returns>ItuffFormat for replacement counter.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerBase.GetCleaningCounterItuffItem(System.UInt32,System.Int32,System.String)">
+            <summary>
+            Gets cleaning counter ituff format item.
+            </summary>
+            <param name="cleanCountForSocket">Clean count for socket.</param>
+            <param name="dutIndex">Dut index.</param>
+            <param name="dutId">Dut id.</param>
+            <returns>ItuffFormat for cleaning counter.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerBase.GetSocketCounterItuffItem(System.UInt32,System.Int32,System.String)">
+            <summary>
+            Gets socket counter ituff format item.
+            </summary>
+            <param name="currentSocketUnits">Current socket units.</param>
+            <param name="dutIndex">Dut index.</param>
+            <param name="dutId">Dut id.</param>
+            <returns>ItuffFormat for socket counter.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerBase.TryGetMetalFrameCounterItuffItem(System.UInt32,System.Int32,System.String)">
+            <summary>
+            Gets metal frame counter ituff format item.
+            </summary>
+            <param name="currentMetalFrameCounts">Current metal frame counts.</param>
+            <param name="dutIndex">Dut index.</param>
+            <param name="dutId">Dut id.</param>
+            <returns>A tuple of (bool, ItuffFormat). If the bool returns true, the ituff item
+            for metal frame counter was created and returned. Otherwise, the object is null.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerBase.TryGetElastomerSheetCounterItuffItem(System.UInt32,System.Int32,System.String)">
+            <summary>
+            Gets elastomer sheet counter ituff format item.
+            </summary>
+            <param name="currentElastomerSheetCounts">Current elastomer sheet counts.</param>
+            <param name="dutIndex">Dut index.</param>
+            <param name="dutId">Dut id.</param>
+            <returns>A tuple of (bool, ItuffFormat). If the bool returns true, the ituff item
+            for elastomer sheet counter was created and returned. Otherwise, the object is null.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerBase.TryGetBottomElastomerSheetCounterItuffItem(System.UInt32,System.Int32,System.String)">
+            <summary>
+            Gets bottom elastomer sheet counter ituff format item.
+            </summary>
+            <param name="currentBottomElastomerSheetCounts">Current bottom elastomer sheet counts.</param>
+            <param name="dutIndex">Dut index.</param>
+            <param name="dutId">Dut id.</param>
+            <returns>A tuple of (bool, ItuffFormat). If the bool returns true, the ituff item
+            for elastomer sheet counter was created and returned. Otherwise, the object is null.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LogPcsTokens.TokenLoggerHbi">
+            <summary>
+            Logs PCS tokens for HBI tester.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerHbi.#ctor(Prime.SessionService.ISessionContextProviderContainer,Prime.TestProgramService.ITestProgramService,Prime.DatalogService.IDatalogService,Prime.TesterService.ITesterService,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LogPcsTokens.TokenLoggerHbi"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="testProgramService">testProgramService.</param>
+            <param name="datalogService">datalogService.</param>
+            <param name="testerService">testerService.</param>
+            <param name="consoleService">consoleService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerHbi.GetTesterType">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerHbi.LogTokens(System.String,System.UInt32,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LogPcsTokens.TokenLoggerHdmt">
+            <summary>
+            Logs PCS tokens for HDMT tester.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerHdmt.#ctor(Prime.SessionService.ISessionContextProviderContainer,Prime.TestProgramService.ITestProgramService,Prime.DatalogService.IDatalogService,Prime.TesterService.ITesterService,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LogPcsTokens.TokenLoggerHdmt"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="testProgramService">testProgramService.</param>
+            <param name="datalogService">datalogService.</param>
+            <param name="testerService">testerService.</param>
+            <param name="consoleService">consoleService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerHdmt.GetTesterType">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LogPcsTokens.TokenLoggerHdmt.LogTokens(System.String,System.UInt32,System.Boolean)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

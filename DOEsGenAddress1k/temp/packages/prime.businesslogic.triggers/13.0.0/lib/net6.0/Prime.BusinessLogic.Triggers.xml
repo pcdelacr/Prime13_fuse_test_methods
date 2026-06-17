@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.Triggers</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.Triggers.IPinSettings">
+            <summary>
+            Interface to abstract a set of settings for a given pin.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.IPinSettings.AttributeValues">
+            <summary>
+            Gets the pairs of Attribute=>Value to be applied during the software trigger.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.IPinSettings.Name">
+            <summary>
+            Gets the pin name of the current IPinSettings.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Triggers.ISoftwareTrigger">
+            <summary>
+            Business logic interface of the implementation of the software trigger.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Triggers.ISoftwareTrigger.GetPinsSettings">
+            <summary>
+            Gets the list of the ISoftwareTrigger's IPinSettings.
+            </summary>
+            <returns>The list of IPinSettings.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Triggers.ITriggersFactory">
+            <summary>
+            A set of functions working of factories depending on the data type.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Triggers.ITriggersFactory.CreateSoftwareTrigger(System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a SoftwareTrigger object based on the given settings.
+            </summary>
+            <param name="configurationFilePath">The path to the configuration file provided by the user.</param>
+            <param name="pinNames">A superset of pin names to be checked on the configuration file.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>A ISoftwareTrigger to be applied to the FunctionalTest.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Triggers.FactoryBuilder">
+            <summary>
+            Builds a default IInputDataFactory.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Triggers.FactoryBuilder.Build">
+            <summary>
+            Builds a default IInputDataFactory.
+            </summary>
+            <returns>A default IInputDataFactory.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Triggers.PinSettings">
+            <summary>
+            Saves the verified settings for each pin block to be applied during the software trigger events.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Triggers.PinSettings.#ctor(Prime.PinService.IPin,System.Collections.Generic.List{System.UInt32},System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Triggers.PinSettings"/> class.
+            </summary>
+            <param name="pin">The pin to be applied to.</param>
+            <param name="indexes">The indexes where this setting should be applied.</param>
+            <param name="attributeValues">The pairs of Attribute=>Value to be applied during the software trigger.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.PinSettings.AttributeValues">
+            <summary>
+            Gets the pairs of Attribute=>Value to be applied during the software trigger.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.PinSettings.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.PinSettings.Indexes">
+            <summary>
+            Gets the indexes where this setting should be applied.
+            If null or empty it will be applied always.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.PinSettings.Pin">
+            <summary>
+            Gets the pin to be applied to.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Triggers.PinSettings.Apply(System.UInt32)">
+            <summary>
+            Apply the current pin setting if the payload matches.
+            </summary>
+            <param name="payload">The payload from the software trigger pattern instruction.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Triggers.SoftwareTrigger">
+            <summary>
+            A class with the handling of the software trigger.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Triggers.SoftwareTrigger.#ctor(System.String,System.Collections.Generic.List{Prime.BusinessLogic.Triggers.PinSettings},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Triggers.SoftwareTrigger"/> class.
+            </summary>
+            <param name="configurationPath">The path to the configuration file.</param>
+            <param name="pinSettings">The list of pin settings.</param>
+            <param name="sessionContext">The current session context.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.SoftwareTrigger.ConfigurationPath">
+            <summary>
+            Gets the path to the configuration of this object.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Triggers.SoftwareTrigger.GetPinsSettings">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Triggers.SoftwareTrigger.Execute(System.UInt32)">
+            <summary>
+            The function to be executed during the Software Trigger.
+            </summary>
+            <param name="payload">The index provided in the pattern during the Software trigger.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Triggers.SoftwareTrigger.GetPinSettings">
+            <summary>
+            Get attributes per pin defined in SoftwareTriggerConfiguration.
+            </summary>
+            <returns>Dictionary with all attributes per pin.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Triggers.SoftwareTriggerSettings">
+            <summary>
+            Holds the information for the software trigger configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.SoftwareTriggerSettings.PinSettings">
+            <summary>
+            Gets or sets List of Loop control configs to edit.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Triggers.SoftwareTriggerSettings.PinSetting">
+            <summary>
+            Holds the information for a pin.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.SoftwareTriggerSettings.PinSetting.PinName">
+            <summary>
+            Gets or sets the pin name for this block.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.SoftwareTriggerSettings.PinSetting.Indexes">
+            <summary>
+            Gets or sets the indexes where this pin block applies based on the payload of the software trigger.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Triggers.SoftwareTriggerSettings.PinSetting.AttributeValues">
+            <summary>
+            Gets or sets the attribute values to apply.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Triggers.TriggersFactory">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Triggers.TriggersFactory.CreateSoftwareTrigger(System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

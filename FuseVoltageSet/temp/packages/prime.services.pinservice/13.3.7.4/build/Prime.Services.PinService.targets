@@ -1,0 +1,27 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+        <PreHeaders Include="$(MSBuildThisFileDirectory)..\content\preheaders\**\*.xml"/>
+        <SchemaFiles Include="$(MSBuildThisFileDirectory)..\content\schemas\**\*.xsd"/>
+        <SchemaFiles Include="$(MSBuildThisFileDirectory)..\content\schemas\**\*.schema.json"/>
+    </ItemGroup>
+
+    <!-- Provide default values if not set by user -->
+    <PropertyGroup>
+        <PrimePreheaderOutputDir Condition="'$(PrimePreheaderOutputDir)' == ''">$(OutDir)</PrimePreheaderOutputDir>
+        <PrimeSchemaOutputDir Condition="'$(PrimeSchemaOutputDir)' == ''">$(OutDir)schemas\</PrimeSchemaOutputDir>
+    </PropertyGroup>
+
+    <Target Name="CopyPreheadersAndSchemaToOutDirectory" AfterTargets="Build">
+        <Copy
+            SourceFiles="@(PreHeaders)"
+            DestinationFiles="@(PreHeaders->'$(PrimePreheaderOutputDir)%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true"
+            ContinueOnError="true"
+            Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'" />
+        <Copy
+            SourceFiles="@(SchemaFiles)"
+            DestinationFiles="@(SchemaFiles->'$(PrimeSchemaOutputDir)%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true"
+            ContinueOnError="true"/>
+    </Target>
+</Project>

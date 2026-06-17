@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [ "Pins" ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Pins": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/Pin"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "Pin": {
+      "type": "object",
+      "required": [ "Name", "Id" ],
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Id": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

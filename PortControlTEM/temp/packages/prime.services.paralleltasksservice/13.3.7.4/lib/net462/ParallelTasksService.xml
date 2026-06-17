@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.ParallelTasksService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.ParallelTasksService.IParallelTasksService">
+            <summary>
+            Prime library for parallel execution.
+            </summary>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IParallelTasksService.BuildBackgroundQueue(System.String)">
+            <summary>
+            Builds a background queue based on the current platform and DUT (Device Under Test) configuration.
+            Must be call on the DUT 0 during init only.
+            </summary>
+            <param name="name">The name of the background queue to be created.</param>
+            <returns>
+            An instance of <see cref="T:Prime.ParallelTasksService.IQueue"/> representing the appropriate background queue based on the platform and DUT configuration.
+            </returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">
+            Thrown when the current DUT index is not 0, as background queue creation is only allowed on DUT 0.
+            </exception>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IParallelTasksService.BuildInPlaceQueue">
+            <summary>
+            Builds a new default queue.
+            </summary>
+            <returns>An instance of <see cref="T:Prime.ParallelTasksService.IQueue"/>.</returns>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IParallelTasksService.ParallelAction(System.Action)">
+            <summary>
+            Returns a prime Action for parallel activity (Task.Factory.StartNew method or TPL).
+            </summary>
+            <param name="action">An Action delegate to execute asynchronously.</param>
+            <returns>An Action for a Task.</returns>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IParallelTasksService.ParallelAction``1(System.Action{``0})">
+            <summary>
+            Returns a prime Action for parallel activity (Task.Factory.StartNew method or TPL).
+            </summary>
+            <typeparam name="TResult">The type of the result available through the
+            <see cref="T:System.Threading.Tasks.Task`1">Task</see>.
+            </typeparam>
+            <param name="action">An Action delegate to execute asynchronously.</param>
+            <returns>An Action for a Task.</returns>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IParallelTasksService.ParallelFunc``1(System.Func{System.Object,``0})">
+            <summary>
+            Returns a Prime Func for parallel activity (Task.Factory.StartNew method or TPL).
+            </summary>
+            <typeparam name="TResult">The type of the result available through the
+            <see cref="T:System.Threading.Tasks.Task`1">Task</see>.
+            </typeparam>
+            <param name="function">A function delegate that returns the future result to be available through
+            the <see cref="T:System.Threading.Tasks.Task`1"/>.</param>
+            <returns>An Func for a Task.</returns>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IParallelTasksService.ParallelFunc``1(System.Func{``0})">
+            <summary>
+            Returns a Prime Func for parallel activity (Task.Factory.StartNew method or TPL).
+            </summary>
+            <typeparam name="TResult">The type of the result available through the
+            <see cref="T:System.Threading.Tasks.Task`1">Task</see>.
+            </typeparam>
+            <param name="function">A function delegate that returns the future result to be available through
+            the <see cref="T:System.Threading.Tasks.Task`1"/>.</param>
+            <returns>An Func for a Task.</returns>
+        </member>
+        <member name="T:Prime.ParallelTasksService.IQueue">
+            <summary>
+            Interface for managing background tasks in the PatConfigService.
+            </summary>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IQueue.Initialize(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes the background queue with the given session context.
+            This *MUST* be called in the respective scope on IntraDut test programs.
+            </summary>
+            <param name="sessionContext">The session context provider container.</param>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IQueue.QueueTask(Prime.SessionService.ISessionContextProviderContainer,MPE.MIT.Logging.Context.IContextLogger,System.Action,System.Func{System.String})">
+            <summary>
+            Queues a task to be executed in the background.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+            <param name="logger">The current instance logger.</param>
+            <param name="task">The task to be executed, represented as a function returning a long.</param>
+            <param name="taskDescriptor">A functor returning a descriptor of the task when a task fails.</param>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IQueue.ProcessPendingFailures(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks for any pending failures in the background tasks.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IQueue.ProcessPendingTasks(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Processes pending tasks in the background queue.
+            </summary>
+            <param name="sessionContext">The session context provider container.</param>
+            <returns>A list of the elapsed time for each task with the session context for that task, with the wait time for the current call.</returns>
+        </member>
+        <member name="T:Prime.ParallelTasksService.ParallelTasksService">
+            <summary>
+            Pattern Service.
+            </summary>
+        </member>
+    </members>
+</doc>

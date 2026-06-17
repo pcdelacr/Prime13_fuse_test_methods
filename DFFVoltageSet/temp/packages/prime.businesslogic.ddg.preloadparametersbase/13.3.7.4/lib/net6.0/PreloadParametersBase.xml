@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.DDG.PreloadParametersBase</name>
+    </assembly>
+    <members>
+        <member name="T:DDG.IPreloadParametersFactory">
+            <summary>
+            Defines the <see cref="T:DDG.IPreloadParametersFactory" />.
+            </summary>
+        </member>
+        <member name="M:DDG.IPreloadParametersFactory.LoadConfiguration(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Loads the configuration with the specified parameters.
+            </summary>
+            <param name="configuration">The configuration to load.</param>
+            <param name="parameters">The parameters for the configuration.</param>
+        </member>
+        <member name="M:DDG.IPreloadParametersFactory.GetConfiguration(System.String)">
+            <summary>
+            Tries to get the configuration with the specified parameters.
+            </summary>
+            <param name="configuration">The configuration to retrieve.</param>
+            <returns>Parameters to override.</returns>
+        </member>
+        <member name="T:DDG.PreloadParameters">
+            <summary>
+            Singleton for DieRecovery service.
+            </summary>
+        </member>
+        <member name="P:DDG.PreloadParameters.Service">
+            <summary>
+            Gets or sets FlowControl Service implementation.
+            </summary>
+        </member>
+        <member name="T:PreloadParametersBase.PreloadParametersFactory">
+            <summary>
+            Defines the <see cref="T:PreloadParametersBase.PreloadParametersFactory" />.
+            </summary>
+        </member>
+        <member name="M:PreloadParametersBase.PreloadParametersFactory.LoadConfiguration(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:PreloadParametersBase.PreloadParametersFactory.GetConfiguration(System.String)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HryJson",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^(?i)version$": {
+      "type": "number",
+      "format": "double",
+      "default": 1.0
+    },
+    "^(?i)MemoryLocationToPowerDomain$": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      }
+    },
+    "^(?i)BisrChain$": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/BisrChainJson"
+      }
+    },
+    "^(?i)BisrRepairShare$": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "^(?i)ControllerGroups$": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/ControllerSetJson"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BisrChainJson": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(?i)BufferSize$": {
+          "$ref": "#/definitions/Int32OrString"
+        },
+        "^(?i)ZeroCounterBits$": {
+          "$ref": "#/definitions/Int32OrString"
+        },
+        "^(?i)FuseBoxSize$": {
+          "$ref": "#/definitions/Int32OrString"
+        },
+        "^(?i)FuseBoxAddressBits$": {
+          "$ref": "#/definitions/Int32OrString"
+        },
+        "^(?i)MaxFuseBoxProgrammingSessions$": {
+          "$ref": "#/definitions/Int32OrString"
+        },
+        "^(?i)TotalLength$": {
+          "$ref": "#/definitions/Int32OrString"
+        },
+        "^(?i)Chains$": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Int32OrString"
+          }
+        }
+      }
+    },
+    "ControllerSetJson": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "Type": {
+          "$ref": "#/definitions/ControllerTypes"
+        },
+        "^(?i)Patterns$": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "^(?i)Controllers$": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ControllerJson"
+            }
+          }
+        },
+        "^(?i)BisrControllers$": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/BisrControllerJson"
+          }
+        }
+      }
+    },
+    "ControllerTypes": {
+      "type": "string",
+      "pattern": "^(?i)(Bisr|ExtractBira|GoId|RaBits|Vfdm|BisrCompressFuse)$"
+    },
+    "ControllerJson": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(?i)Status$": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Int32OrString"
+          }
+        },
+        "^(?i)AlgoSelect$": {
+          "type": "string",
+          "pattern": "^(\\d+)(-\\d+)?$"
+        },
+        "^(?i)PAlgoSelect$": {
+          "type": "string",
+          "default": ""
+        },
+        "^(?i)Memories$": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^(\\d+)(-\\d+)?$"
+          }
+        },
+        "^(?i)BiraRegs$": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/BiraRegisterJson"
+            }
+          }
+        }
+      }
+    },
+    "BiraRegisterJson": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(?i)BiraName$": {
+          "type": "string"
+        },
+        "^(?i)BisrName$": {
+          "type": "string"
+        },
+        "^(?i)Capture$": {
+          "type": "string"
+        },
+        "^(?i)Replace$": {
+          "type": "string"
+        }
+      }
+    },
+    "BisrControllerJson": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(?i)CaptureData$": {
+          "type": "string",
+          "default": ""
+        },
+        "^(?i)CaptureComments$": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "Int32OrString": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "format": "int32"
+        },
+        {
+          "type": "string",
+          "pattern": "^[+-]?\\d+$"
+        }
+      ]
+    }
+  }
+}

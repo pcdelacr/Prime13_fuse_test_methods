@@ -1,0 +1,609 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.PlistService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.PlistService.IPlistObject">
+            <summary>
+            IPlistObject interface for Plist related operations.
+            </summary>
+        </member>
+        <member name="P:Prime.PlistService.IPlistObject.Name">
+            <summary>
+            Gets the name of the plist that this object represents.
+            </summary>
+            <returns>The name of the plist.</returns>
+        </member>
+        <member name="P:Prime.PlistService.IPlistObject.NumOfPatternInPlistWithoutAmbles">
+            <summary>
+            Gets the ordered the number of patterns in the plist, including the patterns of the nested plist and subroutines, without the Ambles Patterns.
+            </summary>
+            <returns>The number of patterns in the plist.</returns>
+        </member>
+        <member name="P:Prime.PlistService.IPlistObject.Domains">
+            <summary>
+            Gets an enumerable of all the domains of the current plist.
+            </summary>
+        </member>
+        <member name="P:Prime.PlistService.IPlistObject.AmblePatternNames">
+            <summary>
+            Gets an enumerable of unique amble patterns contained in the plist amble options includig all nested plists.
+            plist.
+            </summary>
+        </member>
+        <member name="P:Prime.PlistService.IPlistObject.OrderedPatternNames">
+            <summary>
+            Gets the ordered an enumerable of patterns of the plist, including the patterns of the nested plist and subroutines.
+            </summary>
+        </member>
+        <member name="P:Prime.PlistService.IPlistObject.AllPatternNames">
+            <summary>
+            Gets all the pattern names in a sorted enumerable.
+            </summary>
+        </member>
+        <member name="P:Prime.PlistService.IPlistObject.AllPatternNamesWithSubroutineNames">
+            <summary>
+            Gets a sorted enumerable of all patterns and subroutines contained in the plist.
+            </summary>
+        </member>
+        <member name="P:Prime.PlistService.IPlistObject.UniquePatternNamesWithSubroutineNames">
+            <summary>
+            Gets an enumerable of unique patterns contained in the plist and all the Subroutine names.
+            </summary>
+        </member>
+        <member name="P:Prime.PlistService.IPlistObject.UniquePatternNames">
+            <summary>
+            Gets an enumerable of unique patterns contained in the plist.
+            </summary>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.IsPatternAnAmble(System.String)">
+            <summary>
+            Determines if a pattern is an amble within the plist.
+            </summary>
+            <param name="patternName">The name of the pattern.</param>
+            <returns>true - pattern is an amble , false - pattern is not an amble.</returns>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.DisableAllPatterns">
+            <summary>
+            Disables all patterns in a plist through setting skip option to true.
+            </summary>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.EnableAllPatterns">
+            <summary>
+            Enables all patterns in a plist through setting skip option to false.
+            </summary>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.DisablePatterns(System.Collections.Generic.ISet{System.String})">
+            <summary>
+            Disables a list of patterns in a plist through setting skip option to true.
+            </summary>>
+            <param name="patternNames">The list containing the names of the patterns to be disabled.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.EnablePatterns(System.Collections.Generic.ISet{System.String})">
+            <summary>
+            Enables a list of patterns in a plist through setting skip option to false.
+            </summary>
+            <param name="patternNames">The list containing the names of the patterns to be enabled.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.DisableGivenPatternsEnableRest(System.Collections.Generic.ISet{System.String})">
+            <summary>
+            Disables a list of patterns in a plist through setting skip option to true, rest are enable setting skip option to false.
+            </summary>
+            <param name="patternNames">List of patterns names to be disabled.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.EnableGivenPatternsDisableRest(System.Collections.Generic.ISet{System.String})">
+            <summary>
+            Enables a list of patterns in a plist through setting skip option to false, rest are disable setting skip option to true.
+            </summary>
+            <param name="patternNames">List of patterns names to be disabled.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.DisableGivenPatternOccurrencesEnableRest(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.HashSet{System.UInt32}})">
+            <summary>
+            Disables a list of patterns filtered by occurrences in a plist, through setting skip option to true,
+            rest of the patterns in the plist are enabled setting skip option to false.
+            </summary>
+            <param name="patternNames">List of patterns names to be disabled only for associated occurrences.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.DisablePatternsOccurrences(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.HashSet{System.UInt32}})">
+            <summary>
+            Disables a list of patterns filtered by occurrences in a plist, through setting skip option to true,
+            rest of the patterns in the plist are not touched.
+            </summary>
+            <param name="patternNames">List of patterns names to be disabled only for associated occurrences.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.EnableGivenPatternOccurrencesDisableRest(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.HashSet{System.UInt32}})">
+            <summary>
+            Enables a list of patterns filtered by occurrences in a plist, through setting skip option to false,
+            rest of the patterns in the plist are disabled setting skip option to true.
+            </summary>
+            <param name="patternNames">List of patterns names to be disabled only for associated occurrences.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.EnablePatternsOccurrences(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.HashSet{System.UInt32}})">
+            <summary>
+            Enables a list of patterns filtered by occurrences in a plist, through setting skip option to false,
+            rest of the patterns in the plist are not touched.
+            </summary>
+            <param name="patternNames">List of patterns names to be enabled only for associated occurrences.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.DisablePatternsMatchingRegex(System.String)">
+            <summary>
+            Disables matching patterns in a plist through setting skip option to true.
+            </summary>
+            <param name="regex">Regex to match names of the patterns to be disabled.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.EnablePatternsMatchingRegex(System.String)">
+            <summary>
+            Enables a matching patterns in a plist through setting skip option to false.
+            </summary>
+            <param name="regex">Regex to match names of the patterns to be enabled.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.DisablePatternsMatchingRegexEnableRest(System.String)">
+            <summary>
+            Disables a matching patterns in a plist through setting skip option to true, rest are enabled setting skip option to false.
+            </summary>
+            <param name="regex">Regex to match patterns names to be disabled.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.EnablePatternsMatchingRegexDisableRest(System.String)">
+            <summary>
+            Enables a matching patterns in a plist through setting skip option to false, rest are disabled setting skip option to true.
+            </summary>
+            <param name="regex">Regex to match patterns names to be enabled.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.SetOptions(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Set a list of plist options to a plist.
+            </summary>
+            <param name="options">Dictionary containing the options to be applied to the plist.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.GetOptions">
+            <summary>
+            Get the list of PlistOptions in the plist.
+            </summary>
+            <returns>List of plist options contained in the plist.</returns>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.SetOption(System.String,System.String)">
+            <summary>
+            Set a plist option to a plist.
+            </summary>
+            <param name="option">The element option name.</param>
+            <param name="value">The value of the element option.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.GetOption(System.String)">
+            <summary>
+            Get the value an option in the plist.
+            </summary>
+            <param name="option">The element option name.</param>
+            <returns>The value of a plist option.</returns>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.SetElementOptions(System.UInt32,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Set a plist element option to plist element.
+            </summary>
+            <param name="elementIndex">Index of the element to which apply the options.</param>
+            <param name="options">Options to be applied to the element of the plist.</param>
+            Modify these Plist options at it's element level: Skip, Mask, Unmask, LoopStart, LoopEnd, LoopRepeat, EnableCapture, DisableCapture, EnableCompare, DisableCompare.
+            HBI only support: Skip, Mask, Unmask.
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.GetElementOptions(System.UInt32)">
+            <summary>
+            Get the list of PlistElementOptions in the element of the plist.
+            </summary>
+            <param name="elementIndex">Index of the element.</param>
+            <returns>List of plist options contained in the plist.</returns>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.GetElementsOptions(System.Collections.Generic.IEnumerable{System.UInt32})">
+            <summary>
+            Gets the options for provided elements indexes. Should be used in TOS4 as optimization versus getting options for each index manually..
+            </summary>
+            <param name="elementIndexes">Indexes for the elements to get the options from.</param>
+            <returns>Options per index.</returns>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.SetElementOption(System.UInt32,System.String,System.String)">
+            <summary>
+            Set a plist element option to plist element.
+            </summary>
+            <param name="elementIndex">Index of the element.</param>
+            <param name="option">The element option name.</param>
+            <param name="value">The value of the element option.</param>
+            Modify these Plist options at it's element level: Skip, Mask, Unmask, LoopStart, LoopEnd, LoopRepeat, EnableCapture, DisableCapture, EnableCompare, DisableCompare.
+            HBI only support: Skip, Mask, Unmask.
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.GetElementOption(System.UInt32,System.String)">
+            <summary>
+            Get the value an element option in the plist.
+            </summary>
+            <param name="elementIndex">Index of the element.</param>
+            <param name="option">The element option name.</param>
+            <returns>List of plist options contained in the plist.</returns>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.GetPatternsAndIndexes(System.Boolean)">
+             <summary>
+             Get plist pattern names and their corresponding indices based on plist execution sequence.
+             </summary>
+             <param name="getHwExecSequence">When getHWExecSequence is true, returns all pattern names for a Plist in order of execution from Hardware. Any nested plist content will be returned as flattened pattern names. plistItemType will be always "Pattern".
+              The hardware execution sequence is the sequence currently in hardware. Changes made in software are not written to hardware until a PList is executed.
+            
+             When getHWExecSequence is false, returns all pattern and nested Plist names for a Plist in order described in .plist file in OTPL. Nested Plist will not get flattened. plistItemType will be returned as type "Pattern" for patterns and "PList" for nested plist.
+             The latest flattened execution sequence can be obtained by setting getHWExecSequence = false, and making repeated calls to GetPatternsAndIndexesInPlist for each "PList" type found in the resulting list.</param>
+             <returns>The result of pattern contents.</returns>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.RemoveOptions(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Remove single or multiple options for a given plist at plist level.
+            Each option to be removed must have a supported option name specified as API input.
+            If any of the options are invalid when removing multiple options, API will error out and Plist options will be left in the same state prior to the API call.
+            </summary>
+            <param name="plistOptions">Plist options: PreBurst, BranchOn, Burst, DisableCapture, DisableCompare, Flatten, KeepAlive, Mask, PostBurst, PostBurstPList, PostPattern, PostPList, PreBurstPList, PostPattern, PostPList, PreBurstPList, PrePattern, PrePlist,
+            ReturnOn, StartPattern Occurrence, StartPattern, StopPattern Occurrence, StopPattern, Unmask.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.RemoveElementOption(System.UInt32,System.String)">
+            <summary>
+            Removes the Plist option at its element level.
+            First element of the Plist has index value = 0.
+            </summary>
+            <param name="position">The index value of the element.</param>
+            <param name="elementOptionName">The name of the element option to remove. Element Options are: Skip, Mask, Unmask, LoopStart,
+            LoopEnd, LoopRepeat, EnableCapture, DisableCapture, EnableCompare, DisableCompare.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.RemoveElementOptions(System.UInt32,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Removes a group of Plist options at their element level.
+            First element of the Plist has index value = 0.
+            </summary>
+            <param name="position">The index value of the element.</param>
+            <param name="elementOptionNames">The names of the element options to remove. Element Options are: Skip, Mask, Unmask, LoopStart,
+            LoopEnd, LoopRepeat, EnableCapture, DisableCapture, EnableCompare, DisableCompare.</param>
+        </member>
+        <member name="M:Prime.PlistService.IPlistObject.Resolve">
+            <summary>
+            Checks if the plist is dirty and applies the change to hardware.
+            </summary>
+        </member>
+        <member name="T:Prime.PlistService.IPlistService">
+            <summary>
+            IPlistService interface for Plist related operations.
+            </summary>
+        </member>
+        <member name="M:Prime.PlistService.IPlistService.GetPlistObject(System.String)">
+            <summary>
+            Creates and returns a new plist object for plist information queries.
+            Must specify which parts required for optimization.
+            Possible parts: Name, Domains, AmblePatternNames, Patterns, All.
+            </summary>
+            <param name="plistName">The name of the plist.</param>
+            <returns>IPlistObject interface.</returns>
+        </member>
+        <member name="M:Prime.PlistService.IPlistService.GetPlistObject(System.String,Prime.PlistService.PlistParts)">
+            <summary>
+            Creates and returns a new plist object for plist information queries.
+            Must specify which parts required for optimization.
+            Possible parts: Name, Domains, AmblePatternNames, Patterns, All.
+            </summary>
+            <param name="plistName">The name of the plist.</param>
+            <param name="whichParts">Which plist object parts to get. Default to Name only.</param>
+            <returns>IPlistObject interface.</returns>
+        </member>
+        <member name="M:Prime.PlistService.IPlistService.Exists(System.String)">
+            <summary>
+            Checks if the given plist name exists.
+            </summary>
+            <param name="plistName">The name of the plist to check.</param>
+            <returns>True if exists, false if it doesn't.</returns>
+        </member>
+        <member name="T:Prime.PlistService.PlistParts">
+            <summary>
+            The plist object pats.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistParts.Name">
+            <summary>
+            Name.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistParts.Domains">
+            <summary>
+            Domains data.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistParts.Patterns">
+            <summary>
+            Patterns at all nesting levels.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistParts.Subroutines">
+            <summary>
+            Pattern's subrotines, requires patterns data.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistParts.PatternsOnly">
+            <summary>
+            Structure with only patterns.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistParts.PatternsAndSubroutines">
+            <summary>
+            Structure with Patterns and subroutines.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistParts.AllStructure">
+            <summary>
+            Structure and Domains.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistParts.NA">
+            <summary>
+            No parts at all.
+            </summary>
+        </member>
+        <member name="T:Prime.PlistService.PlistObject">
+            <summary>
+            PlistObject implementation.
+            </summary>
+            <summary>
+            PlistObject implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlistService.PlistObject"/> class.
+            </summary>
+            <param name="name">The Plist name.</param>
+            <param name="isFoundInGlobalCache">Indicates if found during AlephInit (Lot level global cache).</param>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlistService.PlistObject"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.#ctor(System.String,System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.HashSet{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlistService.PlistObject"/> class.
+            For unit test.
+            </summary>
+            <param name="name">plist name.</param>
+            <param name="isFoundInGlobalCache">isFoundInGlobalCache.</param>
+            <param name="domains">Domains.</param>
+            <param name="amblePatternNames">AmblePatternNames.</param>
+            <param name="allOrderedPatternNames">AllPatternNames.</param>
+            <param name="allPatternNamesWithSubroutines">AllPatternNamesWithSubroutines.</param>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.#ctor(Prime.PlistService.PlistObject)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlistService.PlistObject"/> class.
+            For unit test.
+            </summary>
+            <param name="source">plist name.</param>
+        </member>
+        <member name="P:Prime.PlistService.PlistObject.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlistService.PlistObject.Domains">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlistService.PlistObject.AmblePatternNames">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlistService.PlistObject.OrderedPatternNames">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlistService.PlistObject.AllPatternNames">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlistService.PlistObject.NumOfPatternInPlistWithoutAmbles">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlistService.PlistObject.AllPatternNamesWithSubroutineNames">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlistService.PlistObject.UniquePatternNames">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlistService.PlistObject.UniquePatternNamesWithSubroutineNames">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlistService.PlistObject.IsFoundInGlobalCache">
+            <summary>
+            Gets or sets a value indicating whether the source of the object is global cache.
+            </summary>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.GetPlistObjectFromCaches(Prime.SessionService.ISessionContextProviderContainer,System.String,Prime.PlistService.PlistParts)">
+            <summary>
+            Get a plist object from cache.
+            </summary>
+            <param name="sessionContext">Session Context for this operation.</param>
+            <param name="plistName">The name of the plist to check.</param>
+            <param name="whichParts">Which parts to fill data for this plist object.</param>
+            <returns>True if exists, false if it doesn't.</returns>
+            <returns>a new plist object.</returns>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.CheckIfPlistExist(Prime.SessionService.ISessionContextProviderContainer,System.String,Prime.SharedStorageService.Internal.IUnsafeRow{System.Collections.Generic.Dictionary{System.String,Prime.PlistService.PlistObject}},Prime.SharedStorageService.Internal.IUnsafeRow{System.Collections.Generic.Dictionary{System.String,Prime.PlistService.PlistObject}})">
+            <summary>
+            Checks if the given plist name exists.
+            </summary>
+            <param name="sessionContext">Session Context for this operation.</param>
+            <param name="plistName">The name of the plist to check.</param>
+            <param name="allPlistObjectsInIpScope">UnsafeRow object for PlistObject in IP Scope.</param>
+            <param name="allPlistObjectsInLotScope">UnsafeRow object for PlistObject in Lot Scope.</param>
+            <returns>True if exists, false if it doesn't.</returns>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.IsPatternAnAmble(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.Load(Prime.SessionService.ISessionContextProviderContainer,System.String,Prime.PlistService.PlistParts)">
+            <summary>
+            Load data to the current object from cache.
+            Specify which parts you want to fill to optimize performance.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="plistNameArg">The plist name.</param>
+            <param name="whichParts">Which plist parts to initialize.</param>>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If plist name can't be found.</exception>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.DisableAllPatterns">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.DisableGivenPatternOccurrencesEnableRest(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.HashSet{System.UInt32}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.DisableGivenPatternsEnableRest(System.Collections.Generic.ISet{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.DisablePatterns(System.Collections.Generic.ISet{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.DisablePatternsMatchingRegex(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.DisablePatternsMatchingRegexEnableRest(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.DisablePatternsOccurrences(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.HashSet{System.UInt32}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.EnableAllPatterns">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.EnableGivenPatternOccurrencesDisableRest(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.HashSet{System.UInt32}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.EnableGivenPatternsDisableRest(System.Collections.Generic.ISet{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.EnablePatterns(System.Collections.Generic.ISet{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.EnablePatternsMatchingRegex(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.EnablePatternsMatchingRegexDisableRest(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.EnablePatternsOccurrences(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.HashSet{System.UInt32}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.GetElementOption(System.UInt32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.GetElementOptions(System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.GetElementsOptions(System.Collections.Generic.IEnumerable{System.UInt32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.GetOption(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.GetOptions">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.GetPatternsAndIndexes(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.RemoveElementOption(System.UInt32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.RemoveElementOptions(System.UInt32,System.Collections.Generic.IEnumerable{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.RemoveOptions(System.Collections.Generic.IEnumerable{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.Resolve">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.SetElementOption(System.UInt32,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.SetElementOptions(System.UInt32,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.SetOption(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlistService.PlistObject.SetOptions(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlistService.PlistService">
+            <summary>
+            PlistService implementation.
+            </summary>
+        </member>
+        <member name="T:Prime.PlistService.PlistServiceConstants">
+            <summary>
+            Constants.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistServiceConstants.PlistAlephInitDone">
+            <summary>
+            The global plist storage key.
+            </summary>
+        </member>
+        <member name="T:Prime.PlistService.PlistServiceConstants.Telemetry">
+            <summary>
+            Telemetry constants.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistServiceConstants.Telemetry.PlistName">
+            <summary>
+            PlistName name.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistServiceConstants.Telemetry.IsFromGlobalCache">
+            <summary>
+            IsFromGlobalCache name.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistServiceConstants.Telemetry.False">
+            <summary>
+            False value.
+            </summary>
+        </member>
+        <member name="F:Prime.PlistService.PlistServiceConstants.Telemetry.True">
+            <summary>
+            Trye value.
+            </summary>
+        </member>
+        <member name="T:Prime.PlistService.SortedMultiSet`1">
+            <summary>
+            SortedMultiSet implementation.
+            </summary>
+            <typeparam name="T">Type of multiset.</typeparam>
+        </member>
+        <member name="M:Prime.PlistService.SortedMultiSet`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlistService.SortedMultiSet`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PlistService.SortedMultiSet`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlistService.SortedMultiSet`1"/> class.
+            </summary>
+            <param name="items">items.</param>
+        </member>
+        <member name="M:Prime.PlistService.SortedMultiSet`1.Add(`0)">
+            <summary>
+            Add the item to the sorted dictionary.
+            </summary>
+            <param name="item">items.</param>
+        </member>
+        <member name="M:Prime.PlistService.SortedMultiSet`1.Add(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Add the item to the sorted dictionary.
+            </summary>
+            <param name="items">items.</param>
+        </member>
+        <member name="M:Prime.PlistService.SortedMultiSet`1.GetEnumerator">
+            <summary>
+            Get the enumerator.
+            </summary>
+            <returns>Enumerator interface with type T.</returns>
+        </member>
+        <member name="M:Prime.PlistService.SortedMultiSet`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Get enumerator.
+            </summary>
+            <returns>Enumerator interface.</returns>
+        </member>
+    </members>
+</doc>

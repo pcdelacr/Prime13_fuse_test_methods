@@ -1,0 +1,2494 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.FunctionalService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData">
+            <summary>
+            CaptureCtvPerCycleData implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.#ctor(Prime.FunctionalService.Logger.ILogger,System.Collections.Generic.List{System.String},System.Collections.Generic.IReadOnlyCollection{Prime.PinService.IPin},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="domains">Lists of domain names.</param>
+            /// <param name="ctvPins">Lists of ctv pin name.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.AddFunctionalTestResult(Prime.PlatformService.Internal.IFunctionalTestResult,Prime.TelemetryService.TelemetryHandler{Prime.FunctionalService.FunctionalTest})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.GetCtvPerCycle">
+            <summary>
+            Returns list of CtvPerCycleData object.
+            </summary>
+            <returns>A list of CtvPerCycleData interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.GetCtvPerPattern">
+            <summary>
+            Returns CTV data per pin for current the pattern.
+            </summary>
+            <returns>A list with the CTV data per pattern.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.PinIndex">
+            <summary>
+            Struct of pin index.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.PinIndex.#ctor(System.UInt32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.PinIndex"/> struct.
+            </summary>
+            <param name="index">Pin index.</param>
+            <param name="pin">Pin name.</param>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.PinIndex.Index">
+            <summary>
+            Gets pin index.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.PinIndex.Pin">
+            <summary>
+            Gets pin object.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleTest">
+            <summary>
+            CaptureCtvPerCycleTest implementation.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleTest.CaptureCtvPerCycleCapturedData">
+            <summary>
+            Gets or sets the CaptureCtvPerCycleData object.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleTest.GetCtvPerCycle">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleTest.GetCtvPerPattern">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleTest.GetCtvPerPattern(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleTest.GetString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureCtv.CaptureCtvPerPinTest">
+            <summary>
+            CaptureFailureTest implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerPinTest.GetCtvData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerPinTest.GetCtvDataAsStringBuilder">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerPinTest.GetCtvData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerPinTest.GetCtvDataAsStringBuilder(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerPinTest.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CaptureCtvPerPinTest.GetString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData">
+            <summary>
+            CapturePerPinCtvData implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData.#ctor(Prime.FunctionalService.Logger.ILogger,System.Collections.Generic.IReadOnlyCollection{Prime.PinService.IPin})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="ctvPins">Lists of ctv pins.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData.#ctor(Prime.FunctionalService.Logger.ILogger,System.Collections.Generic.IReadOnlyCollection{Prime.PinService.IPin},System.Nullable{System.UInt32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="ctvPins">Lists of ctv pins.</param>
+            <param name="tail">Tail of the CTV stream to capture.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData.AddFunctionalTestResult(Prime.PlatformService.Internal.IFunctionalTestResult,Prime.TelemetryService.TelemetryHandler{Prime.FunctionalService.FunctionalTest})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData.GetCtvData">
+            <summary>
+            Returns the dictionary of pin name and ctv data.
+            </summary>
+            <returns>Dictionary of pin name and ctv data.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData.GetCtvDataStringBuilder">
+            <summary>
+            Returns the dictionary of pin name and ctv data.
+            </summary>
+            <returns>Dictionary of pin name and ctv data.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData.GetCtvData(System.String)">
+            <summary>
+            Returns the dictionary of pin name and ctv data.
+            </summary>
+            <param name="ctvPinName">Ctv pin name.</param>
+            <returns>Ctv data.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CapturePerPinCtvData.GetCtvDataStringBuilder(System.String)">
+            <summary>
+            Returns the dictionary of pin name and ctv data.
+            </summary>
+            <param name="ctvPinName">Ctv pin name.</param>
+            <returns>Ctv data.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureCtv.CtvPerCycleData">
+            <summary>
+            FailureData implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CtvPerCycleData.#ctor(Prime.PlatformService.Internal.ICycleDataWithCaptureData,System.Collections.Generic.List{Prime.FunctionalService.CaptureCtv.CaptureCtvPerCycleData.PinIndex})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureCtv.CtvPerCycleData"/> class.
+            </summary>
+            <param name="cycleDataWithCaptureData">CycleDataWithCaptureData object.</param>
+            <param name="pinIndexes">List of PinIndex.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CtvPerCycleData.GetPinIndexes">
+            <summary>
+            Gets the lists of PinIndex.
+            </summary>
+            <returns>Lists of PinIndex.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CtvPerCycleData.GetCtvData">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureCtv.CtvPerPattern">
+            <summary>
+            CtvPerPattern implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CtvPerPattern.#ctor(System.String,System.String,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureCtv.CtvPerPattern"/> class.
+            </summary>
+            <param name="patternName">Pattern name.</param>
+            <param name="parentPlist">Name of parent plist.</param>
+            <param name="patternId">Pattern id.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CtvPerPattern.GetCtvData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CtvPerPattern.GetCtvData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CtvPerPattern.GetInstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CtvPerPattern.GetName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CtvPerPattern.GetParentPlistName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureCtv.CtvPerPattern.Add(System.String,System.Char)">
+            <summary>
+            Add pin name and ctv character to ctvPerPin dictionary.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <param name="ctv">Character of ctv.</param>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleData">
+            <summary>
+            CaptureFailureAndCtvPerCycleData implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleData.#ctor(Prime.FunctionalService.Logger.ILogger,System.Collections.Generic.List{System.String},System.Collections.Generic.IReadOnlyCollection{Prime.PinService.IPin},System.Boolean,Prime.SessionService.ISessionContextProviderContainer,System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="domains">Lists of domain names.</param>
+            <param name="ctvPins">Lists of ctv pin name.</param>
+            <param name="isCtvForFailingPatternsOnly">True if ctv data per cycle is captured for failing patterns only.</param>
+            <param name="sessionContext">This session context.</param>
+            <param name="totalCaptureCount">Number of global failures to capture.</param>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleData.CaptureFailure">
+            <summary>
+            Gets or sets the CaptureFailure object.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleData.CapturePerCycleCtv">
+            <summary>
+            Gets or sets the CaptureFailure object.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleData.AddFunctionalTestResult(Prime.PlatformService.Internal.IFunctionalTestResult,Prime.TelemetryService.TelemetryHandler{Prime.FunctionalService.FunctionalTest})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleData.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleTest">
+            <summary>
+            CaptureFailureAndCtvPerCycleTest implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleTest.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleTest.GetCtvPerCycle">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleTest.GetCtvPerPattern">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleTest.GetCtvPerPattern(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerCycleTest.GetString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData">
+            <summary>
+            CaptureFailureAndCtvPerPinData implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData.#ctor(Prime.FunctionalService.Logger.ILogger,System.Collections.Generic.IReadOnlyCollection{Prime.PinService.IPin},System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="ctvPins">Lists of ctv pins.</param>
+            <param name="totalCaptureCount">Number of global failures to capture.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData.#ctor(Prime.FunctionalService.Logger.ILogger,System.Collections.Generic.IReadOnlyCollection{Prime.PinService.IPin},System.Nullable{System.UInt32},System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="ctvPins">Lists of ctv pins.</param>
+            <param name="tail">Tail of the CTV stream to capture.</param>
+            <param name="totalCaptureCount">Number of global failures to capture.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData.CaptureFailure">
+            <summary>
+            Gets or sets the CaptureFailure object.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData.CapturePerPinCtv">
+            <summary>
+            Gets or sets the CaptureFailure object.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData.AddFunctionalTestResult(Prime.PlatformService.Internal.IFunctionalTestResult,Prime.TelemetryService.TelemetryHandler{Prime.FunctionalService.FunctionalTest})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinData.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinTest">
+            <summary>
+            CaptureFailureAndCtvPerPinTest implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinTest.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinTest.GetCtvData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFailureAndCtvPerPinTest.GetCtvData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleData">
+            <summary>
+            Handle the cases where failures captured from one or more bursts and only first failed pattern needed.
+            e.g when user create a functionalTest and ReturnOn Option included.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleData.#ctor(Prime.FunctionalService.Logger.ILogger,System.Collections.Generic.List{System.String},System.Collections.Generic.IReadOnlyCollection{Prime.PinService.IPin},System.Boolean,System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="domains">Lists of domain names.</param>
+            <param name="ctvPins">Lists of ctv pin name.</param>
+            <param name="isCtvForFailingPatternsOnly">True if ctv data per cycle is captured for failing patterns only.</param>
+            <param name="maxTotalCapture">Max amout of failures to capture.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleData.CaptureFailure">
+            <summary>
+            Gets or sets the CaptureFailure object.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleData.CapturePerCycleCtv">
+            <summary>
+            Gets or sets the CaptureFailure object.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleData.AddFunctionalTestResult(Prime.PlatformService.Internal.IFunctionalTestResult,Prime.TelemetryService.TelemetryHandler{Prime.FunctionalService.FunctionalTest})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleData.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleTest">
+            <summary>
+            Handle the cases where failures captured from one or more bursts and only first failed pattern needed.
+            e.g when user create a functionalTest and ReturnOn Option included.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleTest.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleTest.GetCtvPerCycle">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleTest.GetCtvPerPattern">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerCycleTest.GetCtvPerPattern(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerPinData">
+            <summary>
+            Handle the cases where failures captured from one or more bursts and only first failed pattern needed.
+            e.g when user create a functionalTest and ReturnOn Option included.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerPinData.#ctor(Prime.FunctionalService.Logger.ILogger,System.Collections.Generic.IReadOnlyCollection{Prime.PinService.IPin},System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerPinData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="ctvPins">Lists of ctv pins.</param>
+            <param name="maxTotalCapture">Max total capture.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerPinData.#ctor(Prime.FunctionalService.Logger.ILogger,System.Collections.Generic.IReadOnlyCollection{Prime.PinService.IPin},System.UInt64,System.Nullable{System.UInt32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerPinData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="ctvPins">Lists of ctv pins.</param>
+            <param name="maxTotalCapture">Max total capture.</param>
+            /// <param name="tail">Tail of the CTV stream to capture.</param>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerPinData.CaptureFailure">
+            <summary>
+            Gets or sets the CaptureFailure object.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerPinData.CapturePerPinCtv">
+            <summary>
+            Gets or sets the CaptureFailure object.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerPinData.AddFunctionalTestResult(Prime.PlatformService.Internal.IFunctionalTestResult,Prime.TelemetryService.TelemetryHandler{Prime.FunctionalService.FunctionalTest})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerPinData.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailureAndCtv.CaptureFirstFailedPatternAndCtvPerPinTest">
+            <summary>
+            Handle the cases where failures captured from one or more bursts and only first failed pattern needed.
+            e.g when user create a functionalTest and ReturnOn Option included.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailure.CaptureFailureData">
+            <summary>
+            CaptureFailureData implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.CaptureFailureData.#ctor(Prime.FunctionalService.Logger.ILogger,System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailure.CaptureFailureData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="totalCapture">Number of global failures to capture.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.CaptureFailureData.AddFunctionalTestResult(Prime.PlatformService.Internal.IFunctionalTestResult,Prime.TelemetryService.TelemetryHandler{Prime.FunctionalService.FunctionalTest})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.CaptureFailureData.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.CaptureFailureData.GetFailureData">
+            <summary>
+            Returns the lists of failure data.
+            </summary>
+            <returns>Lists of failure data.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailure.CaptureFailuresAndFilterFirstFailedPatternData">
+            <summary>
+            Handle the cases where failures captured from one or more bursts and only first failed pattern needed.
+            e.g when user create a functionalTest and ReturnOn Option included.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.CaptureFailuresAndFilterFirstFailedPatternData.#ctor(Prime.FunctionalService.Logger.ILogger,System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailure.CaptureFailuresAndFilterFirstFailedPatternData"/> class.
+            </summary>
+            <param name="logger">Logger objects.</param>
+            <param name="totalCapture">total amount of failure to capture.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.CaptureFailuresAndFilterFirstFailedPatternData.AddFunctionalTestResult(Prime.PlatformService.Internal.IFunctionalTestResult,Prime.TelemetryService.TelemetryHandler{Prime.FunctionalService.FunctionalTest})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailure.CaptureFailureTest`1">
+            <summary>
+            CaptureFailureTest implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.CaptureFailureTest`1.SetStartPatternForConcurrentPlist(System.Collections.Generic.Dictionary{System.String,System.Tuple{System.String,System.UInt32}})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailure.FailureData">
+            <summary>
+            FailureData implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.FailureData.#ctor(Prime.PlatformService.Internal.IFailCycleData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailure.FailureData"/> class.
+            </summary>
+            /// <param name="failCycleData">Fail cycle data object.</param>
+        </member>
+        <member name="P:Prime.FunctionalService.CaptureFailure.FailureData.PatternInfo">
+            <summary>
+            Gets the pattern info.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.FailureData.GetFailingPinChannels">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.FailureData.GetFailingPinNames">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailure.IStartPatternHandler">
+            <summary>
+            IStartPatternHandler interface.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.IStartPatternHandler.Apply(Prime.PlatformService.Internal.IFunctionalTest)">
+            <summary>
+            Reset or set the start pattern.
+            </summary>
+            <param name="functionalTest">Functional test object.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.IStartPatternHandler.Reset">
+            <summary>
+            Resets the state of the current object, initializing and clearing the data from previous plist execution.
+            This is required at the beginning of every test instance when using the EnableSTartOnFirstFail.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.IStartPatternHandler.HasStartPattern">
+            <summary>
+            Return boolean value, return if is enable start pattern in actual functional test.
+            </summary>
+            <returns>Return true if is enable startPattern, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.IStartPatternHandler.GetStartPattern">
+            <summary>
+            Return tuple value with respected start pattern data.
+            </summary>
+            <returns>PatternName, BurstIndex, PatternId.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.IStartPatternHandler.SetFailureData(Prime.FunctionalService.CaptureFailure.FailureData)">
+            <summary>
+            Sets the failure data.
+            </summary>
+            <param name="failureData">FailureData object.</param>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailure.StartPatternDisabled">
+            <summary>
+            StartPatternDisabled implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternDisabled.SetFailureData(Prime.FunctionalService.CaptureFailure.FailureData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternDisabled.Apply(Prime.PlatformService.Internal.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternDisabled.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternDisabled.HasStartPattern">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternDisabled.GetStartPattern">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailure.StartPatternEnabled">
+            <summary>
+            StartPatternEnabled implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternEnabled.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailure.StartPatternEnabled"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternEnabled.#ctor(System.String,System.UInt32,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.CaptureFailure.StartPatternEnabled"/> class.
+            </summary>
+            <param name="patternName">Pattern name.</param>
+            <param name="patternId">Pattern Id.</param>
+            <param name="burstIndex">Burst index.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternEnabled.SetFailureData(Prime.FunctionalService.CaptureFailure.FailureData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternEnabled.Apply(Prime.PlatformService.Internal.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternEnabled.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternEnabled.HasStartPattern">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternEnabled.GetStartPattern">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CaptureFailure.StartPatternForConcurrentPlist">
+            <summary>
+            StartPatternForConcurrentPlist implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternForConcurrentPlist.Apply(Prime.PlatformService.Internal.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternForConcurrentPlist.GetStartPattern">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternForConcurrentPlist.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternForConcurrentPlist.HasStartPattern">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.CaptureFailure.StartPatternForConcurrentPlist.SetFailureData(Prime.FunctionalService.CaptureFailure.FailureData)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.CtvSettings">
+            <summary>
+            Groups the fixed settings related to Ctv. These are the settings that are not related to the functional test object itself.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.CtvSettings.CtvPins">
+            <summary>
+            Gets or sets the list of pins to capture.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.CtvSettings.Tail">
+            <summary>
+            Gets or sets the tail of the CTV stream to capture.
+            <remarks>Example: if this is set to 10, and the plist execution captures 100, the `FunctionalService` will drop the first 90, returning only the last 10 bits.</remarks>
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.Factory">
+            <summary>
+            Factory implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Factory.GetLogger(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Factory.GetSoftwareTriggerHandler(Prime.FunctionalService.ISoftwareTrigger,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Factory.GetTriggerMapHandler(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Factory.GetMaskHandler(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Factory.GetDefaultMaskHandler">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Factory.GetDefaultTriggerMapHandler">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.FailureSettings">
+            <summary>
+            Groups the fixed settings related to failures. These are the settings that are not related to the functional test object itself.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.FailureSettings.ExecutionMaxFailBehaviorMode">
+            <summary>
+            Options for how to continue plist/patgen execution when the specified maximum number of failures have occurred.
+            </summary>
+        </member>
+        <member name="F:Prime.FunctionalService.FailureSettings.ExecutionMaxFailBehaviorMode.ExitPListOnFail">
+            <summary>
+            The current burst is allowed to complete but the next burst is not executed
+            </summary>
+        </member>
+        <member name="F:Prime.FunctionalService.FailureSettings.ExecutionMaxFailBehaviorMode.AbortOnFail">
+            <summary>
+            An attempt is made to abort patgen immediately.  This is not compatible with KeepAlive plists.
+            </summary>
+        </member>
+        <member name="F:Prime.FunctionalService.FailureSettings.ExecutionMaxFailBehaviorMode.ContinueOnFail">
+            <summary>
+            Plist execution continues (without capturing any additional failures).
+            </summary>
+        </member>
+        <member name="F:Prime.FunctionalService.FailureSettings.ExecutionMaxFailBehaviorMode.ReturnOnFail">
+            <summary>
+            PList will evaluate fails at the pattern boundaries and return through the plist PostExec content.
+            </summary>
+        </member>
+        <member name="F:Prime.FunctionalService.FailureSettings.ExecutionMaxFailBehaviorMode.Default">
+            <summary>
+            This will be the default mode depending on the other capture settings.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.FailureSettings.TotalCaptureCount">
+            <summary>
+            Gets or sets Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.FailureSettings.PerPatternCaptureCount">
+            <summary>
+            Gets or sets the maximum failures to capture per pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.FailureSettings.PatternNameCounterIndexes">
+            <summary>
+            Gets or sets comma separated string of integers which map characters in the pattern name to produce a tuple id.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.FailureSettings.ExecutionMaxFailBehavior">
+            <summary>
+            Gets or sets the behavior when the  maximum number of failures to capture has been reached.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.FunctionalService">
+            <summary>
+            FunctionalService implementation.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.FunctionalTest">
+            <summary>
+            FunctionalTest implementation.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.FunctionalTest.SoftwareTriggerCallback">
+            <summary>
+            Gets the software trigger callback handler..
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.FunctionalTest.Logger">
+            <summary>
+            Gets the logger object to do logging.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.FunctionalTest.ActualPlist">
+            <summary>
+            Gets or sets the plist object.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.FunctionalTest.FunctionalTestResult">
+            <summary>
+            Gets or sets the functional test result.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.FunctionalTest.CaptureData">
+            <summary>
+            Gets or sets the default capture data.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.ApplyTestConditions">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.ApplyTimingTestCondition">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.ApplyLevelTestCondition">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.SetPinMask(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.GetPinMask">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.SetTriggerMap(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.SetPrePlistCallback(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.SetPostPlistCallback(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.GetEdgeCounters">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.GetPlistName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.GetLevelName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.GetTimingName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.ResolvePlist(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.FunctionalTest.GetMappedString(System.String,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Get a new substring based indexes specified in indexMap input. This code is partially based on the ScoreboardLogger GetMappedString function.
+            </summary>
+            <param name="stringToMap">Full string on which the index map will be applied.</param>
+            <param name="indexMap">List of indexes to take from the full original string.</param>
+            <returns>Returns new substring that contains characters that appear on the indexmap input (by order).</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.Handler.EmptyMaskHandler">
+            <summary>
+            EmptyMaskHandler implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.EmptyMaskHandler.Set(Prime.PlatformService.Internal.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.EmptyMaskHandler.Restore(Prime.PlatformService.Internal.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.EmptyMaskHandler.GetPins">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.EmptyMaskHandler.GetString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.Handler.EmptyPlistCallbackHandler">
+            <summary>
+            EmptyPrePlistCallbackHandler implementation.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.Handler.EmptyTriggerMapHandler">
+            <summary>
+            EmptyTriggerMapHandler implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.EmptyTriggerMapHandler.Apply">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.EmptyTriggerMapHandler.Validate">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.EmptyTriggerMapHandler.GetString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.Handler.IMaskHandler">
+            <summary>
+            IMaskHandler interface.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.IMaskHandler.Set(Prime.PlatformService.Internal.IFunctionalTest)">
+            <summary>
+            Sets the pin to masks to the tester.
+            </summary>
+            <param name="functionalTest">Functional test object.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.IMaskHandler.Restore(Prime.PlatformService.Internal.IFunctionalTest)">
+            <summary>
+            Restore the pin to masks to the tester.
+            </summary>
+            <param name="functionalTest">Functional test object.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.IMaskHandler.GetPins">
+            <summary>
+            Returns the current list of mask pins.
+            </summary>
+            <returns>Lists of mask pins.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.IMaskHandler.GetString">
+            <summary>
+            Get the field and property info in string format.
+            </summary>
+            <returns>The object field and property info in string format.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.Handler.IPlistCallbackHandler">
+            <summary>
+            IPrePlistCallbackHandler interface.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.IPlistCallbackHandler.Execute(Prime.TelemetryService.TelemetryHandler{Prime.FunctionalService.FunctionalTest})">
+            <summary>
+            Executes a callback function for the instance if it exists on shared storage.
+            </summary>
+            <param name="telemetryHandler">The telemetry handler.</param>
+        </member>
+        <member name="T:Prime.FunctionalService.Handler.ITriggerMapHandler">
+            <summary>
+            ITriggerMapHandler interface.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.ITriggerMapHandler.Apply">
+            <summary>
+            Applies the trigger map - Plist pair..
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.ITriggerMapHandler.Validate">
+            <summary>
+            Validates if the trigger map - Plist pair is isValid.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.ITriggerMapHandler.GetString">
+            <summary>
+            Get the object property info in string format.
+            </summary>
+            <returns>The object property info in string format.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.Handler.MaskHandler">
+            <summary>
+            MaskHandler implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.MaskHandler.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.Handler.MaskHandler"/> class.
+            </summary>
+            <param name="maskPins">Lists of mask pins.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.MaskHandler.Set(Prime.PlatformService.Internal.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.MaskHandler.Restore(Prime.PlatformService.Internal.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.MaskHandler.GetPins">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.MaskHandler.GetString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.Handler.PlistCallbackHandler">
+            <summary>
+            PrePlistCallbackHandler implementation.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.Handler.TriggerMapHandler">
+            <summary>
+            TriggerMapHandler implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.TriggerMapHandler.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.Handler.TriggerMapHandler"/> class.
+            </summary>
+            <param name="triggerMap">Trigger map.</param>
+            <param name="plistName">Plist name.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.TriggerMapHandler.Apply">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.TriggerMapHandler.Validate">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Handler.TriggerMapHandler.GetString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.IFactory">
+            <summary>
+            IFactory interface.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetPlistCallbackHandler(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get PostPlistCallbackHandler object.
+            </summary>
+            <param name="plistCallback">Pre plist callback.</param>
+            <param name="sessionContext">The current instance session context.</param>
+            <returns>IPreExecuteCallbackHandler interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetLogger(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get Logger object.
+            </summary>
+            <param name="plistName">Plist name.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>ILogger interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetSoftwareTriggerHandler(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the software Trigger Callback object.
+            </summary>
+            <param name="callbackName">Callback name.</param>
+            <param name="sessionContext">The current instance session context.</param>
+            <returns>ISoftwareTriggerCallbackHandler interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetSoftwareTriggerHandler(Prime.FunctionalService.ISoftwareTrigger,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the software trigger callback object.
+            </summary>
+            <param name="execute">The delegate to the Execute function.</param>
+            <param name="name">The name of the Execute function.</param>
+            <param name="sessionContext">The current instance's sessionContext.</param>
+            <returns>ISoftwareTriggerCallbackHandler interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetTriggerMapHandler(System.String,System.String)">
+            <summary>
+            Get the trigger map handler object.
+            </summary>
+            <param name="triggerMap">Trigger map.</param>
+            <param name="plistName">Plist name.</param>
+            <returns>ITriggerMapHandler interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetMaskHandler(System.Collections.Generic.List{System.String})">
+            <summary>
+            Get the mask handler object.
+            </summary>
+            <param name="maskPins">Lists of mask pins.</param>
+            <returns>IMaskHandler interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetDefaultMaskHandler">
+            <summary>
+            Get the default mask handler object.
+            </summary>
+            <returns>IMaskHandler interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetDefaultSoftwareTriggerHandler(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the default software Trigger Callback object.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+            <returns>ISoftwareTriggerCallbackHandler interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetDefaultPrePlistCallBackHandler(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the default PrePlist Callback object.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+            <returns>IPrePlistCallbackHandler interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetDefaultPostPlistCallBackHandler(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the default PostPlist Callback object.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+            <returns>IPrePlistCallbackHandler interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFactory.GetDefaultTriggerMapHandler">
+            <summary>
+            Get the default TriggerMapHandler object.
+            </summary>
+            <returns>ITriggerMapHandler interface.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.IFunctionalService">
+            <summary>
+            Service for executing functional test in various options.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureTestBuilder(System.String,System.String,System.String,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test builder object for plist execution that captures fail data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureFailureTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureTest(System.String,System.String,System.String,System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures fail data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureFailureTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureTest(System.String,System.String,System.String,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures fail data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureFailureTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureTest(System.String,System.String,System.String,System.UInt64,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures fail data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureFailureTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureTest(System.String,System.String,System.String,System.UInt64,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures fail data.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureFailureTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureTest(System.String,System.String,System.String,System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures fail data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureFailureTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureTest(System.String,System.String,System.String,System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures fail data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureFailureTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureTest(System.String,System.String,System.String,System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures fail data.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureFailureTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CaptureFailuresStopOnFirstFailedPatternBuilder(System.String,System.String,System.String,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates new functional test builder object for plist execution with capturing fail data.
+            This test will stop execution on the first failing burst. Only failures of the first failing pattern will
+            be returned by this object. Recommended when ReturnOn option is specified over the PList.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>A builder for the ICaptureFailureTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerPinTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerPinTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerPinTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerPinTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerPinTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerPinTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerPinTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerPinTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerPinTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerPinTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerPinTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerPinTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerCycleTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data per cycle.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerCycleTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerCycleTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data per cycle.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerCycleTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerCycleTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data per cycle.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerCycleTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerCycleTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data per cycle.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerCycleTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerCycleTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data per cycle.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerCycleTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureCtvPerCycleTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data per cycle.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>An object that implements <see cref="T:Prime.FunctionalService.ICaptureCtvPerCycleTest"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerPinTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data and failure data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerPinTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerPinTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data and failure data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerPinTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CaptureFailuresStopOnFirstFailedPatternAndCtvPerPinBuilder(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates new functional test builder object for plist execution with capturing CTV data and fail data.
+            That type of test will stop on the first failing burst and ONLY failures / CTVs of the first failing pattern will
+            be available. Recommended when ReturnOn option is specified over the PList.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>A builder for the ICaptureFailureTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerPinTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data and failure data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerPinTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerPinTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data and failure data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>ICaptureFailureAndCtvPerPinTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerPinTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data and failure data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>ICaptureFailureAndCtvPerPinTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerPinTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data and failure data.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lowe===================================================================================================================r value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>ICaptureFailureAndCtvPerPinTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerPinTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data and failure data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerPinTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerPinTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data and failure data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerPinTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerPinTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures CTV data and failure data.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerPinTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CaptureFailuresStopOnFirstFailedPatternAndCtvPerCycleBuilder(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates new functional test builder object for plist execution with capturing CTV data and fail data.
+            That type of test will stop on the first failing burst and ONLY failures / CTVs of the first failing pattern will
+            be available. Recommended when ReturnOn option is specified over the PList.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>A builder for the ICaptureFailureTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTest(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTest(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTestForFailingPatterns(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle for failing patterns only.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTestForFailingPatterns(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle for failing patterns only.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTestForFailingPatterns(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle for failing patterns only.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, LevelsTc or timings are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTestForFailingPatterns(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle for failing patterns only.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTestForFailingPatterns(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle for failing patterns only.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTestForFailingPatterns(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.UInt64,System.UInt64,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle for failing patterns only.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvPinNames">List of pins to use for CTV capture.</param>
+            <param name="totalCaptureCount">Number of total failures to capture. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="perPatternCaptureCount">Number of failures to capture per pattern. The service will use the lower value between this and capture capacity available for the given plist defined by the hdmtOS.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or totalCaptureCount == 0, or perPatternCaptureCount == 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTestForFailingPatterns(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle for failing patterns only.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTestForFailingPatterns(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle for failing patterns only.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateCaptureFailureAndCtvPerCycleTestForFailingPatterns(System.String,System.String,System.String,Prime.FunctionalService.CtvSettings,Prime.FunctionalService.FailureSettings,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution that captures failure data and CTV data per cycle for failing patterns only.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="ctvSettings">The Ctv settings for this functional test.</param>
+            <param name="failureSettings">Sets the settings of how many failures to capture.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when plist, levelsName or timingsName are invalid, or if the totalCaptureCount is equal to 0.</exception>
+            <returns>ICaptureFailureAndCtvPerCycleTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateNoCaptureTest(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new functional test object for plist execution without capturing any data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>INoCaptureTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateNoCaptureTest(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution without capturing any data.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTriggerCallbackName">The name of a function already registered through the TestProgramService.RegisterCallback() function.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>INoCaptureTest interface.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalService.CreateNoCaptureTest(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer,Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Creates a new functional test object for plist execution without capturing any data.
+            Additional parameter for setting a software trigger delegate function.
+            </summary>
+            <param name="plistName">Plist to be executed.</param>
+            <param name="levelsName">Levels to apply to hardware.</param>
+            <param name="timingsName">Timings to apply to hardware.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="softwareTrigger">An object that implements <see cref="T:Prime.FunctionalService.ISoftwareTrigger"/>. The Execute() function of this object will be called during TOSTriggers during plist execution.</param>
+            <param name="softwareTriggerName">The human readable name used for printing occurrences of the softwareTrigger's execution during a TOSTrigger.</param>
+            <exception cref="T:System.Exception">Thrown when the plistName, levelsName, or timingsName are invalid.</exception>
+            <returns>INoCaptureTest interface.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.ICtvPerPattern">
+            <summary>
+            Defines an object that contains the CTV data per pin for a given pattern.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.ICtvPerPattern.GetName">
+            <summary>
+            Returns the name of the current pattern.
+            </summary>
+            <returns>The pattern name.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICtvPerPattern.GetInstanceId">
+            <summary>
+            The pattern Id of the occurrence of this data.
+            </summary>
+            <returns>The pattern instance id of the plist execution.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICtvPerPattern.GetParentPlistName">
+            <summary>
+            Returns the name of the parent plist of the current pattern execution.
+            </summary>
+            <returns>The parent plist name.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICtvPerPattern.GetCtvData">
+            <summary>
+            Returns the CTV data for all the pins on the current pattern occurrence.
+            </summary>
+            <returns>The CTV data per pin name.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICtvPerPattern.GetCtvData(System.String)">
+            <summary>
+            Returns the CTV data for the given pin name.
+            </summary>
+            <param name="ctvPinName">The pin name to get the CTV.</param>
+            <returns>The CTV data for the requested pin.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.IPerCycleData">
+            <summary>
+            Defines an object that contains the captured data per cycle.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetDomainName">
+            <summary>
+            The domain name of the occurrence of this data.
+            </summary>
+            <returns>The domain name.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetPatternName">
+            <summary>
+            The pattern name of the occurrence of this data.
+            </summary>
+            <returns>The pattern name.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetPatternInstanceId">
+            <summary>
+            The pattern Id of the occurrence of this data.
+            </summary>
+            <returns>The pattern instance id of the plist execution.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetBurstIndex">
+            <summary>
+            The burst index of the occurrence of this data.
+            </summary>
+            <returns>The burst index number.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetParentPlistName">
+            <summary>
+            The parent plist name of the occurrence of this data.
+            </summary>
+            <returns>The parent plist name.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetVectorAddress">
+            <summary>
+            Returns the vector address.
+            </summary>
+            <returns>The vector address.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetCycle">
+            <summary>
+            Returns the cycle number.
+            </summary>
+            <returns>The cycle number on the pattern.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetBurstCycle">
+            <summary>
+            Returns the cycle number of the current burst wise.
+            </summary>
+            <returns>The cycle number on the burst execution.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetTraceLogCycle">
+            <summary>
+            Returns the trace log cycle.
+            </summary>
+            <returns>The trace log cycle number.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetTraceLogRegister1">
+            <summary>
+            Returns the trace log register1.
+            </summary>
+            <returns>The trace log register1.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetPreviousLabel">
+            <summary>
+            Returns the previous label of the current cycle.
+            </summary>
+            <returns>Label preceding the current cycle.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetCyclesFromPreviousLabel">
+            <summary>
+            Returns the cycle of previous label of the currently failing address.
+            </summary>
+            <returns>Cycles of previous label.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetLinkCount">
+            <summary>
+            Returns the link count of the currently failing address.
+            </summary>
+            <returns>Cycles of previous label.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.IsSubroutine">
+            <summary>
+            Returns whether or not it is a subroutine.
+            </summary>
+            <returns>True if it is a subroutine pattern.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IPerCycleData.GetSubroutinePattern">
+            <summary>
+            Returns the name of the subroutine pattern for failures only, when it is run in HDMT..
+            </summary>
+            <returns>The subroutine pattern name.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.IFailureData">
+            <summary>
+            Defines an object that contains the failure data for a cycle of a pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.IFailureData.PatternInfo">
+            <summary>
+            Gets the pattern info.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.IFailureData.GetFailingPinNames">
+            <summary>
+            The pin names that failed on the current cycle.
+            </summary>
+            <returns>The list of pin names on the current cycle.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFailureData.GetFailingPinChannels">
+            <summary>
+            The pin channel that failed on the current cycle.
+            </summary>
+            <returns>The list of pin names on the current cycle.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.ICtvPerCycle">
+            <summary>
+            Defines an object that contains the Ctv data for a cycle of a pattern.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.ICtvPerCycle.GetCtvData">
+            <summary>
+            Return the CTV data for the current cycle.
+            The CTV is ordered based on the order of the pins provided to the service.
+            </summary>
+            <returns>The CTV on the current cycle.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.IFunctionalTest">
+            <summary>
+            Common interface for a functional test of any type.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.ApplyTestConditions">
+            <summary>
+            Will apply the timings and levels test conditions to the hardware.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.ApplyLevelTestCondition">
+            <summary>
+            Will only apply levels test condition to the hardware.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.ApplyTimingTestCondition">
+            <summary>
+            Will only apply timings test condition to the hardware.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.Execute">
+            <summary>
+            Executes the plist with the current test condition settings.
+            All desired test conditions need to be applied beforehand via the "Test Condition" service or equivalent.
+            Saves the plist execution pass or fail result.
+            </summary>
+            <returns>If the plist execution has failures or not.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.SetPinMask(System.Collections.Generic.List{System.String})">
+            <summary>
+            Sets the list of pins that will be masked when the plist is executed.
+            If a pin that is masked were to fail during plist execution no failure would be reported.
+            </summary>
+            <param name="maskPins">Pin name list.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.GetPinMask">
+            <summary>
+            Gets the previously set list of pins that will be masked when the plist is executed.
+            </summary>
+            <returns>The current list of pins to mask.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.SetTriggerMap(System.String)">
+            <summary>
+            Saves and validate the name of the trigger map name to apply during the plist execution.
+            </summary>
+            <param name="triggerMap">The name of the plist map.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.SetPrePlistCallback(System.String)">
+            <summary>
+            Sets a callback to be executed before the plist execution.
+            </summary>
+            <exception cref="T:System.Exception">This interface has not been implemented yet.</exception>
+            <param name="callbackName">The name of a function already register thru the TestProgramService.RegisterCallback function.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.SetPostPlistCallback(System.String)">
+            <summary>
+            Sets a callback to be executed after the plist execution.
+            </summary>
+            <exception cref="T:System.Exception">This interface has not been implemented yet.</exception>
+            <param name="callbackName">The name of a function already register thru the TestProgramService.RegisterCallback function.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.GetEdgeCounters">
+            <summary>
+            Gets the edge counter data for every pin set thru SetEdgeCounters, per burst index of the last plist execution.
+            </summary>
+            <returns>The edge counters per pin per burst index of the plist execution.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.GetPlistName">
+            <summary>
+            Get plist name to be executed.
+            </summary>
+            <returns>PList name to be executed.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.GetLevelName">
+            <summary>
+            Get levels name to apply to hardware.
+            </summary>
+            <returns>Levels to apply to hardware.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.GetTimingName">
+            <summary>
+            Get timings name to apply to hardware.
+            </summary>
+            <returns>Timings to apply to hardware.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.ResolvePlist(System.String)">
+            <summary>
+            Resolves plist version for execution according to PUP methodology.
+            If supported - the plist will have 2 versions at least  -  slim (some patterns are skipped) and full (original).
+            This function will resolve the plist version to be executed by the test.
+            </summary>
+            <param name="instanceName">instance name for which the plist should be resolved.</param>
+            <returns>Resolved plist name.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTest.SetEdgeCountersPins(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Sets the lists of pins to capture edgeCounters.
+            </summary>
+            <param name="pins">List of pins.</param>
+        </member>
+        <member name="T:Prime.FunctionalService.INoCaptureTest">
+            <summary>
+            An specific interface of the IFunctionalTest that does not capture anything.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.ICaptureCtvPerPinTest">
+            <summary>
+            An specific interface of the IFunctionalTest to capture CTVs.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureCtvPerPinTest.GetCtvData">
+            <summary>
+            Returns captured CTV data for the list of pin names from last plist execution.
+            </summary>
+            <returns>CTV capture results.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureCtvPerPinTest.GetCtvDataAsStringBuilder">
+            <summary>
+            Returns captured CTV data for the list of pin names from last plist execution.
+            </summary>
+            <returns>CTV capture results.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureCtvPerPinTest.GetCtvData(System.String)">
+            <summary>
+            Returns the CTV data for the given pin name.
+            </summary>
+            <param name="ctvPinName">The pin name to get the CTV.</param>
+            <returns>The CTV data for the requested pin.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureCtvPerPinTest.GetCtvDataAsStringBuilder(System.String)">
+            <summary>
+            Returns the CTV data for the given pin name.
+            </summary>
+            <param name="ctvPinName">The pin name to get the CTV.</param>
+            <returns>The CTV data for the requested pin.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.ICaptureCtvPerCycleTest">
+            <summary>
+            An specific interface of the IFunctionalTest to capture CTV per cycle.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureCtvPerCycleTest.GetCtvPerCycle">
+            <summary>
+            Returns the list of CTV data per cycle.
+            </summary>
+            <returns>A list with the captured cycle data.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureCtvPerCycleTest.GetCtvPerPattern">
+            <summary>
+            Returns CTV data per pin for current the pattern.
+            </summary>
+            <returns>A list with the CTV data per pattern.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureCtvPerCycleTest.GetCtvPerPattern(System.String)">
+            <summary>
+            Returns CTV data per pin for current the pattern name per occurrence.
+            </summary>
+            <param name="patternName">The pattern name to filter.</param>
+            <returns>A list of per pattern CTV for every occurrence of the patternName.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.ICaptureFailureTest">
+            <summary>
+            An specific interface of the IFunctionalTest to capture failures.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.ICaptureFailureTest.ExecutionMaxFailBehaviorMode">
+            <summary>
+            Gets the execution max fail behavior mode.
+            </summary>
+            <returns>The execution max fail behavior mode.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.Reset">
+            <summary>
+            Resets the state of the current object, initializing and clearing the data from previous plist execution.
+            This is required at the beginning of every test instance when using the EnableSTartOnFirstFail.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.EnableStartPatternOnFirstFail">
+            <summary>
+            Enable the automatic handling of start on first fail mode based on the previous execution of the plist.
+            Start from first -no amble- failing pattern from the previous plist execution.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.DisableStartPattern">
+            <summary>
+            Disable any previous way to set the start pattern of the plist execution.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.SetStartPattern(System.String,System.UInt32,System.UInt32)">
+            <summary>
+            Explicitly sets the start pattern for the current execution.
+            Overrides a previous start pattern set by a previous first fail.
+            Note: this manual override would be overriden the next time the plist is executed.
+            </summary>
+            <param name="patternName">Name of the pattern to start.</param>
+            <param name="burstIndex">Burst index to set.</param>
+            <param name="patternId">Index of the pattern in the burst.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.SetStartPatternForConcurrentPlist(System.Collections.Generic.Dictionary{System.String,System.Tuple{System.String,System.UInt32}})">
+            <summary>
+            Sets the start pattern for the current execution under a ConcurrentPlist scenario.
+            </summary>
+            <param name="perPlistStartPattern">The tuple of the pattern name and id for each plist in the concurrent plist.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.GetFailingPinNames">
+            <summary>
+            Retrieves all the failing pins names from every failing cycle.
+            </summary>
+            <returns>A list with all failing pin names.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.GetPerCycleFailures">
+            <summary>
+            Returns the list of failure data per cycle.
+            </summary>
+            <returns>A list with the captured cycle data.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.GetFailedPatterns">
+            <summary>
+            Returns the name of the failed patterns.
+            </summary>
+            <returns>An enumerable with the failed pattern names.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.DatalogFailure(System.UInt32)">
+            <summary>
+            Prints the failing pattern info to ituff file.
+            </summary>
+            <param name="numberOfFailuresToDatalog">The number failures to datalog.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.DatalogFailure(System.UInt32,System.UInt32)">
+            <summary>
+            Prints the failing pattern info to ituff file.
+            </summary>
+            <param name="numberOfFailuresToDatalog">The number failures to datalog.</param>
+            <param name="numberOfFailuresPerPatternToDatalog">The number failures to datalog per pattern.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.HasStartPattern">
+            <summary>
+            Return boolean value, return if is enable start pattern in actual functional test.
+            </summary>
+            <returns>Return true if is enable startPattern, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.GetStartPattern">
+            <summary>
+            Return tuple value with respected start pattern data.
+            vector format=[PatternName, BurstIndex, PatternId].
+            </summary>
+            <returns>PatternName, BurstIndex, PatternId.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.IsPerPatternCaptureEnabled">
+            <summary>
+            Returns whether a per pattern capture count is set to a value higher than zero.
+            </summary>
+            <returns>True is per pattern capture count is enabled.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.ExecuteWithInlineRv">
+            <summary>
+            Execute functional test while running inline reject validation algorithm for TTR monitoring .
+            </summary>
+            <returns>plist execution result according to inline reject validation result.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.ICaptureFailureTest.RunInlineRvLogic">
+            <summary>
+            Running inline reject validation algorithm for TTR monitoring without pre-executing the functional test.
+            </summary>
+            <returns>plist execution result according to inline reject validation result.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.ICaptureFailureAndCtvPerPinTest">
+            <summary>
+            An specific interface of the IFunctionalTest to capture failures and CTVs.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.ICaptureFailureAndCtvPerCycleTest">
+            <summary>
+            An specific interface of the IFunctionalTest to capture failures and CTV per cycle.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.IFunctionalTestBuilder`1">
+            <summary>
+            Interface for building functional tests.
+            </summary>
+            <typeparam name="TInterface">The type of the functional test interface.</typeparam>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTestBuilder`1.Build">
+            <summary>
+            Builds the functional test.
+            </summary>
+            <returns>The current instance of <see cref="T:Prime.FunctionalService.IFunctionalTestBuilder`1"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTestBuilder`1.SetSoftwareTriggerCallback(System.String)">
+            <summary>
+            Sets the software trigger callback.
+            </summary>
+            <param name="callback">The callback to be set.</param>
+            <returns>The current instance of <see cref="T:Prime.FunctionalService.IFunctionalTestBuilder`1"/>.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.IFunctionalTestBuilder`1.SetSoftwareTrigger(Prime.FunctionalService.ISoftwareTrigger,System.String)">
+            <summary>
+            Sets the software trigger.
+            </summary>
+            <param name="softwareTrigger">The software trigger to be set.</param>
+            <param name="name">The name of the software trigger.</param>
+            <returns>The current instance of <see cref="T:Prime.FunctionalService.IFunctionalTestBuilder`1"/>.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.ISoftwareTrigger">
+            <summary>
+            Common interface for a functionality to run during a software trigger event.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.ISoftwareTrigger.Execute(System.UInt32)">
+            <summary>
+            The function to be executed during the Software Trigger.
+            </summary>
+            <param name="payload">The index provided in the pattern during the Software trigger.</param>
+        </member>
+        <member name="T:Prime.FunctionalService.Logger.ILogger">
+            <summary>
+            ILogger interface.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.ILogger.LogTestSettings(System.String)">
+            <summary>
+            Logged IFunctionalTest settings.
+            </summary>
+            <param name="testSettings">Test settings.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.ILogger.LogFailingPinData(Prime.FunctionalService.IFailureData)">
+            <summary>
+            Logged the failing pins information.
+            </summary>
+            <param name="failureData">failureData object.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.ILogger.LogCycleData(Prime.FunctionalService.IPerCycleData)">
+            <summary>
+            Logged the cycle data.
+            </summary>
+            <param name="cycleData">CycleData object.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.ILogger.LogFunctionalTestExecutionResult(System.Boolean,System.String)">
+            <summary>
+            Logged the functional test execution result.
+            </summary>
+            <param name="overallBurstResult">Returns true if all bursts executed without any fails (miscompares).</param>
+            <param name="plistName">Plist name.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.ILogger.LogCtvData(System.String,System.String)">
+            <summary>
+            Logged the ctv data.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <param name="data">Ctv data.</param>
+        </member>
+        <member name="T:Prime.FunctionalService.Logger.IPlistExecutorLogger">
+            <summary>
+            This interface is injected to the plist executor thru the IPlistExecutor::Execute,
+            and it's intended to log the interactions of the platform layer with the tester OS.
+            This way the platform remains decouple of any type of logging or printing to the console.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.IPlistExecutorLogger.LogCaptureSettings(System.String)">
+            <summary>
+            Logged the capture settings.
+            </summary>
+            <param name="captureMode">Capture mode.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.IPlistExecutorLogger.LogCaptureSettings(System.String,System.UInt64)">
+            <summary>
+            Logged the capture settings with total capture count.
+            </summary>
+            <param name="captureMode">Capture mode.</param>
+            <param name="totalCapture">Total capture count.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.IPlistExecutorLogger.LogCaptureSettings(System.String,System.UInt64,System.UInt64)">
+            <summary>
+            Logged the capture settings with total capture count and per pattern count.
+            </summary>
+            <param name="captureMode">Capture mode.</param>
+            <param name="totalCapture">Total capture count.</param>
+            <param name="perPatternCount">Per pattern count.</param>
+        </member>
+        <member name="T:Prime.FunctionalService.Logger.Logger">
+            <summary>
+            Logger implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.Logger.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.Logger.Logger"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.Logger.LogTestSettings(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.Logger.LogCaptureSettings(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.Logger.LogCaptureSettings(System.String,System.UInt64,System.UInt64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.Logger.LogCaptureSettings(System.String,System.UInt64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.Logger.LogFailingPinData(Prime.FunctionalService.IFailureData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.Logger.LogCycleData(Prime.FunctionalService.IPerCycleData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.Logger.LogFunctionalTestExecutionResult(System.Boolean,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.Logger.Logger.LogCtvData(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.NoCaptureTest">
+            <summary>
+            NoCaptureTest implementation.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.PerCycleData">
+            <summary>
+            PerCycleData implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.PerCycleData.#ctor(Prime.PlatformService.Internal.IFailCycleData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.PerCycleData"/> class.
+            </summary>
+            /// <param name="cycleData">Cycle data object.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.PerCycleData.#ctor(Prime.PlatformService.Internal.ICycleDataWithCaptureData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.PerCycleData"/> class.
+            </summary>
+            /// <param name="cycleData">Cycle data object.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.PerCycleData.SetBurstCycle(System.UInt64)">
+            <summary>
+            Set the cycle number of the current burst wise.
+            </summary>
+            <param name="value">Value to set.</param>
+        </member>
+        <member name="T:Prime.FunctionalService.PlistCaptureData.IPlistCaptureData">
+            <summary>
+            IPlistCaptureData interface.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.PlistCaptureData.IPlistCaptureData.AddFunctionalTestResult(Prime.PlatformService.Internal.IFunctionalTestResult,Prime.TelemetryService.TelemetryHandler{Prime.FunctionalService.FunctionalTest})">
+            <summary>
+            Add the functional test result.
+            </summary>
+            <param name="functionalTestResult">Functional test result object.</param>
+            <param name="telemetryHandler">The telemetry handler.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.PlistCaptureData.IPlistCaptureData.AddEdgeCounter(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IReadOnlyDictionary{System.UInt32,System.UInt64}})">
+            <summary>
+            Add the edge counters results.
+            </summary>
+            <param name="edgeCounters">The edge counters per pin per burst index of the plist execution.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.PlistCaptureData.IPlistCaptureData.GetEdgeCounters">
+            <summary>
+            Return the edge counters dictionary..
+            </summary>
+            <returns>Edge counters.</returns>
+        </member>
+        <member name="M:Prime.FunctionalService.PlistCaptureData.IPlistCaptureData.Clear">
+            <summary>
+            Clear the capture data.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.PlistCaptureData.PlistCaptureData">
+            <summary>
+            PlistCaptureData implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.PlistCaptureData.PlistCaptureData.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.PlistCaptureData.PlistCaptureData.AddEdgeCounter(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IReadOnlyDictionary{System.UInt32,System.UInt64}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.PlistCaptureData.PlistCaptureData.GetEdgeCounters">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.SoftwareTrigger.EmptySoftwareTriggerCallback">
+            <summary>
+            Logger implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.SoftwareTrigger.EmptySoftwareTriggerCallback.ProcessCallbackResult">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.SoftwareTrigger.EmptySoftwareTriggerCallback.GetString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FunctionalService.SoftwareTrigger.EmptySoftwareTriggerCallback.Register(Prime.PlatformService.Internal.IFunctionalSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FunctionalService.SoftwareTrigger.ISoftwareTriggerCallbackHandler">
+            <summary>
+            ILogger interface.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.SoftwareTrigger.ISoftwareTriggerCallbackHandler.Register(Prime.PlatformService.Internal.IFunctionalSettings)">
+            <summary>
+            Register the callback to the current Plist execution.
+            Should be called before the PlistExecutor's Execute.
+            </summary>
+            <param name="functionalSettings">Functional Settings.</param>
+        </member>
+        <member name="M:Prime.FunctionalService.SoftwareTrigger.ISoftwareTriggerCallbackHandler.ProcessCallbackResult">
+            <summary>
+            Process the callback result.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.SoftwareTrigger.ISoftwareTriggerCallbackHandler.GetString">
+            <summary>
+            Get the object property info in string format.
+            </summary>
+            <returns>The object property info in string format.</returns>
+        </member>
+        <member name="T:Prime.FunctionalService.SoftwareTrigger.SoftwareTrigger">
+            <summary>
+            SoftwareTrigger implementation.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.SoftwareTrigger.SoftwareTriggerCallback">
+            <summary>
+            SoftwareTriggerCallback implementation.
+            </summary>
+        </member>
+        <member name="T:Prime.FunctionalService.TestParameters">
+            <summary>
+            Container for TestParameters.
+            </summary>
+        </member>
+        <member name="M:Prime.FunctionalService.TestParameters.#ctor(Prime.PlistService.IPlistObject,Prime.TestConditionService.ITestCondition,Prime.TestConditionService.ITestCondition,Prime.FunctionalService.Logger.ILogger,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FunctionalService.TestParameters"/> struct.
+            </summary>
+            /// <param name="plist">Plist object.</param>
+            <param name="levelsTc">LevelsTc object.</param>
+            <param name="timingsTc">TimingsTc object.</param>
+            <param name="logger">Logger object.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.FunctionalService.TestParameters.Plist">
+            <summary>
+            Gets Plist object.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.TestParameters.LevelsTc">
+            <summary>
+            Gets  LevelsTc object.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.TestParameters.TimingsTc">
+            <summary>
+            Gets  TimingsTc object.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.TestParameters.Logger">
+            <summary>
+            Gets or sets Logger object.
+            </summary>
+        </member>
+        <member name="P:Prime.FunctionalService.TestParameters.SessionContext">
+            <summary>
+            Gets this session context..
+            </summary>
+        </member>
+    </members>
+</doc>

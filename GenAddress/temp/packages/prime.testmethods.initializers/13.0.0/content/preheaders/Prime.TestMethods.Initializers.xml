@@ -1,0 +1,725 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Initializers</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod">
+            <summary>
+            Test method responsible for VerifyInstancesializing Prime data and (optionally) verifying all the test instances in the TP.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.BooleanType">
+            <summary>
+            Enumerated type for Boolean value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.BooleanType.True">
+            <summary>
+            True/Enabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.BooleanType.False">
+            <summary>
+            False/Disabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.EngineeringDebug">
+            <summary>
+            Gets or sets EngineeringDebug mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.VerifyAll">
+            <summary>
+            Gets or sets VerifyAll mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.ParallelVerifyEnabled">
+            <summary>
+            Gets or sets if executes the Verify all instances in parallel.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.ParallelVerifyThreadCount">
+            <summary>
+            Gets or sets the number of threads to use for parallel verify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.ParallelVerifyInstanceAffinity">
+            <summary>
+            Gets or sets the path to a comma separated file with the thread affinity per test instance (thread index,instance name).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.SequentialTestClasses">
+            <summary>
+            Gets or sets the list of test classes to verify sequentially.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.PrintPatternMemory">
+            <summary>
+            Gets or sets pattern memory printing.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.PriorityInstanceVerify">
+            <summary>
+            Gets or sets the list of instances that must be verified prior the verify all instances.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.PrimeInitController">
+            <summary>
+            Gets or sets the prime init controller object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeInstancesTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.TestInstanceStatistics">
+            <summary>
+            Holds the statistic data for all the test instances' Verify.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.TestInstanceStatistics.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Initializers.TestInstanceStatistics"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.TestInstanceStatistics.Initialize">
+            <summary>
+            Initialize the test instance statistics for a new execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.TestInstanceStatistics.Finish">
+            <summary>
+            Finishes the test instance statistics by doing the roll over and dumping of the data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry">
+            <summary>
+            Holds the statistic data for the verify of a given test instance.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry.#ctor(System.String,System.String,System.Int32,System.Int64,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry"/> class.
+            </summary>
+            <param name="name">The name of the given test instance.</param>
+            <param name="className">The class name for the given test instance.</param>
+            <param name="threadIndex">The thread index.</param>
+            <param name="initialTime">The initial time of the verify of the given instance with respect to the beginning of the verify all instances.</param>
+            <param name="verifyIterationIndex">The current verify all instance iteration.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry.Name">
+            <summary>
+            Gets the name of the given instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry.ClassName">
+            <summary>
+            Gets the class name of the given instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry.Module">
+            <summary>
+            Gets the module of the given instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry.PrivateBytesBefore">
+            <summary>
+            Gets the private bytes before the test instance's verify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry.PrivateBytesAfter">
+            <summary>
+            Gets the private bytes after the test instance's verify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry.PrivateBytesDelta">
+            <summary>
+            Gets the private bytes delta.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry.ElapsedTime">
+            <summary>
+            Gets the elapsed time of the given test instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.TestInstanceStatistics.Entry.HasPassed">
+            <summary>
+            Gets a value indicating whether the verify of the given test instance passed.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod">
+            <summary>
+            Test method responsible for initializing Prime data and (optionally) verifying all the test instances in the TP.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.BooleanType">
+            <summary>
+            Enumerated type for Boolean value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.BooleanType.True">
+            <summary>
+            True/Enabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.BooleanType.False">
+            <summary>
+            False/Disabled.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.GlobalPrimeTelemetryLogLevel">
+            <summary>
+            Telemetry log level.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.GlobalPrimeTelemetryLogLevel.None">
+            <summary>
+            Not used for writing log messages. Specifies that a logging category should not write any messages.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.GlobalPrimeTelemetryLogLevel.Debug">
+            <summary>
+            Logs that contain the most detailed messages. These messages may contain sensitive application data.
+            These messages are disabled by default and should never be enabled in a production environment.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.GlobalPrimeTelemetryLogLevel.Information">
+            <summary>
+            Logs that track the general flow of the application. These logs should have long-term value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.GlobalPrimeTelemetryLogLevel.Critical">
+            <summary>
+            Logs that describe an unrecoverable application or system crash, or a catastrophic failure that requires
+            immediate attention.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.PerformanceCounterLevel">
+            <summary>
+            Performance Counter activity level.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.PerformanceCounterLevel.None">
+            <summary>
+            Disable all counters.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.PerformanceCounterLevel.GlobalOnly">
+            <summary>
+            Enable only global counters (TP level).
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.PerformanceCounterLevel.GlobalAndInstance">
+            <summary>
+            Enable all counters (TP and Instance level).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.GlobalTelemetryLevel">
+            <summary>
+            Gets or sets the Performance telemetry level.
+            Enum is defined in TestMethodBase.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.ForceFullInit">
+            <summary>
+            Gets or sets a value indicating whether to force full init and skip any 2nd init or InitOffline optimizations.
+            When set to false (i.e. do not force full init), each test method will have the option to force it's own verify by
+            overriding the default ForceReVerify API.
+            This is a debug feature to allow modifying input files, for production TP this is expected to always be False.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.PerformanceCounterLogLevel">
+            <summary>
+            Gets or sets the Performance Counter level.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.TelemetryDebugInstances">
+            <summary>
+            Gets or sets the path to a file with a list of test instance to set telemetry to debug.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.PerformanceCounterSampleRate">
+            <summary>
+            Gets or sets the Performance Counter level.
+            0 will ultimately disable the counters, N value will enable the counter on the Nth samples.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.PrimeInitController">
+            <summary>
+            Gets or sets the prime init controller object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.Unload">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.ResolveTorchUserVars">
+            <summary>
+            Resolve the issue where EOD clears the SCVars uservars triggering the TOS dirty bit mechanism causing full uservars evaluation.
+            To overcome the issue special TORCH uservars collection will be created with location code and BOM group vars which Prime will update
+            according to the values in SCVars collection.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.RegisterCallbacks">
+            <summary>
+            Register Prime callbacks and create a flowEvent for post init flow.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeLibraryTestMethod.InitializePrimeInitControllerForOnline">
+            <summary>
+            Routing the GSDS DB into Prime SharedStorage unless if ROUTE_GSDS_TO_PRIME=FALSE
+            If the env variable not exist or not equals to FALSE then the default is GSDS on PRIME.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.InitializeLibrary.TelemetryMessages">
+            <summary>
+            Initialize library telemetry messages.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.InitializeLibrary.TelemetryMessages.LogTestProgramMetaData(MPE.MIT.Logging.ILogger,System.Func{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Log kernel executed.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="metaData">Meta data dictionary (InitSessionId, tpl, sptl, plist, env).</param>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.Aleph">
+            <summary>
+            Aleph class.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.Aleph.DefaultConfigurationFilesEnvVarName">
+            <summary>
+            The environment variable name of the configuration files for Aleph init service's call.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.Aleph.AlephTorchVar">
+            <summary>
+            The environment variable name of the uservar containing dynamic Aleph file paths .
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.Aleph.SchemaFilesEnvVarName">
+            <summary>
+            The environment variable name of the Aleph schema files path.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.Aleph.DateTimeFormat">
+            <summary>
+            Time format for DateTimes converted to string.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.Aleph.#ctor(Prime.TestMethods.Initializers.AlephCtorArgs,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Initializers.Aleph"/> class.
+            </summary>
+            <param name="ctorArgs">The Aleph C'tor args.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.Aleph.BinMatrixServiceNameDescriptor">
+            <summary>
+            Gets or sets The name of the BinMatrixService as it has special treatment in the code.
+            WIll be equal to "BinMatrixService" but UTs can override that value.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.Aleph.Execute">
+            <summary>
+            Executes Aleph.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.Aleph.GetAllAlephServices">
+            <summary>
+            Return all the IAlephAble services.
+            </summary>
+            <returns>the aleph service.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.Aleph.RunServicesInit(System.Collections.Generic.IEnumerable{Prime.TestMethods.Initializers.AlephService})">
+            <summary>
+            Run service init via GetConfigurationFilesInfo or GetAlephFilesRegEx (legacy).
+            </summary>
+            <param name="alephServices">List of services to initialize.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.Aleph.InitializeServiceByGetAlephFilesRegEx(Prime.TestMethods.Initializers.AlephService,System.String,System.Collections.Generic.List{System.String},System.Text.RegularExpressions.Regex)">
+            <summary>
+            Initializes the services with the GetAlephFilesRegEx (obsolete) call.
+            </summary>
+            <param name="alephService">The Aleph service object.</param>
+            <param name="alephFilesRegExAsString">Regex as string from the service.</param>
+            <param name="filteredList">Filtered list from the regex.</param>
+            <param name="alephFilesRegEx">Aleph regex as regex.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.Aleph.ShouldAlephInitService(System.Collections.Generic.IReadOnlyCollection{System.String},Prime.TestMethods.Initializers.AlephService,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            Checks if a service needs to be initialized with alephInit.
+            This is done by comparing the found serviceFiles with the previous files the service parsed.
+            If true out param contains the new files to keep track of.
+            </summary>
+            <param name="serviceFiles">Found service files.</param>
+            <param name="theService">The service.</param>
+            <param name="newTrackedTimes">If service needs aleph the new files and times are found here.</param>
+            <returns>True if service needs aleph.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.Aleph.ProcessServiceFilesInfo(System.Collections.Generic.Dictionary{System.String,System.String},Prime.TestMethods.Initializers.AlephService,System.Collections.Generic.IReadOnlyCollection{System.String},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Initializes the service with the result of GetConfigurationFilesInfo containing the Regex and the schema file for file check.
+            </summary>
+            <param name="alephFilesInfo">Collection of regex/schema files for the service.</param>
+            <param name="alephService">The Aleph service object.</param>
+            <param name="allFiles">All files for aleph.</param>
+            <param name="regexKeyToFileList">Regex key to list of matched files.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.AlephCtorArgs">
+            <summary>
+            This class has no meaning - it is there to make Lizzard happy as it doesn't allow more than 5 arguments in c'tor.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephCtorArgs.ServicesConfigurationFiles">
+            <summary>
+            Gets or sets The comma separated list of files for aleph.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephCtorArgs.ServicesToStoreFilePath">
+            <summary>
+            Gets or sets List of services to store the configuration files relative path at Shared Storage, for further ituff printing.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephCtorArgs.ExecuteSchemaValidation">
+            <summary>
+            Gets or sets a value indicating whether the json file schema validation is executed or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephCtorArgs.FileHandler">
+            <summary>
+            Gets or sets FileHandler object for file IO operations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephCtorArgs.ForceAleph">
+            <summary>
+            Gets or sets a value indicating whether to disable the aleph optimization of skipping already parsed files.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.AlephFile">
+            <summary>
+            Holds the Aleph file path and timestamp.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephFile.FilePath">
+            <summary>
+            Gets or sets the aleph file path.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephFile.FileTimeStamp">
+            <summary>
+            Gets or sets the aleph file time stamp.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.AlephService">
+            <summary>
+            AlephService.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.AlephService.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Initializers.AlephService"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephService.TheService">
+            <summary>
+            Gets or sets theService.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephService.ServiceName">
+            <summary>
+            Gets or sets ServiceName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephService.AlreadyInitialized">
+            <summary>
+            Gets or sets a value indicating whether this service was already initialized once.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephService.TrackedFiles">
+            <summary>
+            Gets or sets Tracked files. Key -> File, Value -> Datetime.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.AlephService.PassedAleph">
+            <summary>
+            Gets or sets a value indicating whether the service aleph actually worked.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.AlephStoreServiceFilePaths">
+            <summary>
+            Class to register a service configuration files into Shared Storage further Ituff printing.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.AlephStoreServiceFilePaths.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Initializers.AlephStoreServiceFilePaths"/> class.
+            </summary>
+            <param name="services">List of services descriptors/names, separated by comma.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.AlephStoreServiceFilePaths.StoreServiceFilesToSharedStorage">
+            <summary>
+            Stores the service's files configuration data at the shared storage for further Ituff print.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.AlephStoreServiceFilePaths.ServiceShouldBeStored(System.String)">
+            <summary>
+            Returns if the service's file should be printed to ituff.
+            </summary>
+            <param name="serviceName">The service name.</param>
+            <returns>True if the service is included in the printing list.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.AlephStoreServiceFilePaths.AddServiceFileInfo(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Adds the configuration file paths of a service to the printing list.
+            </summary>
+            <param name="serviceName">The service name.</param>
+            <param name="configurationFilesToPrint">List of relative configuration file paths of the service.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.IO.FileHandler">
+            <summary>
+            Main file handler implementation.
+            For basic file IO operations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.IO.FileHandler.Prime#TestMethods#Initializers#IO#IFileHandler#ReadAll(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.IO.IFileHandler">
+            <summary>
+            File handling interfaces.
+            Usage of FileService is preferred.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.IO.IFileHandler.ReadAll(System.String)">
+            <summary>
+            Read all file contents and return it content as string.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>File content as string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.JsonSchemaFileValidator">
+            <summary>
+            Class for handling schema validation of service's configuration json files.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.JsonSchemaFileValidator.schemaFilesPath">
+            <summary>
+            The path to look for json schema files.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.JsonSchemaFileValidator.#ctor(Prime.TestMethods.Initializers.IO.IFileHandler,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Initializers.JsonSchemaFileValidator"/> class.
+            </summary>
+            <param name="fileHandler">File handler for IO operations.</param>
+            <param name="schemaFilesPath">Schema file path.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.JsonSchemaFileValidator.ErrorList">
+            <summary>
+            Gets or sets the error list from the schema validation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.JsonSchemaFileValidator.ValidateFiles(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Validates the files to the json schema file.
+            </summary>
+            <param name="fileList">File list to validate schema.</param>
+            <param name="schemaFile">Schema file name.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.JsonSchemaFileValidator.ProcessFiles(System.Collections.Generic.IEnumerable{System.String},NJsonSchema.JsonSchema)">
+            <summary>
+            Validates files against a json schema file.
+            Only files with json extension are processed.
+            </summary>
+            <param name="fileList">The json file list.</param>
+            <param name="schemaValidator">The schema validator instance.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.JsonSchemaFileValidator.ValidateFile(NJsonSchema.JsonSchema,System.String)">
+            <summary>
+            Executes the validation for a file with the json schema.
+            Adds validation errors to a common list.
+            </summary>
+            <param name="schemaValidator">The schema validator instance.</param>
+            <param name="configurationFilePath">The json file path.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.JsonSchemaFileValidator.GetSchemaValidator(System.String)">
+            <summary>
+            Returns a schema validation instance from a json schema file.
+            </summary>
+            <param name="schemaFile">Full file path to load.</param>
+            <returns>Schema validator instance.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.JsonSchemaFileValidator.GetSchemaFileContent(System.String)">
+            <summary>
+            Returns the content of a json schema file from the filesystem.
+            </summary>
+            <param name="schemaFile">Full file path to load.</param>
+            <returns>Text content of the file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.JsonSchemaFileValidator.GetErrorDetails">
+            <summary>
+            Gets all the validation errors detail as a string.
+            </summary>
+            <returns>All validation errors details.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod">
+            <summary>
+            Test method responsible for initializing Prime data and (optionally) verifying all the test instances in the TP.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.BooleanType">
+            <summary>
+            Enumerated type for Boolean value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.BooleanType.True">
+            <summary>
+            True/Enabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.BooleanType.False">
+            <summary>
+            False/Disabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.ForceValidateAlephFiles">
+            <summary>
+            Gets or sets the value to enable/disable Json schema validation for service configuration files.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.ForceAleph">
+            <summary>
+            Gets or sets the value to enable/disable aleph optimization to skip already parsed service configuration files.
+            True disabled the optimization. False is default value with optimization on.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.Aleph">
+            <summary>
+            Gets or sets Aleph instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.FileHandler">
+            <summary>
+            Gets or sets the file handler for file IO operations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.PrimeInitController">
+            <summary>
+            Gets or sets the prime init controller object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.Load">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.IsSchemaValidationEnabled">
+            <summary>
+            Returns if the schema validation should be processed for the configuration files handled by Aleph.
+            By default schema validation is disabled. But if IsSysCFileServiceUp = False (not a VPO or Production) the validation is enabled automatically.
+            This is to avoid the user to be aware of enabling the validation for local/eng runs or forget to set to False the parameter in a production TP to save init time.
+            </summary>
+            <returns>True is schema validation for configuration files should be executed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.IsAlephFileSkipOptimizationDisabled">
+            <summary>
+            Returns if the optimization that skips already parsed files is disabled. By default it is enabled.
+            </summary>
+            <returns>True if disabled.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.PrimeInitializeServicesTestMethod.InitializeAleph">
+            <summary>
+            To support dynamic env name for aleph files per bom group.
+            By default TorchRulesVar.AlephEnvVariableName is used to extract aleph files.
+            If the uservar AlephEnvVariableName or uservar group TorchRulesVar is not exist, or the uservar is empty, then ALEPH_FILES is used.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.ServiceStatistics">
+            <summary>
+            Holds the statistic data for all the services' Aleph.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.ServiceStatistics.Initialize(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialize the service statistics for a new execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.ServiceStatistics.CreateEntry(System.String)">
+            <summary>
+            Adds a new entry with the given service name.
+            </summary>
+            <param name="serviceName">The name of the service to add.</param>
+            <returns>A new entry.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.ServiceStatistics.Finish">
+            <summary>
+            Finishes the service statistics by doing the roll over and dumping of the data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Initializers.ServiceStatistics.Entry">
+            <summary>
+            Holds the statistic data for the verify of a given test service.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.ServiceStatistics.Entry.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Initializers.ServiceStatistics.Entry"/> class.
+            </summary>
+            <param name="name">The name of the given service.</param>Entry
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.ServiceStatistics.Entry.Name">
+            <summary>
+            Gets the name of the given service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.ServiceStatistics.Entry.PrivateBytesBefore">
+            <summary>
+            Gets the private bytes before the test service's verify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.ServiceStatistics.Entry.PrivateBytesAfter">
+            <summary>
+            Gets the private bytes after the test service's verify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.ServiceStatistics.Entry.VirtualBytesBefore">
+            <summary>
+            Gets the virtual bytes before the service's verify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.ServiceStatistics.Entry.VirtualBytesAfter">
+            <summary>
+            Gets the virtual bytes after the service's verify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Initializers.ServiceStatistics.Entry.ElapsedTime">
+            <summary>
+            Gets the elapsed time of the given test service.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Initializers.ServiceStatistics.Entry.Close">
+            <summary>
+            Closes this service's statistic.
+            </summary>
+        </member>
+    </members>
+</doc>

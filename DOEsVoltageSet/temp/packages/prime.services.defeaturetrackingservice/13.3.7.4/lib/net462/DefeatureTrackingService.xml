@@ -1,0 +1,1482 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.DefeatureTrackingService</name>
+    </assembly>
+    <members>
+        <member name="F:Prime.DefeatureTrackingService.ConfigFiles.PropagationDirection.BothWays">
+            <summary>
+            Update will go both ways, from high to low and low to high.
+            </summary>
+        </member>
+        <member name="F:Prime.DefeatureTrackingService.ConfigFiles.PropagationDirection.HighToLow">
+            <summary>
+            Update will only go from High Level to Low Level structures.
+            If low Level structure is disabled, it will not disabled high level structure.
+            </summary>
+        </member>
+        <member name="F:Prime.DefeatureTrackingService.ConfigFiles.PropagationDirection.LowToHigh">
+            <summary>
+            Update will only go from Low Level to High Level structures.
+            If high Level structure is disabled, it will not disabled low level structure.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.Dependency">
+            <summary>
+            This class will hold the dependencies per JSON input file.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.Dependency.HighLevelStructure">
+            <summary>
+            Gets or sets the structureName for the highLevelStructure.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.Dependency.HighLevelElement">
+            <summary>
+            Gets or sets the name of the dependent element to consider from the highLevelStructure.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.Dependency.LowLevelStructure">
+            <summary>
+            Gets or sets the structureName for the lowLevelStructure.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.Dependency.LowLevelElements">
+            <summary>
+            Gets or sets the names of the dependent elements to consider from the lowLevelStructure.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.Dependency.Propagation">
+            <summary>
+            Gets or sets the direction of data propagation.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.IRule`1">
+            <summary>
+            Rule Interface.
+            </summary>
+            <typeparam name="T">The type being expected out of the rule.</typeparam>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ConfigFiles.IRule`1.ResolveValue">
+            <summary>
+            Resolve the value of rule.
+            </summary>
+            <returns>The resolved value of the rule.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ConfigFiles.IRule`1.EnforceExistence">
+            <summary>
+            Check if the value of the rule is UserVar typed, if it is make sure the UserVar exists.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.MinQuantityRule">
+            <summary>
+            This class will hold Minimum Quantity configurations for rule per JSON input file and resolve the effective value.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.MinQuantityRule.Type">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.MinQuantityRule.Value">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ConfigFiles.MinQuantityRule.Prime#DefeatureTrackingService#ConfigFiles#IRule{System#Int32}#ResolveValue">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ConfigFiles.MinQuantityRule.Prime#DefeatureTrackingService#ConfigFiles#IRule{System#Int32}#EnforceExistence">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.Rule">
+            <summary>
+            This class will hold the rule configuration per JSON input file.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.Rule.Name">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.Rule.SingleFail">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.Rule.MinQuantity">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.Rule.ValidCombination">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.SingleFailRule">
+            <summary>
+            This class will hold Single-Fail configurations for rule per JSON input file and resolve the effective value.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.SingleFailRule.Type">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.SingleFailRule.Value">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ConfigFiles.SingleFailRule.Prime#DefeatureTrackingService#ConfigFiles#IRule{System#Boolean}#ResolveValue">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ConfigFiles.SingleFailRule.Prime#DefeatureTrackingService#ConfigFiles#IRule{System#Boolean}#EnforceExistence">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ConfigFiles.SingleFailRule.ValidateRule">
+            <summary>
+            Validate contents in the rule.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.StructureConfiguration">
+            <summary>
+            The class to hold the tracking configuration defined in the input file.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.StructureConfiguration.Schema">
+            <summary>
+            Gets or sets the schema.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.StructureConfiguration.Elements">
+            <summary>
+            Gets or sets the list of elements defined in the input file.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.StructureConfiguration.TrackingStructures">
+            <summary>
+            Gets or sets the list of tracking structures defined in the input file.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.StructureConfiguration.ValidCombinations">
+            <summary>
+            Gets or sets the Valid combinations from the input file.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.StructureConfiguration.Rules">
+            <summary>
+            Gets or sets the rules from the input file.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.StructureConfiguration.Dependencies">
+            <summary>
+            Gets or sets the dependencies defined in the input file.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.StructureGroup">
+            <summary>
+            This class will only hold structure configuration per JSON input files.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.StructureGroup.Name">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.StructureGroup.TrackingElements">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.TrackingStructure">
+            <summary>
+            This class will only hold structure configuration per JSON input files.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.TrackingStructure.StructureNames">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.TrackingStructure.StructureGroups">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.TrackingStructure.IntraStructureLinks">
+            <summary>
+            Gets or sets the IntraStructure Linkings. Each HashSet contains the group that they are linked together.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.Validator">
+            <summary>
+            Class object to validate the configuration from file.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ConfigFiles.Validator.#ctor(Prime.DefeatureTrackingService.ConfigFiles.StructureConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.ConfigFiles.Validator"/> class.
+            </summary>
+            <param name="configurationToValidate">The configuration parsed from input file to be validated.</param>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.ValidCombination">
+            <summary>
+            This class will hold Valid Combination vectors per JSON input files.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.ValidCombination.Name">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.ValidCombination.Vector">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.ValidCombination.MinQuantityPerCombination">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ConfigFiles.ValidCombinationRule">
+            <summary>
+            This class will hold Valid Combination configurations for rule per JSON input file and resolve the effective value.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.ValidCombinationRule.Type">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.ValidCombinationRule.Value">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.ConfigFiles.ValidCombinationRule.Combos">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ConfigFiles.ValidCombinationRule.Prime#DefeatureTrackingService#ConfigFiles#IRule{System#Collections#Generic#List{System#String}}#ResolveValue">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ConfigFiles.ValidCombinationRule.Prime#DefeatureTrackingService#ConfigFiles#IRule{System#Collections#Generic#List{System#String}}#EnforceExistence">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Database.ElementRecordTable">
+            <summary>
+            Table the holds the element value record.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.ElementRecordTable.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.Database.ElementRecordTable"/> class.
+            Only for SharedStorage usage.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.ElementRecordTable.#ctor(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.Database.ElementRecordTable"/> class.
+            </summary>
+            <param name="name">Name of the element.</param>
+            <param name="structureName">StructureName the element comes from.</param>
+            <param name="groupName">The group that the element comes from.</param>
+            <param name="value">The value of the element.</param>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.ElementRecordTable.Name">
+            <summary>
+            Gets or sets the name of the element.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.ElementRecordTable.StructureName">
+            <summary>
+            Gets or sets the name of the structure this element belongs to.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.ElementRecordTable.GroupName">
+            <summary>
+            Gets or sets the name of the group this structure belongs to.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.ElementRecordTable.CurrentValue">
+            <summary>
+            Gets or sets a value indicating whether the element's currently defeatured or not.
+            True = Defeatured/Disabled.
+            False = Not-Defeatured/Enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.ElementRecordTable.OriginalValue">
+            <summary>
+            Gets or sets a value indicating whether the element's originally defeatured or not.
+            True = Defeatured/Disabled.
+            False = Not-Defeatured/Enabled.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Database.Internal.IDependencyStructureHandler">
+            <summary>
+            Interfaces to be used along with DependencyMap.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.Internal.IDependencyStructureHandler.GetStructureName">
+            <summary>
+            Get the name of the structure.
+            Only intended to be used along with DependencyMap.
+            </summary>
+            <returns>The name of the structure.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            TrackingDatabase database = this.recordStorageHandler.GetDatabase("StrucA", this.sessionContext);
+            foreach (var highProximity in database.higherProximityStructures)
+            {
+                var structureName = highProximity.Structure.GetStructureName();
+                Prime.Base.ServiceStore<IConsoleService>.Service.PrintDebug(() => $"Name of higher proximity structure = {structureName}.", this.sessionContext);
+            if (highProximity.Structure.HasBeenInitialized())
+                {
+                    Prime.Base.ServiceStore<IConsoleService>.Service.PrintDebug(() => $"Structure {highProximity.Structure.StructureName} has been initialized.", this.sessionContext);
+                }
+            }
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.Internal.IDependencyStructureHandler.InitializeElementValues(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initialize the given value into the Tracking Structure for the specified elements.
+            The number of element values given must match the size of the Tracking Structure.
+            Only intended to be used along with DependencyMap.
+            </summary>
+            <param name="elementNames">The names of the element to initialize.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            TrackingDatabase database = this.recordStorageHandler.GetDatabase("StrucA", this.sessionContext);
+            foreach (var highProximity in database.higherProximityStructures)
+            {
+                var elementNames = new List<string>(highProximity.ElementMap.Keys);
+                highProximity.Structure.InitializeElementValues(elementNames);
+            }
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.Internal.IDependencyStructureHandler.HasBeenInitalized">
+            <summary>
+            Get the information whether this structure has been initialized or not.
+            Only intended to be used along with DependencyMap.
+            </summary>
+            <returns>True if the structure has been initialized.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            TrackingDatabase database = this.recordStorageHandler.GetDatabase("StrucA", this.sessionContext);
+            foreach (var highProximity in database.higherProximityStructures)
+            {
+                var elementNames = new List<string>(highProximity.ElementMap.Keys);
+                if (((Prime.DefeatureTrackingService.Database.Internal.IDependencyStructureHandler)highProximity.Structure).HasBeenInitialized())
+                {
+                    Prime.Base.ServiceStore<IConsoleService>.Service.PrintDebug(() => $"Structure {highProximity.Structure.StructureName} has been initialized.", this.sessionContext);
+                }
+            }
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.Internal.IDependencyStructureHandler.UpdateElementValue(System.String,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            Update specific element and specify the origin structure.
+            Only intended to be used along with DependencyMap as part of the dependency elements data propagation.
+            </summary>
+            <param name="elementName">The name of the element to initialize.</param>
+            <param name="value">The value of the element to update.</param>
+            <param name="originStructure">The structure where this API is called from. This value is important to avoid infinity loop.</param>
+            <param name="shouldUpdateElementProximities">Determines if proximities should be updated. During init flow, this should be false.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            TrackingDatabase database = this.recordStorageHandler.GetDatabase("StrucA", this.sessionContext);
+            foreach (var highProximity in database.higherProximityStructures)
+            {
+                highProximity.Structure.UpdateElementValue("Core00", true, database.StructureName, true);
+            }
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.Internal.IDependencyStructureHandler.GetAllElementsValue">
+            <summary>
+            Get all elements paired with their values.
+            Only intended to be used along with DependencyMap.
+            </summary>
+            <returns>Dictionary of element names and values.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            TrackingDatabase database = this.recordStorageHandler.GetDatabase("StrucA", this.sessionContext);
+            foreach (var highProximity in database.higherProximityStructures)
+            {
+                var elementNames = new List<string>(highProximity.ElementMap.Keys);
+                var allElementValues = highProximity.Structure.GetAllElementsValue();
+            }
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.Internal.IDependencyStructureHandler.ResetLastValuesBeforeUpdate">
+            <summary>
+            Reset the values before update, to be used after writing to ituff so that the next ituff print will be correct.
+            </summary>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            TrackingDatabase database = this.recordStorageHandler.GetDatabase("StrucA", this.sessionContext);
+            this.WriteToItuff(new BitArray(new bool[] { true, false, true }), database);
+            database.ResetLastValuesBeforeUpdate();
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.Internal.IDependencyStructureHandler.GetItuffFormatter(System.Collections.Generic.HashSet{System.String},System.Boolean)">
+            <summary>
+            Get all the ituff formatter for the dependency structures.
+            Intended to be used with DependencyMap.
+            </summary>
+            <param name="printedStructures">List of structures that has already been gathered, so it doesn't give duplicates.</param>
+            <param name="isStructurePrinting">To print structure (class) format, or group format (sort).</param>
+            <returns>List of Ituff Formatter.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            TrackingDatabase database = this.recordStorageHandler.GetDatabase("StrucA", this.sessionContext);
+            var printedStructures = new List<string>();
+            foreach (var highProximity in database.higherProximityStructures)
+            {
+                var elementNames = new List<string>(highProximity.ElementMap.Keys);
+                var allElementValues = highProximity.Structure.GetItuffFormatter(printedStructures);
+            }
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.Internal.IDependencyStructureHandler.EvaluateRule(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IList{Prime.DefeatureTrackingService.Rules.IDefeatureRule}},System.String)">
+             <summary>
+             Evaluate the Dependency Structure's against their specified rul.
+             Intended to be used with DependencyMap.
+             </summary>
+             <param name="elementNames">List of structures that has already been gathered, so it doesn't give duplicates.</param>
+             <param name="dependencyRules">The list of rules to be applied to the dependencies.</param>
+             <param name="fromStructure">Where this function is being called from.</param>
+             <returns>True if the value does not violate any rules.</returns>
+             <remarks>
+             <example>
+             This is a code example:
+             <code>
+             <![CDATA[
+             TrackingDatabase database = this.recordStorageHandler.GetDatabase("StrucA", this.sessionContext);
+             var disabledElements = new List<string>
+             {
+                 "A1", "A2"
+             }
+            
+             foreach (var highProximity in database.higherProximityStructures)
+             {
+                 highProximity.Structure.EvaluateRule(disabledElements);
+             }
+             ]]>
+             </code>
+             </example>
+             </remarks>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Database.StructureTable">
+            <summary>
+            Table for structure. Structure name is the key.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.StructureTable.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.Database.StructureTable"/> class.
+            Only for SharedStorage usage.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Database.StructureTable.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.Database.StructureTable"/> class.
+            </summary>
+            <param name="elements">Element of the group.</param>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.StructureTable.Elements">
+            <summary>
+            Gets or sets the list of elements in the group structure.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Database.StructureHierarchy">
+            <summary>
+            The structure hierarchy.
+            </summary>
+        </member>
+        <member name="F:Prime.DefeatureTrackingService.Database.StructureHierarchy.High">
+            <summary>
+            High level structure, highest in the hierarchy.
+            </summary>
+        </member>
+        <member name="F:Prime.DefeatureTrackingService.Database.StructureHierarchy.Intermediate">
+            <summary>
+            Intermediate level structure, it's in the middle and it has a structure on top of it and below it.
+            </summary>
+        </member>
+        <member name="F:Prime.DefeatureTrackingService.Database.StructureHierarchy.Low">
+            <summary>
+            Low level structure, lowest in the hierarchy.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Database.TrackingDatabase">
+            <summary>
+            Handles the tracking database.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.StructureName">
+            <summary>
+            Gets or sets the name of the structure that this tracking database is for.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.StructureElements">
+            <summary>
+            Gets or sets the list of elements for the whole structure.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.StructureTable">
+            <summary>
+            Gets or sets StructureTable, table is keyed with the structure group name.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.ElementRecordTable">
+            <summary>
+            Gets or sets Element Record Table, table is keyed with element name.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.IntraStructureLinks">
+            <summary>
+            Gets or sets the IntraStructure Linkings. Each HashSet contains the group that they are linked together.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.HigherProximityStructures">
+            <summary>
+            Gets or sets the higher proximity linked structures.
+            Structures under this property comes before current database.
+            A -> B, If current level is B, A is under this property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.LowerProximityStructures">
+            <summary>
+            Gets or sets the lower proximity linked structures.
+            Structures under this property comes after current database.
+            A -> B, if current level is A, B is under this property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.HaveOriginalValuesBeenSet">
+            <summary>
+            Gets or sets a value indicating whether the originalValues are yet to be initialized.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.HasBeenInitializedThroughDependency">
+            <summary>
+            Gets or sets a value indicating whether the dependent structure has been initialized.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.LastCombinationResult">
+            <summary>
+            Gets or sets last combination result.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Database.TrackingDatabase.LastValuesBeforeUpdate">
+            <summary>
+            Gets the last value before an update happen after WriteToItuff happened.
+            This value will be set to be equal to current values after WriteToItuff happened.
+            Before update = 01000 -> Update to 01001 -> WriteToItuff called ->  Before update = 01001.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.DefeatureTrackingService">
+            <summary>
+            DefeatureTrackingService implementation class.
+            Partial class for SDK.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.DefeatureTrackingService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.DefeatureTrackingService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.DefeatureTrackingService.Prime#DefeatureTrackingService#IDefeatureTrackingService#CreateTrackingStructureHandler(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.DefeatureTrackingService.Prime#DefeatureTrackingService#IDefeatureTrackingService#CreateTrackingStructureGroupHandler(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.DefeatureTrackingService.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.DefeatureTrackingService.Prime#Base#IAlephAble#IAlephAble#GetAlephInitPriority">
+            <inheritdoc cref="T:Prime.Base.IAlephAble.IAlephAble"/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.DefeatureTrackingService.Prime#Base#IAlephAble#IAlephAble#GetAlephFilesRegEx">
+            <inheritdoc cref="T:Prime.Base.IAlephAble.IAlephAble"/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.DefeatureTrackingService.Prime#Base#IAlephAble#IAlephAble#AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc cref="T:Prime.Base.IAlephAble.IAlephAble"/>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.FileHandler.Parser">
+            <summary>
+            Class for DefeatureTrackingParser.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.FileHandler.Parser.ParseConfigFile(System.String)">
+            <summary>
+            Loads configuration from file.
+            </summary>
+            <param name="fileContent">The content of the file.</param>
+            <returns>The configuration Object.</returns>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Helpers.BitArrayExtensions">
+            <summary>
+            Extending the BitArray functionality.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.BitArrayExtensions.ConvertToString(System.Collections.BitArray)">
+            <summary>
+            Convert BitArray to binary string sequence.
+            </summary>
+            <param name="value">The bits to be converted.</param>
+            <returns>The string sequence.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.BitArrayExtensions.AreEquals(System.Collections.BitArray,System.Collections.BitArray)">
+            <summary>
+            Check whether the bitarrays are equal by value.
+            </summary>
+            <param name="leftSide">LeftSide of comparison.</param>
+            <param name="rightSide">RightSide of comparison.</param>
+            <returns>True if equals.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.BitArrayExtensions.HasNewTrueBit(System.Collections.BitArray,System.Collections.BitArray)">
+            <summary>
+            Check if there's new bit flipped from false to true.
+            The execution will ignore if the bit from referenceValue is already true.
+            </summary>
+            <param name="usersValue">BitArray value from user.</param>
+            <param name="referenceValue">BitArray value used as reference.</param>
+            <returns>True if there's no new bit flipped.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.BitArrayExtensions.ConvertToBitArray(System.String)">
+            <summary>
+            Convert binary string sequence to BitArray.
+            </summary>
+            <param name="value">The binary string.</param>
+            <returns>The converted string BitArray.</returns>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Helpers.DebugMessageHelper">
+            <summary>
+            Helper to print out debug messages for debug use.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.DebugMessageHelper.PrintDebugMessage(System.String)">
+            <summary>
+            Print debug message. Outside of "DEBUG" configuration, this is a do nothing method.
+            </summary>
+            <param name="msg">The debug message to print.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.DebugMessageHelper.PrintAllElements(System.Collections.Generic.List{System.String})">
+            <summary>
+            Print list of all elements. Outside of "DEBUG" configuration, this is a do nothing method.
+            </summary>
+            <param name="elements">The list of elements to print.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.DebugMessageHelper.PrintTrackingStructure(Prime.DefeatureTrackingService.ConfigFiles.TrackingStructure)">
+            <summary>
+            Print list of all elements. Outside of "DEBUG" configuration, this is a do nothing method.
+            </summary>
+            <param name="structure">Structure to print.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.DebugMessageHelper.PrintDatabase(Prime.DefeatureTrackingService.Database.TrackingDatabase,Prime.DefeatureTrackingService.Storage.DynamicRecordStorageHandler)">
+            <summary>
+            Print database informations.
+            </summary>
+            <param name="database">The database to be printed.</param>
+            <param name="recordStorage">The storage handler objet to read the database from for dependency printouts.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.DebugMessageHelper.PrintContainer(System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.String}})">
+            <summary>
+            Print list informations.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.DebugMessageHelper.PrintContainer``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Print list informations.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.DebugMessageHelper.PrintDebugToConsole(System.String)">
+            <summary>
+            Print to system console. The message will appear in HdmtApp.exe window or UnitTest Standard Output in the summary.
+            </summary>
+            <param name="msg">The debug message to print.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.DebugMessageHelper.PrintDebugToTosConsole(System.String)">
+            <summary>
+            Print to TOS console. The message will appear in TOS Console GUI or console log file.
+            </summary>
+            <param name="msg">The debug message to print.</param>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Helpers.RuleHelpers">
+            <summary>
+            Class for common rule implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Helpers.RuleHelpers.IsUserVarType(System.String)">
+            <summary>
+            Check if the type is a uservar type.
+            </summary>
+            <param name="type">Input type.</param>
+            <returns>True if input type is uservar.</returns>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.IDefeatureTrackingService">
+            <summary>
+            Interface to the Defeature Tracking Service which can grant access to a Tracking Structure Handler.
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.SessionService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.IDefeatureTrackingService.CreateTrackingStructureHandler(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns an interface to a Tracking Service Handler which gives access to data operations unto a specific tracking structure.
+            </summary>
+            <param name="structureName">The name of the tracking structure for which a handler is needed.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Tracking Structure Handler.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Tracking configuration cannot be obtained, usually because it is not loaded through Aleph.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">The specified structure name does not exists in the configuration file.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.IDefeatureTrackingService.CreateTrackingStructureGroupHandler(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns an interface to a Tracking Structure Group Handler which gives access to data operations unto a specific tracking structure.
+            </summary>
+            <param name="structureName">The name of the tracking structure for which a handler is needed.</param>
+            <param name="structureGroupName">The name of the structure element name for which the handler is needed.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Structure Element Handler.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Tracking configuration cannot be obtained, usually because it is not loaded through Aleph.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">The specified structure name does not exists in the configuration file.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureGroupHandler("Struct0", "Group0", this.SessionContext);]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.IDefeatureTrackingService.DoesRuleExists(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check whether the specified rule does exists in Defeature Tracking configuration or not.
+            </summary>
+            <param name="ruleName">The name of the rule to be checked.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>True if rule does indeed exists in the configuration, false if otherwise.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            if (Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.DoesRuleExists("Rule1"))
+            {
+                Prime.Base.ServiceStore<IConsoleService>.Service.PrintDebug(() => $"Rule1 does exists in the configuration", this.SessionContext]);
+            }
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.ITrackingStructureHandler">
+            <summary>
+            Interface for TrackingStructureHandler.
+            </summary>
+            <remarks>
+            <para>This handler depends on:</para>
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.SessionService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.InitializeElementValues(System.Collections.BitArray)">
+            <summary>
+            Initialize the given values into the Tracking Structure.
+            The number of element values given must match the size of the Tracking Structure.
+            The MSB will be stored into the first element and the LSB will be stored into the last element
+            of the tracking structure as defined in the Defeature Tracking Configuration File.
+            </summary>
+            <param name="values">The values to initialize.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Values does not match the number of elements defined in the tracking structure.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            trackingStructureHandler.InitializeElementValues(new BitArray(2, true));]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.UpdateElementValue(System.String,System.Boolean)">
+            <summary>
+            Update a value into the specified element of the tracking structure.
+            </summary>
+            <param name="elementName">The name of the element unto which the value will be updated.</param>
+            <param name="value">The value to update.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Element name is not in the record.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            trackingStructureHandler.UpdateElementValue("Element1", false);]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.UpdateElementValueWithItuffPrint(System.String,System.Boolean)">
+            <summary>
+            Update a value into the specified element of the tracking structure.
+            </summary>
+            <param name="elementName">The name of the element unto which the value will be updated.</param>
+            <param name="value">The value to update.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Element name is not in the record.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            trackingStructureHandler.UpdateElementValueWithItuffPrint("Element1", false);]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.UpdateElementValues(System.Collections.BitArray)">
+            <summary>
+            Update the given values into the Tracking Structure.
+            The number of element values given must match the size of the Tracking Structure.
+            The MSB will be stored into the first element and the LSB will be stored into the last element
+            of the tracking structure as defined in the Defeature Tracking Configuration File.
+            </summary>
+            <param name="values">The values to initialize.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Values does not match the number of elements defined in the tracking structure.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            trackingStructureHandler.UpdateElementValues(new BitArray(2, true));]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.UpdateElementValuesWithItuffPrint(System.Collections.BitArray)">
+            <summary>
+            Update a value into the specified element of the tracking structure.
+            </summary>
+            <param name="values">The values to initialize.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Element name is not in the record.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            trackingStructureHandler.UpdateElementValuesWithItuffPrint(new BitArray(2, true));]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.UpdateElementValueWithStructureItuffPrint(System.String,System.Boolean)">
+            <summary>
+            Update a value into the specified element of the tracking structure.
+            This interface will print to ituff using SORT ituff format, with no tssid and per structure printing.
+            </summary>
+            <param name="elementName">The name of the element unto which the value will be updated.</param>
+            <param name="value">The value to update.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Element name is not in the record.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            trackingStructureHandler.UpdateElementValueWithStructureItuffPrint("Element1", false);]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.UpdateElementValuesWithStructureItuffPrint(System.Collections.BitArray)">
+            <summary>
+            Update a value into the specified element of the tracking structure.
+            This interface will print to ituff using SORT ituff format, with no tssid and per structure printing.
+            </summary>
+            <param name="values">The values to initialize.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Element name is not in the record.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            trackingStructureHandler.UpdateElementValuesWithStructureItuffPrint(new BitArray(2, true));]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.ReadElementValue(System.String)">
+            <summary>
+            Reads current value from the specified element of the Tracking Structure.
+            </summary>
+            <param name="elementName">The name of the element from which the value will be read.</param>
+            <returns>The boolean value read from the element.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Element name is not in the record.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            var elementOneValue = trackingStructureHandler.ReadElementValue("Element1");]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.ReadElementValues">
+            <summary>
+            Reads current values from the Tracking Structure.
+            The MSB will match the value of the first element and the LSB will match the one from the last element
+            of the tracking structure as defined in the Defeature Tracking Configuration File.
+            </summary>
+            <returns>A bit array containing the values of the tracking structure elements.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">There's any element name in the database cannot be found in the record.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            var elementValues = trackingStructureHandler.ReadElementValues();]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.ReadOriginalElementValue(System.String)">
+            <summary>
+            Reads original values (as initialized) from Tracking Structure.
+            </summary>
+            <param name="elementName">The name of the element from which the value will be read.</param>
+            <returns>The original boolean value (as initialized) read from the element.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Element name is not in the record.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            var originalElementOneValue = trackingStructureHandler.ReadOriginalElementValue("Element1");]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.ReadOriginalElementValues">
+            <summary>
+            Reads original values (as initialized) from Tracking Structure.
+            The MSB will match the value of the first element and the LSB will match the one from the last element
+            of the tracking structure as defined in the Defeature Tracking Configuration File.
+            </summary>
+            <returns>A bit array containing the original values (as initialized) of the tracking structure elements.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">There's any element name in the database cannot be found in the record.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            var originalElementValues = trackingStructureHandler.ReadOriginalElementValues(); ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.PopulateRule(System.String)">
+            <summary>
+            Populate the rule to the tracking handler to be used for rule evaluation against the structure.
+            </summary>
+            <param name="ruleName">The rule name. Must exists and defined in the input file.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Specified rule does not exists in config file.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Rule does not contain the correct number of elements for the structure.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            trackingStructureHandler.PopulateRule("RuleForStructure1");]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.PopulateRuleForDependent(System.String,System.String)">
+            <summary>
+            Populate the rule to the dependent structure handler to be used for rule evaluation against the structure.
+            </summary>
+            <param name="dependentStructureName">The name of the dependent structure name. The structure must exists as dependent of this structure.</param>
+            <param name="dependentRuleName">The rule name, must exists and defined in the input file.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Specified structure does not exists as dependent of this structure in config file.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Specified rule does not exists in config file.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Rule does not contain the correct number of elements for the structure.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            trackingStructureHandler.PopulateRuleForDependent("HighLevelStructure", "RuleForStructure1");]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.EvaluateRule(System.Collections.BitArray,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate the value of the structure against the rules populated in the structure.
+            </summary>
+            <param name="value">The value to be evaluated against the rules.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>True if the value complies with the rule.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">There's any element name in the database cannot be found in the record.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            var ruleEvaluationStatus = trackingStructureHandler.EvaluateRule(new BitArray(4, true), this.SessionContext);
+            if (ruleEvaluationStatus)
+            {
+                Prime.Base.ServiceStore.<IConsoleService>.Service.PrintDebug(() => "Value passed rule check", this.SessionContext);
+            }
+            else
+            {
+                Prime.Base.ServiceStore.<IConsoleService>.Service.PrintDebug(() => "Value failed rule check", this.SessionContext);
+            }
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.GetElementCount">
+            <summary>
+            Get the element count in the tracking structure.
+            </summary>
+            <returns>Return the number of the element inside the structure.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var trackingStructureHandler = Prime.Base.ServiceStore<IDefeatureTrackingService>.Service.CreateTrackingStructureHandler("Struct0", this.SessionContext);
+            var elementCount = trackingStructureHandler.GetElementCount();
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.ITrackingStructureHandler.GetPerStructureEvaluation">
+            <summary>
+            Gets the last evaluated combination result of the structure. Will be null if no previously executed combination rule is done.
+            </summary>
+            <returns>Result if found, null if not found.</returns>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Rules.DefeatureRule">
+            <summary>
+            This class holds the effective rule to be used for evaluation.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Rules.DefeatureRule.#ctor(Prime.DefeatureTrackingService.ConfigFiles.Rule,System.Collections.Generic.List{Prime.DefeatureTrackingService.ConfigFiles.ValidCombination},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.Rules.DefeatureRule"/> class.
+            </summary>
+            <param name="ruleFromFile">The rule from input file.</param>
+            <param name="validComboVectorsFromInputFile">The list of the valid combinations vectors from the input file.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Rules.DefeatureRule.RuleName">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Rules.DefeatureRule.Prime#DefeatureTrackingService#Rules#IDefeatureRule#ValidateRuleConfiguration(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Rules.DefeatureRule.Prime#DefeatureTrackingService#Rules#IDefeatureRule#EvaluateRule(System.Collections.BitArray,System.Collections.BitArray,System.Collections.BitArray@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Rules.IDefeatureRule">
+            <summary>
+            Interface for DefeatureRule.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Rules.IDefeatureRule.RuleName">
+            <summary>
+            Gets the rule name.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Rules.IDefeatureRule.ValidateRuleConfiguration(System.Int32)">
+            <summary>
+            Validate the selected rule for the rules that cannot be validated at config file level e.g UserVar values.
+            </summary>
+            <param name="numberOfTrackedElements">Number of elements in the tracking structure.</param>
+            <returns>True if rule is valid.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Rules.IDefeatureRule.EvaluateRule(System.Collections.BitArray,System.Collections.BitArray,System.Collections.BitArray@)">
+            <summary>
+            Evaluate the value from user against all of the populated rule.
+            </summary>
+            <param name="valuesFromUser">BitArray values from user to be validated against the rule.</param>
+            <param name="trackedValue">BitArray values from tracking structure.</param>
+            <param name="validCombinationResult">Valid combination result. Null if no combination was ran.</param>
+            <returns>True if the value does not offend any rules.</returns>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Rules.ValidCombinationSet">
+            <summary>
+            The class will hold the valid combination vectors in string format.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Rules.ValidCombinationSet.Name">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Rules.ValidCombinationSet.Vectors">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.Rules.ValidCombinationSet.MinQuantityPerCombination">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Storage.DynamicRecordStorageHandler">
+            <summary>
+            Dynamic storage to store values for unit execution.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Storage.DynamicRecordStorageHandler.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.Storage.DynamicRecordStorageHandler"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Storage.DynamicRecordStorageHandler.StoreDatabase(Prime.DefeatureTrackingService.Database.TrackingDatabase)">
+            <summary>
+            Store current tracking values into SharedStorage.
+            </summary>
+            <param name="trackingDatabaseToStore">The tracking database to store into sharedstorage.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Storage.DynamicRecordStorageHandler.GetDatabase(System.String)">
+            <summary>
+            Retrieve tracking values from SharedStorage.
+            </summary>
+            <param name="structureName">The name of the structure whose record is to be retrieved.</param>
+            <returns>Record of the structure.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Storage.DynamicRecordStorageHandler.DoesDatabaseExist(System.String)">
+            <summary>
+            Check if the database for the structure is already exists.
+            </summary>
+            <param name="structureName">The name of the structure.</param>
+            <returns>True if database already exists.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Storage.DynamicRecordStorageHandler.TryGetDatabase(System.String,Prime.DefeatureTrackingService.Database.TrackingDatabase@)">
+            <summary>
+            Check if database exists, and if it is get it from SharedStorage.
+            </summary>
+            <param name="structureName">The name of the structure.</param>
+            <param name="database">Record of the structure.</param>
+            <returns>The database exists or not.</returns>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.Storage.StaticConfigurationStorageHandler">
+            <summary>
+            Static storage class to store configuration from the input file.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Storage.StaticConfigurationStorageHandler.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.Storage.StaticConfigurationStorageHandler"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Storage.StaticConfigurationStorageHandler.StoreConfiguration(Prime.DefeatureTrackingService.ConfigFiles.StructureConfiguration)">
+            <summary>
+            Store the Tracking Structure Configuration parsed from the file to SharedStorage.
+            </summary>
+            <param name="structureConfig">The structure to store.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.Storage.StaticConfigurationStorageHandler.GetConfiguration">
+            <summary>
+            Get the tracking structure configuration from SharedStorage.
+            </summary>
+            <returns>The tracking structure configuration.</returns>
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.TrackingStructureGroupHandler">
+            <inheritdoc cref="T:Prime.DefeatureTrackingService.TrackingStructureHandler"/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureGroupHandler.#ctor(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.TrackingStructureGroupHandler"/> class.
+            </summary>
+            <param name="structureName">The name of the structure to be created.</param>
+            <param name="structureGroupName">The name of the structure group to be created.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureGroupHandler.PrintUpdateAllElementMessage(System.Collections.BitArray)">
+            <inheritdoc/>.
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureGroupHandler.ConstructBadElementMessage(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureGroupHandler.GetElementCountForValidation(Prime.DefeatureTrackingService.ConfigFiles.TrackingStructure)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureGroupHandler.CreateElementRecordTables(System.Collections.Generic.List{System.String},System.Collections.BitArray,Prime.DefeatureTrackingService.Database.TrackingDatabase@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureGroupHandler.GetSingleCurrentElementValueFromDatabase(Prime.DefeatureTrackingService.Database.TrackingDatabase,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureGroupHandler.GetSingleOriginalElementValueFromDatabase(Prime.DefeatureTrackingService.Database.TrackingDatabase,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureGroupHandler.GetMismatchElementErrorMessage(System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureGroupHandler.GetElements(Prime.DefeatureTrackingService.Database.TrackingDatabase)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureGroupHandler.GetStructureTestValues(System.Collections.BitArray,Prime.DefeatureTrackingService.Database.TrackingDatabase)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DefeatureTrackingService.TrackingStructureHandler">
+            <inheritdoc/>
+        </member>
+        <member name="F:Prime.DefeatureTrackingService.TrackingStructureHandler.UnknownElementError">
+            <summary>
+            Unknown element found, give this error message.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DefeatureTrackingService.TrackingStructureHandler"/> class.
+            </summary>
+            <param name="structureName">The name of the structure to be created.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.DefeatureTrackingService.TrackingStructureHandler.StructureName">
+            <summary>
+            Gets the structure name property.
+            </summary>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#InitializeElementValues(System.Collections.BitArray)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#Database#Internal#IDependencyStructureHandler#EvaluateRule(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IList{Prime.DefeatureTrackingService.Rules.IDefeatureRule}},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#UpdateElementValue(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#UpdateElementValues(System.Collections.BitArray)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#UpdateElementValueWithItuffPrint(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#UpdateElementValuesWithItuffPrint(System.Collections.BitArray)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#ReadElementValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#ReadElementValues">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#ReadOriginalElementValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#ReadOriginalElementValues">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#PopulateRule(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#EvaluateRule(System.Collections.BitArray,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.Prime#DefeatureTrackingService#ITrackingStructureHandler#GetElementCount">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.PrintUpdateAllElementMessage(System.Collections.BitArray)">
+            <summary>
+            Print update all element debug message to console.
+            </summary>
+            <param name="values">New values for the elements in the structure.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.ConstructBadElementMessage(System.String)">
+            <summary>
+            Throwing FatalException when element specified does not exists in record.
+            </summary>
+            <param name="elementName">The bad element.</param>
+            <returns>Error message of the bad element.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetTrackingStructure(System.String)">
+            <summary>
+            Get the specified tracking structure.
+            </summary>
+            <param name="structureName">Name of the tracking structure to get.</param>
+            <returns>TrackingStructure object.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.CreateElementRecordTables(System.Collections.Generic.List{System.String},System.Collections.BitArray,Prime.DefeatureTrackingService.Database.TrackingDatabase@)">
+            <summary>
+            Create element record tables to be inserted to database.
+            </summary>
+            <param name="allElements">List of elements.</param>
+            <param name="values">The values to be initialized.</param>
+            <param name="database">Reference to the database.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetGroupNameOfElement(Prime.DefeatureTrackingService.ConfigFiles.TrackingStructure,System.String)">
+            <summary>
+            The the group name that contains the specified element.
+            </summary>
+            <param name="trackingStructure">The tracking structure.</param>
+            <param name="elementName">The name of the element.</param>
+            <returns>The name of the group that contains the element.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">The element cannot be found.</exception>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetElementCountForValidation(Prime.DefeatureTrackingService.ConfigFiles.TrackingStructure)">
+            <summary>
+            Get the element count for validation from tracking structure.
+            </summary>
+            <param name="trackingStructure">The configured tracking structure.</param>
+            <returns>Number of elements.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetSingleCurrentElementValueFromDatabase(Prime.DefeatureTrackingService.Database.TrackingDatabase,System.String)">
+            <summary>
+            Get the value of current element from the record.
+            </summary>
+            <param name="database">The database.</param>
+            <param name="elementName">Name of the element.</param>
+            <returns>The element value.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetSingleOriginalElementValueFromDatabase(Prime.DefeatureTrackingService.Database.TrackingDatabase,System.String)">
+            <summary>
+            Get the value of original element from the record.
+            </summary>
+            <param name="database">The database.</param>
+            <param name="elementName">Name of the element.</param>
+            <returns>The element value.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetStructureTestValues(System.Collections.BitArray,Prime.DefeatureTrackingService.Database.TrackingDatabase)">
+            <summary>
+            Returns the BitArray of test values for the structure.
+            </summary>
+            <param name="values">The BitArray containing the test values to be used for the structure.</param>
+            <param name="database">The <see cref="T:Prime.DefeatureTrackingService.Database.TrackingDatabase"/> instance representing the current structure's state.</param>
+            <returns>A <see cref="T:System.Collections.BitArray"/> representing the test values for the structure, either as provided or transformed by an override.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetSingleCurrentElementValue(System.Collections.Generic.Dictionary{System.String,Prime.DefeatureTrackingService.Database.ElementRecordTable},System.String)">
+            <summary>
+            Get the value of single current element from the record.
+            </summary>
+            <param name="elementRecord">The record table of the database.</param>
+            <param name="elementName">Name of the element.</param>
+            <returns>The element value.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetSingleOriginalElementValue(System.Collections.Generic.Dictionary{System.String,Prime.DefeatureTrackingService.Database.ElementRecordTable},System.String)">
+            <summary>
+            Get the value of single original element from the record.
+            </summary>
+            <param name="elementRecord">The record table of the database.</param>
+            <param name="elementName">Name of the element.</param>
+            <returns>The element value.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetMismatchElementErrorMessage(System.Int32,System.Int32)">
+            <summary>
+            Get error message to indicate the values does not matched with elements in structure.
+            </summary>
+            <param name="valuesCount">The value count from user.</param>
+            <param name="elementCount">The element count from structure.</param>
+            <returns>The error message.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetElements(Prime.DefeatureTrackingService.Database.TrackingDatabase)">
+            <summary>
+            Get elements for updates.
+            </summary>
+            <param name="database">The database.</param>
+            <returns>The list of elements.</returns>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.PrintUpdateSingleElementMessage(System.String,System.Boolean)">
+            <summary>
+            Print update single element debug message to console.
+            </summary>
+            <param name="elementName">Element to be updated.</param>
+            <param name="value">New value for the element.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.RegisterToRules(Prime.DefeatureTrackingService.Rules.IDefeatureRule)">
+            <summary>
+            Register the rules to the structure.
+            </summary>
+            <param name="defeatureRule">The rule to be registered.</param>
+        </member>
+        <member name="M:Prime.DefeatureTrackingService.TrackingStructureHandler.GetRuleFromConfig(System.String)">
+            <summary>
+            Get the rules of the specified name from the config file.
+            </summary>
+            <param name="name">The name of the rule.</param>
+            <returns>The rule of the specified name.</returns>
+        </member>
+    </members>
+</doc>

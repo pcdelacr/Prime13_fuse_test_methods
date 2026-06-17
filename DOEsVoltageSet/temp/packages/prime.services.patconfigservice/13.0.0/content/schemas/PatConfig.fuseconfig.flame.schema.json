@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Configurations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/definitions/Configuration" }
+    }
+  },
+  "required": [
+    "Configurations"
+  ],
+  "definitions": {
+    "Configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "ConfigurationElements": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/definitions/ConfigurationElement" }
+        }
+      },
+      "required": [
+        "Name",
+        "ConfigurationElements"
+      ]
+    },
+    "ConfigurationElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Register": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "FuseGroups": {
+          "type": "array",
+          "minLength": 1,
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/FuseGroup"
+          }
+        }
+      },
+      "required": [
+        "Register",
+        "FuseGroups"
+      ]
+    },
+    "FuseGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": "string",
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "Data": {
+          "type": "string",
+          "$ref": "#/definitions/nonEmptyString"
+        }
+      },
+      "required": [
+        "Name",
+        "Data"
+      ]
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

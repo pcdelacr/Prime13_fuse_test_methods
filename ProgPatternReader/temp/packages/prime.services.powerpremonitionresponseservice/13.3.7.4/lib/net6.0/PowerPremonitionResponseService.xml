@@ -1,0 +1,681 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.PowerPremonitionResponseService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.PowerPremonitionResponseService.DeviceConfiguration">
+            <summary>
+            DeviceConfiguration.
+            </summary>
+        </member>
+        <member name="P:Prime.PowerPremonitionResponseService.DeviceConfiguration.LastExecutedInstance">
+            <summary>
+            Gets or sets last executed instance.
+            </summary>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.GetDefaultPowerScalarFactor">
+            <summary>
+            GetDefaultPowerScalarFactor.
+            </summary>
+            <returns>PowerScalarFactor default value.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.AddActionInstance(System.String,System.String,System.Int32,System.Int32,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            AddActionInstance.
+            </summary>
+            <param name="instanceNameWithMode">instanceName.</param>
+            <param name="desiredTestTemperatureUserGlobal">desiredTestTemperatureUserGlobal.</param>
+            <param name="deltaSetPoint">deltaSetPoint.</param>
+            <param name="powerSurgeTime">powerSurgeTime.</param>
+            <param name="powerScalarFactor">powerScalarFactor.</param>
+            <param name="sessionContext">This session context.</param>
+            <exception cref="T:System.Exception">new Exception.</exception>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.IsActionInstance(System.String)">
+            <summary>
+            IsActionInstance.
+            </summary>
+            <param name="instanceName">instanceName.</param>
+            <returns>if action in instance.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.GetActionInstance(System.String)">
+            <summary>
+            GetActionInstance.
+            </summary>
+            <param name="instanceName">instanceName.</param>
+            <returns>action instance.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.GetLastExecutedInstanceName">
+            <summary>
+            GetLastExecutedInstanceName.
+            </summary>
+            <returns>lastExecutedInstance.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.SetLastExecutedInstanceName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            SetLastExecutedInstanceName.
+            </summary>
+            <param name="instanceName">instanceName.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.SetInstanceExitTolerances(System.String,System.Int32,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.SetInstanceReleaseTolerances(System.String,System.Int32,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.SetPprControlSetIndex(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.SetMonitoringPeriod(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.SetTimeOut(System.Double,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.SetIsLearning(System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.IsLearning">
+            <summary>
+            If PPR is learning.
+            </summary>
+            <returns>If it's still learning.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.GetPreTimeOut">
+            <summary>
+            GetPreTimeOut.
+            </summary>
+            <returns>timeOut.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.GetPostTimeOut">
+            <summary>
+            GetPostTimeOut.
+            </summary>
+            <returns>timeOut.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.MarkAsLoopedInstance(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.GetPprControlSetIndex">
+            <summary>
+            GetPprControlSetIndex.
+            </summary>
+            <returns>pprControlSetIndex.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.DeviceConfiguration.GetMonitoringPeriod">
+            <summary>
+            GetMonitoringPeriod.
+            </summary>
+            <returns>monitoringPeriod.</returns>
+        </member>
+        <member name="T:Prime.PowerPremonitionResponseService.IDeviceConfiguration">
+            <summary>
+            Interface for the DUT Configuration, which allows to configure the PPR actions to take per test instance.
+            </summary>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.AddActionInstance(System.String,System.String,System.Int32,System.Int32,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Add new Ppr action.
+            </summary>
+            <param name="instanceNameWithMode">name of the test instance to tag.</param>
+            <param name="desiredTestTemperatureUserGlobal">user var name for the setpot temperature.</param>
+            <param name="deltaSetPoint">value to adjust the current setpoint temperature.</param>
+            <param name="powerSurgeTime">ms delay to apply the cached controlset after premphasis.</param>
+            <param name="powerScalarFactor">Power Scale.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.GetActionInstance(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets an action object .
+            </summary>
+            <param name="instanceName"> name of the control set.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>action object.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.SetPprControlSetIndex(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the control set index applied at the beginning of the pre emphasis action.
+            </summary>
+            <param name="controlSetIndex"> Index of the control set.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.MarkAsLoopedInstance(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Marks an action instance as looped.
+            </summary>
+            <param name="instanceName"> name of the instance.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.SetInstanceReleaseTolerances(System.String,System.Int32,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the upper and lower release tolerances for a ppr instance.
+            </summary>
+            <param name="instanceName">name of the instance.</param>
+            <param name="upperTolerance">upperTolerance for premphasis.</param>
+            <param name="lowerTolerance">lowerTolerance for Premphasis.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.SetInstanceExitTolerances(System.String,System.Int32,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the upper and lower exit tolerances for a ppr instance.
+            </summary>
+            <param name="instanceName">name of the instance.</param>
+            <param name="upperTolerance">upperTolerance for exit premphasis.</param>
+            <param name="lowerTolerance">lowerTolerance for exit Premphasis.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.SetMonitoringPeriod(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the time period to sleep between temperature measurements.
+            </summary>
+            <param name="period">milliseconds.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.SetTimeOut(System.Double,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the maximum time the pre emphasis action could.
+            </summary>
+            <param name="timePre">Pretimeout.</param>
+            <param name="timePost">Posttimeout.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.SetIsLearning(System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets is learning boolean.
+            </summary>
+            <param name="isLearning">Is learning boolean.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.SetInstancePreEmphasisTimeOutOverride(System.String,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the override value for preemphasis time.
+            </summary>
+            <param name="instanceName">name of the PPR tagged test instance.</param>
+            <param name="time">value to use for override.</param>
+            <param name="sessionContext">session.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.SetInstancePostEmphasisTimeOutOverride(System.String,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the override value for postemphasis time.
+            </summary>
+            <param name="instanceName">name of the PPR tagged test instance.</param>
+            <param name="time">value to use for override.</param>
+            <param name="sessionContext">session.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IDeviceConfiguration.SaveToSharedStorage(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            updates device configuration.
+            </summary>
+            <param name="sessionContext">session.</param>
+        </member>
+        <member name="T:Prime.PowerPremonitionResponseService.ILotConfiguration">
+            <summary>
+            Interface for the Lot Configuration, which allows to configure the PPR relevant test instances during lot execution behavior.
+            </summary>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.ILotConfiguration.SetProfileInstanceNames(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set profile instance names.
+            </summary>
+            <param name="referenceProfileInstances">Reference profile instances.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.ILotConfiguration.SetTdauPinNames(System.Collections.Generic.IEnumerable{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set Tdau pin names.
+            </summary>
+            <param name="tdauNames">Tdau names.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.ILotConfiguration.SetPowerScalarMultiplierUserVarName(System.String)">
+            <summary>
+            Set Power Scalar Multiplier ScGlobal.
+            </summary>
+            <param name="scGlobal"> sc Global.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.ILotConfiguration.SetControlSetDelay(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the delay to use between control set switch.
+            </summary>
+            <param name="delay">milliseconds.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.ILotConfiguration.SetInstancePinConfiguration(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set instance pin configuration.
+            </summary>
+            <param name="instanceName">Instance name.</param>
+            <param name="powerSumPin">Power sum pin.</param>
+            <param name="ueiPin">Uei pin.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.ILotConfiguration.SetRequestedPercentageOfValidDTSData(System.Double)">
+            <summary>
+            Set the percentage of allowed DTS invalid data.
+            </summary>
+            <param name="validDataPercentage">Alloweed invalid data percentage.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.ILotConfiguration.SetInstanceSkipFlags(System.String,System.Boolean,System.Boolean,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Configures the values for the PreEmphasis, PostEmphasis and PowerScaleFactor skip flags for a specific instance. These flags will indicate whether each of those steps should be skipped or not.
+            </summary>
+            <param name="instanceName">Instance name.</param>
+            <param name="skipPreEmphasis">skip preEmphasis flag.</param>
+            <param name="skipPostEmphasis">skip postEmphasis flag.</param>
+            <param name="skipPowerScaleFactor">skip power scale factor flag.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.PowerPremonitionResponseService.IPowerPremonitionResponseService">
+            <summary>
+            This Service implements the thermal control algorithm named Power Premonition Response. The Interface includes methods for proper initialization and execution of it.
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="N:Prime.ConsoleService"/></item>
+            <item><see cref="N:Prime.DatalogService"/></item>
+            <item><see cref="N:Prime.PupService"/></item>
+            <item><see cref="N:Prime.SharedStorageService"/></item>
+            <item><see cref="N:Prime.ThermalService"/></item>
+            <item><see cref="N:Prime.UserVarService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IPowerPremonitionResponseService.InitializeLot(System.Collections.Generic.List{System.String},System.Boolean,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialized the Power Premonition Response service configuration structure for Lot parameters .
+            </summary>
+            /// <param name="pinNames">list of the tdau sensors to use.</param>
+            <param name="isDtc">boolean to select between DTC or TCC.</param>
+            <param name="enableSerialCaptureDts">flag to enable DTS profile to PPR PUDL log.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Returns the configuration object to be populated.</returns>
+            <remarks>
+            <example>
+            <code>
+            var useDtc = this.ThermalController == ControllerType.DTC;
+            var isDtsProfileEnabled = this.SerialCaptureDtsProfile == SerialCaptureProfileState.ENABLED;
+            var tdauPins = Base.ServiceStore&lt;IThermalService&gt;.Service.GetAllTdauPinNames(this.SessionContext);
+            var configuration = Base.ServiceStore&lt;IPowerPremonitionResponseService&gt;.Service.InitializeLot(tdauPins, useDtc, isDtsProfileEnabled, this.SessionContext);
+            </code>
+            </example>
+            <para>This function depends on:</para>
+            <list type="bullet">
+            <item><see cref="N:Prime.SharedStorageService"/>.</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IPowerPremonitionResponseService.InitializeDevice(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialized the Power Premonition Response service configuration structure for device specific parameters.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Returns the configuration object to be populated.</returns>
+            <remarks>
+            <example>
+            <code>
+            var configuration = Base.ServiceStore&lt;IPowerPremonitionResponseService&gt;.Service.InitializeDevice(this.SessionContext);
+               this.SetInitialConfiguration(configuration);
+               this.AddActionsToConfiguration(configuration);
+            configuration.SaveToSharedStorage(this.SessionContext);
+            </code>
+            </example>
+            <para>This function depends on:</para>
+            <list type="bullet">
+            <item><see cref="N:Prime.SharedStorageService"/>.</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.IPowerPremonitionResponseService.ClearConfiguration(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clear configuration.
+            </summary>
+            <param name="sessionContext">Current session context.</param>
+        </member>
+        <member name="T:Prime.PowerPremonitionResponseService.IPprActionInstance">
+            <summary>
+            Interface for the Lot Configuration, which allows to configure the PPR relevant test instances during lot execution behavior.
+            </summary>
+        </member>
+        <member name="P:Prime.PowerPremonitionResponseService.IPprActionInstance.PreEmphasisTimeOutOverride">
+            <summary>
+            Gets or Sets lll.
+            </summary>
+        </member>
+        <member name="T:Prime.PowerPremonitionResponseService.LotConfiguration">
+            <summary>
+            LotConfiguration.
+            </summary>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PowerPremonitionResponseService.LotConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.#ctor(System.Collections.Generic.List{System.String},System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PowerPremonitionResponseService.LotConfiguration"/> class.
+            </summary>
+            <param name="tdauPinNames">tdauPinNames.</param>
+            <param name="isDtc">isDtc.</param>
+            <param name="enableDtsProfile">enableDtsProfile.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.SetTdauPinNames(System.Collections.Generic.IEnumerable{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.SetControlSetDelay(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.IsInstanceToProfile(System.String)">
+            <summary>
+            IsInstanceToProfile.
+            </summary>
+            <param name="instanceName">instanceName.</param>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.GetTdauPinNames">
+            <summary>
+            GetTdauPinNames.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.GetUeiPinName(System.String)">
+            <summary>
+            Get Uei pin name.
+            </summary>
+            <param name="instanceName">Instance name.</param>
+            <returns>Uei pin name.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.IsDtc">
+            <summary>
+            IsDtc.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.GetPowerSumPinName(System.String)">
+            <summary>
+            GetPowerSumPinName.
+            </summary>
+            <param name="instanceName">instanceName.</param>
+            <returns>Power sum pin name.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.IsDtsProfileEnabled">
+            <summary>
+            IsDtsProfileEnabled.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.SetProfileInstanceNames(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.SetInstancePinConfiguration(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.SetRequestedPercentageOfValidDTSData(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.LotConfiguration.SetInstanceSkipFlags(System.String,System.Boolean,System.Boolean,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PowerPremonitionResponseService.PowerDensity">
+            <summary>
+            PowerDensity.
+            </summary>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PowerDensity.AreScalarEqual(System.Double,System.Double)">
+            <summary>
+            AreScalarEqual.
+            </summary>
+            <param name="scalalarA">scalalarA.</param>
+            <param name="scalarB">scalarB.</param>
+            <returns>abs.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PowerDensity.AlterPower(System.Double,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            AlterPower.
+            </summary>
+            <param name="powerScalar">powerScalar.</param>
+            <param name="powerSumPinName">powerSumPinName.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PowerDensity.RestorePower(System.Double,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            RestorePower.
+            </summary>
+            <param name="powerScalar">powerScalar.</param>
+            <param name="powerSumPinName">powerSumPinName.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="T:Prime.PowerPremonitionResponseService.PowerPremonitionResponseService">
+            <inheritdoc cref="T:Prime.PowerPremonitionResponseService.PowerPremonitionResponseService"/>/>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PowerPremonitionResponseService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PowerPremonitionResponseService.PowerPremonitionResponseService"/> class.
+            </summary>
+        </member>
+        <member name="T:Prime.PowerPremonitionResponseService.PprActionInstance">
+            <summary>
+            PprActionInstance.
+            </summary>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.#ctor(System.String,System.String,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PowerPremonitionResponseService.PprActionInstance"/> class.
+            </summary>
+            <param name="instanceName">instanceName.</param>
+            <param name="desiredTestTemperatureUserGlobal">desiredTestTemperatureUserGlobal.</param>
+            <param name="deltaSetPoint">deltaSetPoint.</param>
+            <param name="powerSurgeTime">powerSurgeTime.</param>
+            <param name="powerScalarFactor">powerScalarFactor.</param>
+        </member>
+        <member name="P:Prime.PowerPremonitionResponseService.PprActionInstance.TdauPinsToProfile">
+            <summary>
+            Gets or sets tdau pins to profile.
+            </summary>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.GetInstanceName">
+            <summary>
+            GetInstanceName.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.SetDeltaSetPoint(System.Int32)">
+            <summary>
+            SetDeltaSetPoint.
+            </summary>
+            <param name="delta">delta.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.SetMarkAsLoopedInstance(System.Boolean)">
+            <summary>
+            SetMarkAsLoopedInstance.
+            </summary>
+            <param name="marked">marked.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.SetReleaseTemperature(System.Int32)">
+            <summary>
+            SetReleaseTemperature.
+            </summary>
+            <param name="temperature">temperature.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.GetDeltaSetPoint">
+            <summary>
+            GetDeltaSetPoint.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.GetReleaseTemperature">
+            <summary>
+            GetReleaseTemperature.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.GetPowerScalarFactor">
+            <summary>
+            GetPowerScalarFactor.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.GetDesiredTestTemperatureUserGlobal">
+            <summary>
+            GetDesiredTestTemperatureUserGlobal.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.GetReleaseTemperatureUpperTolerance">
+            <summary>
+            GetReleaseTemperatureUpperTolerance.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.GetReleaseTemperatureLowerTolerance">
+            <summary>
+            GetReleaseTemperatureLowerTolerance.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.GetPowerSurgeTime">
+            <summary>
+            GetPowerSurgeTime.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.IsMarkedAsLoopedInstance">
+            <summary>
+            IsMarkedAsLoopedInstance.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.GetExitTemperatureLowerTolerance">
+            <summary>
+            GetExitTemperatureLowerTolerance.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.SetExitTemperatureTolerances(System.Int32,System.Int32)">
+            <summary>
+            SetExitTemperatureTolerances.
+            </summary>
+            <param name="upperTolerance">upperTolerance.</param>
+            <param name="lowerTolerance">lowerTolerance.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.SetReleaseTolerances(System.Int32,System.Int32)">
+            <summary>
+            SetReleaseTolerances.
+            </summary>
+            <param name="upperTolerance">upperTolerance.</param>
+            <param name="lowerTolerance">lowerTolerance.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PprActionInstance.GetExitTemperatureUpperTolerance">
+            <summary>
+            GetExitTemperatureUpperTolerance.
+            </summary>
+            <returns>.</returns>
+        </member>
+        <member name="T:Prime.PowerPremonitionResponseService.PreEmphasis">
+            <summary>
+            PreEmphasis.
+            </summary>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PreEmphasis.LogStartingTemperatureToPprStream(System.Collections.Generic.Dictionary{System.String,System.Double},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            LogStartingTemperatureToPprStream.
+            </summary>
+            <param name="temperatureMeasurements">temperatureMeasurements.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PreEmphasis.LogStoppingTemperatureToPprStream(System.Collections.Generic.Dictionary{System.String,System.Double},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            LogStoppingTemperatureToPprStream.
+            </summary>
+            <param name="temperatureMeasurements">temperatureMeasurements.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PreEmphasis.MonitorTemperature(System.Collections.Generic.List{System.String},System.Int32,System.Int32,System.Int32,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            MonitorTemperature.
+            </summary>
+            <param name="tdauPinNames">tdauPinNames.</param>
+            <param name="highLimit">highLimit.</param>
+            <param name="lowLimit">lowLimit.</param>
+            <param name="period">period.</param>
+            <param name="timeOutSeconds">timeOutSeconds.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PreEmphasis.DidAllPinsPass(System.Collections.Generic.HashSet{System.String},System.Collections.Generic.Dictionary{System.String,System.Double},System.Int32,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            DidAllPinsPass.
+            </summary>
+            <param name="notPassingTdauPins">notPassingTdauPins.</param>
+            <param name="temperatureMeasurements">temperatureMeasurements.</param>
+            <param name="lowLimit">lowLimit.</param>
+            <param name="highLimit">highLimit.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PreEmphasis.GetUniqueTdauPinNames(System.Collections.Generic.List{System.String})">
+            <summary>
+            GetUniqueTdauPinNames.
+            </summary>
+            <param name="referencePinNames">referencePinNames.</param>
+            <returns>uniquePinNames.</returns>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.PreEmphasis.Execute(Prime.PowerPremonitionResponseService.PprActionInstance,Prime.PowerPremonitionResponseService.DeviceConfiguration,Prime.PowerPremonitionResponseService.LotConfiguration,System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute.
+            </summary>
+            <param name="actionInstance">actionInstance.</param>
+            <param name="configuration">configuration.</param>
+            <param name="lotConfiguration">lotConfiguration.</param>
+            <param name="timeOut">timeOut.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.PowerPremonitionResponseService.TaggedInstanceLotConfiguration">
+            <summary>
+            TaggedInstanceLotConfiguration.
+            </summary>
+        </member>
+        <member name="P:Prime.PowerPremonitionResponseService.TaggedInstanceLotConfiguration.UeiPinName">
+            <summary>
+            Gets uei pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.PowerPremonitionResponseService.TaggedInstanceLotConfiguration.PowerSumPinName">
+            <summary>
+            Gets uei pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.PowerPremonitionResponseService.TaggedInstanceLotConfiguration.SkipPreEmphasis">
+            <summary>
+            Gets a value indicating whether to skip PreEmphasis.
+            </summary>
+        </member>
+        <member name="P:Prime.PowerPremonitionResponseService.TaggedInstanceLotConfiguration.SkipPostEmphasis">
+            <summary>
+            Gets a value indicating whether to skip postEmphasis.
+            </summary>
+        </member>
+        <member name="P:Prime.PowerPremonitionResponseService.TaggedInstanceLotConfiguration.SkipPowerScaleFactor">
+            <summary>
+            Gets a value indicating whether to skip powerScaleFactor.
+            </summary>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.TaggedInstanceLotConfiguration.SetPinNames(System.String,System.String)">
+            <summary>
+            Set power sum pin name and uei pin name.
+            </summary>
+            <param name="powerSumPin">Power sum pin name.</param>
+            <param name="ueiPin">Uei pin name.</param>
+        </member>
+        <member name="M:Prime.PowerPremonitionResponseService.TaggedInstanceLotConfiguration.SetSkipFlags(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Set power sum pin name and uei pin name.
+            </summary>
+            <param name="skipPreEmphasis">skipPreEmphasis skip flag.</param>
+            <param name="skipPostEmphasis">skipPostEmphasis skip flag.</param>
+            <param name="skipPowerScaleFactor">PowerScaleFactor skip flag.</param>
+        </member>
+    </members>
+</doc>

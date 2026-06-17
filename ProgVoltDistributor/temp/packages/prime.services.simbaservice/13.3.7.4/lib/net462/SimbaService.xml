@@ -1,0 +1,809 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.SimbaService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.SimbaService.Configuration">
+            <summary>
+            Holds the simba´s configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.IsSimbaEnabled">
+            <summary>
+            Gets or sets a value indicating whether Simba is on or off..
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.OperatingType">
+            <summary>
+            Gets or sets the operation type.
+            This should match with the one given by the Ulat file on the <see cref="P:Prime.SimbaService.Configuration.UlatFileType"/>.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.ActiveUlatUnitIdMethod">
+            <summary>
+            Gets or sets the unit id.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.SsidKey">
+            <summary>
+            Gets or sets the ssid key.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.UlatFilePath">
+            <summary>
+            Gets or sets the ulat file path.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.UlatFileRevision">
+            <summary>
+            Gets or sets the ulat file revision.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.InstancesPerModule">
+            <summary>
+            Gets or sets the instances per module.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.InstancesToBypassPerConfigSet">
+            <summary>
+            Gets or sets the test instances to bypass per config set.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.ProcessTypes">
+            <summary>
+            Gets or sets the test instances to bypass per config set.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.ActiveProcessType">
+            <summary>
+            Gets or sets the active process type.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.Configuration.UlatFileType">
+            <summary>
+            Gets or sets the "de-facto" ulat type of the loaded file.
+            This should match with the one provided by the user on the <see cref="P:Prime.SimbaService.Configuration.OperatingType"/>.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.Configuration.ClearBypassData">
+            <summary>
+            Clears the current bypass data.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.InputFactory">
+            <summary>
+            Class for handling different input file formats.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.DataLoader.InputFactory.CreateConfigHandler(System.String)">
+            <summary>
+            Creates an object that implements the IParser interface.
+            </summary>
+            <param name="inputPath"> Path to the input file we're validating. </param>
+            <returns> An object that implements <see cref="T:Prime.SimbaService.DataLoader.IParser"/>. </returns>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.IParser">
+            <summary>
+            Interface for Simba Parser.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.DataLoader.IParser.ParseConfigFile``1(System.String)">
+            <summary>
+            Loads configuration from file.
+            </summary>
+            <typeparam name="T"> Type of which to deserialize the input file into. </typeparam>
+            <param name="fileContent">The content of the file.</param>
+            <returns>The configuration object of type T.</returns>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.ParserXml">
+            <summary>
+            Class for Simba Xml Parser.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.DataLoader.ParserXml.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SimbaService.DataLoader.ParserXml"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.DataLoader.ParserXml.ParseConfigFile``1(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.BypassContainerXml">
+            <summary>
+            Holds the Bypass information.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.BypassContainerXml.BypassName">
+            <summary>
+            Gets or Sets the bypass test instance name string.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.BypassNames">
+            <summary>
+            Holds the ULAT information from test instance bypass selections.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.BypassNames.BypassId">
+            <summary>
+            Gets or Sets the bypass ID.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.BypassNames.BypassRegexNames">
+            <summary>
+            Gets or Sets the comma-separated bypass test instance name string.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.BypassNamesXml">
+            <summary>
+            Holds the ULAT Xml information from test instance bypass selections.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.BypassNamesXml.ConfigSet">
+            <summary>
+            Gets or Sets ConfigSet.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.ConfigSetContainerXml">
+            <summary>
+            Holds the ConfigSet information.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.ConfigSetContainerXml.BypassId">
+            <summary>
+            Gets or Sets the bypass ID.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.ConfigSetContainerXml.Bypass">
+            <summary>
+            Gets or Sets Bypass.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.LotConfigurationSets">
+            <summary>
+            Holds the ULAT information from bypass configuration sets for Lot type.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.LotConfigurationSets.BypassConfigNames">
+            <summary>
+            Gets or Sets the bypass configuration names for selected device.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.LotConfigurationSets.BypassModes">
+            <summary>
+            Gets or Sets the bypass configuration modes for selected device.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.LotConfigurationSetsXml">
+            <summary>
+            Holds the ULAT Xml information from bypass configuration sets for Lot type.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.LotConfigurationSetsXml.BypassConfigNames">
+            <summary>
+            Gets or Sets the bypass configuration names for selected device.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.LotConfigurationSetsXml.BypassModes">
+            <summary>
+            Gets or Sets the bypass configuration modes for selected device.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.ProcessTypeContainerXml">
+            <summary>
+            Holds the ProcessType information.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.ProcessTypeContainerXml.ProcessTypeName">
+            <summary>
+            Gets or Sets the selected process type.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.ProcessTypeContainerXml.LotBypassConfigurations">
+            <summary>
+            Gets or Sets the bypass configuration sets for Lot type.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.ProcessTypeContainerXml.UnitBypassConfigurations">
+            <summary>
+            Gets or Sets the bypass configuration sets for Unit type.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.ProcessTypes">
+            <summary>
+            Holds the ULAT information from device selections.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.ProcessTypes.ProcessTypeName">
+            <summary>
+            Gets or Sets the selected process type.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.ProcessTypes.LotBypassConfigurations">
+            <summary>
+            Gets or Sets the bypass configuration sets for Lot type.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.ProcessTypes.UnitBypassConfigurations">
+            <summary>
+            Gets or Sets the bypass configuration sets for Unit type.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.ProcessTypesXml">
+            <summary>
+            Holds the ULAT information from device selections.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.ProcessTypesXml.ProcessType">
+            <summary>
+            Gets or Sets ProcessType.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.UlatFile">
+            <summary>
+            Holds the configuration information defined in the ULAT Json file.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UlatFile.Schema">
+            <summary>
+            Gets or sets the schema.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UlatFile.FileRevision">
+            <summary>
+            Gets or sets the file revision of the ULAT file.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UlatFile.BypassInformation">
+            <summary>
+            Gets or sets the test instance bypass selections from the ULAT file.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UlatFile.DeviceInformation">
+            <summary>
+            Gets or sets the device selections from the ULAT file.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.UlatFileXml">
+            <summary>
+            Holds the configuration information defined in the ULAT Xml file.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UlatFileXml.FileRevision">
+            <summary>
+            Gets or sets the file revision of the ULAT file.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UlatFileXml.BypassInformation">
+            <summary>
+            Gets or sets the test instance bypass selections from the ULAT file.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UlatFileXml.ProcessTypesXml">
+            <summary>
+            Gets or sets the device selections from the ULAT file.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.DataLoader.XmlElements.UlatFileXml.Validate(Prime.SimbaService.DataLoader.XmlElements.UlatFileXml)">
+            <summary>
+            Validates the correctness of the given Ulat file.
+            </summary>
+            <param name="ulatFile">The ulat file structure to validate.</param>
+        </member>
+        <member name="M:Prime.SimbaService.DataLoader.XmlElements.UlatFileXml.GetFileUlatType(Prime.SimbaService.DataLoader.XmlElements.UlatFileXml)">
+            <summary>
+            Returns the "de-facto" ulat type for the given ulat file.
+            </summary>
+            <param name="ulatFile">The ulat file structure to validate.</param>
+            <returns>The Ulat type of the given file.</returns>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.UnitConfigurationSets">
+            <summary>
+            Holds the ULAT information from bypass configuration sets for Unit type.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UnitConfigurationSets.DeviceVid">
+            <summary>
+            Gets or Sets the device VID.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UnitConfigurationSets.DeviceUlt">
+            <summary>
+            Gets or Sets the device ULT.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UnitConfigurationSets.BypassConfigNames">
+            <summary>
+            Gets or Sets the bypass configuration names for selected device.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UnitConfigurationSets.BypassModes">
+            <summary>
+            Gets or Sets the bypass configuration modes for selected device.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DataLoader.XmlElements.UnitConfigurationSetsXml">
+            <summary>
+            Holds the ULAT Xml information from bypass configuration sets for Unit type.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UnitConfigurationSetsXml.DeviceVid">
+            <summary>
+            Gets or Sets the device VID.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UnitConfigurationSetsXml.DeviceUlt">
+            <summary>
+            Gets or Sets the device ULT.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UnitConfigurationSetsXml.BypassConfigNames">
+            <summary>
+            Gets or Sets the bypass configuration names for selected device.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.DataLoader.XmlElements.UnitConfigurationSetsXml.BypassModes">
+            <summary>
+            Gets or Sets the bypass configuration modes for selected device.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.UlatDataLoader">
+            <summary>
+            Passes information from ULAT input files to Shared Storage structures.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.DutStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.DutStorage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SimbaService.DutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.DutStorage`1.#ctor(System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SimbaService.DutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.DutStorage`1.Get(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.SimbaService.DutStorage`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="newObject">Object to store.</param>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:Prime.SimbaService.DutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="sessionSession">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.SimbaService.ExecutionRecord">
+            <summary>
+            An execution record for a Ulat element.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.ExecutionRecord.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SimbaService.ExecutionRecord"/> class.
+            A dummy c'tor because we have to support this for the SharedStorage.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.ExecutionRecord.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SimbaService.ExecutionRecord"/> class.
+            </summary>
+            <param name="configSet">The name of the config set to match.</param>
+            <param name="executionMode">The execution mode to the matching config set.</param>
+        </member>
+        <member name="T:Prime.SimbaService.ExecutionRecord.Modes">
+            <summary>
+            The execution modes.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.ExecutionRecord.Modes.Monitor">
+            <summary>
+            I don't know.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.ExecutionRecord.Modes.Skip">
+            <summary>
+            I don't know too.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.ExecutionRecord.Modes.Test">
+            <summary>
+            I don't know too too. Not skip?
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.ExecutionRecord.ConfigSet">
+            <summary>
+            Gets or sets the name of the config set to match.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.ExecutionRecord.Mode">
+            <summary>
+            Gets or sets the name of the mode of the config set.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.IDutStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:Prime.SimbaService.IDutStorage`1.Get(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.SimbaService.IDutStorage`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="newObject">Object to store.</param>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:Prime.SimbaService.IDutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="sessionSession">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.SimbaService.UlatUnitIdMethod">
+            <summary>
+            Indicates the ULAT unit ID method.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.UlatUnitIdMethod.Vid">
+            <summary>
+            Compare with VID only.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.UlatUnitIdMethod.Ult">
+            <summary>
+            Compare with ULT only.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.UlatUnitIdMethod.VidAndUlt">
+            <summary>
+            Compare with VID and ULT.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.UlatOperatingType">
+            <summary>
+            Indicates the ULAT operating type.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.UlatOperatingType.Lot">
+            <summary>
+            Lot-level bypass.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.UlatOperatingType.Unit">
+            <summary>
+            Unit-specific bypass.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.ISimbaService">
+            <summary>
+            Interface for Simba calls from TestMethods.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.ISimbaService.LoadTestProgramInstances(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Loads the test program instances.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.SimbaService.ISimbaService.Disable(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Turn off Simba and clean every previous data.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.SimbaService.ISimbaService.PrintSimbaLotToItuff(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Prints Simba bypass Lot header to ITUFF.  Must be called in LotStart.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Ituff header adds.</returns>
+        </member>
+        <member name="M:Prime.SimbaService.ISimbaService.EnableInstanceBypass(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Enables simba bypass. Must be called in Device Start.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.SimbaService.ISimbaService.DisableInstanceBypass(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Disables simba bypass.  Must be called in Device End.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.SimbaService.ISimbaService.CheckInstanceBypass(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if current test instance is to be bypassed via Simba.
+            </summary>
+            <param name="currentInstanceName">Name of currently running test instance.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Bool showing bypass status.</returns>
+        </member>
+        <member name="M:Prime.SimbaService.ISimbaService.Init(System.String,System.Collections.Generic.HashSet{System.String},System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets up the Simba service for sort.
+            </summary>
+            <param name="inputFile">targetedInstancesFilePath.</param>
+            <param name="targetedInstances">targetedInstances.</param>
+            <param name="perModelVersion">perModelVersion.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.SimbaService.ISimbaService.Init(System.String,Prime.SimbaService.UlatOperatingType,Prime.SimbaService.UlatUnitIdMethod,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets up the Simba service for class.
+            </summary>
+            <param name="inputFile">The input file.</param>
+            <param name="ulatFileType">The ULAT file type.</param>
+            <param name="unitIdentificationMethod">The unit identification method.</param>
+            <param name="ssidKeyForUltData">The SSID key for ULT data.</param>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="T:Prime.SimbaService.ISimba">
+            <summary>
+            Represents the Simba service.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.ISimba.Setup(System.String,Prime.SimbaService.UlatOperatingType,Prime.SimbaService.UlatUnitIdMethod,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets up the Simba service for class.
+            </summary>
+            <param name="inputFile">The input file.</param>
+            <param name="ulatFileType">The ULAT file type.</param>
+            <param name="unitIdentificationMethod">The unit identification method.</param>
+            <param name="ssidKeyForUltData">The SSID key for ULT data.</param>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:Prime.SimbaService.ISimba.Setup(System.String,System.Collections.Generic.HashSet{System.String},System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets up the Simba service for sort.
+            </summary>
+            <param name="inputFile">The input file.</param>
+            <param name="targetedInstances">The targeted instances.</param>
+            <param name="perModelVersion">The per model version.</param>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:Prime.SimbaService.ISimba.IsInstanceBypass(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if the instance is bypassed.
+            </summary>
+            <param name="instanceName">The instance name.</param>
+            <param name="sessionContext">The session context.</param>
+            <returns>True if the instance is bypassed, otherwise false.</returns>
+        </member>
+        <member name="M:Prime.SimbaService.ISimba.GetLotLevelStringToPrint(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the lot level string to print.
+            </summary>
+            <param name="sessionContext">The session context.</param>
+            <returns>The lot level string to print.</returns>
+        </member>
+        <member name="M:Prime.SimbaService.ISimba.OnDeviceStarted(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Executes when the device is started.
+            </summary>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:Prime.SimbaService.SimbaClass.SetupLotUlatData(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Pushes ULAT data into Shared Storage for lot operation mode. Must be called in INIT flow by test instance.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.SimbaService.SimbaClass.SetupUnitUlatData(Prime.SimbaService.UlatUnitIdMethod,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Pushes ULAT data into Shared Storage for unit operation mode. Must be called in INIT flow by test instance.
+            </summary>
+            <param name="ulatUnitIdMethodMethod">Unit identification method (VID/ULT/VIDANDULT).</param>
+            <param name="ssidKey">Used to access ULT/efuse data stored by FuseRead.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.SimbaService.SimbaService">
+            <summary>
+            This service contains the methods necessary to activate Simba.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.SimbaService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SimbaService.SimbaService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.SimbaService.Init(System.String,Prime.SimbaService.UlatOperatingType,Prime.SimbaService.UlatUnitIdMethod,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SimbaService.SimbaService.Init(System.String,System.Collections.Generic.HashSet{System.String},System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SimbaService.SimbaService.LoadTestProgramInstances(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.SimbaService.SimbaService.Disable(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SimbaService.SimbaService.PrintSimbaLotToItuff(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SimbaService.SimbaService.EnableInstanceBypass(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SimbaService.SimbaService.DisableInstanceBypass(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.SimbaService.SimbaService.CheckInstanceBypass(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SimbaService.SimbaService.PrintBypassItuff(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print the ITUFF message for Simba-bypassed instances.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.TargetedInstances.TargetedInstancesData">
+            <summary>
+            Targeted instances data.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.TargetedInstances.TargetedInstancesData.ModelPerInstanceAliases">
+            <summary>
+            Gets or sets the model based instance to alias mapping.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.TargetedInstances.TargetedInstancesData.FsmPerInstanceAliases">
+            <summary>
+            Gets or sets the NPR based instance to alias mapping.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.TargetedInstances.TargetedInstancesData.NotFoundInstance">
+            <summary>
+            Gets or sets the not found instances.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.TargetedInstances.TargetedInstancesData.ModelsVersions">
+            <summary>
+            Gets or sets the models versions.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.TargetedInstances.TargetedInstancesFile">
+            <summary>
+            Simba pattern files object.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.TargetedInstances.TargetedInstancesFile.ResolvedTargetedInstancesFilePath">
+            <summary>
+            Gets or sets the resolved targeted instances file path.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.TargetedInstances.TargetedInstancesFile.ResolvedTargetedInstancesFileTimeStampUtc">
+            <summary>
+            Gets or sets the resolved targeted instances timestamp.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.TargetedInstances.TargetedInstancesFile.DataObject">
+            <summary>
+            Gets or sets the targeted instances data object.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.TestInstanceProcessor">
+            <summary>
+            Class with helpers on test instance related requirements.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.TestInstanceProcessor.IsPrime(System.String)">
+            <summary>
+            Returns true if the given test class name is a Prime test class.
+            </summary>
+            <param name="testClassName">The name of the test class to process.</param>
+            <returns>If is a prime test class.</returns>
+        </member>
+        <member name="M:Prime.SimbaService.TestInstanceProcessor.SplitInstanceName(System.String)">
+            <summary>
+            Returns result of spliting the given instance name in the module name (including the IP) and the instance name.
+            </summary>
+            <param name="testInstanceName">The name of the test instance to process.</param>
+            <returns>The split test instance name in module and instance name.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If the given test instance name doesn't match the expected format.</exception>
+        </member>
+        <member name="T:Prime.SimbaService.UlatDataUtilities">
+            <summary>
+            Class to data clean process before configuration file load.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.UlatDataUtilities.ScVarsProcessType">
+            <summary>
+            Uservar name.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.UlatDataUtilities.ScVarsVisualIdName">
+            <summary>
+            Uservar name.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.UlatDataUtilities.FileStructureConfigKey">
+            <summary>
+            SharedStorage key.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.UlatElement">
+            <summary>
+            An ulat element representation.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.UlatElement.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SimbaService.UlatElement"/> class.
+            A dummy c'tor because we have to support this for the SharedStorage.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.UlatElement.#ctor(System.Collections.Generic.List{Prime.SimbaService.ExecutionRecord},System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SimbaService.UlatElement"/> class.
+            </summary>
+            <param name="executions">The list of execution modes per config set of the given element.</param>
+            <param name="ult">The Ult to match.</param>
+            <param name="vid">The Vid to match.</param>
+        </member>
+        <member name="M:Prime.SimbaService.UlatElement.#ctor(System.Collections.Generic.List{Prime.SimbaService.ExecutionRecord})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SimbaService.UlatElement"/> class.
+            </summary>
+            <param name="executions">The list of execution modes per config set of the given element.</param>
+        </member>
+        <member name="P:Prime.SimbaService.UlatElement.Executions">
+            <summary>
+            Gets or sets the list of execution modes per config set of the given element.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.UlatElement.Ult">
+            <summary>
+            Gets or sets the Ult of the given element.
+            </summary>
+        </member>
+        <member name="P:Prime.SimbaService.UlatElement.Vid">
+            <summary>
+            Gets or sets the Vid of the given element.
+            </summary>
+        </member>
+        <member name="T:Prime.SimbaService.UnitInfo">
+            <summary>
+            Unit's simba info.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.UnitInfo.FSMModes">
+            <summary>
+            Uservar token used In SORT contains the per instance alias predictions populated by DPC automation. The predictions provided by tulip script.
+            </summary>
+        </member>
+        <member name="F:Prime.SimbaService.UnitInfo.WasDieTestedUserVar">
+            <summary>
+            Uservar token Used in SORT to indicate to Simba if currently running die is already tested.
+            </summary>
+        </member>
+        <member name="M:Prime.SimbaService.UnitInfo.WasCurrentDieTested">
+            <summary>
+            Returns if current die was already tested.
+            </summary>
+            <returns>TT print mode.</returns>
+        </member>
+    </members>
+</doc>

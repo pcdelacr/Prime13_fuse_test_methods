@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="OperationInfo" type="OperationInfoType">
+  </xs:element>
+
+  <xs:complexType name="OperationInfoType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="transaction_log"/>
+      <xs:element type="op_flex_paramsType" name="op_flex_params">
+        <xs:unique name="UniqueOpFlexParam">
+          <xs:selector xpath="op_flex_param"/>
+          <xs:field xpath="@name"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element type="element_listType" name="element_list">
+        <xs:unique name="UniqueIndex">
+          <xs:selector xpath="element"/>
+          <xs:field xpath="value"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="OperationName" />
+    <xs:attribute type="xs:string" name="ServiceName" />
+  </xs:complexType>
+
+  <xs:complexType name="op_flex_paramsType">
+    <xs:sequence>
+      <xs:element type="op_flex_paramType" name="op_flex_param" maxOccurs="9" minOccurs="9"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="op_flex_paramType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="name" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="lot_id"/>
+              <xs:enumeration value="assembly_name"/>
+              <xs:enumeration value="qty"/>
+              <xs:enumeration value="hri"/>
+              <xs:enumeration value="mrv"/>
+              <xs:enumeration value="frv"/>
+              <xs:enumeration value="revision"/>
+              <xs:enumeration value="fba_solve_id"/>
+              <xs:enumeration value="mode"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="value" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="element_listType">
+    <xs:sequence>
+      <xs:element type="elementType" name="element" maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="elementType">
+    <xs:all>
+      <xs:element name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="index"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:positiveInteger" name="value"/>
+      <xs:element type="flex_output_paramsType" name="flex_output_params">
+        <xs:unique name="UniqueFlexoutputParams">
+          <xs:selector xpath="flex_output_param"/>
+          <xs:field xpath="@name"/>
+        </xs:unique>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="flex_output_paramsType">
+    <xs:sequence>
+      <xs:element type="flex_output_paramType" name="flex_output_param" maxOccurs="6" minOccurs="6"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="flex_output_paramType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="name">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+			  <xs:minLength value="1"/>
+              <xs:enumeration value="priority"/>
+              <xs:enumeration value="planning_bin"/>
+              <xs:enumeration value="pass_bin"/>
+              <xs:enumeration value="sspec"/>
+              <xs:enumeration value="fba_fuse_qty"/>
+              <xs:enumeration value="sb_reserved_qty"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="value" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

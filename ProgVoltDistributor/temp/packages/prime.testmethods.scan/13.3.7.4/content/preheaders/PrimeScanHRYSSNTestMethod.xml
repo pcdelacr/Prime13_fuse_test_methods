@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeScanHRYSSNTestMethod" MetaData="dll=Prime.TestMethods.Scan" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeScanHRYSSNTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="Patlist" descriptions="Patlist to execute.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>Plist</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="TimingsTc" descriptions="TimingsTc for plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>TimingCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="LevelsTc" descriptions="LevelsTc for plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>LevelsCondition</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="ApplyEndSequence" descriptions="ApplyEndSequence at the end of the test.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>DISABLED</Choice>
+          <Choice>ENABLED</Choice>
+        </Choices>
+        <Default>DISABLED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PrePlist" descriptions=" PrePlist callback to plist execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="MaskPins" descriptions="Comma separated pins for mask.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TotalFailCaptureCount" descriptions="Number of Patlist execution failures to capture per plist.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>1</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PerPatFailCaptureCount" descriptions="Number of Patlist execution failures to capture per pattern. The minimal number is 1.">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>1</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PatternsRegexesForKill" descriptions="PatternsRegexesForKill. When one of the failing patterns, matching one of the regexes, test method will exit from dedicated port 4.\nExample: \&quot;.*pre.*, Pattern.*\">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PartitionsToIgnore" descriptions="PartitionsToIgnore. When one of the failing partition matches one of this paritions, the test method will print 9 on the HRY string.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="ExpectedPartitionsStatuses" descriptions="ExpectedPartitionsStatuses.Comma-separated values of \&quot;PartitionName=0/1/8/9/X\&quot; (X - don't care.)\nExample: \&quot;EXE=1, FID=X, OOO=0\">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="SetUnassignedToUntestedPatterns" descriptions="SetUnassignedToUntestedPatterns. If TRUE the HRY will be overriden with UNASSIGNED for those partitions that not reported failures.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>DISABLED</Choice>
+          <Choice>ENABLED</Choice>
+        </Choices>
+        <Default>DISABLED</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="HPTPMode" descriptions="HPTPEnableOption. If ENABLE, test method shall use HPTP algorithm to decode the bit position. Otherwise, normal SSN algorithm is used.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Normal</Choice>
+          <Choice>HPTP</Choice>
+          <Choice>DUAL_HPTP</Choice>
+        </Choices>
+        <Default>Normal</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="HRYInputFile" descriptions="HRY generation rules input file.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>File</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="PinMappingFile" descriptions="Pin mapping input file">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>File</TestProgram>
+        </Type>
+        <AlwaysRequired />
+      </Parameter>
+      <Parameter name="SharedStorageHRYExportKey" descriptions="The SharedStorageHRYExportKey. This key will be used to export the HRY to shared storage under IP scope.\nThe key will be reset in all cases at beginning of execution with empty string. In case of failure, nothing will be written afterwards.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="IfeObject" descriptions="The IFE object of type IScanHRYExtensions.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>4</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT - PATTERN FAILED MATCHING KILL PATTERNS REGEXES</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>3</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT - FAILURES CAPTURED AND EXPECTED PARTITIONS RESULTS NOT MATCHING ACTUAL</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT - FAILURES CAPTURED AND EXPECTED PARTITIONS RESULTS MATCHING ACTUAL</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT - NO FAILURES CAPTURED</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

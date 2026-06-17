@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [ "SSPECConfiguration" ],
+  "properties": {
+	"$schema": {
+      "type": "string",
+      "minLenght": 1
+    },
+    "SSPECConfiguration": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/SSPECConfiguration"
+      }
+    }
+  },
+  "definitions": {
+    "SSPECConfiguration": {
+      "type": "object",
+      "required": [ "Registers" ],
+      "properties": {
+        "Registers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Registers"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Registers": {
+      "type": "object",
+      "required": [ "Name", "SSPEC" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+	        "minLength": 1,
+	        "uniqueItems": true
+        },
+	      "Visibility": {
+          "type": "string",
+	        "minLength": 1
+        },
+	      "SSPEC": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SSPEC"
+          }
+        }
+       },
+	   "additionalProperties": false
+    },
+	"SSPEC": {
+      "type": "object",
+	    "minItems": 1,
+      "required": [ "QDF", "Value" ],
+      "properties": {
+		"QDF": {
+          "type": "string",
+		  "minLength": 1
+        },
+		"Value": {
+          "type": "string",
+		  "pattern": "^[01sm]*$",
+		  "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

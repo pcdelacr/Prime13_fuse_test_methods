@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.BinTraceService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BinTraceService.BinTraceData">
+            <summary>
+            Object to save in the Shared Storage with BinTrace data.
+            </summary>
+        </member>
+        <member name="P:Prime.BinTraceService.BinTraceData.IsBinTraceOn">
+            <summary>
+            Gets or sets a value indicating whether  the BinTrace is on or not.
+            </summary>
+        </member>
+        <member name="P:Prime.BinTraceService.BinTraceData.BinTraceName">
+            <summary>
+            Gets or sets the name of the current enabled BinTrace.
+            </summary>
+        </member>
+        <member name="P:Prime.BinTraceService.BinTraceData.BinTraceInstances">
+            <summary>
+            Gets or sets the list of BinTrace Instances per BinTraceName.
+            </summary>
+        </member>
+        <member name="T:Prime.BinTraceService.BinTraceInstance">
+            <summary>
+            BinTraceInstance that holds the information to save in shared storage.
+            </summary>
+        </member>
+        <member name="P:Prime.BinTraceService.BinTraceInstance.BinNumber">
+            <summary>
+            Gets or sets the BinNumber value.
+            </summary>
+        </member>
+        <member name="P:Prime.BinTraceService.BinTraceInstance.PortNumber">
+            <summary>
+            Gets or sets the PortNumber value.
+            </summary>
+        </member>
+        <member name="P:Prime.BinTraceService.BinTraceInstance.InstanceName">
+            <summary>
+            Gets or sets the InstanceName value.
+            </summary>
+        </member>
+        <member name="T:Prime.BinTraceService.BinTraceService">
+            <inheritdoc cref="T:Prime.BinTraceService.IBinTraceService"/>/>
+        </member>
+        <member name="M:Prime.BinTraceService.BinTraceService.Prime#BinTraceService#IBinTraceService#AddInstanceBinTrace(System.Int32,System.UInt32,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinTraceService.BinTraceService.Prime#BinTraceService#IBinTraceService#AddInstanceBinTrace(System.Int32,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinTraceService.BinTraceService.Prime#BinTraceService#IBinTraceService#GetBinTrace(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinTraceService.BinTraceService.Prime#BinTraceService#IBinTraceService#StartBinTrace(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinTraceService.BinTraceService.Prime#BinTraceService#IBinTraceService#StopBinTrace(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BinTraceService.BinTraceService.VerifyNotOnIntraDut">
+            <summary>
+            Ensures we are currently not on an IntraDut scenario.
+            </summary>
+        </member>
+        <member name="T:Prime.BinTraceService.IBinTraceInstance">
+            <summary>
+            Holds the instance's bin information.
+            </summary>
+        </member>
+        <member name="P:Prime.BinTraceService.IBinTraceInstance.BinNumber">
+            <summary>
+            Gets the BinNumber value.
+            </summary>
+        </member>
+        <member name="P:Prime.BinTraceService.IBinTraceInstance.PortNumber">
+            <summary>
+            Gets the PortNumber value.
+            </summary>
+        </member>
+        <member name="P:Prime.BinTraceService.IBinTraceInstance.InstanceName">
+            <summary>
+            Gets the InstanceName value.
+            </summary>
+        </member>
+        <member name="T:Prime.BinTraceService.IBinTraceService">
+            <summary>
+            Bin Trace Service Interface.
+            The proper functioning of this Service requires that interface "AddInstanceBinTrace" is called
+            at the PostExecute callback of every instance.
+            Otherwise data for each instance would not be stored even if a BinTrace is enabled.
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="N:Prime.ConsoleService"/></item>
+            <item><see cref="N:Prime.PlatformService"/></item>
+            <item><see cref="N:Prime.SharedStorageService"/></item>
+            <item><see cref="N:Prime.TestProgramService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinTraceService.IBinTraceService.StartBinTrace(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Turns on storage of BinTrace data for the specified BinTrace name.
+            When a BinTrace is started it initializes it with an empty list of data to differentiate empty BinTraces
+            from uninitialized BinTraces.
+            Only one BinTrace can be active at a time.
+            Throws FatalException if another BinTrace was already active.
+            </summary>
+            <param name="binTraceName">The name under which Bintrace data will be stored.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Another BinTrace is already enabled, only one BinTrace can be active at any given moment.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Parameters are hard-coded only to simplify the example. This should be avoided.
+            var binTraceName = "PREHVQK";
+            Prime.Base.ServiceStore&lt;IBinTraceService>.StartBinTrace(binTraceName, mySessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinTraceService.IBinTraceService.StopBinTrace(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Turns off storage of BinTrace data for the active BinTrace.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Prime.Base.ServiceStore&lt;IBinTraceService>.StopBinTrace(mySessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinTraceService.IBinTraceService.AddInstanceBinTrace(System.Int32,System.UInt32,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Saves an instance's BinTrace data into the currently active BinTrace.
+            Throws FatalException if the active BinTrace was not initialized, which should be
+            done during StartBinTrace.
+            This interface is reserved only for compatibility with EVG.
+            </summary>
+            <param name="portNumber"> The instance's port number.</param>
+            <param name="binNumber"> The instance's bin number.</param>
+            <param name="instanceName"> The instance's name.</param>
+            <param name="bypassed"> If the instance is bypassed or not.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">BinTrace is already enabled but an initialized array was not found in Shared Storage.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Parameters are hard-coded only to simplify the example. This should be avoided.
+            int portNumber = 0;
+            uint binNumber = 45450001;
+            var instanceName = "MyInstance";
+            var isBypassed = false;
+            Prime.Base.ServiceStore&lt;IBinTraceService>.AddInstanceBinTrace(portNumber, binNumber, instanceName, isBypassed, mySessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinTraceService.IBinTraceService.AddInstanceBinTrace(System.Int32,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Saves an instance's BinTrace data into the currently active BinTrace.
+            The instance's bin number is fetched so it is not required as a parameter.
+            Throws FatalException if the active BinTrace was not initialized, which should be
+            done during StartBinTrace.
+            </summary>
+            <param name="portNumber"> The instance's port number.</param>
+            <param name="instanceName"> The instance's name.</param>
+            <param name="bypassed"> If the instance is bypassed or not.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">BinTrace is already enabled but an initialized array was not found in Shared Storage.</exception>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Parameters are hard-coded only to simplify the example. This should be avoided.
+            int portNumber = 0;
+            var instanceName = "MyInstance";
+            var isBypassed = false;
+            Prime.Base.ServiceStore&lt;IBinTraceService>.AddInstanceBinTrace(portNumber, instanceName, isBypassed, mySessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.BinTraceService.IBinTraceService.GetBinTrace(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the stored bin trace for a given binTraceName.
+            </summary>
+            <param name="binTraceName">Name of the bin trace. This needs to be the same name as was used in StartBinTrace.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>
+            The Bin Trace, list of instances with their assigned bin or null if binTraceName wasn't found.
+            </returns>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            Parameters are hard-coded only to simplify the example. This should be avoided.
+            var binTraceName = "PREHVQK";
+            var binTraceContents = Prime.Base.ServiceStore&lt;IBinTraceService>.GetBinTrace(binTraceName, mySessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+    </members>
+</doc>

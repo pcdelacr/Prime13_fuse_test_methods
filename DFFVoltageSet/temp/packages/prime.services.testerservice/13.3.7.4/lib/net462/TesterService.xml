@@ -1,0 +1,598 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.TesterService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TesterService.Internal.ITesterService">
+            <summary>
+            Additional interface for Prime internal usage.
+            Need to cast the main ITesterService to Internal.ITesterService to access these methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.Internal.ITesterService.UpdateTiuCountersForEndLot(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Updates TIU counters with unit tested information found at end of lot. Behavior differs if chassis type is HBI or HDMT.
+            This is only intended to be called at end of Lot.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TesterService.Internal.ITesterService.GetBaseBoardSerialNumberFromEeprom">
+            <summary>
+            Gets the base board's serial number EEPROM.
+            </summary>
+            <returns>String containing the base board EEPROM.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Internal.ITesterService.GetPersonalityCardSerialNumberFromEeprom">
+            <summary>
+            Gets the personality card's serial number EEPROM.
+            </summary>
+            <returns>String containing the personality card EEPROM.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Internal.ITesterService.AddTierEAlarm(Prime.Base.Exceptions.AlarmException,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Inserts a thrown TierE alarm for the current DUT session into TesterService.
+            Inserted alarms can be later retrieved using <see cref="M:Prime.TesterService.ITesterService.GetTierEAlarms(Prime.SessionService.ISessionContextProviderContainer)"/>
+            All inserted alarms are reset during DeviceStart.
+            </summary>
+            <param name="alarm">A TierE alarm thrown during DUT session execution.</param>
+            <param name="instanceName">Name of the instance that threw the alarm.</param>
+            <param name="sessionContext">Session context used for this DUT session.</param>
+        </member>
+        <member name="T:Prime.TesterService.ITesterService">
+            <summary>
+            Service for executing tester hardware related operations.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.ReadI2cData(System.String,System.Byte,System.Int32)">
+            <summary>
+            Perform an I2C read from an configured I2C pin.
+            </summary>
+            <param name="pinName">Pin name of the I2C configured channel to communicate with.</param>
+            <param name="deviceAddress">I2C address (7-bit address and read bit).</param>
+            <param name="readCount">Number of bytes to read from the I2C device.</param>
+            <returns>Byte data returned from the device.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.WriteI2cData(System.String,System.Byte,System.Collections.Generic.List{System.Byte},System.Boolean)">
+            <summary>
+            Writes data to an I2C device connected to an I2C.
+            </summary>
+            <param name="pinName">Pin name of the I2C configured channel to communicate with.</param>
+            <param name="deviceAddress">I2C address (7-bit address and write bit).</param>
+            <param name="writeData">Byte data to write to device.</param>
+            <param name="stop">If true send stop bit after I2C transaction, otherwise do not send stop bit and maintain control of I2C bus.</param>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.WriteReadI2cData(System.String,System.Byte,System.Collections.Generic.List{System.Byte},System.Int32)">
+            <summary>
+            Perform an I2C write followed by a read from an configured I2C pin without sending a stop bit between each transaction.
+            </summary>
+            <param name="pinName">Pin name of the I2C configured channel to communicate with.</param>
+            <param name="deviceAddress">I2C address of the device (7-bit address, and ignored R/W type bit).</param>
+            <param name="writeData">Byte data to write to device.</param>
+            <param name="readCount">Number of bytes to read from the I2C device.</param>
+            <returns>Byte data returned from the device.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.ExecuteTdrCalibration(System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Perform a new TDR calibration and save the calibration data to the file.
+            </summary>
+            <param name="pinGroupName">The pingroup to calibrate.</param>
+            <param name="ignoredPins">The pins to be ignored for calibration.</param>
+            <param name="fileName">The file name to save the calibration data.</param>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.GetTdrCalValues(System.String)">
+            <summary>
+            Read back the TDR calibration values from the tester.
+            </summary>
+            <param name="pinGroupName">The pingroup that we want to read the calibration values of.</param>
+            <returns>The calibration values of the pingroup.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.LoadTdrCalFromFile(System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Load the TDR calibration values to the tester from calibration file.
+            </summary>
+            <param name="pinGroup">The pingroup to load the calibration.</param>
+            <param name="ignoredPins">The pins to be ignored for calibration.</param>
+            <param name="fileName">The calibration file name.</param>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.IsTesterOffline">
+            <summary>
+             checks if the tester is Offline according to the tester operation mode (OfflineLSM, OnlineEngineering, OnlineProduction)  .
+            </summary>
+            <returns> true if the tester is Offline,else, returns false.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.IsTesterHbi">
+            <summary>
+            Checks if chassis type is HBI.
+            </summary>
+            <returns>true if chassis type is hbi, else returns false.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.GetXiuReplacementCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Replacement counter from EEPROM for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Replacement counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.GetXiuCleaningCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Cleaning counter from EEPROM for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Cleaning counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.GetXiuSocketCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Socket counter from EEPROM for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Socket counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.GetXiuBaseBoardCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Base board counter from Eeprom for the given DUT index. No implemented for HBI tester chassis.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Base board counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.GetXiuIdentityCardCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Identity board counter from Eeprom for the given DUT index. No implemented for HBI tester chassis.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Identity card counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.GetXiuMetalFrameCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the metal frame counter from Eeprom for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Metal frame counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.GetXiuElastomerSheetCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the elastomer sheet counter from Eeprom for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Elastomer sheet counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.GetXiuBottomElastomerSheetCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the bottom elastomer sheet counter from Eeprom for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Bottom Elastomer sheet counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.TryGetEepromSerialNumbers(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the current EEPROM serial numbers for Metal Frame, Elastomer Sheet, and Bottom Elastomer Sheet.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A dictionary containing the serial numbers for Metal Frame, Elastomer Sheet, and Bottom Elastomer Sheet.
+            Each entry is a tuple of (bool exists, string serialNumber).</returns>
+        </member>
+        <member name="M:Prime.TesterService.ITesterService.GetTierEAlarms(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets a list of TierE alarm exceptions thrown during the current DUT session.
+            </summary>
+            <returns>List of TierE alarm exceptions thrown during the current DUT session.</returns>
+            <param name="sessionContext">Session context for this DUT session.</param>
+        </member>
+        <member name="T:Prime.TesterService.DutStorage`1">
+            <summary>
+            Tester service local storage.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.DutStorage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TesterService.DutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.DutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.TesterService.DutStorage`1.GetObject(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.TesterService.DutStorage`1.InsertObject(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="objectToSet">Object to store.</param>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.TesterService.DutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.TesterService.IDutStorage`1">
+            <summary>
+            Tester service local storage.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:Prime.TesterService.IDutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.TesterService.IDutStorage`1.GetObject(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.TesterService.IDutStorage`1.InsertObject(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="objectToSet">Object to store.</param>
+            <param name="session">SessionContext.</param>
+        </member>
+        <member name="M:Prime.TesterService.IDutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.TesterService.TesterService">
+            <summary>
+            Tester service.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.TesterService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TesterService.TesterService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.TesterService.TryGetEepromSerialNumbers(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the current EEPROM serial numbers for Metal Frame, Elastomer Sheet, and Bottom Elastomer Sheet.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A dictionary containing the serial numbers for Metal Frame, Elastomer Sheet, and Bottom Elastomer Sheet.
+            Each entry is a tuple of (bool exists, string serialNumber).</returns>
+        </member>
+        <member name="M:Prime.TesterService.TesterService.GetEepromIndexForElastomerSerialNumbers">
+            <summary>
+            The Elastomer Socket Serial Numbers are stored in EEPROM index 0 for HDBI and index 1 for HDMT.
+            These standards are based on customer requirements outlined in ticket #59864.
+            </summary>
+            <returns>EEPROM index where the Elastomer Socket Serial Numbers are stored.</returns>
+        </member>
+        <member name="T:Prime.TesterService.Xiu.IXiu">
+            <summary>
+            Internal IXiu interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.IXiu.WriteTiuCountersAtEndLot(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes new values to TIU counters at end of lot. Implementation will differ depending on chassis type being HBI or HDMT.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.IXiu.GetXiuReplacementCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Replacement counter from EEPROM for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Replacement counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.IXiu.GetXiuCleaningCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Cleaning counter from EEPROM for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Cleaning counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.IXiu.GetXiuSocketCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Socket counter from EEPROM for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Socket counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.IXiu.GetXiuBaseBoardCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Base board counter from Eeprom for the given DUT index. No implemented for HBI tester chassis.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Base board counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.IXiu.GetXiuIdentityCardCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Identity board counter from Eeprom for the given DUT index. No implemented for HBI tester chassis.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Identity card counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.IXiu.GetXiuMetalFrameCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the metal frame counter from Eeprom for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Metal frame counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.IXiu.GetXiuElastomerSheetCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the elastomer sheet counter from Eeprom for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Elastomer sheet counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.IXiu.GetXiuBottomElastomerSheetCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the bottom elastomer sheet counter from Eeprom for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Elastomer sheet counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.IXiu.GetPersonalityCardSerialNumberFromEeprom">
+            <summary>
+            Gets the personality card's serial number EEPROM if applies, empty if doesn't.
+            </summary>
+            <returns>String containing the personality card EEPROM.</returns>
+        </member>
+        <member name="T:Prime.TesterService.Xiu.XiuBase">
+            <summary>
+            XIU base.
+            </summary>
+        </member>
+        <member name="F:Prime.TesterService.Xiu.XiuBase.DefaultTiuIndex">
+            <summary>
+            Default TIU index.
+            </summary>
+        </member>
+        <member name="P:Prime.TesterService.Xiu.XiuBase.DutIdToEepromIndex">
+            <summary>
+            Gets or sets DutIdToEepromIndex.
+            </summary>
+        </member>
+        <member name="P:Prime.TesterService.Xiu.XiuBase.DutIdToTiuIndex">
+            <summary>
+            Gets or sets DutIdToTiuIndex.
+            </summary>
+        </member>
+        <member name="P:Prime.TesterService.Xiu.XiuBase.DutIndexToDutId">
+            <summary>
+            Gets or sets DutIndexToDutId.
+            </summary>
+        </member>
+        <member name="P:Prime.TesterService.Xiu.XiuBase.SocketCounterRecord">
+            <summary>
+            Gets or sets SocketCounterRecord.
+            </summary>
+        </member>
+        <member name="P:Prime.TesterService.Xiu.XiuBase.ReplacementCounterRecord">
+            <summary>
+            Gets or sets ReplacementCounterRecord.
+            </summary>
+        </member>
+        <member name="P:Prime.TesterService.Xiu.XiuBase.MetalFrameCounterRecord">
+            <summary>
+            Gets or sets MetalFrameCounterRecord.
+            </summary>
+        </member>
+        <member name="P:Prime.TesterService.Xiu.XiuBase.ElastomerSheetCounterRecord">
+            <summary>
+            Gets or sets ElastomerSheetCounterRecord.
+            </summary>
+        </member>
+        <member name="P:Prime.TesterService.Xiu.XiuBase.BottomElastomerSheetCounterRecord">
+            <summary>
+            Gets or sets BottomElastomerSheetCounterRecord.
+            </summary>
+        </member>
+        <member name="P:Prime.TesterService.Xiu.XiuBase.CleaningCounterRecord">
+            <summary>
+            Gets or sets CleaningCounterRecord.
+            </summary>
+        </member>
+        <member name="P:Prime.TesterService.Xiu.XiuBase.EepromStructureInitialized">
+            <summary>
+            Gets or sets a value indicating whether Eeprom structure is initialized.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.GetXiuReplacementCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Replacement counter from EEPROM for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Replacement counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.GetXiuCleaningCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Cleaning counter from EEPROM for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Cleaning counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.GetXiuSocketCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the Socket counter from EEPROM for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Socket counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.GetXiuMetalFrameCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the metal frame counter from Eeprom for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Metal frame counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.GetXiuElastomerSheetCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the elastomer sheet counter from Eeprom for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Elastomer sheet counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.GetXiuBottomElastomerSheetCounterFromEeprom(System.Int32)">
+            <summary>
+            Gets the bottom elastomer sheet counter from Eeprom for the given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Bottom Elastomer sheet counter.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.FindTiuIndex(System.Int32)">
+            <summary>
+            Finds TIU index based on DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>TIU index for given DUT index.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.IncreaseXiuSocketCounterInEeprom(System.Int32,System.UInt32,System.Int32)">
+            <summary>
+            Increases Xiu socket counter in Eeprom.
+            </summary>
+            <param name="dutIndex">Dut index.</param>
+            <param name="counterValue">Counter value to save.</param>
+            <param name="tiuIndex">Tiu index.</param>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.IncreaseXiuReplacementCounterInEeprom(System.Int32,System.UInt32,System.Int32)">
+            <summary>
+            Increases Xiu replacement counter in Eeprom.
+            </summary>
+            <param name="dutIndex">Dut index.</param>
+            <param name="counterValue">Counter value to save.</param>
+            <param name="tiuIndex">Tiu index.</param>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.IncreaseXiuCleaningCounterInEeprom(System.Int32,System.UInt32,System.Int32)">
+            <summary>
+            Increase Xiu cleaning counter in Eeprom.
+            </summary>
+            <param name="dutIndex">Dut index.</param>
+            <param name="counterValue">Counter value to save.</param>
+            <param name="tiuIndex">Tiu index.</param>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.IncreaseXiuMetalFrameCounterInEeprom(System.Int32,System.UInt32,System.Int32)">
+            <summary>
+            Increase Xiu metal frame counter in Eeprom.
+            </summary>
+            <param name="dutIndex">Dut index.</param>
+            <param name="counterValue">Counter value to save.</param>
+            <param name="tiuIndex">Tiu index.</param>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.IncreaseXiuElastomerSheetCounterInEeprom(System.Int32,System.UInt32,System.Int32)">
+            <summary>
+            Increase Xiu elastomer sheet counter in Eeprom.
+            </summary>
+            <param name="dutIndex">Dut index.</param>
+            <param name="counterValue">Counter value to save.</param>
+            <param name="tiuIndex">Tiu index.</param>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.IncreaseXiuBottomElastomerSheetCounterInEeprom(System.Int32,System.UInt32,System.Int32)">
+            <summary>
+            Increase Xiu bottom elastomer sheet counter in Eeprom.
+            </summary>
+            <param name="dutIndex">Dut index.</param>
+            <param name="counterValue">Counter value to save.</param>
+            <param name="tiuIndex">Tiu index.</param>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.FindEepromIndex(System.Int32)">
+            <summary>
+            Finds and returns Eeprom index based on given DUT index.
+            </summary>
+            <param name="dutIndex">DUT index.</param>
+            <returns>Eeprom index for given DUT index.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.PopulateDutIdToDutIndexMap">
+            <summary>
+            Populates DUT id index map.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.SetXiuCounterInEeprom(System.UInt32,System.UInt32,System.Int32,System.UInt32,System.Int32)">
+            <summary>
+            Increase the xiu unit counter by counter value.
+            </summary>
+            <param name="eepromIndex">The eeprom index to write to.</param>
+            <param name="counterIndex">The counter index to write to.</param>
+            <param name="dutIndex">The dut index.</param>
+            <param name="counterValue">The new value.</param>
+            <param name="tiuIndex">The tiu index.</param>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.GetXiuCounterFromEeprom(System.UInt32,System.UInt32,System.Int32,System.Int32)">
+            <summary>
+            Gets the xiu counter from Eeprom.
+            </summary>
+            <param name="eepromIndex">EEPROM index.</param>
+            <param name="counterIndex">Counter index.</param>
+            <param name="dutIndex">DUT index.</param>
+            <param name="tiuIndex">TIU index.</param>
+            <returns>Counter value read from EEPROM.</returns>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuBase.InitializeEepromIndexListAndDutIndexMap">
+            <summary>
+            Initializes Eeprom index list and Dut index map.
+            </summary>
+        </member>
+        <member name="T:Prime.TesterService.Xiu.XiuHbi">
+            <summary>
+            Xiu for Hbi.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHbi.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TesterService.Xiu.XiuHbi"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHbi.WriteTiuCountersAtEndLot(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHbi.GetXiuBaseBoardCounterFromEeprom(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHbi.GetXiuIdentityCardCounterFromEeprom(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHbi.GetPersonalityCardSerialNumberFromEeprom">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHbi.InitializeEepromIndexListAndDutIndexMap">
+            <summary>
+            Initializes the Eeprom index list and Dut index map.
+            </summary>
+        </member>
+        <member name="T:Prime.TesterService.Xiu.XiuHdmt">
+            <summary>
+             Hdmt XIU.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHdmt.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TesterService.Xiu.XiuHdmt"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHdmt.WriteTiuCountersAtEndLot(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHdmt.GetXiuBaseBoardCounterFromEeprom(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHdmt.GetXiuIdentityCardCounterFromEeprom(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHdmt.GetPersonalityCardSerialNumberFromEeprom">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TesterService.Xiu.XiuHdmt.InitializeEepromIndexListAndDutIndexMap">
+            <summary>
+            Initializes the Eeprom index list and Dut index map.
+            </summary>
+        </member>
+    </members>
+</doc>

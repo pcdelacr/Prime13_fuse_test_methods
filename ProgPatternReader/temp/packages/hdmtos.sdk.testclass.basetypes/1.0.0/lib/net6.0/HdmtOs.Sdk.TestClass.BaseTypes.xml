@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HdmtOs.Sdk.TestClass.BaseTypes</name>
+    </assembly>
+    <members>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.IHdmtOsTestClass">
+            <summary>
+            Interface for all test classes.
+            </summary>
+            <remarks>
+            All test classes or test class loaders that will be instantiated by the Test Program Host
+            must derived from this class.
+            </remarks>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.IHdmtOsTestClass.InitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Called by HdmtOs after the test is instantiated.
+            </summary>
+            <param name="stoppingToken">Cancellation Token to signal an abort was requested</param>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.IHdmtOsTestClass.VerifyAsync(System.Threading.CancellationToken)">
+             <summary>
+             Not called by the TOS. It is normally called from another test during the InitFlow flow.
+             It should also be called from ExecuteAsync if the parameters have been modified since the InitFlow
+             was executed (by a GUI).
+            
+             ITestContext.IsDirty can be used to check if the parameters have changed.
+             ITestContext.ClearDirty() must be called to reflect that the parameters are no longer dirty
+            
+             Exception should be thrown to to fail Verify in HdmtOs, HDMT Site Controller Studio, and Sdk
+             </summary>
+             <param name="stoppingToken">Cancellation Token to signal an abort was requested</param>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.IHdmtOsTestClass.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Called by TOS to execute the test.
+            </summary>
+            <param name="stoppingToken">Cancellation Token to signal an abort was requested</param>
+            <returns>
+            Returns TestExecutionResult specifying port, and bypass
+            </returns>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.IHdmtOsTestClass.PreUnloadAsync(System.Threading.CancellationToken)">
+            <summary>
+            Signals that the test is about to be unloaded.
+            </summary>
+            <param name="stoppingToken">Cancellation Token to signal an abort was requested</param>
+            <returns>True/False to signal Pass/Fail</returns>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.ITestContext">
+            <summary>
+            Provides access to test instance information
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.ITestContext.TestInformation">
+            <summary>
+            Test Information
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.ITestContext.Parameters">
+            <summary>
+            Test Parameters
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.ITestContext.IsDirty">
+            <summary>
+            Test is dirty or not
+            </summary>
+            <remarks>
+            Must be cleared manually by test class code using <see cref="M:HdmtOs.Sdk.TestClass.BaseTypes.ITestContext.ClearDirty"/>
+            </remarks>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.ITestContext.CurrentTestCallingPath">
+             <summary>
+             Current calling path to the test
+             </summary>
+             <remarks>
+             <para>
+             If the execution of the current test instance is triggered by executing a predefined flow, the
+             first element of this list will be of the form "PredefinedFlowName::FlowName". The rest of the
+             elements of this list will be the flow item names beginning from the starting flow item of the
+             user flow that is linked to the predefined flow and ending with the flow item that is responsible
+             for this test instance being executed.
+             </para>
+            
+             <para>
+             For example, given the following OTPL definitions:
+            
+             <code>
+             FlowB # defined in Module 'ModuleB'
+             {
+                 FlowItem Item2 TestX
+             }
+            
+             FlowA # defined in Module 'ModuleA'
+             {
+                FlowItem Item1 ModuleB::FlowB
+             }
+            
+             MainFlow = ModuleA::FlowA
+             </code>
+            
+             If this property is read during an execution of 'ModuleB::TestX' triggered via 'MainFlow', the
+             list returned will have the value
+             <c>["MainFlow::ModuleA::FlowA", "ModuleA::FlowA::Item1", "ModuleB::FlowB::Item2"]</c>
+             </para>
+             </remarks>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.ITestContext.ClearDirty">
+            <summary>
+            Clears the flag
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.ITestInformation">
+            <summary>
+            Contains information about existing test
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.ITestInformation.Id">
+            <summary>
+            Unique id of the test
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.ITestInformation.DllPath">
+            <summary>
+            Path to the Dll containing the test class
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.ITestInformation.TestClassName">
+            <summary>
+            Name of the test class
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.ITestInformation.Name">
+            <summary>
+            Name of the test instance
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.ITestParameters">
+            <summary>
+            Provides access to test parameters
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.ITestParameters.All">
+            <summary>
+            All Parameters
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.ITestParameters.Dirty">
+            <summary>
+            Parameters that have been updated since the previous test class interaction
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.TestClass.BaseTypes.TestExecutionResult">
+            <summary>
+            Result for test Execution
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.TestExecutionResult.Port">
+            <summary>
+            Output port for the test
+            </summary>
+        </member>
+        <member name="P:HdmtOs.Sdk.TestClass.BaseTypes.TestExecutionResult.Bypass">
+            <summary>
+            True = test will be marked as bypassed
+            False = test will be marked as not bypassed
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.TestClass.BaseTypes.TestExecutionResult.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Creates an instance of TestExecutionResult
+            </summary>
+            <param name="port">Output port for the test</param>
+            <param name="bypass">
+                True = test will be marked as bypassed
+                False = test will be marked as not bypassed
+            </param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,571 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.ConcurrentTestService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.ConcurrentTestService.ConcurrentTestManager">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.ConcurrentTestManager" />.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestManager.#ctor(Prime.ConcurrentTestService.TestProgramSpec,Prime.ConcurrentTestService.BundleSearchSpec,Prime.ConcurrentTestService.ContentSpec,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ConcurrentTestService.ConcurrentTestManager"/> class.
+            </summary>
+            <param name="tpSpec">TestProgramSpec.</param>
+            <param name="bundleSpec">BundleSearchSpec.</param>
+            <param name="content">ContentSpec.</param>
+            <param name="plist">Name of the plist for this manager.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestManager.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestManager.ApplySetPointsForCornerFrequencies(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestManager.GetFailingPowerRails(Prime.FunctionalService.ICaptureFailureTest,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestManager.UpdateStartAndPreBurstFromFailure(Prime.FunctionalService.ICaptureFailureTest,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestManager.UpdateStartAndPreBurstFromCurrentStart(Prime.FunctionalService.ICaptureFailureTest,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestManager.GetPowerRailToVminForwardingCornerMap(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.ConcurrentTestManager.PatternInstance">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.ConcurrentTestManager.PatternInstance" />.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestManager.PatternInstance.#ctor(System.String,System.UInt64,System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ConcurrentTestService.ConcurrentTestManager.PatternInstance"/> class.
+            </summary>
+            <param name="name">Pattern Name.</param>
+            <param name="instance">Pattern Instance.</param>
+            <param name="burst">Burst Index.</param>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ConcurrentTestManager.PatternInstance.Pattern">
+            <summary>
+            Gets the Pattern Name.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ConcurrentTestManager.PatternInstance.Instance">
+            <summary>
+            Gets the Pattern instance number.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ConcurrentTestManager.PatternInstance.BurstIndex">
+            <summary>
+            Gets the Burst Index.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestManager.PatternInstance.Equals(Prime.ConcurrentTestService.ConcurrentTestManager.PatternInstance)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestManager.PatternInstance.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.ConcurrentTestService">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.ConcurrentTestService" />.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestService.LoadTestProgramSpec(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestService.LoadBundleSearchSpec(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestService.LoadContentSpec(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ConcurrentTestService.GetManager(Prime.ConcurrentTestService.TestProgramSpec,Prime.ConcurrentTestService.BundleSearchSpec,Prime.ConcurrentTestService.ContentSpec,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.BundleSearchSpec">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.BundleSearchSpec" />.
+            </summary>
+        </member>
+        <member name="F:Prime.ConcurrentTestService.BundleSearchSpec.SchemaName">
+            <summary>
+            Gets the name of the Schema file associated with this class.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.BundleSearchSpec.Project">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.BundleSearchSpec.Config">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.BundleSearchSpec.SearchConfig">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.BundleSearchSpec.SearchConfig" />.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.BundleSearchSpec.SearchConfig.BundleFreqDef">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.BundleSearchSpec.SearchConfig.SafeZoneInstrumentalDef">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.BundleSearchSpec.SearchConfig.SafeZoneDefn">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.BundleSearchSpec.SearchConfig.SafeZoneDefn" />.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.BundleSearchSpec.SearchConfig.SafeZoneDefn.Pattern">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.BundleSearchSpec.SearchConfig.SafeZoneDefn.PreBurstListName">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.BundleSearchSpec.SearchConfig.SafeZoneDefn.InstanceId">
+            <summary>
+            Gets or sets the Pattern Instance Id ofthe safezone pattern.
+            The first instance of a pattern is 1.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.BundleSearchSpec.SearchConfig.SafeZoneDefn.BurstIndex">
+            <summary>
+            Gets or sets the Burst of the matching pattern.
+            The first burst is 0.
+            </summary>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.ContentSpec">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.ContentSpec" />.
+            </summary>
+        </member>
+        <member name="F:Prime.ConcurrentTestService.ContentSpec.SchemaName">
+            <summary>
+            Gets the name of the Schema file associated with this class.
+            </summary>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.ContentSpec.UserFailDecoder">
+            <summary>
+            Delegate to hold the FailMap Decoder Function.
+            </summary>
+            <param name="test">Prime Functional Test.</param>
+            <param name="parameters">Parameters from Config File.</param>
+            <returns>HashSet of failing instances.</returns>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.ContentSpec.UserFailValidator">
+            <summary>
+            Delegate to hold the FailMap Decoder Validator.
+            </summary>
+            <param name="plist">Plist name.</param>
+            <param name="parameters">Parameters from Config File.</param>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.Project">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.ContentGroups">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerGroups">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ContentSpec.Validate(System.String)">
+            <summary>
+            Validates this structure agains the given plist name.
+            </summary>
+            <param name="plist">Name of the PatternList.</param>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.ContentSpec.ContentDefn">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.ContentSpec.ContentDefn" />.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.ContentDefn.Tag">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.ContentDefn.PatternRegexList">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.ContentSpec.PowerDefn">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.ContentSpec.PowerDefn" />.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.Description">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.TickOnTag">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailureMapDef">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FlowDef">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailMapWrapper">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailMapWrapper" />.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailMapWrapper.PinBasedMap">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailMapWrapper.PacketBasedMap">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailMapWrapper.CallbackBasedMap">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailMapWrapper.InternalPinMap">
+            <summary>
+            Gets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailMapWrapper.UserMethodDecoder">
+            <summary>
+            Gets or sets the function to do the User-Specified FailDecoding.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailMapWrapper.UserMethodValidator">
+            <summary>
+            Gets or sets the function to do the User-Specified Validation of the FailDecoder Parameters..
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailMapWrapper.Validate(System.String)">
+            <summary>
+            Verify the Fail Decoder is setup correctly.
+            </summary>
+            <param name="plist">Name of the plist to validate against.</param>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FailMapWrapper.GetFailingInstances(Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Calls the underlying decoder to get the failing instances.
+            </summary>
+            <param name="funcTest">Prime IFunctionalTest.</param>
+            <returns>Hash of failing instances.</returns>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.ContentSpec.PowerDefn.UserMethodFailMap">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.ContentSpec.PowerDefn.UserMethodFailMap" />.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.UserMethodFailMap.Params">
+            <summary>
+            Gets or sets the Parameters to be sent to the Validator and Decoder.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.UserMethodFailMap.Validator">
+            <summary>
+            Gets or sets the Validator function.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.UserMethodFailMap.Decoder">
+            <summary>
+            Gets or sets the Decoder function.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.UserMethodFailMap.Assembly">
+            <summary>
+            Gets or sets the Assembly (dll) where the Validator and Decoder are located.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.UserMethodFailMap.Class">
+            <summary>
+            Gets or sets the Full Namespace and Class where the Validator and Decoder are located.
+            </summary>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FlowDefn">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FlowDefn" />.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FlowDefn.Module">
+            <summary>
+            Gets or sets the PatConfigSetpoint Module to use. Defaults to CCRModuleName from the TEstProgramSpec..
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FlowDefn.Name">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FlowDefn.SourceInstance">
+            <summary>
+            Gets or sets the name of the  Instance to get the corner frequency from.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.ContentSpec.PowerDefn.FlowDefn.Units">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.TestProgramSpec">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.TestProgramSpec" />.
+            </summary>
+        </member>
+        <member name="F:Prime.ConcurrentTestService.TestProgramSpec.SchemaName">
+            <summary>
+            Gets the name of the Schema file associated with this class.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.TestProgramSpec.Project">
+            <summary>
+            Gets or sets the name of the Product/project that this configuration refers too.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.TestProgramSpec.PatConfigModule">
+            <summary>
+            Gets or sets the name of the PatConfig Module to use for any PatConfig/Setpoints.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.TestProgramSpec.ResourcesPowerRailMapping">
+            <summary>
+            Gets or sets the name of the list of power rail mappings.
+            </summary>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.TestProgramSpec.PowerRailMapping">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.TestProgramSpec.PowerRailMapping" />.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.TestProgramSpec.PowerRailMapping.GroupName">
+            <summary>
+            Gets or sets the name of the PatConfig Module to use for any PatConfig/Setpoints.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.TestProgramSpec.PowerRailMapping.FlowDomain">
+            <summary>
+            Gets or sets the Domain to use to get the Flow number.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.TestProgramSpec.PowerRailMapping.InstanceToVminFwdInstance">
+            <summary>
+            Gets or sets the Map from Concurrent instance to VminForward Instance.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.TestProgramSpec.PowerRailMapping.InstanceToPowerRail">
+            <summary>
+            Gets or sets the Map from Concurrent instance to PowerRail.
+            </summary>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.Utilities">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.Utilities" />.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.Utilities.LoadJsonFile``1(System.String,System.String)">
+            <summary>
+            Generic to load the Json file type.
+            </summary>
+            <typeparam name="T">Object type to return.</typeparam>
+            <param name="jsonFile">Name of the JSON file to load.</param>
+            <param name="schemaFile">Name of the Schema file to validate the json against.</param>
+            <returns>Object type generated from loading the file.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">FatalException thrown if there are any schema violations.</exception>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.Utilities.GetSchema(System.String)">
+            <summary>
+            Find the schema file and convert it into a JsonSchema object.
+            </summary>
+            <param name="schemaName">Name (no path) of the schema file to find and load.</param>
+            <returns>Returns JsonSchema object contained in the file.</returns>
+            <exception cref="T:System.IO.FileNotFoundException">FileNotFoundException exception thrown if the schema file cannot be located.</exception>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.IConcurrentFailMap">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.IConcurrentFailMap" />.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentFailMap.GetFailingDomains(Prime.FunctionalService.ICaptureFailureTest)">
+            <summary>
+            Returns a HashSet of failing Power Domains from the ICaptureFailureTest results.
+            </summary>
+            <param name="test">Executed Functional test.</param>
+            <returns>List of failing power domains.</returns>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.PinBasedFailMap">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.PinBasedFailMap" />.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.PinBasedFailMap.PinMap">
+            <summary>
+            Gets or sets the Fail Pin to Power Resource map.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.PinBasedFailMap.GetFailingDomains(Prime.FunctionalService.ICaptureFailureTest)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.IConcurrentTestManager">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.IConcurrentTestManager" />.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentTestManager.ApplySetPointsForCornerFrequencies(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Applies the PatConfig Setpoints for the IP/Corners specified by the Bundle Search Specification.
+            </summary>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentTestManager.GetFailingPowerRails(Prime.FunctionalService.ICaptureFailureTest,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the names of the individual PowerRails that fail the given Functional Test as defined
+            in the Concurrent Content Spec config file.
+            </summary>
+            <param name="funcTest">ICaptureFailureTest containing failures.</param>
+            <param name="sessionContext">session context.</param>
+            <returns>List of resource names.</returns>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentTestManager.UpdateStartAndPreBurstFromFailure(Prime.FunctionalService.ICaptureFailureTest,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Updates the starting pattern and preburst based on the most recent failure and the safezone definition.
+            </summary>
+            <param name="funcTest">ICaptureFailureTest containing failures.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentTestManager.UpdateStartAndPreBurstFromCurrentStart(Prime.FunctionalService.ICaptureFailureTest,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Updates the starting pattern and preburst based on the current starting pattern and the safezone definition.
+            </summary>
+            <param name="funcTest">ICaptureFailureTest containing failures.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentTestManager.GetPowerRailToVminForwardingCornerMap(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create a map of Power Rails to VminForwarding Corner names and Flows for this manager.
+            </summary>
+            <param name="sessionContext">session context.</param>
+            <returns>List of PowerRailMapping containing the power rail and vminforwarding information.</returns>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentTestManager.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Resets the PreBurstPlist back to the original.
+            </summary>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.IConcurrentTestService">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.IConcurrentTestService" />.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentTestService.LoadTestProgramSpec(System.String)">
+            <summary>
+            Loads the TestProgramSpec JSON file into memory.
+            </summary>
+            <param name="fileName">TestProgramSpec JSON file name.</param>
+            <returns>TestProgramSpec object.</returns>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentTestService.LoadBundleSearchSpec(System.String)">
+            <summary>
+            Loads the BundleSearchSpec JSON file into memory.
+            </summary>
+            <param name="fileName">BundleSearchSpec JSON file name.</param>
+            <returns>BundleSearchSpec object.</returns>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentTestService.LoadContentSpec(System.String)">
+            <summary>
+            Loads the ContentSpec JSON file into memory.
+            </summary>
+            <param name="fileName">ContentSpec JSON file name.</param>
+            <returns>ContentSpec object.</returns>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.IConcurrentTestService.GetManager(Prime.ConcurrentTestService.TestProgramSpec,Prime.ConcurrentTestService.BundleSearchSpec,Prime.ConcurrentTestService.ContentSpec,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Builds the ConcurrentTest Manager based on the configuration files.
+            </summary>
+            <param name="tpSpec">TestProgramSpec.</param>
+            <param name="bundleSpec">BundleSearchSpec.</param>
+            <param name="content">ContentSpec.</param>
+            <param name="plist">Plist name to create the manager for.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+            <returns>IConcurrentTestManager.</returns>
+        </member>
+        <member name="T:Prime.ConcurrentTestService.PowerRailMapping">
+            <summary>
+            Defines the <see cref="T:Prime.ConcurrentTestService.PowerRailMapping" />.
+            </summary>
+        </member>
+        <member name="M:Prime.ConcurrentTestService.PowerRailMapping.#ctor(System.String,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.ConcurrentTestService.PowerRailMapping"/> class.
+            </summary>
+            <param name="rail">PowerRail for this item.</param>
+            <param name="cttGroup">CTT Group for this item.</param>
+            <param name="cttInstance">CTT Instance for this item.</param>
+            <param name="vminInstance">VminForwarding Instance for this item.</param>
+            <param name="corner">VminForwarding Frequency Corner for this item.</param>
+            <param name="flow">Flow ID for this item.</param>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.PowerRailMapping.CTTGroup">
+            <summary>
+            Gets the CTT Group name for this object.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.PowerRailMapping.CTTInstance">
+            <summary>
+            Gets the CTT Instance name for this object.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.PowerRailMapping.PowerRail">
+            <summary>
+            Gets the name of the Power Rail associated with this item.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.PowerRailMapping.VminInstance">
+            <summary>
+            Gets the name of the VminForwarding Instance associated with this item.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.PowerRailMapping.VminFrequencyCorner">
+            <summary>
+            Gets the name of VminForwarding Frequency Corner associated with this item.
+            </summary>
+        </member>
+        <member name="P:Prime.ConcurrentTestService.PowerRailMapping.Flow">
+            <summary>
+            Gets the Flow ID associated with this item.
+            </summary>
+        </member>
+    </members>
+</doc>

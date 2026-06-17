@@ -1,0 +1,1976 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.PlatformService.Cs</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.PlatformService.Cs.BinInfo">
+            <summary>
+            Wrapper class for binInfo.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.BinInfo.#ctor(HdmtOs.Sdk.Wrapped.BinInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.BinInfo"/> class.
+            </summary>
+            <param name="binInfo">Wrapped bin info.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.BinInfo.BinName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.BinInfo.BinCount">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.BinInfo.IsHardBin">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.BinInfo.BinID">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Bins">
+            <summary>
+            Bins concrete impl.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Bins.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Bins"/> class.
+            </summary>
+            <param name="hdmtSdk">hdmt sdk instance.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.WrappedBin">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.WrappedBin.#ctor(HdmtOs.Sdk.Bins.IBin)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.WrappedBin"/> class.
+            </summary>
+            <param name="sdkBin">Bin from sdk.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.WrappedBin.Identifier">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.WrappedBin.Number">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.WrappedBin.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.WrappedBin.IsLeafBin">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.WrappedBin.BinGroup">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.WrappedBin.ParentBin">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.WrappedBin.ChildBins">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Board">
+            <summary>
+            Board concrete impl.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Board.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper,Prime.PlatformService.Internal.ITester)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Board"/> class.
+            </summary>
+            <param name="hdmtSdk">hdmt sdk instance.</param>
+            <param name="tester">Tester from platform for utility methods.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Console">
+            <summary>
+            Console implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Console.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Console"/> class.
+            </summary>
+            <param name="hdmtSdk">the hdmtSdk implementation.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.EmptyDutContextProvider">
+            <summary>
+            Empty DutContext provider. TODO - figure out TOS4 usage.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.EmptyDutContextProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.EmptyDutContextProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.EmptyDutContextProvider.HandleMessage">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Datalog">
+            <summary>
+            Datalog concrete impl.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Datalog.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Datalog"/> class.
+            </summary>
+            <param name="hdmtSdk">hdmt sdk instance.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Datalog.Print(Prime.PlatformService.Internal.DatalogType,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Datalog.FlushAllStreams">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Duts">
+            <summary>
+            Duts concrete object.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Duts.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Duts"/> class.
+            </summary>
+            <param name="hdmtSdk">hdmt sdk instance.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.File">
+            <summary>
+            File concrete impl.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.File.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.File"/> class.
+            </summary>
+            <param name="hdmtSdk">the hdmt sdk instance.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.CycleDataWithCaptureData">
+            <summary>
+            CycleDataWithCaptureData object implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.CycleDataWithCaptureData.#ctor(HdmtOs.Sdk.Functional.ICycleDataWithCaptureData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.CycleDataWithCaptureData"/> class.
+            </summary>
+            <param name="cycleDataWithCaptureData">the HdmtOs sdk cycleData object.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.PatternCycleDataWithCaptureData">
+            <summary>
+            Gets the inner sdk CycleDataWithCaptureData object.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.Data">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.DomainName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.Pattern">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.VectorAddress">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.PatternCycle">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.LinkCount">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.SubroutineName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.HasFail">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.ParentPlist">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.HasCtv">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.BurstIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.TraceLogCycle">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.CycleDataWithCaptureData.TraceLogRegister1">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.FailCycleData">
+            <summary>
+            FailCycleData object implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.FailCycleData.#ctor(HdmtOs.Sdk.Functional.IFailCycleData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.FailCycleData"/> class.
+            </summary>
+            <param name="failCycleData">the HdmtOs sdk cycleData object.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.FailPatternCycleData">
+            <summary>
+            Gets the inner sdk FailCycleData object.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.FailingPinNames">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.DomainName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.Pattern">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.VectorAddress">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.PatternCycle">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.LinkCount">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.SubroutineName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.ParentPlist">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.HasFail">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.HasCtv">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.BurstIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.TraceLogCycle">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FailCycleData.TraceLogRegister1">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Functional">
+            <summary>
+            Functional object implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Functional.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper,Prime.PlatformService.Internal.ITester)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Functional"/> class.
+            </summary>
+            <param name="hdmtSdk">the hdmtSdk implementation.</param>
+            <param name="tester">the PlatformService.ITester implementation.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Functional.CreateFunctionalSettings">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Functional.CreateFunctionalTest(System.String,Prime.PlatformService.Internal.IFunctionalSettings)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Functional.CheckIfPlistExists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Functional.GetTotalBurstCount(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Functional.IsKeepAliveExecuting">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.FunctionalSettings">
+            <summary>
+            The functional settings.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.FunctionalSettings.#ctor(HdmtOs.Sdk.Functional.IStreamlinedFunctionalTestSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.FunctionalSettings"/> class.
+            </summary>
+            <param name="streamlinedFunctionalTestSettings">the skd Settings object.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FunctionalSettings.Settings">
+            <summary>
+            Gets the inner sdk settings object.
+            </summary>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.FunctionalTest">
+            <summary>
+            The platform functional test class.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.FunctionalTest.#ctor(HdmtOs.Sdk.Functional.IStreamlinedFunctionalTest,Prime.PlatformService.Internal.ITester)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.FunctionalTest"/> class.
+            </summary>
+            <param name="functionalTest">HdmtOs sdk functional test.</param>
+            <param name="tester">the PlatformService.ITester implementation.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.FunctionalTestResult">
+            <summary>
+            The results object of the functional test.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.FunctionalTestResult.#ctor(HdmtOs.Sdk.Functional.IStreamlinedResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.FunctionalTestResult"/> class.
+            </summary>
+            <param name="result">the HdmtOs sdk result object.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FunctionalTestResult.OverallBurstResult">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FunctionalTestResult.EdgeCounters">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FunctionalTestResult.PinFailureCounts">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FunctionalTestResult.Domains">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FunctionalTestResult.FailingPatterns">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FunctionalTestResult.FailCycleData">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FunctionalTestResult.CtvCycleData">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FunctionalTestResult.PerPinCtvData">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PatternInfo">
+            <summary>
+            PatternInfo object implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PatternInfo.#ctor(HdmtOs.Sdk.Functional.IPatternInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PatternInfo"/> class.
+            </summary>
+            <param name="patInfo">the HdmtOs sdk result object.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternInfo.PatInfo">
+            <summary>
+            Gets the inner sdk PatternInfo object.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternInfo.OverallPatternIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternInfo.PatternName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternInfo.PatternOccurrence">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternInfo.IsPatternAnAmble">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PinData">
+            <summary>
+            PinData object implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PinData.#ctor(HdmtOs.Sdk.Functional.IPinData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PinData"/> class.
+            </summary>
+            <param name="pinData">the HdmtOs sdk cycleData object.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PinData.#ctor(HdmtOs.Sdk.Functional.IPinData,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PinData"/> class.
+            </summary>
+            <param name="pinData">the HdmtOs sdk cycleData object.</param>
+            <param name="ctvsLengthToTrim">ctvs length to trim.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinData.PinCapturedData">
+            <summary>
+            Gets the inner sdk PinData object.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinData.PinName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinData.Data">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.SoftwareTrigger">
+            <summary>
+            SoftwareTriggerCallback object implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SoftwareTrigger.#ctor(Prime.PlatformService.Internal.SoftwareTriggerExecuteFunction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.SoftwareTrigger"/> class.
+            </summary>
+            <param name="executeCallback">the HdmtOs sdk result object.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.SoftwareTrigger.TriggerCallback">
+            <summary>
+            Gets the inner sdk SoftwareTriggerCallback object.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SoftwareTrigger.HandleTrigger(System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.IHdmtSdkWrapper">
+            <summary>
+            A wrapper class to get the sdk instance on every call because TOS needs Prime to do so for I-DUT and M-DUT.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.IHdmtSdkWrapper.Get">
+            <summary>
+            Get the SDK current instance.
+            </summary>
+            <returns>Hdmt Sdk.</returns>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.MeasurementRequest">
+            <summary>
+            MeasurementRequest concrete impl.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.MeasurementRequest.#ctor(HdmtOs.Sdk.Parametric.IMeasurementRequestAction,Prime.PlatformService.Internal.ITester)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.MeasurementRequest"/> class.
+            </summary>
+            <param name="measurementRequest">hdmt sdk request.</param>
+            <param name="tester">the PlatformService.ITester implementation.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.MeasurementRequest.Add(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Prime.PlatformService.MeasurementType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.MeasurementRequest.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Parametric">
+            <summary>
+            Parametric conocrete impl.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Parametric.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper,Prime.PlatformService.Internal.ITester)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Parametric"/> class.
+            </summary>
+            <param name="hdmtSdk">the hdmt sdk instance.</param>
+            <param name="tester">the PlatformService.ITester implementation.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Parametric.CreateMeasurementRequest">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PinMeasurementResult">
+            <summary>
+            Measurements result concrete implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PinMeasurementResult.#ctor(System.String,System.String,Prime.PlatformService.MeasurementType,System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PinMeasurementResult"/> class.
+            </summary>
+            <param name="pinGroupName">pin group name. string.empty for indiv pin.</param>
+            <param name="pinName">pin name.</param>
+            <param name="measurementType">measurement type.</param>
+            <param name="measurements">the measurements values.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinMeasurementResult.PinGroupName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinMeasurementResult.PinName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinMeasurementResult.MeasurementType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinMeasurementResult.Measurements">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.InstructionVectorRange">
+            <summary>
+            Platform InstructionVectorRange.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.InstructionVectorRange.#ctor(HdmtOs.Sdk.PatMod.IInstructionVectorRange)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.InstructionVectorRange"/> class.
+            </summary>
+            <param name="instructionVectorRange">Sdk instruction vector range.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.InstructionVectorRange.InstructionData">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.InstructionVectorRange.VectorLength">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.MetadataVectorRange">
+            <summary>
+            Platform Metadata vector range.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.MetadataVectorRange.#ctor(HdmtOs.Sdk.PatMod.IMetadataVectorRange)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.MetadataVectorRange"/> class.
+            </summary>
+            <param name="metadataVectorRange">Sdk MetadataVectorRange.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.MetadataVectorRange.VectorLength">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PatternModify">
+            <summary>
+            IPatternModify object implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PatternModify.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PatternModify"/> class.
+            </summary>
+            <param name="hdmtSdk">the hdmtSdk implementation.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PatternModify.CreatePatternVectorContainer">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PatternVectorContainer">
+            <summary>
+            The platform pattern vector container test class.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PatternVectorContainer.#ctor(HdmtOs.Sdk.PatMod.IPatternVectorContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PatternVectorContainer"/> class.
+            </summary>
+            <param name="patternVectorContainer">HdmtOs sdk patternVectorContainer.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PinDataCollection">
+            <summary>
+            The Platform PinDataCollection.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PinDataCollection.#ctor(HdmtOs.Sdk.PatMod.IPinDataCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PinDataCollection"/> class.
+            </summary>
+            <param name="pinDataCollection">Sdk pinDataCollection.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinDataCollection.Item(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PinDataVectorRange">
+            <summary>
+            The platform PinDataVectorRange.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PinDataVectorRange.#ctor(HdmtOs.Sdk.PatMod.IPinDataVectorRange)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PinDataVectorRange"/> class.
+            </summary>
+            <param name="pinDataVectorRange">Sdk PinDataVectorRange.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinDataVectorRange.PinNames">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinDataVectorRange.Data">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PinDataVectorRange.VectorLength">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PvcVectorRange">
+            <summary>
+            Platform PvcVectorRange.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PvcVectorRange.#ctor(HdmtOs.Sdk.PatMod.IPvcVectorRange)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PvcVectorRange"/> class.
+            </summary>
+            <param name="pvcVectorRange">Sdk PvcVectorRange.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PvcVectorRange.Ctv">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PvcVectorRange.Mtv">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PvcVectorRange.Lrpt">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PvcVectorRange.VectorLength">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.LabelTuple">
+            <summary>
+            LabelTuple.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.LabelTuple.#ctor(System.String,System.String,Prime.PlatformService.Cs.PatternLabel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.LabelTuple"/> class.
+            </summary>
+            <param name="pattern">Pattern name.</param>
+            <param name="domain">Domain name.</param>
+            <param name="label">Label data.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.LabelTuple.LabelName">
+            <summary>
+            Gets the label name.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.LabelTuple.LabelAddress">
+            <summary>
+            Gets the label address.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.LabelTuple.Label">
+            <summary>
+            Gets the label object.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.LabelTuple.PatternName">
+            <summary>
+            Gets the pattern name.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.LabelTuple.DomainName">
+            <summary>
+            Gets the domain name.
+            </summary>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.LruCache`2">
+            <summary>
+            Represents a thread-safe Least Recently Used (LRU) cache.
+            </summary>
+            <typeparam name="TKey">The type of the keys in the cache.</typeparam>
+            <typeparam name="TValue">The type of the values in the cache.</typeparam>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.LruCache`2.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.LruCache`2"/> class with the specified capacity.
+            </summary>
+            <param name="capacity">The maximum number of elements that the cache can hold.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the capacity is less than or equal to zero.</exception>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.LruCache`2.Get(`0)">
+            <summary>
+            Gets the value associated with the specified key.
+            </summary>
+            <param name="key">The key of the value to get.</param>
+            <returns>The value associated with the specified key.</returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">Thrown when the key is not found in the cache.</exception>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.LruCache`2.Put(`0,`1)">
+            <summary>
+            Adds the specified key and value to the cache. If the key already exists, updates the value.
+            </summary>
+            <param name="key">The key of the value to add.</param>
+            <param name="value">The value to add.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.LruCache`2.TryGetValue(`0,`1@)">
+            <summary>
+            Tries to get the value associated with the specified key.
+            </summary>
+            <param name="key">The key of the value to get.</param>
+            <param name="value">When this method returns, contains the object from the cache that has the specified key, or the default value of the type if the operation failed.</param>
+            <returns>true if the key was found in the cache; otherwise, false.</returns>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Pattern">
+            <summary>
+            The Pattern object impl.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pattern.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper,Prime.PlatformService.Internal.IPins)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Pattern"/> class.
+            </summary>
+            <param name="hdmtSdk">hdmt sdk instance.</param>
+            <param name="pins">platform implementation to share caching.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pattern.IsBroadcast(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PatternLabel">
+            <summary>
+            The concrete implementation of the PatternLabel.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PatternLabel.#ctor(HdmtOs.Sdk.Wrapped.PatternLabel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PatternLabel"/> class.
+            </summary>
+            <param name="patternLabel">the hdmtSdk PatternLabel obj.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternLabel.LabelName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternLabel.LabelAddress">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Pins">
+            <summary>
+            Pins implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper,Prime.PlatformService.Internal.ITester)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Pins"/> class.
+            </summary>
+            <param name="hdmtSdk">the sdk implementation.</param>
+            <param name="tester">the PlatformService.ITester implementation.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetPinAttributes(System.String,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Gets the a pins attributes.
+            </summary>
+            <param name="pinName">pin name.</param>
+            <param name="attributeNames">attributes names.</param>
+            <returns>pairs of attribute name and value.</returns>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.SetDriveTiming(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.SetCompareTiming(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.SetPinAttributes(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Set a pin attribute.
+            </summary>
+            <param name="pinName">pin name.</param>
+            <param name="attributeValues">pairs of attribute name and value.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.VerifyPinAttributeValue(System.String,System.String,System.String)">
+            <summary>
+            Verify a pin attribute value.
+            </summary>
+            <param name="pinName">pin name.</param>
+            <param name="attributeName">attribute name.</param>
+            <param name="attributeValue">attribute value.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetAllForResourceType(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetAllInPinGroup(System.String)">
+            <summary>
+            Get the list of element names in a pin group.
+            </summary>
+            <param name="pinGroupName">pin group name.</param>
+            <returns>List of element names.</returns>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetType(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetChannelNumberForPin(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetDomainsForPattern(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetPinsInDomain(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetPinNameForSlotChannel(System.UInt32,System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetPinResourceType(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetResourceAttributes(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetSlotAndChannelNumberForPin(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetAllPinGroupNames">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.IsPinGroup(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetDomainsForPin(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetPinName(System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetDomainForPinAndPattern(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.ReadTdauVIData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetUeiClientType(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.ApplyControlSetAttribute(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Pins.GetIndexControlSetAttribute(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.SlotChannel">
+            <summary>
+            Slot Channel concrete impl.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SlotChannel.#ctor(HdmtOs.Sdk.Wrapped.SlotChannel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.SlotChannel"/> class.
+            </summary>
+            <param name="slotChannel">the hdmt SlotChannel record.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.SlotChannel.PinName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.SlotChannel.SlotNumber">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.SlotChannel.ChannelNumber">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.ThermalParametricData">
+            <summary>
+            Thermal parametric data concrete implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.ThermalParametricData.#ctor(HdmtOs.Sdk.Wrapped.TdauViParametricData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.ThermalParametricData"/> class.
+            </summary>
+            <param name="tdauViParametricData">Tdau VI parametric data object.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetDiodeName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetTemperature">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetVbeIe1">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetVbeIe2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetVbeIe3">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIbIe1">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIbIe2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIbIe3">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIeLeakageIe1">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIeLeakageIe2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIeLeakageIe3">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIbLeakageIe1">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIbLeakageIe2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIbLeakageIe3">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIeValIe1">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIeValIe2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.ThermalParametricData.GetIeValIe3">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlatformService">
+            <summary>
+            Platform Service.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlatformService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlatformService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlatformService.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlatformService"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Prime#PlatformService#IPlatformService#TestConditions">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Prime#PlatformService#IPlatformService#TestPlan">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Prime#PlatformService#IPlatformService#Plist">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Prime#PlatformService#IPlatformService#Tester">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Prime#PlatformService#IPlatformService#Utils">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Prime#PlatformService#IPlatformService#Bins">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Prime#PlatformService#IPlatformService#File">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Prime#PlatformService#IPlatformService#Pins">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.TestPlan">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.TestConditions">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.PlistHandling">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Plist">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Tester">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Utils">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Bins">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.File">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Functional">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.PatternModify">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Console">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.TestSetup">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Pattern">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Duts">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Parametric">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Board">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Datalog">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.Pins">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlatformService.SensorCollection">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlatformService.AddProviders(Prime.SessionService.ISessionContextProviderContainer@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlatformService.HdmtSdkWrapper">
+            <summary>
+            A wrapper class to get the sdk instance on every call because TOS needs Prime to do so for I-DUT and M-DUT.
+            </summary>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Plist">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Plist"/> class.
+            This is the Legacy version of the constructor.
+            </summary>
+            <param name="hdmtSdk">the hdmt sdk impl.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.GetPatternsAndIndexes(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.UnloadPlist(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.GetAllPlists">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.CopyPlist(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.GetLoadedPlistFilePaths">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.AddPattern(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.RemoveItem(System.String,System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.GetDomains(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.ClearBurstStartPattern(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.GetBurstStartPattern(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.RemovePlistOptions(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Plist.SetOptions(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlistBurstBreak">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistBurstBreak.#ctor(HdmtOs.Sdk.Plist.IPlistBurstBreak)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlistBurstBreak"/> class.
+            </summary>
+            <param name="element">Sdk element.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistBurstBreak.Name">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlistContainer">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistContainer.#ctor(HdmtOs.Sdk.Plist.IPlistContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlistContainer"/> class.
+            </summary>
+            <param name="container">Sdk container.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistContainer.AddPlist(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistContainer.ReadAll(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistContainer.WriteAll">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlistContent">
+            <summary>
+            Plist content implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistContent.#ctor(System.String,System.UInt32,System.Boolean,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlistContent"/> class.
+            </summary>
+            <param name="name">element name.</param>
+            <param name="index">element index.</param>
+            <param name="isPattern">indicates if element is a pattern, otherwise is a plist.</param>
+            <param name="burstIndex">element burst index.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistContent.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistContent.Index">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistContent.IsPattern">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistContent.BurstIndex">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlistDefinitionOptions">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistDefinitionOptions.#ctor(HdmtOs.Sdk.Plist.IPListDefinitionOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlistDefinitionOptions"/> class.
+            </summary>
+            <param name="sdkPlistOptions">Sdk plist options.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistDefinitionOptions.DefaultPListPinMask">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistDefinitionOptions.DefaultPatternCompareState">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistDefinitionOptions.DefaultPatternCaptureState">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistDefinitionOptions.KeepAlive">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandle.#ctor(HdmtOs.Sdk.Plist.IPlist)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlistHandle"/> class.
+            </summary>
+            <param name="sdkPlist">Sdk plist.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistHandle.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistHandle.Options">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistHandle.Elements">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandle.Prime#PlatformService#IPlistHandle#CopyPlist(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandle.Prime#PlatformService#IPlistHandle#RemoveElementAt(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandle.Prime#PlatformService#IPlistHandle#AddPatternElement(System.String,Prime.PlatformService.PlistElementExecutionType)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandle.Prime#PlatformService#IPlistHandle#InsertPatternElement(System.String,Prime.PlatformService.PlistElementExecutionType,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandle.Prime#PlatformService#IPlistHandle#AddPlistElement(System.String,Prime.PlatformService.PlistElementExecutionType)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandle.Prime#PlatformService#IPlistHandle#InsertPlistElement(System.String,Prime.PlatformService.PlistElementExecutionType,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandle.Prime#PlatformService#IPlistHandle#AddBurstBreakElement(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandle.Prime#PlatformService#IPlistHandle#InsertBurstBreakElement(System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlistHandling">
+            <summary>
+            PlistHandling implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandling.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlistHandling"/> class.
+            </summary>
+            <param name="sdk">Sdk implementation.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandling.CreatePlistContainer">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistHandling.SetOptions(Prime.PlatformService.IPlistHandle,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlistPatternElement">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistPatternElement.#ctor(HdmtOs.Sdk.Plist.IPlistPatternElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlistPatternElement"/> class.
+            </summary>
+            <param name="element">Sdk element.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElement.PatternName">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElement.ExecutionType">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElement.Options">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlistPatternElementOptions">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistPatternElementOptions.#ctor(HdmtOs.Sdk.Plist.IPlistPatternElementOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlistPatternElementOptions"/> class.
+            </summary>
+            <param name="sdkPatternElementOptions">Pattern element options.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElementOptions.PatPinMask">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElementOptions.RemovePatPinMask">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElementOptions.Skip">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElementOptions.EnableCompare">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElementOptions.DisableCompare">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElementOptions.EnableCaptureMemory">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElementOptions.DisableCaptureMemory">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElementOptions.LoopStartIterate">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPatternElementOptions.LoopEnd">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlistPlistElement">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistPlistElement.#ctor(HdmtOs.Sdk.Plist.IPlistPlistElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlistPlistElement"/> class.
+            </summary>
+            <param name="element">Plist plist element.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPlistElement.PlistName">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPlistElement.ExecutionType">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPlistElement.Plist">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPlistElement.Options">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PlistPlistElementOptions">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PlistPlistElementOptions.#ctor(HdmtOs.Sdk.Plist.IPlistPlistElementOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PlistPlistElementOptions"/> class.
+            </summary>
+            <param name="sdkPlistElementOptions">Sdk plist options.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPlistElementOptions.Skip">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPlistElementOptions.SkipPrePListExec">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PlistPlistElementOptions.SkipPostPListExec">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.SensorCollection">
+            <summary>
+            Sensor collection implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SensorCollection.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.SensorCollection"/> class.
+            </summary>
+            <param name="hdmtSdk">Sdk implementation.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SensorCollection.MarkDataCollection(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SensorCollection.GetStreamingDataCollection(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SensorCollection.StartDataCollection(System.String,System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SensorCollection.StopDataCollection(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SensorCollection.GetDataCollection(System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SensorCollection.DeleteDataCollection(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PatternTriggerMap">
+            <summary>
+            the pattern trigger map concrete implementaiton.
+            wrapping the HdmtOs.Sdk PatternTriggerMap.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PatternTriggerMap.#ctor(HdmtOs.Sdk.Wrapped.PatternTriggerMap)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PatternTriggerMap"/> class.
+            </summary>
+            <param name="patternTriggerMap">the Hdmt.Sdk patternTriggerMap record.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternTriggerMap.TriggerMapName">
+            <summary>
+            Gets the trigger map name.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternTriggerMap.TriggerMapLevels">
+            <summary>
+            Gets the trigger map levels.
+            </summary>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.PatternTriggerMap.PatternTrigger">
+            <summary>
+            pattern trigger element.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.PatternTriggerMap.PatternTrigger.#ctor(HdmtOs.Sdk.Wrapped.PatternTrigger)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.PatternTriggerMap.PatternTrigger"/> class.
+            </summary>
+            <param name="patternTrigger">the hdmt.Sdk patternTrigger record.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternTriggerMap.PatternTrigger.PatternTriggerName">
+            <summary>
+            Gets the pattern trigger name.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.PatternTriggerMap.PatternTrigger.TestConditionName">
+            <summary>
+            Gets the TC name.
+            </summary>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.SerialCaptureGroupMapInfo">
+            <summary>
+            Serial capture group map info concrete implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SerialCaptureGroupMapInfo.#ctor(HdmtOs.Sdk.Wrapped.SerialCaptureGroupMapInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.SerialCaptureGroupMapInfo"/> class.
+            </summary>
+            <param name="serialCaptureGroupMapInfo">Hdmt wrapper serialCaptureGroupMapInfo object.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.SerialCaptureGroupMapInfo.SerialCaptureGroupMapName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.SerialCaptureGroupMapInfo.SerialCaptureGroupMap">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.TestConditionInfo">
+            <summary>
+            Defines information about queried test condition.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestConditionInfo.AnalogRf">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestConditionInfo.BlockName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestConditionInfo.BlockType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestConditionInfo.Level">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestConditionInfo.Selector">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestConditionInfo.SpecSet">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestConditionInfo.TestConditionGroupName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestConditionInfo.Timing">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestConditionInfo.Trigger">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.TestConditions">
+            <summary>
+            The TestConditions implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.TestConditions"/> class.
+            </summary>
+            <param name="hdmtSdk">the hdmt sdk impl.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.ResolveAllTestConditions">
+            <summary>
+            Resolve all the TCs.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.IsSmartTCEnabled">
+            <summary>
+            Check weather the smart TC is currently enabled.
+            </summary>
+            <returns>true if smart TC enabled.</returns>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.GetPatternTriggerMapInfo(System.String)">
+            <summary>
+            Get pattern trigger map info.
+            </summary>
+            <param name="triggerMapName">trigger map name.</param>
+            <returns>the pattern trigger map structure.</returns>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.GetTestConditionHandle(System.String,System.String)">
+            <summary>
+            Get TC handle.
+            </summary>
+            <param name="testConditionName">TC name.</param>
+            <param name="smartTcCategory">TC type.</param>
+            <returns>handle to TC in memory.</returns>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.EnableSmartTC">
+            <summary>
+            enable smart TC.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.DisableSmartTC">
+            <summary>
+            disable the smart TC.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.IsValidToApply(System.String)">
+            <summary>
+            Check if the TC is valid to apply.
+            </summary>
+            <param name="testConditionName">name of the TC.</param>
+            <returns>true if TC is valid.</returns>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.CheckIfTestConditionExists(System.String)">
+            <summary>
+            Check if TC exists.
+            </summary>
+            <param name="nameOfTestCondition">TC name.</param>
+            <returns>true if exists.</returns>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.CreateDirectTestCondition(System.String,System.String)">
+            <summary>
+            Create new Direct TC.
+            </summary>
+            <param name="tcName">TC name.</param>
+            <param name="tcType">TC type.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.CreateDirectTestCondition(System.String,System.String,System.String)">
+            <summary>
+            Create new Direct TC.
+            </summary>
+            <param name="tcName">TC name.</param>
+            <param name="tcType">TC type.</param>
+            <param name="powerDomainName">Power domain.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.ReleaseDirectTestCondition(System.String)">
+            <summary>
+            Release a TC handle allocation.
+            </summary>
+            <param name="tcName">TC name.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.ValidatePatternTriggerMap(System.String,System.String)">
+            <summary>
+            Validate trigger map.
+            </summary>
+            <param name="triggerMapName">name of the trigger map.</param>
+            <param name="plistName">name of the plist.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.ApplyPatternTriggerMap(System.String,System.String)">
+            <summary>
+            Apply trigger map to a plist.
+            </summary>
+            <param name="triggerMapName">name of the trigger map.</param>
+            <param name="plistName">name of the plist.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditions.ReleasePatternTriggerMap(System.String)">
+            <summary>
+            Release trigger map.
+            </summary>
+            <param name="triggerMapName">name of the trigger map.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Tester">
+            <summary>
+            Tester access implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Tester"/> class.
+            </summary>
+            <param name="hdmtSdk">the hdmtSdk implementation.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.GetOperationMode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.LoadFromTDRFile(System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.HandleAlarms(System.Int32,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.IsTesterOffline">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.GetTiuName(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.GetCurrentPartNumberOfEEPROM(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.GetDutSocketIndex(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.IsTesterHbi">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.WriteTiuBoardCounterToEEPROM(System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.GetSerialNumberOfEEPROM(System.UInt32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.ReadTiuBoardCounterFromEEPROM(System.UInt32,System.UInt32,System.UInt32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.ReadTiuAuxiliaryData(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.ReadTiuAuxiliaryData(System.UInt32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.GetTesterMesId">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.SetSerialCaptureGroupFilterAlarmEnableState(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.IsQuickSimEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Tester.GetProcessMemoryBytes(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.BinDetails">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.BinDetails.#ctor(HdmtOs.Sdk.Bins.IBin)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.BinDetails"/> class.
+            </summary>
+            <param name="sdkBin">SdkBin.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.BinDetails.BinName">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.BinDetails.SoftBin">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.BinDetails.Description">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.FlowEvent">
+            <summary>
+            FlowEvent.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.FlowEvent.#ctor(Prime.PlatformService.Internal.ExecuteFlowEventDelegate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.FlowEvent"/> class.
+            </summary>
+            <param name="executeFlowEventDelegate">Delegate for FlowEvent.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.FlowEvent.FlowBeginEvent(HdmtOs.Sdk.Wrapped.FlowEventInput)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.FlowEvent.FlowEndEvent(HdmtOs.Sdk.Wrapped.FlowEventInput)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.FlowItem">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.FlowItem.#ctor(HdmtOs.Sdk.Flow.IFlowItemResults)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.FlowItem"/> class.
+            </summary>
+            <param name="result">Sdk obj.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItem.FlowItemName">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItem.FlowItemResults">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.FlowItemInfo">
+            <summary>
+            Wrapper class to the hdmt FlowItemTrace.
+            </summary>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemInfo.Parent">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemInfo.FlowableName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemInfo.FlowItemName">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.FlowItemResult">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PlatformService.Cs.FlowItemResult.#ctor(HdmtOs.Sdk.Flow.IFlowItemResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.FlowItemResult"/> class.
+            </summary>
+            <param name="result">Sdk result.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemResult.BinDetails">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemResult.Result">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemResult.Counter">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemResult.Property">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemResult.NextTarget">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemResult.ReturnPort">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.FlowItemResultProperty">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemResultProperty.PropertyName">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.PlatformService.Cs.FlowItemResultProperty.PropertyValue">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PlatformService.Cs.GuiCallback">
+            <summary>
+            GuiCallback.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.GuiCallback.#ctor(Prime.PlatformService.Internal.ExecuteGuiCallbackDelegate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.GuiCallback"/> class.
+            </summary>
+            <param name="executeGuiCallbackDelegate">Delegate gor gui callback.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.GuiCallback.HandleCallback(System.String,System.String,HdmtOs.Sdk.Wrapped.GuiCallbackInstanceContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.LoopStatus">
+            <summary>
+            Wrapper class for the HdmtLoopStatus.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.LoopStatus.#ctor(HdmtOs.Sdk.Wrapped.LoopStatus)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.LoopStatus"/> class.
+            </summary>
+            <param name="hdmtLoopStatus">the hdmt LoopStatus obj.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.LoopStatus.CompletedLoopIterations">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.LoopStatus.CompletedLoopTimeInSeconds">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.LoopStatus.TotalLoopValue">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.MultiTrialTestContent">
+            <summary>
+            Wrapper class to the Hdmt MultiTrialTestContent.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.MultiTrialTestContent.#ctor(HdmtOs.Sdk.Wrapped.MultiTrialTestContent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.MultiTrialTestContent"/> class.
+            </summary>
+            <param name="hdmtMttContent">the hdmt object to wrap.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.MultiTrialTestContent.TrialVariableName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.MultiTrialTestContent.TrialVarExitType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.MultiTrialTestContent.TrialTest">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.TestInstanceParameterData">
+            <summary>
+            Concrete impl of the TestInstanceParameterData.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestInstanceParameterData.#ctor(HdmtOs.Sdk.Wrapped.TestInstanceParameterData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.TestInstanceParameterData"/> class.
+            </summary>
+            <param name="hdmtParamData">the hdmt parameter data record.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestInstanceParameterData.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestInstanceParameterData.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TestInstanceParameterData.Value">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.TestPlan">
+            <summary>
+            Implement the TestPlan.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestPlan.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.TestPlan"/> class.
+            </summary>
+            <param name="hdmtSdk">the hdmtSdk implementation.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.TraceFlowItem">
+            <summary>
+            Wrapper to the HdmtTraceFlowItem.
+            </summary>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.TrialTestContent">
+            <summary>
+            Wrapper class to the Hdmt TrialTestContent.
+            </summary>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.TrialTestParamContent">
+            <summary>
+            Wrapper class to the Hdmt TrialTestParamContent.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TrialTestParamContent.#ctor(HdmtOs.Sdk.Wrapped.TrialTestParamContent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.TrialTestParamContent"/> class.
+            </summary>
+            <param name="hdmtTrialTestParamContent">the hdmt object to wrap.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TrialTestParamContent.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TrialTestParamContent.ValueExpression">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.TrialTestParamContent.IsTrialParam">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.UserVariableData">
+            <summary>
+            Uservar data object.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.UserVariableData.#ctor(HdmtOs.Sdk.Wrapped.UserVariableData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.UserVariableData"/> class.
+            </summary>
+            <param name="hdmtUserVarData">the hdmt equivalent object.</param>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.UserVariableData.UserVariableType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.UserVariableData.UserVariableValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.PlatformService.Cs.UserVariableData.IsTouched">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.DirectTestCondition">
+            <summary>
+            DirectTestConditionContainer implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestCondition.#ctor(HdmtOs.Sdk.TestConditions.ISequentialTestCondition)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.DirectTestCondition"/> class.
+            </summary>
+            <param name="directTestCondition">the hdmt impl object.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.DirectTestConditionContainer">
+            <summary>
+            DirectTestConditionContainer implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestConditionContainer.#ctor(HdmtOs.Sdk.TestConditions.ITestConditionContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.DirectTestConditionContainer"/> class.
+            </summary>
+            <param name="directTestConditionContainer">the hdmt impl object.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestConditionContainer.CreateDirectTimingTestCondition(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestConditionContainer.CreateDirectTimingTestCondition(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestConditionContainer.WriteAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestConditionContainer.CreateDirectTestCondition(System.String,Prime.PlatformService.DirectTestConditionType)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestConditionContainer.CreateDirectTestCondition(System.String,Prime.PlatformService.DirectTestConditionType,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestConditionContainer.Delete(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestConditionContainer.AddExistingSequentialTestCondition(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestConditionContainer.ReadAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTestConditionPin.#ctor(HdmtOs.Sdk.TestConditions.ITestConditionPin)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.DirectTestConditionPin"/> class.
+            </summary>
+            <param name="directTestConditionPin">the hdmt impl object.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.DirectTimingTestCondition">
+            <summary>
+            DirectTestConditionContainer implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.DirectTimingTestCondition.#ctor(HdmtOs.Sdk.TestConditions.ITimingTestCondition)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.DirectTimingTestCondition"/> class.
+            </summary>
+            <param name="directTimingTestCondition">the hdmt impl object.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SequenceBreak.#ctor(HdmtOs.Sdk.TestConditions.ISequenceBreak)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.SequenceBreak"/> class.
+            </summary>
+            <param name="sequenceBreak">the hdmt impl object.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.SetVForceAction">
+            <summary>
+            SetVforce implemetnation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SetVForceAction.#ctor(HdmtOs.Sdk.TestSetup.ISetVForceAction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.SetVForceAction"/> class.
+            </summary>
+            <param name="hdmtSetVForceAction">the hdmt impl object.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SetVForceAction.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.SmartTestConditionApplyAction">
+            <summary>
+            SmartTestConditionApplyAction implemetnation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SmartTestConditionApplyAction.#ctor(HdmtOs.Sdk.TestSetup.ISmartTestConditionApplyAction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.SmartTestConditionApplyAction"/> class.
+            </summary>
+            <param name="smartTestConditionApplyAction">the hdmt impl object.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SmartTestConditionApplyAction.Prime#PlatformService#Internal#ISmartTestConditionApplyAction#Execute(System.Boolean@)">
+            <summary>
+            Apply the TC and return status if it was skipped due to SmartTC.
+            </summary>
+            <param name="isApplied">false if the apply was skipped due to SmartTC.</param>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.SmartTestConditionFlushCategoryAction">
+            <summary>
+            SmartTestConditionFlushCategoryAction implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SmartTestConditionFlushCategoryAction.#ctor(HdmtOs.Sdk.TestSetup.ISmartTestConditionFlushCategoryAction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.SmartTestConditionFlushCategoryAction"/> class.
+            </summary>
+            <param name="smartTestConditionFlushCategoryAction">the hdmt impl object.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.SmartTestConditionFlushCategoryAction.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.TestConditionApplyAction">
+            <summary>
+            TestConditionApplyAction implemetnation.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditionApplyAction.#ctor(HdmtOs.Sdk.TestSetup.ITestConditionApplyAction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.TestConditionApplyAction"/> class.
+            </summary>
+            <param name="testConditionApplyAction">the hdmt impl object.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.TestConditionApplyAction.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.TestSetup">
+            <summary>
+            TestSetup implementation.
+            </summary>
+        </member>
+        <member name="T:Prime.PlatformService.Cs.Utils">
+            <summary>
+            The Hdmt Utils wrapped object.
+            </summary>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.#ctor(Prime.PlatformService.Cs.IHdmtSdkWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PlatformService.Cs.Utils"/> class.
+            </summary>
+            <param name="hdmtSdk">the hdmtSdk concrete impl.</param>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetCurrentIpIndex">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetCurrentDutId">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetCurrentIpName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetCurrentTestInstanceName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.ConvertDutIdToDutIndex(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetAllDutDomainNamesOnPackage">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetCurrentDutIndex">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetTOSRootFullPath">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetCurrentTiuIndex">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetPowerSumResourceType">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetDefinedDutStates">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PlatformService.Cs.Utils.GetTosSdkHandle``1">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

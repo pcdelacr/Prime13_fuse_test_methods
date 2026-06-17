@@ -1,0 +1,568 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.PatternModify</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.PatternModify.Engineering">
+            <summary>
+            This class extracts the engineering files in the json file.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.Engineering.EngineeringMode">
+            <summary>
+            Enum to determine the Engineering Mode to be used at Runtime.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PatternModify.Engineering.EngineeringMode.PRODUCTION_NORMAL">
+            <summary>
+            Normal means just reloading the aleph configurations
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PatternModify.Engineering.EngineeringMode.ENGINEERING_SAFE">
+            <summary>
+            ENGINEERING_SAFE means to load aleph and specified configurations as long as there are no name conflicts.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PatternModify.Engineering.EngineeringMode.ENGINEERING_UNSAFE">
+            <summary>
+            ENGINEERING_UNSAFE means name conflicts may exist and engineering provided names will override aleph configurations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.Engineering.Configurations">
+            <summary>
+            Gets or sets EngineeringConfiguration list.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.Engineering.Configuration">
+            <summary>
+            This Class holds the Engineering Configuration fields supported in the
+            Engineering Configuration File in Json Format.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.Engineering.Configuration.Name">
+            <summary>
+            Gets or sets Name in the Engineering Configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.Engineering.Configuration.Files">
+            <summary>
+            Gets or sets Files in the Engineering Configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.Engineering.Configuration.Mode">
+            <summary>
+            Gets or sets Mode for the Runtime in the Engineering Configuration.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PatConfigEngineering">
+            <summary>
+            This class contains the logic on how to set and apply data on PatConfigEngineering handles.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PatConfigEngineering.AddEngineeringConfigurations(System.Collections.Generic.List{Prime.TestMethods.PatternModify.Engineering.Configuration},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Add Engineering configurations in addition to the loaded configurations from env file in aleph init.
+            </summary>
+            <param name="configurations">Configuration containing the files and mode to be used for the engineering run.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> True if all configurations were loaded correctly, else return false.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PrimePatConfigEngineeringTestMethod">
+            <summary>
+            Allow users to apply pattern modifies and fuse configs using PatConfigService.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePatConfigEngineeringTestMethod.EngineeringConfigurationFile">
+            <summary>
+            Gets or sets EngineeringConfigurationFile name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePatConfigEngineeringTestMethod.EngineeringJson">
+            <summary>
+            Gets or sets the EngineeringJson file data contents.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigEngineeringTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigEngineeringTestMethod.ForceReVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigEngineeringTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigEngineeringTestMethod.ParseEngineeringFile">
+            <summary>
+            This function parses the Engineering Config json file and stores it into EngineeringConfiguration.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigEngineeringTestMethod.VerifyEngineeringConfigurationFile">
+            <summary>
+            This private function verifies that the engineering configuration file parameter is not empty.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PrimePatConfigReApplyTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigReApplyTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigReApplyTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.DffHandle">
+            <summary>
+            This class represents handle containing dynamic value of type DFF.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.DffHandle.#ctor(System.String,Prime.PatConfigService.IPatConfigHandle,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PatternModify.DffHandle"/> class.
+            </summary>
+            <param name="data">Data to be set on the handler.</param>
+            <param name="handle">handler to set data.</param>
+            <param name="subConfigName">a specific configuration element inside the handle to apply data.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.DffHandle.SubConfigName">
+            <summary>
+            Gets or Sets SubConfigName name .
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.DffHandle.DieId">
+            <summary>
+            Gets or Sets DieId.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.DffHandle.OPTYPE">
+            <summary>
+            Gets or Sets OPTYPE.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.DffHandle.TokenName">
+            <summary>
+            Gets or Sets TokenName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.DffHandle.Handle">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.DffHandle.DynamicValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.DffHandle.PatConfigHelper">
+            <summary>
+            Gets PatConfigHelper to use helper methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.DffHandle.SetData">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.IDynamicDataHandle">
+            <summary>
+            This interface represents handle containing dynamic data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.IDynamicDataHandle.Handle">
+            <summary>
+            Gets IPatConfigHandle.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.IDynamicDataHandle.DynamicValue">
+            <summary>
+            Gets dynamic data to be applied.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.IDynamicDataHandle.SetData">
+            <summary>
+            Sets dynamic data on handler on execution time.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PatConfig">
+            <summary>
+            This class contains the logic on how to set and apply data on PatConfig handles.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PatConfig.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PatternModify.PatConfig"/> class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PatConfig.DataSource">
+            <summary>
+            Enumerated type for selecting data source.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PatternModify.PatConfig.DataSource.Raw">
+            <summary>
+            Raw data source.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PatternModify.PatConfig.DataSource.UserVar">
+            <summary>
+            UserVar data source.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PatternModify.PatConfig.DataSource.SharedStorage">
+            <summary>
+            SharedStorage data source.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PatternModify.PatConfig.DataSource.DFF">
+            <summary>
+            SharedStorage data source.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfig.SessionContext">
+            <summary>
+            Gets or sets the session context.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfig.DynamicDataToApply">
+            <summary>
+            Gets handles that needs to set data during execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfig.HandlesByName">
+            <summary>
+            Gets or Sets HandlesByName.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PatConfig.AddHandler(Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration,System.String,System.String)">
+            <summary>
+            Gets handle and add to list checking if needs to use plist or not.
+            </summary>
+            <param name="configuration">Configuration containing name of the handle to get.</param>
+            <param name="patList">Pattern list name used to get handle.</param>
+            <param name="regEx"> Regular expression to reduce patterns to apply data on.</param>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PatConfig.ApplyHandles">
+            <summary>
+            Applies handles checking if there is handles with dynamic data that needs to be set.
+            </summary>
+            <returns>True if all handles were applied correctly, else return false.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PatConfig.ClearHandles">
+            <summary>
+            Clears lists of handles for prevent cumulative handles each time verify is run.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PatConfig.GetPatConfigHandle(System.String,System.String,System.String,Prime.PatConfigService.AdvanceGetHandleOptions)">
+            <summary>
+            Gets handle checking if needs to use plist or not.
+            </summary>
+            <returns>IPatConfigHandle to be added to list.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PatConfig.BuildDynamicHandle(Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration,Prime.PatConfigService.IPatConfigHandle)">
+            <summary>
+            Constructs handle with dynamic data depending on Data source.
+            </summary>
+            <returns>Handle object with dynamic data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PatConfig.SetDataToHandlesWithDynamicSource">
+            <summary>
+            Iterates over handles with dynamic data and sets data on each one.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PatConfigHelper">
+            <summary>
+            This class represents a helper for PatConfig test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PatConfigHelper.SetUpHandlerData(System.String,Prime.PatConfigService.IPatConfigHandle,System.String)">
+            <summary>
+            Checks if need to set or fill data on handler and apply it.
+            </summary>
+            <param name="data">Data to be applied.</param>
+            <param name="handle">Handler to apply data.</param>
+            <param name="subConfigName">a specific configuration element inside the handle to apply data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PatConfigHelper.ConvertDataToSymbol(System.Char)">
+            <summary>
+            Converts data to PatConfig symbol.
+            </summary>
+            <returns>PatConfig symbol to be used on fill data.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PatConfigJsonFile">
+            <summary>
+            This class represents the data structure of the PinData json input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoints">
+            <summary>
+            Gets or sets SetPoints list.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint">
+            <summary>
+            This class represents each SetPoint structure contained in the configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Name">
+            <summary>
+            Gets or sets SetPoint name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configurations">
+            <summary>
+            Gets or sets Configuration list.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration">
+            <summary>
+            This class represents each Configuration structure contained in the configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration.Name">
+            <summary>
+            Gets or sets Configuration name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration.SubConfigElement">
+            <summary>
+            Gets or sets Configuration Element.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration.InPkgApplyToPkgOnly">
+            <summary>
+            Gets or sets a value indicating whether gets or sets a value for InPKGApplyToPKGOnly.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration.ToBeStored">
+            <summary>
+            Gets or sets a value indicating whether in the configuration is going to be stored.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration.Ratio">
+            <summary>
+            Gets or sets a the ratio to override the configuration's ratio.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration.Source">
+            <summary>
+            Gets or sets data source.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration.Data">
+            <summary>
+            Gets or sets Configuration data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration.SetUserVar">
+            <summary>
+            Gets or Sets configuration data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration.SetSharedStorage">
+            <summary>
+            Gets or sets Configuration data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PatConfigJsonFile.SetPoint.Configuration.SetDff">
+            <summary>
+            Gets or sets Configuration data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod">
+            <summary>
+            Allow users to apply pattern modifies and fuse configs using PatConfigService.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.#ctor(Prime.BusinessLogic.InputData.IInputDataFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod"/> class.
+            Receives an IFileWrapper mock object from the unit test.
+            </summary>
+            <param name="inputDataFactory">IInputDataFactory mock object.</param>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.ConfigurationFile">
+            <summary>
+            Gets or sets ConfigurationFile name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.SetPoint">
+            <summary>
+            Gets or sets a comma separated string with one or more SetPoint names.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.Plist">
+            <summary>
+            Gets or sets Pattern list name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.RegEx">
+            <summary>
+            Gets or sets pattern regex.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.PatConfigJson">
+            <summary>
+            Gets or sets the PatConfigJson file data contents.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.PatConfigData">
+            <summary>
+            Gets or sets PatConfigData object, contains the logic to set and apply data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.ForceReVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.ParseJsonFile">
+            <summary>
+            This function parses the PinData json file and stores its data into the
+            PinDataJsonFile member.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.VerifyConfigurationFile">
+            <summary>
+            This private function verifies that the configuration file parameter is not empty.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePatConfigTestMethod.PopulateHandles">
+            <summary>
+            This private function verifies that the configuration file data is valid.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.SharedStorageHandle">
+            <summary>
+            This class represents handle containing dynamic value of type SharedStorage.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.SharedStorageHandle.#ctor(System.String,Prime.PatConfigService.IPatConfigHandle,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PatternModify.SharedStorageHandle"/> class.
+            </summary>
+            <param name="data">Data to be set on the handler.</param>
+            <param name="handle">handler to set data.</param>
+            <param name="subConfigName">a specific configuration element inside the handle to apply data.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.SharedStorageHandle.SubConfigName">
+            <summary>
+            Gets or Sets SubConfigName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.SharedStorageHandle.Handle">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.SharedStorageHandle.DynamicValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.SharedStorageHandle.Context">
+            <summary>
+            Gets context name for the shared storage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.SharedStorageHandle.PatConfigHelper">
+            <summary>
+            Gets PatConfigHelper to use helper methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.SharedStorageHandle.SetData">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.UserVarHandle">
+            <summary>
+            This class represents handle containing dynamic value of type UserVar.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.UserVarHandle.#ctor(System.String,Prime.PatConfigService.IPatConfigHandle,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PatternModify.UserVarHandle"/> class.
+            </summary>
+            <param name="data">Data to be set on the handler.</param>
+            <param name="handle">handler to set data.</param>
+            <param name="subConfigName">a specific configuration element inside the handle to apply data.</param>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.UserVarHandle.SubConfigName">
+            <summary>
+            Gets or Sets SubConfigName name .
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.UserVarHandle.Handle">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.UserVarHandle.DynamicValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.UserVarHandle.Collection">
+            <summary>
+            Gets collection name for the user var.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.UserVarHandle.PatConfigHelper">
+            <summary>
+            Gets PatConfigHelper to use helper methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.UserVarHandle.SetData">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod">
+            <summary>
+            Test method responsible for executing different variations of functional test.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod.CachingBehaviors">
+            <summary>
+            The type of caching behavior to use on the platform.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod.CachingBehaviors.DoNotCache">
+            <summary>
+            Do not cache.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod.CachingBehaviors.ForceCache">
+            <summary>
+            Force caching.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod.CachingBehaviors.MayCache">
+            <summary>
+            Let to the platform if caching or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod.CachingBehavior">
+            <summary>
+            Gets or sets the caching behaviour of the TOS hardware iterator.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod.EntryCapacity">
+            <summary>
+            Gets or sets the entry capacity of the pattern memory cache.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod.VectorCapacity">
+            <summary>
+            Gets or sets the maximum amount of vectors in the pattern memory cache.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod.MaxVectorEntrySize">
+            <summary>
+            Gets or sets the maximum size of an entry to be accepted into the cache.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PatternModify.PrimePlatformPatternCachingTestMethod.Execute">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

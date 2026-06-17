@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.TimeUnderStressControl</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.DataStructures.Setup">
+            <summary>
+            Start mode of Time Under Stress Logger.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.DataStructures.Setup.#ctor(Prime.TimeUnderStressService.DataStructures.Configuration,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TimeUnderStressControl.DataStructures.Setup"/> class.
+            </summary>
+            <param name="configuration">TUS configuration to be written to shared storage.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.DataStructures.Setup.Execute">
+            <summary>
+            Sets up shared storage.
+            </summary>
+            <returns>True if storage was successfully set up. False otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod">
+            <summary>
+            Prime Test method to calculate the Stress Time.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.LoggerModes">
+            <summary>
+            Time Under Stress Logger modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.LoggerModes.Start">
+            <summary>
+            Start of the time logger.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.LoggerModes.LoopStatus">
+            <summary>
+            LoopStatus of the timer to be logged.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.LoggerModes.End">
+            <summary>
+            End mode to save the last LoopStatus and ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.LoggerModes.EndAll">
+            <summary>
+            EndAll mode to save the last LoopStatus and ituff. Intended to be used in alarm scenarios so does not error out when no configuration is active.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.Mode">
+            <summary>
+            Gets or sets the Logger modes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.DatalogUserBin">
+            <summary>
+            Gets or sets reports User Bin to be reported in the Footer Section for DPC ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.FlowItemName">
+            <summary>
+            Gets or sets the flow item name to be used for getting the Loop duration for Stress time.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.StressTime">
+            <summary>
+            Gets or sets the desired Stress time in seconds. Required for AutoStressDetect mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.MaxFlowLoopTime">
+            <summary>
+            Gets or sets the maximum time in seconds for flowLoopDuration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.VoltageSupplies">
+            <summary>
+            Gets or sets the list of voltage supplies to monitor for stress.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.SamplingInterval">
+            <summary>
+            Gets or sets reports sampling interval in milliseconds for stress monitoring.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.VoltageThreshold">
+            <summary>
+            Gets or sets reports voltage threshold for pin to be considered 'Under Stress'.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.FlushTimeSpan">
+            <summary>
+            Gets or sets the Flush time span, to execute FLUSH api call.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.CustomDffToken">
+            <summary>
+            Gets or sets Custom DFF token to save the stress time accordingly.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.TemporaryTokensToPrint">
+            <summary>
+            Gets or sets list of additional DffTokens to print to the temporary ituff logs generated during loop status execute. Must be provided during start mode to take effect.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.DieName">
+            <summary>
+            Gets or sets Die name to save the stress time accordingly.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.PrimeTimeUnderStressControlTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens">
+            <summary>
+            Constants to be used in the entire TimeUnderStress logger project.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.TimeOfLastFlush">
+            <summary>
+            Gets or sets the last time when ituff flush was called.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.TusStartingStressItuffTag">
+            <summary>
+            TusStartingStressItuffTag.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.LoopStatusStandardStimeItuffTag">
+            <summary>
+            LoopStatusStandardStimeItuffTag.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.LoopStatusStandardSummaryItuffTag">
+            <summary>
+            LoopStatusStandardSummaryItuffTag.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.LoopStatusAutoStimeItuffTag">
+            <summary>
+            LoopStatusAutoStimeItuffTag.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.LoopStatusAutoXtimeItuffTag">
+            <summary>
+            LoopStatusAutoXtimeItuffTag.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.LoopStatusAutoSummaryItuffTag">
+            <summary>
+            LoopStatusAutoSummaryItuffTag.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.TusConfigurationKey">
+            <summary>
+            Prefix for the TUS configuration object in shared storage.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.TimeDiffStartAndLastSnapshot">
+            <summary>
+            Key name to hold Time Difference from start to last snapshot.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.StressTimeLogUserVar">
+            <summary>
+            UserVar name to store Stress time.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.StressTimePerDieSavedForLoopStatus">
+            <summary>
+            Shared Storage token name to store Stress time per die.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.LoopStatusAboveLimitPort">
+            <summary>
+            Port for flow loop being above the given limit (to avoid infinite looping).
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.LoopStatusExitPort">
+            <summary>
+            Port for flow loop exit.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TimeUnderStressControl.TimeUnderStressTokens.LoopStatusContinuePort">
+            <summary>
+            Port for flow loop continuing.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.AutoStressDetectStart">
+            <summary>
+            AutoStressDetectStart mode of Time Under Stress Logger.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.AutoStressDetectStart.#ctor(System.Boolean,Prime.TimeUnderStressService.DataStructures.Configuration,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.AutoStressDetectStart"/> class.
+            </summary>
+            <param name="isValidationDatalogEnabled">Specifies whether logging is enabled.</param>
+            <param name="configuration">The time under stress configuration.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.AutoStressDetectStart.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.BaseMode">
+            <summary>
+            Base mode class to hold different modes.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.BaseMode.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.BaseMode"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.BaseMode.Execute">
+            <summary>
+            virtual execute function to be defined at class construction.
+            </summary>
+            <returns>0 or 1.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.BaseMode.WriteStrgvalToDatalog(System.Int32,System.String)">
+            <summary>
+            Writes a value to datalog using the strgval format with the given postfix.
+            </summary>
+            <param name="value">value to write.</param>
+            <param name="postFix">postfix to append.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.BaseMode.WriteStrgvalToDatalog(System.Double,System.String)">
+            <summary>
+            Writes a value to datalog using the strgval format with the given postfix.
+            </summary>
+            <param name="value">value to write.</param>
+            <param name="postFix">postfix to append.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.BaseMode.WriteStrgvalToDatalog(System.String,System.String)">
+            <summary>
+            Writes a value to datalog using the strgval format with the given postfix.
+            </summary>
+            <param name="value">value to write.</param>
+            <param name="postFix">postfix to append.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.BaseMode.WriteComntToDatalog(System.Int32,System.String)">
+            <summary>
+            Writes an int value to datalog using the comnt format with the given postfix.
+            </summary>
+            <param name="value">value to write.</param>
+            <param name="postFix">postfix to append.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.BaseMode.WriteComntToDatalog(System.String,System.String)">
+            <summary>
+            Writes a value to datalog using the comnt format with the given postfix.
+            </summary>
+            <param name="value">value to write.</param>
+            <param name="postFix">postfix to append.</param>
+        </member>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.End">
+            <summary>
+            Time Under Stress in a End mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.End.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.End"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.End.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.EndAll">
+            <summary>
+            Time Under Stress in a End mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.EndAll.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.EndAll"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.EndAll.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.LoopStatus">
+            <summary>
+            LoopStatus mode for Time Under Stress logger.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.LoopStatus.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.LoopStatus"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.LoopStatus.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.ProcessEnd.SetStressTimeInDff(System.String,System.String)">
+            <summary>
+            Stores elapsed stress time in DFF.
+            </summary>
+            <param name="stressTimeInMilliSeconds">The stress time to be reported to DFF.</param>
+            <param name="dffToken">The custom DFF token to be updated with stress time.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.ProcessEnd.SetStressTimePerDieInSharedStorage(System.String,System.String,System.String)">
+            <summary>
+            Stores elapsed stress time per die in Shared Storage.
+            </summary>
+            <param name="stressTimeInMilliSeconds">The stress time to be saved to Shared Storage.</param>
+            <param name="dffToken">The current custom dff token.</param>
+            <param name="dieName">The current die name.</param>
+        </member>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.StandardModeStart">
+            <summary>
+            StandardModeStart mode of Time Under Stress Logger.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.StandardModeStart.#ctor(Prime.TimeUnderStressService.DataStructures.Configuration,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.StandardModeStart"/> class.
+            </summary>
+            <param name="configuration">The time under stress configuration.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.StandardModeStart.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.Start">
+            <summary>
+            Start mode of Time Under Stress Logger.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.Start.#ctor(Prime.TestMethods.TimeUnderStressControl.DataStructures.Setup,Prime.TestMethods.TimeUnderStressControl.TUSModes.BaseMode,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TimeUnderStressControl.TUSModes.Start"/> class.
+            </summary>
+            <param name="setup">Setup class.</param>
+            <param name="startMode">Mode to be run.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TimeUnderStressControl.TUSModes.Start.Execute">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

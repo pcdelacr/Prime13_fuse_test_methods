@@ -1,0 +1,130 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Area": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "HryHierarchy": {
+            "type": "object",
+            "properties": {
+              "EidNotTestedSymbol": {
+                "type": "string",
+                "pattern": "[a-zA-Z0-9]"
+              },
+              "EidNotExistSymbol": {
+                "type": "string",
+                "pattern": "[a-zA-Z0-9]"
+              },
+              "HrySymbol": {
+                "type": "array",
+                "minItems": 1,
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "Symbol": {
+                        "type": "string",
+                        "pattern": "[a-zA-Z0-9]"
+                      },
+                      "Status": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "Symbol",
+                      "Status"
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "EidNotTestedSymbol",
+              "EidNotExistSymbol",
+              "HrySymbol"
+            ]
+          },
+          "Content": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "type": "string"
+                },
+                "EIDs": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "Properties": {
+                    "MaxSize": {
+                      "type": "integer"
+                    },
+                    "Eid": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Id": {
+                            "type": "string"
+                          },
+                          "PartId": {
+                            "type": "string"
+                          },
+                          "RecoveryGroup": {
+                            "type": "string",
+                            "pattern": "[a-zA-Z0-9_]+"
+                          },
+                          "HryLevels": {
+                            "type": "array",
+                            "minItems": 2,
+                            "items": {
+                              "type": "string",
+                              "pattern": "[a-zA-Z0-9_-]+"
+                            }
+                          }
+                        },
+                        "required": [
+                          "Id",
+                          "PartId",
+                          "RecoveryGroup",
+                          "HryLevels"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "MaxSize",
+                    "Eid"
+                  ]
+                }
+              },
+              "required": [
+                "Name",
+                "EIDs"
+              ]
+            }
+          }
+        },
+        "required": [
+          "Name",
+          "HryHierarchy",
+          "Content"
+        ]
+      }
+    }
+  }
+}

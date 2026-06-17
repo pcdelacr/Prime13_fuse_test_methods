@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "Configurations"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Configurations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/Configuration"
+      }
+    }
+  },
+  "definitions": {
+    "Types": {
+      "type": "object",
+      "required": [
+        "Type"
+      ],
+      "properties": {
+        "Type": {
+          "type": "string",
+          "minItems": 1,
+          "enum": [
+            "Voltage",
+            "Current",
+            "Thermal"
+          ]
+        },
+        "SetPoint": {
+          "type": ["number", "string"]
+        },
+        "Name": {
+          "type": "string"
+        },
+        "UpperTolerance": {
+          "type": ["number", "string"]
+        },
+        "LowerTolerance": {
+          "type": ["number", "string"]
+        },
+        "AverageUpperTolerance": {
+          "type": ["number", "string"]
+        },
+        "AverageLowerTolerance": {
+          "type": ["number", "string"]
+        },
+        "IntegrityLowLimit": {
+          "type": "number"
+        },
+        "IntegrityHighLimit": {
+          "type": "number"
+        }
+      }
+    },
+    "Configuration": {
+      "type": "object",
+      "required": [
+        "Name",
+        "Pins"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Pins": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Pins"
+          }
+        },
+        "TestClassToExclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Pins": {
+      "type": "object",
+      "required": [
+        "Name",
+        "Types"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Types"
+          }
+        }
+      }
+    }
+  }
+}

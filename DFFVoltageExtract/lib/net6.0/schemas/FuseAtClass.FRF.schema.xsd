@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PlanningBin">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z][1-9A-Z]" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="FactBinUnion">
+    <xs:union memberTypes="StringFactBin IntegerFactBin"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="StringFactBin">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-Z]{4}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IntegerFactBin">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="-99" />
+      <xs:maxInclusive value="140" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PassBin">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1000" />
+      <xs:maxInclusive value="9000" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FinishedGoodName">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-Za-z]+" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Mode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LotLevel" />
+      <xs:enumeration value="UnitLevel" />
+      <xs:enumeration value="OFF" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PositiveNumberZeroExclusive">
+    <xs:restriction base="xs:integer">
+      <xs:minExclusive value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PositiveNumberZeroInclusive">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="FaCT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" name="FinishedGood">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SmallLotDecisionFlags">
+                <xs:complexType>
+                  <xs:attribute name="Enable" type="PositiveNumberZeroInclusive" use="required" />
+                  <xs:attribute name="PriorityLimit" type="PositiveNumberZeroInclusive" use="required" />
+                  <xs:attribute name="ProjectedUnitCount" type="PositiveNumberZeroInclusive" use="required" />
+                  <xs:attribute name="ReceivingPriorityLimit" type="PositiveNumberZeroInclusive" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="BOM">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="unbounded" name="Flow">
+                      <xs:complexType>
+                        <xs:attribute name="index" type="PositiveNumberZeroExclusive" use="required" />
+                        <xs:attribute name="pass_bin" type="PassBin" use="required" />
+                        <xs:attribute name="planning_bin" type="PlanningBin" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="PDE_name" type="xs:string" use="required" />
+                  <xs:attribute name="SFP_name" type="NonEmptyString" use="required" />
+                  <xs:attribute name="FACT_bin" type="FactBinUnion" use="required" />
+                </xs:complexType>
+                <xs:unique name="UniqueFlowIndex">
+                  <xs:selector xpath="Flow" />
+                  <xs:field xpath="@index" />
+                </xs:unique>
+                <xs:unique name="UniquePassBin">
+                  <xs:selector xpath="Flow" />
+                  <xs:field xpath="@pass_bin" />
+                </xs:unique>
+                <xs:unique name="UniquePlanningBin">
+                  <xs:selector xpath="Flow" />
+                  <xs:field xpath="@planning_bin" />
+                </xs:unique>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="FinishedGoodName" use="required" />
+            <xs:attribute name="type" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="FRV" type="NonEmptyString" use="required" />
+      <xs:attribute name="revision" type="PositiveNumberZeroInclusive" use="required" />
+      <xs:attribute name="mode" type="Mode" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="HSR_HRY_config">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ReverseCtvCaptureData" type="xs:string" minOccurs="0" />
+        <xs:element name="CtvToHryMapping" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Map" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="ctv_data" type="xs:string" />
+                  <xs:attribute name="hry_data" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Criterias" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Criteria" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="hry_index" type="xs:string" />
+                  <xs:attribute name="pin" type="xs:string" />
+                  <xs:attribute name="ctv_index_range" type="xs:string" />
+                  <xs:attribute name="condition" type="xs:string" />
+                  <xs:attribute name="hry_output_on_condition_fail" type="xs:string" />
+                  <xs:attribute name="bypass_global" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Algorithms" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Algorithm" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="index" type="xs:string" />
+                  <xs:attribute name="name" type="xs:string" />
+                  <xs:attribute name="pat_modify_label" type="xs:string" />
+                  <xs:attribute name="ctv_size" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+      "$schema": {
+          "type": "string",
+          "minLength": 1
+      }
+  },
+  "required": [ 
+    "DomainName",
+    "InstanceName",
+    "VoltageStart",
+    "VoltageSteps" ],
+  "properties": {
+  "DomainName": {
+  "$ref": "#/definitions/NonEmptyString"
+    },
+  "InstanceName": {
+  "$ref": "#/definitions/NonEmptyString"
+    },
+  "VoltageStart": {
+  "$ref": "#/definitions/NonEmptyString"
+    },
+  "VoltageStop": {
+  "$ref": "#/definitions/NonEmptyString"
+    },
+    "Pins": {
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/NonEmptyString"
+      }
+    },
+    "VoltageSteps": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/VoltageStep"
+      }
+    }
+  },
+  "definitions": {
+    "VoltageStep": {
+      "type": "object",
+      "required": [
+        "Name",
+        "AlarmAction",
+        "Vforce"
+      ],
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        "AlarmAction": {
+          "type": "string",
+          "enum": [ "CONTINUE", "EXIT", "FAIL" ]
+        },
+        "PlistExecFailAction": {
+          "type": "string",
+          "enum": [ "CONTINUE", "EXIT", "FAIL" ]
+        },
+        "Vforce": {
+          "type": "object",
+          "minItems": 1,
+          "uniqueItems": true,
+          "$ref": "#/definitions/Vforce"
+        },
+        "SharedStorage": {
+          "type": "object",
+          "$ref": "#/definitions/SharedStorage"
+        }
+      }
+    },
+    "Vforce": {
+      "type": "object",
+      "properties": {
+        "ForceValue": {
+          "$ref": "#/definitions/PositiveNumber"
+        },
+        "PlistOverride": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        "LevelsBlockDirect": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/NonEmptyString"
+          }
+        },
+        "TriggerItem": {
+          "$ref": "#/definitions/NonEmptyString"
+        }
+      }
+    },
+    "SharedStorage": {
+      "type": "object",
+      "properties": {
+        "TokenName": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        "TokenValue": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        "Condition": {
+          "type": "string",
+          "enum": [ "PASS", "FAIL", "ALWAYS" ]
+        }
+      }
+    },
+    "PositiveNumber": {
+      "type": "number",
+      "minimum": 0
+    },
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

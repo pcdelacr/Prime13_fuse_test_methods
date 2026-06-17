@@ -1,0 +1,86 @@
+{
+  "Configurations": [
+    {
+      "Name": "ConfigValidFormat",
+      "DatalogFormat": "RLE",
+      "Registers": [
+        {
+          "Name": "CPU0",
+          "DataLabel": "Burn_Data_Label",
+          "DataLabelOffset": 0,
+          "FuseGroupsToHide": "FUSE_GROUP1,FUSE_GROUP2",
+          "SSPEC": [
+            {
+              "Enable": true,
+              "BurnRange": "0,1-3,8-14,17-18"
+            }
+          ],
+          "StoreFinalFuseString": [
+            {
+              "sharedstorage": {
+                "Name": "FinalFuseStringBurnMask_CPU0",
+                "Scope": "DUT"
+              }
+            },
+            {
+              "sharedstorage": {
+                "Name": "FinalFuseStringBurnMask_CPU0_2",
+                "Scope": "DUT"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "PCH0",
+          "DataLabel": "FUSE_BURN_DATA_LABEL",
+          "DataLabelOffset": 0,
+          "FuseGroupsToHide": "PCH_FUSE1",
+          "SSPEC": [
+            {
+              "Enable": true,
+              "BurnRange": "0,1-3,8-14,17-18",
+              "Dynamic": [
+                {
+                  "FuseGroup": "*",
+                  "uservar": {
+                    "Name": "_UserVars.FuseBurnFuseGroupUservar"
+                  }
+                },
+                {
+                  "FuseGroup": "*",
+                  "sharedstorage": {
+                    "Name": "VAR1",
+                    "Scope": "DUT"
+                  }
+                },
+                {
+                  "FuseGroup": "GROUP_C",
+                  "DFF": {
+                    "Name": "VOLT",
+                    "Optype": "PBIC_S2",
+                    "DieID": "DieID"
+                  }
+                }
+              ]
+            }
+          ],
+          "StoreFinalFuseString": [
+            {
+              "sharedstorage": {
+                "Name": "FinalFuseStringBurnMask_PCH0",
+                "Scope": "DUT"
+              }
+            }
+          ]
+        }
+      ],
+      "BurnPatternConfig": {
+        "ReverseString": "false",
+        "Ratio": 1,
+        "DataBlockSize": 3,
+        "GapSize": 2,
+        "PatternsRegex": "fuse_burn_pat_BSM1_pass"
+      }
+    }
+  ]
+}

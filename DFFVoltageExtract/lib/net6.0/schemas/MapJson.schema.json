@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^(?i:version)$": { "type": "double" },
+    "^(?i:multidie)$": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/MultiDieJson"
+      }
+    },
+    "^(?i:multicore)$": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "^(?i:hry)$": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/HryTagsJson"
+      }
+    },
+    "^(?i:bisr_chains)$": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/BisrDataJson"
+      }
+    },
+    "^(?i:recovery)$": {
+      "$ref": "#/definitions/RecoveryTagsJson"
+    },
+    "^(?i:vmin)$": {
+      "$ref": "#/definitions/VminTagsJson"
+    },
+    "^(?i:registerNames)$": {
+      "$ref": "#/definitions/RegisterNamesJson"
+    }
+  },
+  "definitions": {
+    "MultiDieJson": {
+      "type": "object",
+      "patternProperties": {
+        "^(?i:voltage)$": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "^(?i:shortname)$": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "HryTagsJson": {
+      "type": "object",
+      "patternProperties": {
+        "^(?i:sharedstorage)$": { "type": "string" },
+        "^(?i:ituff)$": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "additionalProperties": false
+    },
+    "BisrDataJson": {
+      "type": "object",
+      "patternProperties": {
+        "^(?i:correct_bira)$": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/CorrectBiraJson"
+          }
+        },
+        "^(?i:padchar)$": { "type": "string" },
+        "^(?i:namespace)$": { "type": "string" },
+        "^(?i:vfdmrepair)$": { "type": "boolean" },
+        "^(?i:fusepadding)$": { "type": "integer" },
+        "^(?i:reverse)$": { "type": "boolean" },
+        "^(?i:dff)$": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "^(?i:sharedstorage)$": { "type": "string" },
+        "^(?i:ituff)$": { "type": "string" },
+        "^(?i:DynamicFuseSize)$": { "type": "boolean" },
+        "^(?i:prime_vfdm)$": {
+          "$ref": "#/definitions/BisrVirtualFuseJson"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CorrectBiraJson": {
+      "type": "object",
+      "patternProperties": {
+        "^(?i:enable)$": { "type": "string" },
+        "^(?i:offset)$": { "$ref": "#/definitions/Int32OrString" },
+        "^(?i:input)$": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Int32OrString"
+          }
+        },
+        "^(?i:output)$": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Int32OrString" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "BisrVirtualFuseJson": {
+      "type": "object",
+      "patternProperties": {
+        "^(?i:namespace)$": { "type": "string" },
+        "^(?i:fusename)$": { "type": "string" },
+        "^(?i:tag)$": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "VminTagsJson": {
+      "type": "object",
+      "patternProperties": {
+        "^(?i:sharedstorage)$": { "type": "string" },
+        "^(?i:dff)$": {
+          "type": "string",
+          "default": ""
+        },
+        "^(?i:ituff)$": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "RegisterNamesJson": {
+      "type": "object",
+      "patternProperties": {
+        "^(?i:hcs)$": { "type": "string" },
+        "^(?i:fds)$": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "RecoveryTagsJson": {
+      "type": "object",
+      "patternProperties": {
+        "^(?i:sharedstorage)$": { "type": "string" },
+        "^(?i:dff)$": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "StorageTagsJson": {
+      "type": "object",
+      "patternProperties": {
+        "^(?i:sharedstorage)$": { "type": "string" }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Int32OrString": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "format": "int32"
+        },
+        {
+          "type": "string",
+          "pattern": "^[+-]?\\d+$"
+        }
+      ]
+    }
+  }
+}

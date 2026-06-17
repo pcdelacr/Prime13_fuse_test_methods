@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Kernel.Loader</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Kernel.LoaderArgs">
+            <summary>
+            Prime loader arguments.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.LoaderArgs.DllPathToLoad">
+            <summary>
+            Gets or sets the Dll path to load.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.LoaderArgs.TestMethodNameSpace">
+            <summary>
+            Gets or sets the TestMethod namespace.
+            </summary>
+        </member>
+        <member name="P:Prime.Kernel.LoaderArgs.TestMethodName">
+            <summary>
+            Gets or sets the TestMethodName.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.LoaderArgs.InitializeLifetimeService">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Kernel.PrimeLoader">
+            <summary>
+            PrimeLoader is an helper class for PrimeKernel to instantiate TestMethods in target AppDomain.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.PrimeLoader.CreateInstanceInAppDomain(System.AppDomain)">
+            <summary>
+            Create new instance of PrimeLoader in the target AppDomain.
+            </summary>
+            <param name="appDomain">The target AppDomain.</param>
+            <returns>New PrimeLoader instance at the target AppDomain.</returns>
+        </member>
+        <member name="M:Prime.Kernel.PrimeLoader.CreateTestInstance(Prime.Kernel.LoaderArgs)">
+            <summary>
+            Create new test instance at the AppDomain PrimeLoader resides in.
+            </summary>
+            <param name="loaderArgs">Loader args.</param>
+            <returns>New instance in the AppDomain as ITestMethod.</returns>
+        </member>
+        <member name="M:Prime.Kernel.PrimeLoader.IsDebugDll(System.String)">
+            <summary>
+            Check if specific AppDomain is required for this dll.
+            A specific AppDomain is required only when the dll compiled in Debug - meaning the user might be the support of DynamicReload.
+            </summary>
+            <param name="dllFullPathToLoad">The path of the dll to load.</param>
+            <returns>true if specific AppDomain is required.</returns>
+        </member>
+    </members>
+</doc>

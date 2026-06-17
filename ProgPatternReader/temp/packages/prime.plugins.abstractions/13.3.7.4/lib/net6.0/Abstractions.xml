@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Plugins.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Plugins.Functional.IDynamicMaskingPlugin">
+            <summary>
+            A plugin interface for dynamic pin masking in plists execution.
+            </summary>
+        </member>
+        <member name="M:Prime.Plugins.Functional.IDynamicMaskingPlugin.Initialize(System.String)">
+            <summary>
+            Initialize the plugin with the user's provided input.
+            </summary>
+            <param name="userInput">The user's input from the "twin" parameter.</param>
+        </member>
+        <member name="M:Prime.Plugins.Functional.IDynamicMaskingPlugin.GetDynamicPinMask">
+            <summary>
+            Gets the list of dynamically stored pins to mask.
+            </summary>
+            <returns>The list of pins to mask.</returns>
+        </member>
+        <member name="T:Prime.Plugins.Functional.IFunctionalTestPlugin">
+            <summary>
+            A plugin interface for to modify a IFunctionalTest's execution by extending the pre and post Execute.
+            </summary>
+        </member>
+        <member name="M:Prime.Plugins.Functional.IFunctionalTestPlugin.Initialize(System.String)">
+            <summary>
+            Initialize the plugin with the user's provided input.
+            </summary>
+            <param name="userInput">The user's input from the "twin" parameter.</param>
+        </member>
+        <member name="M:Prime.Plugins.Functional.IFunctionalTestPlugin.Verify(Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Verifies the specified functional test.
+            </summary>
+            <param name="functionalTest">The functional test to verify.</param>
+        </member>
+        <member name="M:Prime.Plugins.Functional.IFunctionalTestPlugin.PreExecuteFunctionalTest(Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Invocation of methods before the PatList Execure.
+            </summary>
+            <param name="functionalTest">The functionalTest.</param>
+        </member>
+        <member name="M:Prime.Plugins.Functional.IFunctionalTestPlugin.PostExecuteFunctionalTest(Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Invocation of methods after the PatList Execure.
+            </summary>
+            <param name="functionalTest">The functionalTest.</param>
+            <returns>If the post execute fails or not. This is to allow different port. If it's a catastrophic failure, this would throw.</returns>
+        </member>
+        <member name="T:Prime.Plugins.Functional.IProcessCtvPerPinPlugin">
+            <summary>
+            Interface for processing CTV (Capture Test Vector) per pin.
+            </summary>
+        </member>
+        <member name="M:Prime.Plugins.Functional.IProcessCtvPerPinPlugin.Initialize(System.String)">
+            <summary>
+            Initialize the plugin with the user's provided input.
+            </summary>
+            <param name="userInput">The user's input from the "twin" parameter.</param>
+        </member>
+        <member name="M:Prime.Plugins.Functional.IProcessCtvPerPinPlugin.ProcessCtvPerPin(Prime.FunctionalService.ICaptureCtvPerPinTest)">
+            <summary>
+            Processes the CTV data captured per pin by the provided test.
+            </summary>
+            <param name="captureCtvPerPinTest">The test that captures the CTV data per pin.</param>
+            <returns>True if the processing is successful, otherwise false.</returns>
+        </member>
+        <member name="T:Prime.Plugins.Functional.IProcessFailuresPlugin">
+            <summary>
+            Interface for processing failures.
+            </summary>
+        </member>
+        <member name="M:Prime.Plugins.Functional.IProcessFailuresPlugin.Initialize(System.String)">
+            <summary>
+            Initialize the plugin with the user's provided input.
+            </summary>
+            <param name="userInput">The user's input from the "twin" parameter.</param>
+        </member>
+        <member name="M:Prime.Plugins.Functional.IProcessFailuresPlugin.ProcessFailures(Prime.FunctionalService.ICaptureFailureTest)">
+            <summary>
+            Processes the failures captured by the provided test.
+            </summary>
+            <param name="captureFailureTest">The test that captures the failures.</param>
+            <returns>True if the processing is successful, otherwise false.</returns>
+        </member>
+    </members>
+</doc>

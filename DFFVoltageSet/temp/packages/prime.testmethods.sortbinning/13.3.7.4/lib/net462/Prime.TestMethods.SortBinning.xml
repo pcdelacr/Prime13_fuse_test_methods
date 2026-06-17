@@ -1,0 +1,1255 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.SortBinning</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.SortBinning.Common.BinDataExporter">
+            <summary>
+            This class is responsible for exporting the binning data into Shared Storage.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinDataExporter.ExportBinData(System.UInt32,Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Exports Interface, Functional and Data Bin results into Shared Storage for External Consumption.
+            </summary>
+            <param name="dataBin">The data bin from which to export all bin data.</param>
+            <param name="sessionContext">This session context.</param>
+            <param name="binStorageKeyPrefix">An optional prefix for all Shared Storage Keys.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.Binner">
+            <summary>
+            This class is responsible for storing data related to the bin selected by one of the
+            bin checkers as well as providing functionality related to such bin data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.Common.Binner"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.Binner.ExitPort">
+            <summary>
+            Gets the binner exit port.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.SetFinalPort(System.Int32)">
+            <summary>
+            Sets the final port number.
+            </summary>
+            <param name="portNumber">The port number to set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.SetDataBin(System.UInt32)">
+            <summary>
+            Sets the data bin.
+            </summary>
+            <param name="dataBin">The data bin to set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.SetInstanceName(System.String)">
+            <summary>
+            Sets the instance name.
+            </summary>
+            <param name="instanceName">The instance name to set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.ApplyTesterBin">
+            <summary>
+            Applies the data bin in the tester.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.CheckBin">
+            <summary>
+            Prints Checkbin value to console.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.LogBinResults(System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey})">
+            <summary>
+            Logs bin results into ituff.
+            </summary>
+            <param name="configurationKeys">The configuration keys to log when there is no matching die configuration.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.LogBadBinResults">
+            <summary>
+            Logs bad bin results into ituff. Subset of LogBinResults.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.ExportBinData(System.String)">
+            <summary>
+            Exports Bin Data results for External Consumption.
+            </summary>
+            <param name="binStorageKeyPrefix">An optional prefix for all Shared Storage Keys.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.SetErrorDescription(System.String)">
+            <summary>
+            Sets a description for a port 0 error to be logged.
+            </summary>
+            <param name="errorDescription">A short description of the error that occurred.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.Binner.PrintConfigurationKeys(System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey})">
+            <summary>
+            Prints the configuration keys to the console for debugging.
+            </summary>
+            <param name="configurationKeys">Configuration keys.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.AlarmBinChecker">
+            <summary>
+            Checks current tester bin to see if a an Alarm Bin was set which should have priority over any other bin.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.AlarmBinChecker.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.AlarmBinChecker"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.AlarmBinChecker.CheckForAlarmBin(System.Collections.Generic.List{System.String})">
+            <summary>
+            Checks if current bin is an alarm bin.
+            </summary>
+            <param name="configurationFileSubflowList">The configuration file SubFlow List.</param>
+            <returns>The Binner object with selected bin data.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.BadDieBinChecker">
+            <summary>
+            Checks if conditions exist in BinTrace Data to set a Bad Bin and if true returns the bin data to set.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.BadDieBinChecker.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.BadDieBinChecker"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.BadDieBinChecker.ComputeBadDieBin(Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData)">
+            <summary>
+            Executes the Bad Die Binning Algorithm and attempts to compute a bad die bin.
+            </summary>
+            <param name="configurationFileData">The configuration file data.</param>
+            <returns>The Binner object with selected bin data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.BadDieBinChecker.IsSubstringContainedInStoredSubflow(System.String)">
+            <summary>
+            Indicates whether a substring is contained in the currently stored Subflow name.
+            This typically indicates what type of subflow it was based on the particular substring.
+            </summary>
+            <param name="subString">The subString to look for.</param>
+            <returns>True if the subString is present in the Subflow name, false otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.ConfigurationDataFunctions">
+            <summary>
+            This class contains helper methods to operate on Configuration File data in order
+            to perform tasks relevant to the Binning Algorithm.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.ConfigurationDataFunctions.NoValidBinAssignmentFound">
+            <summary>
+            Value to return when no valid bin assignment is found.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.ConfigurationDataFunctions.GetGoodDieBinFromValidBinAssignment(System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.GoodDieBinAssignment},System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the Bin number from the first GoodDieBinAssignment from the configuration file which contains all valid configurations.
+            </summary>
+            <param name="goodDieBinAssignments">The list of good die bin assignments from the configuration file.</param>
+            <param name="configurationKeys">The keys from the configuration file from which to get the current configuration values in storage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The Bin value from the first GoodDieBinAssignment which has all valid configurations.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.ConfigurationDataFunctions.GetInvalidConfigurationBinFromValidBinAssignment(System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.InvalidConfigurationBinAssignment},System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the Bin number from the first InvalidConfigurationBinAssignment from the configuration file which contains all valid configurations.
+            </summary>
+            <param name="invalidConfigurationBinAssignments">The list of invalid configuration bin assignments from the configuration file.</param>
+            <param name="configurationKeys">The keys from the configuration file from which to get the current configuration values in storage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The Bin value from the first InvalidConfigurationBinAssignment which has all valid configurations.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.ConfigurationDataFunctions.GetOverrideBinFromValidBinOverride(System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.BinOverrideAssignment},System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the Bin number from the first BinOverride from the configuration file which contains all valid configurations.
+            </summary>
+            <param name="binOverrideAssignments">The list of bin override assignments from the configuration file.</param>
+            <param name="configurationKeys">The keys from the configuration file from which to get the current configuration values in storage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The Bin value from the first BinOverride which has all valid configurations.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.ConfigurationDataFunctions.IsBinExcluded(System.UInt32,System.Collections.Generic.List{System.UInt32})">
+            <summary>
+            Determines if a bin is excluded.
+            A bin number will be considered excluded if at least one item of the bin exclusions has all
+            of its digits equal to the same amount of first digits of the bin being evaluated.
+            For example bin "12345678" will be considered excluded if binExclusions contains an item with value "12".
+            </summary>
+            <param name="bin">The bin number to check for exclusion.</param>
+            <param name="binExclusions">The list of bin exclusions.</param>
+            <returns>True if the bin is excluded, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.ConfigurationDataFunctions.IsBinExclusionApplicable(System.UInt32,System.UInt32)">
+            <summary>
+            Determines if a bin exclusion is applicable in order to be evaluated for a specific bin.
+            In order for a bin exclusion to be applicable, the number of digits in the exclusion and bin number
+            must both be even or must both be odd.
+            The method will return false if the number of digits in the exclusion is even
+            and the number of digits in the bin is odd or vice-versa.
+            </summary>
+            <param name="bin">The bin number.</param>
+            <param name="binExclusion">The bin exclusion number.</param>
+            <returns>True if the bin exclusion can be evaluated, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.ConfigurationDataFunctions.GetBinFromValidBinAssignment``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Generic implementation to get the bin number from any type of bin assignment which has all valid configurations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.ConfigurationDataFunctions.AreAllConfigurationsValid(System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.DieConfiguration},System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if all configurations provided are valid.
+            An individual configuration is considered valid if its value matches the current value in storage from the configuration key of the same name.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.ConfigurationDataFunctions.IsConfigurationValid(Prime.TestMethods.SortBinning.Common.ConfigurationFile.DieConfiguration,System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if the configuration element is valid against the configuration values in storage.
+            A configuration is considered valid if its value matches the current value in storage from the configuration key of the same name.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.GoodDieBinChecker">
+            <summary>
+            Checks configuration conditions to determine which Good Bin should be set and returns the bin data to set.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.GoodDieBinChecker.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.GoodDieBinChecker"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.GoodDieBinChecker.ComputeGoodDieBin(Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData)">
+            <summary>
+            Executes the Good Die Binning Algorithm and attempts to compute a good die bin.
+            </summary>
+            <param name="configurationFileData">The configuration file data.</param>
+            <returns>The Binner object with selected bin data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.GoodDieBinChecker.ValidateCurrentBin(System.Collections.Generic.List{System.UInt32})">
+            <summary>
+            Checks that when we start Good Die Binning the current bin is 69 as it should not have been modified
+            if Bad Die Binning did not find a bad bin. The only exception to current bin being different than 69
+            is if it's excluded in the configuration file.
+            If these conditions are not met the exit port is set to Fail Port.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.GoodDieBinChecker.CheckForVadtl">
+            <summary>
+            Runs checks for Vadtl conditions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.GoodDieBinChecker.CheckForHvqkStressFail(System.UInt32)">
+            <summary>
+            Runs checks for HVQK stress fail.
+            </summary>
+            <param name="dBin">Passing Dbin to set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.GoodDieBinChecker.CheckForHvqkStressFailForBinOverride(System.UInt32)">
+            <summary>
+            Runs checks for HVQK stress fail when a Bin Override needs to be applied.
+            </summary>
+            <param name="dBin">Dbin to override the good die bin with.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.InvalidConfigurationBinChecker">
+            <summary>
+            Checks configuration conditions to see if an Invalid Configuration is applicable and if true returns the bin data to set.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.InvalidConfigurationBinChecker.#ctor(System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.InvalidConfigurationBinAssignment},System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.InvalidConfigurationBinChecker"/> class.
+            </summary>
+            <param name="invalidConfigurationAssignments">The list of invalid configuration assignments from the configuration file.</param>
+            <param name="configurationKeys">The configuration keys from the configuration file.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.InvalidConfigurationBinChecker.ComputeInvalidConfigurationBin">
+            <summary>
+            Checks if an Invalid Configuration Bin Assignment has all valid configurations, and if so, returns the bin data to set.
+            </summary>
+            <returns>The Binner object with selected bin data.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.TesterApiBinningFunctions">
+            <summary>
+            This class contains methods which perform operations that partially rely on the use
+            of tester APIs related to Binning provided by the BinCounter Service.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.TesterApiBinningFunctions.IsCurrentBin69(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Determines if the bin currently set on the ATE Tester is bin 69.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+            <returns>True if the current bin is 69, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.BinningAlgorithm.TesterApiBinningFunctions.IsCurrentBinExcluded(System.Collections.Generic.List{System.UInt32},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Determines if the bin currently set on the ATE Tester is excluded by the bin exclusions in the configuration file.
+            </summary>
+            <param name="binExclusions">The list of bin exclusions.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>True if the current bin is excluded, false otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ConfigurationFile.BinAssignment">
+            <summary>
+            Base class to represent any type of configuration-based bin assignment.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.BinAssignment.BinValue">
+            <summary>
+            Gets or sets the Bin value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.BinAssignment.Configurations">
+            <summary>
+            Gets or sets the Bin Assignment Configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ConfigurationFile.BinOverrideAssignment">
+            <summary>
+            This class represents a BinOverrideAssignment element in the json configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.BinOverrideAssignment.BinValue">
+            <summary>
+            Gets or sets the bin value to override with.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.BinOverrideAssignment.Configurations">
+            <summary>
+            Gets or sets the Bin Override Configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData">
+            <summary>
+            This class represents the data contents of the SortBinCalculator json configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData.IbinHierarchy">
+            <summary>
+            Gets or sets the Interface Bin Hierarchy.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData.SubflowList">
+            <summary>
+            Gets or sets the list of Subflows.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData.ConfigurationKeys">
+            <summary>
+            Gets or sets the storage Keys for all Good and Bad Die configurations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData.BinOverrides">
+            <summary>
+            Gets or sets the Bin Overrides.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData.GoodDieBinAssignments">
+            <summary>
+            Gets or sets the Good Die Bin Assignments.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData.InvalidConfigurationBinAssignments">
+            <summary>
+            Gets or sets the Invalid Configuration Bin Assignments.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData.BinExclusions">
+            <summary>
+            Gets or sets the Bin Exclusions.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileParser">
+            <summary>
+            This class is in charge of parsing the configuration file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileParser.ParseConfigurationFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Parses the configuration file for the Test Method.
+            </summary>
+            <param name="configurationFile">Tha configuration file to parse.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>The parsed configuration file data.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey">
+            <summary>
+            This class represents a Configuration Key element in the json configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey.ConfigurationName">
+            <summary>
+            Gets or sets the Configuration Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey.Key">
+            <summary>
+            Gets or sets the Key.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey.Source">
+            <summary>
+            Gets or sets the Source (SharedStorage or DFF).
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationValidator">
+            <summary>
+            This class is in charge of performing Verify checks on the configuration file data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationValidator.Verify(Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationFileData)">
+            <summary>
+            Main verification method for configuration data.
+            </summary>
+            <param name="configurationData">Object representing the configuration file data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationValidator.ValidateIBinHierarchy(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Validates the interface bin hierarchy values.
+            </summary>
+            <param name="interfaceBinHierarchy">The Hierarchy for iBins.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationValidator.ValidateSubflowList(System.Collections.Generic.List{System.String})">
+            <summary>
+            Validates the Subflow List of the configuration file.
+            </summary>
+            <param name="subflowList">The Subflow list from the configuration file.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationValidator.ValidateBinAssignments``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey})">
+            <summary>
+            Validates the bin assignments for any type of configuration-based bin assignments.
+            </summary>
+            <param name="binAssignments">The Bad Die Bin Assignments.</param>
+            <param name="configurationKeys">The configuration definitions from the ConfigurationKeys section.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationValidator.ValidateDieConfigurations(System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.DieConfiguration},System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey})">
+            <summary>
+            Validates that all good/bad die configuration names are defined in the ConfigurationKeys section of the configuration file.
+            </summary>
+            <param name="dieConfigurations">The good or bad die configurations.</param>
+            <param name="configurationKeys">The configuration definitions from the ConfigurationKeys section.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ConfigurationFile.DieConfiguration">
+            <summary>
+            This class represents a Good or Bad Die configuration element in the json configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.DieConfiguration.ConfigurationName">
+            <summary>
+            Gets or sets the Configuration Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.DieConfiguration.ConfigurationValue">
+            <summary>
+            Gets or sets the Configuration Value.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ConfigurationFile.GoodDieBinAssignment">
+            <summary>
+            This class represents a GoodDieBinAssignment element in the json configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.GoodDieBinAssignment.BinValue">
+            <summary>
+            Gets or sets the bin value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.GoodDieBinAssignment.Configurations">
+            <summary>
+            Gets or sets the Good Die Configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ConfigurationFile.InvalidConfigurationBinAssignment">
+            <summary>
+            This class represents an InvalidConfigurationBinAssignment element in the json configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.InvalidConfigurationBinAssignment.BinValue">
+            <summary>
+            Gets or sets the bin value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.Common.ConfigurationFile.InvalidConfigurationBinAssignment.Configurations">
+            <summary>
+            Gets or sets the Invalid Configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ExitPort">
+            <summary>
+            Represents the exit port for the Test Method and whether it holds
+            a final port value for purposes of flow control.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.ExitPort.FailPort">
+            <summary>
+            Port value definition for Fail Port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.ExitPort.ValidPassPort">
+            <summary>
+            Port value definition for Valid GoodDie/Pass Port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.ExitPort.ValidBadDiePort">
+            <summary>
+            Port value definition for Valid Bad Die Port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.ExitPort.RerouteToHvqkFlowsPort">
+            <summary>
+            Port value definition for Reroute to HVQK Flows Port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.ExitPort.UnassignedBinPort">
+            <summary>
+            Port value definition for Unassigned Bin Port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.ExitPort.NoMatchingDieConfigurationPort">
+            <summary>
+            Port value definition for No Matching Die Configuration Port.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ExitPort.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.Common.ExitPort"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ExitPort.SetFinalPort(System.Int32)">
+            <summary>
+            Sets the final port number.
+            </summary>
+            <param name="portNumber">The port number to set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ExitPort.GetPortNumber">
+            <summary>
+            Gets the port number value.
+            </summary>
+            <returns>The port number value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ExitPort.IsFinalPort">
+            <summary>
+            Gets a value indicating whether or not the port number is final.
+            </summary>
+            <returns>True if the port number is final, false otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.ItuffLogger">
+            <summary>
+            This class is responsible for logging the binning data into ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ItuffLogger.LogBadDieBin(System.UInt32,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs bad die bin results into ituff.
+            </summary>
+            <param name="dataBin">The selected data bin.</param>
+            <param name="instanceName">The name of the instance that failed with the selected bad bin.</param>
+            <param name="errorDescription"> Pass in the error to print, if any. </param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ItuffLogger.LogGoodDieBin(System.UInt32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs good die bin results into ituff.
+            </summary>
+            <param name="dataBin">The selected data bin.</param>
+            <param name="errorDescription"> Pass in the error to print, if any. </param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ItuffLogger.LogNoMatchingDieConfiguration(System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs info for when no matching die configuration is found into ituff.
+            </summary>
+            <param name="configurationKeys">The configuration keys to log.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ItuffLogger.LogErrorCode(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs info for when no matching die configuration is found into ituff.
+            </summary>
+            <param name="errorDescription">A brief description of any found error.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ItuffLogger.GetStatusTokenValues(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the values for Status Tokens as a string with each value separated by an underscore.
+            The order of Status Tokens in the string is as follows:
+            "ISBIN26_WASBIN26_ISVADTL_WASVADTL".
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>StringBuilder with Status Token values separated by underscores.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ItuffLogger.AppendSingleStatusTokenStringValue(System.String,System.Text.StringBuilder,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Appends a single Status Token string value to the string builder that will hold multiple values.
+            </summary>
+            <param name="tokenValueName">The name of the status token to append.</param>
+            <param name="statusTokenValues">The string builder to append the value into.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.Common.ItuffLogger.AppendConfigurationKeys(System.Collections.Generic.List{Prime.TestMethods.SortBinning.Common.ConfigurationFile.ConfigurationKey},System.Text.StringBuilder,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Appends the Configuration Key values to the string builder that will hold the ituff data to log.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.Common.SharedStorageKeys">
+            <summary>
+            Predefined SharedStorage keys.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.SharedStorageKeys.IsBin26StorageKey">
+            <summary>
+            Storage Key for ISBIN26 condition.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.SharedStorageKeys.WasBin26StorageKey">
+            <summary>
+            Storage Key for WASBIN26 condition.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.SharedStorageKeys.WasVadtlStorageKey">
+            <summary>
+            Storage Key for WASVADTL condition.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.SharedStorageKeys.IsVadtlStorageKey">
+            <summary>
+            Storage Key for ISVADTL condition.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.SharedStorageKeys.CheckPointBinStorageKey">
+            <summary>
+            Storage Key for Checkpoint output data.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.SharedStorageKeys.IsVadtlRecoveryUserStorageKey">
+            <summary>
+            Storage Key for the User Defined Key for the IsVadtlRecovery Token.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.SharedStorageKeys.WasVadtlRecoveryUserStorageKey">
+            <summary>
+            Storage Key for the User Defined Key for the WasVadtlRecovery Token.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.Common.SharedStorageKeys.SetBinTestInstanceNameStorageKey">
+            <summary>
+            Storage Key for printed LogBadDieBin Instance Name. It is use as DeviceEnd filter to selective print FailPinInfo.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.PrimeSortApplyBinTestMethod">
+            <summary>
+            The SortApplyBin test method has the ability to write any existing bin on the bdef file to the tester.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortApplyBinTestMethod.BinResult">
+            <summary>
+            Gets or sets the bin stored in this token.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortApplyBinTestMethod.Verify">
+            <summary>
+            Verifies the configuration of the test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortApplyBinTestMethod.Execute">
+            <summary>
+            Executes the binning logic and returns the exit port number.
+            </summary>
+            <returns>Exit port number indicating pass or fail.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceItuffDeflateLogger">
+            <summary>
+            Logs BinTrace to ituff as a deflate32.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceItuffDeflateLogger.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceItuffDeflateLogger"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceItuffDeflateLogger.LogBinTrace(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceStarter">
+            <summary>
+            Implements the IBinTraceModeExecute interface for BinTrace Mode Start.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceStarter.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceStarter"/> class.
+            </summary>
+            <param name="binTraceName">The name of the BinTrace to start.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceStarter.Execute">
+            <summary>
+            Defines the Execute logic for a BinTrace Starter.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceStopper">
+            <summary>
+            Implements the IBinTraceModeExecute interface for BinTrace Mode Stop.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceStopper.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceStopper"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortBinTrace.BinTraceStopper.Execute">
+            <summary>
+            Defines the Execute logic for a BinTrace Starter.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortBinTrace.IBinTraceLogger">
+            <summary>
+            Interface for BinTraceLogger.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortBinTrace.IBinTraceLogger.LogBinTrace(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs a given bin trace to an output.
+            </summary>
+            <param name="binTraceName">BinTraceName to find and log.</param>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortBinTrace.IBinTraceModeExecute">
+            <summary>
+            Defines an interface for all BinTrace Mode executors to implement.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortBinTrace.IBinTraceModeExecute.Execute">
+            <summary>
+            Runs the Execute logic for the specific BinTrace Mode.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.BinTraceMode">
+            <summary>
+            BinTrace modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.BinTraceMode.On">
+            <summary>
+            Turn On the BinTrace to capture the instances information.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.BinTraceMode.Off">
+            <summary>
+            Turn Off the BinTrace to stop capturing the instances information.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.PrimeSortBinTraceTestMethod">
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.PrimeSortBinTraceTestMethod.binTraceModeExecutor">
+            <summary>
+            The executor for the specific BinTrace Mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortBinTraceTestMethod.BinTraceMode">
+            <summary>
+            Gets or sets the TM mode. The modes available are On and Off.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortBinTraceTestMethod.BinTraceName">
+            <summary>
+            Gets or sets the Bin Trace Name to turn on or off.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortBinTraceTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortBinTraceTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.PrimeSortCheckBinTestMethod">
+            <summary>
+            This Test Method determines the final bin in a Sort Test Program but does not set it into the Tester.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.PrimeSortCheckBinTestMethod.configurationFileData">
+            <summary>
+            Stores Configuration File Data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortCheckBinTestMethod.ConfigurationFile">
+            <summary>
+            Gets or sets the configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortCheckBinTestMethod.BinStorageKeyPrefix">
+            <summary>
+            Gets or sets the BinStorageKeyPrefix.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortCheckBinTestMethod.Verify">
+            <summary>
+            Verify implementation for the PrimeSortCheckBinTestMethod.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortCheckBinTestMethod.Execute">
+            <summary> Execute implementation for the PrimeSortCheckBinTestMethod. </summary>
+            <returns> Exit port number. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortCheckBinTestMethod.LogCheckBin(Prime.TestMethods.SortBinning.Common.Binner)">
+            <summary>
+            Logs the final checkbin data and returns the port to exit through.
+            </summary>
+            <param name="binner">The binner data to log.</param>
+            <returns>The port number to exit through.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortCheckpoint.CheckpointBinChecker">
+            <summary>
+            Checks if any valid Bad Die Bin exists in BinTrace Data and if true returns the bin number in a Shared Storage token.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortCheckpoint.CheckpointBinChecker.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.SortCheckpoint.CheckpointBinChecker"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortCheckpoint.CheckpointBinChecker.ComputeCheckpointBadBin(System.Collections.Generic.List{System.String})">
+            <summary>
+            Implementation of the Checkpoint functionality.
+            This algorithm traverses the specified BinTrace arrays and finds the first
+            failing bin, prints it and saves it to shared storage.
+            </summary>
+            <param name="binTraceSubFlowList">The list of BinTrace sub flows to process.</param>
+            <returns>The exit port number.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.PrimeSortCheckpointTestMethod">
+            <summary>
+            This Test Method traverses the specified BinTrace arrays and finds the first
+            failing bin, prints it and saves it to shared storage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortCheckpointTestMethod.BinTracesToCheck">
+            <summary>
+            Gets or sets the list of BinTracesToCheck.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortCheckpointTestMethod.Verify">
+            <summary>
+            Verify implementation for the PrimeSortCheckpointTestMethod.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortCheckpointTestMethod.Execute">
+            <summary> Execute implementation for the PrimeSortCheckpointTestMethod. </summary>
+            <returns> Exit port number. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortSdm92Binning.Bin92Computer">
+            <summary>
+            Checks if conditions exist in BinTrace Data to set a Bad Bin and if true returns the bin data to set.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortSdm92Binning.Bin92Computer.ComputeBin92(Prime.SessionService.ISessionContextProviderContainer,System.Int32)">
+            <summary>
+            Implementation of the bin92 function.
+            </summary>
+            <param name="sessionContext">The console service interface to print debug messages with.</param>
+            <param name="hotHardbin">hard bin from hot flow.</param>
+            <returns>The exit port number.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.PrimeSortSdm92BinningTestMethod">
+            <summary>
+            The PrimeSortSdm92Binning Test Method is designed to manage the binning process for units that have not undergone complete testing in the Singulated Die Merged (SDM) flow. This flow involves testing units in a sequence: cold (SDS), hot (SDT), and then cold again. The method applies logic to determine if a unit should be re-binned to 92XX, where 'XX' represents the hard bin of a hot failure.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortSdm92BinningTestMethod.StressIndictatorToken">
+            <summary>
+            Gets or sets the stress token to be read from a Shared Storage key.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortSdm92BinningTestMethod.ColdBin">
+            <summary>
+            Gets or sets cold bin token to be read from a Shared Storage key.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortSdm92BinningTestMethod.HotBin">
+            <summary>
+            Gets or sets hot bin token to be read from a Shared Storage key.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortSdm92BinningTestMethod.BinTraceList">
+            <summary>
+            Gets or sets the list of BinTracesToCheck.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortSdm92BinningTestMethod.Verify">
+            <summary>
+            Verify implementation for the PrimeSortSdm92BinningTestMethod.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortSdm92BinningTestMethod.Execute">
+            <summary> Execute implementation for the PrimeSortSdm92BinningTestMethod. </summary>
+            <returns> Exit port number. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.PrimeSortSetBinTestMethod">
+            <summary>
+            This Test Method determines the final bin in a Sort Test Program and sets it into the Tester.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.PrimeSortSetBinTestMethod.configurationFileData">
+            <summary>
+            Stores Configuration File Data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortSetBinTestMethod.ConfigurationFile">
+            <summary>
+            Gets or sets the configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortSetBinTestMethod.BinStorageKeyPrefix">
+            <summary>
+            Gets or sets the BinStorageKeyPrefix.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortSetBinTestMethod.ExpectedBinTraceCount">
+            <summary>
+            Gets or sets the Expected BinTrace Count.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortSetBinTestMethod.Verify">
+            <summary>
+            Verify implementation for the PrimeSortSetBinTestMethod.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortSetBinTestMethod.Execute">
+            <summary> Execute implementation for the PrimeSortSetBinTestMethod. </summary>
+            <returns> Exit port number. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortSetBinTestMethod.ApplyBin(Prime.TestMethods.SortBinning.Common.Binner)">
+            <summary>
+            Applies the final bin and returns the port to exit through.
+            </summary>
+            <param name="binner">The binner data to apply.</param>
+            <returns>The port number to exit through.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortSetBinTestMethod.LogPresetBin(Prime.TestMethods.SortBinning.Common.Binner)">
+            <summary>
+            Logs the final SetBin data when the bin was Preset and returns the port to exit through.
+            </summary>
+            <param name="binner">The binner data to log.</param>
+            <returns>The port number to exit through.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortSetBinTestMethod.WriteBinData(Prime.TestMethods.SortBinning.Common.Binner)">
+            <summary>
+            Writes final bin data to ituff file and Shared Storage.
+            </summary>
+            <param name="binner">The binner data to write.</param>
+            <returns>The port number to exit through.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortTBin.AlarmErrorTBinChecker">
+            <summary>
+            Checks current bin conditions to see if a Software or Hardware Alarm bin was set and if so sets the appropriate TBin.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.AlarmErrorTBinChecker.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.SortTBin.AlarmErrorTBinChecker"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.AlarmErrorTBinChecker.ComputeAlarmErrorTBin(System.Collections.Generic.List{System.String},System.UInt32)">
+            <summary>
+            Computes the TBin if the current bin was set to a Software or Hardware Alarm Bin.
+            </summary>
+            <param name="binInputs">The list of Bin Inputs to process.</param>
+            <param name="currentBin">The current bin.</param>
+            <returns>The Binner object with selected bin data.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortTBin.BadDieTBinChecker">
+            <summary>
+            Checks Bin Input values for a Bad Die Bin and if one is found sets the TBin accordingly.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.BadDieTBinChecker.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.SortTBin.BadDieTBinChecker"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.BadDieTBinChecker.ComputeBadDieTBin(System.Collections.Generic.List{System.String})">
+            <summary>
+            Computes the TBin if a Bad Bin value is found in the Bin Inputs.
+            </summary>
+            <param name="binInputs">The list of Bin Inputs.</param>
+            <returns>The Binner object with selected bin data.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortTBin.BinInputsFunctions">
+            <summary>
+            This class contains methods which perform helper functions on Bin Inputs for the TBin algorithms.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.BinInputsFunctions.GetMissingSocketIndex(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the index of the first Missing Socket within the list of Bin Inputs.
+            A Missing Socket will be one for which the Bin Input Token does not exist in the Shared Storage
+            or it's value is zero.
+            The index will be adjusted for mathematical operations, meaning the first item will be index 1.
+            </summary>
+            <param name="binInputs">The list of Bin Inputs to search the Missing Socket in.</param>
+            <param name="sessionContext">The current session context.</param>
+            <returns>The index of the first Missing Socket within the Bin Inputs List.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.BinInputsFunctions.GetBadDieSocketIndex(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the index of the first Socket within the list of Bin Inputs which contains a Bad Die Bin.
+            The index will be adjusted for mathematical operations, meaning the first item will be index 1.
+            </summary>
+            <param name="binInputs">The list of Bin Inputs to search the Missing Socket in.</param>
+            <param name="sessionContext">The current session context.</param>
+            <returns>The index of the first Bad Die Socket within the Bin Inputs List.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.BinInputsFunctions.ContainsBin(System.Collections.Generic.List{System.String},System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Determines whether the Bin Inputs in Shared Storage contain a particular bin value.
+            </summary>
+            <param name="binInputs">The list of Bin Input tokens to search in Shared Storage.</param>
+            <param name="binToSearch">The bin number to search.</param>
+            <param name="sessionContext">The current session context.</param>
+            <returns>True if the bin to search is equal to one of the bin input values. False otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.BinInputsFunctions.GetBinValueFromIndex(System.Collections.Generic.List{System.String},System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns the bin value of the Bin Input in Shared Storage determined by a given index.
+            </summary>
+            <param name="binInputs">The list fo Bin Input tokens.</param>
+            <param name="index">The One-Based index of the Bin Input to get the value from.</param>
+            <param name="sessionContext">The current session context.</param>
+            <returns>The bin value contained in the indexed Bin Input.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.BinInputsFunctions.GetNumberOfExistingFlows(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the number of executed flows.
+            A flow is considered to have executed if there is data in Shared Storage for its given Bin Input token.
+            </summary>
+            <param name="binInputs">The list fo Bin Input tokens.</param>
+            <param name="sessionContext">The current session context.</param>
+            <returns>The number of executed flows.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.BinInputsFunctions.GetAllFirstDigits(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the first digits of all Bin Numbers contained in the Bin Inputs as an array of size 6.
+            The size of 6 is the maximum limit for the Bin Inputs list and is validated during Verify.
+            Items that do not exist in the shared storage will return a FirstDigit value of 0.
+            If the bin inputs list contains less than 6 items the missing FirstDigit values will also be 0.
+            </summary>
+            <param name="binInputs">The list of Bin Inputs from which to get the First Digit.</param>
+            <param name="sessionContext">The current session context.</param>
+            <returns>An uint array of size 6 containing the first digits of Bin Input values and zeroes for all missing items.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.BinInputsFunctions.GetAllValues(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets all the bin values for the given Bin Inputs list.
+            If a bin Input does not exist in the Shared Storage a value of zero is returned for that particular Key.
+            </summary>
+            <param name="binInputs">The list of Bin Inputs from which to get values.</param>
+            <param name="sessionContext">The current session context.</param>
+            <returns>A dictionary of bin input names to bin input values.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.BinInputsFunctions.ContainsAlarmBin(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Determines if any of the Bin Inputs in the Shared Storage is an Alarm Bin Value.
+            </summary>
+            <param name="binInputs">The list of Bin Inputs from which to get values.</param>
+            <param name="sessionContext">The current session context.</param>
+            <returns>True if any of the Bin Inputs in Shared Storage is an Alarm Bin, false otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortTBin.CurrentBinTBinChecker">
+            <summary>
+            Checks current bin conditions to see if the current bin is not equal to one of the Bin Inputs.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.CurrentBinTBinChecker.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.SortTBin.CurrentBinTBinChecker"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.CurrentBinTBinChecker.CheckCurrentBin(System.Collections.Generic.List{System.String},System.UInt32)">
+            <summary>
+            Computes the TBin if the current bin is not equal to one of the Bin Inputs.
+            </summary>
+            <param name="binInputs">The list of Bin Inputs.</param>
+            <param name="currentBin">The current bin.</param>
+            <returns>The Binner object with selected bin data.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortTBin.GoodDieTBinChecker">
+            <summary>
+            Computes the appropriate TBin value for a Good Die.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.GoodDieTBinChecker.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.SortTBin.GoodDieTBinChecker"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.GoodDieTBinChecker.ComputeGoodDieTBin(System.Collections.Generic.List{System.String},Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.SwitchStatus,Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.SwitchStatus,Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.SwitchStatus,System.Int32)">
+            <summary>
+            Computes the TBin for a Good Die.
+            </summary>
+            <param name="binInputs">The list of Bin Inputs.</param>
+            <param name="designKill">The Design Kill override status.</param>
+            <param name="costKill">The Cost Kill override status.</param>
+            <param name="qualityKill">The Quality Kill override status.</param>
+            <param name="expectedNumberOfFlows">The number of Flows that are expected to have been executed.</param>
+            <returns>The Binner object with selected bin data.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortTBin.TBinItuffLogger">
+            <summary>
+            This class is responsible for logging the TBin data into ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.TBinItuffLogger.LogTBin(System.Collections.Generic.List{System.String},System.UInt32,System.String,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs TBin data into ituff.
+            </summary>
+            <param name="binInputs">The list of Bin Inputs for which to log their name and values.</param>
+            <param name="dataTBin">The final data TBin that was set into the tester.</param>
+            <param name="errorDescription">A brief description of any found error.</param>
+            <param name="incomingTesterBin">The Tester Bin value before TBin was set.</param>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortTBin.TBinner">
+            <summary>
+            This class is responsible for storing data related to the Total Bin (TBin) selected by one of the
+            Tbin checkers as well as providing functionality related to such bin data.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.SortTBin.TBinner.FailTBin">
+            <summary>
+            TBin value for error conditions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.TBinner.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortBinning.SortTBin.TBinner"/> class.
+            </summary>
+            /// <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.SortTBin.TBinner.ExitPort">
+            <summary>
+            Gets the binner exit port.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.TBinner.SetFinalPort(System.Int32)">
+            <summary>
+            Sets the final port number.
+            </summary>
+            <param name="portNumber">The port number to set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.TBinner.SetTBins(System.UInt32)">
+            <summary>
+            Sets the Total data bin, functional bin and interface bin.
+            Functional and interface bins are both derived from the given data bin.
+            </summary>
+            <param name="dataTBin">The Total data bin from which to set all values.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.TBinner.SetErrorDescription(System.String)">
+            <summary>
+            Sets a description for a port 0 error to be logged.
+            </summary>
+            <param name="errorDescription">A short description of the error that occurred.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.TBinner.ApplyTesterBin(System.Collections.Generic.List{System.String},System.UInt32)">
+            <summary>
+            Applies the data bin in the tester.
+            </summary>
+            <param name="binInputs">The list of bin inputs that were processed to set the TBin.</param>
+            <param name="incomingTesterBin">The tester bin number before TBin was set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.TBinner.StoreTBinValuesInSharedStorage">
+            <summary>
+            Stores the TBin values into shared storage so they can be read by the Device End Datalogger.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.TBinner.IsGoodDieBadDieDataTBinValid(System.Collections.Generic.List{System.String})">
+            <summary>
+            Determines if a Good/Bad Die DTBin value is valid.
+            A Good/Bad Die DTBin is valid if its value is greater than the first Bin Input value.
+            </summary>
+            <param name="binInputs">The list of bin inputs that were processed to set the TBin.</param>
+            <returns>True if the DTBin is valid, false otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.SortTBin.TBinOperations">
+            <summary>
+            This class contains methods which perform operations on Tbin numbers.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.SortTBin.TBinOperations.BuildDataTBinForSocketIndex(System.UInt32,System.UInt32)">
+            <summary>
+            Build a DataTBin for a given Socket index and a base bin number.
+            The socket index becomes a prefix for the base bin number.
+            </summary>
+            <param name="socketIndex">The socket as a 1-based index.</param>
+            <param name="baseBin">The base bin number to build the DataTBin with.</param>
+            <returns>The DataTBin number.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod">
+            <summary>
+            This Test Method determines the total bin in a Sort Test Program and sets it into the Tester.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.SwitchStatus">
+            <summary>
+            Defines the On/Off options for switch-type parameters.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.SwitchStatus.Off">
+            <summary>
+            Parameter is off.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.SwitchStatus.On">
+            <summary>
+            Parameter is on.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.BinInputs">
+            <summary>
+            Gets or sets the list of Bin Inputs to process.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.ExpectedNumberOfFlows">
+            <summary>
+            Gets or sets the Expected Number Of Flows.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.DesignKill">
+            <summary>
+            Gets or sets whether DesignKill is On or Off.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.CostKill">
+            <summary>
+            Gets or sets whether CostKill is On or Off.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.QualityKill">
+            <summary>
+            Gets or sets whether QualityKill is On or Off.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.Verify">
+            <summary>
+            Verify implementation for the PrimeSortTBinTestMethod.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortBinning.PrimeSortTBinTestMethod.Execute">
+            <summary> Execute implementation for the PrimeSortTBinTestMethod. </summary>
+            <returns> Exit port number. </returns>
+        </member>
+    </members>
+</doc>

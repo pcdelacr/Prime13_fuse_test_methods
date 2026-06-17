@@ -1,0 +1,256 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [ "Configuration" ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Configuration": {
+      "type": "object",
+      "$ref": "#/definitions/Configuration"
+    }
+  },
+  "definitions": {
+    "Configuration": {
+      "type": "object",
+      "required": [ "TestsToExecute", "Loop" ],
+      "additionalProperties": false,
+      "properties": {
+        "TestsToExecute": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TestsToExecute"
+          }
+        },
+        "PatternInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PatternInfo"
+          }
+        },
+        "Loop": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Loop"
+          }
+        },
+        "StoreIterationResult": {
+          "type": "object",
+          "required": [ "SharedStorage" ],
+          "additionalProperties": false,
+          "properties": {
+            "SharedStorage": {
+              "type": "object",
+              "required": [ "Key" ],
+              "additionalProperties": false,
+              "properties": {
+                "Key": { "type": "string" },
+                "Context": {
+                  "type": "string",
+                  "enum": [ "DUT", "IP", "LOT" ]
+                },
+                "ResetPolicy": {
+                  "type": "string",
+                  "enum": [ "RESET_AT_LOT_START", "RESET_AT_DEVICE_START", "NEVER_RESET" ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "TestsToExecute": {
+      "type": "object",
+      "required": [ "Name", "Type" ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string",
+          "enum": [ "INSTANCE", "FLOW" ]
+        }
+      }
+    },
+    "PatternInfo": {
+      "type": "object",
+      "required": [ "Name", "NumberOfVectors", "PatternModifyInfo" ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "NumberOfVectors": {
+          "type": "integer"
+        },
+        "PatternModifyInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PatternModifyInfo"
+          }
+        }
+      }
+    },
+    "PatternModifyInfo": {
+      "type": "object",
+      "required": [ "PatternsRegex", "PatList", "StartAddress", "Offset" ],
+      "properties": {
+        "PatternsRegex": {
+          "type": "string"
+        },
+        "PatList": {
+          "type": "string"
+        },
+        "StartAddress": {
+          "type": "string"
+        },
+        "Offset": {
+          "type": "integer"
+        }
+      }
+    },
+    "Loop": {
+      "type": "object",
+      "required": [ "Iteration" ],
+      "properties": {
+        "Iteration": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Iteration"
+          }
+        }
+      }
+    },
+    "Iteration": {
+      "type": "object",
+      "properties": {
+        "StepCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "TestCondition": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TestCondition"
+          }
+        },
+        "SharedStorage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SharedStorage"
+          }
+        },
+        "Pattern": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pattern"
+          }
+        },
+        "UserVar": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserVar"
+          }
+        }
+      }
+    },
+    "TestCondition": {
+      "type": "object",
+      "required": [ "Name", "Parameter", "Start", "Step" ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Parameter": {
+          "type": "string"
+        },
+        "Start": {
+          "type": "number"
+        },
+        "Step": {
+          "type": "number"
+        }
+      }
+    },
+    "SharedStorage": {
+      "type": "object",
+      "required": [ "Key", "Context", "ResetPolicy", "DataType" ],
+      "properties": {
+        "Key": {
+          "type": "string"
+        },
+        "Context": {
+          "type": "string",
+          "enum": [ "DUT", "IP", "LOT" ]
+        },
+        "ResetPolicy": {
+          "type": "string",
+          "enum": [ "RESET_AT_LOT_START", "RESET_AT_DEVICE_START", "NEVER_RESET" ]
+        },
+        "DataType": {
+          "type": "string",
+          "enum": [ "STRING", "DOUBLE", "INT" ]
+        },
+        "Value": {
+          "type": "string"
+        },
+        "Start": {
+          "type": "number"
+        },
+        "Step": {
+          "type": "number"
+        }
+      }
+    },
+    "UserVar": {
+      "type": "object",
+      "required": [ "Key", "DataType" ],
+      "properties": {
+        "Key": {
+          "type": "string"
+        },
+        "DataType": {
+          "type": "string",
+          "enum": [ "STRING", "DOUBLE", "INT" ]
+        },
+        "Value": {
+          "type": "string"
+        },
+        "Start": {
+          "type": "number"
+        },
+        "Step": {
+          "type": "number"
+        }
+      }
+    },
+    "Pattern": {
+      "type": "object",
+      "required": [ "Name", "Pin" ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Pin": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pin"
+          }
+        }
+      }
+    },
+    "Pin": {
+      "type": "object",
+      "required": [ "Name", "Data" ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Data": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

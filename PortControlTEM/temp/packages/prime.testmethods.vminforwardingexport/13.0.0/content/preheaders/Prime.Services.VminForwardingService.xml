@@ -1,0 +1,1381 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.VminForwardingService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.VminForwardingService.ConfigurationFile.ConfigurationLoader">
+            <summary>
+            Passes information from Configuration Files objects to Shared Storage structures.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.ConfigurationFile.ConfigurationLoader.CreateConfigurationValues(Prime.VminForwardingService.ConfigurationFile.Structures.ConfigurationFile,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Inserts configuration into Shared Storage.
+            </summary>
+            <param name="configurationInfo">The parsed configuration object.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Shared storage operation result.</returns>
+        </member>
+        <member name="T:Prime.VminForwardingService.ConfigurationFile.Parser">
+            <summary>
+            Configuration file, parser class.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Parser.ValidationErrors">
+            <summary>
+            Gets the validation errors details.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.ConfigurationFile.Parser.ParseFile(System.String)">
+            <summary>
+            Loads a configuration object from the file.
+            </summary>
+            <param name="fileContent">The Configuration file's path.</param>
+            <returns>The configuration object.</returns>
+        </member>
+        <member name="T:Prime.VminForwardingService.ConfigurationFile.ServiceDataCleaner">
+            <summary>
+            Class to data clean process before configuration file load.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.ConfigurationFile.ServiceDataCleaner.DeleteServiceData(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Delete all configuration data stored at DUT and LOT level.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.VminForwardingService.ConfigurationFile.Structures.ConfigurationFile">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.ConfigurationFile.PowerDomains">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.ConfigurationFile.Structures.Corner">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.Corner.Name">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.Corner.FrequencySource">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.Corner.VoltageSources">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.Corner.ExportStorageVariable">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.ConfigurationFile.Structures.ExportStorageVariable">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.ExportStorageVariable.VoltageVariablePrefix">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.ExportStorageVariable.FrequencyVariablePrefix">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.ConfigurationFile.Structures.FrequencySource">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.FrequencySource.Type">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.FrequencySource.Value">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.ConfigurationFile.Structures.PowerDomain">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.PowerDomain.Name">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.PowerDomain.Instances">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.PowerDomain.Corners">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.ConfigurationFile.Structures.SplitTokens">
+            <summary>
+            Main class with globally used tokens for string splitting.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.ConfigurationFile.Structures.SplitTokens.DomainCornerSeparator">
+            <summary>
+            Separation of domain and corners identifiers (IA@F2, IX56@F4).
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.ConfigurationFile.Structures.SplitTokens.DomainNamesSeparator">
+            <summary>
+            Configuration domain instances separator.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.ConfigurationFile.Structures.VoltageSources">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.VoltageSources.Corner">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.VoltageSources.CornersWithLinearAdjustment">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.VoltageSources.SharedStorage">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.VoltageSources.DffKey">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.VoltageSources.SharedStorageLimitCheck">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.ConfigurationFile.Structures.VoltageSources.FrequencySwitchAdjustment">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Entities.VminForwardingConfigurationHandler">
+            <summary>
+            Interface to query VminForwarding configuration file values.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingConfigurationHandler.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VminForwardingService.Entities.VminForwardingConfigurationHandler"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingConfigurationHandler.Prime#VminForwardingService#IVminForwardingConfigurationHandler#GetSharedStorageLimitCheck(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingConfigurationHandler.Prime#VminForwardingService#IVminForwardingConfigurationHandler#GetDomainNames">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingConfigurationHandler.Prime#VminForwardingService#IVminForwardingConfigurationHandler#GetInstanceNames(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingConfigurationHandler.Prime#VminForwardingService#IVminForwardingConfigurationHandler#GetsCornerNames(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.VminForwardingService.Entities.Comparison">
+            <summary>
+            For use in CompareTo operations.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.Comparison.LessThan">
+            <summary>
+            Less than param.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.Comparison.Equal">
+            <summary>
+            Equal to param.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.Comparison.GreaterThan">
+            <summary>
+            Greater than param.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Entities.VminForwardingCornerHandler">
+            <summary>
+            Handler for VminForwardingCorner's operations within the public service interface object.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.iMapper">
+            <summary>
+            To clone a configuration instance for internal usage.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.cornerName">
+            <summary>
+            VminForwardingCorner's name comes in the form of "VminForwardingDomain-VminForwardingCorner", for example "IA59-F7".
+            Also is the key used for Shared Storage dynamic values.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.flow">
+            <summary>
+            Corner's flow number.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.instanceName">
+            <summary>
+            Instance name.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.includeFailsInGetSourceVoltage">
+            <summary>
+            Whether or not to return the failing value if the core is disabled at GetSourceVoltage.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.domainConfigurationStorageId">
+            <summary>
+            VminForwardingDomain storage key. For example "IA59".
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.maxSourceVoltagesItemsCount">
+            <summary>
+            Maximum count of voltage sources, for get operation optimization.
+            Initialized to 1 for current voltage.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.configuration">
+            <summary>
+            Gets the configuration data.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.#ctor(System.String,System.Int32,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VminForwardingService.Entities.VminForwardingCornerHandler"/> class.
+            </summary>
+            <param name="cornerName">VminForwardingCorner name.</param>
+            <param name="flow">Flow number.</param>
+            <param name="instanceName">Running instance name.</param>
+            <param name="includeFailsInGetSourceVoltage">Whether or not to return the failing value if the core is disabled at GetSourceVoltage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.DomainInstancePositionIndex">
+            <summary>
+            Gets the domain instance position index.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.CornerConfigurationStorageId">
+            <summary>
+            Gets the VminForwardingCorner configuration storage key. Also for DFF configuration loading.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.Frequency">
+            <summary>
+            Gets the corner's frequency value.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.InsertData(System.Double)">
+            <summary>
+            Inserts data to the corner dynamic storage.
+            </summary>
+            <param name="voltage">The instance voltage.</param>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.GetCornerData">
+            <summary>
+            Gets the current data from the Shared Storage.
+            </summary>
+            <returns>The corner data or NULL if not data found.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.GetSourceVoltages(System.Double)">
+            <summary>
+            Returns the MAX voltage value from corner's sources.
+            </summary>
+            <param name="inputVoltage">The instance value to use as source voltage.</param>
+            <returns>Result voltage.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.GetLimitCheckVoltage">
+            <summary>
+            Returns the alternative voltage from shared storage for limit checking.
+            </summary>
+            <returns>Voltage value.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.IsVoltageValidForStore(System.Double)">
+            <summary>
+            Returns if a voltage is valid for store.
+            </summary>
+            <param name="voltage">The input voltage.</param>
+            <returns>If voltage is valid for store.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.IsNewActiveCornerData(System.Int32,System.Double,System.Double)">
+            <summary>
+            Checks if the new corner voltage value must be set as the Active corner value.
+            </summary>
+            <param name="activeDataFlow">Current active data flow number.</param>
+            <param name="activeDataVoltage">Current active data voltage value.</param>
+            <param name="newVoltage">New voltage value.</param>
+            <returns>Voltage value must be set as Active.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.GetCornersSourceVoltages">
+            <summary>
+            Gets the voltage values for "corner" voltage sources.
+            </summary>
+            <returns>List of voltage values.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.GetDownFlowVoltage(Prime.VminForwardingService.VminForwardingCornerRecord,System.Int32)">
+            <summary>
+            Calculate voltage for surceCorners in case of down flow.
+            The source corner voltage should be supplied from the equivalent flow of the specified corner.
+            </summary>
+            <param name="sourceCorner">corner record from corner source list.</param>
+            <param name="flow">the down flow value.</param>
+            <returns>Vmin voltage for down flow.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.GetCurrentSourceVoltage">
+            <summary>
+            Gets the voltage values for the current corner.
+            Also checks if the includeFailsInGetSourceVoltage is set to take a Disabled value also as valid return.
+            </summary>
+            <returns>List of voltage values.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.GetSharedStorageSourceVoltages">
+            <summary>
+            Gets the voltage values for the shared storage sources.
+            </summary>
+            <returns>List of voltage values.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.GetVoltageFromSharedStorageValue(System.String)">
+             <summary>
+             Gets voltage value from Shared Storage variable.
+             Handles 4 types of formats:
+             1. Single value:
+             0.1
+            
+             2. Piped multi-value:
+                    Flow 1                  |             Flow N
+             0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1|0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1
+            
+             3. Multi-value:
+                         Flow
+             0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1.
+            
+             4. Piped single-value:
+                         Flow
+             0.1|0.1|0.1.
+             </summary>
+             <param name="sharedStorageKey">The shared storage key.</param>
+             <returns>Voltage value for current instance.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.GetVoltageForInstanceIndex(System.String,System.String[])">
+            <summary>
+            Gets the voltage from a Shared Storage value, with the domain position index value.
+            </summary>
+            <param name="key">Storage key or Dff Name.</param>
+            <param name="voltageValues">Voltage values array.</param>
+            <returns>The voltage value.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.LoadConfiguration">
+            <summary>
+            Loads the VminForwardingCorner's configuration from the Shared storage LOT context.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.SetFrequencyValue">
+            <summary>
+            Sets the corner's Frequency from BinMatrixService.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.UpdateSharedStorageExportVariableKeys">
+            <summary>
+            Sets the cornerName as postfix to the Export variables names.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.SetFrequencyExportVariable">
+            <summary>
+            Sets the Frequency value to the Shared Storage export variable.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.SetVoltageExportVariable(System.Double)">
+            <summary>
+            Sets the voltage value to the Shared Storage export variable.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingCornerHandler.UpdateCornerConfigurationReferences">
+            <summary>
+            Updates corner references inside configuration sources section.
+            Uses current domain position index to search at the referenced domain at the same index.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Entities.VminForwardingExportHandler">
+            <summary>
+            Handler class to manage export operations of service data.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingExportHandler.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VminForwardingService.Entities.VminForwardingExportHandler"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingExportHandler.Prime#VminForwardingService#IVminForwardingExportHandler#GetProcessedCornersData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingExportHandler.Prime#VminForwardingService#IVminForwardingExportHandler#GetVoltagesForFrequencyChange(System.String,System.String,System.Collections.Generic.List{Prime.VminForwardingService.VminForwardingCornerRecord},System.Int32,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingExportHandler.Prime#VminForwardingService#IVminForwardingExportHandler#UpdateCornerValue(System.String,System.Double,System.Double,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.VminForwardingService.Entities.VminForwardingHandler">
+            <inheritdoc/>
+        </member>
+        <member name="F:Prime.VminForwardingService.Entities.VminForwardingHandler.FailStoreVoltageValue">
+            <summary>
+            Value for invalid/killed voltage target.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingHandler.#ctor(System.Collections.Generic.IReadOnlyList{System.String},System.Int32,System.Boolean,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VminForwardingService.Entities.VminForwardingHandler"/> class.
+            </summary>
+            <param name="cornerNames">The corners list to load.</param>
+            <param name="flow">Flow number.</param>
+            <param name="includeFailsInGetSourceVoltage">Whether or not to return the failing value if the core is disabled at GetSourceVoltage.</param>
+            <param name="refreshFlagsRequiered">Indicating whether operation mode flags should be refreshed before get and store actions.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.VminForwardingService.Entities.VminForwardingHandler.Flow">
+            <summary>
+            Gets the flow number value.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Entities.VminForwardingHandler.CornerHandlers">
+            <summary>
+            Gets the corner handlers.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Entities.VminForwardingHandler.Corners">
+            <summary>
+            Gets the Corners name list.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingHandler.GetSourceVoltages(System.Collections.Generic.IList{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingHandler.StoreVoltages(System.Collections.Generic.IList{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingHandler.GetAllCornerData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingHandler.GetFrequencySourceValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingHandler.GetLimitCheckVoltages">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingHandler.NormalizeVoltages(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Sets negative voltages to the FailStoreVoltageValue and set decimals to 3.
+            </summary>
+            <param name="voltages">List of voltages.</param>
+            <returns>Normalized list of voltages.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingHandler.LoadCornerHandlers(System.Boolean)">
+            <summary>
+            Loads the inner corner handlers.
+            </summary>
+            <param name="includeFailsInGetSourceVoltage">Whether or not to return the failing value if the core is disabled at GetSourceVoltage.</param>
+        </member>
+        <member name="T:Prime.VminForwardingService.Entities.VminForwardingWithLimitCheckHandler">
+            <summary>
+            Handler class to manage limit/check Settings operation mode.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingWithLimitCheckHandler.#ctor(System.Collections.Generic.IReadOnlyList{System.String},System.Int32,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VminForwardingService.Entities.VminForwardingWithLimitCheckHandler"/> class.
+            </summary>
+            <param name="cornerNames">The corners list to load.</param>
+            <param name="flow">Flow number.</param>
+            <param name="includeFailsInGetSourceVoltage">Returns the failing value constant if the core is disabled at GetSourceVoltage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingWithLimitCheckHandler.#ctor(System.Collections.Generic.IReadOnlyList{System.String},System.Int32,System.Boolean,Prime.VminForwardingService.VminForwardingOperationSettingsState,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VminForwardingService.Entities.VminForwardingWithLimitCheckHandler"/> class.
+            </summary>
+            <param name="cornerNames">The corners list to load.</param>
+            <param name="flow">Flow number.</param>
+            <param name="includeFailsInGetSourceVoltage">Returns the failing value constant if the core is disabled at GetSourceVoltage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="operationModeSettings">mode sources global - changed frequently against the sharedStorage or local without change.</param>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingWithLimitCheckHandler.GetSourceVoltages(System.Collections.Generic.IList{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingWithLimitCheckHandler.StoreVoltages(System.Collections.Generic.IList{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingWithLimitCheckHandler.GetLimitCheckVoltages">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.Entities.VminForwardingWithLimitCheckHandler.RefreshLimitCheckOperationModes">
+            <summary>
+            Updates the limit/check modes flags is need.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Helpers.DoubleExtensions">
+            <summary>
+            Extensions methods for internal handling.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Helpers.DoubleExtensions.Round(System.Double)">
+            <summary>
+            Applies a round to fixed decimal points.
+            </summary>
+            <param name="value">Current double value.</param>
+            <returns>Rounded value.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Helpers.DoubleExtensions.IsDifferentTo(System.Double,System.Double)">
+            <summary>
+            Compare if two doubles are different based in an offset remainder.
+            </summary>
+            <param name="value">Current double value.</param>
+            <param name="compareTo">Second value to compare.</param>
+            <returns>Comparision result.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Helpers.DoubleExtensions.IsEqualTo(System.Double,System.Double)">
+            <summary>
+            Compare if two doubles are equals based in an offset remainder.
+            </summary>
+            <param name="value">Current double value.</param>
+            <param name="compareTo">Second value to compare.</param>
+            <returns>Comparision result.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Helpers.DoubleExtensions.IsGreaterThanOrEqualTo(System.Double,System.Double)">
+            <summary>
+            Compare if a double is greater than or equal to another, using an offset remainder as a base.
+            </summary>
+            <param name="value">Current double value.</param>
+            <param name="compareTo">Second value to compare.</param>
+            <returns>Comparision result.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Helpers.DoubleExtensions.IsLessThanOrEqualTo(System.Double,System.Double)">
+            <summary>
+            Compare if a double is less than or equal to another, using an offset remainder as a base.
+            </summary>
+            <param name="value">Current double value.</param>
+            <param name="compareTo">Second value to compare.</param>
+            <returns>Comparision result.</returns>
+        </member>
+        <member name="T:Prime.VminForwardingService.IVminForwardingConfigurationHandler">
+            <summary>
+            Interface to query VminForwarding configuration file values.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingConfigurationHandler.GetSharedStorageLimitCheck(System.String)">
+            <summary>
+            Returns the limit/check source key for shared storage access.
+            </summary>
+            <param name="cornerName">Corner name without the instanceName. i.e.: IA@F3.</param>
+            <returns>The shared storage key for limit/check source.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingConfigurationHandler.GetDomainNames">
+            <summary>
+            Returns a list of all domain names loaded from the configuration file.
+            </summary>
+            <returns>List of domain names.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingConfigurationHandler.GetInstanceNames(System.String)">
+            <summary>
+            Returns a list of all instance names loaded from the configuration file for a domain.
+            </summary>
+            <param name="domainName">Domain name. i.e.:IA.</param>
+            <returns>List of instance names.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingConfigurationHandler.GetsCornerNames(System.String)">
+            <summary>
+            Returns a list of all corner names loaded from the configuration file for an instance.
+            </summary>
+            <param name="instanceName">Domain instance name. i.e.:IA45.</param>
+            <returns>List of corner names.</returns>
+        </member>
+        <member name="T:Prime.VminForwardingService.IVminForwardingExportHandler">
+            <summary>
+            Interface solely for VminForwarding export capabilities handling.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingExportHandler.GetProcessedCornersData">
+            <summary>
+            Gets all corner's data stored at DUT level of the instances and corners defined at the configuration file.
+            </summary>
+            <returns>Dictionary with the domain, instances and a List of all processed corners records.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingExportHandler.GetVoltagesForFrequencyChange(System.String,System.String,System.Collections.Generic.List{Prime.VminForwardingService.VminForwardingCornerRecord},System.Int32,System.Boolean)">
+            <summary>
+            Returns the sources for frequency changes for a instance/flow based in a data snapshot.
+            </summary>
+            <param name="domainName">Domain name: "IA".</param>
+            <param name="instanceName">Instance full name: "IA56".</param>
+            <param name="baseValues">Base value list. Can be taken from a snapshot or current data.</param>
+            <param name="flow">Flow number to calculate.</param>
+            <param name="allowEmptyCorners">Enables empty corners (non-tested) to be returned as a disabled value (-9.999) instead.</param>
+            <returns>List of corners with frequency/voltage for the flow. Full corner name as key: "IA56@F3".</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingExportHandler.UpdateCornerValue(System.String,System.Double,System.Double,System.Int32)">
+            <summary>
+            Inserts manually a new value into the corner.
+            Mostly for Interpolation update support.
+            </summary>
+            <param name="cornerName">Corner full instance name (ie: "IA53@F4").</param>
+            <param name="frequency">Frequency value.</param>
+            <param name="voltage">Voltage value.</param>
+            <param name="flow">Flow number.</param>
+            <returns>True is the operation is success.</returns>
+        </member>
+        <member name="T:Prime.VminForwardingService.IVminForwardingHandler">
+            <summary>
+            Main interface for forwarding handler structure.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingHandler.StoreVoltages(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Stores voltages values at Shared Storage.
+            </summary>
+            <param name="voltages">List of voltages.</param>
+            <returns>True if all voltages stored successfully. False if at least one voltage fails a Limit/Check condition.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingHandler.GetSourceVoltages(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Gets the starting voltages.
+            </summary>
+            <param name="voltages">List of values to include as source voltages.</param>
+            <returns>List of source voltage for each corner.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingHandler.GetAllCornerData">
+            <summary>
+            Returns a list of data saved at Shared Storage for each handler's corner.
+            </summary>
+            <returns>List of forwarding data for the handler's corners..</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingHandler.GetFrequencySourceValue(System.String)">
+            <summary>
+            Gets the frequency value for a corner managed by the handler.
+            </summary>
+            <param name="corner">The corner identifier, ie: IA56@F1.</param>
+            <returns>The frequency value for the corner/flow.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingHandler.GetLimitCheckVoltages">
+            <summary>
+            Get all limits values in voltages.
+            </summary>
+            <returns>Limit voltages values of each corner.</returns>
+        </member>
+        <member name="T:Prime.VminForwardingService.OperationMode">
+            <summary>
+            Flags for setting each operation mode for limit/check values.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.OperationMode.UseLimitCheckAsSource">
+            <summary>
+            Usage of limit/check values as voltages sources at GetSourceVoltages method.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.OperationMode.UseVoltagesSources">
+            <summary>
+            Usage of the corner's voltage values as sources at GetSourceVoltages method.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.OperationMode.UseLimitCheck">
+            <summary>
+            Usage of limit/check values to check if the input voltage is greater than the limit voltage at StoreVoltages method.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.OperationMode.StoreVoltages">
+            <summary>
+            If the input voltages should be stored at StoreVoltages method.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.IVminForwardingService">
+            <summary>
+            Main factory service for forwarding table creation and storage.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingService.CreateExportHandler(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Retrieves an instance object for data exporting operations.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>An instance of IVminForwardingExportHandler.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingService.CreateDynamicModeHandler(System.Collections.Generic.IReadOnlyList{System.String},System.Int32,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new forwarding table handler for N corner and 1 flow.
+            That handler opretaion mode settings synced with operation mode flags changes for every store and get operations.
+            </summary>
+            <param name="cornerNames">List of corner names to load.</param>
+            <param name="flow">Flow number.</param>
+            <param name="includeFailsInGetSourceVoltage">Returns the failing value constant if the core is disabled at GetSourceVoltage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Instance of IVminForwardingHandler.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingService.CreateStaticModeHandler(System.Collections.Generic.IReadOnlyList{System.String},System.Int32,System.Boolean,Prime.VminForwardingService.VminForwardingOperationSettingsState,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new forwarding table handler for N corner and 1 flow.
+            That handler opretaion mode settings set once and NOT synced with operation mode flags changes.
+            </summary>
+            <param name="cornerNames">List of corner names to load.</param>
+            <param name="flow">Flow number.</param>
+            <param name="includeFailsInGetSourceVoltage">Returns the failing value constant if the core is disabled at GetSourceVoltage.</param>
+            <param name="operationModeSettings">Operation mode flags to be used by hanlder.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Instance of IVminForwardingHandler.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingService.CreateConfigurationHandler(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates an object for configuration settings querying.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Handler instance.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingService.SetOperationModeFlag(Prime.VminForwardingService.OperationMode,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set flag for limit/check operation mode.
+            </summary>
+            <param name="setting">Boolean setting for operation mode.</param>
+            <param name="value">Value to set.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VminForwardingService.IVminForwardingService.GetOperationModeFlags(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get Operation Mode flags.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Operation mode flags.</returns>
+        </member>
+        <member name="T:Prime.VminForwardingService.VminForwardingCornerData">
+            <summary>
+            Corner data class for data export procedures.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingCornerData.Voltage">
+            <summary>
+            Gets or sets the Voltage value.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingCornerData.Frequency">
+            <summary>
+            Gets or sets the frequency value.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingCornerData.InstanceName">
+            <summary>
+            Gets or sets the Instance Name.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingCornerData.Flow">
+            <summary>
+            Gets or sets the flow number.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.VminForwardingCornerRecord">
+            <summary>
+            Corner record class for data export procedures.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingCornerRecord.Key">
+            <summary>
+            Gets or sets the corner-name key.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingCornerRecord.ActiveCornerData">
+            <summary>
+            Gets or sets the active data.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingCornerRecord.ValidActiveCornerData">
+            <summary>
+            Gets or sets the active data per flow.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingCornerRecord.CornerData">
+            <summary>
+            Gets or sets the data stack of CornerData.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingCornerRecord.ToString">
+            <summary>
+            Returns an string representation of the CornerRecord info.
+            </summary>
+            <returns>Readable string value of the CornerRecord info.</returns>
+        </member>
+        <member name="T:Prime.VminForwardingService.VminForwardingOperationSettingsState">
+            <summary>
+            VminForwardingDomain-corner reference position object.
+            To solve references to domain-corner based in the original collection index.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingOperationSettingsState.IsUseLimitCheckAsSourceEnabled">
+            <summary>
+            Gets or sets a value indicating whether the usage of limit/check values as voltages sources at GetSourceVoltages method.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingOperationSettingsState.IsUseVoltagesSourcesEnabled">
+            <summary>
+            Gets or sets a value indicating whether the usage of the corner's voltage values as sources at GetSourceVoltages method.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingOperationSettingsState.IsUseLimitCheckEnabled">
+            <summary>
+            Gets or sets a value indicating whether the usage of limit values to check if the input voltage is lower than the limiting voltage at StoreVoltages method.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingOperationSettingsState.IsStoreVoltagesEnabled">
+            <summary>
+            Gets or sets a value indicating whether if the input voltages should be stored at StoreVoltages method.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.VminForwardingOperationSettingsState.OperationSettingsRead">
+            <summary>
+            Gets or sets a values indicating the object as a string.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.BaseStorage">
+            <summary>
+            Main base storage objects class.
+            Contains all shared properties.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.BaseStorage.Key">
+            <summary>
+            Gets or sets the shared storage Key.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Dynamic.DynamicStorageGateway">
+            <summary>
+            Dynamic data run shared storage factory on DUT context.
+            The class holds the access to the Shared Storage DUT data access. All inserts and gets must be performed via this Orchestrator.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Storage.Dynamic.DynamicStorageGateway.CornerKeyPrefix">
+            <summary>
+            The Shared Storage name prefix for VminForwardingCorner objects.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Storage.Dynamic.DynamicStorageGateway.ConfigurationContext">
+            <summary>
+            Gets the Shared Storage table context type for data objects.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Dynamic.DynamicStorageGateway.CornerStorage">
+            <summary>
+            Gets the CornerRecord Storage Object orchestrator.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Dynamic.StorageWrapper`1">
+            <summary>
+            Base storage wrapper class. Performs Shared Storage actions for a single class.
+            </summary>
+            <typeparam name="T">Storage table class.</typeparam>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Dynamic.StorageWrapper`1.#ctor(System.String,Prime.SharedStorageService.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VminForwardingService.Storage.Dynamic.StorageWrapper`1"/> class.
+            </summary>
+            <param name="keyPrefix">The key prefix for object keys.</param>
+            <param name="context">The Shared storage context type.</param>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Dynamic.StorageWrapper`1.KeyPrefix">
+            <summary>
+            Gets the KeyPrefix for object keys.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Dynamic.StorageWrapper`1.Context">
+            <summary>
+            Gets the the Shared storage context type.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Dynamic.StorageWrapper`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert a row at Table.
+            </summary>
+            <param name="insertObject">The domain object.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Dynamic.StorageWrapper`1.Get(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets a row from Key prop.
+            </summary>
+            <param name="key">The object's key.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The value of object.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Dynamic.StorageWrapper`1.TryGetValue(System.String,`0@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Try to get a value from the table and return the operation result.
+            </summary>
+            <param name="key">Key to query.</param>
+            <param name="value">The value extracted from the table.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>True if the key exists and the object is not null.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Dynamic.StorageWrapper`1.Delete(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Marks/deletes an existing object assigning a null object to the key.
+            </summary>
+            <param name="key">The object's key.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.FrequencyValueGetter">
+            <summary>
+            Class responsible to gets the frequency value.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.FrequencyValueGetter.GetFrequencyValue(Prime.VminForwardingService.Storage.Static.Structures.VminForwardingFrequency,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the frequency value.
+            </summary>
+            <param name="vminForwardingFrequency">Specifies the frequency type and value.</param>
+            <param name="flow">Flow number.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Frequency value.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.FrequencyValueGetter.GetIndexValue(System.String,System.String,System.Int32)">
+            <summary>
+            Get the index's value.
+            </summary>
+            <param name="type">String type.</param>
+            <param name="values">String comma separated values.</param>
+            <param name="index">Value's index.</param>
+            <returns>Value.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.FrequencyValueGetter.GetStringArrayUserVarFrequency(System.String,System.Int32)">
+            <summary>
+            Gets the frequency value from ArrayString UserVar.
+            </summary>
+            <param name="userVarStringArrayToken">UserVar token point to string Array.</param>
+            <param name="flow">flow id value.</param>
+            <returns>Frequency value from {flow - 1} index.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.FrequencyValueGetter.GetBinMatrixFrequency(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the BinMatrix's frequency.
+            </summary>
+            <returns>Frequency value.</returns>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.OperationModeSettingsHandler">
+            <summary>
+            Class for handling operation modes settings.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.OperationModeSettingsHandler.GetCurrentSettings(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the value of all settings mode.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>All settings mode.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.OperationModeSettingsHandler.SetValue(Prime.VminForwardingService.OperationMode,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the value for the operation mode flag.
+            </summary>
+            <param name="setting">The setting mode.</param>
+            <param name="value">The value.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.StaticStorageGateway">
+            <summary>
+            Configuration files shared storage gateway.
+            The class holds the access to the Shared Storage Configuration objects at LOT level. All inserts and selects must be performed via this class.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.DomainKeyPrefix">
+            <summary>
+            Gets the Shared Storage name prefix for VminForwardingDomain objects.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.CornerKeyPrefix">
+            <summary>
+            Gets the Shared Storage name prefix for VminForwardingCorner objects.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.CornerReferenceKeyPrefix">
+            <summary>
+            Gets the Shared Storage name prefix for VminForwardingCorner Reference object.
+            Since there's only one references object, the key is empty when sending save or get requests.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.AllInstancesCornersKeysKey">
+            <summary>
+            Gets the Shared Storage Key to save the list of all possible instances and corners key data at DUT level.
+            This is used for export purposes.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.OperationModeSettingsKeyPrefix">
+            <summary>
+            Gets the Shared Storage name prefix for VminForwardingOperationModeSettings operation modes.
+            Since there's only one references object, the key is empty when sending save or get requests.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.OperationModeSettingsOutdatedKeyPrefix">
+            <summary>
+            Gets the Shared Storage name prefix for OperationModeSettingsOutdatedKeyPrefix flag.
+            Since there's only one references object, the key is empty when sending save or get requests.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.ConfigurationContext">
+            <summary>
+            Gets the Shared Storage table context type for Configuration(static) objects.
+            </summary>
+        </member>
+        <member name="F:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.ResetPolicy">
+            <summary>
+            Gets the Shared Storage reset policy type for Configuration(static) objects.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.CornerStorage">
+            <summary>
+            Gets the VminForwardingCorner Storage Object handler.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.DomainStorage">
+            <summary>
+            Gets the VminForwardingDomain Storage Object handler.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.CornerReferencesStorage">
+            <summary>
+            Gets the VminForwardingCorner References Storage Object handler.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.LimitCheckSettingsStorage">
+            <summary>
+            Gets the VminForwardingOperationModeSettings operation mode flags Storage Object handler.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.AllInstancesAndCornerKeys">
+            <summary>
+            Gets the VminForwardingAllInstancesAndCornerKeys Storage Object handler.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.AreLimitCheckSettingsOutdated(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets a value indicating whether the limit/check settings are outdated and need to be synced.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Result value.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.StaticStorageGateway.SetLimitCheckSettingsOutdated(System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the value to force update of limit/check settings flags.
+            </summary>
+            <param name="areSettingsOutdated">Value of the flag.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.StorageWrapper`1">
+            <summary>
+            Base storage wrapper class. Performs Shared Storage actions for a single class.
+            </summary>
+            <typeparam name="T">Storage table class.</typeparam>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.StorageWrapper`1.#ctor(System.String,Prime.SharedStorageService.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VminForwardingService.Storage.Static.StorageWrapper`1"/> class.
+            </summary>
+            <param name="keyPrefix">The key prefix for object keys.</param>
+            <param name="context">The Shared storage context type.</param>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.StorageWrapper`1.KeyPrefix">
+            <summary>
+            Gets the KeyPrefix for object keys.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.StorageWrapper`1.Context">
+            <summary>
+            Gets the the Shared storage context type.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.StorageWrapper`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert a row at Table.
+            </summary>
+            <param name="insertObject">The domain object.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.StorageWrapper`1.Get(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets a row from Key prop.
+            </summary>
+            <param name="key">The object's key.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The value of object.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.StorageWrapper`1.TryGetValue(System.String,`0@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Try to get a value from the table and return the operation result.
+            </summary>
+            <param name="key">Key to query.</param>
+            <param name="value">The value extracted from the table.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>True if the key exists and the object is not null.</returns>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.StorageWrapper`1.Delete(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Marks/deletes an existing object assigning a null object to the key.
+            </summary>
+            <param name="key">The object's key.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.StorageWrapperWithResetPolicy`1">
+            <summary>
+            Base storage wrapper class. Performs Shared Storage actions for a single class.
+            </summary>
+            <typeparam name="T">Storage table class.</typeparam>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.StorageWrapperWithResetPolicy`1.#ctor(System.String,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VminForwardingService.Storage.Static.StorageWrapperWithResetPolicy`1"/> class.
+            </summary>
+            <param name="keyPrefix">The key prefix for objects.</param>
+            <param name="context">The Shared storage context type.</param>
+            <param name="resetPolicy">The reset policy for the rows.</param>
+        </member>
+        <member name="M:Prime.VminForwardingService.Storage.Static.StorageWrapperWithResetPolicy`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert a row at Table.
+            </summary>
+            <param name="insertObject">The domain object.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingAllInstancesAndCornerKeys">
+            <summary>
+            Has a list of all possible instances/corners keys at DUT level, based in the configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingAllInstancesAndCornerKeys.InstanceAndCornerKeys">
+            <summary>
+            Gets or sets the complete instances key list.
+            Format: [Domain][Instance][Corner].
+            Example: ["IA"]["IA53"]["IA53@F1"].
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingCorner">
+            <summary>
+            VminForwardingCorner configuration object.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingCorner.DomainName">
+            <summary>
+            Gets or sets the VminForwardingDomain's power domain name.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingCorner.CornerName">
+            <summary>
+            Gets or sets the VminForwardingDomain's corner name.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingCorner.FrequencySource">
+            <summary>
+            Gets or sets the corner's frequency source.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingCorner.VoltageSources">
+            <summary>
+            Gets or sets the Voltage Sources object.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingCorner.ExportStorageVariable">
+            <summary>
+            Gets or sets the Storage Variable id for exporting results.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingCornerReferences">
+            <summary>
+            VminForwardingDomain-corner reference position object.
+            To solve references to domain-corner based in the original collection index.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingCornerReferences.References">
+            <summary>
+            Gets or sets the references map object, for index access.
+            Example: References["IA"][5] = "IA48".
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingDomain">
+            <summary>
+            VminForwardingDomain storage object.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingDomain.PositionIndex">
+            <summary>
+            Gets or sets the position index of the instance.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingDomain.DomainName">
+            <summary>
+            Gets or sets the VminForwardingDomain's power domain name.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingDomain.CornersKeysList">
+            <summary>
+            Gets or sets the VminForwardingCorner's keys list of the domain.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingExportStorageVariable">
+            <summary>
+            Data info class.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingExportStorageVariable.VoltageVariablePrefix">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingExportStorageVariable.FrequencyVariablePrefix">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingFrequency">
+            <summary>
+            Main Voltage Source type class.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingFrequency.Type">
+            <summary>
+            Gets or sets the frequency type source.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingFrequency.Value">
+            <summary>
+            Gets or sets the frequency value.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingOperationModeSettings">
+            <summary>
+            VminForwardingDomain-corner reference position object.
+            To solve references to domain-corner based in the original collection index.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingOperationModeSettings.IsUseLimitCheckAsSourceEnabled">
+            <summary>
+            Gets or sets a value indicating whether the usage of limit/check values as voltages sources at GetSourceVoltages method.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingOperationModeSettings.IsUseVoltagesSourcesEnabled">
+            <summary>
+            Gets or sets a value indicating whether the usage of the corner's voltage values as sources at GetSourceVoltages method.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingOperationModeSettings.IsUseLimitCheckEnabled">
+            <summary>
+            Gets or sets a value indicating whether the usage of limit values to check if the input voltage is lower than the limiting voltage at StoreVoltages method.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingOperationModeSettings.IsStoreVoltagesEnabled">
+            <summary>
+            Gets or sets a value indicating whether if the input voltages should be stored at StoreVoltages method.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingVoltageSource">
+            <summary>
+            Main Voltage Source type class.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingVoltageSource.Corners">
+            <summary>
+            Gets or sets the corner ID collection.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingVoltageSource.CornersWithLinearAdjustment">
+            <summary>
+            Gets or sets the collection of corners for Linear Adjustment calculation.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingVoltageSource.SharedStorage">
+            <summary>
+            Gets or sets the list of Shared Storage sources keys.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingVoltageSource.Dff">
+            <summary>
+            Gets or sets the list of dff sources keys.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingVoltageSource.VoltageSourceForLimitCheckFromSharedStorage">
+            <summary>
+            Gets or sets the shared storage key for the Voltage Source for Limit Check handler.
+            </summary>
+        </member>
+        <member name="P:Prime.VminForwardingService.Storage.Static.Structures.VminForwardingVoltageSource.FrequencySwitchAdjustment">
+            <summary>
+            Gets or sets the corner reference to get a Voltage when a frequency change is detected.
+            </summary>
+        </member>
+        <member name="T:Prime.VminForwardingService.VminForwardingService">
+            <inheritdoc cref="T:Prime.VminForwardingService.IVminForwardingService"/>/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.VminForwardingService.VminForwardingService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.Prime#Base#IAlephAble#IAlephAble#GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.Prime#Base#IAlephAble#IAlephAble#GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.Prime#Base#IAlephAble#IAlephAble#AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.Prime#VminForwardingService#IVminForwardingService#CreateExportHandler(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.CreateDynamicModeHandler(System.Collections.Generic.IReadOnlyList{System.String},System.Int32,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.CreateStaticModeHandler(System.Collections.Generic.IReadOnlyList{System.String},System.Int32,System.Boolean,Prime.VminForwardingService.VminForwardingOperationSettingsState,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.Prime#VminForwardingService#IVminForwardingService#CreateConfigurationHandler(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.Prime#VminForwardingService#IVminForwardingService#SetOperationModeFlag(Prime.VminForwardingService.OperationMode,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.Prime#VminForwardingService#IVminForwardingService#GetOperationModeFlags(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.VminForwardingService.VminForwardingService.LoadConfigurationFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Main LoadConfigurationFile and Load method, for init.
+            </summary>
+            <param name="configurationFilePath">Configuration file location.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1999 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.PupService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.PupService.Handlers.DutSessionCacheHandler">
+            <summary>
+            Manage Dut session cache.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Handlers.DutSessionCacheHandler.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.DutSessionCacheHandler.TryGetResolvedPlist(System.String,System.String,System.String,System.String@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.DutSessionCacheHandler.CacheResolvedPlist(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.DutSessionCacheHandler.TryGetExecutionMode(System.String,System.String,System.String,Prime.PupService.ExecutionModeType@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.DutSessionCacheHandler.CacheExecutionMode(System.String,System.String,System.String,Prime.PupService.ExecutionModeType,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.DutSessionCacheHandler.TryGetPlistRvMode(System.String,System.Boolean@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.DutSessionCacheHandler.EnablePlistRvMode(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.DutSessionCacheHandler.DisablePlistRvMode(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PupService.Handlers.Interfaces.IDutSessionCacheHandler">
+            <summary>
+            Interface.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IDutSessionCacheHandler.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset the cache.
+            </summary>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IDutSessionCacheHandler.TryGetResolvedPlist(System.String,System.String,System.String,System.String@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the resolve plist name from cache.
+            </summary>
+            <param name="instanceName">For instance.</param>
+            <param name="configSetName">For configSetName.</param>
+            <param name="plist">For plist.</param>
+            <param name="resolvedPlist">resolve plist from cache.</param>
+            <param name="session">Current session.</param>
+            <returns>True if plist was found.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IDutSessionCacheHandler.CacheResolvedPlist(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Store resolved plist inside due cache.
+            </summary>
+            <param name="instanceName">For instance.</param>
+            <param name="configSetName">For configSetName.</param>
+            <param name="plist">For plist.</param>
+            <param name="resolvedPlist">resolve plist to cache.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IDutSessionCacheHandler.TryGetExecutionMode(System.String,System.String,System.String,Prime.PupService.ExecutionModeType@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the per plist execution mode from cache.
+            </summary>
+            <param name="instanceName">For instance.</param>
+            <param name="configSetName">For configSetName.</param>
+            <param name="plist">For plist.</param>
+            <param name="executionMode">resolve plist from cache.</param>
+            <param name="session">Current session.</param>
+            <returns>True if plist was found.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IDutSessionCacheHandler.CacheExecutionMode(System.String,System.String,System.String,Prime.PupService.ExecutionModeType,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Store per plist executiom mode in cache.
+            </summary>
+            <param name="instanceName">For instance.</param>
+            <param name="configSetName">For configSetName.</param>
+            <param name="plist">For plist.</param>
+            <param name="executionMode">execution mode to cache.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IDutSessionCacheHandler.TryGetPlistRvMode(System.String,System.Boolean@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns a bool indicating if the plist is in Rv enabled mode.
+            Returns false if the plist was not initialized.
+            </summary>
+            <param name="plist">The plist name.</param>
+            <param name="isRvMode">The plist rv mode if exist.</param>
+            <param name="session">Current session.</param>
+            <returns>True - plist exist and isRvMode has valid value.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IDutSessionCacheHandler.EnablePlistRvMode(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Enable a plist's Rv mode.
+            </summary>
+            <param name="plist">The plist name.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IDutSessionCacheHandler.DisablePlistRvMode(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Disable a plist's Rv mode.
+            </summary>
+            <param name="plist">The plist name.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="T:Prime.PupService.Handlers.Interfaces.IItuffHandler">
+            <summary>
+            Interface.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IItuffHandler.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset ituff.
+            </summary>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IItuffHandler.PrintDebugData(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print debug data.
+            </summary>
+            <param name="debugStr">Debug string.</param>
+            <param name="instanceName">Instance name.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IItuffHandler.PrintUnitLevelItuffData(System.Collections.Generic.Dictionary{System.String,Prime.PupService.ExecutionModeType},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}},System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print unit level ituff data.
+            </summary>
+            <param name="validConfigSetToExecutionModes">Vaid config set to execute modes.</param>
+            <param name="validConfigSetToPlists">Valid config set to plists.</param>
+            <param name="originalExecutionModes">per plist original (automation populated) execution modes formatted as a string.</param>
+            <param name="currentExecutionModes">per plist current execution modes formatted as a string.</param>
+            <param name="isSort">Is sort flow.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IItuffHandler.GetLotLevelItuffData(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}},System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}}},Prime.PupService.Storage.Mapper,Prime.PupService.Storage.Mapper,System.Collections.Generic.Dictionary{System.String,System.String},Prime.PupService.Storage.Mapper,System.Boolean,System.Boolean)">
+            <summary>
+            Get lot level ituff data.
+            </summary>
+            <param name="configSetToPlists">Config set to plists.</param>
+            <param name="maestroTpName">Maestro TP name.</param>
+            <param name="localPatternFilePath">Local patterns file path.</param>
+            <param name="patternFileVersion">Local patterns file version.</param>
+            <param name="pupFilePath">Pup DataObject Path.</param>
+            <param name="configSetPlistInstanceNames">ConfigSet to Plist to Instance names database.</param>
+            <param name="modelBasedPlistsMapping">model based plist mapping.</param>
+            <param name="nprBasedPlistsMapping">npr based plist mapping.</param>
+            <param name="modelsVersions">model versions.</param>
+            <param name="nonExistingPlists">non existing plists.</param>
+            <param name="isPupEnabled">Is pup enabled flag.</param>
+            <param name="isSort">Is sort flow.</param>
+            <returns>Lot level ituff data.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IItuffHandler.IncrementPlistUsageCounter(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Increase plist usage counter.
+            </summary>
+            <param name="plist">Plist to increase.</param>
+            <param name="session">Current session.</param>
+            <returns>The new counter value.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IItuffHandler.IncrementExcludeCriteriaUsageCounter(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Increase exclude criteria usage counter.
+            </summary>
+            <param name="plist">Plist to increase.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IItuffHandler.AddExcludeInstance(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            AddOrUpdate exclude instance.
+            </summary>
+            <param name="instanceName">Instance name.</param>
+            <param name="configurationSetting">Configuration setting.</param>
+            <param name="excludeReason">Exclude reason.</param>
+            <param name="excludeValue">Exclude value.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IItuffHandler.SetPlistExcludeCondition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set plist exclude condition.
+            </summary>
+            <param name="plist">Plist to set.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IItuffHandler.SetUndefinedPlistExcludeCondition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set undefined plist exclude condition.
+            </summary>
+            <param name="plist">Plist to set.</param>'
+            <param name="session">Current session.</param>
+        </member>
+        <member name="T:Prime.PupService.Handlers.Interfaces.IProcessDataHandler">
+            <summary>
+            Interface.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetCurrentProcessStepDefinition(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get current process step name and type as tuple.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>Current process step (name, type).</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.Initialize(Prime.PupService.Storage.ProcessData.PupProcessFilteredData,System.Boolean,Prime.PupService.Storage.TargetedPlists.TargetedPlistsData,System.Collections.Generic.List{Prime.PupService.IPupConfigSet},System.Boolean,Prime.PupService.UnitMatchType,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialize the process filtered database.
+            </summary>
+            <param name="filteredPupFileData">Pup process filtered data from PupFile for the current process step and name.</param>
+            <param name="processChanged">indicates of the process was changed (HOT -> COLD for example).</param>
+            <param name="targetedPlistsData">targeted plists data.</param>
+            <param name="codebaseConfigSets">codebase config sets to add.</param>
+            <param name="isDebugEnabled">isDebugEnabled.</param>
+            <param name="matchType">unit match type -  by VidOnly ,  EFuseOnly, VidAndEfuseBoth or EfuseAndVidOptional.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.AddAdHocUnitDefinition(System.Collections.Generic.Dictionary{System.String,Prime.PupService.ExecutionModeType},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            AddOrUpdate a new unitInfo to the database.
+            </summary>
+            <param name="adHocPerConfigSetExecutionMode">ConfigSetName --> ExecutionMode pairs.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetAllInstanceNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get all instance names per config set from the filtered process data.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>Per config set, all its instances.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.IsInstanceOrPlistExist(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns true if either the instance name or plist name exist in the process database.
+            </summary>
+            <param name="instanceName">Instance name.</param>
+            <param name="plistName">Plist name.</param>
+            <param name="session">Current session.</param>
+            <returns>False if none exist, True otherwise.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetPlistConfigSetInformation(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the config set information object of a given plist.
+            </summary>
+            <param name="plistName">The plist name.</param>
+            <param name="session">Current session.</param>
+            <returns>PlistConfigSetInformation object.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetConfigSetToPlist(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get config set to plist.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>Config set to plist.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetExecutionMode(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get execution mode.
+            </summary>
+            <param name="configSetName">Config set name.</param>
+            <param name="session">Current session.</param>
+            <returns>Execution mode.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.IsTestTimePrintEnabledForCurrentVid(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Is test time print enabled for current visual id.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>Test time print enable status.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetValidConfigSetToExecutionModes(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get valid config set to execution modes.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>Valid config set to execution modes.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset all table in shared storage.
+            </summary>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.SetEFuseUserFormat(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set EFuse user format.
+            </summary>
+            <param name="inputFormat">Input format.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetEFuse(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get EFuse.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>Efuse value.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.WasCurrentDieTested(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if current die was already tested -  if its a re-test.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>true - if current die was already tested , false - otherwise.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetExecutionModesForNprOrDieRetest(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns execution modes for NPR case or retest case.
+            </summary>
+            <param name="plistName">plist name.</param>
+            <param name="session">Current session.</param>
+            <returns>execution modes for NPR case or retest case.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetOriginalNprExecutionModes">
+            <summary>
+            Returns original , automation populated NPR predictions.
+            </summary>
+            <returns>original , automation populated NPR predictions.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetModelBasedPlistMapping(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns mapping of plists to their aliases for plists targeted by ML model.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>mapping of plists to their aliases for plists targeted by ML model.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetNprBasedPlistMapping(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns mapping of plists to their aliases for plists targeted by NPR.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>mapping of plists to their aliases for plists targeted by NPR.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetModelsVersions(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns mapping of models to their versions.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>mapping of models to their versions.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.IsCallbackTTPrintEnabled(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns indication whether the TT spent by callbacks execution should be printed to ituff.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>true - if TT spent by callbacks execution should be printed to ituff ,  false - otherwise.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.SetExecutionModeForPlist(System.String,Prime.PupService.ExecutionModeType,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets execution mode for given plist.
+            </summary>
+            <param name="plistName">plist name.</param>
+            <param name="executionMode">execution mode.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetCurrentUnitExecutionModes(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets execution modes for all the targeted plists executed during current unit run.
+            </summary>
+            <param name="session">Current session.</param>
+            <returns>per plists execution modes as a formatted string.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.ConvertExecutionModeString(System.String)">
+            <summary>
+            Convert execution mode string to type.
+            </summary>
+            <param name="executionMode">execution mode - SHORT, MONITOR, FULL .</param>
+            <returns>execution mode type.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.GetPlistAliasByPlistName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns plist alias by plist name.
+            </summary>
+            <param name="plistName">plist name.</param>
+            <param name="session">current session.</param>
+            <returns>plist alias.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.IProcessDataHandler.IsPlistTargetedByNprOnly(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Indicates if plist is targeted by NPR only.
+            </summary>
+            <param name="plistName">plist name.</param>
+            <param name="session">current session.</param>
+            <returns>true - if plist is targeted by NPR only (and not by the model).</returns>
+        </member>
+        <member name="T:Prime.PupService.Handlers.Interfaces.ISlimPlistsHandler">
+            <summary>
+            interface.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.ISlimPlistsHandler.Initialize(System.Collections.Generic.List{Prime.PupService.Storage.PatternsFile.PlistConfiguration},System.Boolean,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialize the slim plist database.
+            </summary>
+            <param name="plistSlimConfigurations">Plist and patterns to disable.</param>
+            <param name="isDebugEnabled">isDebugEnabled.</param>
+            <param name="processStepName">processStepName.</param>
+            <param name="processName">processName.</param>
+            <param name="session">Current session.</param>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.ISlimPlistsHandler.IsSlimVersionExistsForPlist(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns if a slim version exists for a given plist.
+            </summary>
+            <param name="originalPlistName">Original plist name.</param>
+            <param name="session">Current session.</param>
+            <returns>True if slim version exists.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.ISlimPlistsHandler.GetMonitorOriginalPlistName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get original plist name for a given monitor plist name.
+            </summary>
+            <param name="plistName">Plist name to check.</param>
+            <param name="session">Current session.</param>
+            <returns>Original plist name.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.ISlimPlistsHandler.GetDisabledPatterns(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get disabled patterns.
+            </summary>
+            <param name="plistName">Plist name.</param>
+            <param name="session">Current session.</param>
+            <returns>Disabled patterns.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.ISlimPlistsHandler.GetSlimPlistName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get slim plist name.
+            </summary>
+            <param name="originalPlistName">Original plist name.</param>
+            <param name="session">Current session.</param>
+            <returns>Slim plist name.</returns>
+        </member>
+        <member name="M:Prime.PupService.Handlers.Interfaces.ISlimPlistsHandler.GetMonitorPlistName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get monitor plist name.
+            </summary>
+            <param name="originalPlistName">Original plist name.</param>
+            <param name="session">Current session.</param>
+            <returns>Monitor plist name.</returns>
+        </member>
+        <member name="T:Prime.PupService.Handlers.ItuffHandler">
+            <summary>
+            Ituff handler class.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ItuffHandler.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ItuffHandler.PrintDebugData(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ItuffHandler.PrintUnitLevelItuffData(System.Collections.Generic.Dictionary{System.String,Prime.PupService.ExecutionModeType},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}},System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ItuffHandler.GetLotLevelItuffData(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}},System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}}},Prime.PupService.Storage.Mapper,Prime.PupService.Storage.Mapper,System.Collections.Generic.Dictionary{System.String,System.String},Prime.PupService.Storage.Mapper,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ItuffHandler.IncrementPlistUsageCounter(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ItuffHandler.IncrementExcludeCriteriaUsageCounter(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ItuffHandler.AddExcludeInstance(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ItuffHandler.SetPlistExcludeCondition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ItuffHandler.SetUndefinedPlistExcludeCondition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PupService.Handlers.ProcessDataHandler">
+            <summary>
+            Process storage handle class.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetCurrentProcessStepDefinition(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.Initialize(Prime.PupService.Storage.ProcessData.PupProcessFilteredData,System.Boolean,Prime.PupService.Storage.TargetedPlists.TargetedPlistsData,System.Collections.Generic.List{Prime.PupService.IPupConfigSet},System.Boolean,Prime.PupService.UnitMatchType,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.AddAdHocUnitDefinition(System.Collections.Generic.Dictionary{System.String,Prime.PupService.ExecutionModeType},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetAllInstanceNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetModelBasedPlistMapping(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetNprBasedPlistMapping(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetModelsVersions(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.IsCallbackTTPrintEnabled(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.IsInstanceOrPlistExist(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetPlistConfigSetInformation(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetConfigSetToPlist(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetExecutionMode(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.IsTestTimePrintEnabledForCurrentVid(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.WasCurrentDieTested(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetValidConfigSetToExecutionModes(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.SetEFuseUserFormat(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetEFuse(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.ProcessDataHandler.GetCurrentUnitInfoInternal(Prime.PupService.Storage.ProcessData.PupProcessFilteredData,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get current unit by match mode.
+            </summary>
+            <param name="currentProcessData">DB.</param>
+            <param name="session">Current Session.</param>
+            <returns>Current unit info.</returns>
+        </member>
+        <member name="T:Prime.PupService.Handlers.SlimPlistsHandler">
+            <summary>
+            Slim Plist Storage Handle class.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Handlers.SlimPlistsHandler.Initialize(System.Collections.Generic.List{Prime.PupService.Storage.PatternsFile.PlistConfiguration},System.Boolean,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.SlimPlistsHandler.IsSlimVersionExistsForPlist(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.SlimPlistsHandler.GetMonitorOriginalPlistName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.SlimPlistsHandler.GetDisabledPatterns(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.SlimPlistsHandler.GetSlimPlistName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.Handlers.SlimPlistsHandler.GetMonitorPlistName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PupService.IPupConfigSet">
+            <summary>
+            This is the interface of PupConfigSet object representing config set information.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.IPupConfigSet.Name">
+            <summary>
+            Gets or sets the config set name.
+            </summary>
+            <returns>config set name.</returns>
+        </member>
+        <member name="P:Prime.PupService.IPupConfigSet.PatListName">
+            <summary>
+            Gets or sets the patlist name for this config set.
+            </summary>
+            <returns>patlist name.</returns>
+        </member>
+        <member name="P:Prime.PupService.IPupConfigSet.InflowOptimization">
+            <summary>
+            Gets or sets the inflow optimization data in form of per criteria (key) information (value).
+            </summary>
+            <returns>patlist name.</returns>
+        </member>
+        <member name="T:Prime.PupService.UnitMatchType">
+            <summary>
+            Unit Match Mode -  mode for matching and resolving PUP execution modes.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.UnitMatchType.VidOnly">
+            <summary>
+            Match by VID only.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.UnitMatchType.EfuseOnly">
+            <summary>
+            Match by eFuse only.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.UnitMatchType.VidAndEfuseBoth">
+            <summary>
+            Match by both Vid and eFuse -  both must be defined.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.UnitMatchType.EfuseAndVidOptional">
+            <summary>
+            Match by VID and Efuse , but VID is optional.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.ExecutionModeType">
+            <summary>
+            Defines plist execution modes supported by PUP infrastructure.
+            </summary>
+            <remarks>
+            <list type="bullet">
+            <item>Full - original plist execution</item>
+            <item>Short - slim plist version execution</item>
+            <item>Monitor - executing original plist or specially defined monitor plist in monitor (InlineRV) mode</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:Prime.PupService.ExecutionModeType.None">
+            <summary>
+            Nothing defined.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.ExecutionModeType.Monitor">
+            <summary>
+            Plist execution in monitor mode.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.ExecutionModeType.Short">
+            <summary>
+            Plist execution in short mode.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.ExecutionModeType.Full">
+            <summary>
+            Plist execution in full mode.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.IPupService">
+            <summary>
+            <para>Interface which defines APIs for managing PUP infrastructure.</para>
+            <para>For more details, see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?friendlyName=PupService&amp;pagePath=/Releases/RELEASE_PLACEHOLDER/Services%20SDK/PupService">the service SDK</a>.</para>
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="N:Prime.TelemetryService"/></item>
+            <item><see cref="N:Prime.CallbacksService"/></item>
+            <item><see cref="N:Prime.ConsoleService"/></item>
+            <item><see cref="N:Prime.DatalogService"/></item>
+            <item><see cref="N:Prime.DffService"/></item>
+            <item><see cref="N:Prime.FileService"/></item>
+            <item><see cref="N:Prime.PlatformService"/></item>
+            <item><see cref="T:Prime.PlistService.PlistService"/></item>
+            <item><see cref="N:Prime.SharedStorageService"/></item>
+            <item><see cref="N:Prime.SessionService"/></item>
+            <item><see cref="N:Prime.UserVarService"/></item>
+            <item><see cref="N:Prime.TestProgramService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.PupService.IPupService.Setup(System.Boolean,System.String,System.Int32,Prime.PupService.UnitMatchType,System.String,System.String,System.Boolean,System.String,System.Collections.Generic.List{Prime.PupService.IPupConfigSet},System.Collections.Generic.HashSet{Prime.PlistService.IPlistObject},System.Collections.Generic.Dictionary{System.String,System.String},Prime.PupService.ExecutionModeType)">
+            <summary>
+            <para>Method performing centralized setup of PUP related data base.</para>
+            <para>For more details, see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?pagePath=/Releases/RELEASE_PLACEHOLDER/Services%20SDK/PupService">the service SDK</a>.</para>
+            <para>This function is called onlyu by PrimePupTestMethod during TP INIT.</para>
+            <para>For more details, see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?pagePath=/Releases/RELEASE_PLACEHOLDER/TestMethods/PUP/PUP">PUP test method documentation</a>.</para>
+            </summary>
+            <remarks>
+            <list type="bullet">
+            <para>This service depends on:</para>
+            <item>Reads pup file and initializes configsets data base</item>
+            <item>Reads patterns to disable (PTD) file and initializes slim plist versions database</item>
+            <item>Performs deep copy of original patterns to create slim plist versions on tester</item>
+            <item>if efuseFormat is not provided the per unit efuse data will be pull <from cref="N:Prime.DffService"/></item>
+            </list>
+            </remarks>
+            <param name="isEnabled">specifies if PUP is enabled or not. If disabled no files and other processing is done.</param>
+            <param name="efuseFormat">Efuse format in form of {LotName}_{WaferID}_{X-coordinate}_{Y-coordinate}.if efuseFormat is not provided the per unit efuse data will be pull <from cref="N:Prime.DffService"/>.</param>
+            <param name="monitorLoopNumber">Monitor loop number for Inline reject validation execution.</param>
+            <param name="matchType">Unit match type.</param>
+            <param name="patternsFilePath">Patterns file path.</param>
+            <param name="targetedPlistsFilePath">targeted plists file path.</param>
+            <param name="isDebugEnabled">if true - PUP related debug printouts will be printed to both console and ituff accross all the targeted instances in the flow.</param>
+            <param name="pupFilePath">Pup file path.</param>
+            <param name="codebaseConfigSets">A List of IPupConfigSets to add to the database.</param>
+            <param name="modelTargetedPlists">plists targeted by the model.</param>
+            <param name="modelsVersions">ML models versions.</param>
+            <param name="forceExecutionMode">The desired PUP execution mode to force and override the pup file definitions.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">will be thrown in case there is a failure to parse pup or patterns files.</exception>
+        </member>
+        <member name="M:Prime.PupService.IPupService.SetModelCallbacksImplementation(PrimeSDKAbstraction.IPupModelPluginCallbacks)">
+            <summary>
+            Sets the model callbacks implementation.
+            </summary>
+            <param name="mLModelPluginCallbacks">mLModelPluginCallbacks.</param>
+        </member>
+        <member name="M:Prime.PupService.IPupService.ResolvePlist(System.String,System.String)">
+            <summary>
+            Checks if the instance or plist is targeted . If yes - returns the resolved plist name based on the instance name and plist name.
+            </summary>
+            <remarks>
+            <list type="bullet">
+            <para>The options for a plist name "plistA" are:</para>
+            <item>If execution mode for it 'full' or the plist is not targeted -  returns the original plist ("PlistA") </item>
+            <item> If execution mode for it 'short'  -  returns the short plist version in this format ('PlistA_slimVersion{Index}')</item>
+            <item>If execution mode for it 'monitor'  -  returns the monitor plist version in this format ("PlistA_monitorVersion{Index}") </item>
+            <item>If the execution mode cannot be determined for some reason -  original plist is returned </item>
+            </list>
+            </remarks>
+            <param name="instanceName">Name of the instance.</param>
+            <param name="plistName">Name of the plist.</param>
+            <returns>Resolved plist name.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.ResolvePlistAndExecutionMode(System.String,System.String)">
+            <summary>
+            Checks if the instance or plist is targeted . If yes - returns the resolved plist name based on the instance name and plist name.
+            </summary>
+            <remarks>
+            <list type="bullet">
+            <para>The options for a plist name "plistA" are:</para>
+            <item>If execution mode for it 'full' or the plist is not targeted -  returns the original plist ("PlistA") </item>
+            <item> If execution mode for it 'short'  -  returns the short plist version in this format ('PlistA_slimVersion{Index}')</item>
+            <item>If execution mode for it 'monitor'  -  returns the monitor plist version in this format ("PlistA_monitorVersion{Index}") </item>
+            <item>If the execution mode cannot be determined for some reason -  original plist is returned </item>
+            </list>
+            </remarks>
+            <param name="instanceName">Name of the instance.</param>
+            <param name="plistName">Name of the plist.</param>
+            <returns>Resolved plist name and true is monitor is enabled.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.ResolvePlistToExecute(System.String)">
+            <summary>
+            Checks if the plist is targeted . If yes - returns the resolved plist name based on the plist name.
+            </summary>
+            <remarks>
+            <list type="bullet">
+            <para>The options for a plist name "plistA" are:</para>
+            <item>If execution mode for it 'full' or the plist is not targeted -  returns the original plist ("PlistA") </item>
+            <item> If execution mode for it 'short'  -  returns the short plist version in this format ('PlistA_slimVersion{Index}')</item>
+            <item>If execution mode for it 'monitor'  -  returns the monitor plist version in this format ("PlistA_monitorVersion{Index}") </item>
+            </list>
+            </remarks>
+            <param name="plistName">Name of the plist.</param>
+            <returns>Resolved plist name.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.GetExecutionMode(System.String)">
+            <summary>
+            Gets execution mode for the given plist.
+            </summary>
+            <remarks>
+            <list type="bullet">
+            <item>Full - original plist execution</item>
+            <item>Short - slim plist version execution</item>
+            <item>Monitor - executing original plist or specially defined monitor plist in monitor (InlineRV) mode</item>
+            <item>None - could not resolve the execution mode for a given plist</item>
+            </list>
+            </remarks>
+            <param name="plistName">Plist name.</param>
+            <returns>execution mode for a given plist.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.GetAllInstanceNames">
+            <summary>
+            Get all instance names set per config and per plist from the filtered process data (per process step and type).
+            </summary>
+            <returns>Per config set, per pist - instances.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.ArePatternsTriggeredToBeDisabled(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Checks if all the given patterns are triggered to be skipped by PUP.
+            <para> this function is used by Inline RV (monitor ) methodology.</para>
+            <para>For more details, see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?pagePath=/Releases/RELEASE_PLACEHOLDER/Services%20SDK/PupService">the service SDK</a>.</para>
+            </summary>
+            <param name="plistName">plist name.</param>
+            <param name="patternNames">list of pattern names.</param>
+            <returns>true -  all the given patterns are triggered to be skipped by PUP ,  false  -  otherwise.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.DoesPlistNeedsToBeReExecuted(System.String,System.Collections.Generic.HashSet{System.String},System.Int32,System.Boolean@)">
+            <summary>
+            Checks if the given instance and plist are targeted for PUP.
+            <para> this function is used by Inline RV (monitor ) methodology.</para>
+            <para>For more details, see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?pagePath=/Releases/RELEASE_PLACEHOLDER/Services%20SDK/PupService">the service SDK</a>.</para>
+            </summary>
+            <param name="plistName">>name of the plist.</param>
+            <param name="failedPatterns">Lists of failing patterns.</param>
+            <param name="reValidationCounter">Re-validation counter.</param>
+            <param name="reBinThisUnit">True if this unit needs to be re-binned.</param>
+            <returns>true - if the plist needs to be re-executed,  false  - otherwise.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.ExportResultToItuff(System.Boolean,System.Int32)">
+            <summary>
+            Export results to ituff.
+            </summary>
+            <param name="reBinThisUnit">True if this unit needs to be re-binned.</param>
+            <param name="reValidationCounter">Re-validation counter.</param>
+        </member>
+        <member name="M:Prime.PupService.IPupService.IsMonitorEnabledForPlist(System.String)">
+            <summary>
+            Checks if TTR monitor is isEnabled for a given plist.
+            <para> this function is used by Inline RV (monitor ) methodology.</para>
+            <para>For more details, see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?pagePath=/Releases/RELEASE_PLACEHOLDER/Services%20SDK/PupService">the service SDK</a>.</para>
+            </summary>
+            <param name="plistName">plist name.</param>
+            <returns>true -  if the TTR monitor is isEnabled for the given plist ,  false  -  otherwise.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.IsInstanceTargetedForPUP(System.String,System.String)">
+            <summary>
+            Checks if the given instance and plist are targeted for PUP.
+            To be targeted for pup instance/plist must be defined in configset which is targeted for at least one unit per certain process step and type.
+            </summary>
+            <param name="instanceName">name of the instance.</param>
+            <param name="plistName">name of the plist.</param>
+            <returns>true - if the given instance and plist are targeted for PUP,  false  - otherwise.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.PrintUnitLevelItuffData">
+            <summary>
+            Prints the unit (DUT) level ituff data.
+            <example>
+            This is a per unit PUP summary example example:
+            <code>
+            2_tname_pup_configsets
+            2_strgval_FastShortBase,FastCacheBase2,FastMonitorBase,FastMonitorValidation,FastCacheBase
+            2_tname_pup_mode
+            2_strgval_S,S,M,M,S
+            2_tname_pup_count
+            2_strgval_3|0|0,0,1,1,0
+            2_tname_pup_excluderesult
+            2_strgval_F|F|F,F,NA,NA,F
+            2_tname_pup_excludereasoncount
+            2_strgval_0|0|0,0,0,0,0
+            </code>
+            </example>
+            <para>For more details what each section indicates please see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?pagePath=/Releases/RELEASE_PLACEHOLDER/Services%20SDK/PupService">the service SDK</a>.</para>
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.IPupService.GetLotLevelItuffData">
+            <summary>
+            Returns the LOT level PUP summary as a string to be printed to ituff during Lot Start.
+            <example>
+            This is a per unit PUP summary example example:
+            <code>
+            4_tsattrs_PUP_MODE,ENABLED
+            4_tsattrs_PUP_PATTERNS_DIR,C:\InputFiles\BOM\1002\patterns.pup.json
+            4_tsattrs_PATTERNS_FILE_VERSION,1234
+            4_tsattrs_PUP_FILE_PATH,~HDMT_TPL_DIR\Modules\PUP\PUP\InputFiles\testingLot_2041.pup.json
+            4_tsattrs_MSTP_NAME,ADL0000D00S135,ADL0000E00S137
+            4_tsattrs_P:FastShortBase,search_plist_2|search_plist_4|search_plist_5
+            4_tsattrs_P:FastFullBase,search_plist3
+            4_tsattrs_P:FastCacheBase2,pup_cached_plist
+            4_tsattrs_P:FastMonitorBase,search_plist_1
+            4_tsattrs_P:FastMonitorValidation,search_plist
+            4_tsattrs_P:FastCacheBase,search_plist_6
+            4_tsattrs_I:FastFullBase,PUP::FASTExecuteFullPlistFullMode_P1
+            4_tsattrs_I:FastCacheBase2,PUP::FASTExecuteFullPlistExcludeCriteriaEntryVmin_P1
+            4_tsattrs_I:FastMonitorBase,PUP::FASTExecuteFullPlistMonitorMode_P1
+            4_tsattrs_I:FastCacheBase,PUP::FASTExecutePupSlimPlistShortModeResolvedByCache_F0^PUP::FASTExecuteFullPlistExcludeCriteriaBaseNumber_P1
+            </code>
+            </example>
+            <para>For more details what each section indicates please see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?pagePath=/Releases/RELEASE_PLACEHOLDER/Services%20SDK/PupService">the service SDK</a>.</para>
+            </summary>
+            <returns> LOT level PUP summary as a string to be printed to ituff during Lot Start.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.GetMaxMonitorLoopNum">
+            <summary>
+            Returns the maximal number of loops for monitor (InlineRv) algorithm.
+            <para> this function is used by Inline RV (monitor ) methodology.</para>
+            <para>For more details, see <a href="https://dev.azure.com/mit-us/PrimeWiki/_wiki/wikis/PrimeWiki.wiki?pagePath=/Releases/RELEASE_PLACEHOLDER/Services%20SDK/PupService">the service SDK</a>.</para>
+            </summary>
+            <returns> maximal number of loops for monitor (InlineRv) algorithm.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.IsTestTimePrintEnabledForCurrentVid">
+            <summary>
+            Checks if the test time printout to Ituff is isEnabled for the current unit.
+            </summary>
+            <returns> true - if the TT printout is isEnabled , false -  otherwise.</returns>
+        </member>
+        <member name="M:Prime.PupService.IPupService.AddAdHocPerConfigSetExecutionModes(System.Collections.Generic.Dictionary{System.String,Prime.PupService.ExecutionModeType})">
+            <summary>
+            Adds new config set --> ExecutionMode definition to the current device database.
+            </summary>
+            <param name="adHocPerConfigSetExecModes">ConfigSetName --> ExecutionMode pairs.</param>
+        </member>
+        <member name="T:Prime.PupService.PupService">
+            <summary>
+            Implementation of PupService.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.PupService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PupService.PupService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.PupService.#ctor(Prime.PupService.Handlers.Interfaces.IProcessDataHandler,Prime.PupService.Handlers.Interfaces.ISlimPlistsHandler,Prime.PupService.Handlers.Interfaces.IDutSessionCacheHandler,Prime.PupService.Handlers.Interfaces.IItuffHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PupService.PupService"/> class.
+            This C-tor is for UT only.
+            </summary>
+            <param name="processHandler">Process Handler.</param>
+            <param name="slimPlistHandler">SlimPlist handler.</param>
+            <param name="dutSessionCacheHandler">DutSession cache handler.</param>
+            <param name="ituffHandler">Ituff handler.</param>
+        </member>
+        <member name="M:Prime.PupService.PupService.Setup(System.Boolean,System.String,System.Int32,Prime.PupService.UnitMatchType,System.String,System.String,System.Boolean,System.String,System.Collections.Generic.List{Prime.PupService.IPupConfigSet},System.Collections.Generic.HashSet{Prime.PlistService.IPlistObject},System.Collections.Generic.Dictionary{System.String,System.String},Prime.PupService.ExecutionModeType)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.SetModelCallbacksImplementation(PrimeSDKAbstraction.IPupModelPluginCallbacks)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PupService.PupService.ResolvePlistToExecute(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PupService.PupService.ResolvePlist(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.ResolvePlistAndExecutionMode(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.GetExecutionMode(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.GetAllInstanceNames">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.ArePatternsTriggeredToBeDisabled(System.String,System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.DoesPlistNeedsToBeReExecuted(System.String,System.Collections.Generic.HashSet{System.String},System.Int32,System.Boolean@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.ExportResultToItuff(System.Boolean,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.IsMonitorEnabledForPlist(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.IsInstanceTargetedForPUP(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.PrintUnitLevelItuffData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.GetLotLevelItuffData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.GetMaxMonitorLoopNum">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.IsTestTimePrintEnabledForCurrentVid">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.AddAdHocPerConfigSetExecutionModes(System.Collections.Generic.Dictionary{System.String,Prime.PupService.ExecutionModeType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PupService.PupService.ParsePupFile(System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            ParsePupFile.
+            </summary>
+            <param name="pupFilePath">pup file path.</param>
+            <param name="isDebugEnabled">isDebugEnabled.</param>
+            <param name="session">CurrentSession.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Parsing failure.</exception>
+        </member>
+        <member name="M:Prime.PupService.PupService.ParsePatternsFile(System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            ParsePatternsFile.
+            </summary>
+            <param name="patternsFilePath">Filepath.</param>
+            <param name="isDebugEnabled">isDebugEnabled.</param>
+            <param name="session">CurrentSession.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Parsing failure.</exception>
+        </member>
+        <member name="M:Prime.PupService.PupService.ParseTargetedPlistsFile(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean,System.Collections.Generic.HashSet{Prime.PlistService.IPlistObject},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Parse targeted plists file.
+            </summary>
+            <param name="filePath">targeted plists file path.</param>
+            <param name="modelsVersions">per model version.</param>
+            <param name="isDebugEnabled">whether or not to print debug messages.</param>
+            <param name="modelTargetedPlists">list of plists targeted by the ML model.</param>
+            <param name="session">CurrentSession.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Parsing failure.</exception>
+        </member>
+        <member name="T:Prime.PupService.PupServiceEnums">
+            <summary>
+            Defines all Pup service constants and enums.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.PupServiceEnums.PlistSources">
+            <summary>
+            Plist source type.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.PupServiceEnums.PlistSources.FullPlist">
+            <summary>
+            Full plist.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.PupServiceEnums.PlistSources.MonitorPlist">
+            <summary>
+            Monitor plist.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.PupServiceEnums.PlistSources.SlimPlist">
+            <summary>
+            Slim plist.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.PupServiceEnums.PlistSources.CachedPlist">
+            <summary>
+            Cached plist.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.PupServiceEnums.PlistExcludeCondition">
+            <summary>
+            Plist exclude condition type.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.PupServiceEnums.PlistExcludeCondition.True">
+            <summary>
+            True condition.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.PupServiceEnums.PlistExcludeCondition.False">
+            <summary>
+            False condition.
+            </summary>
+        </member>
+        <member name="F:Prime.PupService.PupServiceEnums.PlistExcludeCondition.Undefined">
+            <summary>
+            Undefined condition.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.Storage.GeneralPupSetup">
+            <summary>
+            General setup for Pup service.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.GeneralPupSetup.IsEnabled">
+            <summary>
+            Gets or sets a value indicating whether pup is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.GeneralPupSetup.IsDebugEnabled">
+            <summary>
+            Gets or sets a value indicating whether console debug prints are enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.GeneralPupSetup.EfuseFormat">
+            <summary>
+            Gets or sets the efuse format.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.GeneralPupSetup.MonitorLoopNumber">
+            <summary>
+            Gets or sets the monitor loop number.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.GeneralPupSetup.UnitMatchType">
+            <summary>
+            Gets or sets the unit match type.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.GeneralPupSetup.TargetedPlistsFilePath">
+            <summary>
+            Gets or sets the targeted plists file path.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.GeneralPupSetup.PupFilePath">
+            <summary>
+            Gets or sets the Pup file path.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.GeneralPupSetup.ForceExecutionMode">
+            <summary>
+            Gets or sets the Force Execution Mode.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.Storage.Ituff.ExcludeInstanceInformation">
+            <summary>
+            Exclude Instance Information class.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.Ituff.ExcludeInstanceInformation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PupService.Storage.Ituff.ExcludeInstanceInformation"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.Ituff.ExcludeInstanceInformation.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PupService.Storage.Ituff.ExcludeInstanceInformation"/> class.
+            </summary>
+            <param name="instanceName">Instance name.</param>
+            <param name="configurationSetting">Configuration setting.</param>
+            <param name="excludeReasonName">Exclude reason name.</param>
+            <param name="excludeReasonValue">Exclude reason value.</param>
+        </member>
+        <member name="P:Prime.PupService.Storage.Ituff.ExcludeInstanceInformation.InstanceName">
+            <summary>
+            Gets or sets instance name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.Ituff.ExcludeInstanceInformation.ConfigurationSetting">
+            <summary>
+            Gets or sets configuration setting.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.Ituff.ExcludeInstanceInformation.ExcludeReason">
+            <summary>
+            Gets or sets exclude reason.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.Storage.Ituff.PupItuffData">
+            <summary>
+            Holds all needed data for ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.Ituff.PupItuffData.ExcludeInstances">
+            <summary>
+            Gets or sets the exclude instances list.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.Ituff.PupItuffData.PlistUsageCounters">
+            <summary>
+            Gets or sets the Plist usage counters.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.Ituff.PupItuffData.PlistExcludeCounters">
+            <summary>
+            Gets or sets the Plist exclude counters.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.Ituff.PupItuffData.PlistExcludeResults">
+            <summary>
+            Gets or sets the Plist exclude results.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.Ituff.PupItuffData.PupModelsVersions">
+            <summary>
+            Gets or sets the models versions.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.Storage.PatternsFile.PatternsFileData">
+            <summary>
+            Pattern files.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PatternsFileData.Version">
+            <summary>
+            Gets or sets version.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PatternsFileData.ProcessTypes">
+            <summary>
+            Gets or sets process types.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.PatternsFileData.FilterData(System.String,System.String)">
+            <summary>
+            Filter the database by Process step name and type.
+            </summary>
+            <param name="processStepName">Process step name.</param>
+            <param name="processName">Process type name.</param>
+            <returns>Filtered data.</returns>
+        </member>
+        <member name="T:Prime.PupService.Storage.PatternsFile.PatternToDisable">
+            <summary>
+            Patterns to disable.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PatternToDisable.Pattern">
+            <summary>
+            Gets or sets pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PatternToDisable.Occurrence">
+            <summary>
+            Gets or sets occurrence.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.PatternToDisable.ProcessPatternOccurrences">
+            <summary>
+            Process object to filtered element.
+            </summary>
+            <returns>PatternToDisable object.</returns>
+        </member>
+        <member name="T:Prime.PupService.Storage.PatternsFile.PerPatlistPatternsToDisable">
+            <summary>
+            Per patlist patterns to disabled class.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PerPatlistPatternsToDisable.Patlist">
+            <summary>
+            Gets or sets patlist.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PerPatlistPatternsToDisable.PatternsToDisable">
+            <summary>
+            Gets or sets pattern to disable.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PerPatlistPatternsToDisable.Functionality">
+            <summary>
+            Gets or sets functionality.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PerPatlistPatternsToDisable.ExistingSlimPlist">
+            <summary>
+            Gets or sets existing slim plist.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.PerPatlistPatternsToDisable.ProcessPatList">
+            <summary>
+            Process pat list to filtered object.
+            </summary>
+            <returns>PlistConfiguration.</returns>
+        </member>
+        <member name="T:Prime.PupService.Storage.PatternsFile.PlistConfiguration">
+            <summary>
+            Plist configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PlistConfiguration.PatlistName">
+            <summary>
+            Gets or sets pattern list name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PlistConfiguration.PatternToDisable">
+            <summary>
+            Gets pattern to disable.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PlistConfiguration.IsMonitorFunctionality">
+            <summary>
+            Gets or sets a value indicating whether monitor functionality is true or false.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PlistConfiguration.ExistingSlimPlistName">
+            <summary>
+            Gets or sets existing plist name.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.PlistConfiguration.AddPatternToDisable(System.String,System.Collections.Generic.HashSet{System.UInt32})">
+            <summary>
+            Add pattern to disable.
+            </summary>
+            <param name="patternName">Pattern name.</param>
+            <param name="occurrences">Occurrences.</param>
+        </member>
+        <member name="T:Prime.PupService.Storage.PatternsFile.ProcessTypes">
+            <summary>
+            Process types class.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.ProcessTypes.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.ProcessTypes.StepName">
+            <summary>
+            Gets or sets step name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.ProcessTypes.PerPatlistPatternsToDisable">
+            <summary>
+            Gets or sets per patlist patterns to disable.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.ProcessTypes.ProcessStepTypeData">
+            <summary>
+            Process the step / type database to runnable objects.
+            </summary>
+            <returns>PerProcessTypePatlistToDisable.</returns>
+        </member>
+        <member name="T:Prime.PupService.Storage.PatternsFile.PupPatternsFile">
+            <summary>
+            Pup pattern files object.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PupPatternsFile.ResolvedPatternsFilePath">
+            <summary>
+            Gets or sets the resolved patterns file path.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PupPatternsFile.ResolvedPatternsFileTimeStampUtc">
+            <summary>
+            Gets or sets the resolved patterns file timestamp.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PupPatternsFile.FilteredProcessStepName">
+            <summary>
+            Gets or sets the process step name of the filtered object.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PupPatternsFile.FilteredProcessName">
+            <summary>
+            Gets or sets the process step type of the filtered object.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.PupPatternsFile.DataObject">
+            <summary>
+            Gets or sets the object that represent the parsed file.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.Storage.PatternsFile.SlimPlist">
+            <summary>
+            Slim Plist Version class.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlist.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PupService.Storage.PatternsFile.SlimPlist"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlist.#ctor(Prime.PupService.Storage.PatternsFile.PlistConfiguration,System.Int32,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PupService.Storage.PatternsFile.SlimPlist"/> class.
+            </summary>
+            <param name="fromDefinition">Plist configuration that contains the definition.</param>
+            <param name="uniqueId">A unique id for this plist.</param>
+            <param name="processStepName">processStepName.</param>
+            <param name="processName">processName.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.SlimPlist.OrigPlistName">
+            <summary>
+            Gets or sets original plist name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.SlimPlist.SlimPlistName">
+            <summary>
+            Gets or sets slim plist name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.SlimPlist.PatternOccurrencesToDisable">
+            <summary>
+            Gets or sets pattern to disable definition.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.SlimPlist.FlattenDisabledPatterns">
+            <summary>
+            Gets or sets flatten disabled patterns.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.SlimPlist.IsMonitorPlist">
+            <summary>
+            Gets or sets a value indicating whether this is a monitor plist.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.SlimPlist.IsLoadedToHw">
+            <summary>
+            Gets or sets a value indicating whether the plist is loaded to HW or not.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlist.LoadToHw">
+            <summary>
+            Load this plist to current dut context HW.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlist.UnloadFromHw(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Remove this plist from current dut context HW.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlist.GetConsoleDump">
+            <summary>
+            Get content as StringBuilder.
+            </summary>
+            <returns>Console String.</returns>
+        </member>
+        <member name="T:Prime.PupService.Storage.PatternsFile.SlimPlists">
+            <summary>
+            Slim Plist database class.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.SlimPlists.HwInitializedInDuts">
+            <summary>
+            Gets or sets the HW initialization flag per dut.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.SlimPlists.SlimPlistData">
+            <summary>
+            Gets or sets the slimPlistData. Key: OriginalPlist, Value: List of reduced plists..
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PatternsFile.SlimPlists.MonitorToOriginalPlist">
+            <summary>
+            Gets or sets the Monitor to Original plist.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlists.GetContentConsoleMsg">
+            <summary>
+            Dump content to console.
+            </summary>
+            <returns>Msg as string builder.</returns>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlists.Add(Prime.PupService.Storage.PatternsFile.SlimPlist)">
+            <summary>
+            Add a slimPlist object to the database.
+            </summary>
+            <param name="slimPlist">SlimPlist object.</param>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlists.GetSlimPlistName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get slim plist name.
+            </summary>
+            <param name="origPlistName">Original plist name.</param>
+            <param name="session">Current session.</param>
+            <returns>Slim plist name.</returns>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlists.GetMonitorPlistName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get monitored plist name.
+            </summary>
+            <param name="origPlistName">Original plist name.</param>
+            <param name="session">Current session.</param>
+            <returns>Monitored plist name.</returns>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlists.GetMonitorOriginalPlistName(System.String)">
+            <summary>
+            Gets the original plist name of a given monitor name.
+            If the given name is not a monitor plist, return the given name.
+            </summary>
+            <param name="monitorPlistName">Plist to check.</param>
+            <returns>Original plist name.</returns>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlists.IsSlimVersionExistsForPlist(System.String)">
+            <summary>
+            Returns if a slim version exists for a given plist.
+            </summary>
+            <param name="plistName">Plist name.</param>
+            <returns>True if slim version exists.</returns>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlists.GetDisabledPatterns(System.String)">
+            <summary>
+            Get disabled patterns.
+            </summary>
+            <param name="reducedPlistName">Plist name of interest.</param>
+            <returns>Disabled patterns.</returns>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlists.LoadAllPlists">
+            <summary>
+            Load all plists stored in this object.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PatternsFile.SlimPlists.UnloadAllPlists(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Unload all plists stored in this object.
+            </summary>
+            <param name="sessionContext">The current instance session's context.</param>
+        </member>
+        <member name="T:Prime.PupService.Storage.ProcessData.EfuseCreator">
+            <summary>
+            Efuse creator from user definition string.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.EfuseCreator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PupService.Storage.ProcessData.EfuseCreator"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.EfuseCreator.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PupService.Storage.ProcessData.EfuseCreator"/> class.
+            </summary>
+            <param name="eFuseUserFormat">user efuse definition string.</param>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.EfuseCreator.EFuseUserFormat">
+            <summary>
+            Gets or sets the efuse user format string.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.EfuseCreator.EfuseUserVars">
+            <summary>
+            Gets or sets the efuse pairs (uservar name : replacement string in EFuseUserFormat).
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.EfuseCreator.Create">
+            <summary>
+            Evaluate user definition string and return the Efuse.
+            </summary>
+            <returns>Efuse string.</returns>
+        </member>
+        <member name="T:Prime.PupService.Storage.ProcessData.PlistConfigSetInformation">
+            <summary>
+            Plist config set information.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PlistConfigSetInformation.ConfigSetName">
+            <summary>
+            Gets or sets the configSet name for this plist.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PlistConfigSetInformation.InFlowOptimizationArgs">
+            <summary>
+            Gets or sets the in flow optimization argument string.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.Storage.ProcessData.PupProcessDefinition">
+            <summary>
+            Process definition.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessDefinition.ProcessStepName">
+            <summary>
+            Gets or sets the current process step name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessDefinition.ProcessName">
+            <summary>
+            Gets or sets the current process step type..
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.Storage.ProcessData.PupProcessFilteredData">
+            <summary>
+            Holds the Pup database of a given process step and name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.Units">
+            <summary>
+            Gets or sets the units for this process step.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.ConfigSets">
+            <summary>
+            Gets or sets the process config sets.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.TargetedPlistData">
+            <summary>
+            Gets or sets the targeted plists data.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.UnitsDb">
+            <summary>
+            Gets or sets the Efuse to unit info DB.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.PlistConfigSetInformation">
+            <summary>
+            Gets or sets the Plist to configSet information.
+            Key: PlistName
+            Value: (configSetName, ConfigSetInformation).
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.InstanceNames">
+            <summary>
+            Gets or sets the Instance names database.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.PlistNames">
+            <summary>
+            Gets or sets the Plist names database.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.PlistTargetedByConfigSet">
+            <summary>
+            Gets or sets the current process step name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.PrintCallbackTT">
+            <summary>
+            Gets or sets a value indicating whether or not to print TT spent by the callback.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.AddCodebaseConfigSets(System.Collections.Generic.List{Prime.PupService.IPupConfigSet},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            AddOrUpdate config sets to the database.
+            </summary>
+            <param name="codebaseConfigSets">List of ConfigSet to add.</param>
+            <param name="session">Current session for debug message..</param>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.ReplaceTargetedPlistsData(Prime.PupService.Storage.TargetedPlists.TargetedPlistsData)">
+            <summary>
+            Replaces the targeted plists data.
+            </summary>
+            <param name="targetedPlistData">targeted plists data.</param>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.IsPlistTargetedBySortUsageModel(System.String)">
+            <summary>
+            Replaces the targeted plists data.
+            </summary>
+            <returns>targeted plists.</returns>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.RemovePreviousCodebaseConfigSets">
+            <summary>
+            Remove all config sets that added by AddCodebaseConfigSets API.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.AddOrUpdateAdHocUnitDefinition(Prime.PupService.Storage.PupFile.UnitInfo)">
+            <summary>
+            Add new ad hoc unit information to the db.
+            </summary>
+            <param name="newUnitInfo">New Unit to be added.</param>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.Initialize(System.String,System.String,Prime.PupService.UnitMatchType)">
+            <summary>
+            Update InstanceNames or PlistNames after data is loaded based on argument. Default is by instance name.
+            </summary>
+            <param name="processName">Process name for error message prints.</param>
+            <param name="processStepName">Process step name for error message prints.</param>
+            <param name="matchType">unit data match type.</param>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.InitializeUnits(Prime.PupService.UnitMatchType)">
+            <summary>
+            Initialize the units database.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.ProcessData.PupProcessFilteredData.GetContentConsoleMsg">
+            <summary>
+            Dump content to Console as string builder.
+            </summary>
+            <returns>Content as stringBuilder.</returns>
+        </member>
+        <member name="T:Prime.PupService.Storage.SortDataHandler.SortDataHandler">
+            <summary>
+            Defines Sort (SDS) usage model handling.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.SortDataHandler.SortDataHandler.PlistTargetedByConfigSet">
+            <summary>
+            Gets or sets the current process step name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.SortDataHandler.SortDataHandler.PerPlistExecutionModes">
+            <summary>
+            Gets or sets per plist execution modes.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.SortDataHandler.SortDataHandler.NprPlistMapping">
+            <summary>
+            Gets or sets NPR plists mapping.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.SortDataHandler.SortDataHandler.ModelPlistMapping">
+            <summary>
+            Gets or sets Model based plists mapping.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.SortDataHandler.SortDataHandler.PlistAliases">
+            <summary>
+            Gets or sets per plist alias.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.Storage.PupFile.ConfigDetails">
+            <summary>
+            Pup unit info config details.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ConfigDetails.ConfigSetName">
+            <summary>
+            Gets or sets config set name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ConfigDetails.ExecutionMode">
+            <summary>
+            Gets or sets execution mode.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ConfigDetails.PlistExecutionMode">
+            <summary>
+            Gets or sets the Plist execution mode as enum type.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.ConfigDetails.Validate(System.String)">
+            <summary>
+            Validate the content of the file.
+            Any failure will throw an exception.
+            </summary>
+            <param name="filePath">The file path for error messages.</param>
+        </member>
+        <member name="T:Prime.PupService.Storage.PupFile.ConfigSetInformation">
+            <summary>
+            Pup config sets information.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ConfigSetInformation.PatList">
+            <summary>
+            Gets or sets pattern list..
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ConfigSetInformation.TestNames">
+            <summary>
+            Gets or sets test names.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ConfigSetInformation.InFlowOptimizationInputs">
+            <summary>
+            Gets or sets InFlow optimization inputs.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ConfigSetInformation.UniqueTestNames">
+            <summary>
+            Gets or sets a unique set of test names.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ConfigSetInformation.InFlowOptimizationAsString">
+            <summary>
+            Gets or sets the in flow optimizations inputs as string.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.ConfigSetInformation.Validate(System.String)">
+            <summary>
+            Validate the content of the file.
+            Any failure will throw an exception.
+            </summary>
+            <param name="filePath">The file path for error messages.</param>
+        </member>
+        <member name="T:Prime.PupService.Storage.PupFile.ProcessTypes">
+            <summary>
+            Pup process types class.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ProcessTypes.Name">
+            <summary>
+            Gets or sets name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ProcessTypes.StepName">
+            <summary>
+            Gets or sets StepName.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.ProcessTypes.UnitInfo">
+            <summary>
+            Gets or sets StepName.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.ProcessTypes.Validate(System.String)">
+            <summary>
+            Validate the content of the file.
+            Any failure will throw an exception.
+            </summary>
+            <param name="filePath">The file path for error messages.</param>
+        </member>
+        <member name="T:Prime.PupService.Storage.PupFile.PupConfigSet">
+            <summary>
+            Pup file config sets.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupConfigSet.Name">
+            <summary>
+            Gets or sets name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupConfigSet.Information">
+            <summary>
+            Gets or sets information.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupConfigSet.IsCodebaseConfigSets">
+            <summary>
+            Gets or sets a value indicating whether this config set generated from code or not.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.PupConfigSet.Validate(System.String)">
+            <summary>
+            Validate the content of the file.
+            Any failure will throw an exception.
+            </summary>
+            <param name="filePath">The file path for error messages.</param>
+        </member>
+        <member name="T:Prime.PupService.Storage.PupFile.PupFile">
+            <summary>
+            Pup file object.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFile.PupFilePath">
+            <summary>
+            Gets or sets the pup file path.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFile.ResolvedPupFilePath">
+            <summary>
+            Gets or sets the resolved pup file path.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFile.ResolvedPupFileTimeStampUtc">
+            <summary>
+            Gets or sets the resolved pup file timestamp.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFile.FilteredProcessStepName">
+            <summary>
+            Gets or sets the process step name of the filtered object.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFile.FilteredProcessName">
+            <summary>
+            Gets or sets the process name of the filtered object.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFile.DataObject">
+            <summary>
+            Gets or sets the object that represent the parsed file.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.Storage.PupFile.PupFileData">
+            <summary>
+            Pup storage file.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFileData.MaestroTpName">
+            <summary>
+            Gets or sets maestro tp name.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFileData.PatternsFilePath">
+            <summary>
+            Gets or sets patterns file name - optionally.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFileData.PupConfigSets">
+            <summary>
+            Gets or sets pup config sets.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFileData.ProcessTypes">
+            <summary>
+            Gets or sets process type.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupFileData.ConfigSets">
+            <summary>
+            Gets or sets the Config set database of this object.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.PupFileData.Validate(System.String)">
+            <summary>
+            Validate the content of the file.
+            Any failure will throw an exception.
+            </summary>
+            <param name="filePath">The file path for error messages.</param>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.PupFileData.FilterData(System.String,System.String)">
+            <summary>
+            Filter the database by Process step name and type.
+            </summary>
+            <param name="processStepName">Process step name.</param>
+            <param name="processName">Process type name.</param>
+            <returns>Filtered data.</returns>
+        </member>
+        <member name="T:Prime.PupService.Storage.PupFile.PupNamesDb">
+            <summary>
+            Instances names class - stored one per ProcessStepName^ProcessName.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.PupNamesDb.Names">
+            <summary>
+            Gets or sets the Names DB.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.PupNamesDb.AddOrAppend(System.String,System.String,System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            AddOrAppend to test instance names based configSet name and plist keys.
+            </summary>
+            <param name="configSetName">Unique configSetName.</param>
+            <param name="plistName">Plist name.</param>
+            <param name="names">Names to store in the DB.</param>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.PupNamesDb.AddOrAppend(System.String,System.String,System.String)">
+            <summary>
+            AddOrAppend to test instance names based configSet name and plist keys.
+            </summary>
+            <param name="configSetName">Unique configSetName.</param>
+            <param name="plistName">Plist name.</param>
+            <param name="name">A name to store in the DB.</param>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.PupNamesDb.Exists(System.String)">
+            <summary>
+            Check is a exist in any config set / plist pairs.
+            </summary>
+            <param name="name">A name.</param>
+            <returns>True if exist.</returns>
+        </member>
+        <member name="T:Prime.PupService.Storage.PupFile.UnitInfo">
+            <summary>
+            Pup Process types unit info.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.UnitInfo.Vid">
+            <summary>
+            Gets or sets Vid.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.UnitInfo.PrintTTData">
+            <summary>
+            Gets or sets PrintTTData.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.UnitInfo.EFuse">
+            <summary>
+            Gets or sets EFuse.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.UnitInfo.ConfigDetails">
+            <summary>
+            Gets or sets config details.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.UnitInfo.ConfigSetsExecutionMode">
+            <summary>
+            Gets or sets the config set Name --> Execution mode dictionary.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.UnitInfo.NprExecutionMode">
+            <summary>
+            Gets or sets the plist name --> Execution mode dictionary for NPR mode on Sort environment.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.PupFile.UnitInfo.PerPlistExecutionModes">
+            <summary>
+            Gets or sets the per plist execution modes.
+            </summary>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.UnitInfo.IsTestTimePrintEnabled">
+            <summary>
+            Returns if TT print is enabled.
+            </summary>
+            <returns>TT print mode.</returns>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.UnitInfo.WasCurrentDieTested">
+            <summary>
+            Returns if current die was already tested.
+            </summary>
+            <returns>TT print mode.</returns>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.UnitInfo.GetExecutionMode(System.String)">
+            <summary>
+            Get execution mode for a given config set.
+            </summary>
+            <param name="configSetName">Config set name.</param>
+            <returns>Execution mode.</returns>
+        </member>
+        <member name="M:Prime.PupService.Storage.PupFile.UnitInfo.Initialize(System.String,System.Boolean)">
+            <summary>
+            Validate the content of the file.
+            Any failure will throw an exception.
+            </summary>
+            <param name="filePath">The file path for error messages.</param>
+            <param name="fromJsonFile">Validation of file based object.</param>
+        </member>
+        <member name="T:Prime.PupService.Storage.TargetedPlists.TargetedPlistsData">
+            <summary>
+            Targeted plists data.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.TargetedPlists.TargetedPlistsData.ModelPerPlistAliases">
+            <summary>
+            Gets or sets the model based plist to alias mapping.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.TargetedPlists.TargetedPlistsData.NprPerPlistAliases">
+            <summary>
+            Gets or sets the NPR based plist to alias mapping.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.TargetedPlists.TargetedPlistsData.NotFoundPlists">
+            <summary>
+            Gets or sets the not found plists.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.TargetedPlists.TargetedPlistsData.ModelsVersions">
+            <summary>
+            Gets or sets the models versions.
+            </summary>
+        </member>
+        <member name="T:Prime.PupService.Storage.TargetedPlists.TargetedPlistsFile">
+            <summary>
+            Pup pattern files object.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.TargetedPlists.TargetedPlistsFile.ResolvedTargetedPlistsFilePath">
+            <summary>
+            Gets or sets the resolved targeted plists file path.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.TargetedPlists.TargetedPlistsFile.ResolvedTargetedPlistsFileTimeStampUtc">
+            <summary>
+            Gets or sets the resolved targeted plists timestamp.
+            </summary>
+        </member>
+        <member name="P:Prime.PupService.Storage.TargetedPlists.TargetedPlistsFile.DataObject">
+            <summary>
+            Gets or sets the targeted plists data object.
+            </summary>
+        </member>
+    </members>
+</doc>

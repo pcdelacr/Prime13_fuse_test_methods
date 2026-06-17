@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.DDG.VoltageConverterBase</name>
+    </assembly>
+    <members>
+        <member name="T:DDG.VoltageConverterOptions">
+            <summary>
+            Defines the <see cref="T:DDG.VoltageConverterOptions" />.
+            </summary>
+        </member>
+        <member name="P:DDG.VoltageConverterOptions.FivrCondition">
+            <summary>
+            Gets or sets the fivr condition name.
+            </summary>
+        </member>
+        <member name="P:DDG.VoltageConverterOptions.Overrides">
+            <summary>
+            Gets or sets the list of overrides using specific syntax.
+            </summary>
+        </member>
+        <member name="P:DDG.VoltageConverterOptions.RailConfigurations">
+            <summary>
+            Gets or sets the list of rail configurations.
+            </summary>
+        </member>
+        <member name="P:DDG.VoltageConverterOptions.DlvrPins">
+            <summary>
+            Gets or sets the list of dlvr pins.
+            </summary>
+        </member>
+        <member name="P:DDG.VoltageConverterOptions.OverrideExpressions">
+            <summary>
+            Gets or sets the list of override dlvr expressions.
+            </summary>
+        </member>
+        <member name="P:DDG.VoltageConverterOptions.GuardBand">
+            <summary>
+            Gets or sets the guard band value.
+            </summary>
+        </member>
+        <member name="P:DDG.VoltageConverterOptions.Ituff">
+            <summary>
+            Gets or sets a value indicating whether ituff printing is enabled.
+            </summary>
+        </member>
+        <member name="T:DDG.VoltageHandler">
+            <summary>
+            Implements IVoltageHandler.
+            </summary>
+        </member>
+        <member name="M:DDG.VoltageHandler.GetRailConfigurations(System.String)">
+            <summary>
+            Parses command line and extracts list of configurations.
+            </summary>
+            <param name="commandLine">Commandline.</param>
+            <returns>List of rail configurations.</returns>
+        </member>
+        <member name="M:DDG.VoltageHandler.ParseCommandLine(System.String,System.String)">
+            <summary>
+            Parses command line and extracts all options.
+            </summary>
+            <param name="fivrCondition">FIVR condition.</param>
+            <param name="commandLine">Commandline.</param>
+            <returns>Voltage converter options. Null if there are no options.</returns>
+        </member>
+        <member name="M:DDG.VoltageHandler.GetVoltageOverrides(DDG.VoltageConverterOptions,Prime.SessionService.ISessionContextProviderContainer,Prime.VoltageService.IVoltage,System.Int32)">
+            <summary>
+            Gets voltage overrides from VoltageConverterOptions.
+            </summary>
+            <param name="options">Options parsed object.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <param name="voltageObject">Prime voltage object.</param>
+            <param name="flowIndex">Flow index.</param>
+            <returns>Voltage overrides values.</returns>
+        </member>
+        <member name="M:DDG.VoltageHandler.GetVoltageObject(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String,System.String,DDG.VoltageConverterOptions@,Prime.SessionService.ISessionContextProviderContainer,System.Int32)">
+            <summary>
+            Gets VForcePinAttribute object for voltage overrides.
+            </summary>
+            <param name="domains">Pin names.</param>
+            <param name="levels">Levels.</param>
+            <param name="patlist">Patlist required for fivr mode.</param>
+            <param name="fivrCondition">Fivr condition, empty will default to VForcePinAttribute.</param>
+            <param name="triggerCondition">Trigger test condition for Vbump mode.</param>
+            <param name="commandLine">VoltageConverter options.</param>
+            <param name="options">Voltage converter options.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <param name="flowIndex">Flow index.</param>
+            <returns>Prime IVoltage Object.</returns>
+        </member>
+        <member name="M:DDG.VoltageHandler.GetDpsSearchVoltageObjects(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String,DDG.VoltageConverterOptions@,Prime.SessionService.ISessionContextProviderContainer,System.Int32,System.Boolean)">
+            <summary>
+            Gets dps search voltage objects.
+            </summary>
+            <param name="targets">DPS pin names.</param>
+            <param name="levels">levels test condition.</param>
+            <param name="patlist">patlist.</param>
+            <param name="triggerLevels">trigger levels.</param>
+            <param name="voltageConverter">VoltageConverter command line.</param>
+            <param name="options">output options.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <param name="flowIndex">optional flow index.</param>
+            <param name="skipApplySearchVoltage">skip apply search voltage.</param>
+            <returns>Initial voltage, search voltage.</returns>
+        </member>
+        <member name="M:DDG.VoltageHandler.GetVForceAttributesFromLevel(System.Collections.Generic.List{System.String},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets VForce required attributes from levels.
+            </summary>
+            <param name="voltageTargets">Distinct voltage targets.</param>
+            <param name="levelsTc">LevelsTc.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>Mandatory attributes per target.</returns>
+        </member>
+        <member name="M:DDG.VoltageHandler.ApplyInitialVoltage(Prime.VoltageService.IVoltage,System.String,System.Collections.Generic.Dictionary{System.String,System.Double})">
+            <summary>
+            Applies initial voltage using VoltageConverter and/or Prime voltage object.
+            </summary>
+            <param name="voltageObject">Prime voltage object.</param>
+            <param name="levels">Levels.</param>
+            <param name="overrides">Voltage overrides.</param>
+        </member>
+        <member name="M:DDG.VoltageHandler.ApplySearchVoltage(Prime.VoltageService.IVoltage,System.Collections.Generic.List{System.Double},Prime.SessionService.ISessionContextProviderContainer,System.String,DDG.VoltageConverterOptions)">
+            <summary>
+            Applies search voltage using VoltageConverter, Prime VoltageObject and/or offset.
+            </summary>
+            <param name="voltageObject">Prime voltage object.</param>
+            <param name="voltageValues">Voltage values.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <param name="voltageOffset">Offset. Double, SharedStorage Key or UerVar.</param>
+            <param name="options">Voltage converter options.</param>
+        </member>
+        <member name="M:DDG.VoltageHandler.CreateVForce(System.Collections.Generic.List{System.String},System.String,System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            CreateVForceForPinAttribute.
+            </summary>
+            <param name="domains">Pin names.</param>
+            <param name="levels">Levels.</param>
+            <param name="patlist">Patlist.</param>
+            <param name="railConfigurations">Configurations.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>Voltage object.</returns>
+        </member>
+    </members>
+</doc>

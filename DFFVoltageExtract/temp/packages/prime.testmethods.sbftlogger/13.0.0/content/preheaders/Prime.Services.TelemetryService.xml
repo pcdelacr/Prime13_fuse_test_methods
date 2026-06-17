@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.TelemetryService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TelemetryService.Internal.ITelemetryService">
+            <summary>
+            Session service interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TelemetryService.Internal.ITelemetryService.Init">
+            <summary>
+            Initialize telemetry service data structures.
+            To be invoked during ServiceStore initialization inside the kernel.
+            </summary>
+        </member>
+        <member name="M:Prime.TelemetryService.Internal.ITelemetryService.AddOrUpdateCurrentLoggerEnricher(Prime.SessionService.ISessionContextProviderContainer,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Update the current thread logger enricher, if previously set.
+            If no enricher was set, create it.
+            </summary>
+            <param name="sessionContext">Session context for this operation.</param>
+            <param name="data">Enricher data to update.</param>
+        </member>
+        <member name="M:Prime.TelemetryService.Internal.ITelemetryService.RemoveCurrentLoggerEnricher(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Remove the current thread logger enricher.
+            </summary>
+            <param name="sessionContext">Session context for this operation.</param>
+        </member>
+        <member name="M:Prime.TelemetryService.Internal.ITelemetryService.RemoveCurrentLoggerEnricherItem(Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Remove the current thread logger enricher.
+            </summary>
+            <param name="sessionContext">Session context for this operation.</param>
+            <param name="item">The item to be removed from the enriching database.</param>
+        </member>
+        <member name="M:Prime.TelemetryService.Internal.ITelemetryService.CreateInstanceContextLogger(Prime.SessionService.ISessionContextProviderContainer,MPE.MIT.Logging.ILogger,Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel,System.String)">
+            <summary>
+            Create the instance context logger.
+            </summary>
+            <param name="sessionContext">the instance session context.</param>
+            <param name="globalLogger">the global logger for this instance.</param>
+            <param name="instanceLogLevel">the instance log level.</param>
+            <param name="testMethodName">the instance test method name.</param>
+            <returns>An ILogger.</returns>
+        </member>
+        <member name="M:Prime.TelemetryService.Internal.ITelemetryService.SetGlobalLogLevel(Prime.SessionService.ISessionContextProviderContainer,Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel)">
+            <summary>
+            Set the global log level for the whole TP session.
+            </summary>
+            <param name="sessionContext">the instance session context.</param>
+            <param name="globalLogLevel">The global log level to set.</param>
+        </member>
+        <member name="M:Prime.TelemetryService.Internal.ITelemetryService.ResolveLogLevelParameter(System.String)">
+            <summary>
+            Resolve the loglevel from string to MIT logging LogLevel enum.
+            </summary>
+            <param name="logLevel">log level.</param>
+            <returns>Telemetry log level..</returns>
+        </member>
+        <member name="T:Prime.TelemetryService.ITelemetryService">
+            <summary>
+            Session service interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TelemetryService.ITelemetryService.CreateTelemetryHandler``1(Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel)">
+            <summary>
+            Create a new telemetry handler for type T.
+            </summary>
+            <typeparam name="T">The type to be used for all telemetries in this object.</typeparam>
+            <param name="telemetryLogLevel">The log level for all telemetries in this object.</param>
+            <returns>TelemetryHandler object.</returns>
+        </member>
+        <member name="T:Prime.TelemetryService.PrimeLoggerEnricher">
+            <summary>
+            PrimeLoggerEnricher class.
+            </summary>
+        </member>
+        <member name="P:Prime.TelemetryService.PrimeLoggerEnricher.DictionaryData">
+            <summary>
+            Gets the dictionary data of the enricher.
+            </summary>
+        </member>
+        <member name="T:Prime.TelemetryService.InstanceTelemetryProvider">
+            <summary>
+            Session ProfilerId provider.
+            </summary>
+        </member>
+        <member name="M:Prime.TelemetryService.InstanceTelemetryProvider.#ctor(Prime.TelemetryService.InstanceTelemetryProvider.LoggerData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TelemetryService.InstanceTelemetryProvider"/> class.
+            </summary>
+            <param name="instanceLogger">The instanceLogger for this session.</param>
+        </member>
+        <member name="M:Prime.TelemetryService.InstanceTelemetryProvider.HandleMessage">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TelemetryService.InstanceTelemetryProvider.LoggerData">
+            <summary>
+            Holds logger data.
+            </summary>
+        </member>
+        <member name="M:Prime.TelemetryService.InstanceTelemetryProvider.LoggerData.#ctor(MPE.MIT.Logging.Context.IContextLogger,Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TelemetryService.InstanceTelemetryProvider.LoggerData"/> class.
+            </summary>
+            <param name="logger">The actual logger for this instance.</param>
+            <param name="instanceLogLevel">The instance telemetry log level parameter.</param>
+        </member>
+        <member name="P:Prime.TelemetryService.InstanceTelemetryProvider.LoggerData.Logger">
+            <summary>
+            Gets the actual logger for this instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TelemetryService.InstanceTelemetryProvider.LoggerData.InstanceLogLevel">
+            <summary>
+            Gets the instance telemetry log level parameter.
+            </summary>
+        </member>
+        <member name="T:Prime.TelemetryService.TelemetryConstants">
+            <summary>
+            Constants.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryConstants.TestMethodName">
+            <summary>
+            TestMethodName custom dimension name.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryConstants.InstanceName">
+            <summary>
+            InstanceName custom dimension name.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryConstants.DutId">
+            <summary>
+            DutId custom dimension name.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryConstants.IpId">
+            <summary>
+            IpId custom dimension name.
+            </summary>
+        </member>
+        <member name="T:Prime.TelemetryService.TelemetryConstants.TelemetryLevelPossibleValues">
+            <summary>
+            The telemetry level possible values.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryConstants.TelemetryLevelPossibleValues.Critical">
+            <summary>
+            The critical telemetry level.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryConstants.TelemetryLevelPossibleValues.Information">
+            <summary>
+            The information telemetry level.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryConstants.TelemetryLevelPossibleValues.Debug">
+            <summary>
+            The debug telemetry level.
+            </summary>
+        </member>
+        <member name="T:Prime.TelemetryService.TelemetryHandler`1">
+            <summary>
+            Wrapper to all telemetry operations.
+            </summary>
+            <typeparam name="T">The holding type.</typeparam>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryHandler`1.#ctor(Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TelemetryService.TelemetryHandler`1"/> class.
+            </summary>
+            <param name="logLevel">The log level for all telemetries in this object.</param>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryHandler`1.LogPerformanceScope(System.Func{System.Collections.Generic.Dictionary{System.String,System.String}},System.String)">
+            <summary>
+            Returns a performance scope object to be used within a using block.
+            If method name is not provided, the compiler will provide the calling method name.
+            Additional parameters can be provided as a func of Dictionary.
+            For performance, always use a static literals for this API.
+            </summary>
+            <param name="additionalArgumentFunc">Additional parameters to be added to the telemetry.</param>
+            <param name="methodName">The method name to be recorded inside this object.</param>
+            <returns>IDisposable object that measure the block performance.</returns>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryHandler`1.LogUsage(System.Func{System.Collections.Generic.Dictionary{System.String,System.String}},System.String)">
+            <summary>
+            Log usage telemetry.
+            If method name is not provided, the compiler will provide the calling method name.
+            Additional parameters can be provided as a func of Dictionary.
+            For performance, always use a static literals for this API.
+            </summary>
+            <param name="additionalArgumentFunc">Additional parameters to be added to the telemetry.</param>
+            <param name="methodName">The method name to be recorded inside this object.</param>
+        </member>
+        <member name="T:Prime.TelemetryService.TelemetryLogLevelResolver">
+            <summary>
+            Responsible for extracting the telemetry parameter.
+            </summary>
+        </member>
+        <member name="T:Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel">
+            <summary>
+            Prime telemetry log levels.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel.Critical">
+            <summary>
+            Critical level, always logged.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel.Information">
+            <summary>
+            Information level.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel.Debug">
+            <summary>
+            Debug level.
+            </summary>
+        </member>
+        <member name="F:Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel.None">
+            <summary>
+            Telemetry is disabled.
+            </summary>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryLogLevelResolver.ConvertTelemetryLevel(System.String)">
+            <summary>
+            Convert telemetry level parameter string to enum.
+            </summary>
+            <param name="telemetryLevelParameter">TelemetryLevel: Critical, Information or Debug.</param>
+            <returns>MIT log level.</returns>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryLogLevelResolver.ConvertTelemetryLevel(Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel)">
+            <summary>
+            Convert a TelemetryLevel enum to MIT logLevel. Defaults to None.
+            </summary>
+            <param name="telemetryLevelParameter">TelemetryLevel: Critical, Information or Debug.</param>
+            <returns>MIT log level.</returns>
+        </member>
+        <member name="T:Prime.TelemetryService.TelemetryService">
+            <summary>
+            DutService implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryService.Init">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryService.CreateTelemetryHandler``1(Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryService.ResolveLogLevelParameter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryService.CreateInstanceContextLogger(Prime.SessionService.ISessionContextProviderContainer,MPE.MIT.Logging.ILogger,Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryService.AddOrUpdateCurrentLoggerEnricher(Prime.SessionService.ISessionContextProviderContainer,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryService.RemoveCurrentLoggerEnricher(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryService.RemoveCurrentLoggerEnricherItem(Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryService.SetGlobalLogLevel(Prime.SessionService.ISessionContextProviderContainer,Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TelemetryService.TelemetryService.GetEffectiveTelemetryLevel(Prime.SessionService.ISessionContextProviderContainer,Prime.TelemetryService.TelemetryLogLevelResolver.TelemetryLogLevel)">
+            <summary>
+            Get the effective log level, compares between argument and shared storage value.
+            </summary>
+            <param name="sessionContext">SessionContext to access shared storage.</param>
+            <param name="instanceLogLevel">The current log level.</param>
+            <returns>The effective log level (min).</returns>
+        </member>
+    </members>
+</doc>

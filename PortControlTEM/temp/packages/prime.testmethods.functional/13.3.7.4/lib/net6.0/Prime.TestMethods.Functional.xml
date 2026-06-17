@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Functional</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Functional.IFunctionalExtensions">
+            <summary>
+            Interface for extending Func Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Functional.IFunctionalExtensions.ProcessCtvPerPin(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Processes per pin ctv capture. This function is used to determine exit port of execution.
+            </summary>
+            <param name="ctvData">CTV data collected by functional test.</param>
+            <returns>True if test passed, false if test failed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Functional.IFunctionalExtensions.ProcessFailures(Prime.FunctionalService.ICaptureFailureTest)">
+            <summary>
+            Processes failure capture test. This function is used to determine exit port of execution.
+            </summary>
+            <param name="captureFailureTest">captureFailureTest to be processed.</param>
+            <returns>True if test passed, false if test failed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Functional.IFunctionalExtensions.ProcessCtvPerCycle(Prime.FunctionalService.ICaptureCtvPerCycleTest)">
+            <summary>
+            Processes captureCtvPerCycle test This function is used to determine exit port of execution.
+            </summary>
+            <param name="captureCtvPerCycleTest">Per cycle ctv test to be processed.</param>
+            <returns>True if test passed, false if test failed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Functional.IFunctionalExtensions.GetDynamicPinMask">
+            <summary>
+            Gets the list of pins to mask execution after execution. The test method will merge this list with the ones from the test instance parameter.
+            </summary>
+            <returns>The list of mask pins.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Functional.PrimeFunctionalTestMethod">
+            <summary>
+            Test method responsible for executing different variations of functional test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Functional.PrimeFunctionalTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.#ctor(Prime.Plugins.Functional.IProcessCtvPerPinPlugin,Prime.Plugins.Functional.IProcessFailuresPlugin,Prime.Plugins.Functional.IDynamicMaskingPlugin,Prime.Plugins.Functional.IFunctionalTestPlugin)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Functional.PrimeFunctionalTestMethod"/> class.
+            </summary>
+            <param name="processCtvPerPinPlugin">A plugin to process the CtvPerPin.</param>
+            <param name="processFailuresPlugin">A plugin's implementation to process the failures.</param>
+            <param name="dynamicMaskingPlugin">Dynamic masking plugin.</param>
+            <param name="functionalPlugin">Functional plugin.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.CtvCycleCaptureMode">
+            <summary>
+            Enum to determine state of CTV cycle capture mode. Enabled means ctv capture is by cycle, disabled means ctv capture will be by pin.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.CtvCycleCaptureMode.ENABLED">
+            <summary>
+            ENABLED sets ctv capture to be by cycle.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.CtvCycleCaptureMode.DISABLED">
+            <summary>
+            DISABLED sets ctv capture to be by pin.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.AlarmPortRedirectModes">
+            <summary>
+            Defines the different modes for the AlarmPortRedirect functionality.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.AlarmPortRedirectModes.DISABLED">
+            <summary>
+            If the alarm port redirect is disabled, the port on an alarm event will be the default=[-2].
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.AlarmPortRedirectModes.ENABLED">
+            <summary>
+            If the alarm port redirect is enabled, the port on an alarm event will be a positive value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.AlarmPortRedirect">
+            <summary>
+            Gets or sets the alarm port redirect disabled or enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.CtvCapturePins">
+            <summary>
+            Gets or sets comma separated pins for CTV capture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.CtvCapturePerCycleMode">
+            <summary>
+            Gets or sets CTV capture mode. If DISABLED (default), CTV capture will be per pin. If ENABLED it will be per cycle.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.FailuresToCaptureTotal">
+            <summary>
+            Gets or sets int for the number of global failures to capture. If 0 (default), it means failure capture is disabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.FailuresToCapturePerPattern">
+            <summary>
+            Gets or sets int for number of failures per pattern to capture. If 0 (default), per pattern capture is disabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.MaxFailuresToItuff">
+            <summary>
+            Gets or sets int for the number of global failures to print to ituff. If 0 (default), it means failure prints are disabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.MaxFailuresPerPatternToItuff">
+            <summary>
+            Gets or sets int for number of failures per pattern to print to ituff. If 0 (default), per pattern failure count defaults to MaxFailuresToItuff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.DtsConfigurationName">
+            <summary>
+            Gets or sets the configuration in case DTS processing is wanted.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.DynamicMaskingPluginName">
+            <summary>
+            Gets or sets the DynamicMaskingPlugin name to use.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.DynamicMaskingPluginUserInput">
+            <summary>
+            Gets or sets the user input to be used in DynamicMaskingPlugin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.FunctionalTestPlugin">
+            <summary>
+            Gets or sets the FunctionalPlugin name to use.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.FunctionalTestPluginInput">
+            <summary>
+            Gets or sets the user input to be used in FunctionalPlugin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.ProcessFailuresPlugin">
+            <summary>
+            Gets or sets the name of the plugin to process the failures from executing the PatList.
+            If empty, the default will be used (`Prime.Plugins.Functional.FailuresToDatalogPlugin`).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.ProcessFailuresPluginInput">
+            <summary>
+            Gets or sets the user input to the ProcessFailuresPlugin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.ProcessCtvPerPinPlugin">
+            <summary>
+            Gets or sets the name of the plugin to process CtvPerPin from executing the PatList.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.ProcessCtvPerPinPluginInput">
+            <summary>
+            Gets or sets the user input to the ProcessFailuresPlugin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.PatternNameCounterIndexes">
+            <summary>
+            Gets or sets a comma separated string of integers which map characters in the pattern name to produce a scoreboard counter.
+            Positive indexes, starting at 0, map characters at the start of the pattern name.
+            Negative indexes, starting at -1, map characters at the end of the pattern name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.TestMethodExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.FunctionalTest">
+            <summary>
+            Gets or sets the functional test to capture failures.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.ExitPort">
+            <summary>
+            Gets or sets the custom port to be overriden by user..
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.Prime#TestMethods#Functional#IFunctionalExtensions#ProcessCtvPerPin(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.Prime#TestMethods#Functional#IFunctionalExtensions#ProcessFailures(Prime.FunctionalService.ICaptureFailureTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.Prime#TestMethods#Functional#IFunctionalExtensions#ProcessCtvPerCycle(Prime.FunctionalService.ICaptureCtvPerCycleTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.Prime#TestMethods#Functional#IFunctionalExtensions#GetDynamicPinMask">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Functional.PrimeFunctionalTestMethod.SetupResultsProcessing">
+            <summary>
+            Setup the results processing process which will be run after execution of functional test.
+            </summary>
+        </member>
+    </members>
+</doc>

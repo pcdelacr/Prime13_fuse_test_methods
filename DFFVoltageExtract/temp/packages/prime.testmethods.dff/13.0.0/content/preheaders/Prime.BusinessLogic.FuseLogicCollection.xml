@@ -1,0 +1,2210 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.FuseLogicCollection</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.DataManager.Datalog">
+            <summary>
+            This class manage datalog that written to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.Datalog.DatalogToItuff(System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print data to ituff in strgAlt.
+            </summary>
+            <param name="datalogInfo">Collection of info to print. Key is tname, value is data to be set.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.Datalog.DatalogToItuff(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print data to ituff in strgVal.
+            </summary>
+            <param name="postFix">Postfix name.</param>
+            <param name="dataToSet">SetData value.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.Datalog.DatalogFailingMaskToItuff(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print data to ituff in comnt.
+            </summary>
+            <param name="maskName">Mask name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.Datalog.DatalogFuseGroupFuseStringToItuff(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print fuse string of the fuse group to ituff in strgVal. The ituff Tname will include register name and fuse group name.
+            </summary>
+            <param name="registerName">Name of register.</param>
+            <param name="fuseString">The fuse string composite based on fuse group.</param>
+            <param name="fuseGroupName">Fuse group name of the register.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.DataManager.Dff">
+            <summary>
+            This class manage data get or set to DFF storage.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.Dff.GetValueFromDFF(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get value from DFF.
+            </summary>
+            <param name="dffCustomVarName">Consist of 3 Parameter in the format of 'dffTokenName,DieId,OperationType'.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Value from DFF.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.Dff.GetValueFromDFF(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get value from DFF.
+            </summary>
+            <param name="tokenName">Dff Token name.</param>
+            <param name="operationType">Dff optype.</param>
+            <param name="targetDieID">Dff die id.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>DFF value.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.DataManager.SharedStorage">
+            <summary>
+            This class manage data get or set to SharedStorage storage.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.SharedStorage.RetrieveFuseStringValueFromSharedStorage(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Default get fuse string from SharedStorage key=[fusestring_{registerName}] that stored by Default FuseRead. Context=[DUT]. ResetPolicy=[Device Start].
+            If user provided sharedstorage key, get fuse string from the provided sharedstorage key.
+            </summary>
+            <param name="registerName">Name of the register that this fusestring belong.</param>
+            <param name="sharedStorageKey">SharedStorage key to get.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Fuse string.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">No fusestring found in sharedstorage.</exception>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.SharedStorage.StoreFuseGroupToDatalogToSharedStorage(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Store fuse string from fuse group to SharedStorage. The SharedStorage key is included with dieIdName if were provided.
+            </summary>
+            <param name="fusegroupName">Name of Fuse group.</param>
+            <param name="dieIdName">Name of Die Id.</param>
+            <param name="fuseString">Fuse Group String to store.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.SharedStorage.GetValueFromSharedStorage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get value from SharedStorage.
+            </summary>
+            <param name="storageName">Consist of 2 Parameter in the format of 'VariableName,ContentType'. Example: VOLT,DUT.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Value from SharedStorage.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.SharedStorage.GetStringFromSharedStorage(System.String,Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get string value from sharedStorage.
+            </summary>
+            <param name="storageName">Storage name of sharedStorage.</param>
+            <param name="scope">Context of sharedStorage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Value stored as string in sharedStorage respect to storage name.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.SharedStorage.GetDoubleFromSharedStorage(System.String,Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get double value from sharedStorage.
+            </summary>
+            <param name="storageName">Storage name of sharedStorage.</param>
+            <param name="scope">Context of sharedStorage.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Value stored as double in sharedStorage respect to storage name.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.SharedStorage.SetValueToSharedStorage(System.String,System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Store value to SharedStorage.
+            </summary>
+            <param name="sharedStorageName">Valid SharedStorage name.</param>
+            <param name="valueToStore">Value to store to SharedStorage.</param>
+            <param name="contextTypeToStore">DUT, IP, LOT.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.SharedStorage.SetValueToSharedStorage(System.String,System.String,Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Store value to SharedStorage.
+            </summary>
+            <param name="sharedStorageName">Valid SharedStorage name.</param>
+            <param name="valueToStore">Value to store to SharedStorage.</param>
+            <param name="contextTypeToStore">DUT, IP, LOT.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.SharedStorage.ValidateContextType(System.String,Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.ValidateContextOption)">
+            <summary>
+            Validate Context Type.
+            </summary>
+            <param name="contextCheck">Context to validate.</param>
+            <param name="validateContextOption">DEFAULT or specific mode.</param>
+            <returns>Type of Context.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.SharedStorage.GetValidContext(Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.ValidateContextOption)">
+            <summary>
+            Get customize valid context based on mode.
+            </summary>
+            <param name="validateContextOption">Mode to valid context type.</param>
+            <returns>customize valid context of mode.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.DataManager.Uservar">
+            <summary>
+            This class manage data get or set to Uservar storage.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.Uservar.GetValueFromUserVar(System.String)">
+            <summary>
+            Get value from UserVar.
+            </summary>
+            <param name="userVarName">Valid user variable collection name and variable name.</param>
+            <returns>Value from UserVar.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.DataManager.Uservar.SetValueToUserVar(System.String,System.String)">
+            <summary>
+            Store value to Uservar.
+            </summary>
+            <param name="userVarName">Valid user variable collection name and variable name.</param>
+            <param name="valueToStore">Value to store to Uservar.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.Enums.DatalogType">
+            <summary>
+            This defines class that store types of datalog.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.Enums.DatalogType.FuseReadOption">
+            <summary>
+            Datalog option for Fuse Read.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.DatalogType.FuseReadOption.RLE">
+            <summary>
+            RLE.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.DatalogType.FuseReadOption.DEFLATE">
+            <summary>
+            Deflate.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.DatalogType.FuseReadOption.BINARY">
+            <summary>
+            Binary.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.DatalogType.FuseReadOption.HEX">
+            <summary>
+            HEX.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.Enums.DatalogType.FuseBurnOption">
+            <summary>
+            Datalog option for Fuse Burn.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.DatalogType.FuseBurnOption.RLE">
+            <summary>
+            RLE.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.DatalogType.FuseBurnOption.DEFLATE">
+            <summary>
+            Deflate.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.DatalogType.FuseBurnOption.BINARY">
+            <summary>
+            Binary.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.Enums.FuseGroupToHideEnabled">
+            <summary>
+            Indicate the fuse string is to applied with FuseGroupToHide.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.Enums.FuseGroupToHideEnabled.Option">
+            <summary>
+            Option to apply FuseGroupToHide.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.FuseGroupToHideEnabled.Option.True">
+            <summary>
+            Apply FuseGroupToHide.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.FuseGroupToHideEnabled.Option.False">
+            <summary>
+            Do not apply FuseGroupToHide.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.Enums.FuseSchemaType">
+            <summary>
+            This defines class that store type of schema.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.Enums.FuseSchemaType.Option">
+            <summary>
+            Schema type option.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.FuseSchemaType.Option.FuseRead">
+            <summary>
+            Use json schema for fuse read configuration file.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.FuseSchemaType.Option.FuseReadVoltage">
+            <summary>
+            Use json schema for fuse read voltage file.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.FuseSchemaType.Option.FuseBurn">
+            <summary>
+            Use json schema for fuse burn configuration file.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.FuseSchemaType.Option.FuseBurnVoltage">
+            <summary>
+            Use json schema for fuse burn voltage file.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType">
+            <summary>
+            This defines class that store types of sharedStorage scope.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.Context">
+            <summary>
+            SharedStorage scope option. DUT, IP and LOT only.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.Context.DUT">
+            <summary>
+            DUT.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.Context.IP">
+            <summary>
+            IP.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.Context.LOT">
+            <summary>
+            LOT.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.ValidateContextOption">
+            <summary>
+            SharedStorage scope option to validate base on mode.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.ValidateContextOption.Default">
+            <summary>
+            DUT, IP, LOT.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.Enums.ScopeType.ValidateContextOption.FuseVoltage">
+            <summary>
+            DUT and LOT only.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dff">
+            <summary>
+            This class will only hold structure for DFF object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dff.Name">
+            <summary>
+            Gets or sets dff name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dff.Optype">
+            <summary>
+            Gets or sets optype.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dff.DieID">
+            <summary>
+            Gets or sets DieID.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dynamic">
+            <summary>
+            This class will only hold structure for dynamic mask/sspec object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dynamic.FuseGroup">
+            <summary>
+            Gets or sets fuse group.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dynamic.UserVar">
+            <summary>
+            Gets or sets UserVar.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dynamic.SharedStorage">
+            <summary>
+            Gets or sets sharedStorage.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dynamic.DFF">
+            <summary>
+            Gets or sets DFF.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.SharedStorage">
+            <summary>
+            This class will only hold structure for SharedStorage object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.SharedStorage.Name">
+            <summary>
+            Gets or sets sharedStorage name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.SharedStorage.Scope">
+            <summary>
+            Gets or sets sharedStorage scope.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Uservar">
+            <summary>
+            This class will only hold structure for Uservar object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Uservar.Collection">
+            <summary>
+            Gets or sets uservar collection.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Uservar.Name">
+            <summary>
+            Gets or sets uservar name.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic">
+            <summary>
+            Common logic that is shared across multiple fuse methodologies.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.ExecutionModeEnum">
+            <summary>
+            Settings for the execution mode .
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.ExecutionModeEnum.ExecutePattern">
+            <summary>
+            Execute Pattern.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.ExecutionModeEnum.SimulationMode">
+            <summary>
+            Simulation mode, which uses Simulation String, skip executing the pattern.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.ExecutionModeEnum.UsePreviousData">
+            <summary>
+            UsePreviousData mode, which uses previous FuseRead data, and skip executing the pattern.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.GetFuseSkipCharacter">
+            <summary>
+            Skip character for fuse logic.
+            </summary>
+            <returns>Skip character.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.GetFuseDynamicCharacter">
+            <summary>
+            Dynamic character for fuse logic.
+            </summary>
+            <returns>Dynamic character.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.UpdateSkipCharacter(System.String)">
+            <summary>
+            Update input string skip character from '9' to 's'.
+            </summary>
+            <param name="inputString">fuse string that contain skip character to be update.</param>
+            <returns>modified input string with updated skip character.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.ConvertSkipCharacter(System.String)">
+            <summary>
+            Convert input string skip character from 's' to '_'. It is case sensitive for the skip character.
+            </summary>
+            <param name="inputString">fuse string that contain skip character to be convert.</param>
+            <returns>modified input string with converted skip character.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.SetPinMask(Prime.BusinessLogic.FuseLogicCollection.FuseBasic.IDynamicPinMaskable,System.Collections.Generic.List{System.String},Prime.FunctionalService.IFunctionalTest@)">
+            <summary>
+            Set the list of pins that will be masked when plist is executed.
+            </summary>
+            <param name="extension">The object that allows functional extension. Used for getting the dynamic pin mask.</param>
+            <param name="maskPins">List of pins to mask provided to the template.</param>
+            <param name="funcTest">The functional test being targeted for pin masking.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.SetupFuseStringForHandle(Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseBasic.ExecutionModeEnum,System.String,Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle,System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get fuse string based on the execution mode and setup fuse string for handle.
+            </summary>
+            <param name="executionMode">Execution mode.</param>
+            <param name="registerName">Register name.</param>
+            <param name="fuseReadHandle">Handle for FuseRead.</param>
+            <param name="ctvResults">Ctv data.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseConsolePrint">
+            <summary>
+            Common logic that handle printing to console.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseConsolePrint.ConsolePaddingSizeForFuseString">
+            <summary>
+            Standard padding size to print fuse string for better presentation at console.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseConsolePrint.FuseBurnMaskInfo(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print FuseBurn Mask Info to console.
+            </summary>
+            <param name="maskValue">Mask value to print.</param>
+            <param name="compositeValue">Composite value to print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseConsolePrint.FuseBurnSspecBurnRangeInfo(System.Collections.Generic.List{Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnRange},System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print FuseBurn Sspec BurnRange Info to console.
+            </summary>
+            <param name="burnRanges">List of burn range.</param>
+            <param name="fusestringLength">Length of fuse string.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseConsolePrint.ConstructCompositeBurnRangeIndicator(System.Collections.Generic.List{Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnRange},System.Int32)">
+            <summary>
+            Post process burn ranges for CompositeBurnRangeIndicator.
+            </summary>
+            <param name="burnRanges">List of burn range.</param>
+            <param name="fusestringLength">Length of fuse string.</param>
+            <returns>CompositeBurnRangeIndicator.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities">
+            <summary>
+            Common logic that handle string as input.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.ExtractFuseString(System.String,System.Int32,System.Int32)">
+            <summary>
+            Extract fuseString based on start address and end address of fuseDef.
+            </summary>
+            <param name="inputFuseString">input fuseString to be extract.</param>
+            <param name="startAddress">start address.</param>
+            <param name="endAddress">end address.</param>
+            <returns>Extracted fuseString.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.ReverseString(System.String)">
+            <summary>
+            Reverse incoming string.
+            </summary>
+            <param name="inputString">Original String.</param>
+            <returns>Reversed string.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.ExpandStringByRatio(System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Expand string based on input ratio. The ratio is applied to each character of the string.
+            </summary>
+            <param name="ratio">Positive Integer value.</param>
+            <param name="inputString">String to be expand by ratio.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Expanded string.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.ProcessStringByDataBlockSizeAndGapSize(System.Int32,System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Post Process input string based on data block size and gap size.
+            </summary>
+            <param name="dataBlockSize">Size of block.</param>
+            <param name="gapSize">Size of gap, the character of gap is '_'.</param>
+            <param name="inputString">String to be modify.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Modified string based on data block size and gap size.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.GetFinalFuseStringToBurn(System.Boolean,System.Int32,System.Int32,System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get final fuse string to burn that post process the fuse string with burnPatternConfig (reverse, ratio, data block size and gap size).
+            </summary>
+            <param name="isBurnStringReverse">determine to reverse the fuse string.</param>
+            <param name="ratio">multiplier to expand the per bit fuse string.</param>
+            <param name="dataBlockSize">number of bit per block.</param>
+            <param name="gapSize">number of gap per block.</param>
+            <param name="fuseString">fuse string after execute mask or execute sspec.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>fuse string after post process with burnPatternConfig.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.BitwiseCompositeValue(System.String,System.String)">
+            <summary>
+            Perform AND-Bitwise using mask value and burn range value.
+            </summary>
+            <param name="maskValue">Mask value from json file.</param>
+            <param name="internalMaskValue">Internal mask value constructed from burnRange value.</param>
+            <returns>AND-bitwised composite value.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.ReplaceDynamicValue(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Replace MaskString that contain 'm' with Dynamic Mask Value.
+            </summary>
+            <param name="maskName">Name of execute mask.</param>
+            <param name="maskFuseGroup">Name of mask fuse group.</param>
+            <param name="dynamicMaskValueString">Dynamic Mask value get from sharedstorage, dff or uservar. Expect only '0' and '1'.</param>
+            <param name="maskValue">Value of execute mask.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Mask String that only contain '0' and '1', where 'm' is replaced with Dynamic Mask value.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.ValidateDynamicMaskValueFromStorage(System.String)">
+            <summary>
+            Validate the mask value from storage only consist of valid character.
+            </summary>
+            <param name="maskValueFromStorage">Mask value get from defined storage type.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.RetrieveFuseStringValueFromFuseRead(System.String,System.String@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets fuseString value from fuseRead.
+            </summary>
+            <param name="registerName">Register name used to extract FuseRead fuse string from shared storage.</param>
+            <param name="fuseReadFuseString">FuseRead fuse string as output for further processing.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.ExtractFuseStringComposite(System.Collections.Generic.List{System.Char},System.Int32,System.Int32)">
+            <summary>
+            Extract fuseString composite value from fuseRead.
+            </summary>
+            <param name="tempFuseStringBreakDown">Break down list of FuseRead fuse string.</param>
+            <param name="startAddress">Start address of fuse data.</param>
+            <param name="endAddress">End address of fuse data.</param>
+            <returns> List of FuseBurn data to mask off index.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.GetRegisterToHandle(Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.FuseBurnJsonFile,System.String,System.String)">
+            <summary>
+            Gets register object based on current configuration name and register name.
+            </summary>
+            <param name="fuseBurnJsonFile">FuseBurn json file object.</param>
+            <param name="configurationName">Configuration name of Fuse Burn.</param>
+            <param name="registerName">Register name of Fuse Burn.</param>
+            <returns>Register data.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.GetConfigurationDatalogFormat(Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.FuseBurnJsonFile,System.String)">
+            <summary>
+            Gets datalog format of Fuse Burn based on current configuration name.
+            </summary>
+            <param name="fuseBurnJsonFile">FuseBurn json file object.</param>
+            <param name="configurationName">Configuration name of Fuse Burn.</param>
+            <returns>Datalog format of Fuse Burn configuration.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.GetBurnPatternConfigToHandle(Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.FuseBurnJsonFile,System.String)">
+            <summary>
+            Acquire burn pattern configuration from json file.
+            </summary>
+            <param name="fuseBurnJsonFile">FuseBurn json file object.</param>
+            <param name="configurationName">Configuration name of Fuse Burn.</param>
+            <returns>BurnPatternConfig data.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.ExtractDynamicValue(Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dynamic,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Extract value from dynamic data.
+            </summary>
+            <param name="dynamicData">Dynamic data that acquired from [UserVar/Shared Storage/DFF].</param>
+            <param name="fuseGroupName">Fuse group name of dynamic data.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Stored dynamic value.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.BuildFullStringFuseBurnData(System.String,System.String)">
+            <summary>
+            Build Full String Fuse Burn data.
+            </summary>
+            <param name="maskValueToOverride">Mask value to override in Fuse Burn data.</param>
+            <param name="fuseReadFuseString">Fuse Read fuse string.</param>
+            <returns>Stored dynamic value.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.PopulateFuseGroupAddressesInRangeFormat(Prime.FuseDBService.IFuseGroupData)">
+            <summary>
+            Get fuse data from the fuse group data and concate the fuses Start Address and End Address with '-'.
+            </summary>
+            <param name="fuseGroupData">Fuse Group Data contain fuses data.</param>
+            <returns>List of fuse address in range format.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.InitializeFuseBurnData(System.String)">
+            <summary>
+            Initialize Fuse Burn data.
+            </summary>
+            <param name="fuseReadFuseString">Fuse Read fuse string.</param>
+            <returns>Initial fuse burn data.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.CreateFuseHeader(System.Int32)">
+            <summary>
+            Create fuse header by processing each bit in number fuseBits.
+            Example: If fuse bit size is 12, '1' is process first, then '2'. End result become 110000000000 which act as first item in list.
+            Second item in list is 1 digits printing from 0-9. Eg: 210987654321.
+            </summary>
+            <param name="numberOfBits">Number of bits in integer.</param>
+            <returns>List of indexes.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.BuildSignificantNumber(System.Int32,System.String)">
+            <summary>
+            Build significant number.
+            For example: if fuseBitIndexes is 94, first time going through this function shall return 49. Subsequent shall return 9.
+            </summary>
+            <param name="bitIndex">Iterator of fuseBitIndexes in decrement order.</param>
+            <param name="fuseBitIndexes">fuseBitIndexes string that was reverse.</param>
+            <returns>Significant number.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.FuseStringUtilities.ConstructHeader(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Construct header using indexes.
+            </summary>
+            <param name="loopValue">Determine how many digits we need to print the current process bit.</param>
+            <param name="numberOfBits">Number of fuse bits.</param>
+            <param name="firstLoopValue">Used only on first loop, determine loop value.</param>
+            <param name="currentProcessBit">If fuse bit is 12, current process bits means '1' and '2'.</param>
+            <returns>string header.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.IDynamicPinMaskable">
+            <summary>
+            Defines that the current class has a method to retrieve a dynamic pin mask.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.IDynamicPinMaskable.GetDynamicPinMask">
+            <summary>
+            Gets the list of pins to mask execution after execution. The test method will merge this list with the ones from the test instance parameter.
+            </summary>
+            <returns>The list of mask pins.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageFileValidator">
+            <summary>
+            Class object to validate fuse voltage file.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageFileValidator.#ctor(Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageJsonFile)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageFileValidator"/> class.
+            </summary>
+            <param name="fuseVoltageJson">Voltage configuration to validate.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageFileValidator.ValidateVoltageConfiguration">
+            <summary>
+            Validate attribute of Voltage configuration validity throughout fuse voltage input file.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageFileValidator.CheckDuplicateOperand">
+            <summary>
+            Check on voltage file to make sure no same operand defined between voltage.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageFileValidator.CheckPowerPinExist">
+            <summary>
+            Check voltage power pin name exist.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageFileValidator.CheckDuplicatePowerPin">
+            <summary>
+            Check to make sure no duplicate power pin name is defined within operand.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageFileValidator.ResetAttributeWithinSameOperand">
+            <summary>
+            Reset attribute to be use for next operand.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageJsonFile">
+            <summary>
+            This class represent the data structure for fuse voltage json file.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.FuseVoltageJsonFile.Voltages">
+            <summary>
+            Gets or sets the list of voltages.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.PowerPin">
+            <summary>
+            This class will only hold structure for power pin object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.PowerPin.Name">
+            <summary>
+            Gets or sets pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.PowerPin.Value">
+            <summary>
+            Gets or sets voltage value. Schema check for minimum value is 0.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.PowerPin.SharedStorage">
+            <summary>
+            Gets or sets sharedStorage.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.SharedStorage">
+            <summary>
+            This class will only hold structure for SharedStorage object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.SharedStorage.Name">
+            <summary>
+            Gets or sets sharedStorage name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.SharedStorage.Scope">
+            <summary>
+            Gets or sets sharedStorage scope.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.Voltage">
+            <summary>
+             This class will only hold structure for configurations object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.Voltage.Operand">
+            <summary>
+            Gets or sets operand number.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.Voltage.PowerPinConfigs">
+            <summary>
+            Gets or sets list of power pin object.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.Voltages">
+            <summary>
+            This class represent the data structure for fuseBurn voltage json file.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.Voltages.VoltageConfigs">
+            <summary>
+            Gets or sets the list of voltages.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.VoltageSoftwareTrigger">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.VoltageSoftwareTrigger.#ctor(System.String,System.Collections.Generic.List{Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.Voltage},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.VoltageSoftwareTrigger"/> class.
+            </summary>
+            <param name="levelTc">The level TC name to by based on.</param>
+            <param name="voltages">The list of voltages.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.VoltageSoftwareTrigger.Execute(System.UInt32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Voltages.VoltageSoftwareTrigger.ValidateContextType(System.String)">
+            <summary>
+            Validate Context Type.
+            </summary>
+            <param name="contextCheck">Context to validate.</param>
+            <returns>Type of Context.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnPatternConfig">
+            <summary>
+            This class wil hold structure for BurnPatternConfig object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnPatternConfig.IsBurnStringReverse">
+            <summary>
+            Gets or sets a value indicating whether reverse string is required.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnPatternConfig.Ratio">
+            <summary>
+            Gets or sets ratio. The ratio (multiplier) is used to expand the fuse string after fuse burn execute mask. The expansion is applied by per bit, example, string 'abc' with ratio 2 will get 'aabbcc'.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnPatternConfig.DataBlockSize">
+            <summary>
+            Gets or sets data block size (the number of bit per block). Example, string 'abcd' with data block size 2 and gap size 3 will get 'abssscd'. This does not affect by Ratio.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnPatternConfig.GapSize">
+            <summary>
+            Gets or sets gap size (the number of skip 's' per data block size). Example, string 'abcd' with data block size 2 and gap size 3 will get 'abssscd'. This does not affect by Ratio.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnPatternConfig.PatternsRegex">
+            <summary>
+            Gets or sets pattern regex.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnRange">
+            <summary>
+            This class wil hold structure for BurnRange object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnRange.StartAddress">
+            <summary>
+            Gets or sets start address.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnRange.EndAddress">
+            <summary>
+            Gets or sets end address.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Configuration">
+            <summary>
+             This class will only hold structure for configurations object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Configuration.Name">
+            <summary>
+            Gets or sets configuration name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Configuration.DatalogFormat">
+            <summary>
+            Gets or sets datalog format. Default is BINARY.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Configuration.RegisterConfigs">
+            <summary>
+            Gets or sets list of register object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Configuration.BurnPatternConfig">
+            <summary>
+            Gets or sets burn pattern configuration.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.FuseBurnJsonFile">
+            <summary>
+            This class represent the data structure for fuseBurn json file.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.FuseBurnJsonFile.Configurations">
+            <summary>
+            Gets or sets the list of configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Mask">
+            <summary>
+            This class will only hold structure for mask object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Mask.Name">
+            <summary>
+            Gets or sets mask name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Mask.FuseGroup">
+            <summary>
+            Gets or sets fuse group.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Mask.BurnRange">
+            <summary>
+            Gets or sets burn range.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Mask.Value">
+            <summary>
+            Gets or sets mask value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Mask.Dynamics">
+            <summary>
+            Gets or sets list of dynamic masks.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator">
+            <summary>
+            Class object to validate fuseBurn configuration file.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.#ctor(Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.FuseBurnJsonFile)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator"/> class.
+            </summary>
+            <param name="fuseBurnConfigJson">Configuration to validate.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.ValidateAllConfigurations(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Validate attribute of Configuration validity throughout fuse burn input file.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckIfUserVarValid(System.String,System.String)">
+            <summary>
+            Check User Var with provided name exist.
+            </summary>
+            <param name="userVarName">Name of uservar.</param>
+            <param name="userVarCollection">Name of collection contain the uservar name.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckIfDffValid(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check Provided DFF information is valid.
+            </summary>
+            <param name="dffName">Token Name.</param>
+            <param name="dffDieId">Id.</param>
+            <param name="dffOptype">Operation Type.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckDuplicateRegisterName">
+            <summary>
+            Check on configuration file(s), make sure no same register name being used.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckMaskConfiguration(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check on Mask configuration setup.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckDuplicateMaskName">
+            <summary>
+            Check duplication of mask name.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckFuseGroupsToHideExistInFuseDef">
+            <summary>
+            Check if mask fuseGroup exist in fuseDef.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckIfFuseGroupExist(System.String)">
+            <summary>
+            Check fuse group name exist in fuse def.
+            </summary>
+            <param name="fusegroupName">Name of fuse group to check.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckMaskValueLength">
+            <summary>
+            Check mask value if that fit with fuseDef start and end address.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckBurnRangeValidity">
+            <summary>
+            Check Burn range setup and make sure it is not duplicated.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckBurnRangeStartAddressAndEndAddress">
+            <summary>
+            Check End Address should larger than Start Address.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckBurnRangeAddressNotExceedRegisterSize">
+            <summary>
+            Check burnRange maximum address define not to exceed size of register.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckBurnRangeAddressNotDuplicated">
+            <summary>
+            Check no duplicate address exist in list of burn range address.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckBurnRangeAddressNoOverlap">
+            <summary>
+            Check each burn range address is not overlap each other.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.MaskValidator.CheckDynamicCustomVariableValidity(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check dynamic CustomVariableName exist in data storage.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Register">
+            <summary>
+            This class wil hold structure for register object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Register.Name">
+            <summary>
+            Gets or sets register name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Register.DataLabelName">
+            <summary>
+            Gets or sets data label.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Register.DataLabelOffset">
+            <summary>
+            Gets or sets data label offset.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Register.FuseGroupsToHide">
+            <summary>
+            Gets or sets fuse group names to hide. Those fuse bits for the specified fuse groups will be printed at 0 at console and ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Register.MaskConfigs">
+            <summary>
+            Gets or sets list of Mask object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Register.SspecConfig">
+            <summary>
+            Gets or sets list of Sspec object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Register.RegisterData">
+            <summary>
+            Gets fuseDef register data object.
+            </summary>
+            <returns>FuseDef register data object.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Sspec">
+            <summary>
+            This class will only hold structure for mask object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Sspec.IsSspecEnabled">
+            <summary>
+            Gets or sets a value indicating whether sspec enable.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Sspec.BurnRange">
+            <summary>
+            Gets or sets burn range.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.Sspec.Dynamics">
+            <summary>
+            Gets or sets list of dynamic object.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator">
+            <summary>
+            Class object to validate fuseBurn configuration file.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.#ctor(Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.FuseBurnJsonFile)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator"/> class.
+            </summary>
+            <param name="fuseBurnConfigJson">Configuration to validate.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.ValidateAllConfigurations(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Validate attribute of Configuration validity throughout fuse burn input file.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckIfUserVarValid(System.String,System.String)">
+            <summary>
+            Check User Var with provided name exist.
+            </summary>
+            <param name="userVarName">Name of uservar.</param>
+            <param name="userVarCollection">Name of collection contain the uservar name.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckIfDffValid(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check Provided DFF information is valid.
+            </summary>
+            <param name="dffName">Token Name.</param>
+            <param name="dffDieId">Id.</param>
+            <param name="dffOptype">Operation Type.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckDuplicateRegisterName">
+            <summary>
+            Check on configuration file(s), make sure no same register name being used.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckSspecConfiguration(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check on Mask configuration setup.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckFuseGroupsToHideExistInFuseDef">
+            <summary>
+            Check if mask fuseGroup exist in fuseDef.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckIfFuseGroupExist(System.String)">
+            <summary>
+            Check fuse group name exist in fuse def.
+            </summary>
+            <param name="fusegroupName">Name of fuse group to check.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckBurnRangeValidity">
+            <summary>
+            Check Burn range setup and make sure it is not duplicated.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckBurnRangeStartAddressAndEndAddress">
+            <summary>
+            Check End Address should larger than Start Address.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckBurnRangeAddressNotExceedRegisterSize">
+            <summary>
+            Check burnRange maximum address define not to exceed size of register.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckBurnRangeAddressNotDuplicated">
+            <summary>
+            Check no duplicate address exist in list of burn range address.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckBurnRangeAddressNoOverlap">
+            <summary>
+            Check each burn range address is not overlap each other.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckAddressValidity(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Check validity of start address and end address.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.SspecValidator.CheckDynamicCustomVariableValidity(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check dynamic CustomVariableName exist in data storage.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Configuration">
+            <summary>
+            This class will only hold structure for configurations object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Configuration.Name">
+            <summary>
+            Gets or sets the configuration name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Configuration.Registers">
+            <summary>
+            Gets or sets list of registers.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.FuseReadJsonFile">
+            <summary>
+            This class represent the data structure configuration for fuseRead json file.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.FuseReadJsonFile.Configurations">
+            <summary>
+            Gets or sets the list of configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MarginSetting">
+            <summary>
+            This class will only hold structure for margin settings object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MarginSetting.Name">
+            <summary>
+            Gets or sets margin setting's name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MarginSetting.Value">
+            <summary>
+            Gets or sets margin setting's value.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MarginSweep">
+            <summary>
+            This class will only hold structure for margin sweep object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MarginSweep.EnableCompare">
+            <summary>
+            Gets or sets a value indicating whether to enable compare.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MarginSweep.ItuffPrintMode">
+            <summary>
+            Gets or sets ituff print mode.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MarginSweep.EnableRestore">
+            <summary>
+            Gets or sets a value indicating whether to enable restore. Default false.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MarginSweep.MarginDefaultValue">
+            <summary>
+            Gets or sets margin default value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MarginSweep.MarginSettings">
+            <summary>
+            Gets or sets list of margin settings.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MarginSweep.PatternModifyConfig">
+            <summary>
+            Gets or sets pattern configuration name.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Mask">
+            <summary>
+            This class will only hold structure for mask object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Mask.Name">
+            <summary>
+            Gets or sets mask name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Mask.FuseGroup">
+            <summary>
+            Gets or sets fuse group name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Mask.Value">
+            <summary>
+            Gets or sets mask value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Mask.Dynamics">
+            <summary>
+            Gets or sets list of dynamic masks.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Mask.MismatchBits">
+            <summary>
+            Gets or sets list of mismatch bits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Mask.FailPort">
+            <summary>
+            Gets or sets FailPort.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MismatchBit">
+            <summary>
+            This class will only hold structure for mismatch bit object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MismatchBit.UserVar">
+            <summary>
+            Gets or sets UserVar.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MismatchBit.SharedStorage">
+            <summary>
+            Gets or sets sharedStorage.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.PatternModifyConfiguration">
+            <summary>
+            This class will only hold structure for margin settings object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.PatternModifyConfiguration.Name">
+            <summary>
+            Gets or sets margin setting's name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.PatternModifyConfiguration.Ratio">
+            <summary>
+            Gets or sets a the ratio to override the configuration's ratio.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.PatternModifyConfiguration.PatternsRegEx">
+            <summary>
+            Gets or sets the regular expression to filter the patterns.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register">
+            <summary>
+            This class will only hold structure for register object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register.Name">
+            <summary>
+            Gets or sets register name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register.SimulationString">
+            <summary>
+            Gets or sets simulation string.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register.Reverse">
+            <summary>
+            Gets or sets a value indicating whether to enable reverse. Default false.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register.DatalogFormat">
+            <summary>
+            Gets or sets datalog format. Default is BINARY.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register.Masks">
+            <summary>
+            Gets or sets list of masks.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register.MarginSweep">
+            <summary>
+            Gets or sets margin sweeps.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register.FuseGroupsToHide">
+            <summary>
+            Gets or sets mask fuse value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register.Sspecs">
+            <summary>
+            Gets or sets list of sspec value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register.UltDecode">
+            <summary>
+            Gets or sets UltDecoder Setting.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Register.RegisterData">
+            <summary>
+            Gets fuseDef register data object.
+            </summary>
+            <returns>FuseDef register data object.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Sspec">
+            <summary>
+            This class will only hold structure for sspec object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Sspec.QDF">
+            <summary>
+            Gets or sets Sspec QDF value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Sspec.FuseGroup">
+            <summary>
+            Gets or sets Sspec fuse group name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Sspec.Value">
+            <summary>
+            Gets or sets Sspec value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Sspec.Dynamics">
+            <summary>
+            Gets or sets list of dynamic masks.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.UltDecode">
+            <summary>
+            This class will only hold structure for Uservar object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.UltDecode.FuseGroup">
+            <summary>
+            Gets or sets fuse group name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.UltDecode.FailPort">
+            <summary>
+            Gets or sets FailPort.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator">
+            <summary>
+            Class object to validate FuseRead configuration file.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.#ctor(Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.FuseReadJsonFile)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator"/> class.
+            </summary>
+            <param name="configuration">Configuration to validate.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.ValidateAllConfigurations(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Validate attribute of Configuration validity throughout fuse read input file.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckDuplicateRegisterName">
+            <summary>
+            Check on configuration file, make sure no same register name being use within the same configuration.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckSimulationStringWithValidSize">
+            <summary>
+            Check bit size for simulationString need to match fuseDef size.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckFuseGroupsToHideExistInFuseDef">
+            <summary>
+            Check if FuseGroupsToHide fuseGroup exist in fuseDef.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckMaskConfiguration">
+            <summary>
+            Check on Mask configuration setup.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckDuplicateMaskName">
+            <summary>
+            Check on no duplication of mask name being used within the same register.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckMaskValueLength">
+            <summary>
+            Check mask value if that fit with fuseDef start and end address.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckDynamicCustomVariableValidity">
+            <summary>
+            Check dynamic mask setup exist.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckMismatchBitSetup">
+            <summary>
+            Check mismatch bit storage setup exist.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckMarginSweepConfiguration(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check on MarginSweep configuration setup.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckDuplicateMarginSettingsName">
+            <summary>
+            Check duplication in marginSettings name.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckMarginDefaultDataExist">
+            <summary>
+            MarginDefaultData is not allow to defined empty when EnableRestore is true.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.Validator.CheckPatConfigExistInPatModifyFile(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check PatConfig configuration exist or defined as separate json file.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Factory.DatalogFormatFactory">
+            <summary>
+            Class that store datalogging property.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Factory.DatalogFormatFactory.StrgaltLimit">
+            <summary>
+            Gets strgalt value limit.
+            Limitation is set 2000 characters, else datalog service error thrown.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Factory.DatalogFormatFactory.StrgaltType">
+            <summary>
+            Gets type of strgalt data to set. Default as fus_msbF.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Factory.DatalogFormatFactory.DatalogString">
+            <summary>
+            Gets or sets datalog string, which expect to be printed in ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Factory.DatalogFormatFactory.TnamePostFix">
+            <summary>
+            Gets or sets tnamePostFix.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Factory.DatalogFormatFactory.ItuffData">
+            <summary>
+            Gets or sets ItuffData, this value will store tname as key, value as datalogString.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Factory.MarginSweepFactory">
+            <summary>
+            Class that stores post process data for Margin Sweep Mode.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Factory.MarginSweepFactory.FuseComposite">
+            <summary>
+            Gets or sets Margin Sweep final fuse composite.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.FuseRead.Factory.MarginSweepFactory.MarginNameAndResults">
+            <summary>
+            Gets or sets margin name and respective margin result after each margin execution.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle">
+            <summary>
+            <inheritdoc cref="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle"/>
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.configName">
+            <summary>
+            Configuration name input to fuse read handle.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.isPrimeDebugEnabled">
+            <summary>
+            True when user set test instance parameter log level to Enabled. This will print more information to console.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.isMarginSweepExists">
+            <summary>
+            True when MarginSweep is defined in fuse read input file.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.isRequireReverseString">
+            <summary>
+            Reverse fuse string composite when Register json attribute of Reverse is set to true and it is not execute in simulation mode.
+            This Reverse apply to fuse string datalog as well.
+            Simulation string arrangement is always MSB->LSB (LHS->RHS), hence Reverse is not needed and only applicable for pattern mode when needed.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.marginSweepData">
+            <summary>
+            Initialize a new instance of marginSweepFactory class.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.datalogFactory">
+            <summary>
+            Initialze a new instance of datalogFactory class.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.dynamicChar">
+            <summary>
+            Character use by dynamic mask and dynamic sspec indicate modify bits.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.register">
+            <summary>
+            Specify the register configuration that stores all register related data.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.fusestringSharedStorageKey">
+            <summary>
+            Sharedstorage key to get fusestring. If empty, default key will be "fusestring_{registername}".
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.sspecToApply">
+            <summary>
+            Store the Execute Sspec Data that matched Execute SspecName.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.fuseStringMsbToLsb">
+            <summary>
+            Fuse string value when Simulation Mode is 'true'-from Register Simulation String, 'false'-from CtvData. This string will be arrange LHS (MSB) to RHS (LSB).
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.fuseStringForItuff">
+            <summary>
+            If Reverse is True this fuse string will be Reverse.
+            If FuseGroupsToHide is defined, this fuse string (or reversed fuse string) of the FuseGroupsToHide will be replace to '0'.
+            Consider string of 11111010, fuse group to hide addess of 1:0.
+            Reverse is False, fuse string will be 11111000.
+            Reverse is True, fuse string will be 01011100.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.#ctor(Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.FuseReadJsonFile,System.String,System.String,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle"/> class.
+            </summary>
+            <param name="fuseReadJsonFile">FuseReadJsonFile object.</param>
+            <param name="configurationName">Name of configuration.</param>
+            <param name="registerName">Name of register.</param>
+            <param name="fusestringSharedStorageKey">Sharedstorage key to get fusestring. If empty, default key will be fusestring_{registername}.</param>
+            <param name="isSimulationMode">true to use SimulationString, false to use ConvertCtvDataToFuseString. Default is set to false.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetRegisterName">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetRegisterFuseGroupName">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetSimulationString">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetCapturePin">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetPatternModifyConfigurationName">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetPatternModifyRatio">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetPatternModifyRegex">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetMarginSettings">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.ConvertCtvDataToFuseString(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.SaveMarginResult(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.ClearMarginResult">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.ProcessMarginResult">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.IsRestorePatternEnabled">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.IsUltDecodeSettingExist">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetFuseMaskFailPort(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetUltDecodeFailPort">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetCurrentUltDecodeFuseGroup">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetMarginDefaultValue">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetMarginResultData">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetFuseStringData(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetFuseStringByFuseGroup(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetFuseStringForItuffByFuseGroup(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetEntireFuseString">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.ExecuteMask(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.ExecuteSSPEC">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.SetupFuseString(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.StoreFuseStringToSharedStorage(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.ProcessCtvData(System.String,System.Int32)">
+            <summary>
+            Decode ctv value using 3x algorithm.
+            1 + 1 + 1 = 1
+            0 + 0 + 0 = 0
+            Else programmed to u.
+            Algorithm as stated above.
+            </summary>
+            <param name="cumulativeCtvValue">Cumulative ctv bits from multiple pins.</param>
+            <param name="registerSize">Size of register.</param>
+            <returns>Final string obtained after running the 3x decode algorithm.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.ApplyFuseGroupsToHide(System.Collections.Generic.List{Prime.FuseDBService.IFuseData},System.String)">
+            <summary>
+            Apply FuseGroupsToHide to the provided string.
+            </summary>
+            <param name="fusesData">The register fuse group data based of fuse group name.</param>
+            <param name="fuseString">Fuse string.</param>
+            <returns>FuseString with FuseGroupsToHide replace with '0'.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetMismatchBits(System.String,System.String)">
+            <summary>
+            Compare two string by character then return Bit Position that mismatch. The position index start from 0 and read from LHS to RHS. Most RHS is MSB.
+            </summary>
+            <param name="fuseString">String of fuse string. Expect LSB->MSB. The String should consist only '0' and '1'.</param>
+            <param name="maskString">String of mask. Expect MSB->LSB. The String should consist only '0', '1' and 's', 'm' should already replace by dynamic value.</param>
+            <returns>Bit Position that mismatch. The position index start from 0 and read from LHS to RHS. Most RHS is MSB.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetFuseStringFromFuseGroupData(Prime.FuseDBService.IFuseGroupData,System.String)">
+            <summary>
+            Get Fuse String of the FuseGroup.
+            </summary>
+            <param name="fuseGroupData">The register fuse group data based of fuse group name.</param>
+            <param name="fuseString">The fuse string (MSB->LSB) to extract.</param>
+            <returns>Fuse String of the FuseGroup.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetConfigRegisterByName(Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.FuseReadJsonFile,System.String)">
+            <summary>
+            Get User Register information from configuration name and register name.
+            </summary>
+            <param name="fuseReadJsonFile">FuseReadJsonFile object.</param>
+            <param name="registerName">Name of register to get from fuse read object.</param>
+            <returns>Register is found and its information.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetMaskByName(System.String)">
+            <summary>
+            Get User Execute Mask Information.
+            </summary>
+            <param name="maskName">Name of User Execute Mask.</param>
+            <returns>Mask is found and its information.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetFuseStringComposite(System.String,System.String,System.String,System.String)">
+            <summary>
+            Get Fuse String Composite based on the execute Mask/Sspec FuseGroup.
+            </summary>
+            <param name="handleType">Mask or Sspec.</param>
+            <param name="executeName">Name of Mask or Name of Sspec QDF.</param>
+            <param name="fuseStringComposite">Fuse string for extract.</param>
+            <param name="fuseGroupNameToExtract">"Fuse group name to extract.</param>
+            <returns>Fuse String Composite.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.ReplaceWithDynamicValue(System.String,System.String,System.String,System.String)">
+            <summary>
+            Replace MaskString that contain 'm' with Dynamic Mask Value.
+            </summary>
+            <param name="maskName">Name of execute mask.</param>
+            <param name="maskFuseGroup">Name of mask fuse group.</param>
+            <param name="maskString">Dynamic Mask String that contain 'm' that defined at fuse def.</param>
+            <param name="dynamicMaskValueString">Dynamic Mask value get from sharedstorage, dff or uservar. Expect only '0' and '1'.</param>
+            <returns>Mask String that only contain '0' and '1', where 'm' is replaced with Dynamic Mask value.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetFuseGroupDynamicValue(System.String,System.Collections.Generic.List{Prime.BusinessLogic.FuseLogicCollection.FuseBasic.Configurations.Dynamic})">
+            <summary>
+            Function to acquire Mask or Sspec value based on fuseGroup specified in json file, before replacing the dynamic value.
+            The sequence is bottom up of Mask/Sspec value and replace the character from LHS to RHS.
+            </summary>
+            <returns>Mask or Sspec value.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.MismatchBitsConsoleOutput(System.String,System.String,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Print Mismatch Bits Summary to Console.
+            </summary>
+            <param name="fuseString">Fuse String Composite.</param>
+            <param name="maskString">Mask String.</param>
+            <param name="mismatchBitPosition">List of Mismatch Bit Position. The mismatch position start from 0 and read from LHS to RHS.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.StoreMismatchBit(System.Collections.Generic.List{Prime.BusinessLogic.FuseLogicCollection.FuseRead.Configurations.MismatchBit},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Store mismatch bit to the storage that defined in configuration file mismatch bit attribute.
+            </summary>
+            <param name="mismatchBitStorageSetups">list of mismatch bit storage setup.</param>
+            <param name="mismatchBits">mismtch bit to store.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.GetSspecConfigByQDFValue">
+            <summary>
+            Get sspec configuration based on qdf value.
+            </summary>
+            <returns>List of Sspec configuration object.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.FuseReadHandle.CheckSimulationStringValidity(System.String)">
+            <summary>
+            Check simulation string size is same as register size defined in fuseDef file and string format.
+            </summary>
+            <param name="simulationString">Simulation string value to check with.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle">
+            <summary>
+            Fuse read handler interface for configuration file.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetRegisterName">
+            <summary>
+            Get the register name of the execution fuse read handle.
+            </summary>
+            <returns>Return Register Name of the handle.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetRegisterFuseGroupName">
+            <summary>
+            Get the fuse group name of the register that defined in fusedef file.
+            </summary>
+            <returns>Return list of fuse group name that is defined for the register.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetSimulationString">
+            <summary>
+            Default will return the register simulation string defined in configuration file.
+            Unless Preset simulation string that set through preinstance and callback is found in sharedstorage.
+            User is expected to set the string RHS (MSB) to LHS (LSB) and match register size defined in fusedef.
+            </summary>
+            <returns>Return Register Simulation String used to execute.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetCapturePin">
+            <summary>
+            Acquire ReadPin that matched the RegisterName from fuseDef file.
+            </summary>
+            <returns>Return ReadPin that matched the RegisterName from fuseDef file.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetPatternModifyConfigurationName">
+            <summary>
+            Acquire PatternModifyConfigName from fuseRead file.
+            </summary>
+            <returns>Name of Pattern Modify Config Name.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetPatternModifyRatio">
+            <summary>
+            Gets the ratio to apply to the PatternModify configuration from the FuseRead file.
+            </summary>
+            <returns>The ratio to the PatternModify configuration.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetPatternModifyRegex">
+            <summary>
+            Gets the regular expression to filter the patterns from the FuseRead file.
+            </summary>
+            <returns>The regular expression to filter patterns.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetMarginSettings">
+            <summary>
+            Acquire marginSettings name and value from fuseRead file.
+            </summary>
+            <returns>Dictionary of marginName and marginValue.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.ConvertCtvDataToFuseString(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Convert ctv data to either 1x, 2x or 3x form based on ctv bits length.
+            </summary>
+            <param name="ctvData">Dictionary of of ctv Data. Key is Pin Name. Value is Binary string.</param>
+            <returns>Fuse composite string (MSB->LSB) which might contain unprogrammed bit of 'u', given if difference exist during comparison.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.SaveMarginResult(System.String,System.String)">
+            <summary>
+            Save marginName and fuseString in a dictionary.
+            </summary>
+            <param name="marginName">Name of Margin Setting.</param>
+            <param name="fuseString">Value of Fuse String.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.ClearMarginResult">
+            <summary>
+            Clear all margin result dictionary data.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.ProcessMarginResult">
+            <summary>
+            Comparing fuseString from different margin name in compare mode, else readout first margin fuseString.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.IsRestorePatternEnabled">
+            <summary>
+            Get status of enableRestore from fuseRead file.
+            </summary>
+            <returns>Boolean status of enableRestore.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetMarginDefaultValue">
+            <summary>
+            Get marginDefaultValue from fuseRead file.
+            </summary>
+            <returns>String value of marginDefaultValue.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetMarginResultData">
+            <summary>
+            Datalog Fuse String to either composite or per_readout type. Every 2000 characters will split into next chunk (fd1, fd2, fd3, ...).
+            </summary>
+            <returns>Dictionary of margin result ituff data. Key is tname (with chunk split), and value is margin result (eg: 101010).</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetFuseStringData(System.String)">
+            <summary>
+            Datalog Fuse String to format that define by User in fuse read input file. Default is in Binary format.
+            PatternMode: Apply Reverse if true. Apply FuseGroupsToHide.
+            SimulationMode: No Reverse. Apply FuseGroupsToHide.
+            </summary>
+            <param name="fuseString">Value of Fuse String.</param>
+            <returns>Dictionary of fuse string ituff data. Key is tname (with chunk split), and value is fuse string (eg: 101010).</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetFuseStringByFuseGroup(System.String)">
+            <summary>
+            Get fuse string of the fuse group.
+            Reverse is applied for the return fuse string. When Reverse is true, it will reverse the fuse string then extract.
+            FuseGroupsToHide does not applied for the return fuse string.
+            </summary>
+            <param name="fuseGroupName">Fuse group name.</param>
+            <returns>Fuse string of the fuse group.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetFuseStringForItuffByFuseGroup(System.String)">
+            <summary>
+            PatternMode: Apply Reverse if true. Apply FuseGroupsToHide.
+            SimulationMode: No Reverse. Apply FuseGroupsToHide.
+            If Reverse is True this fuse string will be Reverse.
+            If FuseGroupsToHide is defined, this fuse string (or reversed fuse string) of the FuseGroupsToHide will be replace to '0'.
+            Consider string of 11111010, fuse group to hide addess of 1:0.
+            Reverse is False, fuse string will be 11111000.
+            Reverse is True, fuse string will be 01011100.
+            </summary>
+            <param name="fuseGroupName">Fuse group name.</param>
+            <returns>Fuse string with reverse (if enabled) and hide (if enabled) of the fuse group.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetEntireFuseString">
+            <summary>
+            Get full fuse string that it is either from Simulation String (Simulation Mode) or CtvData (Execute Pattern Mode) depend on execute mode.
+            PatternMode: Apply Reverse if true.
+            SimulationMode: No Reverse.
+            </summary>
+            <returns>Full fuse string.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.ExecuteMask(System.String)">
+            <summary>
+            Comparing mask value and fuse String. On True when there is no mismatch between fuse string and mask value.
+            PatternMode: Apply Reverse if true.
+            SimulationMode: No Reverse.
+            </summary>
+            <param name="maskName">Name of the Mask to apply on Fuse String.</param>
+            <returns>Status of Execute Mask. True when no mismatch found after comparing fuse string and mask value.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.ExecuteSSPEC">
+            <summary>
+            Comparing QDF sspec value and fuse string. On True when there is no mismatch between fuse string and QDF sspec value.
+            PatternMode: Apply Reverse if true.
+            SimulationMode: No Reverse.
+            </summary>
+            <returns>Status of Execute SSPEC. True when no mismatch found after comparing fuse string and QDF sspec value.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.IsUltDecodeSettingExist">
+            <summary>
+            Get exist of UltDecoder Setting under Register in Json File.
+            </summary>
+            <returns>boolean status of UltDecoder Setting exist in json.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetFuseMaskFailPort(System.String)">
+            <summary>
+            Get FailPort on FuseMask set under Masks object in Json File.
+            </summary>
+            <param name="maskName">Name of the Mask to apply on Fuse String.</param>
+            <returns>Value of failport set in json.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetUltDecodeFailPort">
+            <summary>
+            Get FailPort set on UltDecode in Json File.
+            </summary>
+            <returns>Value of failport set in json.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.GetCurrentUltDecodeFuseGroup">
+            <summary>
+            Get FuseGroup Name set on under UltDecode in Json File.
+            </summary>
+            <returns>Value of FuseGroup name string set in json.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.SetupFuseString(System.String)">
+            <summary>
+            Setup fuse string to be use for fuse read handle. It is expecting fuse string arrange from MSB->LSB.
+            </summary>
+            <param name="fuseString">Depend on Mode, Fuse String can be either Simulation String (MSB->LSB) or CtvData that arranged (MSB->LSB).</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.FuseRead.IFuseReadHandle.StoreFuseStringToSharedStorage(System.String)">
+            <summary>
+            Store fusestring to sharedstorage.
+            Default Store Fuse String to SharedStorage key=[fusestring_{registerName}]. Context=[DUT]. ResetPolicy=[Device Start].
+            If user defined test instance parameter SharedStorageKeyToStore, store fuse string to the provided sharedstorage key.
+            </summary>
+            <param name="fuseString">Fuse string to store.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.JsonDeserializer.CustomJsonConverter.BurnRangeCustomJsonConverter">
+            <summary>
+            CustomJsonConverter for BurnRange, which return as list of BurnRange.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonDeserializer.CustomJsonConverter.BurnRangeCustomJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Collections.Generic.List{Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnRange},System.Boolean,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonDeserializer.CustomJsonConverter.BurnRangeCustomJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Collections.Generic.List{Prime.BusinessLogic.FuseLogicCollection.FuseBurn.Configurations.BurnRange},Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonDeserializer.CustomJsonConverter.BurnRangeCustomJsonConverter.DuplicateString(System.String[])">
+            <summary>
+            Function responsible to duplicate the same address value of startAddress/endAddress, given if user define eg: "1" instead of "1-1".
+            </summary>
+            <param name="valueToProcess">Array of string to be duplicate.</param>
+            <returns>Duplicated array of string.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.JsonDeserializer.CustomJsonConverter.FuseGroupsToHideCustomJsonConverter">
+            <summary>
+            CustomJsonConverter class that overrides default deserialization.
+            For example: deserialize attribute as string and convert as list of string.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonDeserializer.CustomJsonConverter.FuseGroupsToHideCustomJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Collections.Generic.List{System.String},System.Boolean,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonDeserializer.CustomJsonConverter.FuseGroupsToHideCustomJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Collections.Generic.List{System.String},Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.JsonDeserializer.JsonDeserializer">
+            <summary>
+            Functionality to deserializing JSONs into objects.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonDeserializer.JsonDeserializer.ParseConfigurationJsonfile``1(System.String)">
+            <summary>
+            This function parse fuseRead json file and store into FuseReadJsonFile class.
+            </summary>
+            <param name="filePath">String representing path to the file.</param>
+            <typeparam name="T"> The type of object the file will be converted into.</typeparam>
+            <returns>The file returned as the desired object type.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator">
+            <summary>
+            Validate the Json file has the correct format.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator.SchemaFilePathEnvironmentVariableName">
+            <summary>
+            This is Test Program Environment Variable that set as "$PRIME_VERSION_DIR\resources\schemas".
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator.#ctor(Prime.BusinessLogic.FuseLogicCollection.Enums.FuseSchemaType.Option)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator"/> class.
+            </summary>
+            <param name="schemaType">Choice of schema to use.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator.SchemaFilePath">
+            <summary>
+            Gets or sets the Schema file path for this TM.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator.ErrorList">
+            <summary>
+            Gets or sets the error list from the schema validation.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator.ValidateFile(System.String)">
+            <summary>
+            Executes the validation for json file with the json schema.
+            Adds validation errors to a common list.
+            </summary>
+            <param name="jsonFilePath">The json file path to be validate.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator.GetJsonFileContent(System.String)">
+            <summary>
+            Get the content of a json file with filesystem.
+            </summary>
+            <param name="jsonFile">Full Path to json file.</param>
+            <returns>Text content of the file.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator.GetSchemaValidator(System.String)">
+            <summary>
+            Get schema validator instance with rule defined in json schema file.
+            </summary>
+            <param name="schemaFile">Full path to schema file.</param>
+            <returns>Schema validator instance.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator.GetSchemaFileName(Prime.BusinessLogic.FuseLogicCollection.Enums.FuseSchemaType.Option)">
+            <summary>
+            Check for valid schema option and return the name of the schema to be use by json schema validator.
+            </summary>
+            <param name="schemaOption">Choice of schema to use by json schema validator.</param>
+            <returns>Name of the schema with its extension.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.JsonSchemaValidator.JsonSchemaValidator.GetErrorDetails">
+            <summary>
+            Gets all the validation errors detail as a string.
+            </summary>
+            <returns>All validation errors details.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult">
+            <summary>
+            ULT class to hold Unit Level Traceability.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.CtvsOrder">
+            <summary>
+            CTVs order options for decoding.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.CtvsOrder.Msb">
+            <summary>
+            Most Significant Bit first.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.CtvsOrder.Lsb">
+            <summary>
+            Least Significant Bit first.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.Lot">
+            <summary>
+            Gets or sets lot to hold the lot number.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.Wafer">
+            <summary>
+            Gets or sets Wafer to hold wafer number.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.XLocation">
+            <summary>
+            Gets or sets XLocation to hold X coordinate location.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.YLocation">
+            <summary>
+            Gets or sets YLocation to hold Y coordinate location.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.RawFuseString">
+            <summary>
+            Gets or sets RawFuseString before Decode.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.ToString">
+            <summary>
+            Convert to string ULT.
+            </summary>
+            <returns>Return a multiline ULT data.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.GetULT">
+            <summary>
+            Get ULT as string in a single line.
+            </summary>
+            <returns>Return a string with ULT infomation separate by underscore (_).</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltDecoderBasic">
+            <summary>
+            This class includes helper basic functions for UltDecoder.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltDecoderBasic.CtvOrder">
+            <summary>
+            Gets or sets CTVs order for decoding.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltDecoderBasic.ExpectedBitCount">
+            <summary>
+            Gets or sets expected total bit count.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltDecoderBasic.PinName">
+            <summary>
+            Gets or sets PinName string.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltDecoderBasic.OffSet">
+            <summary>
+            Gets or sets integer OffSet value.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltDecoderBasic.UltDecodeFromCtvData(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This is the function to call for Ult Decode.
+            </summary>
+            <param name="ctvData"> raw ctvData as input.</param>
+            <param name="sessionContext">The current Instance's session context.</param>
+            <returns>return Ult.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltDecoderBasic.DecodeUlt(System.String,Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            function to decode ULT.
+            </summary>
+            <param name="rawUltData"> string 50 or 56 to generate the ULT.</param>
+            <param name="ultDecoded"> ULT decoded.</param>
+            <param name="sessionContext">The current Instance's session context.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltHandle">
+            <summary>
+            This class includes handle basic functions for UltDecoder.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltHandle.SaveAllUltString(System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            function to save decoded ult details to sharedstorage.
+            </summary>
+            <param name="ultPerDieId"> dictionary of dieId, and Ult String.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltHandle.UpdateUltToDffService(System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            function to save decoded ult details to DffService.
+            </summary>
+            <param name="isInlineDffEnabled"> boolean of InlineDff enable or disable.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.UltHandle.GetAllUltString(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            function that gets ult string with pair with DieId.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dictionary of dieId, and Ult String.</returns>
+        </member>
+    </members>
+</doc>

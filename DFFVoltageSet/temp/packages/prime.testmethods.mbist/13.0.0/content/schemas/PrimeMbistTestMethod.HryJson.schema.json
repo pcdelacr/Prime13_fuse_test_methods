@@ -1,0 +1,356 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "Version",
+    "MemoryLocations",
+    "ControllerGroups"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Version": {
+      "type": "number"
+    },
+    "MemoryLocations": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "MemoryPowerDomain": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "BisrChain": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "$ref": "#/definitions/BisrChainJson"
+      }
+    },
+    "BisrRepairShare": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "$ref": "#/definitions/BisrRepairShareJson"
+        }
+      }
+    },
+    "ControllerGroups": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/ControllerGroupsJson"
+      }
+    }
+  },
+  "definitions": {
+    "BiraRegisterJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "BisrController": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "BiraName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "BisrName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Capture": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Replace": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "BisrController",
+        "BiraName",
+        "BisrName",
+        "Capture",
+        "Replace"
+      ]
+    },
+    "BisrChainJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "BufferSize": {
+          "type": "integer"
+        },
+        "ZeroCounterBits": {
+          "type": "integer"
+        },
+        "FuseBoxSize": {
+          "type": "integer"
+        },
+        "FuseBoxAddressBits": {
+          "type": "integer"
+        },
+        "MaxFuseBoxProgrammingSessions": {
+          "type": "integer"
+        },
+        "TotalLength": {
+          "type": "integer"
+        },
+        "Chains": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": [
+        "BufferSize",
+        "ZeroCounterBits",
+        "FuseBoxSize",
+        "FuseBoxAddressBits",
+        "MaxFuseBoxProgrammingSessions",
+        "TotalLength",
+        "Chains"
+      ]
+    },
+    "BisrRepairShareJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Register": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Memories": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Register",
+        "Memories"
+      ]
+    },
+    "ControllerGroupsJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "CaptureCount": {
+          "$ref": "#/definitions/PositiveNumber"
+        },
+        "ControllerSets": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/ControllerSetJson"
+          }
+        }
+      },
+      "required": [
+        "CaptureCount",
+        "ControllerSets"
+      ]
+    },
+    "ControllerJson": {
+      "type": "object",
+      "required": [
+        "Execution",
+        "CAPTURE_DATA",
+        "CAPTURE_COMMENTS"
+      ],
+      "properties": {
+        "Execution": {
+          "type": "array",
+          "minItems": 0,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/ExecutionJson"
+          }
+        },
+        "CaptureData": {
+          "type": "string"
+        },
+        "CaptureComments": {
+          "type": "string"
+        },
+        }
+      },
+      "required": [
+        "Execution",
+        "CaptureData",
+        "CaptureComments"
+      ]
+    },
+    "ControllerSetJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Type": {
+          "type": "string",
+          "enum": [
+            "BISR",
+            "EXTRACTBIRA",
+            "GOID",
+            "RABITS",
+            "VFDM"
+          ]
+        },
+        "Patterns": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "Controllers": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "$ref": "#/definitions/ControllerJson"
+          }
+        }
+      },
+      "required": [
+        "Type",
+        "Patterns",
+        "Controllers"
+      ]
+    },
+    "ExecutionJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Status": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer"
+          }
+        },
+        "AlgoSelect": {
+          "type": "string"
+        },
+        "PAlgoSelect": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Memories": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "BiraRegs": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/definitions/BiraRegisterJson"
+          }
+        }
+      },
+      "required": [
+        "Status",
+        "AlgoSelect",
+        "PAlgoSelect",
+        "Memories",
+        "BiraRegs"
+      ]
+    },
+    "PositiveNumber": {
+      "type": "number",
+      "minimum": 0
+    },
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

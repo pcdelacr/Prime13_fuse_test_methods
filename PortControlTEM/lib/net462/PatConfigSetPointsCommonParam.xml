@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces TestLibraryInterfaces.xsd">
+    <TestLibrary name="PatConfigSetPointsCommonParam">
+    <Imports>
+    </Imports>
+    <PublicBases/>
+    <Parameters>
+    <Parameter name="SetPointsPlistMode" descriptions="Plist Mode Global/Local.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Local</Choice>
+          <Choice>Global</Choice>
+        </Choices>
+        <Default>Local</Default>
+        <Optional />
+      </Parameter>
+	  <Parameter name="SetPointsPlistParamName" descriptions="A name of a param at current instance that hold plist name.If empty setpoints will be applied on all patterns defined in configurations."> 
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default/>
+        <Optional/>
+      </Parameter>
+     <Parameter name="SetPointsRegEx" descriptions="A Regular Expression to minimize the patterns in the configurations."> 
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default/>
+        <Optional/>
+      </Parameter>
+      <Parameter name="SetPointsPreInstance" descriptions="A list of Group names and Set point value to apply before test execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default/>
+        <Optional/>
+      </Parameter>
+     <Parameter name="SetPointsPostInstance" descriptions="A list of Group names and Set point value to apply after test execution.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default/>
+        <Optional/>
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

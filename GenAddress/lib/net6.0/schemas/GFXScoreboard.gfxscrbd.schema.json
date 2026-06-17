@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "GFXScoreboard",
+  "description": "GFXScoreboard json schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Iterations": {
+      "description": "Number of iterations",
+      "type": "integer",
+      "minimum": 1
+    },
+    "ChunkSize": {
+      "description": "ChunkSize",
+      "type": "integer",
+      "minimum": 1
+    },
+    "ChunkIndex": {
+      "description": "ChunkIndex",
+      "type": "string",
+      "pattern": "^[0-9]+(,[0-9]+)*$"
+    },
+    "ValueToDecodeMapping": {
+      "type": "array",
+      "minContains": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "string",
+            "pattern": "^[01]+$"
+          },
+          "Decode": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9]$"
+          }
+        },
+        "required": ["Value", "Decode"]
+      }
+    },
+    "DoaLabels": {
+      "description": "DoaLabels",
+      "type": "object",
+      "properties": {
+        "CaptureLocation": {
+          "type": "array",
+          "minContains": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "StartLabel": {
+                "type": "string"
+              },
+              "StopLabel": {
+                "type": "string"
+              },
+              "Domain": {
+                "type": "string"
+              },
+              "HrySymbol": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9]$"
+              }
+            },
+            "required": ["StartLabel", "StopLabel", "Domain", "HrySymbol"]
+          }
+        }
+      }
+    }
+  },
+  "required": ["Iterations", "ChunkSize", "ChunkIndex", "ValueToDecodeMapping"]
+}

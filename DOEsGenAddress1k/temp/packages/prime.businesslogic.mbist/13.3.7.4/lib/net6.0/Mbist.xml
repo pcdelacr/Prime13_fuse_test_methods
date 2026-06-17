@@ -1,0 +1,3235 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.Mbist</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.Mbist.Bootstrapper">
+            <summary>
+            Provides bootstrapping method for accessing components.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            A bootstapper for defining compoent into the service collection.
+            </summary>
+            <param name="serviceCollection">Service collection object that stores the components definitions.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrection">
+            <summary>
+            Bira correction class stores bira correction information of each controller register.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrection.#ctor(Prime.BusinessLogic.Mbist.Json.Map.CorrectBiraJson)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrection"/> class.
+            </summary>
+            <param name="correctBiraJson">correctBira information from json file.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrection.Offset">
+            <summary>
+            Gets the offset information from bira correction.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrection.Register">
+            <summary>
+            Gets the register name from bira correction.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrection.Inputs">
+            <summary>
+            Gets 'Input' information from bira correction.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrection.Outputs">
+            <summary>
+            Gets 'Output' information from bira correction.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Bisr">
+            <summary>
+            Bisr class stores each bisr controller information.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Bisr.#ctor(Prime.BusinessLogic.Mbist.Json.Hry.PinRangeJson,System.String,Prime.BusinessLogic.Mbist.DataStruct.BisrChain,System.Int32,System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Bisr"/> class.
+            </summary>
+            <param name="captureData">bisr controller name.</param>
+            <param name="captureComments">bira name.</param>
+            <param name="bisrChain">bira chain reference.</param>
+            <param name="captureCount">captureCount.</param>
+            <param name="memoryNameList">memoryNameList.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Bisr.BisrControllerName">
+            <summary>
+            Gets the bisr controller name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Bisr.CaptureData">
+            <summary>
+            Gets the capture data range.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Bisr.BisrChain">
+            <summary>
+            Gets the bisr chain data.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Bisr.CaptureComments">
+            <summary>
+            Gets the capture comments.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Bisr.CommentIndicesPerMemory">
+            <summary>
+            Gets the indices of capture comments per memory.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Bisr.CommentIndicesInSharedRepairPerMemory">
+            <summary>
+            Gets the indices of capture comments of shared repair per memory.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Bisr.GetDebugPrintInfo">
+            <summary>
+            Retrieve Bisr information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.BisrChain">
+            <summary>
+            Bisr chain class stores each bisr chain information.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.bisrRepairShare">
+            <summary>
+            key = register, value = a list of Memories class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.#ctor(System.String,Prime.BusinessLogic.Mbist.Json.Hry.BisrChainJson,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.BisrChain"/> class.
+            </summary>
+            <param name="bisrChainName">Bisr chain name.</param>
+            <param name="bisrChain">Json bisr chain information from the hry configuration file.</param>
+            <param name="bisrRepairShare">Json bisr repair chain information from the hry configuration file.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.BufferSize">
+            <summary>
+            Gets the buffer size.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.ZeroCounterBits">
+            <summary>
+            Gets the zero count bits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.FuseBoxSize">
+            <summary>
+            Gets the fuse box size.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.FuseBoxAddressBits">
+            <summary>
+            Gets the fuse box address bits.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.MaxFuseBoxProgrammingSessions">
+            <summary>
+            Gets the fuse box programming session number.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.TotalLength">
+            <summary>
+            Gets the bisr chain total length.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.BisrChainName">
+            <summary>
+            Gets the bisr chain name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.Chains">
+            <summary>
+            Gets the list of bisr chain names.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.BisrPatConfigSetPoint">
+            <summary>
+            Gets or sets Bisr patconfig setpoint object.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.IsMemoryInRepairShare(System.String,System.String)">
+            <summary>
+            Gets whether the memory is in RepairShare.
+            </summary>
+            <param name="captureComment">Capture comment to check.</param>
+            <param name="hryMemory">Hry memory name.</param>
+            <returns>whether the memory is in RepairShare.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrChain.GetDebugPrintInfo">
+            <summary>
+            retrieve bisrChain information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.BisrSet">
+            <summary>
+            BisrSet class stores each bisr set information.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrSet.#ctor(System.Int32,Prime.BusinessLogic.Mbist.Json.Hry.ControllerSetJson,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.BisrChain},System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.BisrSet"/> class.
+            Constructor.
+            </summary>
+            <param name="captureCount">Controller group capture count.</param>
+            <param name="controllers">Control set information of the json hry configuration file.</param>
+            <param name="bisrChains">Bisr chain information.</param>
+            <param name="memoryNameList">memoryNameList.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrSet.CaptureCount">
+            <summary>Gets the capture count value.</summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrSet.Type">
+            <summary>Gets the controller type.</summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrSet.BisrControllers">
+            <summary>Gets the bisr controller type.</summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrSet.GetDebugPrintInfo">
+            <summary>
+            Retrieve bisr set information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.ReplacementBits">
+            <summary>
+            Bira Replacements class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ReplacementBits.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.ReplacementBits"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.ReplacementBits.Replacements">
+            <summary>
+            Gets the replacement bits dictionary.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ReplacementBits.AddReplacement(System.Int32,System.Char)">
+            <summary>
+            Adds an index replacement pair when it doesn't already exist.
+            </summary>
+            <param name="index">Index of the replacement.</param>
+            <param name="replacement">Replacement char.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ReplacementBits.GetDebugPrintInfo">
+            <summary>
+            Retrieve current range information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Controller">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Controller.#ctor(System.String,System.Collections.Generic.List{Prime.BusinessLogic.Mbist.Json.Hry.ControllerJson},Prime.BusinessLogic.Mbist.DataStruct.ControllerTypes,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Controller"/> class.
+            </summary>
+            <param name="name">Controller name.</param>
+            <param name="controllerData">Controller information taken from the hry configuration file.</param>
+            <param name="type">Controller set type.</param>
+            <param name="hryMemoryLocation">Hry memory locations.</param>
+            <param name="captureCount">captureCount.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Controller.Name">
+            <summary>
+            Gets the controller name.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Controller.ExtractResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32,Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults,Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Extracts the controller results.
+            </summary>
+            <param name="pinToCtv">Pin to ctv map.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="ctvOffset">ctv start index offset.</param>
+            <param name="instanceConfigurations">Parameter object for accessing varies parameter values.</param>
+            <param name="hryResults">A class containing the current hry results.</param>
+            <param name="vfdmRepairHandler">Vfdm repair handler.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Controller.SetMemoryErrorFlag(Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults)">
+            <summary>
+            Set all memory in controller to 'ControllerFailure'.
+            </summary>
+            <param name="hryResults">A class containing the current hry results.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Controller.UpdateMemorySymbolsToPass(Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults)">
+            <summary>
+            Updates the Memories hry symbol to pass.
+            </summary>
+            <param name="hryResults">A class containing the current hry results.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Controller.GetMemoryQuantity">
+            <summary>
+            Gets the memory quantity..
+            </summary>
+            <returns>The memory quantity.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Controller.AddMemoryNamesToList(System.Collections.Generic.List{System.String})">
+            <summary>
+            Adds the memory names to the list.
+            </summary>
+            <param name="memoryNames">List of memory names.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Controller.GetDebugPrintInfo">
+            <summary>
+            Retrieve controller information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.ControllerTypes">
+            <summary>Hry controller types.</summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.ControllerTypes.Bisr">
+            <summary>Bisr type in raw format.</summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.ControllerTypes.BisrCompressFuse">
+            <summary>Bisr type in compress fuse format.</summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.ControllerTypes.ExtractBira">
+            <summary>ExtractBira type.</summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.ControllerTypes.RaBits">
+            <summary>RaBits type.</summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.ControllerTypes.Vfdm">
+            <summary>Vfdm repair type.</summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.ControllerTypes.GoId">
+            <summary>GoId type.</summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet.#ctor(System.Int32,Prime.BusinessLogic.Mbist.Json.Hry.ControllerSetJson,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet"/> class.
+            Constructor.
+            </summary>
+            <param name="captureCount">Controller group capture count.</param>
+            <param name="controllers">Control set information of the json hry configuration file.</param>
+            <param name="hryMemoryLocation">Hry memory locations.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet.CaptureCount">
+            <summary>Gets the capture count value.</summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet.Type">
+            <summary>Gets the controller type.</summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet.ExtractResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32,Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults,Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Extracts the controller results.
+            </summary>
+            <param name="pinToCtv">Pin to ctv map.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="ctvOffset">ctv start index offset.</param>
+            <param name="instanceConfigurations">Parameter object for accessing varies parameter values.</param>
+            <param name="hryResults">A class containing the current hry results.</param>
+            <param name="vfdmRepairHandler">Vfdm repair handler.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet.UpdateMemorySymbolsToPass(Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults)">
+            <summary>
+            Updates the Memories hry symbol to pass.
+            </summary>
+            <param name="hryResults">A class containing the current hry results.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet.GetMemoryQuantity">
+            <summary>
+            Gets the memory quantity..
+            </summary>
+            <returns>The memory quantity.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet.AddMemoryNamesToList(System.Collections.Generic.List{System.String})">
+            <summary>
+            Adds the memory names to the list.
+            </summary>
+            <param name="memoryNames">List of memory names.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet.IsBira">
+            <summary>
+            Whether the controller set is of Bira type.
+            </summary>
+            <returns>Whether the current controller set is of type bira.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet.SetControllerErrorFlag(Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults)">
+            <summary>
+            Extracts the controller results.
+            </summary>
+            <param name="hryResults">A class containing the current hry results.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.ControllerSet.GetDebugPrintInfo">
+            <summary>
+            Retrieve controller set information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraExtractExecution">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraExtractExecution.biraRegisters">
+            <summary>
+            Gets the bira registers.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraExtractExecution.#ctor(Prime.BusinessLogic.Mbist.Json.Hry.ControllerJson,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraExtractExecution"/> class.
+            Constructor.
+            </summary>
+            <param name="jsonExecution">Json execution information.</param>
+            <param name="captureCount">captureCount.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraExtractExecution.GetDebugPrintInfo">
+            <summary>
+            Retrieve bira registers information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraExtractExecution.ExtractMemoryResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32,Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatusResult,System.Boolean,Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraRegister">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraRegister.#ctor(Prime.BusinessLogic.Mbist.Json.Hry.BiraRegisterJson,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraRegister"/> class.
+            </summary>
+            <param name="biraRegisterJson">biraRegisterJson.</param>
+            <param name="captureCount">captureCount.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraRegister.IsReversed">
+            <summary>
+            Gets a value indicating whether this bira register ctv result is reversed.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraRegister.BiraName">
+            <summary>
+            Gets the bira name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraRegister.BisrName">
+            <summary>
+            Gets the bisr name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraRegister.CaptureBits">
+            <summary>
+            Gets the capture bits range.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraRegister.ReplaceBits">
+            <summary>
+            Gets the replace bits range.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraRegister.IsReverseCtv">
+            <summary>
+            Gets a value indicating whether the Bira registers string must be reversed.
+            </summary>
+            <returns>A boolean value indicating whether the Bira registers string must be reversed.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.BiraRegister.GetDebugPrintInfo">
+            <summary>
+            retrieve Bira Registers information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase">
+            <summary>
+            This class contains information related to the hry execution information.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.#ctor(Prime.BusinessLogic.Mbist.Json.Hry.ControllerJson,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase"/> class.
+            Constructor.
+            </summary>
+            <param name="jsonExecution">Json execution information.</param>
+            <param name="captureCount">captureCount.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatusResult">
+            <summary>
+            This enum contains the possible post status results.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatusResult.AllMemoriesPass">
+            <summary>
+            All memories in execution passed the Mbist test.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatusResult.PatternBadWait">
+            <summary>
+            PatternBadWait error occurred during execution.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatusResult.PatternMisprogram">
+            <summary>
+            PatternMisprogram error occurred during execution.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatusResult.MemoriesFailed">
+            <summary>
+            At least one memory in execution failed the Mbist test.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.Memories">
+            <summary>
+            Gets the execution memory location indexes index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PAlgo">
+            <summary>
+            Gets the execution palgo range indexes.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PreStatus">
+            <summary>
+            Gets the execution MbistResultExitPort index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatus">
+            <summary>
+            Gets the execution MbistResultExitPort index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.Algo">
+            <summary>
+            Gets the execution Algo range indexes.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.ExtractExecutionResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32,Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.GetMemoryIndices">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.GetDebugPrintInfo">
+            <summary>
+            Retrieve execution information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.ExtractMemoryResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32,Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatusResult,System.Boolean,Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Extract memory results.
+            </summary>
+            <param name="pinToCtv">Pin to ctv map.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="ctvOffset">ctv start index offset.</param>
+            <param name="postStatusResult">Post status result.</param>
+            <param name="isBiraBuild">Whether is bira build mode.</param>
+            <param name="controllerResults">Controller results.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.AreStatusSectionsSingleBit">
+            <summary>
+            Gets a value indicating whether each section of the status contains only one bit.
+            </summary>
+            <returns>whether each section of the status contains only one bit.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.GetFailingMemories(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32)">
+            <summary>
+            Gets the failing Memories from the ctv results.
+            </summary>
+            <param name="pinToCtv">Pin to ctv map.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="ctvOffset">ctv start index offset.</param>
+            <returns>Failing Memories.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.SetMemories(System.Collections.Generic.IReadOnlyDictionary{System.Int32,Prime.BusinessLogic.Mbist.Json.Hry.PinRangeJson},System.Int32)">
+            <summary>
+            sets the full jsonMemories map.
+            </summary>
+            <param name="jsonMemories">Input parameter - full jsonMemories map.</param>
+            <param name="captureCount">captureCount.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.FuseRepairExecution">
+            <summary>
+            VfdmExecution class contains the logic of the vfdm hry execution type.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.FuseRepairExecution.#ctor(Prime.BusinessLogic.Mbist.Json.Hry.ControllerJson,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.FuseRepairExecution"/> class.
+            Constructor.
+            </summary>
+            <param name="jsonExecution">Json execution information.</param>
+            <param name="captureCount">captureCount.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.FuseRepairExecution.ExtractMemoryResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32,Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatusResult,System.Boolean,Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.GoIdExecution">
+            <summary>
+            GoIdExecution class contains the logic of the goid hry type.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.GoIdExecution.#ctor(Prime.BusinessLogic.Mbist.Json.Hry.ControllerJson,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.GoIdExecution"/> class.
+            Constructor.
+            </summary>
+            <param name="jsonExecution">Json go id execution information.</param>
+            <param name="captureCount">captureCount.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.GoIdExecution.ExtractMemoryResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32,Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatusResult,System.Boolean,Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.IExecution">
+            <summary>
+            IExecution interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.IExecution.ExtractExecutionResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32,Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Extracts the execution results from the PinToCtv parameter.
+            </summary>
+            <param name="pinToCtv">Pin to ctv map.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="ctvOffset">ctv start index offset.</param>
+            <param name="instanceConfigurations">Parameter object for accessing varies parameter values.</param>
+            <param name="controllerResults">Controller results instance.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.IExecution.GetMemoryIndices">
+            <summary>
+            Gets a list of the memory indices of the current execution.
+            </summary>
+            <returns>list of the memory indices of the current execution.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.IExecution.GetDebugPrintInfo">
+            <summary>
+            Retrieve execution information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.RaBitsExecution">
+            <summary>
+            RaBits class contains the logic of the ra bits hry execution type.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.RaBitsExecution.#ctor(Prime.BusinessLogic.Mbist.Json.Hry.ControllerJson,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Execution.RaBitsExecution"/> class.
+            Constructor.
+            </summary>
+            <param name="jsonExecution">Json execution information.</param>
+            <param name="captureCount">captureCount.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Execution.RaBitsExecution.ExtractMemoryResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32,Prime.BusinessLogic.Mbist.DataStruct.Execution.ExecutionBase.PostStatusResult,System.Boolean,Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.HryInfo">
+            <summary>
+            HryInfo class stores information from the Hry configuration file.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HryInfo.#ctor(Prime.BusinessLogic.Mbist.Json.Hry.HryJson,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.HryInfo"/> class.
+            Constructor.
+            </summary>
+            <param name="hryJsonData">Json Hry look up table.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.HryInfo.HryMemoryLocation">
+            <summary>
+            Gets the Mbist controller name and relative index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.HryInfo.BisrChainData">
+            <summary>
+            Gets the Bisr Chain Data.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HryInfo.GetDebugPrintInfo">
+            <summary>
+            Print HryInfo stored data.
+            </summary>
+            <returns>Hry info element data.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HryInfo.GetDecoderSetsWithLocations(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.BiraCorrectionConfiguration},Prime.BusinessLogic.Mbist.DffSocketTypes,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get Bisr sets related to a specific plist.
+            </summary>
+            <param name="orderedPatternNames">ordered patterns from plist.</param>
+            <param name="biraCorrections">bisr mapping data.</param>
+            <param name="dffType">Dff type.</param>
+            <param name ="sessionContext">session context.</param>
+            <returns>The bisr and controller sets the decoder needs.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HryInfo.InitializeBisrChainsPatConfig(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set pat config handle for all bisr chains.
+            </summary>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol">
+            <summary>
+            Hry Symbol class.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.SymbolPriority">
+            <summary>
+            Priority value for each hry symbol.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol">
+            <summary>
+            Possible char values in the Hry string.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.Untested">
+            <summary>
+            Untested - represented as U in Hry. Per Memory.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.Pass">
+            <summary>
+            Pass - represented as 1 in Hry. Per Memory.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.Fail">
+            <summary>
+            Fail - represented as 0 in Hry. Per Memory.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.Repairable">
+            <summary>
+            Repairable - represented as Y in Hry. Per Memory.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.Unrepairable">
+            <summary>
+            UnRepairable - represented as N in Hry. Per Memory.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.SuccessfulRepair">
+            <summary>
+            SuccessfulRepair - represented as P in Hry. Post Repair mode ONLY, per memory : y - > 1 = passRetest.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.FailRepair">
+            <summary>
+            FailRepair - represented as F in Hry. Post Repair mode ONLY, per memory : y - > 0 = failRetest.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.InconsistentPostFailure">
+            <summary>
+            InconsistentPostFailure - represented as 7 in Hry. Post Repair mode ONLY, per memory : 1 -> 0 = inconsistent.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.InconsistentPassStatusAndFailedGoId">
+            <summary>
+            InconsistentPassStatusAndFailedGoId - represented as 6 in Hry. Applies to all Memories for the execution, requires mem level.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.InconsistentFailStatusAndPassingGoId">
+            <summary>
+            InconsistentPassStatusAndFailedGoId - represented as 5 in Hry. Applies to all Memories for the execution, requires mem level.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.PatternBadWait">
+            <summary>
+            PatternBadWait - represented as W in Hry. Applies to all Memories for all executions.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.FailedOnOtherPins">
+            <summary>
+            FailedOnOtherPins - represented as B in Hry. Applies to all Memories for all executions.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.PatternMisprogram">
+            <summary>
+            PatternMisprogram - represented as M in Hry. Applies to all Memories for all executions.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.ControllerFailure">
+            <summary>
+            ControllerFailure - represented as 8 in Hry. Applies to all Memories for all executions.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.FailedToRepairIfNoShareWouldBeRepairable">
+            <summary>
+            FailedToRepairIfNoShareWouldBeRepairable - represented as D in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.Unrepairable6To8Fails">
+            <summary>
+            Unrepairable6To8Fails - represented as E in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.Unrepairable9To12Fails">
+            <summary>
+            Unrepairable9To12Fails - represented as G in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.RepairMassFailure">
+            <summary>
+            RepairMassFailure - represented as H in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.NoRasterDataForPreHryFail">
+            <summary>
+            NoRasterDataForPreHryFail - represented as J in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.InconsistentHryPassRasterFail">
+            <summary>
+            InconsistentHryPassRasterFail - represented as K in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol.UnrepairableDueToOtherControllers">
+            <summary>
+            UnrepairableDueToOtherControllers - represented as L in Hry. Raster/Repair specific.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.GetHigherPrioritySymbol(Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol,Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Compares both of the values sent as parameters and returns the biggest one.
+            </summary>
+            <param name="existingSymbol">First symbol.</param>
+            <param name="newSymbol">Second symbol.</param>
+            <returns>Biggest value between those sent as parameters. If both are equal sends the first one.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.GetRepairShareBiraUpdateSymbol(Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol,Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Gets the update symbol for post bira based on the existing symbol and the new symbol.
+            </summary>
+            <param name="existingSymbol">First symbol.</param>
+            <param name="newSymbol">Second symbol.</param>
+            <returns>The post bira update symbol .</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.GetPostRepairUpdateSymbol(Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol,Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Gets the update symbol for post repair based on the existing symbol and the new symbol.
+            </summary>
+            <param name="existingSymbol">First symbol.</param>
+            <param name="newSymbol">Second symbol.</param>
+            <returns>The post repair update symbol .</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.IsMemoryPassRecovery(Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Gets whether the current symbol is a considered a fail for the memory in recovery.
+            </summary>
+            <param name="symbol">Current symbol.</param>
+            <returns>Whether the current symbol is a pass in recovery.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.IsMemoryFailRecovery(Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Gets whether the current symbol is a considered a fail for the memory in recovery.
+            </summary>
+            <param name="symbol">Current symbol.</param>
+            <returns>Whether the current symbol is a fail in recovery.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.IsInconsistent(Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>Returns whether the hryChar is inconsitent.</summary>
+            <param name = "hryChar" >Hry char.</param>
+            <returns>whether the hryChar is inconsitent.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.IsRepairable(Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>Returns whether the hryChar is Repairable.</summary>
+            <param name = "hryChar" >Hry char.</param>
+            <returns>whether the hryChar is Repairable.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.IHryInfo">
+            <summary>
+            Hry Info interface.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.IHryInfo.HryMemoryLocation">
+            <summary>
+            Gets the Mbist controller name and relative index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.IHryInfo.BisrChainData">
+            <summary>
+            Gets the Bisr Chain Data.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.IHryInfo.GetDebugPrintInfo">
+            <summary>
+            Print HryInfo stored data.
+            </summary>
+            <returns>Hry info element data.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.IHryInfo.GetDecoderSetsWithLocations(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.BiraCorrectionConfiguration},Prime.BusinessLogic.Mbist.DffSocketTypes,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get Bisr sets related to a specific plist.
+            </summary>
+            <param name="orderedPatternNames">ordered patterns from plist.</param>
+            <param name="biraCorrections">bira corrections.</param>
+            <param name="dffType">Dff type.</param>
+            <param name ="sessionContext">session context.</param>
+            <returns>The bisr and controller sets the decoder needs.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.IHryInfo.InitializeBisrChainsPatConfig(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set pat config handle for all bisr chains.
+            </summary>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation">
+            <summary>
+            This class contains the Memory location information.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation"/> class.
+            </summary>
+            <param name="index">Index.</param>
+            <param name="powerDomain">Power domain.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation.Index">
+            <summary>
+            Gets the memory index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation.PowerDomain">
+            <summary>
+            Gets the memory power domain.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrectionConfiguration.#ctor(System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.Json.Map.CorrectBiraJson})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrectionConfiguration"/> class.
+            Constructor with pre-populate arguments.
+            </summary>
+            <param name="correctBiraJson">Bisr chain data from json file.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrectionConfiguration.BiraCorrections">
+            <summary>
+            <para>
+            Gets the bira correction information.
+            Key = register name, e.g. 'PM0_BP2_WBP0_MEM16_CS_SCOL0_FUSE_REG'.
+            </para>
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BiraCorrectionConfiguration.CreateBiraCorrectionMapping(System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.Json.Map.CorrectBiraJson})">
+            <summary>
+            Sets the Bisr mapping data to bisrChain.
+            </summary>
+            <param name="correctBiraJson">mapping json file data.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration">
+            <summary>
+            Bisr mapping data class stores mapping data from mapping configuration file.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration"/> class.
+            Constructor with pre-populate arguments.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration.#ctor(Prime.BusinessLogic.Mbist.Json.Map.BisrDataJson,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration"/> class.
+            Constructor with pre-populate arguments.
+            </summary>
+            <param name="bisrDataJson">Bisr chain data from json file.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration.NameSpace">
+            <summary>
+            Gets bisr virtual fuse PerDieNameSpace.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration.Tag">
+            <summary>
+            Gets bisr virtual fuse Tag.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration.FuseNames">
+            <summary>
+            Gets bisr virtual fuse names.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration.FusePadding">
+            <summary>
+            Gets the FusePadding size.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration.VfdmReverse">
+            <summary>
+            Gets a value indicating whether VfdmReverse or not.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration.IsVirtualFuseEnabled">
+            <summary>
+            Gets a value indicating whether virtual fuse is enabled.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.BisrTags">
+            <summary>
+            This class contains the Bisr datalog tag information.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.#ctor(System.String,System.String,Prime.BusinessLogic.Mbist.Json.Map.BisrDataJson)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.BisrTags"/> class to populate bisr datalog tags.
+            </summary>
+            <param name="prefix">Prefix for bisr tag string.</param>
+            <param name="bisrChainName">Bisr chain name.</param>
+            <param name="bisrDataJson">Bisr data from Map json file.</param>
+            Note: Check how to simplify this constructor like having constructors with different parameters.
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.DffTokenByType">
+            <summary>
+            Gets the Dff token names by type.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.SharedStorageTag">
+            <summary>
+            Gets the sharedstorage tag name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.DieID">
+            <summary>
+            Gets the die ID.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.ItuffPrefix">
+            <summary>
+            Gets the ituff prefix.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.WriteToSharedStorage(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to shared storage.
+            </summary>
+            <param name="postfix">postfix to append to SS tag.</param>
+            <param name="data">data to be writen to shared storage.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.WriteToItuff(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to ituff.
+            </summary>
+            <param name="testName">current test name.</param>
+            <param name="data">data to be writen to ituff.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.WriteToDff(System.String,Prime.BusinessLogic.Mbist.DffSocketTypes,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to Dff.
+            </summary>
+            <param name="data">data to be writen to dff.</param>
+            <param name="dffSocket">Dff socket.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.GetValueFromSharedStorage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read Hry string from shared storage.
+            </summary>
+            <param name="postfix">postfix to be added to current tag.</param>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.GetValueFromDff(Prime.BusinessLogic.Mbist.DffSocketTypes,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read Hry string from shared storage.
+            </summary>
+            <param name="dffSocket">Dff socket.</param>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Value from the shared storage.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.BisrTags.GetDebugPrintInfo">
+            <summary>
+            Retrieve BisrTags information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo">
+            <summary>
+            DieMappingInfo class stores per die tag mapping info.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo.#ctor(Prime.BusinessLogic.Mbist.Json.Map.DiePinDefinition,System.Collections.Generic.IReadOnlyDictionary{Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo.HryTagsType,Prime.BusinessLogic.Mbist.DataStruct.Mapping.HryTags},Prime.BusinessLogic.Mbist.DataStruct.Mapping.RecoveryTags,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.BisrTags})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo"/> class.
+            </summary>
+            <param name="pinDieDefinition">Pin die definition.</param>
+            <param name="hryTagsByMode">Hry tags.</param>
+            <param name="recoveryTags">Recovery tags.</param>
+            <param name="bisrTags">Bisr tags.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo.HryTagsType">
+            <summary>
+            HryTagsType.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo.HryTagsType.KitchenSink">
+            <summary>
+            KitchenSink.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo.HryTagsType.Hry">
+            <summary>
+            KitchenSink.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo.PinMapping">
+            <summary>
+            Gets the DieMappingConfigurations.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo.RecoveryTags">
+            <summary>
+            Gets the recovery prefix to prepend to storage/dff/ituff token.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo.BisrTags">
+            <summary>
+            Gets the bisr tags for current die.
+            Key = bisr chain name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo.PerDieNameSpace">
+            <summary>
+            Gets the per die namespace.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo.GetHryTags(Prime.BusinessLogic.Mbist.InstanceConfigurations.MbistTestModes)">
+            <summary>
+            Gets the hry tags.
+            </summary>
+            <param name="mode">Mbist test mode.</param>
+            <returns>The hry tags that correspond to the mode.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Mapping.HryTags">
+            <summary>
+            This class contains the hry tags for the ituff and shared storage.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Mapping.HryTags.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Mapping.HryTags"/> class.
+            </summary>
+            <param name="sharedStorageKey">Shared storage key.</param>
+            <param name="ituffPrefix">Ituff prefix.</param>
+            <param name="isUsingDefaultPrefix">Whether its using the default ituff prefix.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Mapping.HryTags.ItuffPrefix">
+            <summary>Gets the ituff prefix tag.</summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Mapping.HryTags.IsUseItuffExtension">
+            <summary>Gets a value indicating whether the ituff prefix is the default value.</summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Mapping.HryTags.WriteToItuff(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to ituff.
+            </summary>
+            <param name="ituffExtension">Short pin name.</param>
+            <param name="data">data to be writen to ituff.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Mapping.RecoveryTags">
+            <summary>
+            This class contains the recovery tags for the ituff and shared storage.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Mapping.RecoveryTags.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Mapping.RecoveryTags"/> class.
+            </summary>
+            <param name="sharedStorageKey">Shared storage key.</param>
+            <param name="dffToken">Dff token.</param>
+            <param name="dieName">Die name.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Mapping.RecoveryTags.DffToken">
+            <summary>Gets the ituff prefix tag.</summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Mapping.RecoveryTags.DieName">
+            <summary>Gets the die name.</summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Mapping.RecoveryTags.WriteToDff(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to Dff.
+            </summary>
+            <param name="data">data to be writen to dff.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Mapping.RecoveryTags.GetValueFromDff(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read Hry string from shared storage.
+            </summary>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Value from the shared storage.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.IMappingInfo">
+            <summary>
+            MappingInfo interface class processes and stores information from mapping file.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.IMappingInfo.DieMappingConfigurations">
+            <summary>
+            Gets the DieMappingConfigurations.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.IMappingInfo.RegisterNames">
+            <summary>
+            Gets the global register names.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.IMappingInfo.GtAggregator">
+            <summary>
+            Gets the GT aggregator tag.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.IMappingInfo.BiraCorrections">
+            <summary>
+            Gets the Bira Corrections
+            Key = bisr chain name.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.IMappingInfo.AreVirtualFusesEnabled">
+            <summary>
+            Gets whether the virtual fuses are enabled.
+            </summary>
+            <returns>True if virtual fuses are enabled.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo">
+            <summary>
+            MappingInfo class stores process and store information from mapping file.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo.#ctor(Prime.BusinessLogic.Mbist.Json.Map.MapJson,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo"/> class.
+            Constructor.
+            </summary>
+            <param name="mapJsonData">Mapping json file object.</param>
+            <param name="sessionContext">The session context of the operation.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo.DieMappingConfigurations">
+            <summary>
+            Gets the DieMappingConfigurations.
+            Key = die name/ID, e.g. 'U0.U1'.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo.RegisterNames">
+            <summary>
+            Gets the register names.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo.GtAggregator">
+            <summary>
+            Gets the Gt Aggregator tag.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo.BiraCorrections">
+            <summary>
+            Gets the Bira Corrections
+            Key = bisr chain name.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo.AreVirtualFusesEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo.GetBiraCorrections(System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.Json.Map.BisrDataJson})">
+            <summary>
+            Set Bisr chain mapping info.
+            </summary>
+            <param name="bisrChainMappingData">bisr chain mapping information.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo.GetBisrTags(System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.Json.Map.BisrDataJson},System.String)">
+            <summary>
+            Set Bisr chain mapping info.
+            </summary>
+            <param name="bisrChainMappingData">bisr chain mapping information.</param>
+            <param name="pinName">pinName.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Tags">
+            <summary>
+            This class contains the tags information.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DataStruct.Tags.DefaultKey">
+            <summary>
+            Value to be assigned when one of the tags fields is empty.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Tags.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Tags"/> class.
+            </summary>
+            <param name="sharedStorageKey">Shared storage key.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Tags.SharedStorageKey">
+            <summary>Gets the shared storage tag.</summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Tags.WriteToSharedStorage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write data to shared storage.
+            </summary>
+            <param name="data">data to be writen to shared storage.</param>
+            <param name="sessionContext">test method session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Tags.GetValueFromSharedStorage(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Read Hry string from shared storage.
+            </summary>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Value from the shared storage.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Ip">
+            <summary>
+            Ip class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Ip.#ctor(Prime.BusinessLogic.Mbist.Json.RecoveryJson.RecoveryIpsJson,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Ip"/> class.
+            </summary>
+            <param name="ipJson">Json ip information.</param>
+            <param name="hryLocation">Dictionary with the hry memory locations.</param>
+            <param name="runningIp">Name of the running IP.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Ip.Type">
+            <summary>
+            Gets the Recovery type.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Ip.OptionalMemoriesBySkus">
+            <summary>
+            Gets the optional Memories associated to an Sku.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Ip.RequiredMemories">
+            <summary>
+            Gets the required Memories of the current Ip.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Ip.AreThereRequiredMemories">
+            <summary>
+            Gets a value indicating whether there are any required Memories.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Ip.AreThereDuplicates">
+            <summary>
+            Gets a value indicating whether there are any duplicates.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Ip.GetAllIpIndices">
+            <summary>
+            Extract all Memories by idx.
+            </summary>
+            <returns> Returns List of Memories used for this recovery option.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.IpMemories">
+            <summary>
+            Ip Memories class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.IpMemories.#ctor(System.Collections.Generic.List{System.ValueTuple{System.String,System.Int32}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.IpMemories"/> class.
+            </summary>
+            <param name="memories">List of Memories with their respective index.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.IpMemories.Indices">
+            <summary>
+            Gets the list of indices.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.IpMemories.MemoryNames">
+            <summary>
+            Gets the list of memory names.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.IRecovery">
+            <summary>
+            Recovery class.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.IRecovery.RecoveryIndices">
+            <summary>
+            Gets the recovery indices.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.IRecovery.BisrControllerToRecoveryIndices">
+            <summary>
+            Gets the bisr controllers related to the recovery indices.
+            </summary>
+            note: This is a placeholder for the Vmin search portion logic.
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.IRecovery.Execute(System.Collections.Generic.Dictionary{System.Int32,Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol},System.Collections.Generic.List{System.Char},System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute recovery.
+            </summary>
+            <param name = "hryString" >Hry string results.</param>
+            <param name="originalRecoveryData">Original recovery data.</param>
+            <param name="isDownBin">Whether is bin down.</param>
+            <param name="sessionContext">Session context..</param>
+            <returns> Returns recovery results object with results from the check.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.IRecovery.GetNewRecoveryString(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Replaces the recovery data with passing values.
+            </summary>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Initial recovery string.</returns>
+            Note: Check session context.
+            Note: Use an object rather than a string (strongly typed).
+            Contructor needs the json.
+            Check who would be affected and avoid list of char at least internally.
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.Recovery">
+            <summary>
+            Recovery class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Recovery.#ctor(Prime.BusinessLogic.Mbist.Json.RecoveryJson.RecoveryJson,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.Recovery"/> class.
+            </summary>
+            <param name="recoveryJson">Recovery json.</param>
+            <param name="hryStringReference">Dictionary of memory name to memory location with the hry string information.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Recovery.RecoveryIndices">
+            <summary>
+            Gets the recovery indices.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Recovery.BisrControllerToRecoveryIndices">
+            <summary>
+            Gets the bisr controllers related to the recovery indices.
+            </summary>
+            note: This is a placeholder for the Vmin search portion logic.
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.Recovery.RecoveryTokens">
+            <summary>
+            Gets the Recovery token name.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Recovery.Execute(System.Collections.Generic.Dictionary{System.Int32,Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol},System.Collections.Generic.List{System.Char},System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute recovery.
+            </summary>
+            <param name = "hryString" >Hry string results.</param>
+            <param name="originalRecoveryData">Original recovery data.</param>
+            <param name="isDownBin">Whether is bin down.</param>
+            <param name="sessionContext">Session context..</param>
+            <returns> Returns recovery results object with results from the check.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.Recovery.GetNewRecoveryString(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Replaces the recovery data with passing values.
+            </summary>
+            <param name="sessionContext">Session Context.</param>
+            <returns>Initial recovery string.</returns>
+            Note: Check session context.
+            Note: Use an object rather than a string (strongly typed).
+            Contructor needs the json.
+            Check who would be affected and avoid list of char at least internally.
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.RecoveryCharacters">
+            <summary>
+            RecoveryCharacters Class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.RecoveryCharacters.#ctor(System.Char,System.Char,System.Char)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.RecoveryCharacters"/> class.
+            </summary>
+            <param name="pass">Pass char value.</param>
+            <param name="fail">Fail char value.</param>
+            <param name="error">Error char value.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.RecoveryCharacters.Pass">
+            <summary>
+            Gets the Pass character.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.RecoveryCharacters.Error">
+            <summary>
+            Gets the Error character.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.RecoveryCharacters.Fail">
+            <summary>
+            Gets the Fail character.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.RecoveryCharacters.IsRecoveryFailedChar(System.Char)">
+            <summary>
+            Gets whether the input char is a failed recovery char.
+            </summary>
+            <param name="currentChar">Char value to compare.</param>
+            <returns>IsRecoveryFailedChar.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.RecoveryCharacters.GetDebugPrintInfo">
+            <summary>
+            retrieve bisrChain information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.RecoveryMemoryResults">
+            <summary>
+            RecoveryMemoryResults class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.RecoveryMemoryResults.#ctor(System.Collections.Generic.Dictionary{System.Int32,Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.RecoveryMemoryResults"/> class.Loops through indexes to see which fails or if they pass.</summary>
+            <param name = "hryString" > Hry string results.</param>
+            <param name = "indexList" > List of memory/controller indexs to check.</param>
+            <returns> Returns List k.</returns>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.RecoveryMemoryResults.HasHryStringAllRecoveryIndices">
+            <summary>
+            Gets a value indicating whether HasHryStringAllRecoveryIndices.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.RecoveryMemoryResults.AreAllMemoriesPassing">
+            <summary>
+            Gets a value indicating whether AreAllMemoriesPassing.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.RecoveryMemoryResults.AreAllMemoriesUntested">
+            <summary>
+            Gets a value indicating whether AreAllMemoriesUntested.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DataStruct.RecoveryToken">
+            <summary>
+            Recovery token class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.RecoveryToken.#ctor(System.String,Prime.BusinessLogic.Mbist.DataStruct.Ip)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.RecoveryToken"/> class.
+            </summary>
+            <param name="tokenName">tokenName.</param>
+            <param name="designIp">designIp.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.RecoveryToken.TokenName">
+            <summary>
+            Gets the token name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.DataStruct.RecoveryToken.DesignIp">
+            <summary>
+            Gets the design ip.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.DataStruct.RecoveryToken.GetDebugPrintInfo">
+            <summary>
+            retrieve bisrChain information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.PinRange">
+            <summary>
+            Pin range class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.PinRange.#ctor(Prime.BusinessLogic.Mbist.Json.Hry.PinRangeJson,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.PinRange"/> class.
+            </summary>
+            <param name="pinRangeJson">Json pin range information.</param>
+            <param name="captureCount">capture count.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.PinRange.GetStringInRange(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32)">
+            <summary>
+            Gets a string inside the range.
+            </summary>
+            <param name="pinToCtv">Pin to ctv map.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="ctvOffset">ctv start index offset.</param>
+            <returns>string of characters inside the range.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.PinRange.GetAllIndexesOfChar(System.Char,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32)">
+            <summary>
+            Gets all indexes of char in the range.
+            </summary>
+            <param name="searchedCharacter">Character being searched.</param>
+            <param name="pinToCtv">Pin to ctv map.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="ctvOffset">ctv start index offset.</param>
+            <returns>A list of all the index that contain the searched char.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.PinRange.GetUnreversedRangeData(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32)">
+            <summary>
+            Gets the a string inside the range from the smaller index to the biggest index.
+            For example, with 01010 data, linear input 1-3 will get 101, non-linear input 1,3 will get 11.
+            </summary>
+            <param name="pinToCtv">Pin to ctv map.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="ctvOffset">ctv start index offset.</param>
+            <returns>read only pass containing the slice of characters inside the range from the smaller index to the biggest index.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.PinRange.IsCtvInRangeFailing(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32)">
+            <summary>
+            Gets the a string inside the range.
+            </summary>
+            <param name="pinToCtv">Pin to ctv map.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="ctvOffset">ctv start index offset.</param>
+            <returns>string of characters inside the range.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.PinRange.GetDebugPrintInfo">
+            <summary>
+            Retrieve current range information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Range">
+            <summary>
+            This class contains Range infomation.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Range.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Range"/> class.
+            it can accept either linear (with "-") and non-linear (with nultiple ",").
+            For Example, "1-3", which contain 1, 2 and 3, where "1,3" only contain 1 and 3.
+            </summary>
+            <param name="rangeStr">Range string representation.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Range.IsReversed">
+            <summary>
+            Gets a value indicating whether range is reversed.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Range.StartIndex">
+            <summary>
+            Gets the start index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Range.EndIndex">
+            <summary>
+            Gets the end index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Range.Size">
+            <summary>
+            Gets the size of the pin range.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Range.IsLinearRange">
+            <summary>
+            Gets a value indicating whether range is reversed.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Range.NonLinearIndex">
+            <summary>
+            Gets the all the non-linear index.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Range.GetDebugPrintInfo">
+            <summary>
+            Retrieve current range information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.BisrDecoder">
+            <summary>BisrDecoder decoder. </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.BisrDecoder.#ctor(System.Collections.Generic.List{Prime.BusinessLogic.Mbist.Decoder.BisrSetForDecoder},Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseHandler,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.BisrDecoder"/> class.
+            </summary>
+            <param name="bisrSetsWithLocations">The list of controller sets with their locations.</param>
+            <param name="bisrVirtualFuseHandler">Bisr Virtual Fuse handler.</param>
+            <param name="sessionContext">current session context.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.BisrDecoder.BisrSetsWithLocations">
+            <summary>
+            Gets - stores each bisrSet and its bit start location in the ctv result string.
+            Key = BisrSet.
+            Value = start bit location.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.BisrDecoder.BisrVirtualFuseHandler">
+            <summary>
+            Gets the Bisr virtual fuse handler.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.BisrDecoder.ProcessPlistCtvResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults,Prime.BusinessLogic.Mbist.Decoder.Bisr.BisrResults,Prime.BusinessLogic.Mbist.InstanceConfigurations)">
+            <summary>
+            Processes the plist ctv results.
+            </summary>
+            <param name="pinToCtv">Ctv results of the functional test.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="hryResults">Hry result data.</param>
+            <param name="bisrResults">Bisr results reference to be updated.</param>
+            <param name="instanceConfigurations">Parsed params containing all the Mbist modes.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.BisrDecoder.IsThereAnyBisrSet">
+            <summary>
+            checks whether there is any bisr set.
+            </summary>
+            <returns>true if there are any bisr set.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.BisrForDecoder">
+            <summary>
+            BisrForDecoder class handles the processing bisr result.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.Decoder.BisrForDecoder.bisrChain">
+            <summary>
+            Gets the bisr chain data.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.BisrForDecoder.#ctor(Prime.BusinessLogic.Mbist.DataStruct.Bisr,System.Collections.Generic.List{System.String},Prime.BusinessLogic.Mbist.DataStruct.BiraCorrectionConfiguration,Prime.BusinessLogic.Mbist.DataStruct.ControllerTypes,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.BisrForDecoder"/> class.
+            </summary>
+            <param name="bisr">A bisr set.</param>
+            <param name="hryMemoryNames">List of hry memory names.</param>
+            <param name="biraCorrection">bisr mapping data.</param>
+            <param name="type">Controller type.</param>
+            <param name ="sessionContext">session context.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.BisrForDecoder.Type">
+            <summary>Gets the controller type.</summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.BisrForDecoder.CaptureData">
+            <summary>
+            Gets the capture data range.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.BisrForDecoder.ProcessBisrCtvResult(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Int32,Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults,Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData,Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Process per Bisr ctv result.
+            </summary>
+            <param name="pinToCtv">Pin to ctv map.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="ctvOffset">ctv start index offset.</param>
+            <param name="hryResults">Processed hry results.</param>
+            <param name="bisrResultData">BisrResult  reference to be updated.</param>
+            <param name="instanceConfigurations">Parsed params containing all the Mbist modes.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.BisrForDecoder.SetBiraCorrectionIndicesAndMemoryNameToBisrIndex(System.Collections.Generic.List{System.String},Prime.BusinessLogic.Mbist.DataStruct.Bisr,Prime.BusinessLogic.Mbist.DataStruct.BiraCorrectionConfiguration,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the Bira correction indices and maps memory names to BISR indices.
+            This method processes the provided HRY memory names and capture comments,
+            updating the internal dictionaries and lists used for Bira corrections.
+            </summary>
+            <param name="hryMemoryNames">List of HRY memory names to process.</param>
+            <param name="bisr">A bisr set.</param>
+            <param name="biraCorrection">Mapping data containing Bira corrections.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.BisrSetForDecoder">
+            <summary>
+            BisrSetForDecoder class stores the entire plist Bisr set information.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.BisrSetForDecoder.#ctor(Prime.BusinessLogic.Mbist.DataStruct.BisrSet,System.Int32,System.Collections.Generic.List{System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.BiraCorrectionConfiguration},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.BisrSetForDecoder"/> class.
+            </summary>
+            <param name="bisrSet">A bisr set.</param>
+            <param name="location">Index inside the results CTV where the bisr set starts.</param>
+            <param name="hryMemoryNames">List of hry memory names.</param>
+            <param name="biraCorrections">bisr mapping data.</param>
+            <param name ="sessionContext">session context.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.BisrSetForDecoder.Location">
+            <summary>
+            Gets the ControllerSetWithLocations.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.BisrSetForDecoder.CaptureCount">
+            <summary>Gets the capture count value.</summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.BisrSetForDecoder.Type">
+            <summary>Gets the controller type.</summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.BisrSetForDecoder.Bisrs">
+            <summary>Gets the controller dictionary.</summary>
+            key = bisr controll/chain name.
+            value = Bisr data.
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData">
+            <summary>
+            This class contains Bisr result data of the current instance and pin.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.#ctor(Prime.BusinessLogic.Mbist.DataStruct.BisrChain,Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration,Prime.BusinessLogic.Mbist.DataStruct.BisrTags,Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.BusinessLogic.Mbist.Decoder.BisrDecoder,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData"/> class.
+            </summary>
+            <param name="bisrChain">current bisr chain.</param>
+            <param name="fuseConfiguration">Bisr mapping data.</param>
+            <param name="bisrTags">Bisr Tags.</param>
+            <param name="instanceConfigurations">Parsed params containing all the Mbist modes.</param>
+            <param name="bisrDecoder">bisr decoder object.</param>
+            <param name="sessionContext">current session context.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.RawData">
+            <summary>
+            Gets RawData stores the bisr ctv bits.
+            </summary>
+            Note: Use string builder.
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.FuseToApply">
+            <summary>
+            Gets FuseToApply after compress/decompress of bisr ctv data.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.FuseTotalAfterBurn">
+            <summary>
+            Gets FuseTotalAfterBurn after compress/decompress of bisr ctv data.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.IsFuseCompressed">
+            <summary>
+            Gets a value indicating whether fuse is compressed or not.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.IsFuseAvailable">
+            <summary>
+            Gets a value indicating whether fuse is available or not.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.MaxFuseLength">
+            <summary>
+            Gets the value of a max fuse length.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.CurrentSession">
+            <summary> Gets or sets Current Session # to fuse.</summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.GetDebugPrintInfo(System.String)">
+            <summary>
+            retrieve Bisr result information to be printed in debug mode.
+            </summary>
+            <param name="tag">tag.</param>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.SetErrorConditionData(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Resets the content of the Bisr Result data instance.
+            </summary>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.IsVfdmReverseEnabled">
+            <summary>
+            Get the status of VfdmReverse config.
+            </summary>
+            <returns>fuseConfiguration.VfdmReverse.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.ClearUnrepairableFuses(System.Collections.Generic.IEnumerable{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clears the 'RawData' failed memory bits.
+            </summary>
+            <param name="failedMemories">Failed Memories.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.SetBisrResultData(Prime.BusinessLogic.Mbist.Decoder.BisrDecoder,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets bisr default result data.
+            </summary>
+            <param name="bisrDecoder">bisr decoder object.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.SetPassingResultData">
+            <summary>
+            Resets the content of the Bisr Result data instance.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.InitializeBisrResultData(Prime.BusinessLogic.Mbist.Decoder.BisrDecoder,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            CreateBisrResults bisr data and decompress bisr fuse string as instructed.
+            </summary>
+            <param name="bisrDecoder">bisr decoder object.</param>
+            <param name="sessionContext">sessionContext.</param>
+            Note: We can add a call to the constructor and make it private.
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.PadFuseToApply">
+            <summary>
+            Get the final padded Bisr virtual fuse information.
+            </summary>
+            <returns>Padded bisr virtual fuse.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.ProcessBisrResult(System.ReadOnlySpan{System.Char},System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.List{Prime.BusinessLogic.Mbist.BiraCorrectionIndex},Prime.BusinessLogic.Mbist.DataStruct.ControllerTypes,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Process compressed bisr chain result.
+            </summary>
+            <param name="perBisrCtvResult">ctv result binary string data.</param>
+            <param name="bisrCaptureCommentsIndices">Indices of Bisr capture comment matches hry memory names or repair shares that contain hry Memories.</param>
+            <param name="biraCorrectionIndices">Bira correction index of current bisr controller.</param>
+            <param name="type">Controller type.</param>
+            <param name="goDoneBitsCount">number of bits of go/done comments.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets bisr default result data.
+            </summary>
+            Note: do it in the contructor instead.
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.ProcessBiraCorrection(System.ReadOnlySpan{System.Char},System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{Prime.BusinessLogic.Mbist.BiraCorrectionIndex},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Process bira correction.
+            </summary>
+            <param name="perBisrCtvs">current bisr ctv data.</param>
+            <param name="bisrCaptureCommentsIndices">Bisr capture comment bisrCaptureCommentIndexPair matches hry memory names.</param>
+            <param name="biraCorrectionIndices">current bisr bira correction index.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData.CreateFusePaddingBetweenChains(System.Collections.Generic.List{System.String})">
+            <summary>Create Pointers to Data Per PD.</summary>
+            <param name = "perChainCompressedData" > List of PD Chain lengths.</param>
+            <returns>List<String></String> of compressed session pointers.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Bisr.BisrResults">
+            <summary>
+            This class contains the Hry string results of the current instance and pin.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.BisrResults.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Bisr.BisrResults"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Bisr.BisrResults.BisrResultData">
+            <summary>
+            Gets bisr result data.
+            key = bisr controller name, value = BisrResultData.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Bisr.BisrResults.FailBisrCompression">
+            <summary>
+            Gets or sets a value indicating whether there are any failing bisr compressions.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.BisrResults.AreThereFailingBisrCompressions">
+            <summary>
+            Gets whether there are any bisr compressions.
+            </summary>
+            <returns>Whether there are any failing bisr compressions.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.BisrResults.ClearBisrCompressions(System.Collections.Generic.IEnumerable{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the condition whether there are any bisr compression failed.
+            </summary>
+            <param name="failedMemories">Failed Memories.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Bisr.BisrResults.CreateBisrResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.ValueTuple{Prime.BusinessLogic.Mbist.DataStruct.BisrChain,Prime.BusinessLogic.Mbist.DataStruct.BisrTags,Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration}},Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.BusinessLogic.Mbist.Decoder.BisrDecoder,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            CreateBisrResults Bisr results.
+            </summary>
+            <param name="bisrChains">bisr chain info list.</param>
+            <param name="instanceConfigurations">test instance parameters .</param>
+            <param name="bisrDecoder">bisr decoder object.</param>
+            <param name="sessionContext">sessiont contact.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.DecoderSets">
+            <summary>
+            DecoderSets class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DecoderSets.#ctor(System.Collections.Generic.List{System.ValueTuple{Prime.BusinessLogic.Mbist.DataStruct.ControllerSet,System.Int32}},System.Collections.Generic.List{System.ValueTuple{Prime.BusinessLogic.Mbist.DataStruct.BisrSet,System.Int32}},System.Int32,System.Int32,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.BiraCorrectionConfiguration},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.DecoderSets"/> class.
+            </summary>
+            <param name="controllerSetWithLocations">A list of controller sets with their respective start index inside the CTV string.</param>
+            <param name="bisrSetWithLocations">A list of bisr sets with their respective start index inside the CTV string.</param>
+            <param name="dtsCtvStartIndex">First ctv index after controller sets and bisr sets.</param>
+            <param name="globalHryStringLength">Global Hry String Lenght.</param>
+            <param name="biraCorrections">bira corrections.</param>
+            <param name ="sessionContext">session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DecoderSets.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.DecoderSets"/> class.
+            </summary>
+            <param name="globalHryStringLength">Global Hry String Lenght.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.DecoderSets.DtsCtvStartIndex">
+            <summary>
+            Gets the last used ctv location.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.DecoderSets.GlobalHryStringLength">
+            <summary>
+            Gets the global hry string length.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.DecoderSets.ControllerSetWithLocations">
+            <summary>
+            Gets the ControllerSetWithLocations.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.DecoderSets.BisrSetForDecoders">
+            <summary>
+            Gets the BisrSetForDecoders.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DecoderSets.IsThereAnyBisr">
+            <summary>
+            Gets whether there are any bisr.
+            </summary>
+            <returns>Whether there are any bisr.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DecoderSets.GetDebugPrintInfo">
+            <summary>
+            Print DecodeSet data.
+            </summary>
+            <returns>Debug information.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.DieDecoder">
+            <summary>
+            Executes the decoder logic related to each pin.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.#ctor(Prime.BusinessLogic.Mbist.Decoder.DecoderSets,Prime.BusinessLogic.Mbist.DataStruct.DieMappingInfo,Prime.BusinessLogic.Mbist.Json.Vfdm.HryVfdmJson,Prime.BusinessLogic.Mbist.DataStruct.IHryInfo,Prime.BusinessLogic.Mbist.DataStruct.IRecovery,System.Boolean,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration},Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseHandler,Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.BusinessLogic.Mbist.DataStruct.Tags,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.DieDecoder"/> class.
+            </summary>
+            <param name="decoderSet">Controller set for current plist.</param>
+            <param name="dieMappingInfo">Die mapping info.</param>
+            <param name="hryVfdmJson">Hry vfdm json information.</param>
+            <param name="hryInfo">Hry info.</param>
+            <param name="recoveryInfo">Recovery info.</param>
+            <param name="isRecoveryDownBin">Whther is recovery down bin.</param>
+            <param name="bisrFuseConfigurations">Bisr controller mapping data.</param>
+            <param name="bisrVirtualFuseHandler">Bisr virtual fuse handler.</param>
+            <param name="instanceConfigurations">Instance configurations.</param>
+            <param name="gtAggregator">GT aggregator tag.</param>
+            <param name="sessionContext">current sessionContext.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.DoesBisrExist">
+            <summary>
+            Gets a value indicating whether there are any bisr patterns.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.WasPlistComplete">
+            <summary>
+            Gets a value indicating whether the plist is fully executed.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.HryResults">
+            <summary>
+            Gets the current hry results object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.BisrResults">
+            <summary>
+            Gets the BisrResults object for the current test.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.GetCtvPhysicalPins">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.IsDieFailing(System.Collections.Generic.HashSet{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.GetDtsCtvs(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.ProcessFailingPlistCtvResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.ProcessPassingPlistCtvResults">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.StoreUpdatedVirtualFuses(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.UpdateBisrVirtualFuses">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.UpdateBisrVirtualFuses(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.CreateBisrResult">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.ResetVfdmFuses(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.DoesBisrVirutalFuseHandlerExist">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.PostProcessBisrAfterRecoveryExecution(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.GetHryResultFlowControl">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.SetHryGlobalStringValueFromStorage">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.SetAllInstanceHryMemoriesToPass">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.AreThereFailingBisrCompressions">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.ResetHryGlobalStringValue">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.StoreUpdatedGlobalHry">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.StoreRecovery">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.SetRecoveryStringValueFromStorage">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.TryExecuteRecovery">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.ResetRecoveryGlobalValues">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.IsRecoveryEnabled">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.ReplaceGlobalRecoveryValueWithLatestResult">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.PrintFailedBisrsToItuff(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.GetRunStateDebugInformation">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.UpdateGtAggregator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.DieDecoder.SaveGlobalHry">
+            <summary>
+            Updates the global Hry value.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Hry.HryDecoder">
+            <summary>Hry decoder. </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.HryDecoder.#ctor(System.Collections.Generic.List{System.ValueTuple{Prime.BusinessLogic.Mbist.DataStruct.ControllerSet,System.Int32}},Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Hry.HryDecoder"/> class.
+            </summary>
+            <param name="controllerSetsWithLocations">The list of controller sets with their locations.</param>
+            <param name="hryVirtualFuseHandler">Hry Virtual Fuse handler.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.HryDecoder.HryVirtualFuseHandler">
+            <summary>
+            Gets the Hry virtual fuse handler.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.HryDecoder.ProcessPlistCtvResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Processes the plist ctv results.
+            </summary>
+            <param name="pinToCtv">Ctv results of the functional test.</param>
+            <param name="pinMapping">Logical to physical pin mapping.</param>
+            <param name="instanceConfigurations">Parameter object for accessing varies parameter values.</param>
+            <param name="sessionContext">session context.</param>
+            <returns>Hry results of processing the ctv obtained in the functional test.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.HryDecoder.GetFullPassHryResults">
+            <summary>
+            Get passing full hry results.
+            </summary>
+            <returns>An hry results object with all its values set as pass.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults">
+            <summary>
+            The range class contains the start and end indices.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults.#ctor(System.Collections.Generic.List{System.Int32},System.Boolean,System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.ReplacementBits},Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults"/> class.
+            </summary>
+            <param name="indices">Maximun controller index.</param>
+            <param name="shouldUpdateAllMemories">Should update all Memories.</param>
+            <param name="bisrBiraReplacements">Bira replacement bits by bisr.</param>
+            <param name="vfdmRepairHandler">Vfdm repair handler.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults.BisrBiraReplacements">
+            <summary>
+            Gets the current Bisr bira ctv replacements.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults.IsGlobalFailure">
+            <summary>
+            Gets a value indicating whether the result is a global failure.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults.ShouldUpdateAllMemories">
+            <summary>
+            Gets a value indicating whether all Memories should be updated to the new value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults.MemoryHrySymbols">
+            <summary>
+            Gets the memory hry symbols of the execution.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults.VfdmRepairHandler">
+            <summary>
+            Gets the Vfdm repair handler.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults.AddUntestedMemories(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Adds or updates memory symbol.
+            </summary>
+            <param name="memoryIndices">Index of the memory index inside the controller.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults.AddOrUpdateMemorySymbol(System.Int32,Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Adds or updates memory symbol.
+            </summary>
+            <param name="memoryIndex">Index of the memory index inside the controller.</param>
+            <param name="newSymbol">New symbol to be added or updated.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults.UpdateAllMemorySymbols(System.Collections.Generic.List{System.Int32},Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Adds or updates memory symbol.
+            </summary>
+            <param name="memoryIndices">List of memory indices.</param>
+            <param name="newSymbol">New symbol to be added or updated.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.ControllerResults.SetGlobalControllerFailure(Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Update Memories to a global controller failure.
+            </summary>
+            <param name="newSymbol">Symbol of the global controller failure.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResultFlowControl.IsSkipRecovery">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResultFlowControl.DoAllRecoveryIpsPass">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResultFlowControl.DoAllNonRecoveryIpsPass">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResultFlowControl.IsRepairableFound">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResultFlowControl.HasGlobalFailures">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResultFlowControl.UnrepairableMemories">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResultFlowControl.IsRepairableFlow">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResultFlowControl.DoAllIpsPass">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResultFlowControl.AreOnlyRecoveryIpsFailing">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults">
+            <summary>
+            This class contains the Hry string results of the current instance and pin.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults"/> class.
+            </summary>
+            <param name="currentHrySize">Size of the current hry string that will be used by the hry decoder.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults.BisrBiraReplacements">
+            <summary>
+            Gets the current Bisr bira ctv replacements.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults.CurrentHry">
+            <summary>
+            Gets the current hry string.
+            </summary>
+            Integer is the index in hry string.
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults.UpdateMemorySymbol(System.Int32,Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Adds or updates memory symbol.
+            </summary>
+            <param name="memoryIndex">Index of the memory index inside the controller.</param>
+            <param name="newSymbol">New symbol to be added or updated.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults.UpdateMemorySymbols(System.Collections.Generic.IEnumerable{System.Int32},Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Adds or updates memory symbol.
+            </summary>
+            <param name="hryStringIndices">Memory locations dictionary.</param>
+            <param name="newSymbol">New symbol to be added or updated.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults.UpdateAllMemorySymbols(Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol)">
+            <summary>
+            Adds or updates all memory to symbol.
+            </summary>
+            <param name="newSymbol">New symbol to be added or updated.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults.GetHryResultFlowControl(System.Collections.Generic.IReadOnlyList{System.Int32})">
+            <summary>
+            Gets the HryResultFlowControl resulting from the current hry symbols.
+            </summary>
+            <param name="recoveryIndices">Recovery indexes.</param>
+            <returns>a HryResultFlowControl instances.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.HryResults.GetUpdatedGlobalHry(System.Collections.Generic.List{System.Char},Prime.BusinessLogic.Mbist.InstanceConfigurations.MbistTestModes)">
+            <summary>
+            Gets the updated Global Hry string.
+            </summary>
+            <param name="globalHry">Global Hry string.</param>
+            <param name="testMode">Current instance mbist mode.</param>
+            <returns>Updated global hry.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.IHryResultFlowControl">
+            <summary>
+            HryResultFlowControl.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.IHryResultFlowControl.IsSkipRecovery">
+            <summary>
+            Gets or sets a value indicating whether the current flow is skip recovery.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.IHryResultFlowControl.DoAllRecoveryIpsPass">
+            <summary>
+            Gets a value indicating whether the recovery passes.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.IHryResultFlowControl.DoAllNonRecoveryIpsPass">
+            <summary>
+            Gets a value indicating whether the non recovery ips pass.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.IHryResultFlowControl.IsRepairableFound">
+            <summary> Gets a value indicating whether there is any repairable or successful repair value.</summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.IHryResultFlowControl.HasGlobalFailures">
+            <summary>
+            Gets a value indicating whether global failures are in the current Hry string.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.IHryResultFlowControl.UnrepairableMemories">
+            <summary>
+            Gets a list of unrepairable Memories.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.IHryResultFlowControl.IsRepairableFlow">
+            <summary>
+            Gets whether the repairable flow should be executed.
+            </summary>
+            <returns>whether the repairable flow should be executed.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.IHryResultFlowControl.DoAllIpsPass">
+            <summary>
+            Gets whether all the IPs are passing.
+            </summary>
+            <returns>whether all the IPs are passing.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Hry.Results.IHryResultFlowControl.AreOnlyRecoveryIpsFailing">
+            <summary>
+            Gets whether the recovery IPs are the only ones failing.
+            </summary>
+            <returns>whether the recovery IPs are the only ones failing.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults">
+            <summary>
+            Recovery results class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.#ctor(System.Collections.Generic.List{System.Char},System.Int32,Prime.BusinessLogic.Mbist.DataStruct.RecoveryCharacters)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults"/> class.
+            </summary>
+            <param name="initialRecoveryString">Initial recovery string value.</param>
+            <param name="recoverySize">recoverySize.</param>
+            <param name="recoveryCharacters">recoveryCharacters.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.IsValidRecovery">
+            <summary>
+            Gets a value indicating whether the recovery options are valid.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.RecoveryString">
+            <summary> Gets Updated Recovery String.</summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.MemoriesToRemove">
+            <summary>
+            Gets the Memories to be removed.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.InitialRecoveryString">
+            <summary>
+            Gets or sets the initial recovery string.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.Priority">
+            <summary>
+            Gets or sets recovery Priority.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.VerifyRecoveryValidity(System.Collections.Generic.List{System.Collections.Generic.List{System.String}},System.Collections.Generic.List{System.Int32},System.Boolean)">
+            <summary>
+            Check results.
+            </summary>
+            <param name = "validOptions" > List of valid recovery skews.</param>
+            <param name = "priorities" > List of priorities for validoptions.</param>
+            <param name = "isRecoveryDownBin" > Allow recovery downbin.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.SetBisrIndicesToFailRecovery(System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.Decoder.Bisr.Results.BisrResultData},System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.List{System.Int32}})">
+            <summary>
+            SetBisrIndicesToFailRecovery.
+            </summary>
+            <param name="bisrChains">bisrChains.</param>
+            <param name="bisrControllerToRecoveryIndices">Bisr controller mapping to recovery indices.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.ExecuteRecoveryForRequiredMemories(System.Char,System.Char,Prime.BusinessLogic.Mbist.DataStruct.RecoveryMemoryResults,System.Int32,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            ExecuteRecoveryForMustPassMemories.
+            </summary>
+            <param name="currentRecovery">currentRecovery.</param>
+            <param name="initialValue">initialValue.</param>
+            <param name="result">result.</param>
+            <param name="tokenLocation">itemName.</param>
+            <param name="memoriesToDisable">memoriesToDisable.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.ExecutePartialRecovery(System.Collections.Generic.Dictionary{System.Int32,Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol},System.Char,System.Int32,Prime.BusinessLogic.Mbist.DataStruct.RecoveryToken,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            ExecutePartialRecovery logic.
+            </summary>
+            <param name="hryString">hryString.</param>
+            <param name="initialRecoveryChar">initialRecoveryChar.</param>
+            <param name="tokenLocation">tokenLocation.</param>
+            <param name="token">token.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.ExecuteFullRecovery(System.Collections.Generic.Dictionary{System.Int32,Prime.BusinessLogic.Mbist.DataStruct.HrySymbol.Symbol},System.Char,System.Int32,Prime.BusinessLogic.Mbist.DataStruct.RecoveryToken,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            ExecuteFullRecovery.
+            </summary>
+            <param name="hryString">hryString.</param>
+            <param name="initialRecoveryChar">initialRecoveryChar.</param>
+            <param name="tokenLocation">tokenLocation.</param>
+            <param name="token">token.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.SetIndicesToFailedRecovery(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            SetIndicesToFailedRecovery.
+            </summary>
+            <param name="indices">indices.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Recovery.RecoveryResults.AddMemoriesToRemove(System.Collections.Generic.List{System.String})">
+            <summary>.</summary>
+            <param name = "memoriesToRemove" > List of memory/controller indexs to remove.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseHandler.ResolveBisrChainNameSpace(System.String,System.String,System.String)">
+            <summary>
+            Determines the active namespace for a BisrChain based on configuration rules.
+            </summary>
+            <param name="bisrLevelNameSpace">The Bisr-level namespace string (may be null or empty).</param>
+            <param name="ssidLevelNameSpace">The Die-level namespace string (may be null or empty).</param>
+            <param name="globalNameSpace">The global namespace string (must not be null).</param>
+            <returns>The resolved namespace string for the BisrChain.</returns>
+            <remarks>
+            Rules:
+            1. If bisrLevelNameSpace is provided and does not match '^\$(\d+)$', use bisrLevelNameSpace.
+            2. If bisrLevelNameSpace matches '^\$(\d+)$', use the Nth (1-based) field from dieLevelNameSpace (comma separated, trimmed).
+               If dieLevelNameSpace is null/empty or does not have enough fields, throw an Exception.
+            3. If bisrLevelNameSpace is not provided and dieLevelNameSpace is provided, use dieLevelNameSpace.
+            4. Otherwise, use globalNameSpace.
+            </remarks>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseHandler.UpdateRegisterNameAndFuseSize(System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Updates the register names and fuse sizes for the active namespace.
+            Ensures that HCS and FDS register names and their corresponding sizes are tracked per namespace.
+            <para>
+            This method is called during initialization to set up the mapping between register names and fuse sizes
+            for each unique namespace encountered in the BISR configuration.
+            </para>
+            <example>
+            <code>
+            var registerNames = new Dictionary&lt;string, HeapRegister&gt; { ... };
+            UpdateRegisterNameAndFuseSize(registerNames);
+            </code>
+            </example>
+            </summary>
+            <param name="registerNames">Dictionary containing register names mapped to HeapRegister instances. Must contain "HCS" and "FDS" keys.</param>
+            <param name="activeNameSpace">activeNameSpace used to overwrite the namespace in registerNames.</param>
+            <param name="sessionContext">sessionContext.</param>
+            <remarks>
+            - Uses <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister"/> to copy register information per namespace.
+            - Debug output is printed for each register and size update.
+            </remarks>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseInfo">
+            <summary>
+            BisrVirtualFuseJson class stores each bisr virtual fuse information from mapping file.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseInfo.NameSpace">
+            <summary>
+            Gets the bisr controller name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseInfo.Tag">
+            <summary>
+            Gets the capture data range.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseInfo.BisrVirtualFuseAndBitWidth">
+            <summary>
+            Gets the bisr chain data.
+            Key_Pair = (fuse name, bit width).
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.FuseBase">
+            <summary>
+            Fuse Base class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Vfdm.FuseBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.FuseBase"/> class.
+            </summary>
+            <param name="value">Fuse value.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Vfdm.FuseBase.Value">
+            <summary>
+            Gets or sets the fuse value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Vfdm.FuseBase.WasValueUpdated">
+            <summary>
+            Gets or sets a value indicating whether the value was updated.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Vfdm.FuseBase.WasValueInitialized">
+            <summary>
+            Gets or sets a value indicating whether the value was updated.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.FuseBlock`1">
+            <summary>
+            FuseBlock.
+            </summary>
+            <typeparam name="TFuse">Fuse type.</typeparam>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister"/> class.
+            </summary>
+            <param name="fuseRegister">Fuse value.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister.#ctor(Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister"/> class by copying an existing instance.
+            </summary>
+            <param name="other">The <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister"/> instance to copy.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister.Register">
+            <summary>
+            Gets the fuse register value.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister.Group">
+            <summary>
+            Gets a value of the fuse group.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister.NameSpace">
+            <summary>
+            Gets or sets a value of namespace.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister.FuseSize">
+            <summary>
+            Gets or sets a value of fuse size.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler">
+            <summary>
+            HryVirtualFuseRepairHandler Class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler.#ctor(System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.Decoder.Vfdm.HeapRegister},System.Boolean,Prime.BusinessLogic.Mbist.Json.Vfdm.HryVfdmJson,System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary> Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler"/> class.</summary>
+            <param name="registerNames"> Names of the HCS.</param>
+            <param name="skipCompressCheck"> Skip Compress Check.</param>
+            <param name="vfdmConfigJson"> vfdmConfigJson.</param>
+            <param name="hryReference"> hryReference Compress Check.</param>
+            <param name="sessionContext"> SessionContext.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler.SetBlocksData(System.Int32,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            New VF set blocks data.
+            </summary>
+            <param name="memoryIndex">memoryIndex.</param>
+            <param name="columnsWithFails">columnsWithFails.</param>
+            <returns>Whether the memoryIndex was found in fuse.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler.StoreUpdatedFuses(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler.BuildVirtualFuseHandlers(System.Collections.Generic.IReadOnlyDictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.MemoryLocation},System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.Json.Vfdm.RepairMapJson},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary> Initializing Prime handlers.</summary>
+            <param name="hrylookup"> hrylookup.</param>
+            <param name="repairMap"> List of repair maps.</param>
+            <param name="sessionContext"> sessionContext.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Hry.HryVirtualFuseRepairHandler.InitializeFusesFromFuseManagerService(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.RepairMap`1">
+            <summary>
+            NamespaceRepairMaps.
+            </summary>
+            <typeparam name="TFuse">Fuse type.</typeparam>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.VirtualFuseHandlerBase`1">
+            <summary>
+            VirtualFuseBase class.
+            </summary>
+            <typeparam name="TFuse">Fuse type.</typeparam>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.BiraCorrectionIndex">
+            <summary>
+            Bira register class stores processed bira information of each controller.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.BiraCorrectionIndex.BiraRegisterKey">
+            <summary>
+            Gets or Sets bira register key name.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.BiraCorrectionIndex.IsOutputMode">
+            <summary>
+            Gets or sets a value indicating whether it is offset mode or not.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.BiraCorrectionIndex.EnableBitIndex">
+            <summary>
+            Gets or sets the new updated index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.BiraCorrectionIndex.Offset">
+            <summary>
+            Gets or sets the new updated index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.BiraCorrectionIndex.IndexList">
+            <summary>
+            Gets or sets the Offset mode updated index.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.BiraCorrectionIndex.CurrentToUpdatedIndex">
+            <summary>
+            Gets or sets the Output mode currentIndex updated index.
+            Key = capture comment index.
+            Value = replacement value index.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.BiraCorrectionIndex.BuildBiraCorrection(System.Text.StringBuilder,System.Text.StringBuilder,System.Collections.Generic.Dictionary{System.Int32,System.Char})">
+            <summary>
+            Builds the Bira correction.
+            </summary>
+            <param name="updatedCtvData">Updated ctv data.</param>
+            <param name="currentBisr">Current bisr.</param>
+            <param name="correctionResult">Correction result.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.IDieDecoder">
+            <summary>
+            Die decoder interface for Mbist.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.IDieDecoder.DoesBisrExist">
+            <summary>
+            Gets a value indicating whether there are any bisr patterns.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.IDieDecoder.WasPlistComplete">
+            <summary>
+            Gets a value indicating whether the plist is fully executed.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.IDieDecoder.HryResults">
+            <summary>
+            Gets the current hry results object.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.IDieDecoder.BisrResults">
+            <summary>
+            Gets the BisrResults object for the current test.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.GetCtvPhysicalPins">
+            <summary>
+            Gets the physical pins to be used in the CTV string.
+            </summary>
+            <returns>The physical pins to be used in the CTV string.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.IsDieFailing(System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Gets a value indicating whether the die is failing.
+            </summary>
+            <param name="pinsFailingFunctionalTest">List of pins from the functional test.</param>
+            <returns>A value indicating whether the current die is failing.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.GetDtsCtvs(System.String)">
+            <summary>Gets the dts ctvs.</summary>
+            <param name="ctvResults">Ctv results string.</param>
+            <returns>the dts ctvs. Or in other words, the ctvs that were not used during the plist ctv processing.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.ProcessFailingPlistCtvResults(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Process plist result on each pin and updates Hry and Bisr results.
+            </summary>
+            <param name="pinToCtv">Ctv results of the functional test.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.ProcessPassingPlistCtvResults">
+            <summary>
+            Get full pass hry results.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.StoreUpdatedVirtualFuses(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Updates the storage with new virtual fuses.
+            </summary>
+            <param name="sessionContext">Ctv results of the functional test.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.UpdateBisrVirtualFuses">
+            <summary>
+            Updates Bisr storage with associated virtual fuse value.
+            </summary>
+            <returns>Fuse update status.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.UpdateBisrVirtualFuses(System.Boolean)">
+            <summary>
+            Updates Bisr storage with associated virtual fuse value.
+            </summary>
+            <param name="storeVirtualFuseOnly">Mbist Bisr storeVirtualFuseOnly mode.</param>
+            <returns>Fuse update status.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.CreateBisrResult">
+            <summary>
+            Initialize BISR result data.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.ResetVfdmFuses(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset fuses for VFDM.
+            </summary>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.DoesBisrVirutalFuseHandlerExist">
+            <summary>
+            Check whether bisr virtual fuse handler was created.
+            </summary>
+            <returns>bisr virtual fuse handler condition.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.PostProcessBisrAfterRecoveryExecution(System.Boolean)">
+            <summary>
+            Clears the bisrs failing or selected by recovery.
+            </summary>
+            <param name="needsToClearBisrUnrepairableFuses">Whether clearing the bisr results is needed.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.GetHryResultFlowControl">
+            <summary>
+            Gets the HryResultFlowControl resulting from the current hry symbols.
+            </summary>
+            <returns>a HryResultFlowControl instances.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.SetHryGlobalStringValueFromStorage">
+            <summary>
+            Set hry string values.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.AreThereFailingBisrCompressions">
+            <summary>
+            Gets a value indicating whether the bisr results have any failing bisr compressions.
+            </summary>
+            <returns>a value indicating whether the bisr results have any failing bisr compressions.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.SetAllInstanceHryMemoriesToPass">
+            <summary>
+            Set All Instance Hry Memories To Pass.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.ResetHryGlobalStringValue">
+            <summary>
+            Initializes the global Hry value.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.StoreUpdatedGlobalHry">
+            <summary>
+            Updates the global Hry value.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.IsRecoveryEnabled">
+            <summary>
+            Gets a value indicating whether the recovery is enabled.
+            </summary>
+            <returns>A value indicating whether the recovery is enabled.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.SetRecoveryStringValueFromStorage">
+            <summary>
+            Set recovery string values.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.ResetRecoveryGlobalValues">
+            <summary>
+            Resets the global Recovery value.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.TryExecuteRecovery">
+            <summary>
+            Executes the recovery.
+            </summary>
+            <returns>A boolean indicating whether the recovery was successful.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.ReplaceGlobalRecoveryValueWithLatestResult">
+            <summary>
+            Replaces the global recovery string value with latest recovery execution results.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.StoreRecovery">
+            <summary>
+            Store updated recovery string.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.GetRunStateDebugInformation">
+            <summary>
+            Gets the run state debug information.
+            </summary>
+            <returns>Returns a string with the run state debug information.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.UpdateGtAggregator">
+            <summary>
+            Print the GtAggregator share storage information.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IDieDecoder.PrintFailedBisrsToItuff(System.String)">
+            <summary>
+            Process plist result on each pin and updates Hry and Bisr results.
+            </summary>
+            <param name="pinName">Pin name.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.IMbistFactory">
+            <summary>
+            A set of functions working of factories depending on the data type.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.IMbistFactory.GetDieDecoders(System.String,System.String,System.String,System.String,Prime.PlistService.IPlistObject,System.Boolean,Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the dies decoder from the json paths, plist object and instance configurations.
+            </summary>
+            <param name="hryJsonPath">Hry json file path.</param>
+            <param name="mapJsonPath">Mapping json file path.</param>
+            <param name="recoveryJsonPath">Recovery json file path.</param>
+            <param name="vdfmFilePath">Vfdm json file path.</param>
+            <param name="plistObject">Plist object.</param>
+            <param name="isDownBin">Is down bin.</param>
+            <param name="instanceConfigurations">Instance configurations.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>The die decoders.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.ConfigurationFileHandler">
+            <summary>
+            Provides static methods for handling configuration files, including loading, caching, and updating configuration objects.
+            Supports JSON file deserialization, cache management, file change detection, and mapping information population for BISR
+            and virtual fuse handlers.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.ConfigurationFileHandler.ResetConfigurationFileHandler">
+            <summary>
+            Resets the configuration file handler by clearing the object cache and file timestamp dictionaries.
+            This method reinitializes the internal caches used for storing configuration objects and their associated file modification timestamps.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.ConfigurationFileHandler.GetOrUpdate``1(System.String,System.Func{System.Boolean},System.Func{``0},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets an object from cache or creates/updates it if needed.
+            </summary>
+            <typeparam name="TResult">Type of the object.</typeparam>
+            <param name="cacheKey">Unique key for the object.</param>
+            <param name="shouldUpdate">Bool expression indicating whether the object needs to be updated.</param>
+            <param name="factory">Factory function to create the object if update is needed.</param>
+            <param name="sessionContext">session context.</param>
+            <returns>The cached or newly created object.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.ConfigurationFileHandler.HasConfigFileChanged(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Helper: Checks if the config file's timestamp has changed since last read.
+            </summary>
+            <param name="configPath">Path of config file.</param>
+            <param name="sessionContext">session context.</param>
+            <returns>bool File changed or not.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.ConfigurationFileHandler.LoadConfig``1(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Loads and deserializes a JSON configuration file into an object of type <typeparamref name="T"/>.
+            Validates the file existence and format, updates the file timestamp cache, and logs debug information.
+            Throws <see cref="T:Prime.Base.Exceptions.TestMethodException"/> if the file is not found or is not in JSON format.
+            </summary>
+            <typeparam name="T">The type to deserialize the configuration file into.</typeparam>
+            <param name="configPath">The path to the configuration file.</param>
+            <param name="sessionContext">The session context for logging and debug output.</param>
+            <returns>An object of type <typeparamref name="T"/> representing the configuration.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.RecoveryInfoForConfigFileHandler">
+            <summary>
+            This class handles all the logic of the static configuration dictionaries.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Exceptions.MbistException">
+            <summary>
+            This exception could be used in Mbist business/test methods.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Exceptions.MbistException.MbistBisrDecompressException">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Exceptions.MbistException"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Exceptions.MbistException.MbistBisrDecompressException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Exceptions.MbistException.MbistBisrDecompressException"/> class.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.MbistFactory">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.MbistFactory.LoadBisrFuseConfiguration(Prime.BusinessLogic.Mbist.Json.Map.MapJson,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Loads BISR fuse configurations from the provided <see cref="T:Prime.BusinessLogic.Mbist.Json.Map.MapJson"/> object.
+            For each BISR chain defined in the mapping file, this method creates a <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration"/>
+            using the chain's data and the provided session context.
+            Returns a dictionary mapping BISR chain names to their corresponding <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration"/> instances.
+            </summary>
+            <param name="mapJson">The mapping JSON object containing BISR chain definitions.</param>
+            <param name="sessionContext">The session context for logging and debug output.</param>
+            <returns>
+            A dictionary where the key is the BISR chain name and the value is the corresponding <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration"/>.
+            </returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.MbistFactory.PopulateBisrVirtualHandler(Prime.BusinessLogic.Mbist.DataStruct.MappingInfo,Prime.BusinessLogic.Mbist.DataStruct.IHryInfo,System.Collections.Generic.Dictionary{System.String,Prime.BusinessLogic.Mbist.DataStruct.BisrFuseConfiguration},Prime.BusinessLogic.Mbist.InstanceConfigurations,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Populates a dictionary of <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseHandler"/> objects for each die defined in the provided <see cref="T:Prime.BusinessLogic.Mbist.DataStruct.MappingInfo"/>.
+            For each die, this method prepares the register names (HCS and FDS), applies the per-die namespace if available,
+            and constructs a <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseHandler"/> using the relevant register names, BISR chain data, BISR fuse configurations,
+            instance configurations, and session context.
+            If register names are not defined, the dictionary will contain default values for each die.
+            Throws <see cref="T:Prime.Base.Exceptions.TestMethodException"/> if the register names are not in the expected format.
+            </summary>
+            <param name="mappingInfo">The mapping information containing die configurations and register names.</param>
+            <param name="hryInfo">The HRY information containing BISR chain data.</param>
+            <param name="bisrFuseConfigurations">The BISR fuse configurations for each chain.</param>
+            <param name="instanceConfigurations">The instance configurations for the current session.</param>
+            <param name="sessionContext">The session context for logging and debug output.</param>
+            <returns>
+            A dictionary mapping die names to their corresponding <see cref="T:Prime.BusinessLogic.Mbist.Decoder.Vfdm.Bisr.BisrVirtualFuseHandler"/>.
+            </returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Modes.BisrModes">
+            <summary>BisrModes modes. </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Modes.BisrModes.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Modes.BisrModes"/> class.
+            </summary>
+            <param name="bisrModes">bisrMode.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.BisrModes.IsBiraBuild">
+            <summary>Gets a value indicating whether the it is a bira build condition. </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.BisrModes.IsCompressed">
+            <summary>Gets a value indicating whether the BisrModes is compressed. </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.BisrModes.IsSkipCompressCheck">
+            <summary>Gets a value indicating whether the BisrModes is compressed. </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.BisrModes.IsUncompressed">
+            <summary>Gets a value indicating whether the BisrModes is uncompressed. </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.BisrModes.IsPatMod">
+            <summary>Gets a value indicating whether the BisrModes is pat mod. </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Modes.BisrModes.IsSet">
+            <summary>Gets a value indicating whether there are any BisrModes. </summary>
+            <returns>value indicating whether there are any BisrModes.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Modes.BisrModes.GetDebugPrintInfo">
+            <summary>
+            retrieve BisrMode information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Modes.ClearVariableModes">
+            <summary>
+            ClearVariableModes modes.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Modes.ClearVariableModes.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Modes.ClearVariableModes"/> class.
+            </summary>
+            <param name="clearVarModes">bisrMode.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.ClearVariableModes.IsHry">
+            <summary>Gets a value indicating whether it is HRY mode. </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.ClearVariableModes.IsRecovery">
+            <summary>Gets a value indicating whether it is Recovery mode. </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.ClearVariableModes.IsVfdm">
+            <summary>Gets a value indicating whether it is VFDM mode. </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.ClearVariableModes.IsBisr">
+            <summary>Gets a value indicating whether it is Bisr mode. </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.ClearVariableModes.ClearAll">
+            <summary>Gets a value indicating whether clear all variables. </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Modes.ClearVariableModes.GetDebugPrintInfo">
+            <summary>
+            retrieve ClearVariables information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Modes.DffOperationModes">
+            <summary>DffOperationModes modes. </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Modes.DffOperationModes.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Modes.DffOperationModes"/> class.
+            </summary>
+            <param name="dffModes">bisrMode.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.DffOperationModes.IsWrite">
+            <summary>
+            Gets a value indicating whether the DffMode is write.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.DffOperationModes.IsRead">
+            <summary>
+            Gets a value indicating whether the DffMode is read.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.DffOperationModes.IsRecovery">
+            <summary>
+            Gets a value indicating whether the DffMode is recovery.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.DffOperationModes.IsBisr">
+            <summary>
+            Gets a value indicating whether the DffMode is bisr.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.DffOperationModes.IsVfdm">
+            <summary>
+            Gets a value indicating whether the DffMode is vfdm.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Modes.DffOperationModes.GetDebugPrintInfo">
+            <summary>
+            retrieve DffOperation information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.Modes.ItuffModes">
+            <summary>
+            ItuffModes modes.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Modes.ItuffModes.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.Modes.ItuffModes"/> class.
+            </summary>
+            <param name="ituffModes">bisrMode.</param>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.ItuffModes.IsHry">
+            <summary>Gets a value indicating whether it is in HRY mode. </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.Modes.ItuffModes.IsBisrCompressionFail">
+            <summary>Gets a value indicating whether there is any bisr compression failed. </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.Modes.ItuffModes.GetDebugPrintInfo">
+            <summary>
+            retrieve bisrChain information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.DffSocketTypes">
+            <summary>
+            Enabled States.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DffSocketTypes.SDS">
+            <summary>
+            Sds.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DffSocketTypes.SDT">
+            <summary>
+            Sdt.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DffSocketTypes.CLASS_HOT">
+            <summary>
+            Sds.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DffSocketTypes.CLASS_COLD">
+            <summary>
+            Sdt.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.DffSocketTypes.ALL">
+            <summary>
+            Sds.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.InstanceConfigurations">
+            <summary>
+            This class contains the parsed Mbist parameters.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.InstanceConfigurations.#ctor(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},Prime.BusinessLogic.Mbist.InstanceConfigurations.MbistTestModes,Prime.BusinessLogic.Mbist.DffSocketTypes,System.Collections.Generic.List{System.String},System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Mbist.InstanceConfigurations"/> class.
+            </summary>
+            <param name="dffOperationModes">List of dff modes.</param>
+            <param name="clearVariableModes">List of clear modes.</param>
+            <param name="ituffModes">List of ituff modes.</param>
+            <param name="bisrModes">List of bisr modes.</param>
+            <param name="mbistTestMode">Mbist test mode.</param>
+            <param name="dffSocketTypes">Mbist Dff socket type mode.</param>
+            <param name="maskedPins">List of masked pins.</param>
+            <param name="ituffExtension">Ituff Extension.</param>
+            <param name="isDebugMode">Is debug mode.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.Mbist.InstanceConfigurations.MbistTestModes">
+            <summary>
+            Test class modes.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.InstanceConfigurations.MbistTestModes.Hry">
+            <summary>
+            Hry mode - used when running PRE/Raster/Post for any repair. Only supports single execution.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.InstanceConfigurations.MbistTestModes.KitchenSink">
+            <summary>
+            KitchenSink mode - not updating Hry tokens.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.InstanceConfigurations.MbistTestModes.PostRepair">
+            <summary>
+            Post Repair mode - Retest logic in a separate instance that runs on all Memories previously recorded as "repairable" or "Y".
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.InstanceConfigurations.MbistTestModes.RepairShareBira">
+            <summary>
+            Repair Share Bira mode - Retest after Hry for repair sharing to allow Memories that fail to update Failing Memories to repairable/unrepairable.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Mbist.InstanceConfigurations.MbistTestModes.Initialize">
+            <summary>
+            CreateBisrResults Mbist HRY, Bisr and Recovery data - performs Bisr fuse decompress as instructed (BisrMode = 'compress').
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.InstanceConfigurations.DffOperationModes">
+            <summary>
+            Gets the dff operation modes.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.InstanceConfigurations.ClearVariableModes">
+            <summary>
+            Gets the clear variable modes.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.InstanceConfigurations.BisrModes">
+            <summary>
+            Gets the bisr modes.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.InstanceConfigurations.ItuffModes">
+            <summary>
+            Gets the ituff modes.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.InstanceConfigurations.ItuffExtension">
+            <summary>
+            Gets the ituff extension.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.InstanceConfigurations.IsDebugMode">
+            <summary>
+            Gets a value indicating whether the TM is debug mode.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.InstanceConfigurations.MaskedPins">
+            <summary>
+            Gets the Masked pins for the functional test.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.InstanceConfigurations.MbistTestMode">
+            <summary>
+            Gets the Mbist Test Mode.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Mbist.InstanceConfigurations.DffSocketType">
+            <summary>
+            Gets the Mbist Test Mode.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.InstanceConfigurations.GetDebugPrintInfo">
+            <summary>
+            retrieve instanceConfigurations information to be printed in debug mode.
+            </summary>
+            <returns>debug messages.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Mbist.InstanceConfigurations.SetMaskedPins(System.Collections.Generic.List{System.String})">
+            <summary>
+            Sets the masked pins.
+            </summary>
+            <param name="maskedPins">Masked pins list.</param>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Fails when the pin name is not found in the pin service.</exception>
+        </member>
+    </members>
+</doc>

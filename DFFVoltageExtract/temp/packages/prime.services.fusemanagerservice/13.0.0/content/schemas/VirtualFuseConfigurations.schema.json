@@ -1,0 +1,81 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "required": [ "VirtualFuseConfigs" ],
+    "properties": {
+      "VirtualFuseConfigs": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "$ref": "#/definitions/VirtualFuseConfigsItem"
+        }
+      }
+    },
+    "definitions": {
+      "VirtualFuseConfigsItem": {
+        "type": "object",
+        "required": [
+          "Namespace",
+          "FlameKey",
+          "FlameFile"
+        ],
+        "properties": {
+          "Namespace": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/definitions/NonEmptyString"
+            }
+          },
+          "FlameKey": {
+            "$ref": "#/definitions/NonEmptyString"
+          },
+          "FlameFile": {
+            "$ref": "#/definitions/NonEmptyString"
+          },
+          "FusesWithEnableBit": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/definitions/FusesWithEnableBitItem"
+            }
+          }
+        }
+      },
+      "NonEmptyString": {
+        "type": "string",
+        "minLength": 1
+      },
+      "FusesWithEnableBitItem": {
+        "type": "object",
+        "required": [
+          "FuseName",
+          "EnableBitFuseName",
+          "EnableBinaryValue"
+        ],
+        "properties": {
+          "FuseName": {
+            "$ref": "#/definitions/NonEmptyString"
+          },
+          "EnableBitFuseName": {
+            "$ref": "#/definitions/NonEmptyString"
+          },
+          "EnableBinaryValue": {
+            "$ref": "#/definitions/BinaryString"
+          }
+        }
+      },
+      "BinaryString": {
+        "type": "string",
+        "enum": [ "0", "1" ]
+      },
+      "PositiveInteger": {
+        "type": "integer",
+        "minimum": 0
+      }
+  
+    }
+  }

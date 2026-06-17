@@ -1,0 +1,184 @@
+{
+  "Configuration": {
+    "TestsToExecute": [
+      {
+        "Name": "Ipo::IpoBasicTest_PatternModify_WithAddress_P1",
+        "Type": "INSTANCE"
+      }
+    ],
+    "StoreIterationResult": {
+      "SharedStorage": {
+        "Key": "IpoIterationResultKey"
+      }
+    },
+    "PatternInfo": [
+      {
+        "Name": "ConfigA",
+        "NumberOfVectors": 5,
+        "PatternModifyInfo": [
+          {
+            "PatList": "ctv_plist",
+            "PatternsRegex": ".*tv.*",
+            "StartAddress": 1,
+            "OffSet": 0
+          }
+        ]
+      },
+      {
+        "Name": "ConfigB",
+        "NumberOfVectors": 5,
+        "PatternModifyInfo": [
+          {
+            "PatList": "ctv_plist",
+            "PatternsRegex": "ctv.*",
+            "StartAddress": 7,
+            "OffSet": 1
+          }
+        ]
+      },
+      {
+        "Name": "ConfigC",
+        "NumberOfVectors": 2,
+        "PatternModifyInfo": [
+          {
+            "PatList": "ctv_plist",
+            "PatternsRegex": "c.*s",
+            "StartAddress": 14,
+            "OffSet": 0
+          }
+        ]
+      }
+    ],
+    "Loop": [
+      {
+        "Id": "100-ConfigA",
+        "Iteration": [
+          {
+            "Id": "010-two-pin-toggle-part1",
+            "Pattern": [
+              {
+                "Name": "ConfigA",
+                "Pin": [
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A0",
+                    "Data": "11111"
+                  },
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A1",
+                    "Data": "00000"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "011-two-pin-toggle-part2",
+            "Pattern": [
+              {
+                "Name": "ConfigA",
+                "Pin": [
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A0",
+                    "Data": "00000"
+                  },
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A1",
+                    "Data": "11111"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "012-make-pinA-one",
+            "Pattern": [
+              {
+                "Name": "ConfigA",
+                "Pin": [
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A0",
+                    "Data": "11111"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "200-PerPin-One",
+        "Iteration": [
+          {
+            "Id": "020-PinA-One",
+            "Pattern": [
+              {
+                "Name": "ConfigB",
+                "Pin": [
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A0",
+                    "Data": "11111"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "021-PinB-One",
+            "Pattern": [
+              {
+                "Name": "ConfigB",
+                "Pin": [
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A1",
+                    "Data": "11111"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "300-Toggle-2bit",
+        "Iteration": [
+          {
+            "Id": "030",
+            "Pattern": [
+              {
+                "Name": "ConfigC",
+                "Pin": [
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A0",
+                    "Data": "11"
+                  },
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A1",
+                    "Data": "00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "031",
+            "Pattern": [
+              {
+                "Name": "ConfigC",
+                "Pin": [
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A0",
+                    "Data": "00"
+                  },
+                  {
+                    "Name": "xxHPCC_DPIN_Dig_slcA_A1",
+                    "Data": "11"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

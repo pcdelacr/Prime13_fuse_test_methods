@@ -1,0 +1,227 @@
+{
+  "definitions": {
+    "BisrDataJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "CORRECT_BIRA": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "$ref": "#/definitions/CorrectBiraJson"
+          }
+        },
+        "PADCHAR": {
+          "type": "string"
+        },
+        "NAMESPACE": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "VFDMREPAIR": {
+          "type": "boolean"
+        },
+        "REVERSE": {
+          "type": "boolean"
+        },
+        "DFF": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "SHAREDSTORAGE": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ITUFF": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "DFF",
+        "SHAREDSTORAGE",
+        "ITUFF"
+      ]
+    },
+    "CorrectBiraJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "ENABLE": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "OFFSET": {
+          "type": "integer"
+        },
+        "INPUT": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer"
+          }
+        },
+        "OUTPUT": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": [
+        "ENABLE",
+        "OFFSET",
+        "INPUT",
+        "OUTPUT"
+      ]
+    },
+    "MultiDieJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "VOLTAGE": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "SHORTNAME": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "StorageTagsJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "DFF": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "SHAREDSTORAGE": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ITUFF": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "DFF",
+        "SHAREDSTORAGE",
+        "ITUFF"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "VERSION": {
+      "type": "number"
+    },
+    "MULTIDIE": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "$ref": "#/definitions/MultiDieJson"
+      }
+    },
+    "MULTICORE": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "HRY": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "$ref": "#/definitions/StorageTagsJson"
+      }
+    },
+    "BISR_CHAINS": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "$ref": "#/definitions/BisrDataJson"
+      }
+    },
+    "RECOVERY": {
+      "$ref": "#/definitions/StorageTagsJson"
+    },
+    "VMIN": {
+      "$ref": "#/definitions/StorageTagsJson"
+    },
+    "MSB": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "FUSEPADDING": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "VERSION",
+    "MULTIDIE"
+  ]
+}

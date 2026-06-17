@@ -1,0 +1,1217 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.SharedStorageService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.SharedStorageService.AccessToken">
+            <summary>
+            Context Dut/Ip Ids.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.AccessToken.#ctor(System.UInt32,System.UInt32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.AccessToken"/> class.
+            </summary>
+            <param name="dutId">Dut id.</param>
+            <param name="ipId">Ip Id.</param>
+            <param name="instName">Instance name.</param>
+        </member>
+        <member name="P:Prime.SharedStorageService.AccessToken.DutId">
+            <summary>
+            Gets the Dut id of the current context.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.AccessToken.IpId">
+            <summary>
+            Gets the Ip id of te current context.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.AccessToken.CurrentInstanceName">
+            <summary>
+            Gets the current instance name for this token.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.AccessToken.Create(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create a new SessionToken.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>SessionToken for all SharedStorage operations.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.AccessToken.ToString">
+            <summary>
+            Format this object to string. for Debug print.
+            </summary>
+            <returns>A string that represent the current object.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.AccessToken.InitializeLifetimeService">
+            <summary>
+            every class that derives from MarshalByRefObject and should have infinite lifetime
+            has to override InitializeLifetimeService() and return null, so .Net has no object to init it's LifetimeService.
+            </summary>
+            <returns>No timeout condition for proxy object.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.Internal.ISharedStorageService">
+            <summary>
+            Shared Storage for internal usage.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.Internal.ISharedStorageService.LotStart(System.String)">
+            <summary>
+            Clears all tables with LOT context.
+            </summary>
+            <param name="runningInstance">Instance name that runs this operation.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.Internal.ISharedStorageService.DeviceStart(System.UInt32,System.String)">
+            <summary>
+            Clears all tables with DUT and IP context.
+            </summary>
+            <param name="deviceId">DutId for this operation.</param>
+            <param name="runningInstance">Instance name that runs this operation.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.Internal.ISharedStorageService.GetUnsafeRowFromTable``1(System.String,Prime.SharedStorageService.Context)">
+             <summary>
+             Get a reference of the row internal storage for the key..
+             This allows performance optimization as it saves the key lookup.
+             User should always lock the row before operations and release the lock at the end.
+             Usage example:
+             var st = Prime.SharedStorageService.GetUnsafeRowFromTable&gt;SomeStructure>("key", Context.DUT);
+            
+             using(st.Lock())
+             {
+                st.Value.DoSomething();
+             }
+             .
+             </summary>
+             <typeparam name="T">the type of the object.</typeparam>
+             <param name="key">the key in the table to store the data.</param>
+             <param name="context">the context of the data to store.</param>
+             <returns>A copy of the stored object.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.Internal.ISharedStorageService.GetUnsafeRowFromTable``1(System.String,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy)">
+             <summary>
+             Get a reference of the row internal storage for the key..
+             This allows performance optimization as it saves the key lookup.
+             User should always lock the row before operations and release the lock at the end.
+             Usage example:
+             var st = Prime.SharedStorageService.GetUnsafeRowFromTable&gt;SomeStructure>("key", Context.DUT);
+            
+             using(st.Lock())
+             {
+                st.Value.DoSomething();
+             }
+             .
+             </summary>
+             <typeparam name="T">the type of the object.</typeparam>
+             <param name="key">the key in the table to store the data.</param>
+             <param name="context">the context of the data to store.</param>
+             <param name="resetPolicy">The reset policy for ths row.</param>
+             <returns>A copy of the stored object.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.Internal.ISharedStorageService.SetSingleAppDomainMode">
+            <summary>
+            Call only this at the end of the load sequence when kernel identified we're running is a single ApDomain mode.
+            </summary>
+        </member>
+        <member name="T:Prime.SharedStorageService.Internal.IUnsafeRow`1">
+            <summary>
+            Interface for unsafe row wrapper.
+            </summary>
+            <typeparam name="T">The type of object stored in this row.</typeparam>
+        </member>
+        <member name="M:Prime.SharedStorageService.Internal.IUnsafeRow`1.Lock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Lock this row for operations. Get a handle to the internal storage object.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A ref handle to the stored object.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.Internal.IUnsafeRow`1.LockAndInvokeOnAllDuts(System.Func{`0},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Run action on all Duts for this unsafeRow.
+            This operation can be done only on UnsafeRow created for Context.IP type.
+            </summary>
+            <param name="action">A func that returns T to assign to dut storage rows held in this object.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.Internal.IUnsafeRow`1.LockAndInvokeOnAllIps(System.Func{`0},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Run action on all Ips for this unsafeRow.
+            This operation can be done only on UnsafeRow created for Context.IP type.
+            </summary>
+            <param name="action">A func that returns T to assign to IP storage rows held in this object.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.SharedStorageService.Internal.IUnsafeRowObject`1">
+            <summary>
+            Interface for an unsafe reference to stored object.
+            </summary>
+            <typeparam name="T">The type of object stored in this row.</typeparam>
+        </member>
+        <member name="P:Prime.SharedStorageService.Internal.IUnsafeRowObject`1.Value">
+            <summary>
+            Gets or sets the stored object. Value might be null if key was not set before.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.Internal.IUnsafeRowObject`1.GetVersionNumber">
+            <summary>
+            Get the current row version number.
+            </summary>
+            <returns>version number.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.Internal.IUnsafeRowObject`1.CommitChanges">
+            <summary>
+            After changes were made flag that they need to be committed into the SharedStorage.
+            </summary>
+        </member>
+        <member name="T:Prime.SharedStorageService.Context">
+            <summary>
+            The context of the shared storage.
+            </summary>
+        </member>
+        <member name="F:Prime.SharedStorageService.Context.LOT">
+            <summary>
+            Data is shared across DUTs and IPs
+            </summary>
+        </member>
+        <member name="F:Prime.SharedStorageService.Context.DUT">
+            <summary>
+            Data is shared across all IPs belonging to current DUT
+            Data is not shared across different parallel DUTs in mDUT.
+            </summary>
+        </member>
+        <member name="F:Prime.SharedStorageService.Context.IP">
+            <summary>
+            Data is shared only within the current IP
+            Data is not shared with other IPs or other parallel DUTs in mDUT
+            </summary>
+        </member>
+        <member name="T:Prime.SharedStorageService.ResetPolicy">
+            <summary>
+            The reset policy for the stored data.
+            </summary>
+        </member>
+        <member name="F:Prime.SharedStorageService.ResetPolicy.RESET_AT_LOT_START">
+            <summary>
+            Data resets at lot start.
+            </summary>
+        </member>
+        <member name="F:Prime.SharedStorageService.ResetPolicy.RESET_AT_DEVICE_START">
+            <summary>
+            Data resets at start of device.
+            </summary>
+        </member>
+        <member name="F:Prime.SharedStorageService.ResetPolicy.NEVER_RESET">
+            <summary>
+            Data remains until test program is unloaded.
+            </summary>
+        </member>
+        <member name="T:Prime.SharedStorageService.ISharedStorageService">
+            <summary>
+            The shared storage service - a single place to store shared data for the whole library.
+            Data is shared across test instances or methodologies by inserting data rows into a table.
+            Users can access and store information into this table using keys that are mapped to a singular
+            row, similar to dictionaries.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.ISharedStorageService.InsertRowAtTable(System.String,System.String,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert a row containing a string into the table.
+            <code>
+            var key = "myKey";
+            Prime.SharedStorageService.InsertRowAtTable(key, "Hello World!", Context.DUT, ResetPolicy.RESET_AT_DEVICE_START, this.SessionContext);.
+            </code>
+            </summary>
+            <param name="key">The key used to store the row into the table.</param>
+            <param name="data">String value to store in the row.</param>
+            <param name="context">Defines the scope to retrieve this data from.</param>
+            <param name="resetPolicy">Determines when the row should be removed from the table.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.ISharedStorageService.InsertRowAtTable``1(System.String,``0,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert a row containing an object of type T into the table.
+            <code>
+            // storing the object...
+            var key = "myKey";
+            var myObj = new MyObject();
+            Prime.SharedStorageService.InsertRowAtTable&gt;MyObject&lt;(key, myObj, Context.DUT, ResetPolicy.RESET_AT_DEVICE_START, this.SessionContext);.
+            </code>
+            </summary>
+            <typeparam name="T">The type of data contained at the row pointed to by the key.</typeparam>
+            <param name="key">The key used to store the row into the table.</param>
+            <param name="data">Data to store in the row.</param>
+            <param name="context">Defines the scope to retrieve this data from.</param>
+            <param name="resetPolicy">Determines when the row should be removed from the table.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.ISharedStorageService.GetRowFromTable``1(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns a copy of the object stored using the key provided.
+            See example below:
+            <code>
+            // storing the object...
+            var key = "myKey";
+            var myObj = new MyObject();
+            Prime.SharedStorageService.InsertRowAtTable&gt;MyObject&lt;(key, myObj, Context.DUT, ResetPolicy.RESET_AT_DEVICE_START, this.SessionContext);
+            // retrieving the object using the same string
+            var myObj = Prime.SharedStorageService.GetRowFromTable&lt;MyObject&gt;(key, Context.DUT, this.SessionContext);
+            </code>
+            </summary>
+            <typeparam name="T">The type of data contained at the row pointed to by the key.</typeparam>
+            <param name="key">The key used to store the row into the table.</param>
+            <param name="context">Defines the scope to retrieve this data from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The copy of the object stored using the provided key.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.ISharedStorageService.TryGetValue``1(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Attempt to get a row from the table using the provided key. If the row exists,
+            the value of the row is returned.
+            <code>
+            (bool found, MyObject myObj) = Prime.SharedStorageService.TryGetValue&lt;myObj&gt;("key", Context.DUT, sessionContext);
+            if (found)
+            {
+                Console.WriteLine($"My stored object=[key]=[{storedObject.ToString()}]");
+            }
+            else
+            {
+                Console.WriteLine($"My stored object with key=[key] not found");
+            }
+            </code>
+            </summary>
+            <typeparam name="T">The type of data contained at the row pointed to by the key.</typeparam>
+            <param name="key">The key used to store the row into the table.</param>
+            <param name="context">Defines the scope to retrieve this data from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A tuple of (bool, obj). If the bool returns true, the object was found and returned.
+            Otherwise, the object is null.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.ISharedStorageService.GetTableKeys``1(Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns a list of all keys that store rows that contain data of type T.
+            </summary>
+            <remarks>
+            This API consumes a lot of test time, and should be used mainly for debugging purposes.
+            The more objects stored, the longer this API will take to execute.
+            </remarks>
+            <typeparam name="T">The type of object to query. All returning keys will contain
+            data of this type.</typeparam>
+            <param name="context">Defines the scope to retrieve this data from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>List of string keys that contain the data of type T.</returns>
+            <exception cref="T:System.Exception">Thrown when Global fail to get.</exception>
+        </member>
+        <member name="M:Prime.SharedStorageService.ISharedStorageService.GetAllTablesDataAsString">
+            <summary>
+            Get all SharedStorage object data as string.
+            </summary>
+            <returns>String that represents the content of all tables.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.ISharedStorageService.MakeRowSecured``1(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Flag object row as secured, will not be exposed in any method.
+            </summary>
+            <typeparam name="T">The type of data contained at the row pointed to by the key.</typeparam>
+            <param name="key">The key used to store the row into the table.</param>
+            <param name="context">the context of the data to store.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.ISharedStorageService.TruncTable``1(Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Remove all keys that store rows of type T within the provided context.
+            </summary>
+            <typeparam name="T">The type of data to remove from SharedStorage.</typeparam>
+            <param name="context">The context to scope the removal of data from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.ISharedStorageService.DeleteRowFromTable``1(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Delete the row that is pointed to by the key that stores an object of type T.
+            </summary>
+            <typeparam name="T">The type of data contained at the row pointed to by the key.</typeparam>
+            <param name="key">The key of the row to delete from the table.</param>
+            <param name="context">The context to scope the removal of data from.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.ArrayReferencePreservingConverter">
+            <summary>
+            Convertor.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.ArrayReferencePreservingConverter.CanWrite">
+            <summary>
+            Gets a value indicating whether can write.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.ArrayReferencePreservingConverter.CanConvert(System.Type)">
+            <summary>
+            CanConvert.
+            </summary>
+            <param name="objectType">O.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.ArrayReferencePreservingConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Read.
+            </summary>
+            <param name="reader">R.</param>
+            <param name="objectType">O.</param>
+            <param name="existingValue">E.</param>
+            <param name="serializer">s.</param>
+            <returns>r.</returns>
+            <exception cref="T:Newtonsoft.Json.JsonSerializationException">e.</exception>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.ArrayReferencePreservingConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Write.
+            </summary>
+            <param name="writer">w.</param>
+            <param name="value">v.</param>
+            <param name="serializer">s.</param>
+            <exception cref="T:System.NotImplementedException">e.</exception>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.CentralDatabase">
+            <summary>
+            The Central DB object.
+            Will instantiate only once at the "Prime" AppDomain and all Local DBs will reference to it.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDatabase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.DataStructures.CentralDatabase"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDatabase.GetOrAddNewDataRow(Prime.SharedStorageService.AccessToken,System.String,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy)">
+            <summary>
+            Get new row or create new empty one if not exists.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+            <param name="key">the row's key.</param>
+            <param name="context">the context of the table.</param>
+            <param name="resetPolicy">reset policy to apply if new row is created.</param>
+            <returns>the created row.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDatabase.GetAllTablesDataAsString(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Get all the tables as string to print to the console by the TM.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+            <returns>all the tables' data as string.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDatabase.LotStart(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            The LotStart operation to clear al row with RestPolicy = RESET_AT_LOT_START.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDatabase.DeviceStart(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            The DeviceStart operation to clear al row with RestPolicy = RESET_AT_DEVICE_START.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDatabase.GetKeys(System.String,Prime.SharedStorageService.AccessToken,Prime.SharedStorageService.Context)">
+            <summary>
+            Get all keys of a table.
+            </summary>
+            <param name="tableName">name of the table. in cdb all data is aggregated into single table wehre the key constructed as 'table@key'.</param>
+            <param name="accessToken">access token identifier.</param>
+            <param name="context">the table context.</param>
+            <returns>matching keys.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDatabase.InitializeLifetimeService">
+            <summary>
+            every class that derives from MarshalByRefObject and should have infinite lifetime
+            has to override InitializeLifetimeService() and return null, so .Net has no object to init it's LifetimeService.
+            </summary>
+            <returns>No timeout condition for proxy object.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.CentralDatabaseContainerForCentralAppDomain">
+            <summary>
+            A container for the central DB.
+            The code creates temporary instances of this container in order to access the Central DB singleton on central AppDomain (Prime AppDomain).
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDatabaseContainerForCentralAppDomain.GetCentralDataBase">
+            <summary>
+            Gets the central DB singleton of the Prime AppDomain.
+            </summary>
+            <returns>the Central DB.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDatabaseContainerForCentralAppDomain.InitializeLifetimeService">
+            <summary>
+            every class that derives from MarshalByRefObject and should have infinite lifetime
+            has to override InitializeLifetimeService() and return null, so .Net has no object to init it's LifetimeService.
+            </summary>
+            <returns>No timeout condition for proxy object.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.CentralDataRow">
+            <summary>
+            The cemtral Data row object.
+            Central DB will be populated only from these type of objects.
+            A central data row is fully controlled by its parent LocalDataRow. including all locks mechanisms.
+            PLEASE DO NOT LOCK THE CDB ROW HERE DIRECTLY.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDataRow.#ctor(Prime.SharedStorageService.ResetPolicy,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.DataStructures.CentralDataRow"/> class.
+            </summary>
+            <param name="resetPolicy">reset policy to assign.</param>
+            <param name="rowKey">the row's key for printing purposes.</param>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.CentralDataRow.LockTimeoutMs">
+            <summary>
+            Gets the lock timeout in ms for.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.CentralDataRow.ResetPolicy">
+            <summary>
+            Gets or sets The row's Reset Policy.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.CentralDataRow.HasValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.CentralDataRow.IsSecured">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDataRow.Lock(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Wait for other threads to complete the work on this row and Lock the access to the row by other threads.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">throw if wait timeout exceeded.</exception>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDataRow.ReleaseLock">
+            <summary>
+            Release the lock from current thread.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDataRow.Insert(System.String)">
+            <summary>
+            Insert new serialized object into the central DB.
+            </summary>
+            <param name="newSerializedObject">the new object to store.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDataRow.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDataRow.InitializeLifetimeService">
+            <summary>
+            every class that derives from MarshalByRefObject and should have infinite lifetime
+            has to override InitializeLifetimeService() and return null, so .Net has no object to init it's LifetimeService.
+            </summary>
+            <returns>No timeout condition for proxy object.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDataRow.MakeSecured">
+            <summary>
+            Make this row secured.
+            Meaning it won't be shown on the console and won't seen by GetKeys call.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDataRow.Clear(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Clear this row.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.CentralDataRow.Get">
+            <summary>
+            Get the inner serialized object as string.
+            </summary>
+            <returns>sss.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.DataRowBase`1">
+            <summary>
+            THe base class for both local and central rows.
+            </summary>
+            <typeparam name="T">the type of stored object.</typeparam>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.DataRowBase`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.DataStructures.DataRowBase`1"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.DataRowBase`1.VersionNumber">
+            <summary>
+            Gets or sets The current row version number.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.DataRowBase`1.HasValue">
+            <summary>
+            Gets a value indicating whether the row has value.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.DataRowBase`1.IsSecured">
+            <summary>
+            Gets a value indicating whether the row is secured.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.DataRowBase`1.StoredObject">
+            <summary>
+            Gets or sets the actual stored object.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.DataRowBase`1.Clear(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Clear the current row content.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.DataRowBase`1.InitializeLifetimeService">
+            <summary>
+            every class that derives from MarshalByRefObject and should have infinite lifetime
+            has to override InitializeLifetimeService() and return null, so .Net has no object to init it's LifetimeService.
+            </summary>
+            <returns>No timeout condition for proxy object.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.DataTable`1">
+            <summary>
+            A Table of specific type.
+            Contains all the data rows for this type.
+            </summary>
+            <typeparam name="T">the type of the object this table holds.</typeparam>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.DataTable`1.#ctor(Prime.SharedStorageService.ResetPolicy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.DataStructures.DataTable`1"/> class.
+            </summary>
+            <param name="defaultResetPolicy">the default reset policy for this table.</param>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.DataTable`1.DefaultResetPolicy">
+            <summary>
+            Gets the default reset policy for this table.
+            Will be set to all rows in this table unless if the user overrided it.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.DataTable`1.GetOrAddNewEmptyDataRow(System.String,System.Func{Prime.SharedStorageService.DataStructures.DataRowBase{`0}})">
+            <summary>
+            Get row from the table or add new empty one if not exist.
+            </summary>
+            <param name="key">the row's key.</param>
+            <param name="dataRowBuilder">function to tell how to build this new row (different between local and central rows.)</param>
+            <returns>the row from the table.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.DataTable`1.GetKeys(System.Boolean)">
+            <summary>
+            Get all the non secured keys which has value.
+            </summary>
+            <param name="includeSecuredOnes">true to return all keys including the secured ones for LotStart and DeviceStart usage..</param>
+            <returns>the rows' keys.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.DataTable`1.TruncTable(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Trunc the whole table.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.DataTable`1.GetRows">
+            <summary>
+            Get all rows.
+            </summary>
+            <returns>all rows.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.LocalDatabase">
+            <summary>
+            The local data base - will be instantiated once per appdomain.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.#ctor(Prime.SharedStorageService.DataStructures.CentralDatabase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.DataStructures.LocalDatabase"/> class.
+            </summary>
+            <param name="centralDatabase">reference to the central DB.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.GetOrAddNewEmptyDataRow``1(System.String,Prime.SharedStorageService.Context,Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Gets an existing DataRow or creates a new one with null data.
+            Used for Local Cache new rows.
+            </summary>
+            <typeparam name="T">the type of the table.</typeparam>
+            <param name="key">the key in the table to store the data.</param>
+            <param name="context">the context of the data to store.</param>
+            <param name="accessToken">The session token for this operation.</param>
+            <returns>DataRow object.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.GetOrAddNewEmptyDataRow``1(System.String,Prime.SharedStorageService.Context,Prime.SharedStorageService.AccessToken,Prime.SharedStorageService.ResetPolicy)">
+            <summary>
+            Gets an existing DataRow or creates a new one with null data.
+            Used for Local Cache new rows.
+            </summary>
+            <typeparam name="T">the type of the table.</typeparam>
+            <param name="key">the key in the table to store the data.</param>
+            <param name="context">the context of the data to store.</param>
+            <param name="accessToken">The session token for this operation.</param>
+            <param name="resetPolicy">The resent policy.</param>
+            <returns>DataRow object.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.GetKeys``1(Prime.SharedStorageService.AccessToken,Prime.SharedStorageService.Context)">
+            <summary>
+            Get all keys for the specific table type.
+            </summary>
+            <typeparam name="T">the type of the table.</typeparam>
+            <param name="accessToken">The session token for this operation.</param>
+            <param name="context">the context of the data to store.</param>
+            <returns>all table's keys.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.GetOrAddNewEmptyLotDataRow``1(System.String,Prime.SharedStorageService.ResetPolicy)">
+            <summary>
+            helper function to get unsafe rows.
+            </summary>
+            <typeparam name="T">the type of the object.</typeparam>
+            <param name="key">the row's key.</param>
+            <param name="resetPolicy">the row's reset policy.</param>
+            <returns>reference to the internal row.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.GetOrAddNewEmptyDutDataRows``1(System.String,Prime.SharedStorageService.ResetPolicy)">
+            <summary>
+            helper function to get unsafe rows.
+            </summary>
+            <typeparam name="T">the type of the object.</typeparam>
+            <param name="key">the row's key.</param>
+            <param name="resetPolicy">the row's reset policy.</param>
+            <returns>reference to the internal row for all the DUTs.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.GetOrAddNewEmptyIpDataRows``1(System.String,Prime.SharedStorageService.ResetPolicy)">
+            <summary>
+            helper function to get unsafe rows.
+            </summary>
+            <typeparam name="T">the type of the object.</typeparam>
+            <param name="key">the row's key.</param>
+            <param name="resetPolicy">the row's reset policy.</param>
+            <returns>reference to the internal row for all the DUT/IPs.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.Insert``1(Prime.SharedStorageService.AccessToken,System.String,``0,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy)">
+            <summary>
+            Insert new value to the storage.
+            </summary>
+            <typeparam name="T">the type of the object.</typeparam>
+            <param name="accessToken">The session token for this operation.</param>
+            <param name="key">the row's key.</param>
+            <param name="data">new data to insert.</param>
+            <param name="context">the context of the table.</param>
+            <param name="resetPolicy">the reset policy for the row if not exist.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.GetRowFromTable``1(Prime.SharedStorageService.AccessToken,System.String,Prime.SharedStorageService.Context)">
+            <summary>
+            Get a row from table.
+            </summary>
+            <typeparam name="T">the type of the object.</typeparam>
+            <param name="accessToken">The session token for this operation.</param>
+            <param name="key">the row's key.</param>
+            <param name="context">the context of the table.</param>
+            <returns>the row's data.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">if row not exist.</exception>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.TruncTable``1(Prime.SharedStorageService.AccessToken,Prime.SharedStorageService.Context)">
+            <summary>
+            Trunc the whole table.
+            </summary>
+            <typeparam name="T">the type of the object.</typeparam>
+            <param name="accessToken">The session token for this operation.</param>
+            <param name="context">the context of the table.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.DeleteRowFromTable``1(Prime.SharedStorageService.AccessToken,System.String,Prime.SharedStorageService.Context)">
+            <summary>
+            Delete a specific row from table.
+            </summary>
+            <typeparam name="T">the type of the object.</typeparam>
+            <param name="accessToken">The session token for this operation.</param>
+            <param name="key">the row's key.</param>
+            <param name="context">the context of the table.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDatabase.Secure``1(Prime.SharedStorageService.AccessToken,System.String,Prime.SharedStorageService.Context)">
+            <summary>
+            make a key secured.
+            </summary>
+            <typeparam name="T">table type.</typeparam>
+            <param name="accessToken">The session token for this operation.</param>
+            <param name="key">the row's key.</param>
+            <param name="context">the context of the table.</param>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.LocalDataRow`1">
+            <summary>
+            THe local data row class.
+            </summary>
+            <typeparam name="T">the object type.</typeparam>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.#ctor(Prime.SharedStorageService.DataStructures.CentralDataRow,Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.DataStructures.LocalDataRow`1"/> class.
+            </summary>
+            <param name="cdbRow">reference to the matching row in the central DB.</param>
+            <param name="accessToken">access token identifier.</param>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.LocalDataRow`1.HasValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.LocalDataRow`1.IsSecured">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.ReleaseLockForUnsafeRow">
+            <summary>
+            When using unsafe row, this will be called to release the row's lock.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.LockForUnsafeRow(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            When using unsafe row, this will be called to lock the row's lock.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+            <returns>a locked row.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.GetUnsafeStoredObject(System.Boolean)">
+            <summary>
+            Get the internal stored object - it is end user responsibility to wrap with a proper locks.
+            </summary>
+            <param name="updateFromCentralFirst">whether to update from central first or skip it.</param>
+            <returns>the internal stored object.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.InsertUnsafeValue(`0)">
+            <summary>
+            Insert new value to the row.
+            Note that this will update only the local DB.
+            THe central DB will be updated when UpdateToCentralDataBaseAsync will be called.
+            </summary>
+            <param name="value">value to insert.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.Insert(`0,Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Insert new value to the row.
+            </summary>
+            <param name="data">new data to insert.</param>
+            <param name="accessToken">access token identifier.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.Insert(`0,Prime.SharedStorageService.ResetPolicy,Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Insert new value to the row.
+            </summary>
+            <param name="data">new data to insert.</param>
+            <param name="resetPolicy">reset policy to update.</param>
+            <param name="accessToken">access token identifier.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.GetLocalValueCopy(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Get copy of the stored value.
+            In a safe environment we always return copy of the DB instead of reference to the DB itself.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+            <returns>A copy of the stored object.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">if the row has no value.</exception>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.Clear(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Clear the current row's data.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.Secure(Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Make this row secured.
+            </summary>
+            <param name="accessToken">access token identifier.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.UnsafeUpdateToCentralDataBase">
+            <summary>
+            Update to CDB at then Dispose of the unsafe row.
+            This will be done without putting anything into the Enqueue function
+            in order not to create a deadlock between the semaphore lock and the row lock.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.WaitAllPendingUpdatesToCentralAsync">
+            <summary>
+            wait for the update to CDB task to complete.
+            </summary>
+            <returns>async task that waits for the completion.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.UpdateToCentralDataBaseAsync(`0,Prime.SharedStorageService.AccessToken,System.Nullable{Prime.SharedStorageService.ResetPolicy})">
+            <summary>
+            Update the current local stored object to the central DB.
+            </summary>
+            <param name="data">the data to update.</param>
+            <param name="accessToken">access token identifier.</param>
+            <param name="newResetPolicy">new reset policy or null if reset policy should be updated.</param>
+            <returns>the running task that updated the central DB.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.Enqueue(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            This function takes care of executing the tasks on different tasks but in a sequential order.
+            This is in order to control the order of calls like: Insert -> Get where the Get is expected to be executed only after the Insert.
+            </summary>
+            <param name="taskGenerator">the task to do the actual work.
+            NOTE THAT THE THE TASK MUST FIRST RELEASE THE this.taskQueueSemaphore after started to let the next thread to start the work.
+            </param>
+            <returns>the running task.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.LocalDataRow`1.Enqueue``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            This function takes care of executing the tasks on different tasks but in a sequential order.
+            This is in order to control the order of calls like: Insert -> Get where the Get is expected to be executed only after the Insert.
+            </summary>
+            <param name="taskGenerator">the task to do the actual work.
+            NOTE THAT THE THE TASK MUST FIRST RELEASE THE this.taskQueueSemaphore after started to let the next thread to start the work.
+            </param>
+            <returns>the running task.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.SerializedObject">
+            <summary>
+            The actual stored object of the central DB.
+            It has the capability to serialize/desrialize objects to string.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.SerializedObject.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.DataStructures.SerializedObject"/> class.
+            </summary>
+            <param name="json">ssss.</param>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.SerializedObject.IsSingleAppDomain">
+            <summary>
+            Gets or sets a value indicating whether we're currently running in SingleAppDomain mode.
+            This SingleAppDomain is the "Fast and Dirty" solution to stop object serialization to the CDB when running on a Single AppDomain.
+            TODO: Work on a better design for this feature not involving this 'if (IsSingleAppDomain)'.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.SerializedObject.Serialize``1(``0)">
+            <summary>
+            Serialize object to json.
+            </summary>
+            <typeparam name="T">the object type.</typeparam>
+            <param name="obj">the object to serialize.</param>
+            <returns>the serialized object as string.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.SerializedObject.Deserialize``1(System.String)">
+            <summary>
+            Serialize object from json.
+            </summary>
+            <typeparam name="T">the object type.</typeparam>
+            <param name="serializedObject">the serialized object as string.</param>
+            <returns>the deserialized object.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.SerializedObject.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.SerializedObject.InitializeLifetimeService">
+            <summary>
+            every class that derives from MarshalByRefObject and should have infinite lifetime
+            has to override InitializeLifetimeService() and return null, so .Net has no object to init it's LifetimeService.
+            </summary>
+            <returns>No timeout condition for proxy object.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.Tables`1">
+            <summary>
+            The container of tables for certain type.
+            Holds the tables for Lot/Dut/Ip.
+            </summary>
+            <typeparam name="T">the table type.</typeparam>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.Tables`1.DutTables">
+            <summary>
+            Gets or sets the DUT tables for this type.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.Tables`1.IpTables">
+            <summary>
+            Gets or sets the IP tables for this type.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.Tables`1.LotTables">
+            <summary>
+            Gets or sets the LOT tables for this type.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.Tables`1.GetTable(Prime.SharedStorageService.Context,Prime.SharedStorageService.AccessToken)">
+            <summary>
+            Get table by context.
+            </summary>
+            <param name="context">the context of the table to get.</param>
+            <param name="accessToken">The session token for this operation.</param>
+            <returns>the matching table for the criteria.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.UnsafeRow`1">
+            <summary>
+            A wrapper to a row when accessing it unsafely.
+            Unsafe means it is the end user responsibility handle multi-threads but it will save extra copy of the data.
+            </summary>
+            <typeparam name="T">the object type.</typeparam>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.UnsafeRow`1.#ctor(Prime.SharedStorageService.DataStructures.LocalDatabase,System.String,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.DataStructures.UnsafeRow`1"/> class.
+            </summary>
+            <param name="localDataBase">The local DB.</param>
+            <param name="key">The key of this row.</param>
+            <param name="context">The context of this row.</param>
+            <param name="resetPolicy">the reset policy for the unsafe row.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.UnsafeRow`1.LockAndInvokeOnAllDuts(System.Func{`0},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.UnsafeRow`1.LockAndInvokeOnAllIps(System.Func{`0},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.UnsafeRow`1.Lock(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.SharedStorageService.DataStructures.UnsafeRowObject`1">
+            <summary>
+            The unsafe wrapper when accessing the local row directly.
+            </summary>
+            <typeparam name="T">the type of the stored object.</typeparam>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.UnsafeRowObject`1.#ctor(Prime.SharedStorageService.DataStructures.LocalDataRow{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.DataStructures.UnsafeRowObject`1"/> class.
+            </summary>
+            <param name="rowFromStorage">the reference to the row in the storage.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.UnsafeRowObject`1.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Prime.SharedStorageService.DataStructures.UnsafeRowObject`1"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.DataStructures.UnsafeRowObject`1.Value">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.UnsafeRowObject`1.CommitChanges">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.UnsafeRowObject`1.GetVersionNumber">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.DataStructures.UnsafeRowObject`1.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.SharedStorageService.Shared.AppDomainGetter">
+            <summary>
+            Class for AppDomainGetter operations.
+            </summary>
+        </member>
+        <member name="F:Prime.SharedStorageService.Shared.AppDomainGetter.CentralDatabaseAppDomainName">
+            <summary>
+            AppDomain the Central Database resides in.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.Shared.AppDomainGetter.CentralDatabaseAppDomain">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.SharedStorageService.Shared.AppDomainGetter.IsCurrentAppDomainCentralDatabaseAppDomain">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.Shared.AppDomainGetter.CreateInstanceAndUnwrap(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.SharedStorageService.Shared.AppDomainHelper">
+            <summary>
+            Provides utility methods related to the <see cref="T:System.AppDomain"/> type. All members of this type are threadsafe.
+            </summary>
+        </member>
+        <member name="F:Prime.SharedStorageService.Shared.AppDomainHelper.Host">
+            <summary>
+            The CorRuntimeHost, as an <see cref="T:mscoree.ICorRuntimeHost"/>.
+            </summary>
+        </member>
+        <member name="F:Prime.SharedStorageService.Shared.AppDomainHelper.LazyDefaultAppDomain">
+            <summary>
+            The default AppDomain.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.Shared.AppDomainHelper.DefaultAppDomain">
+            <summary>
+            Gets the default AppDomain. This property caches the resulting value.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.Shared.AppDomainHelper.GetAppDomain(System.String)">
+            <summary>
+            Returns an AppDomain by the Friendly name.
+            </summary>
+            <param name="name">AppDomain full friendly name.</param>
+            <returns>AppDomain reference.</returns>
+        </member>
+        <member name="M:Prime.SharedStorageService.Shared.AppDomainHelper.EnumAppDomains">
+            <summary>
+            Returns the list of loaded AppDomains.
+            </summary>
+            <returns>Object List with all AppDomains.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.IAppDomainGetter">
+            <summary>
+            AppDomain Getter interface.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.IAppDomainGetter.CentralDatabaseAppDomain">
+            <summary>
+            Gets the Central Database AppDomain.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.IAppDomainGetter.IsCurrentAppDomainCentralDatabaseAppDomain">
+            <summary>
+            Gets a value indicating whether the current AppDomain is the Central Database AppDomain or not.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.IAppDomainGetter.CreateInstanceAndUnwrap(System.String,System.String)">
+            <summary>
+             Returns an instance from the CentralDatabaseAppDomain.
+            </summary>
+            <param name="assemblyName">The assembly name.</param>
+            <param name="typeName">The object type of get.</param>
+            <returns>An instance of the object.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.SharedStorageService">
+            <summary>
+            Shared Storage class for C# implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.#ctor(Prime.SharedStorageService.IAppDomainGetter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.SharedStorageService"/> class for UnitTests purposes.
+            </summary>
+            <param name="appDomainGetter">a mocked AppDomainGetter from the UTs.</param>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.SharedStorageService.SharedStorageService"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.SharedStorageService.SharedStorageService.AppDomainGetter">
+            <summary>
+            Gets or sets the AppDomainGetter instance.
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.LotStart(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.DeviceStart(System.UInt32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.GetUnsafeRowFromTable``1(System.String,Prime.SharedStorageService.Context)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.GetUnsafeRowFromTable``1(System.String,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.SetSingleAppDomainMode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.InsertRowAtTable(System.String,System.String,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.InsertRowAtTable``1(System.String,``0,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.GetRowFromTable``1(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.TryGetValue``1(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.GetTableKeys``1(Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.GetAllTablesDataAsString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.MakeRowSecured``1(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.TruncTable``1(Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.DeleteRowFromTable``1(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.SharedStorageService.SharedStorageService.InitializeLifetimeService">
+            <summary>
+            every class that derives from MarshalByRefObject and should have infinite lifetime
+            has to override InitializeLifetimeService() and return null, so .Net has no object to init it's LifetimeService.
+            </summary>
+            <returns>No timeout condition for proxy object.</returns>
+        </member>
+        <member name="T:Prime.SharedStorageService.TelemetryPerformanceScopes">
+            <summary>
+            Logger performance scopes as Shared Storage can't be dependent on TelemetryService (circular dependency).
+            </summary>
+        </member>
+        <member name="M:Prime.SharedStorageService.TelemetryPerformanceScopes.GetApiPerformanceScope(MPE.MIT.Logging.ILogger,System.Func{System.Collections.Generic.Dictionary{System.String,System.String}},System.String)">
+            <summary>
+            Get performance scope.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="additionalData">Additional data as Func of dictionary.</param>
+            <param name="methodName">The api method name.</param>
+            <returns>The performance scope.</returns>
+        </member>
+        <member name="T:DeepCopyExtensions.DeepCopyByExpressionTrees">
+            <summary>
+            Superfast deep copier class, which uses Expression trees.
+            </summary>
+        </member>
+        <member name="M:DeepCopyExtensions.DeepCopyByExpressionTrees.DeepCopyByExpressionTree``1(``0,System.Collections.Generic.Dictionary{System.Object,System.Object})">
+            <summary>
+            Creates a deep copy of an object.
+            </summary>
+            <typeparam name="T">Object type.</typeparam>
+            <param name="original">Object to copy.</param>
+            <param name="copiedReferencesDict">Dictionary of already copied objects (Keys: original objects, Values: their copies).</param>
+            <returns></returns>
+        </member>
+        <member name="T:DeepCopyExtensions.DeepCopyByExpressionTrees.ReferenceEqualityComparer">
+            <summary>
+            Reference Equal Comperator
+            </summary>
+        </member>
+        <member name="M:DeepCopyExtensions.DeepCopyByExpressionTrees.ReferenceEqualityComparer.Equals(System.Object,System.Object)">
+            <summary>
+            Equals.
+            </summary>
+            <param name="x">X.</param>
+            <param name="y">T.</param>
+            <returns>True - if equal.</returns>
+        </member>
+        <member name="M:DeepCopyExtensions.DeepCopyByExpressionTrees.ReferenceEqualityComparer.GetHashCode(System.Object)">
+            <summary>
+            GetHashCode
+            </summary>
+            <param name="obj">Obj.</param>
+            <returns>HashCode.</returns>
+        </member>
+        <member name="T:mscoree.ICorRuntimeHost">
+            <summary>
+            Interface rewrite from mscoree namespace.
+            </summary>
+        </member>
+        <member name="M:mscoree.ICorRuntimeHost._VtblGap1_11">
+            <summary>
+            Dummy.
+            </summary>
+        </member>
+        <member name="M:mscoree.ICorRuntimeHost.EnumDomains(System.IntPtr@)">
+            <summary>
+            Dummy.
+            </summary>
+            <param name="enumHandle">Dummy param.</param>
+        </member>
+        <member name="M:mscoree.ICorRuntimeHost.NextDomain(System.IntPtr,System.Object@)">
+            <summary>
+            Dummy.
+            </summary>
+            <param name="enumHandle">Dummy param.</param>
+            <param name="appDomain">AppDomain obj.</param>
+        </member>
+        <member name="M:mscoree.ICorRuntimeHost.CloseEnum(System.IntPtr)">
+            <summary>
+            Dummy.
+            </summary>
+            <param name="enumHandle">Dummy param.</param>
+        </member>
+        <member name="M:mscoree.ICorRuntimeHost.GetDefaultDomain(System.Object@)">
+            <summary>
+            Dummy.
+            </summary>
+            <param name="appDomain">The default AppDomain.</param>
+        </member>
+    </members>
+</doc>

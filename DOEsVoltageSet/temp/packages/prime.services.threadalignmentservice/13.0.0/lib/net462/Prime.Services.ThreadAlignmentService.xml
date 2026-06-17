@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.ThreadAlignmentService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.ThreadAlignmentService.IThreadAlignmentService">
+            <summary>
+            This is the interface of the thread alignment Service.
+            </summary>
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.IThreadAlignmentService.AcquireOnlyMeLock(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Function to Acquire the Only Me
+            .
+            </summary>
+            <param name="maxWaitTime"> Max Wait Time in milliseconds for thread release.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.IThreadAlignmentService.ReleaseOnlyMeLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Function to Release the Only Me Lock.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.IThreadAlignmentService.AnchorServicePreInstanceWrapperFunction(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Function wrap methods for the anchorService.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.IThreadAlignmentService.AnchorServicePostInstanceWrapperFunction(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Function wrap methods for the anchorService.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.ThreadAlignmentService.ThreadAlignmentData">
+            <summary>
+            ThreadAlignmentData.
+            </summary>
+        </member>
+        <member name="P:Prime.ThreadAlignmentService.ThreadAlignmentData.IpName">
+            <summary>
+            Gets or sets the IpName value.
+            </summary>
+        </member>
+        <member name="P:Prime.ThreadAlignmentService.ThreadAlignmentData.Locked">
+            <summary>
+            Gets or sets a value indicating whether it is Locked.
+            </summary>
+        </member>
+        <member name="P:Prime.ThreadAlignmentService.ThreadAlignmentData.TimeOutValue">
+            <summary>
+            Gets or sets the TimeOutValue value.
+            </summary>
+        </member>
+        <member name="T:Prime.ThreadAlignmentService.ThreadAlignmentService">
+            <summary>
+            ThreadAlignmentService implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.ThreadAlignmentService.AcquireOnlyMeLock(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.ThreadAlignmentService.ReleaseOnlyMeLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.ThreadAlignmentService.AnchorServicePreInstanceWrapperFunction(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.ThreadAlignmentService.AnchorServicePostInstanceWrapperFunction(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.ThreadAlignmentService.GetAlephFilesRegEx">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.ThreadAlignmentService.GetAlephInitPriority">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.ThreadAlignmentService.AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThreadAlignmentService.ThreadAlignmentService.GetConfigurationFilesInfo">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

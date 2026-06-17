@@ -1,0 +1,819 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.UserVarService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.UserVarService.IUserVarService">
+            <summary>
+            Expose the functionality related to access user variables.
+            </summary>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.Exists(System.String,System.String)">
+            <summary>
+            Determines whether the specified uservar exists.
+            </summary>
+            <param name="collection">The collection.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>
+              <c>true</c> if the specified uservar is exists; otherwise, <c>false</c>.
+            </returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            if (Base.ServiceStore&lt;IUserVarService&gt;.Service.Exists("myCollection", lotUserVar))
+            {
+                DoSomenthingElse();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.Exists(System.String)">
+            <summary>
+            Determines whether the specified uservar exists.
+            </summary>
+            <param name="userVarFullName">Full name of the user variable.</param>
+            <returns>
+              <c>true</c> if the specified uservar is exists; otherwise, <c>false</c>.
+            </returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            if (Base.ServiceStore&lt;IUserVarService&gt;.Service.Exists(lotUserVar))
+            {
+                DoSomenthingElse();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetStringValue(System.String,System.String)">
+            <summary>
+            Gets the string value based on a collection.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            var userVar = Base.ServiceStore&lt;IUserVarService&gt;.Service.GetStringValue("myCollection", lotUserVar).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetStringValue(System.String)">
+            <summary>
+            Gets the string value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            var userVar = Base.ServiceStore&lt;IUserVarService&gt;.Service.GetStringValue(lotUserVar).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.TryGetValue(System.String,System.String,System.String@)">
+            <summary>
+            Tries to get the string value of the given user variable collection and name.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="name">Name of the user variable.</param>
+            <param name="result">The value of the user variable if it exists.</param>
+            <returns>If the user variable exists.</returns>
+            <example>
+            This is an example:
+            <code>
+            string collection = "myCollection";
+            string userVarName = "VarUser";
+            if (!Base.ServiceStore&lt;IUserVarService&gt;.Service.TryGetValue(collection, userVarName, out string result))
+            {
+                DoSomenthingElse();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetDoubleValue(System.String,System.String)">
+            <summary>
+            Gets the double value based on a collection.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            double userVar = Base.ServiceStore&lt;IUserVarService&gt;.Service.GetDoubleValue("myCollection", lotUserVar).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetDoubleValue(System.String)">
+            <summary>
+            Gets the double value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            double userVar = Base.ServiceStore&lt;IUserVarService&gt;.Service.GetDoubleValue(lotUserVar).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.TryGetValue(System.String,System.String,System.Double@)">
+            <summary>
+            Tries to get the double value of the given user variable collection and name.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="name">Name of the user variable.</param>
+            <param name="result">The value of the user variable if it exists.</param>
+            <returns>If the user variable exists.</returns>
+            <example>
+            This is an example:
+            <code>
+            string collection = "myCollection";
+            string userVarName = "VarUser";
+            if (!Base.ServiceStore&lt;IUserVarService&gt;.Service.TryGetValue(collection, userVarName, out double result))
+            {
+                DoSomenthingElse();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetIntValue(System.String,System.String)">
+            <summary>
+            Gets the int value based on a collection.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>
+            User variable value.
+            If the user variable doesn't exist, or the value cannot be converted to int, an exception will be thrown.
+            </returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            int userVar = Base.ServiceStore&lt;IUserVarService&gt;.Service.GetIntValue("myCollection", lotUserVar).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetIntValue(System.String)">
+            <summary>
+            Gets the int value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            int userVar = Base.ServiceStore&lt;IUserVarService&gt;.Service.GetIntValue(lotUserVar).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.TryGetValue(System.String,System.String,System.Int32@)">
+            <summary>
+            Tries to get the int value of the given user variable collection and name.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="name">Name of the user variable.</param>
+            <param name="result">The value of the user variable if it exists.</param>
+            <returns>If the user variable exists.</returns>
+            <example>
+            This is an example:
+            <code>
+            string collection = "myCollection";
+            string userVarName = "VarUser";
+            if (!Base.ServiceStore&lt;IUserVarService&gt;.Service.TryGetValue(collection, userVarName, out int result))
+            {
+                DoSomenthingElse();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetBoolValue(System.String,System.String)">
+            <summary>
+            Gets the boolean value based on a collection.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            bool userVar = Base.ServiceStore&lt;IUserVarService&gt;.Service.GetIntValue("myCollection", lotUserVar).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetBoolValue(System.String)">
+            <summary>
+            Gets the boolean value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            bool userVar = Base.ServiceStore&lt;IUserVarService&gt;.Service.GetBoolValue("myCollection", lotUserVar).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.TryGetValue(System.String,System.String,System.Boolean@)">
+            <summary>
+            Tries to get the bool value of the given user variable collection and name.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="name">Name of the user variable.</param>
+            <param name="result">The value of the user variable if it exists.</param>
+            <returns>If the user variable exists.</returns>
+            <example>
+            This is an example:
+            <code>
+            string collection = "myCollection";
+            string userVarName = "VarUser";
+            if (!Base.ServiceStore&lt;IUserVarService&gt;.Service.TryGetValue(collection, userVarName, out bool result))
+            {
+                DoSomenthingElse();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetArrayStringValue(System.String,System.String)">
+            <summary>
+            Gets userVar value of kind Array of String based on a collection.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetArrayStringValue(System.String)">
+            <summary>
+            Gets the array of strings value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetArrayDoubleValue(System.String,System.String)">
+            <summary>
+            Gets userVar value of kind Array of Double.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetArrayDoubleValue(System.String)">
+            <summary>
+            Gets the array of double value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetArrayIntValue(System.String,System.String)">
+            <summary>
+            Gets userVar value of kind Array of Integer.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetArrayIntValue(System.String)">
+            <summary>
+            Gets the array of Integer value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetArrayBoolValue(System.String,System.String)">
+            <summary>
+            Gets userVar value of kind Array of Boolean.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetArrayBoolValue(System.String)">
+            <summary>
+            Gets the array of Boolean value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <returns>User variable value.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetArrayValueAsCommaSeparatedString(System.String,System.String)">
+            <summary>
+            Gets the comma separatated string value of array uservar of any type.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>Comma separated string of array uservar.</returns>
+            <remarks>Users responsible for checking existance before calling Get/Set methods.</remarks>
+            <example>
+            This is a code example:
+            <code>
+            string lotUserVar = "VarUser";
+            string userVar = Base.ServiceStore&lt;IUserVarService&gt;.Service.GetBoolValue("myCollection", lotUserVar).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetType(System.String,System.String)">
+            <summary>
+            Gets the uservar type.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <returns>User variable type.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetType(System.String)">
+            <summary>
+            Gets the uservar type.
+            </summary>
+            <param name="userVarFullName">Full name of the user variable.</param>
+            <returns>User variable type.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.String,System.String)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+            <example>
+            This is a code example:
+            <code>
+            Base.ServiceStore&lt;IUserVarService&gt;.Service.SetValue("myCollection", "myUserVar", "newValue").
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.String)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+            <example>
+            This is a code example:
+            <code>
+            Base.ServiceStore&lt;IUserVarService&gt;.Service.SetValue("myUserVarFullName", "newValue").
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.String,System.Double)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+            <example>
+            This is a code example:
+            <code>
+            double newValue = 0.2;
+            Base.ServiceStore&lt;IUserVarService&gt;.Service.SetValue("myCollection", "myUserVar", newValue).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.Double)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+            <example>
+            This is a code example:
+            <code>
+            double newValue = 0.2;
+            Base.ServiceStore&lt;IUserVarService&gt;.Service.SetValue("myUserVarFullName", newValue).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.String,System.Int32)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+            <example>
+            This is a code example:
+            <code>
+            int newValue = 10;
+            Base.ServiceStore&lt;IUserVarService&gt;.Service.SetValue("myCollection", "myUserVar", newValue).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.Int32)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+            <example>
+            This is a code example:
+            <code>
+            int newValue = 10;
+            Base.ServiceStore&lt;IUserVarService&gt;.Service.SetValue("myUserVarFullName", newValue).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.String,System.Boolean)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+            <example>
+            This is a code example:
+            <code>
+            bool newValue = true;
+            Base.ServiceStore&lt;IUserVarService&gt;.Service.SetValue("myCollection", "myUserVar", newValue).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.Boolean)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+            <example>
+            This is a code example:
+            <code>
+            bool newValue = true;
+            Base.ServiceStore&lt;IUserVarService&gt;.Service.SetValue("myUserVarFullName", newValue).
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Set userVar value of kind Array of String.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Set userVar value of kind Array of String.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.String,System.Collections.Generic.List{System.Double})">
+            <summary>
+            Set userVar value of kind Array of Double.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.Collections.Generic.List{System.Double})">
+            <summary>
+            Set userVar value of kind Array of Double.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.String,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Set userVar value of kind Array of Integer.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Set userVar value of kind Array of Integer.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.String,System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Set userVar value of kind Array of Boolean.
+            </summary>
+            <param name="collection">The collection Name.</param>
+            <param name="userVarName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetValue(System.String,System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Set userVar value of kind Array of Boolean.
+            </summary>
+            <param name="userVarFullName">Name of the user variable.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetAllNamesFromCollection(System.String)">
+            <summary>
+            Gets List of uservars in a given collection.
+            </summary>
+            <example>
+            This sample shows how to read all SCVars UserVars and print them to the Console.
+            <code>
+            var scVars = Prime.Services.UserVarService.GetAllNamesFromCollection("SCVars");
+            foreach (var userVar in scVars)
+            {
+                var userVarValue = Prime.Services.UserVarService.GetStringValue("SCVars", userVar);
+                Prime.Services.ConsoleService.PrintDebug(() => $"SC UserVar[{userVar}]=[{userVarValue}]", sessionContext);
+            }
+            </code>
+            </example>
+            <param name="collection">The collection Name.</param>
+            <returns>The UserVars names that appear in the collection.</returns>
+            <exception cref="T:System.Exception">Throw FatalException when Global fail to get.</exception>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetAllCollections">
+            <summary>
+            Gets List of all uservar collection names.
+            </summary>
+            <example>
+            This sample shows how to read all collection names and print them to console.
+            <code>
+            var collections = Prime.Services.UserVarService.GetAllCollections();
+            foreach (var collection in collections)
+            {
+                Prime.Services.ConsoleService.PrintDebug(() => $"Collection name=[{collection}]", sessionContext);
+            }
+            </code>
+            </example>
+            <returns>The uservar collection names in the test program.</returns>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetScValue(System.String)">
+            <summary>
+            Gets a value to the user variable in SCVars uservar collection.
+            </summary>
+            <param name="name">user variable name to be get in SCVars collection.</param>
+            <returns>string with uservariable value.</returns>
+            <example>
+            This shows how to get value from userVar of SCVars.
+            <code>
+            string mySCValue = Prime.Services.UserVarService.SetValue("mySCVarName")
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.SetScValue(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets a value to the user variable in SCVars uservar collection.
+            </summary>
+            <param name="name">user variable name to be set in SCVars collection.</param>
+            <param name="value">Value to be set for the uservar.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+            <example>
+            This shows how to set the value to an userVar of SCVars.
+            <code>
+            string mySCValue = Prime.Services.UserVarService.SetValue("mySCVarName", "myNewValue")
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.ExistsInScVarsCollection(System.String)">
+            <summary>
+            Returns if a given user variable in SCVars uservar collection exists.
+            </summary>
+            <param name="name">User variable name to check existence of.</param>
+            <returns>True if user variable exists.</returns>
+            <example>
+            This shows how to get if an userVar exists in  SCVars.
+            <code>
+            if (Prime.Services.UserVarService.ExistsInScVarsCollection("mySCVarName")){
+                DoSomenthingElse();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.ExistsInMainScVarsCollection(System.String)">
+            <summary>
+            Returns if a given user variable exists in the _Main_ SCVar collection.
+            </summary>
+            <param name="name">User variable name to check existence of. Only full name with collection.</param>
+            <returns>True if user variable exists.</returns>
+            <example>
+            This shows how to get if an userVar exists in the Main SCVar collection.
+            <code>
+            if (Prime.Services.UserVarService.ExistsInMainScVarsCollection("mySCVarName")){
+                DoSomenthingElse();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.ExistsInSharedScVarsCollection(System.String)">
+            <summary>
+            Returns if a given user variable exists in the _Shared_ SCVar collection.
+            </summary>
+            <param name="name">User variable name to check existence of. Only full name with collection.</param>
+            <returns>True if user variable exists.</returns>
+            <example>
+            This shows how to get if an userVar exists in the Shared SCVar collection.
+            <code>
+            if (Prime.Services.UserVarService.ExistsInSharedScVarsCollection("mySCVarName")){
+                DoSomenthingElse();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.TryGetScValue(System.String)">
+            <summary>
+            Tries to get value of the user variable in SCVars uservar collection.
+            When given uservar does not exists it returns as default an empty string.
+            </summary>
+            <param name="name">User variable to get in SCVars collection.</param>
+            <returns>User variable value if it exists, else empty string.</returns>
+            <example>
+            This shows how to get an userVar of the SCVar collection.
+            <code>
+            string myValue = Prime.Services.UserVarService.TryGetScValue("mySCVarName")
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.UserVarService.IUserVarService.GetScIntValue(System.String)">
+            <summary>
+            Gets the int value.
+            </summary>
+            <param name="name">The collection Name.</param>
+            <returns>
+            User variable value.
+            If the user
+            variable doesn't exist, or the value cannot be converted to int, an exception will be thrown.
+            </returns>
+            <example>
+            This shows how to get an userVar of the SCVar collection.
+            <code>
+            int myValue = Prime.Services.UserVarService.TryGetScValue("mySCVarName")
+            </code>
+            </example>
+        </member>
+        <member name="T:Prime.UserVarService.UserVarService">
+            <summary>
+            Implementation of UserVarService.
+            </summary>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.Exists(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.Exists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetStringValue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetStringValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.TryGetValue(System.String,System.String,System.String@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetDoubleValue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetDoubleValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.TryGetValue(System.String,System.String,System.Double@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetIntValue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetIntValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.TryGetValue(System.String,System.String,System.Int32@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetBoolValue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetBoolValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.TryGetValue(System.String,System.String,System.Boolean@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetArrayStringValue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetArrayStringValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetArrayIntValue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetArrayIntValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetArrayDoubleValue(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetArrayDoubleValue(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetArrayBoolValue(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetArrayBoolValue(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetArrayValueAsCommaSeparatedString(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetType(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetType(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.String,System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.String,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.String,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.String,System.Collections.Generic.List{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.Collections.Generic.List{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.String,System.Collections.Generic.List{System.Int32})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.Collections.Generic.List{System.Int32})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.String,System.Collections.Generic.List{System.Double})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.Collections.Generic.List{System.Double})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.String,System.Collections.Generic.List{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetValue(System.String,System.Collections.Generic.List{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetAllNamesFromCollection(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetAllCollections">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.ExistsInScVarsCollection(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.ExistsInMainScVarsCollection(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.ExistsInSharedScVarsCollection(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetScValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.GetScIntValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.SetScValue(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.UserVarService.UserVarService.TryGetScValue(System.String)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

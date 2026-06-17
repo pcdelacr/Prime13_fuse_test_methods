@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.DieIdBinningService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.DieIdBinningService.DieIdBinningService">
+            <summary>
+            DieIdBinning Service main class.
+            </summary>
+        </member>
+        <member name="M:Prime.DieIdBinningService.DieIdBinningService.GetSsidTokenStringFromXml(System.String)">
+            <summary>
+            Gets information from xml.
+            </summary>
+            <param name="xmlpath">XML path.</param>
+            <returns>TBD.</returns>
+        </member>
+        <member name="T:Prime.DieIdBinningService.FlowItemBin">
+            <summary>
+            Container for FlowItem name and port value pairs.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.FlowItemBin.FlowItem">
+            <summary>
+            Gets or sets flowItem.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.FlowItemBin.Bin">
+            <summary>
+            Gets or sets port.
+            </summary>
+        </member>
+        <member name="T:Prime.DieIdBinningService.FlowItemPort">
+            <summary>
+            Container for FlowItem name and port value pairs.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.FlowItemPort.FlowItem">
+            <summary>
+            Gets or sets flowItem.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.FlowItemPort.Port">
+            <summary>
+            Gets or sets port.
+            </summary>
+        </member>
+        <member name="T:Prime.DieIdBinningService.IFlowItemData">
+            <summary>
+            FlowItemData interface.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.IFlowItemData.FlowItem">
+            <summary>
+            Gets or sets flowItem.
+            </summary>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IFlowItemData.GetBinValue(System.Lazy{System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Int32,System.UInt32}}})">
+            <summary>
+            Gets the bin value.
+            </summary>
+            <param name="binsPerPortPerFlowItem">The session context of this operation.</param>
+            <returns>Bin value.</returns>
+        </member>
+        <member name="T:Prime.DieIdBinningService.IDieIdBinningService">
+            <summary>
+            DieIdBinning Service interface.
+            </summary>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IDieIdBinningService.SavePortInformationForCurrentDieId(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Update port assigned to current dieId in shared storage.
+            </summary>
+            <param name="port">A valid port number for the corresponding flow instance name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IDieIdBinningService.SaveBinInformationForCurrentDieId(System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Update port assigned to current dieId in shared storage.
+            </summary>
+            <param name="bin">A bin number to be set for the current dieId.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IDieIdBinningService.SavePortInformation(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Update port assigned to a dieId in shared storage.
+            </summary>
+            <param name="dieId">A valid active dieId identifier.</param>
+            <param name="port">A valid port number for the corresponding flow instance name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IDieIdBinningService.SaveBinInformation(System.String,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Update port assigned to a dieId in shared storage.
+            </summary>
+            <param name="dieId">A valid active dieId identifier.</param>
+            <param name="bin">A bin number to be set for the indicated dieId.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IDieIdBinningService.GetBinsForAllActiveIds(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the per dieId binning results in ituff format e.g. 3_sscurfbin_XID_4201.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Per dieId Binning ituff string.</returns>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IDieIdBinningService.SetActiveDieIds(System.Collections.Generic.IEnumerable{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Save active dieIds to shared storage.
+            </summary>
+            <param name="activeDieIds">List of active Ids.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IDieIdBinningService.SetCurrentDieId(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set which is the current Die Id to be used when saving port information for current flow item.
+            </summary>
+            <param name="dieId">die Id.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IDieIdBinningService.GetSsidTokenStringFromXml(System.String)">
+            <summary>
+            Get information from xml.
+            </summary>
+            <param name="xmlpath">XML path.</param>
+            <returns>Returns ssid token string format.</returns>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IDieIdBinningService.SetAdditionalCurrentDieIds(System.Collections.Generic.IEnumerable{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set additional current Die Ids to be used when saving port information for current flow item. In IP context.
+            It is designed to be use with DFF Service SetCurrentDieId, which only allows one current dieId at a time.
+            </summary>
+            <param name="dieIds">Die Ids.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.DieIdBinningService.InputFactory">
+            <summary>
+            Class for handling different input file formats.
+            </summary>
+        </member>
+        <member name="M:Prime.DieIdBinningService.InputFactory.CreateXMLHandler">
+            <summary>
+            Creates an object that implements the IParser interface.
+            </summary>
+            <returns> An object that implements <see cref="T:Prime.DieIdBinningService.IParser"/>. </returns>
+        </member>
+        <member name="T:Prime.DieIdBinningService.IParser">
+            <summary>
+            Interface for Die ID Binning Parser.
+            </summary>
+        </member>
+        <member name="M:Prime.DieIdBinningService.IParser.ParseConfigFile``1(System.String)">
+            <summary>
+            Loads configuration from file.
+            </summary>
+            <typeparam name="T"> Type of which to deserialize the input file into. </typeparam>
+            <param name="fileContent">The content of the file.</param>
+            <returns>The configuration object of type T.</returns>
+        </member>
+        <member name="T:Prime.DieIdBinningService.Parser">
+            <summary>
+            Class for Die ID Binning Xml Parser.
+            </summary>
+        </member>
+        <member name="M:Prime.DieIdBinningService.Parser.ParseConfigFile``1(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.DieIdBinningService.DcfXmlFile">
+            <summary>
+            Holds the configuration information defined in the user Xml file.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DcfXmlFile.DieLevel">
+            <summary>
+            Gets or sets the DIE_LEVEL of the XML file.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DcfXmlFile.ProductName">
+            <summary>
+            Gets or Sets ProductName.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DcfXmlFile.AssyNum">
+            <summary>
+            Gets or Sets AssyNum.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DcfXmlFile.AssyRev">
+            <summary>
+            Gets or Sets AssyRev.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DcfXmlFile.SPEEDNum">
+            <summary>
+            Gets or Sets SPEEDNum.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DcfXmlFile.SPEEDRev">
+            <summary>
+            Gets or Sets SPEEDRev.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DcfXmlFile.UnitOfMeasurement">
+            <summary>
+            Gets or Sets UnitOfMeasurement.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DcfXmlFile.PLAVERSION">
+            <summary>
+            Gets or Sets PLAVERSION.
+            </summary>
+        </member>
+        <member name="T:Prime.DieIdBinningService.DieInfo">
+            <summary>
+            Holds the DIEINFO Xml information.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfo.DieInfos">
+            <summary>
+            Gets or Sets DIEINFO.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfo.DieLevel2">
+            <summary>
+            Gets or sets the DIE_LEVEL of the XML file.
+            </summary>
+        </member>
+        <member name="T:Prime.DieIdBinningService.DieInfoContainerXml">
+            <summary>
+            Holds the DIEINFO Xml information.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXml.Level">
+            <summary>
+            Gets or Sets level.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXml.Refdes">
+            <summary>
+            Gets or Sets REFDES.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXml.DesignDieName">
+            <summary>
+            Gets or Sets DESIGN_DIE_NAME.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXml.OriginX">
+            <summary>
+            Gets or Sets ORIGIN_X.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXml.OriginY">
+            <summary>
+            Gets or Sets ORIGIN_Y.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXml.Step">
+            <summary>
+            Gets or Sets STEP.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXml.Rev">
+            <summary>
+            Gets or Sets REV.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXml.DieSize">
+            <summary>
+            Gets or Sets DIE_SIZE.
+            </summary>
+        </member>
+        <member name="T:Prime.DieIdBinningService.DieInfoContainerXmlLvl2">
+            <summary>
+            Holds the DIEINFO Xml information.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXmlLvl2.Level">
+            <summary>
+            Gets or Sets level.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXmlLvl2.Refdes">
+            <summary>
+            Gets or Sets REFDES.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXmlLvl2.DesignDieName">
+            <summary>
+            Gets or Sets DESIGN_DIE_NAME.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXmlLvl2.OriginX">
+            <summary>
+            Gets or Sets ORIGIN_X.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXmlLvl2.OriginY">
+            <summary>
+            Gets or Sets ORIGIN_Y.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXmlLvl2.Step">
+            <summary>
+            Gets or Sets STEP.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoContainerXmlLvl2.Rev">
+            <summary>
+            Gets or Sets REV.
+            </summary>
+        </member>
+        <member name="T:Prime.DieIdBinningService.DieInfoLvl2">
+            <summary>
+            Holds the DIEINFO Xml information.
+            </summary>
+        </member>
+        <member name="P:Prime.DieIdBinningService.DieInfoLvl2.DieInfos2">
+            <summary>
+            Gets or Sets DIEINFO.
+            </summary>
+        </member>
+    </members>
+</doc>

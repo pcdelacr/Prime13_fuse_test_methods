@@ -1,0 +1,425 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.DtsProcessingService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.DtsProcessingService.ConversionUtils">
+            <summary>
+            Provides helper functions for binary to decimal conversion.
+            </summary>
+        </member>
+        <member name="M:Prime.DtsProcessingService.ConversionUtils.Reverse(System.String)">
+            <summary>
+            reverse a string.
+            </summary>
+            <param name="data">input string.</param>
+            <returns>reversed input.</returns>
+            <exception cref="T:System.ArgumentNullException">null string.</exception>
+        </member>
+        <member name="M:Prime.DtsProcessingService.ConversionUtils.BinaryToInteger(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Conversion from binary string to a decimal integer.
+            </summary>
+            <param name="data">binary input.</param>
+            <param name="lsbFirst">lsb.</param>
+            <param name="twosComp">comp.</param>
+            <returns>converted value.</returns>
+        </member>
+        <member name="T:Prime.DtsProcessingService.DatalogConfigurationSettings">
+            <summary>
+            DatalogConfigurationSettings Class.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DatalogConfigurationSettings.IsDatalogEnabled">
+            <summary>
+            Gets  or sets a value indicating whether to datalog values or not.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DatalogConfigurationSettings.IsExportToSharedStorageEnabled">
+            <summary>
+            Gets  or sets a value indicating whether to export the data to the shared storage.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DatalogConfigurationSettings.IsCompressedDatalogEnabled">
+            <summary>
+            Gets  or sets a value indicating whether to Compressed Datalog or not.
+            </summary>
+        </member>
+        <member name="T:Prime.DtsProcessingService.DtsHandler">
+            <summary>
+            DtsHandler class.
+            </summary>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsHandler.#ctor(Prime.DtsProcessingService.DtsJsonConfiguration,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DtsProcessingService.DtsHandler"/> class.
+            </summary>
+            <param name="configuration">Settings from user.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsHandler.ProcessDtsMeasurementsFromCtvData(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsHandler.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsHandler.GetPinNames">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsHandler.GetDtsPinHandle(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DtsProcessingService.DtsPinConfiguration">
+            <summary>
+            DtsPinConfiguration Class.
+            </summary>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsPinConfiguration.#ctor(Prime.DtsProcessingService.DtsJsonPinConfiguration,Prime.DtsProcessingService.DatalogConfigurationSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DtsProcessingService.DtsPinConfiguration"/> class.
+            </summary>
+            <param name="jsonPinConfiguration">Settings from user.</param>
+            <param name="datalogSettings">Configuration settings.</param>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.HighLimit">
+            <summary>
+            Gets the high limit.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.LowLimit">
+            <summary>
+            Gets the low limit.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.SensorsIndexesToLog">
+            <summary>
+            Gets the sensor indexes.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.CtvBitIndexes">
+            <summary>
+            Gets the ctv bit indexes.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.ChunkLength">
+            <summary>
+            Gets the lenght of the Chunck.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.NumberOfSensors">
+            <summary>
+            Gets the number of sensors.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.DatalogSettings">
+            <summary>
+            Gets the configuration settings.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.SensorRegisterSize">
+            <summary>
+            Gets the sensor register size.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.PinName">
+            <summary>
+            Gets the sensor register size.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.Slope">
+            <summary>
+            Gets the slope for temperature calculation.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.Offset">
+            <summary>
+            Gets the offset for temperature calculation.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.ShouldPrintOnlyMaxSensor">
+            <summary>
+            Gets a value indicating whether to print only the maximun value of the sensor.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinConfiguration.GetSensorsList">
+            <summary>
+            Gets a the list of sensors.
+            </summary>
+        </member>
+        <member name="T:Prime.DtsProcessingService.DtsPinHandler">
+            <summary>
+            Gets the active bom group.
+            </summary>
+            <returns>Active Bom group.</returns>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsPinHandler.#ctor(Prime.DtsProcessingService.DtsPinConfiguration,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DtsProcessingService.DtsPinHandler"/> class.
+            </summary>
+            <param name="pinConfiguration">Settings from user.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsPinHandler.Name">
+            <summary>
+            Gets the pin Name.
+            </summary>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsPinHandler.ProcessDtsMeasurementsFromCtvData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsPinHandler.GetProcessedTemperaturesPerSensor">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsPinHandler.GetProcessedTemperaturesPerChunk">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsPinHandler.Reset">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.DtsProcessingService.DtsProcessingService">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsProcessingService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.DtsProcessingService.DtsProcessingService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsProcessingService.GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsProcessingService.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsProcessingService.GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsProcessingService.AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.DtsProcessingService.DtsProcessingService.CreateDtsHandler(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc cref="T:Prime.DtsProcessingService.IDtsHandler"/>
+        </member>
+        <member name="T:Prime.DtsProcessingService.IDtsProcessingService">
+            <summary>
+            Provide the capability of decoding DTS temperature from CTV data.
+            </summary>
+        </member>
+        <member name="M:Prime.DtsProcessingService.IDtsProcessingService.CreateDtsHandler(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates an object to process CTV into DTS based on the specified configuration.
+            </summary>
+            <param name="configurationName">Name of the configuration to be processed.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Thrown when specified configurationName is not found in the Shared Storage.</exception>
+            <example>
+            This is a code example:
+            <code>
+            var dtsHandler = Base.ServiceStore&lt;IDtsProcessingService&gt;.Service.CreateDtsHandler(this.DtsConfigurationName, this.SessionContext);
+            </code>
+            </example>
+            <returns>Object to manage DTS processing.</returns>
+        </member>
+        <member name="T:Prime.DtsProcessingService.IDtsHandler">
+            <summary>
+            Object to manage DTS processing.
+            </summary>
+        </member>
+        <member name="M:Prime.DtsProcessingService.IDtsHandler.ProcessDtsMeasurementsFromCtvData(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Process a CTV binary string into DTS temperatures.
+            </summary>
+            <param name="dtsPinToCtvBinaryPinData">List of tuples containing the pin name and CTV Data input as a binary string.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Thrown when pins are found in dtsPinToCtvBinaryPinData not matching those in the DTSPinHandlers list.</exception>
+            <example>
+            This is a code example:
+            <code>
+             var captureCtvPerPin = (ICaptureCtvPerPinTest)this.FunctionalTest;
+             var dtsPinCtvData = new Dictionary&lt;string, string&gt;();
+               foreach (var pinName in this.dtsHandler.GetPinNames())
+            {
+               dtsPinCtvData.Add(pinName, captureCtvPerPin.GetCtvData(pinName));
+            }
+            dtsHandler.ProcessDtsMeasurementsFromCtvData(dtsPinCtvData);
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.DtsProcessingService.IDtsHandler.GetPinNames">
+            <summary>
+            Returns the list of pin names from which the CTVs are going to be captured.
+            </summary>
+            <returns>A list containing the pin names.</returns>
+        </member>
+        <member name="M:Prime.DtsProcessingService.IDtsHandler.GetDtsPinHandle(System.String)">
+            <summary>
+            Returns the list of pin names from which the CTVs are going to be captured.
+            </summary>
+            <param name="pinName">Name of the pin.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Thrown when the pinHandle for the pinName provided is not found in the DTSPinHandlers list.</exception>
+            <returns>Dts pin handle.</returns>
+        </member>
+        <member name="M:Prime.DtsProcessingService.IDtsHandler.Reset">
+            <summary>
+            Clear the structures from previous DTS Processed values. Expected to be called at the end of the test instance.
+            </summary>
+        </member>
+        <member name="T:Prime.DtsProcessingService.IDtsPinHandler">
+            <summary>
+            Object to manage DTS processing.
+            </summary>
+        </member>
+        <member name="M:Prime.DtsProcessingService.IDtsPinHandler.ProcessDtsMeasurementsFromCtvData(System.String)">
+            <summary>
+            Process a CTV binary string into DTS temperatures.
+            </summary>
+            <param name="ctvBinaryPinData">CTV Data input as a binary string.</param>
+        </member>
+        <member name="M:Prime.DtsProcessingService.IDtsPinHandler.GetProcessedTemperaturesPerSensor">
+            <summary>
+            Gets the temperature values calculated after processing the CTV.
+            </summary>
+            <returns>A dictionary with sensor ID as a key and a list of temperatures.</returns>
+        </member>
+        <member name="M:Prime.DtsProcessingService.IDtsPinHandler.GetProcessedTemperaturesPerChunk">
+            <summary>
+            Gets the temperature values of all sensors calculated per chunk after processing the CTV.
+            </summary>
+            <returns>dictionary with chunk ID as a key and a list of temperatures.</returns>
+        </member>
+        <member name="M:Prime.DtsProcessingService.IDtsPinHandler.Reset">
+            <summary>
+            Clear the structures from previous DTS Processed values. Expected to be called at the end of the test instance.
+            </summary>
+        </member>
+        <member name="T:Prime.DtsProcessingService.DtsJsonConfiguration">
+            <summary>
+            Passes information from PacketConfiguration Files objects to Shared Storage structures.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonConfiguration.Name">
+            <summary>
+            Gets or sets the configuration name.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonConfiguration.Pins">
+            <summary>
+            Gets or sets list of pin configurations.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonConfiguration.ExportToSharedStorage">
+            <summary>
+            Gets or sets a value indicating whether to save to data to shared storage or not.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonConfiguration.DatalogValues">
+            <summary>
+            Gets or sets a value indicating whether gets or Sets logging mode.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonConfiguration.CompressedDatalog">
+            <summary>
+            Gets or sets a value indicating whether gets or Sets logging mode.
+            </summary>
+        </member>
+        <member name="T:Prime.DtsProcessingService.DtsJsonFile">
+            <summary>
+            Passes information from PacketConfiguration Files objects to Shared Storage structures.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonFile.Schema">
+            <summary>
+            Gets or sets the configuration name.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonFile.Configurations">
+            <summary>
+            Gets or sets list of pin configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.DtsProcessingService.DtsJsonPinConfiguration">
+            <summary>
+            Passes information from PacketConfiguration Files objects to Shared Storage structures.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.PinName">
+            <summary>
+            Gets or Sets the name of the Pin from the CTV is going to be collected.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.PrintMaxSensor">
+            <summary>
+            Gets or sets a value indicating whether to print the maximum value among all sensors.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.SensorsList">
+            <summary>
+            Gets or sets list ALL DTS sensors.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.NumberOfSensors">
+            <summary>
+            Gets or Sets the size of each register.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.SensorRegisterSize">
+            <summary>
+            Gets or Sets the size of each register.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.Slope">
+            <summary>
+            Gets or Sets the slope for temperature calculation.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.Offset">
+            <summary>
+            Gets or Sets the offset for temperature calculation.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.SensorIndexesToLog">
+            <summary>
+            Gets or Sets the sensor to take into account when logging.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.CtvCaptureFromBits">
+            <summary>
+            Gets or Sets the bits to take into account from the CTV input string.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.SetPoint">
+            <summary>
+            Gets or Sets a value or usevar containing the value to set allowed temperature limits.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.UpperTolerance">
+            <summary>
+            Gets or Sets a value or usevar containing the value to set allowed temperature limits.
+            </summary>
+        </member>
+        <member name="P:Prime.DtsProcessingService.DtsJsonPinConfiguration.LowerTolerance">
+            <summary>
+            Gets or Sets a value or usevar containing the value to set allowed temperature limits.
+            </summary>
+        </member>
+        <member name="T:Prime.DtsProcessingService.ServiceParameterParser">
+            <summary>
+            Provides helper functions to parse some parameters of the configuration.
+            </summary>
+        </member>
+        <member name="M:Prime.DtsProcessingService.ServiceParameterParser.ToInteger(System.String)">
+            <summary>
+            takes an configurationParameter string, if it is the name of a uservar it will return its values
+            if not it returns the strong converted to a integer.
+            </summary>
+            <param name="configurationParameter">represents one of the configuration parameters defined by the user.</param>
+            <returns>integer representation of the configuration parameter.</returns>
+        </member>
+        <member name="M:Prime.DtsProcessingService.ServiceParameterParser.GetIndexesFromDelimitedString(System.String)">
+            <summary>
+            Gets the indexes encoded in a delimited string.
+            </summary>
+            <param name="delimitedString">represents a set of indexes in a user defined format.</param>
+            <returns>list of indexes.</returns>
+        </member>
+    </members>
+</doc>

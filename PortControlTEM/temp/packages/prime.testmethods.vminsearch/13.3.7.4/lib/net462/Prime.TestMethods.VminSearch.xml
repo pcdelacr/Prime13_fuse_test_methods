@@ -1,0 +1,2935 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.VminSearch</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.VminSearch.DataMerger">
+            <summary>
+            Static class to merge results.
+            Extracted from data logger helper for re-use.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataMerger.MergeSearchResults(System.Collections.Generic.IEnumerable{Prime.TestMethods.VminSearch.SearchResultData})">
+            <summary>
+            Merges the resulting voltages from the multi-pass search as well as the start and end voltage values
+            of all search targets for data-logging purposes.
+            </summary>
+            <param name="searchResults"> A list containing the results data to merge.</param>
+            <returns>Updated merged data reference.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DataMerger.MergedSearchResultData">
+            <summary>
+            A class to hold merged results data for data-logging purposes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DataMerger.MergedSearchResultData.ResultVoltages">
+            <summary>
+            Gets or sets the result voltages.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DataMerger.MergedSearchResultData.StartVoltages">
+            <summary>
+            Gets or sets the start Voltages.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DataMerger.MergedSearchResultData.EndVoltages">
+            <summary>
+            Gets or sets the end voltages.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DataMerger.MergedSearchResultData.ExecutionCount">
+            <summary>
+            Gets or sets the execution count.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DataMerger.MergedSearchResultData.LimitingPatterns">
+            <summary>
+            Gets or sets the limiting patterns.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DataMerger.MergedSearchResultData.PerTargetIncrements">
+            <summary>
+            Gets or sets the per target increments.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataMerger.MergedSearchResultData.MergeForRepeatSearch(Prime.TestMethods.VminSearch.SearchResultData)">
+            <summary>
+            Merges repeat search data.
+            </summary>
+            <param name="searchResult">Search result.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataMerger.MergedSearchResultData.MergeForMultiPassSearch(Prime.TestMethods.VminSearch.SearchResultData)">
+            <summary>
+            Merges multi-pass results.
+            </summary>
+            <param name="searchResult">Search result.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.Helpers.BitArrayExtensions">
+            <summary>
+            BitArrayExtensions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.BitArrayExtensions.NumberOfTrue(System.Collections.BitArray)">
+            <summary>
+            Return the number of true values in the BitArray.
+            </summary>
+            <param name="bits">bits to operate.</param>
+            <returns>count of true bits.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.BitArrayExtensions.NumberOfFalse(System.Collections.BitArray)">
+            <summary>
+            Return the number of false values in the BitArray.
+            </summary>
+            <param name="bits">bits to operate.</param>
+            <returns>count of false bits.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.BitArrayExtensions.AndAll(System.Collections.BitArray)">
+            <summary>
+            Return the logical And of all the entries in the array.
+            </summary>
+            <param name="bits">bits to operate.</param>
+            <returns>Boolean result.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.BitArrayExtensions.OrAll(System.Collections.BitArray)">
+            <summary>
+            Return the logical Or of all the entries in the array.
+            </summary>
+            <param name="bits">bits to operate.</param>
+            <returns>Boolean result.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.BitArrayExtensions.ToString(System.Collections.BitArray,System.String,System.String,System.String)">
+            <summary>
+            Return a string showing the BitArray's values.
+            </summary>
+            <param name="bits">bits to operate.</param>
+            <param name="trueValue">value to replace true bits.</param>
+            <param name="falseValue">value to replace false bits.</param>
+            <param name="separator">separator between each bit.</param>
+            <returns>BitArray converted string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.BitArrayExtensions.ToStr(System.Collections.BitArray)">
+            <summary>
+            Converts to str.
+            </summary>
+            <param name="bits">bits to operate.</param>
+            <returns>BitArray converted string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.BitArrayExtensions.SequenceEqual(System.Collections.BitArray,System.Collections.BitArray)">
+            <summary>
+            Determines whether two BitArrays are equal in length and bit by bit.
+            </summary>
+            <param name="bits">bits to operate.</param>
+            <param name="bitsToCompare">bits to compare.</param>
+            <returns>BitArray converted string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.Helpers.DoubleExtensions">
+            <summary>
+            Double extensions helper class to handle mathematical equations among doubles.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.DoubleExtensions.IsEqual(System.Double,System.Double)">
+            <summary>
+            Method to compare two double values to check if they are equal within a precision of three decimals.
+            </summary>
+            <param name="value">Value of interest.</param>
+            <param name="compareTo">Value to compare.</param>
+            <returns>A bool indicating if the two values are equal.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.DoubleExtensions.IsDifferent(System.Double,System.Double)">
+            <summary>
+            Method to compare two double values to check if they are different within a precision of three decimals.
+            </summary>
+            <param name="value">Value of interest.</param>
+            <param name="compareTo">Value to compare.</param>
+            <returns>A bool indicating if the two values are different.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.Helpers.MultiMap`2">
+            <summary>
+            Multimap helper class for a Dictionary with multiple values per key.
+            </summary>
+            <typeparam name="TKey">Key type.</typeparam>
+            <typeparam name="TValue">Value type.</typeparam>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.Helpers.MultiMap`2.Keys">
+            <summary>
+            Gets the collection of keys.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.Helpers.MultiMap`2.Item(`0)">
+            <summary>
+            Indexer for keys.
+            </summary>
+            <param name="key">Key value.</param>
+            <returns>List of elements.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.MultiMap`2.Add(`0,`1)">
+            <summary>
+            Adds a value to the structure.
+            </summary>
+            <param name="key">Key.</param>
+            <param name="value">Value.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.Helpers.MultiMap`2.KeyExists(`0)">
+            <summary>
+            Checks if a key exists in the map.
+            </summary>
+            <param name="key">The key value.</param>
+            <returns>True if the key exists.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DataLogger">
+            <summary>
+            A class to provide access to data-logging functionality.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DataLogger.VoltageMaskValue">
+            <summary>
+            The value used to mask the voltage when it is not available.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DataLogger.TraceSkipSearchValue">
+            <summary>
+            The value used to indicate that the search was skipped.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.#ctor(Prime.DatalogService.IDatalogService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.DataLogger"/> class.
+            </summary>
+            <param name="datalogService">datalogService.</param>
+            <param name="sessionContext">session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.#ctor(Prime.DatalogService.IDatalogService,Prime.SessionService.ISessionContextProviderContainer,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.DataLogger"/> class.
+            </summary>
+            <param name="datalogService">datalogService.</param>
+            <param name="sessionContext">session context of this operation.</param>
+            <param name="numberOfCorners">number of corners for single vmin updating multiple corner ids.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.GetFormattedVoltageValue(System.Double)">
+            <summary>
+            Formats double as vmin string value.
+            </summary>
+            <param name="value">Vmin value to format.</param>
+            <returns>Formatted value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.GetMappedString(System.String,System.String)">
+            <summary>
+            Returns a string containing the characters that are mapped by the provided index map.
+            </summary>
+            <param name="stringToMap">The string from which to map the indexed characters.</param>
+            <param name="indexMap">A string with comma-separated integer indexes.
+            Each index represents the position of a corresponding character in the string to map.
+            Positive indexes starting at 0 map to characters at the start of the string to map and forward.
+            Negative indexes starting at -1 map to characters at the end of the string to map and backwards.</param>
+            <returns>The string of characters that were mapped with the index map.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.LogVminForwardingDataForTrace(System.Collections.Generic.List{System.ValueTuple{System.Double,System.Int32,System.String}})">
+            <summary>
+            Print Vmin forwarding configuration data to ituff.
+            This printout consumed by Trace to configure Vmin Forwarding.
+            Since search is executed for instances at the same corner , one frequency input value expected.
+            e.g. tname_VminTestName_vminFwCfg
+                strgval_CRCORE7@F6:4:5.500_CRCORE6@F6:4:5.500_CRCORE5@F6:4:5.500_CRCORE4@F6:4:5.500.
+                        [domain][instanceName]@[CornerValue]:[FlowId]:[FrequencyValue].
+            </summary>
+            <param name="vminFwCornerIdentifiers">List of frequency , flow , cornerId. each element in the List represents IP.
+            e.g: {frequency: 55000 , flow: 3 , cornerId:CR_CORE4@F6}.
+            </param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.PrintResultsForAllSearches(System.Collections.Generic.IEnumerable{Prime.TestMethods.VminSearch.SearchResultData},System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Logs the resulting voltages from the search as well as the start and end voltage values for all search targets.
+            Logs the voltage limiting patterns when the patternNameMap is not empty.
+            Logs the voltage increments per target when the option is enabled through the FeatureSwitchSettings parameter.
+            </summary>
+            <param name="searchResults"> A list containing the accumulated data.</param>
+            <param name="patternNameMap">Gets or sets a comma separated string of integers which map characters in the pattern name to produce a scoreboard counter.</param>>
+            <param name="printPerTargetIncrements">Bool that indicates whether to print the increments per target.</param>>
+            <param name="printExecutionInfo">Bool that indicates whether to print the limiter patterns occurrences.</param>>
+            <param name="printAsMrslt">Prints max value as mrslt.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.PrintMergedSearchResults(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData},System.String,System.Boolean,System.Boolean,System.Boolean,Prime.TestMethods.VminSearch.DataMerger.MergedSearchResultData)">
+            <summary>
+            Logs the joined resulting voltages from the multi-pass search as well as the start and end voltage values for all search targets.
+            Logs the voltage limiting patterns when the patternNameMap is not empty.
+            Logs the voltage increments per target when the option is enabled through the FeatureSwitchSettings parameter.
+            </summary>
+            <param name="searchResults"> A list containing the accumulated data.</param>
+            <param name="patternNameMap">A comma separated string of integers which map characters in the pattern name to produce a scoreboard counter.</param>
+            <param name="printPerTargetIncrements">Bool that indicates whether to print the increments per target.</param>
+            <param name="printLimitingPattensOccurrences">Bool that indicates whether to print the limiter patterns occurrences.</param>>
+            <param name="printAsMrslt">Prints max value as mrslt.</param>
+            <param name="mergedSearchResultData">Reference to merged data structure. Merge happens only when reference is null (first time).</param>
+            <returns>Updated merged results.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.LogSkipSearches(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <summary>
+            Logs skip search header.
+            </summary>
+            <param name="searchResults">Current search results.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.LogSkipSearch(Prime.TestMethods.VminSearch.SearchResultData)">
+            <summary>
+            Auxiliary method for LogSkipSearches.
+            </summary>
+            <param name="searchResult">Current search result.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.WriteSearchVoltageResultsToItuff(Prime.TestMethods.VminSearch.SearchResultData.VoltageResult[],System.Double[],System.Double[],System.UInt32,System.Boolean,System.String)">
+            <summary>
+            Writes test results to ituff.
+            </summary>
+            <param name="vmins">Vmin results.</param>
+            <param name="start">Start search values.</param>
+            <param name="end">End voltage limits.</param>
+            <param name="executionCount">Execution count.</param>
+            <param name="printAsMrslt">Option to print max value as mrslt.</param>
+            <param name="postfix">Post fix.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.WriteSearchVoltageResultsToItuff(System.Double[],System.Double[],System.Double[],System.UInt32,System.String)">
+            <summary>
+            Writes test results to ituff.
+            </summary>
+            <param name="vmins">Vmin results.</param>
+            <param name="start">Start search values.</param>
+            <param name="end">End voltage limits.</param>
+            <param name="executionCount">Execution count.</param>
+            <param name="postfix">Post fix.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.WriteLimitingPatternsOccurrencesToItuff(Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns,System.String,System.String,System.Boolean)">
+            <summary>
+            Prints to the ituff file a format string containing the limiting patterns.
+            </summary>
+            <param name="limitingPatterns">Limiting pattern information.</param>
+            <param name="patternNameMap">Pattern map.</param>
+            <param name="postfix">Post fix.</param>
+            <param name="printExecutionInfo">Prints pattern ids and burst index.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DataLogger.WritePerTargetIncrementsToItuff(System.UInt32[],System.String)">
+            <summary>
+            Prints the voltage increments per target to the ituff.
+            </summary>
+            <param name="perTargetIncrements">Number of voltage increments per voltage target.</param>
+            <param name="postfix">Post fix.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.FeatureSwitchSettings">
+            <summary>
+            A class to consolidate all test method switch settings value getters.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.FeatureSwitchSettings.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.FeatureSwitchSettings"/> class.
+            </summary>
+            <param name="featureSwitchSettings">The settings to switch features.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.FeatureSwitchSettings.IsFivrVoltageMode">
+            <summary>
+            Gets a value indicating whether the FIVR voltage mode is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.FeatureSwitchSettings.IsPrintExecutionInfoEnabled">
+            <summary>
+            Gets a value indicating whether the print execution info is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.FeatureSwitchSettings.IsPrintPerTargetIncrementsEnabled">
+            <summary>
+            Gets a value indicating whether the print per target increments is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.FeatureSwitchSettings.IsPrintIndependentSearchResultsEnabled">
+            <summary>
+            Gets a value indicating whether the print independent search results is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.FeatureSwitchSettings.IsPrintScoreboardCountersEnabled">
+            <summary>
+            Gets a value indicating whether the print scoreboard counters is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.FeatureSwitchSettings.IsStartOnFirstFailEnabled">
+            <summary>
+            Gets a value indicating whether the start on first fail is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.FeatureSwitchSettings.IsRecoveryMaskEnabled">
+            <summary>
+            Gets a value indicating whether the recovery mask is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.FeatureSwitchSettings.IsHighToLowSearch">
+            <summary>
+            Gets a value indicating whether the high to low search is enabled.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.IVminSearchExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.IVminSearchExtensions.PlistMode">
+            <summary>
+            Gets a value indicating if the plist combines search + check patterns.
+            Default mode indicates that the plist does not combine search + check.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.IVminSearchExtensions.DisablePerCoreOvershoot">
+            <summary>
+            Gets a value indicating whether to disable per-core overshoot.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.GetSearchVoltageObject(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            <para>0.1. Called in Verify for voltage object initialization.</para>
+            <para>Default implementation returns a DPS or a FIVR (if FeatureSwitchSettings parameter value contains "fivr_mode_on") IVoltage object.</para>
+            </summary>
+            <remarks>Returned object determines how the Voltages are applied.</remarks>
+            <param name="targets">
+            <para>Target key names from current instance VoltageTargets parameter.</para>
+            <para>These will be used to apply search voltages to each of them with a method that depends on the type of returned voltage object.</para></param>
+            <param name="plistName">Plist name from current instance Patlist parameter.</param>
+            <returns>IVoltage object which must be created with one of the corresponding available options in VoltageService.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If either of the parameters is invalid.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.GetFunctionalTest(System.String,System.String,System.String)">
+            <summary>
+            <para>0.2. Called in Verify during initialization of SetPointTest object.</para>
+            <para>Default implementation returns an IFunctionalTest of type ICaptureFailureTest.</para>
+            </summary>
+            <remarks>Returned object determines how plist is executed and which results are captured.</remarks>
+            <param name="patlist">Plist name from current instance Patlist parameter.</param>
+            <param name="levelsTc">Level name from current instance LevelsTc parameter.</param>
+            <param name="timingsTc">Timing name from current instance TimingsTc parameter.</param>
+            <returns>IFunctionalTest object which must be created with one of the corresponding available options in FunctionalService.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">If either of the parameters is invalid.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.IsSinglePointMode">
+            <summary>
+            <para>0.3. Called in Verify during initialization of SetPointTest object.</para>
+            <para>Default implementation returns false.</para>
+            </summary>
+            <remarks>
+            <para>Returned boolean determines if the search continues or stops after execution of the first search point.</para>
+            <para>A True value returned by this method affects the behavior of the following extensions default implementation:</para>
+            <list type="bullet">
+            <listheader>
+                <term>Extension</term>
+                <description>Expected behavior when IsSinglePointMode returns True</description>
+            </listheader>
+            <item>
+                <term>ExecuteScoreboard</term>
+                <description>Skips the final plist execution if the functional object is a Capture Failure type and per-pattern capture mode is enabled.</description>
+            </item>
+            <item>
+                <term>PostProcessSearchResults</term>
+                <description>Does not print the search results to the ituff.</description>
+            </item>
+            <item>
+                <term>ApplySearchVoltage</term>
+                <description>Skips execution</description>
+            </item>
+            </list>
+            </remarks>
+            <returns>True if single point test mode should be executed instead of a complete search.</returns>>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.IsCheckOfResultBitsEnabled">
+            <summary>
+            <para>0.4. Called in Verify during initialization of SetPointTest object.</para>
+            <para>Default implementation returns true.</para>
+            </summary>
+            <remarks>
+            <para>Returned boolean determines if the base method evaluates extra rules on the result bits returned by ProcessPlistResults extension.</para>
+            <para>If the check is enabled, and it fails the extension returned bits are ignored and replaced by an all bits failing result.</para>
+            <para>These extra checks includes verifying that masked positions are passing and there is at least on fail position if the plist fails.</para>
+            </remarks>
+            <returns>True if it is intended to evaluate extra checking in the results bits returned by ProcessPlistResults extension.</returns>>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.GetBypassPort">
+            <summary>
+            <para>0. Called at the beginning of the Execute. Allows the user to create a custom check for a complete instance bypass and returning a custom port.</para>
+            <para>Default implementation returns a -1, allowing the execution to continue as normal.</para>
+            </summary>
+            <remarks>Return value indicates the new bypass port for the test instance. The values returned could fall under the following categories:
+            <list type="bullet">
+            <listheader>
+                <term>Bypass port value</term>
+                <description>Expected behavior of the test instance</description>
+            </listheader>
+            <item>
+                <term>Port value = -1</term>
+                <description>Continue execution as normal</description>
+            </item>
+            <item>
+                <term>Port value >= 0</term>
+                <description>Bypass execution and return port number</description>
+            </item>
+            </list></remarks>
+            <returns>An integer value indicating the bypass port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.ApplyPreExecuteSetup(System.String)">
+            <summary>
+            <para>1. Called before any other test method code in Execute.</para>
+            <para>Allows execution of any pre-instance required setup (for example variable initializations from external sources).</para>
+            </summary>
+            <param name="plistName">Plist name from current instance Patlist parameter, for optional use.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.ApplyInitialVoltage(Prime.VoltageService.IVoltage)">
+            <summary>
+            <para>2. Called after level and timing test conditions are loaded at the beginning in Execute.</para>
+            <para>Default implementation calls to voltageObject.?Apply(), where voltageObject is valid only if FivrCondition parameter is defined.</para>
+            </summary>
+            <remarks>Allows implementation of additional initial voltage setups.</remarks>
+            <param name="voltageObject">IVoltage object that handle applies method, in FIVR mode only.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.ApplyPreSearchSetup(System.String)">
+            <summary>
+            <para>3. Called as first step of each iteration of a for loop, which is intended to optionally execute more than one search.</para>
+            <para>Default implementation is left empty.</para>
+            </summary>
+            <remarks>Allows execution of any pre-search required setup (for example setting a condition value that must be different for each search).</remarks>
+            <param name="plistName">Plist name from current instance Patlist parameter, for optional use.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.GetStartVoltageValues(System.Collections.Generic.List{System.String})">
+            <summary>
+            <para>4.1 Called as part of the SearchPointTest Reset() method which is called before entering into the search loop.</para>
+            <para>Default implementation calls StringUtilities.ConvertKeysToDouble(startVoltageKeys) to return a list of double values.</para>
+            </summary>
+            <remarks>
+            <para>Allows replacing voltages values used for search start.</para>
+            <para>Keys in startVoltageKeys can be double format values or key names that for default implementation must already exist in the shared storage system as doubles.</para>
+            </remarks>
+            <param name="startVoltageKeys">List of key names taken from StartVoltages parameter.</param>
+            <returns>Voltage values to be used to start the search.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.GetLowerStartVoltageValues(System.Collections.Generic.List{System.String})">
+            <summary>
+            <para>4.2. Called as part of the SearchPointTest IsSearchCompleted whenever overshoot required and enabled.</para>
+            <para>Default implementation calls StringUtilities.ConvertKeysToDouble(lowerStartVoltageKeys) to return a list of double values.</para>
+            </summary>
+            <remarks>
+            <para>Allows initializing the lower start voltage values for the new search in the overshoot.</para>
+            <para>Keys in lowerStartVoltageKeys can be double format values or key names that for default implementation must already exist in the shared storage system as doubles.</para>
+            </remarks>
+            <param name="lowerStartVoltageKeys">List of key names taken from LowerStartVoltageKeys parameter.</param>
+            <returns>Lower start voltage values to be used in overshoot.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.GetEndVoltageLimitValues(System.Collections.Generic.List{System.String})">
+            <summary>
+            <para>5. Called as part of the SearchPointTest Reset() method which is called before entering into the search loop.</para>
+            <para>Default implementation calls StringUtilities.ConvertKeysToDouble(endVoltageLimitKeys) to return a list of double values.</para>
+            </summary>
+            <remarks>
+            <para>Allows replacing voltages values used for search end limit.</para>
+            <para>Keys in endVoltageLimitKeys can be double format values or key names that for default implementation must already exist in the shared storage system as doubles.</para>
+            </remarks>
+            <param name="endVoltageLimitKeys">List of key names taken from EndVoltageLimits parameter.</param>
+            <returns>Voltage values to be used as search end limits.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.GetInitialMaskBits">
+            <summary>
+            <para>6. Called as part of the SearchPointTest Reset() method which is called before entering into the search loop.</para>
+            <para>Default implementation returns a BitArray populated with the CurrentMultiPassMask.</para>
+            </summary>
+            <remarks>Allows setting the initial mask value for the current search loop. This mask value is used to ignore (for the bits set to true) voltage increases for corresponding targets, which corresponding results are set to a default value of -8888.0.</remarks>
+            <returns>bit array to be used as initial search mask value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.ApplySearchVoltage(Prime.VoltageService.IVoltage,System.Collections.Generic.List{System.Double})">
+            <summary>
+            <para>7. Called before search point test execution.</para>
+            <para>Default implementation calls to IVoltage.Apply(voltageValues).</para>
+            </summary>
+            <remarks>Allows to override or complement methodology for voltage apply.</remarks>
+            <param name="voltageObject">Handler object for applying of the required voltages, Depending on the type chosen in Verify with GetSearchVoltageObject.</param>
+            <param name="voltageValues">Voltage values required to be applied for current search point.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.ApplyMask(System.Collections.BitArray,Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            <para>8. Called before each search point plist execution.</para>
+            <para>Default implementation uses the IFunctionalTest to set a mask for all pins pass through MaskPins parameters.</para>
+            </summary>
+            <remarks>
+            <para>Method to be implemented by the user to effectively apply a mask that makes the plist execution ignoring (not report) any fail for the masked target positions.</para>
+            <para>This method receives the internal required mask value (combination of initial mask and any other target that already reached to the search limit) but depending on the user implementation requirements the user can use other inputs.</para>
+            <para>The convention for this input is that a true in the bit array must be masked.</para>
+            </remarks>
+            <param name="maskBits"> bit array with the value of current search point required mask.</param>
+            <param name="functionalTest">functional test object to optionally be used to apply the mask in the case of a pin masking method.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.ProcessMultiLevelPlistResults(System.Boolean,Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            <para>9. Called after each search point plist execution.</para>
+            <para>Default implementation returns all bits in true if plistExecuteResult is false, or all bits in false if plistExecuteResult is true.</para>
+            </summary>
+            <remarks>
+            <para>Method to be implemented by the user to decode plist results into a bit array.</para>
+            <para>This returned bit array will be used by the test method to decide which targets must increase voltage for next search point.</para>
+            <para>The convention is that a true in the bit array correspond to a fail position and so will be increased or disabled (if reached to the limit) for next search point.</para>
+            </remarks>
+            <param name="plistExecuteResult">Result of previous plist execution (IFunctionalTest.Execute), true for a passing case and false for a failing one.</param>
+            <param name="functionalTest">Functional test object that provide methods to extract captured data from previous plist execution.</param>
+            <returns>BitArray populated with the bit results of the plist execution.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.ProcessPlistResults(System.Boolean,Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            <para>9. Called after each search point plist execution.</para>
+            <para>Default implementation returns all bits in true if plistExecuteResult is false, or all bits in false if plistExecuteResult is true.</para>
+            </summary>
+            <remarks>
+            <para>Method to be implemented by the user to decode plist results into a bit array.</para>
+            <para>This returned bit array will be used by the test method to decide which targets must increase voltage for next search point.</para>
+            <para>The convention is that a true in the bit array correspond to a fail position and so will be increased or disabled (if reached to the limit) for next search point.</para>
+            </remarks>
+            <param name="plistExecuteResult">Result of previous plist execution (IFunctionalTest.Execute), true for a passing case and false for a failing one.</param>
+            <param name="functionalTest">Functional test object that provide methods to extract captured data from previous plist execution.</param>
+            <returns>BitArray populated with the bit results of the plist execution.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.ExecuteScoreboard(System.String,System.Boolean)">
+            <summary>
+            <para>10. Called whenever a search is completed.</para>
+            <para>Decides whether to do a scoreboard execution or generate scoreboard counters depending on isSinglePointExecution, isSinglePointMode and failureTest values.</para>
+            </summary>
+            <remarks>
+            <para>If IsSinglePointMode = true and per-pattern capture mode is enabled only the Scoreboard counters are printed to ituff (without plist re-execution). Otherwise, the Scoreboard execution is called.</para>
+            <para>Execution happens only if the plist failed at least once.</para>
+            </remarks>
+            <param name="executionIdentifier">String of the form MxRy. Where x is the multi pass execution count and y is the repetition count.</param>
+            <param name="isLastSearchPointPass">Indicates whether the last search point passed or failed.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.HasToRepeatSearch(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <summary>
+            <para>11. Called whenever a search is completed to determine if repetition is required or not.</para>
+            <para>Default implementation returns false.</para>
+            </summary>
+            <param name="searchResults">Accumulated results from all completed searches.</param>
+            <returns>A boolean value indicating if search needs to be repeated or not.</returns>>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.HasToContinueToNextSearch(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData},Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            <para>12. Called as last step of a single search.</para>
+            <para>Default implementation returns true to allow next search state to be executed.</para>
+            </summary>
+            <remarks>
+            <para>Allows abortion of any remaining search executions (configured through MultipleSearchStates parameter).</para>
+            <para>The input provided to take this decision are the accumulated results for all searches executed from the list of states until the current completed search.</para>
+            <para>Each search result object contains final data from each previous search, like final voltage results, final mask, limiting patterns, start voltages, search end limits, and pass/fail search result.</para>
+            <para>A second input provided to optionally be used to take the decision is the functional test object to query the captured data from last search point plist execution.</para>
+            </remarks>
+            <param name="searchResults">Accumulated results from all already completed searches.</param>
+            <param name="functionalTest">Functional test object that provide methods to extract captured data from last search plist execution.</param>
+            <returns>A boolean indicating whether the test method has to continue with next search state or not.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.PostProcessSearchResults(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <summary>
+            <para>13. Called after all searches are completed.</para>
+            <para>Default implementation returns 1 if at least on search passed or 0 if all searches failed to find any passing voltage value.</para>
+            </summary>
+            <remarks>
+            <para>Allows overriding of the returned port of the test instance (except the case where the plist execution didn't end any of the searches with a pass result at the corresponding last search point).</para>
+            <para>One of the main usages of this extension would be to export the final voltage results for any required usage beyond the test instance boundaries.</para>
+            <para>Each search result object contains final data from each previous search, like final voltage results, final mask, limiting patterns, start voltages, search end limits, and pass/fail search result.</para>
+            </remarks>
+            <param name="searchResults">accumulated results from all completed searches.</param>>
+            <returns>A value indicating the exit port.</returns>>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.GetMultipassMasks">
+            <summary>
+            Called before the search loop for multi-pass.
+            Allows to override the multi-pass bit vectors.
+            </summary>
+            <returns>A bit array list with the different multi-pass masks. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.GetValuesForVminNormalizer">
+            <summary>
+            14. Called as the last step in Verify.
+            </summary>>
+            <returns>A tuple  that contains the VminNormalizer static values from the VminSearch extended TM- domain, corner, flowId.</returns>>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.IVminSearchExtensions.GetDtsValuesForVminNormalizer">
+            <summary>
+            15. Called before the post process and after getting the searchResults.
+            </summary>>
+            <returns>The dts values from the VminSearch extended TM.</returns>>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod">
+            <summary>
+            PrimeVminSearchTestMethod.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.NoLimitingPatternToken">
+            <summary>
+            String to be printed when no limiting pattern is found.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.#ctor(Prime.SharedStorageService.ISharedStorageService,Prime.ConsoleService.IConsoleService,Prime.VoltageService.IVoltageService,Prime.FunctionalService.IFunctionalService,Prime.DffService.IDffService,Prime.TestConditionService.ITestConditionService,Prime.PinService.IPinService,Prime.DatalogService.IDatalogService,Prime.PlistService.IPlistService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod"/> class.
+            </summary>
+            <param name="sharedStorageService"> sharedStorageService.</param>
+            <param name="consoleService"> consoleService.</param>
+            <param name="voltageService"> voltageService.</param>
+            <param name="functionalService"> functionalService.</param>
+            <param name="dffService"> dffService.</param>
+            <param name="testConditionService"> testConditionService.</param>
+            <param name="pinService"> pinService.</param>
+            <param name="datalogService"> datalogService.</param>
+            <param name="plistService"> plistService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.#ctor(Prime.BusinessLogic.ScoreboardLogger.IScoreboardFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod"/> class.
+            </summary>
+            <param name="scoreboardFactory">A IScoreboardFactory for dependency injection.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Bool">
+            <summary>
+            Execution Mode Flag, indicating which mode to apply with the search.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Bool.True">
+            <summary>
+            Search without ScoreBoard.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Bool.False">
+            <summary>
+            Search with ScoreBoard.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.ExecutionModeFlag">
+            <summary>
+            Execution Mode Flag, indicating which mode to apply with the search.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.ExecutionModeFlag.Search">
+            <summary>
+            Search without ScoreBoard.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.ExecutionModeFlag.SearchWithScoreboard">
+            <summary>
+            Search with ScoreBoard.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistType">
+            <summary>
+            Enum to identify the type of plist. Defines how the user should query voltage data structures
+            that are defined as an array of arrays.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistType.Undefined">
+            <summary>
+            Plist mode has not been defined.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistType.Monolithic">
+            <summary>
+            Plist is either search or check, not both. All voltage data is stored within the first "level"
+            (index 0) of data structures that are nested arrays.
+            Ex. this.VoltageValues[0][n] where 'n' is the nth voltage value you'd like to query.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistType.Combined">
+            <summary>
+            Plist contains search and check patterns, otherwise known as "short and long"
+            respectively. Voltage structures that are nested arrays will contain
+            data on two levels, level 0 (short) and level 1 (long).<br/>
+            Example:<br/>
+            this.VoltageValues[0][n] where 'n' is the nth voltage value for the "short" plist you'd like to query.<br/>
+            this.VoltageValues[1][n] where 'n' is the nth voltage value for the "long" plist you'd like to query.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Patlist">
+            ************ Start Of PH Parameters ************
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.LevelsTc">
+            <summary>
+            Gets or sets level test condition to load.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.TimingsTc">
+            <summary>
+            Gets or sets timing test condition to load.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.MaskPins">
+            <summary>
+            Gets or sets a comma separated string indicating which pins to mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.VoltageTargets">
+            <summary>
+            Gets or sets voltage targets.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.StartVoltages">
+            <summary>
+            Gets or sets startVoltageValues.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.EndVoltageLimits">
+            <summary>
+            Gets or sets EndVoltageLimits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.StartVoltagesForRetry">
+            <summary>
+            Gets or sets lowerStartVoltages for overshoot.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.StepSize">
+            <summary>
+            Gets or sets stepSize.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.FeatureSwitchSettings">
+            <summary>
+            Gets or sets FeatureSwitchSettings.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.FivrCondition">
+            <summary>
+            Gets or sets fivrCondition name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.MultiPassMasks">
+            <summary>
+            Gets or sets a list containing the mask bit arrays needed for multi pass capability.
+            Example: "1100,0101" indicates that two multi pass will be executed.
+            Where elements corresponding to "1" mean that target will be masked or ignored for the corresponding search.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.ScoreboardEdgeTicks">
+            <summary>
+            Gets or sets the number of resolution ticks to step down when scoreboard mode is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.BaseNumbers">
+            <summary>
+            Gets or sets a list of numbers  to prefix the scoreboard counters.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PatternNameCounterIndexes">
+            <summary>
+            Gets or sets a comma separated string of integers which map characters in the pattern name to produce a scoreboard counter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.MaxFailsNum">
+            <summary>
+            Gets or sets the maximum number of fails that can be processed for scoreboard counters.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.MaxRepetitionCount">
+            <summary>
+            Gets or sets the maximum number of times a search can be repeated for recovering purposes.
+            This parameter is zero by default. Meaning, no repetition will be executed for any search.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.ExecutionMode">
+            <summary>
+            Gets or sets execution mode, default behaviour is Search without scoreboard.
+            In order to enable ScoreBoard : executionMode = SearchWithScoreboard and ScoreBoardBaseNum > 0.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.EnableScoreboardOnMonitorOnly">
+            <summary>
+            Gets or sets scoreboard enabling on pup monitor units, default behaviour is 'False' meaning scoreboard is enabled on all pup modes.
+            In order to enable scoreboard ONLY on pup monitor units, set this parameter to 'True'.
+            In order to enable ScoreBoard : executionMode = SearchWithScoreboard and ScoreBoardBaseNum > 0.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.VminSearch.IVminSearchExtensions" />
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.CurrentMultiPassMask">
+            <summary>
+            Gets the current multi pass mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.VoltageValues">
+            <summary>
+            Gets the voltage values required to be applied for current search point.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchMask">
+            <summary>
+            Gets an array containing the mask for each target at current search point.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.CurrentStateValues">
+            <summary>
+            Gets a list containing the point data for the current search point.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PointData">
+            <summary>
+            Gets a list containing the point data for the current search point.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.InitialSearchMask">
+            <summary>
+            Gets an array containing the initial search mask for each target at current search.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.ScoreboardPointTest">
+            <summary>
+            Gets scoreboardPointTest.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PointTest">
+            <summary>
+            Gets search point test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchStates">
+            <summary>
+            Gets searchStates.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#PlistMode">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#DisablePerCoreOvershoot">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SwitchConfig">
+            <summary>
+            Gets a container of get methods of each switch setting (enable/disable) configured trough FeatureSwitchSettings parameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.ScoreboardFactory">
+            <summary>
+            Gets the scoreboard factory.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.VminNormalizingHandler">
+            <summary>
+            Gets the voltage handler.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.TelemetryHandler">
+            <summary>
+            Gets the telemetry handler.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SharedStorageService">
+            <summary>
+            Gets the shared storage service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.ConsoleService">
+            <summary>
+            Gets the console service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Console">
+            <summary>
+            Gets local pointer to console service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.VoltageService">
+            <summary>
+            Gets the voltage service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.FunctionalService">
+            <summary>
+            Gets the functional service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.DffService">
+            <summary>
+            Gets the dff service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.TestConditionService">
+            <summary>
+            Gets the test condition service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PinService">
+            <summary>
+            Gets the pin service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.DatalogService">
+            <summary>
+            Gets the datalog service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistService">
+            <summary>
+            Gets the plist service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.VoltageHandler">
+            <summary>
+            Gets the voltage handler.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.InitialVoltageHandler">
+            <summary>
+            Gets the initial voltage handler.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.DataLogger">
+            <summary>
+            Gets or sets the datalogger.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.MergedSearchResultData">
+            <summary>
+            Gets or sets the merged search result data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.ConvertKeysToDouble(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>
+            local implementation of former StringUtilities.ConvertKeysToDouble.
+            </summary>
+            <param name="separatedString">list of tokens.</param>
+            <param name="expectedSize">Expected size.</param>
+            <returns>List of key values as doubles.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Verify">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetSearchVoltageObject(System.Collections.Generic.List{System.String},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetFunctionalTest(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#IsSinglePointMode">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#IsCheckOfResultBitsEnabled">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetBypassPort">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#ApplyPreExecuteSetup(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#ApplyInitialVoltage(Prime.VoltageService.IVoltage)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#ApplyPreSearchSetup(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetStartVoltageValues(System.Collections.Generic.List{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetEndVoltageLimitValues(System.Collections.Generic.List{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetLowerStartVoltageValues(System.Collections.Generic.List{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetInitialMaskBits">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#ApplySearchVoltage(Prime.VoltageService.IVoltage,System.Collections.Generic.List{System.Double})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#ApplyMask(System.Collections.BitArray,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#ProcessMultiLevelPlistResults(System.Boolean,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#ProcessPlistResults(System.Boolean,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#ExecuteScoreboard(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#HasToRepeatSearch(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#HasToContinueToNextSearch(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData},Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#PostProcessSearchResults(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetMultipassMasks">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetValuesForVminNormalizer">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetDtsValuesForVminNormalizer">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.BaseExecuteScoreboard(System.String,System.Boolean)">
+            <summary>
+            Original ExecuteScoreboard implementation.
+            </summary>
+            <param name="executionIdentifier">String of the form MxRy. Where x is the multi pass execution count and y is the repetition count.</param>
+            <param name="isLastSearchPointPass">Indicates whether the last search point passed or failed.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.BasePostProcessSearchResults(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <summary>
+            Original PortProcessSearchResult implementation.
+            </summary>
+            <param name="searchResults">Result from all completed searches.</param>
+            <returns>A value indicating the exit port.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistExecutionParameters">
+            <summary>
+            Contains the parameters for the plist execution to create the Functional Service instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistExecutionParameters.Patlist">
+            <summary>
+            Gets or sets the pattern list name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistExecutionParameters.LevelsTc">
+            <summary>
+            Gets or sets the test instance levels test condition.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistExecutionParameters.TimingsTc">
+            <summary>
+            Gets or sets the test instance timings test condition.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistExecutionParameters.MaskPins">
+            <summary>
+            Gets or sets the callback to run before the plist execution.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates">
+            <summary>
+            Contains the test method variables that hold dynamic states of the searches execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.MultiPassCount">
+            <summary>
+            Gets or sets the multi-pass iteration count.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.IsAnySearchPassing">
+            <summary>
+            Gets or sets a value indicating whether any search is passing.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.HasToAbortSearches">
+            <summary>
+            Gets or sets a value indicating whether the search should abort execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.HasToRepeatSearch">
+            <summary>
+            Gets or sets a value indicating whether the search should repeat an execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.RepetitionCount">
+            <summary>
+            Gets or sets the repetition iteration count.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.Init">
+            <summary>
+            Method to initialize states before overall searches execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.StartSearch">
+            <summary>
+            Method to update states before each search execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.IncrementRepetition">
+            <summary>
+            Increments repetition count.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.UpdateIsAnySearchPass(System.Boolean)">
+            <summary>
+            Or current status with input status.
+            </summary>
+            <param name="searchResult">Search result to or against current value.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.SetHasToRepeat(System.Boolean)">
+            <summary>
+            Set value to HasToRepeatSearch flag.
+            </summary>
+            <param name="hasToRepeat">Input value to set.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.SearchExecutionStates.SetHasToAbort(System.Boolean)">
+            <summary>
+            Set value to HasToAbortSearches flag.
+            </summary>
+            <param name="hasToAbort">Input value to set.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.RepeatedVoltageTargetHandler">
+            <summary>
+            Class for handling the repeated (ganged) voltage targets feature.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.RepeatedVoltageTargetHandler.#ctor(System.Collections.Generic.IReadOnlyList{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.RepeatedVoltageTargetHandler"/> class.
+            </summary>
+            <param name="targets">Targets name list.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.RepeatedVoltageTargetHandler.AreRepeatedTargets">
+            <summary>
+            Gets a value indicating whether at least one target is repeated.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.RepeatedVoltageTargetHandler.UpdateRepeatedVoltageTargets(System.Double[])">
+            <summary>
+            Updates the repeated/linked voltage targets with the rules of core linking/ganging.
+            </summary>
+            <param name="voltages">Voltage values per target.</param>
+            <returns>List of voltages with updated values.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.ScoreboardPointTest">
+            <summary>
+            Class to handle all accumulated data for scoreboard.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.ScoreboardPointTest.#ctor(Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistExecutionParameters,Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters,Prime.VoltageService.IVoltage,Prime.TestMethods.VminSearch.IVminSearchExtensions,Prime.ConsoleService.IConsoleService,Prime.FunctionalService.IFunctionalService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.ScoreboardPointTest"/> class.
+            </summary>
+            <param name="plistExecutionParameters">Functional object for plist execution options.</param>
+            <param name="scoreboardExecutionParameters">Scoreboard execution options.</param>
+            <param name="voltageTest">Object of class which allows to apply the voltages.</param>
+            <param name="extensions"> Object of class which has all extension methods implemented.</param>
+            <param name="functionalService"> IFunctionalService.</param>
+            <param name="consoleService">IConsoleService reference.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.CaptureTest">
+            <summary>
+            Gets CaptureTest.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.ScoreboardPointTest.Execute(Prime.TestMethods.VminSearch.SearchStateValues,System.Collections.BitArray,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Execute sb.
+            </summary>
+            <param name="searchStateValues">Current SearchStateValues including accumulated results for each iteration in the search.</param>
+            <param name="initialMasks">Bit array containing the initial mask for each target. True indicates the bit is on and False indicates the bit is off.</param>>
+            <param name="testNamePostfix">Test instance name postfix.</param>
+            <param name="searchResult">True if the search passed, false if it failed.</param>
+            <param name="isSinglePoint">True if search is a single point execution, meaning that the start voltage equals to end voltage limit.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.ScoreboardPointTest.GenerateScoreboardCounters(System.String,Prime.FunctionalService.ICaptureFailureTest)">
+            <summary>
+            Generates and print the Scoreboard Counters.
+            </summary>
+            <param name="testNamePostfix">testName postfix for ituff printing.</param>
+            <param name="captureFailureTest">Functional Failure test instance.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.ScoreboardPointTest.ResolvePlist(System.String)">
+            <summary>
+            Resolves plist for execution. If PUP methodology is enabled it might replace the original plist with the slim plist version.
+            This is done in the functional service.
+            </summary>
+            <param name="instanceName">currently executed instance name to check if it is targeted for PUP.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.ScoreboardPointTest.GenerateScoreboardCountersWithRv(Prime.FunctionalService.ICaptureFailureTest,System.String)">
+            <summary>
+            Execute singple point sb.
+            </summary>
+            <param name="captureFailureTest">Accumulated results for each iteration in the search.</param>
+            <param name="testNamePostfix">Test instance name postfix.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters">
+            <summary>
+            Scoreboard point test execution settings.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters.MaxFails">
+            <summary>
+            Gets or sets the number of fails before the maximum number of fails is reported.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters.EdgeTicks">
+            <summary>
+            Gets or sets the number of resolutions to step down.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters.BaseNumbers">
+            <summary>
+            Gets or sets an integer number value to prefix the generated scoreboard fail counters.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters.PatternNameMap">
+            <summary>
+            Gets or sets a comma separated string of integers which map characters in the pattern name to produce a scoreboard counter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters.PrintScoreboardCounters">
+            <summary>
+            Gets or sets a value indicating whether to print the scoreboard counters of the current instance object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters.PrintFailingExecutionInfo">
+            <summary>
+            Gets or sets a value indicating whether to print the failing patterns execution info.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters.ScoreboardFactory">
+            <summary>
+            Gets or sets a scoreboard factory.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters.IsStartOnFirstFailEnabled">
+            <summary>
+            Gets or sets a value indicating whether start on first fail is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters.EnableScoreboardOnMonitorOnly">
+            <summary>
+            Gets or sets a value indicating whether scoreboard is enabled on pup monitor units only.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.ScoreboardPointTest.ScoreboardExecutionParameters.StepSize">
+            <summary>
+            gets or sets a tick step size.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.SearchIdentifiers">
+            <summary>
+            Class to store the identifiers for each search.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchIdentifiers.#ctor(System.String,System.UInt32,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.SearchIdentifiers"/> class.
+            </summary>
+            <param name="tnamePostfix">String to be used as tname postfix to identify the current search.</param>
+            <param name="multiPassCount">Current multi pass count.</param>
+            <param name="repetitionCount">Current repetition count.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchIdentifiers.TnamePostfix">
+            <summary>
+            Gets a string of the form MxRy. Where x is the multi pass execution count and y is the repetition count.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchIdentifiers.MultiPassCount">
+            <summary>
+            Gets an unsigned integer identifying the number of multi pass execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchIdentifiers.RepetitionCount">
+            <summary>
+            Gets an unsigned integer identifying the number of the repetition count.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.SearchPointData">
+            <summary>
+            A class to accumulate multi-pass results.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchPointData.#ctor(System.Collections.Generic.List{System.Double},Prime.TestMethods.VminSearch.SearchPointData.PatternData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.SearchPointData"/> class.
+            </summary>
+            <param name="voltages">A list containing the search point voltages.</param>
+            <param name="failPatternData">Structure containing the data of the fail pattern.</param>>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchPointData.Voltages">
+            <summary>
+            Gets a list containing the resulting search voltages.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchPointData.FailPatternData">
+            <summary>
+            Gets the fail pattern data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.SearchPointData.PatternData">
+            <summary>
+            Struct containing pattern name, burst index and pattern Id to identify the fail pattern in each search.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.SearchPointData.PatternData.PatternName">
+            <summary>
+            String containing the pattern name.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.SearchPointData.PatternData.ParentPlist">
+            <summary>
+            Parent plist for cycle fail pattern.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.SearchPointData.PatternData.BurstIndex">
+            <summary>
+            Unsigned number containing the burst index.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.SearchPointData.PatternData.PatternId">
+            <summary>
+            Unsigned number containing the pattern ID.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.SearchPointData.PatternData.FailVector">
+            <summary>
+            Unsigned number containing the fail vector address.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.SearchPointData.PatternData.IsPatternAnAmble">
+            <summary>
+            Indicating whether the pattern is amble.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchPointData.PatternData.#ctor(System.String,System.String,System.UInt32,System.UInt32,System.UInt64,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.SearchPointData.PatternData"/> struct.
+            </summary>
+            <param name="patternName">Pattern name.</param>
+            <param name="parentPlist">Parent plist for cycle fail pattern.</param>
+            <param name="burstIndex">Burst index.</param>
+            <param name="patternId">Pattern Id.</param>
+            <param name="vector">Fail vector address.</param>
+            <param name="isPatternAnAmble">amble or not.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.SearchPointTest">
+            <summary>
+            Class to provide all behaviour to a search point object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchPointTest.#ctor(Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod.PlistExecutionParameters,Prime.TestMethods.VminSearch.VoltageDataForSearchPointTest,Prime.TestMethods.VminSearch.IVminSearchExtensions,Prime.TestMethods.VminSearch.FeatureSwitchSettings,Prime.ConsoleService.IConsoleService,Prime.TelemetryService.TelemetryHandler{Prime.TestMethods.VminSearch.PrimeVminSearchTestMethod},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.SearchPointTest"/> class.
+            </summary>
+            <param name="plistExecutionParameters">Values to create the functional object for plist execution.</param>
+            <param name="voltageDataForTest">Contains the voltage related data needed in this test.</param>
+            <param name="extensions"> Object of class which has all extension methods implemented.</param>
+            <param name="featureSwitches">List of switches used to enable or disable specific features.</param>
+            <param name="console">IConsoleService reference.</param>
+            <param name="telemetryHandler">Telemetry handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchPointTest.CurrentState">
+            <summary>
+            Gets object which contains all current state search values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchPointTest.SearchPlist">
+            <summary>
+            Gets the functional test object with plist execution settings.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchPointTest.TelemetryHandler">
+            <summary>
+            Gets or sets the telemetry handler.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchPointTest.StartVoltageKeys">
+            <summary>
+            Sets startVoltageKeys.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchPointTest.EndVoltageLimitKeys">
+            <summary>
+            Sets endVoltageLimitKeys.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchPointTest.LowerStartVoltageKeys">
+            <summary>
+            Sets lowerStartVoltageKeys.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchPointTest.GlobalExecutionCount">
+            <summary>
+            Gets or sets the total number of plist executions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchPointTest.ResolvePlist(System.String)">
+            <summary>
+            Resolves plist for execution. If PUP methodology is enabled it might replace the original plist with the slim plist version.
+            This is done in the functional service.
+            </summary>
+            <param name="instanceName">currently executed instance name to check if it is targeted for PUP.</param>
+            <returns>Returns resolved plist.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchPointTest.Reset">
+            <summary>
+            Resetting of all dynamic fields if applicable.
+            </summary>
+            <returns>Returns if reset was successful.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchPointTest.Execute">
+            <summary>
+            Execute Search Plist Test Point.
+            </summary>
+            <returns>The status of the plist execution.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchPointTest.ProcessResults(System.Boolean)">
+            <summary>
+            ProcessResults.
+            </summary>
+            <param name="plistExecutionStatus">The status of the current search point.</param>
+            <returns>Represents a pass/fail result, pass=true only if all bits from PrecessPlistResults call are false.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchPointTest.IsSearchCompleted(System.Boolean@)">
+            <summary>
+            Returns boolean field that is true only when the search algorithm has determined search is completed.
+            </summary>
+            <param name="isProcessResultsPass">The status of the current search point.</param>
+            <returns>isSearchCompleted.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchPointTest.ApplyTestConditions">
+            <summary>
+            Applies the test conditions of the related to the plist execution.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.SearchResultData">
+            <summary>
+            A class to accumulate multi-pass results.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchResultData.#ctor(Prime.TestMethods.VminSearch.SearchStateValues,System.Boolean,System.Boolean,Prime.TestMethods.VminSearch.SearchIdentifiers)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.SearchResultData"/> class.
+            </summary>
+            <param name="pointTest">Object to provide search point test information.</param>>
+            <param name="searchIdentifiers">A struct containing the current search identifiers.</param>
+            <param name="isHighToLow">Defines the direction of voltage stepping during search. If true, the test decremented during search.</param>
+            <param name="isPass">A bool indicating whether the search passed or not.</param>>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.Voltages">
+            <summary>
+            Gets a list containing the resulting voltages.
+            </summary>>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.StartVoltages">
+            <summary>
+            Gets a list containing the starting voltage values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.EndVoltageLimits">
+            <summary>
+            Gets a list containing the end voltage values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.IsPass">
+            <summary>
+            Gets a value indicating whether the multi-pass failed or passed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.MaskBits">
+            <summary>
+            Gets an array of bits values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.VoltageLimitingPatterns">
+            <summary>
+            Gets a list of strings containing the failing patterns per target.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.ExecutionCount">
+            <summary>
+            Gets a value indicating the execution count.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.PerTargetIncrements">
+            <summary>
+            Gets a list containing the iterations per target.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.TnamePostfix">
+            <summary>
+            Gets a string of the form MxRy. Where x is the multi pass execution count and y is the repetition count.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.MultiPassCount">
+            <summary>
+            Gets an unsigned integer identifying the number of multi pass execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.RepetitionCount">
+            <summary>
+            Gets an unsigned integer identifying the number of the repetition count.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.FailReason">
+            <summary>
+            Gets a failing reason (if any) for logging purposes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.PlistMode">
+            <summary>
+            Gets the number of plist levels.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.IsHighToLow">
+            <summary>
+            Gets a value indicating whether the search decrements or increments from the starting point.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.SearchResultData.VoltageResult">
+            <summary>
+            A struct to store the voltages for each search result.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchResultData.VoltageResult.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.SearchResultData.VoltageResult"/> struct.
+            </summary>
+            <param name="size">Number of voltages.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchResultData.VoltageResult.#ctor(Prime.TestMethods.VminSearch.SearchResultData.VoltageResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.SearchResultData.VoltageResult"/> struct by copying another instance.
+            </summary>
+            <param name="other">The other instance to copy.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.VoltageResult.Original">
+            <summary>
+            Gets or sets the original measured vmin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.VoltageResult.SetpointNormalized">
+            <summary>
+            Gets or sets the normalized vmin for temperature setpoint.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.VoltageResult.FusesNormalized">
+            <summary>
+            Gets or sets the normalized vmin for fuses.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns">
+            <summary>
+            A struct to store the limiting pattern for each search result.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns"/> class.
+            </summary>
+            <param name="voltagesCount">number of voltage targets.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns.#ctor(Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns"/> class by copying another instance.
+            </summary>
+            <param name="other">Other.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns.PatternName">
+            <summary>
+            Gets or sets the pattern name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns.PatternId">
+            <summary>
+            Gets or sets the pattern id or occurrence.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns.BurstIndex">
+            <summary>
+            Gets or sets the burst index.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchResultData.LimitingPatterns.IsAmble">
+            <summary>
+            Gets or sets a value indicating whether the pattern is an amble.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.SearchStateValues">
+            <summary>
+            Class to store the identifiers for each search.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchStateValues.Voltages">
+            <summary>
+            Gets or sets voltages to be applied for each target at current search point.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchStateValues.MaskBits">
+            <summary>
+            Gets or sets an array containing the mask for each target at current search point.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchStateValues.StartVoltages">
+            <summary>
+            Gets or sets a list of the start voltages per target.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchStateValues.EndVoltageLimits">
+            <summary>
+            Gets or sets a list of the end voltage limit per target.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchStateValues.ExecutionCount">
+            <summary>
+            Gets or sets the execution count.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchStateValues.PerTargetIncrements">
+            <summary>
+            Gets or sets a list of the iterations per target.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchStateValues.PerPointData">
+            <summary>
+            Gets or sets a list of the accumulated per point results.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.SearchStateValues.FailReason">
+            <summary>
+            Gets or sets a failing reason (if any) for logging purposes.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.VoltageDataForSearchPointTest">
+            <summary>
+            This class contains the voltage data needed for the search point object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VoltageDataForSearchPointTest.#ctor(System.Double,System.Collections.Generic.IReadOnlyList{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.VoltageDataForSearchPointTest"/> class.
+            </summary>
+            <param name="stepSize">Voltage value to increase if conditions are not met for search completion.</param>
+            <param name="targets">List of voltage targets, used for validation purposes.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VoltageDataForSearchPointTest.Targets">
+            <summary>
+            Gets a list of voltage targets, used for validation purposes in the search point test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VoltageDataForSearchPointTest.StepSize">
+            <summary>
+            Gets a voltage value to increase in the search point test when conditions are not met for search completion.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.FeatureSwitches">
+            <summary>
+            Aggregates and stores multiple SearchResults.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.FeatureSwitches.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.DDGVmin.FeatureSwitches"/> class.
+            </summary>
+            <param name="argument">List of comma-separated switches.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DDGVmin.FeatureSwitches.Boolean">
+            <summary>
+            Gets the dictionary of boolean values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DDGVmin.FeatureSwitches.Values">
+            <summary>
+            Gets the dictionary of string values.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.FeatureSwitches.GetBoolean(System.String)">
+            <summary>
+            Returns bool value for a given switch.
+            </summary>
+            <param name="param">Switch name.</param>
+            <returns>Switch value. Default value is false.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.IRecoveryMode">
+            <summary>
+            Implements interface for different Recovery modes.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.IRecoveryMode.GetPort(Prime.TestMethods.VminSearch.DDGVmin.SearchResults)">
+            <summary>
+            Evaluates results and determines final port.
+            </summary>
+            <param name="searchResults">Accumulated test results.</param>
+            <returns>Final port number.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.IRecoveryMode.HasToRepeatSearch(Prime.TestMethods.VminSearch.DDGVmin.SearchResults@,DDG.IPinMap,DDG.IDieRecovery,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Determines if search has to be repeated.
+            </summary>
+            <param name="searchResults">Accumulated test results.</param>
+            <param name="pinMap">PinMap interface.</param>
+            <param name="tracker">DieRecovery tracker interface.</param>
+            <param name="recoveryOptions">List of recovery options.</param>
+            <param name="bitsDecodeFromVoltages">Decode result bits from voltages.</param>
+            <param name="useNormalizedVmins">Using normalized vmins.</param>
+            <returns>True if search is being repeated.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.IRecoveryMode.GetMaskBits(Prime.TestMethods.VminSearch.DDGVmin.SearchResults,System.Boolean)">
+            <summary>
+            Gets the mask bits based on current results.
+            </summary>
+            <param name="searchResults">Accumulated test results.</param>
+            <param name="useRulesBits">Use DieRecovery Rules bits for evaluation.</param>
+            <returns>mask bits.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.IRecoveryMode.HasToContinueToNextSearch(Prime.TestMethods.VminSearch.DDGVmin.SearchResults)">
+            <summary>
+            Determines if the search should continue to the next iteration.
+            </summary>
+            <param name="searchResults">Accumulated test results.</param>
+            <returns>True if the search should continue to the next iteration; otherwise, false.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.IRecoveryMode.SetTimingBasedOnMemory">
+            <summary>
+            Determines which timing to apply based on shared storage memory timing parameter.
+            </summary>
+            <returns>True if the search should continue to the next iteration; otherwise, false.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.Metrics">
+            <summary>
+            Aggregates and stores multiple SearchResults.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.Metrics.VminResetMetrics(System.String)">
+            <summary>
+            Clears all counters.
+            </summary>
+            <param name="unused">unused parameter.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.Metrics.VminPrintMetrics(System.String)">
+            <summary>
+            Prints counters to datalog.
+            </summary>
+            <param name="unused">unused parameter.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.Metrics.Increment(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <summary>
+            Increments the counter for the given key.
+            </summary>
+            <param name="searchResults">search results.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.NoRecoveryMode">
+            <summary>
+            No recovery mode fails when results are not matching incoming mask.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.NoRecoveryMode.#ctor(Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.DDGVmin.NoRecoveryMode"/> class.
+            </summary>
+            <param name="console">Console service used to print debug messages. Either Prime.Services.ConsoleService or null.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.NoRecoveryMode.GetPort(Prime.TestMethods.VminSearch.DDGVmin.SearchResults)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler">
+            <summary>
+            Static utility functions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler.#ctor(Prime.PlistService.IPlistObject,System.String,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler"/> class.
+            </summary>
+            <param name="plistObject">Plist object.</param>
+            <param name="patternNameCounterIndexes">Pattern name counter index used for logging.</param>
+            <param name="console">Console interface.</param>
+            <param name="session">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler.SessionContext">
+            <summary>
+            Gets the session context.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler.Console">
+            <summary>
+            Gets the console.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler.PerPatternVoltage">
+            <summary>
+            Gets the per pattern voltage.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler.Get(Prime.PlistService.IPlistObject,System.String,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the per pattern handler.
+            </summary>
+            <param name="plistObject">Plist object.</param>
+            <param name="patternNameCounterIndexes">Pattern name counter index used for logging.</param>
+            <param name="console">Console interface.</param>
+            <param name="session">Session context.</param>
+            <returns>new handler.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler.Clean">
+            <summary>
+            Clears stored data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler.SetInitialStartPattern(Prime.TestMethods.VminSearch.DDGVmin.SearchResults@)">
+            <summary>
+            Evaluates DieRecovery rules.
+            </summary>
+            <param name="searchResults">Current search results object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler.UpdatePerPatternFailTable(System.Boolean,System.Double[][],System.Collections.Generic.List{Prime.FunctionalService.IFailureData},DDG.PatternOccurrence)">
+            <summary>
+            Updates per pattern voltage table.
+            </summary>
+            <param name="plistExecuteResult">Plist execution result.</param>
+            <param name="voltageValues">Voltage values to update.</param>
+            <param name="fails">Fail data.</param>
+            <param name="startPattern">Current start pattern.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler.PrintPerPatternVmin(System.String)">
+            <summary>
+            Prints per pattern vmin data.
+            </summary>
+            <param name="instanceName">Instance name.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PerPatternHandler.StoreStartPatternForPerPatternVmin(Prime.FunctionalService.ICaptureFailureTest,Prime.TestMethods.VminSearch.DDGVmin.SearchResults@)">
+            <summary>
+            Updates current start pattern.
+            </summary>
+            <param name="test">Capture failure test.</param>
+            <param name="currentSearchResults">Current search results.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.PlistHelper">
+            <summary>
+            Static utility functions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PlistHelper.FailedAmble(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <summary>
+            Finds if you failed search due to an amble fail.
+            </summary>
+            <param name="searchResults">Search results.</param>
+            <returns>true when amble failed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PlistHelper.FailedAmble(System.Collections.Generic.List{Prime.FunctionalService.IFailureData})">
+            <summary>
+            Finds if plist execution failed an amble.
+            </summary>
+            <param name="failData">Search results.</param>
+            <returns>true when amble failed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PlistHelper.GetCaptureFailureTest(Prime.TestMethods.VminSearch.VminTC,Prime.TestMethods.VminSearch.DDGVmin.FeatureSwitches,System.Collections.Generic.List{System.String},Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Gets capture failure test.
+            </summary>
+            <param name="i">Instance.</param>
+            <param name="switches">Feature switches.</param>
+            <param name="ctvPins">Ctv pins.</param>
+            <param name="console">Console service.</param>
+            <returns>Functional test object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.PlistHelper.SetReturnOnGlobalStickyError(Prime.PlistService.IPlistObject)">
+            <summary>
+            Sets the return on global sticky error.
+            </summary>
+            <param name="plistObject">PlistObject.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode">
+            <summary>
+            Default mode for Recovery.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.#ctor(Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode"/> class.
+            </summary>
+            <param name="console">Console service used to print debug messages. Either Prime.Services.ConsoleService or null.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.Console">
+            <summary>
+            Gets a variable holding Prime.Services.ConsoleService or null depending on the current instances LogLevel.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.SessionContext">
+            <summary>
+            Gets a variable holding Prime session context.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.GetPort(Prime.TestMethods.VminSearch.DDGVmin.SearchResults)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.SetTimingBasedOnMemory">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.HasToRepeatSearch(Prime.TestMethods.VminSearch.DDGVmin.SearchResults@,DDG.IPinMap,DDG.IDieRecovery,System.String,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.GetMaskBits(Prime.TestMethods.VminSearch.DDGVmin.SearchResults,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.HasToContinueToNextSearch(Prime.TestMethods.VminSearch.DDGVmin.SearchResults)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.GetResultBits(Prime.TestMethods.VminSearch.DDGVmin.SearchResults,DDG.IPinMap)">
+            <summary>
+            Gets result bits from voltages or decoded result.
+            </summary>
+            <param name="searchResults">Current search results.</param>
+            <param name="pinMap">DieRecovery pin map interface.</param>
+            <returns>Result bits.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.GetResultBits(Prime.TestMethods.VminSearch.DDGVmin.SearchResults,DDG.IPinMap,System.Boolean)">
+            <summary>
+            Gets result bits from voltages or decoded result.
+            </summary>
+            <param name="searchResults">Current search results.</param>
+            <param name="pinMap">DieRecovery pin map interface.</param>
+            <param name="bitsDecodeFromVoltages">Use voltages to decode bits.</param>
+            <returns>Result bits.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.GetResultBits(Prime.TestMethods.VminSearch.DDGVmin.SearchResults,DDG.IPinMap,System.Boolean,System.Boolean)">
+            <summary>
+            Gets result bits from voltages or decoded result.
+            </summary>
+            <param name="searchResults">Current search results.</param>
+            <param name="pinMap">DieRecovery pin map interface.</param>
+            <param name="bitsDecodeFromVoltages">Use voltages to decode bits.</param>
+            <param name="useNormalizedVmins">Used normalized vmins.</param>
+            <returns>Result bits.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryDefaultMode.WriteFailMessage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes fail message to console and datalog.
+            </summary>
+            <param name="message">Message.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryLoopMode">
+            <summary>
+            Default mode for Recovery.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryLoopMode.#ctor(Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryLoopMode"/> class.
+            </summary>
+            <param name="console">Console service used to print debug messages. Either Prime.Services.ConsoleService or null.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryLoopMode.HasToRepeatSearch(Prime.TestMethods.VminSearch.DDGVmin.SearchResults@,DDG.IPinMap,DDG.IDieRecovery,System.String,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryMemoryTimingRetestMode">
+            <summary>
+            Default mode for Recovery.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryMemoryTimingRetestMode.#ctor(System.String,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryMemoryTimingRetestMode"/> class.
+            </summary>
+            <param name="recoveryTimingsTc">Timing to be set for retest.</param>
+            <param name="console">Console service used to print debug messages. Either Prime.Services.ConsoleService or null.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryMemoryTimingRetestMode.HasToRepeatSearch(Prime.TestMethods.VminSearch.DDGVmin.SearchResults@,DDG.IPinMap,DDG.IDieRecovery,System.String,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryMemoryTimingRetestMode.SetTimingBasedOnMemory">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryMemoryTimingRetestMode.HasToContinueToNextSearch(Prime.TestMethods.VminSearch.DDGVmin.SearchResults)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryMemoryTimingRetestMode.GetMaskBits(Prime.TestMethods.VminSearch.DDGVmin.SearchResults,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryModeFactory">
+            <summary>
+            Factory class for creating recovery modes.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryModeFactory.CreateRecoveryMode(Prime.TestMethods.VminSearch.VminTC,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Creates a recovery mode based on the specified recovery mode enum.
+            </summary>
+            <param name="instance">VminTC instance.</param>
+            <param name="console">Console service.</param>
+            <returns>The created recovery mode.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryPortMode">
+            <summary>
+            Default mode for Recovery.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryPortMode.#ctor(Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryPortMode"/> class.
+            </summary>
+            <param name="console">Console service used to print debug messages. Either Prime.Services.ConsoleService or null.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryPortMode.GetPort(Prime.TestMethods.VminSearch.DDGVmin.SearchResults)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryTimingRetestMode">
+            <summary>
+            Default mode for Recovery.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryTimingRetestMode.#ctor(System.String,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.DDGVmin.RecoveryTimingRetestMode"/> class.
+            </summary>
+            <param name="recoveryTimingsTc">Timing to be set for retest.</param>
+            <param name="console">Console service used to print debug messages. Either Prime.Services.ConsoleService or null.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryTimingRetestMode.HasToRepeatSearch(Prime.TestMethods.VminSearch.DDGVmin.SearchResults@,DDG.IPinMap,DDG.IDieRecovery,System.String,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryTimingRetestMode.HasToContinueToNextSearch(Prime.TestMethods.VminSearch.DDGVmin.SearchResults)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryTimingRetestMode.GetMaskBits(Prime.TestMethods.VminSearch.DDGVmin.SearchResults,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.RecoveryTimingRetestMode.SetTimingBasedOnMemory">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.SearchResults">
+            <summary>
+            Aggregates and stores multiple SearchResults.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.FailedSearch">
+            <summary>
+            Gets or sets a value indicating whether any search iteration failed.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.RuleResult">
+            <summary>
+            Gets or sets a value indicating whether the rules failed.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.FailedAmble">
+            <summary>
+            Gets or sets a value indicating whether one or more search executions failed amble.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.FailDts">
+            <summary>
+            Gets or sets a value indicating whether DTS failed.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.IncomingMask">
+            <summary>
+            Gets or sets incoming mask bits.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.DecodedResult">
+            <summary>
+            Gets or sets the latest decoded test result.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.TestResultsBits">
+            <summary>
+            Gets or sets the search test results bits.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.SearchResultData">
+            <summary>
+            Gets or sets a reference to Prime search result data.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.MergedSearchResultData">
+            <summary>
+            Gets or sets the merged search result data.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.StartPattern">
+            <summary>
+            Gets or sets the name of the last failing pattern name and occurrence.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.MaxRepetitionCount">
+            <summary>
+            gets or sets a reference to MaxRepetitionCount parameter value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.SearchResults.SearchFlowStates">
+            <summary>
+            Gets or sets a reference to Prime execution flow states.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities">
+            <summary>
+            Static utility functions.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.VoltageMaskValue">
+            <summary>
+            VoltageMaskValue.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.VoltageFailValue">
+            <summary>
+            VoltageFailValue.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.NoLimitingPatternToken">
+            <summary>
+            NoLimitingPatternToken.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.Reset(Prime.TestMethods.VminSearch.DDGVmin.SearchResults@)">
+            <summary>
+            Resets search status.
+            </summary>
+            <param name="searchResults">Accumulated search results.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.RunRules(Prime.TestMethods.VminSearch.DDGVmin.SearchResults@,System.String,DDG.IDieRecovery)">
+            <summary>
+            Evaluates DieRecovery rules.
+            </summary>
+            <param name="searchResults">Accumulated search results.</param>
+            <param name="recoveryOptions">RecoveryOptions parameter.</param>
+            <param name="tracker">DieRecovery outgoing tracker.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.UpdateSearchData(Prime.TestMethods.VminSearch.DDGVmin.SearchResults@)">
+            <summary>
+            Traverses search results and finds if search is passing.
+            </summary>
+            <param name="searchResults">Search results.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.Or(System.Collections.Generic.List{System.Collections.BitArray})">
+            <summary>
+            Bitwise OR all elements in a list.
+            </summary>
+            <param name="elements">Elements.</param>
+            <returns>Result.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.UpdateVminResult(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Double},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the Voltage results to the given DFF or GSDS tokens.
+              DFF: Expected format -- D.Token -- the Current DieID and optype will be used.
+              GSDS: Expected format -- Token -- the value will be written to the Double/DUT shared storage table.
+            </summary>
+            <param name="tokens">Comma-separated string of the DFF or SharedStorage tokens to write.</param>
+            <param name="voltageResults">Aggregated voltage results.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.FailedLimitGuardband(System.Boolean,System.Double,System.Double,System.Double,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks the Vmin results against the start/guardband if SearchGuardband is enabled.
+            If the VminResult - VminStart > Guardband then it fails.
+            </summary>
+            <param name="enabled">true if search guardband is enabled. function will return false if this parameter is false.</param>
+            <param name="start">The starting Vmin value for the search.</param>
+            <param name="result">The final Vmin search results.</param>
+            <param name="guardband">The search guardband value.</param>
+            <param name="console">Prime console for printing.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>true if the search failed the guardband limit.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.ExpandVoltageKeys(System.Collections.Generic.List{System.String},System.Int32,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluate the list of tokens into their actual values.
+            </summary>
+            <param name="voltageKeys">List of DFF, GSDS, UserVar or eng format into doubles.</param>
+            <param name="flowIndex">The current FlowIndex to use when getting values from DFF. Can be comma separated list of flows or domain names.</param>
+            <param name="expectedItems">The number of expected items, if there is only one key it will be replicated this many times.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for the current instance.</param>
+            <returns>List of double values.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.ApplySearchVoltage(Prime.VoltageService.IVoltage,System.Collections.Generic.List{System.Double},System.Boolean,System.String,DDG.VoltageConverterOptions,Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Standard VMinTC IVminSearchExtensions.ApplySearchVoltage implementation.
+            </summary>
+            <param name="voltageObject">IVoltage passed to IVminSearchExtensions.ApplySearchVoltage.</param>
+            <param name="voltageValues">Voltage Values (list of double) passed to IVminSearchExtensions.ApplySearchVoltage.</param>
+            <param name="skip">If true, search voltage will not be applied. Use FeatureSwitch settings - this.SkipApplySearchVoltage_.</param>
+            <param name="voltageOffset">VoltagesOffset parameter (CommaSeparatedString).</param>
+            <param name="options">VoltageConverterOptions passed to template.</param>
+            <param name="console">Prime IConsoleService for printing.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.RollupVoltages(System.Double[][])">
+            <summary>
+            Accumulate the voltage results.
+            </summary>
+            <param name="voltages">Voltage results per level.</param>
+            <returns>Accumulated results.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.DDGVmin.VminUtilities.RollupVoltages(Prime.TestMethods.VminSearch.SearchResultData.VoltageResult[],System.Boolean)">
+            <summary>
+            Accumulate the voltage results.
+            </summary>
+            <param name="voltages">Voltage results per level.</param>
+            <param name="hasNormalizedVmins">Use normalized results.</param>
+            <returns>Accumulated results.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.VminTC">
+            <summary>
+            This class is intended to overwrite the test method PrimeVminSearchTestMethod.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.FailPort">
+            <summary>
+            Fail port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.PassPort">
+            <summary>
+            Pass port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.FailRulesPort">
+            <summary>
+            Fail rules port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.FailRecoveryPort">
+            <summary>
+            Fail recovery port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.FailThermalsPort">
+            <summary>
+            Fail thermals port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.FailAmblePort">
+            <summary>
+            Fail amble port.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.VminTC"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.#ctor(Prime.SharedStorageService.ISharedStorageService,Prime.ConsoleService.IConsoleService,Prime.VoltageService.IVoltageService,Prime.FunctionalService.IFunctionalService,Prime.DffService.IDffService,Prime.TestConditionService.ITestConditionService,Prime.PinService.IPinService,Prime.DatalogService.IDatalogService,Prime.PlistService.IPlistService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.VminTC"/> class.
+            </summary>
+            <param name="sharedStorageService">Shared storage service.</param>
+            <param name="consoleService">Console service.</param>
+            <param name="voltageService">Voltage service.</param>
+            <param name="functionalService">Functional service.</param>
+            <param name="dffService">DFF service.</param>
+            <param name="testConditionService">Test condition service.</param>
+            <param name="pinService">Pin service.</param>
+            <param name="datalogService">Datalog service.</param>
+            <param name="plistService">Plist service.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.#ctor(Prime.BusinessLogic.ScoreboardLogger.IScoreboardFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminSearch.VminTC"/> class.
+            </summary>
+            <param name="scoreboardFactory">A IScoreboardFactory for dependency injection.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.VminTC.PrintPatternsOccurrencesOptions">
+            <summary>
+            Indicates whether to print the failing patterns occurrences to ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.PrintPatternsOccurrencesOptions.Yes">
+            <summary>
+            Print failing pattern occurrences to ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.PrintPatternsOccurrencesOptions.No">
+            <summary>
+            Don't print failing pattern occurrences to ituff.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.VminTC.TestModes">
+            <summary>
+            Enumerate possible test modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.TestModes.MultiVmin">
+            <summary>
+            MultiVmin search mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.TestModes.SingleVmin">
+            <summary>
+            SingleVmin search mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.TestModes.Functional">
+            <summary>
+            Functional mode. It will run single point test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.TestModes.Scoreboard">
+            <summary>
+            Scoreboard mode. It will run single point test.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.VminTC.ForwardingModes">
+            <summary>
+            Enumerate possible forwarding modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.ForwardingModes.Input">
+            <summary>
+            Using start value from VminForwarding but does not update the table.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.ForwardingModes.Output">
+            <summary>
+            Ignoring VminForwarding for start value, but it updates the final vmin. It can only go higher.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.ForwardingModes.InputOutput">
+            <summary>
+            Using VminForwarding for start value and updated final vmin.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.ForwardingModes.None">
+            <summary>
+            No forwarding is enabled.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.VminTC.RecoveryModes">
+            <summary>
+            Enumerate possible recovery modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.RecoveryModes.Default">
+            <summary>
+            If search and rules pass: Update VminForwarding and DieRecovery. Exit Port 1.
+            If search and rules fail: Update VminForwarding, skip DieRecovery. Exit Port 0.
+            If search passes but fail rules: Update VminForwarding, skip DieRecovery. Exit Port 2.
+            If search fails but rules pass: Update VminForwarding, skip DieRecovery. Exit Port 0.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.RecoveryModes.RecoveryPort">
+            <summary>
+            If search and rules pass: Update VminForwarding and DieRecovery. Exit Port 1.
+            If search and rules fail: Update VminForwarding, skip DieRecovery. Exit Port 0.
+            If search passes but fail rules: Update VminForwarding, skip DieRecovery. Exit Port 2.
+            If search fails but rules pass: Skip VminForwarding, update DieRecovery. Exit Port 3.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.RecoveryModes.RecoveryLoop">
+            <summary>
+            If search and rules pass: Update VminForwarding and DieRecovery. Exit Port 1.
+            If search fails, rules fail and loop has reached MaxRepetitionCount: Update VminForwarding, skip DieRecovery. Exit Port 0.
+            If search passes, rules fail: Update VminForwarding, skip DieRecovery. Exit Port 2.
+            If search fails, rules pass and loop has not reached MaxRepetitionCount: Update VminForwarding, update DieRecovery and repeat search.
+            If search fails, rules pass and loop has reached MaxRepetitionCount: Update VminForwarding, skip DieRecovery. Exit Port 0.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.RecoveryModes.RecoveryTimingRetest">
+            <summary>
+            If search and rules pass: Update VminForwarding and DieRecovery. Exit Port 1.
+            If search or rules fails, and loop has not reached MaxRepetitionCount: apply new timing for retry and repeat the search. Previous vmin and DieRecovery results are discarded.
+            If search fails and loop has reached MaxRepetitionCount: Update VminForwarding, skip DieRecovery. Exit Port 0.
+            If search passes, rules fail and loop has reached MaxRepetitionCount: Update VminForwarding, skip DieRecovery. Exit Port 2.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.RecoveryModes.RecoveryMemoryTimingRetest">
+            <summary>
+            If search and rules pass: Update VminForwarding and DieRecovery. Exit Port 1.
+            If search or rules fails, and loop has not reached MaxRepetitionCount: apply new timing for retry and repeat the search. Previous vmin and DieRecovery results are discarded.
+            If search fails and loop has reached MaxRepetitionCount: Update VminForwarding, skip DieRecovery. Exit Port 0.
+            If search passes, rules fail and loop has reached MaxRepetitionCount: Update VminForwarding, skip DieRecovery. Exit Port 2.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.RecoveryModes.NoRecovery">
+            <summary>
+            If search and rules pass: Update VminForwarding. Exit Port 1.
+            If search or rules fail: Update VminForwarding. Exit Port 0.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminSearch.VminTC.ExecutionMaxFailBehaviorMode">
+            <summary>
+            Enumerate possible behaviors when the maximum number of failures is reached during plist execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.ExecutionMaxFailBehaviorMode.ExitPListOnFail">
+            <summary>
+            The current burst is allowed to complete but the next burst is not executed
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.ExecutionMaxFailBehaviorMode.AbortOnFail">
+            <summary>
+            An attempt is made to abort patgen immediately.  This is not compatible with KeepAlive plists.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.ExecutionMaxFailBehaviorMode.ContinueOnFail">
+            <summary>
+            Plist execution continues (without capturing any additional failures).
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.ExecutionMaxFailBehaviorMode.ReturnOnFail">
+            <summary>
+            PList will evaluate fails at the pattern boundaries and return through the plist PostExec content.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminSearch.VminTC.ExecutionMaxFailBehaviorMode.Default">
+            <summary>
+            This will be the default mode depending on the other capture settings.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.CornerIdentifiers">
+            <summary>
+            Gets or sets comma separated corner identifiers.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.CtvPins">
+            <summary>
+            Gets or sets CTV capture pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.DtsConfiguration">
+            <summary>
+            Gets or sets DTS configuration name. Empty configuration name means DTS capture move is disabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.FailCaptureCount">
+            <summary>
+            Gets or sets FailCaptureCount. Default 1 will set stop-on-first-fail.
+            Any value greater than 1 will run full plist unless used in combination with ReturnOn plist options.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.FlowIndex">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.FlowIndexCallbackName">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.ForwardingMode">
+            <summary>
+            Gets or sets forwarding mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.InitialMaskBits">
+            <summary>
+            Gets or sets forwarding mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.LimitGuardband">
+            <summary>
+            Gets or sets LimitGuardband to be used with VminForwarding SearchGuardbandEnabled option.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.PinMap">
+            <summary>
+            Gets or sets recovery map name. User can enter Json stream or input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.PostInstancePlist">
+            <summary>
+            Gets or sets PostInstancePlist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.PreloadParameters">
+            <summary>
+            Gets or sets test mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.PrintPatternsOccurrences">
+            <summary>
+            Gets or sets the print failing patterns occurrences to ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.RecoveryMode">
+            <summary>
+            Gets or sets DieRecovery update mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.RecoveryOptions">
+            <summary>
+            Gets or sets DieRecoveryOutgoing_ rule.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.RecoveryTimingsTc">
+            <summary>
+            Gets or sets a new timings for RecoveryTimingRetest.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.RecoveryTrackingIncoming">
+            <summary>
+            Gets or sets the recovery tracking name to be sourced.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.RecoveryTrackingOutgoing">
+            <summary>
+            Gets or sets recovery tracking name to be updated.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.ScoreboardPerPatternFails">
+            <summary>
+            Gets or sets scoreboard per pattern capture fails limit. Default is 1.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.StartVoltagesOffset">
+            <summary>
+            Gets or sets an offset to the calculated start voltage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.TestMode">
+            <summary>
+            Gets or sets test mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.TriggerLevelsCondition">
+            <summary>
+            Gets or sets trigger levels test condition name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.TriggerMap">
+            <summary>
+            Gets or sets trigger map.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.VminResult">
+            <summary>
+            Gets or sets vmin result. Stores value in SharedStorage using comma-separated key names with Context.DUT.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.VoltageConverter">
+            <summary>
+            Gets or sets a list of voltage overrides from VminForwarding.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.VoltagesOffset">
+            <summary>
+            Gets or sets an offset to applied voltage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.ExecutionMaxFailMode">
+            <summary>
+            Gets or sets the execution mode when the maximum number of failures is reached during plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#PlistMode">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#DisablePerCoreOvershoot">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.DieRecoveryPinMap">
+            <summary>
+            Gets or sets interface to PinMapBase. Reference gets updated during CustomVerify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.InitialSearchMaskArray">
+            <summary>
+            Gets the initial mask array for each search iteration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.Switches">
+            <summary>
+            Gets or sets different feature switches.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.DieRecoveryOutgoing">
+            <summary>
+            Gets or sets interface to DieRecoveryBase. Reference gets updated during CustomVerify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.DieRecoveryIncoming">
+            <summary>
+            Gets or sets interface to DieRecoveryBase. Reference gets updated during CustomVerify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.RecoveryModeHandler">
+            <summary>
+            Gets or sets interface to RecoveryMode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.VminForwarding">
+            <summary>
+            Gets or sets interface to IVminForwardingCorner.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.DtsHandler">
+            <summary>
+            Gets or sets a wrapper for DTS service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.PerPatternHandler">
+            <summary>
+            Gets or sets the per pattern handler.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.SkipApplySearchVoltage">
+            <summary>
+            Gets or sets a value indicating whether apply search voltage should be skipped. Used for functional modes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.IncomingMaskArray">
+            <summary>
+            Gets or sets incoming mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.IsFivrVoltageMode">
+            <summary>
+            Gets or sets a value indicating whether FivrVoltageMode is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.VoltageConverterOptions">
+            <summary>
+            Gets or sets voltage converter options from commandline.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.StartVoltageValues">
+            <summary>
+            Gets or sets calculated start voltages.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.EndVoltageValues">
+            <summary>
+            Gets or sets calculated end voltages.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.LimitGuardbandValues">
+            <summary>
+            Gets or sets calculated limit guard bands.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.Port">
+            <summary>
+            Gets or sets the port number.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.FailedUpdateDieRecoveryTracking">
+            <summary>
+            Gets or sets a value indicating whether UpdateDieRecovery update failed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.FailedUpdateVminForwarding">
+            <summary>
+            Gets or sets a value indicating whether VminForwarding update failed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.FailedLimitGuardband">
+            <summary>
+            Gets or sets a value indicating whether LimitGuardband failed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.ResolvedPlist">
+            <summary>
+            Gets or sets the resolved plist.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminSearch.VminTC.IsVminNormalizerEnabled">
+            <summary>
+            Gets or sets a value indicating whether the VminNormalizer is enabled.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.CustomPreVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.CustomVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.VerifyFeatureSwitchSettings">
+            <summary>
+            Evaluate comma-separated FeatureSwitchSettings.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.SetInitialMask">
+            <summary>
+            Sets Initial Mask bits using bit set OR operation for InitialMaskBits and DieRecoveryIncoming_.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.SetIncomingMask">
+            <summary>
+            Sets incoming mask from parameter or DieRecovery tracking.
+            </summary>
+            <returns>Bypass port result; 1 for bypass and -1 to continue testing.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetInitialMaskBits">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetFunctionalTest(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#ApplyMask(System.Collections.BitArray,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#ApplyPreExecuteSetup(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#ApplyInitialVoltage(Prime.VoltageService.IVoltage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#ApplyPreSearchSetup(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#ApplySearchVoltage(Prime.VoltageService.IVoltage,System.Collections.Generic.List{System.Double})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#ProcessPlistResults(System.Boolean,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#ProcessMultiLevelPlistResults(System.Boolean,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetStartVoltageValues(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetEndVoltageLimitValues(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetLowerStartVoltageValues(System.Collections.Generic.List{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#IsSinglePointMode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetSearchVoltageObject(System.Collections.Generic.List{System.String},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#PostProcessSearchResults(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#HasToContinueToNextSearch(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData},Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#HasToRepeatSearch(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.CustomBypass">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetBypassPort">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#ExecuteScoreboard(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetValuesForVminNormalizer">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.Prime#TestMethods#VminSearch#IVminSearchExtensions#GetDtsValuesForVminNormalizer">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.CalculateStartVoltageValues">
+            <summary>
+            Calculates start voltage using incoming parameter and vmin forwarding.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">Invalid mode.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.CalculateEndVoltageValues">
+            <summary>
+            Calculates start voltage using incoming parameter and vmin forwarding.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">Invalid mode.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.CalculateVoltageLimits(System.Collections.Generic.List{System.String})">
+            <summary>
+            Calculates voltage limits from keys.
+            </summary>
+            <param name="voltageKeys">Voltage limit keys. It can take DFF, SharedStorage or a list of values.</param>
+            <returns>Evaluated doubles.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.ProcessCaptureFailures(System.Boolean,Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Process capture failure test data to console.
+            </summary>
+            <param name="plistExecuteResult">Plist result.</param>
+            <param name="plist">Capture failure test object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.UpdatePort(System.Collections.Generic.List{Prime.TestMethods.VminSearch.SearchResultData})">
+            <summary>
+            Determine port based on search results.
+            </summary>
+            <param name="searchResults">Search results.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.StoreSearchResults">
+            <summary>
+            save vmin results to sharedStorage.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.VerifySingleVminMode">
+            <summary>
+            Verification of SingleVmin Mode parameters.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.VerifyMultiVminMode">
+            <summary>
+            /// Verification of MultiVmin Mode parameters.
+            </summary>
+            <exception cref="T:System.ArgumentException">Invalid configuration.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.InitializeVoltageTargets">
+            <summary>
+            Initializes voltages targets and initial mask using defaults.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.VerifyUpdatePlistObject">
+            <summary>
+            Updates Prime Plist object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.VerifyPinMap">
+            <summary>
+            Sets PinMap_ reference.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.VerifyForwarding">
+            <summary>
+            Sets VminForwarding_ reference.
+            </summary>
+            <exception cref="T:System.ArgumentException">CornerIdentifiers is required.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.VerifyDieRecovery">
+            <summary>
+            Sets DieRecoveryOutgoing_ reference.
+            </summary>
+            <exception cref="T:System.ArgumentException">RecoveryTracking and/or PinMap are required.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.SetDieRecoveryTrackers">
+            <summary>
+            Creates DieRecoveryTrackers first time execute is run after Verify.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.VerifyDts">
+            <summary>
+            Verifies DTS configuration.
+            </summary>
+            <returns>CTV pins.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.ExecutePostInstance">
+            <summary>
+            Post instance routine.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.ProcessVminResults">
+            <summary>
+            Processing vmin results. Updates VminResult and VminForwarding.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.UpdateVminForwarding">
+            <summary>
+            Updates Vmin Forwarding table using results and mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminSearch.VminTC.UpdateDieRecoveryTracking">
+            <summary>
+            Update DieRecovery tracking table using accumulated BitArray.
+            </summary>
+        </member>
+    </members>
+</doc>

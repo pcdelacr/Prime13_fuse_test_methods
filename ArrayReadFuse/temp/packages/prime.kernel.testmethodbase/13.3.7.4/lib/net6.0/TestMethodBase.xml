@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Kernel.TestMethodBase</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Kernel.TestMethodsExtension.IExtendableTestMethod`2">
+            <summary>
+            The base interface for making Prime Test Method extendable
+            Prime developer will inherit this interface to make his TM extendable with ITME.
+            </summary>
+            <typeparam name="TIExtensionType">The type of the Test Method extension as defined in the concrete Test Method.</typeparam>
+            <typeparam name="TPrimeTestMethodType">the typeof(ConcretePrimeTestMethod).</typeparam>
+        </member>
+        <member name="P:Prime.Kernel.TestMethodsExtension.IExtendableTestMethod`2.TestMethodExtension">
+            <summary>
+            Gets or sets the Test Method extension object.
+            </summary>
+        </member>
+        <member name="T:Prime.Kernel.TestMethodsExtension.IExtendableTestMethodBase">
+            <summary>
+            The base interface for making Prime Test Method extendable.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Telemetry.TelemetryPerformanceScopes">
+            <summary>
+            Logger performance scopes.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Telemetry.TelemetryPerformanceScopes.GetPerformanceScope(MPE.MIT.Logging.ILogger,System.String)">
+            <summary>
+            Get testMethodBase execute performance scope.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="methodName">The calling method.</param>
+            <returns>The performance scope.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.TestInstanceResults">
+            <summary>
+            Allows proper user modification of exit port.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestInstanceResults.ExitPort">
+            <summary>
+            Gets or sets outgoing exit port.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TestMethodBase">
+            <summary>
+            The base class for Any Test Method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TestMethodBase.testMethodsParametersInfo">
+            <summary>
+            using static here because the object is initialized during load when SharedStorage is not available. Once it is initialized we only read from it.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TestMethodBase"/> class.
+            </summary>
+        </member>
+        <member name="E:Prime.TestMethods.TestMethodBase.OnPreExecute">
+            <summary>
+            This event is being raised at pre-execute
+            </summary>
+        </member>
+        <member name="E:Prime.TestMethods.TestMethodBase.OnPostExecute">
+            <summary>
+            This event is being raised at post-execute
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TestMethodBase.InstanceSummaryStatus">
+            <summary>
+            Enable or disable Instance summary profiling feature.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TestMethodBase.InstanceSummaryStatus.Disabled">
+            <summary>
+            Disables the current instance timing and memory instance summary profiling.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TestMethodBase.InstanceSummaryStatus.Enabled">
+            <summary>
+            Turns on the current instance timing and memory instance summary profiling.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TestMethodBase.PrimeTelemetryLogLevel">
+            <summary>
+            Telemetry log level.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TestMethodBase.PrimeTelemetryLogLevel.None">
+            <summary>
+            Not used for writing log messages. Specifies that a logging category should not write any messages.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TestMethodBase.PrimeTelemetryLogLevel.Debug">
+            <summary>
+            Logs that contain the most detailed messages. These messages may contain sensitive application data.
+            These messages are disabled by default and should never be enabled in a production environment.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TestMethodBase.PrimeTelemetryLogLevel.Information">
+            <summary>
+            Logs that track the general flow of the application. These logs should have long-term value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TestMethodBase.PrimeTelemetryLogLevel.Critical">
+            <summary>
+            Logs that describe an unrecoverable application or system crash, or a catastrophic failure that requires
+            immediate attention.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.TestMethodBase.PrimeLogLevel">
+            <summary>
+            The log level to print to messages to the console.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TestMethodBase.PrimeLogLevel.Disabled">
+            <summary>
+            No debug messages will be printed.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.TestMethodBase.PrimeLogLevel.Enabled">
+            <summary>
+            Every debug message will be printed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.DutId">
+            <summary>
+            Gets the current instance's dutId.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.IpId">
+            <summary>
+            Gets the current instance's ipId.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.IpName">
+            <summary>
+            Gets the current instance's ipName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.InstanceName">
+            <summary>
+            Gets or sets the name of the current instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.TestMethodName">
+            <summary>
+            Gets the test method name of the current instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.SessionContext">
+            <summary>
+            Gets the session context of this instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.BypassPort">
+            <summary>
+            Gets or sets the instance's parameter Bypass port value in case this instance is being bypassed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.LogLevel">
+            <summary>
+            Gets or sets The console log level of the debug messages to be printed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.InstanceSummaryMode">
+            <summary>
+            Gets or sets instance summary mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.TelemetryLevel">
+            <summary>
+            Gets or sets the Performance telemetry level.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBase.InstanceLogger">
+            <summary>
+            Gets the current instance context logger.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITestMethod#SetInstanceParameters(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Set the instance parameter.
+            </summary>
+            <param name="instanceParams">pairs of parameter name and value.</param>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITestMethod#InitializeSessionContext(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITestMethod#InitializeTelemetry(MPE.MIT.Logging.ILogger)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITestMethod#RegisterCurrentSessionContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITestMethod#UnregisterCurrentSessionContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITestMethod#PopulateTestInstanceProperties(System.String,System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITelemetryAwareTestMethod#CreateInstanceContextLogger(MPE.MIT.Logging.ILogger)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITelemetryAwareTestMethod#RegisterCurrentLogger">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITelemetryAwareTestMethod#UnregisterCurrentLogger">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.CustomPreVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITelemetryAwareTestMethod#InnerCustomPreVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Verify">
+            <summary>
+            Verify function of the Test Method
+            Usually will be called once per instance unless some parameter were changed.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITelemetryAwareTestMethod#InnerVerify">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.CustomVerify">
+            <summary>
+            This will be executed right after the Test Method Verify function passed
+            User doing ITME can override this function to verify his instance instanceParameters.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.CustomBypass">
+            <summary>
+            This will be executed before the execute of the test method (also before pre-execute event if exist).
+            User doing ITME can override this function to decide whether to bypass this instance execution.
+            </summary>
+            <returns>Bypass value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITelemetryAwareTestMethod#InnerCustomVerify">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.ForceReVerify">
+            <summary>
+            This will give each test method the option to force it's own verify.
+            According to the methodology implementation, user can decide what are the conditions in which
+            the test method should be force verified and in these cases return true from this API.
+            </summary>
+            <returns>Should or should not the test method be force verified.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Execute">
+            <summary>
+            The instance execution itself
+            To be executed per die.
+            </summary>
+            <returns>instance exit port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITelemetryAwareTestMethod#InnerExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Load">
+            <summary>
+            This will be executed right after the Test Method object is created in loading.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Unload">
+            <summary>
+            Will be called by the kernel just before the instance is going to unloaded.
+            This will allow the TM to make last minute cleanups if needed.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITestMethod#PopulateTestMethodExtension">
+            <summary>
+            This function is responsible to handle and populate the ITME user extension.
+            It will be execute at pre-verify of the instance to initialize the internal extension object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.InitMef">
+            <summary>
+            Implementation of IMefAble interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITestMethod#VerifyCommonParams">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITestMethod#PreExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITelemetryAwareTestMethod#InnerPreExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITestMethod#PostExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.Prime#Kernel#ITelemetryAwareTestMethod#InnerPostExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBase.ValidateExtensionObjectCorrectness(Prime.Kernel.TestMethodsExtension.IExtendableTestMethodBase)">
+            <summary>
+            Validate the extension object is valid and implement the interface of the expected extension type.
+            </summary>
+            <param name="extendableTestMethod">The extendable instance itself as IExtendableTestMethodBase.</param>
+        </member>
+        <member name="T:Prime.TestMethods.TestMethodBaseSharedStorage">
+            <summary>
+            Common storage for all kernel instances to manage the loaded AppDomains and instances.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodBaseSharedStorage.TestMethodTelemetryConsumer">
+            <summary>
+            Gets the global logger.
+            This is the logger framework object that will open the output stream, and handle any
+            telemetry produced by Prime code.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodBaseSharedStorage.CreateTestMethodTelemetryConsumer(MPE.MIT.Logging.ILogger)">
+            <summary>
+            Create the test method telemetry consumer (part of the logger framework).
+            </summary>
+            <param name="kernelTelemetryLogger">The telemetry global logger from the kernel.</param>
+        </member>
+        <member name="T:Prime.TestMethods.TestMethodParametersInfo">
+            <summary>
+            The parameters info at the TestMethod level - initialize once per TestMethod for all it instances.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodParametersInfo.#ctor(System.Collections.Generic.Dictionary{System.String,System.ValueTuple{System.Type,System.Reflection.MethodInfo}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.TestMethodParametersInfo"/> class.
+            </summary>
+            <param name="testMethodParameters">per parameter, its type and it set method.</param>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodParametersInfo.CommonParameters">
+            <summary>
+            Gets the common parameters for this TM - resolved with the first Verify of the first instance of this TM type.
+            CommonParamType --> [ParameterName -> (ParameterType, SetMethod)].
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.TestMethodParametersInfo.TestMethodParameters">
+            <summary>
+            Gets the parameters for this TM - resolved during load time.
+            ParameterName -> (ParameterType, SetMethod).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.TestMethodParametersInfo.ResolveCommonParameters(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Resolve the common parameters for this Test Method using the actual TOS parameters of the first instance.
+            </summary>
+            <param name="parameters">the parameters with their value from TOS.</param>
+            <returns>list of the common parameters being used by this instance.</returns>
+        </member>
+    </members>
+</doc>

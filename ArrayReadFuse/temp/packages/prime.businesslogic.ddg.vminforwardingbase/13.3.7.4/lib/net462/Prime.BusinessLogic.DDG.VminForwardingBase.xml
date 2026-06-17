@@ -1,0 +1,585 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.DDG.VminForwardingBase</name>
+    </assembly>
+    <members>
+        <member name="T:DDG.DffField">
+            <summary>
+            Defines the DffField class.
+            </summary>
+        </member>
+        <member name="P:DDG.DffField.Name">
+            <summary>
+            Gets or sets the Dff token name.
+            </summary>
+        </member>
+        <member name="P:DDG.DffField.DieId">
+            <summary>
+            Gets or sets the Dff die id.
+            </summary>
+        </member>
+        <member name="P:DDG.DffField.Optype">
+            <summary>
+            Gets or sets the Dff optype.
+            </summary>
+        </member>
+        <member name="T:DDG.IVminForwardingCorner">
+            <summary>
+            Interface for the VminForwardingCorner object.
+            </summary>
+        </member>
+        <member name="P:DDG.IVminForwardingCorner.Flow">
+            <summary>
+            Gets the Flow associated with this VminCorner.
+            </summary>
+        </member>
+        <member name="P:DDG.IVminForwardingCorner.Name">
+            <summary>
+            Gets a comma-separate list of FullCorner Names for this object (CR0@F1,CR1@F1).
+            </summary>
+        </member>
+        <member name="P:DDG.IVminForwardingCorner.Frequency">
+            <summary>
+            Gets the frequency associated with the first instance in this object.
+            </summary>
+        </member>
+        <member name="P:DDG.IVminForwardingCorner.Domain">
+            <summary>
+            Gets the domain associated with the first instance in this object.
+            </summary>
+        </member>
+        <member name="P:DDG.IVminForwardingCorner.Corner">
+            <summary>
+            Gets the corner associated with the first instance in this object.
+            </summary>
+        </member>
+        <member name="M:DDG.IVminForwardingCorner.GetFrequency">
+            <summary>
+            Gets the frequencies associated with every corner in this object.
+            </summary>
+            <returns>List of frequencies in the same order as corners were created.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingCorner.GetStartingVoltage(Prime.VminForwardingService.VminForwardingDataType,System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Gets the starting voltage for this corner.
+            This will be the maximum of:
+              the passed in value startVoltagesFromParameter,
+              FastInfra.xml gsds_vmin_source values,
+              FastInfra.xml interdomaincorner_vmin_source values.
+            </summary>
+            <param name="type">VminForwarding data type.</param>
+            <param name="startVoltagesFromParameter">The test instances starting value.</param>
+            <returns>The starting voltage to use for the search.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingCorner.GetStartingVoltage(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Gets the starting voltage for this corner.
+            This will be the maximum of:
+              the passed in value startVoltagesFromParameter,
+              FastInfra.xml gsds_vmin_source values,
+              FastInfra.xml interdomaincorner_vmin_source values.
+            </summary>
+            <param name="startVoltagesFromParameter">The test instances starting value.</param>
+            <returns>The starting voltage to use for the search.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingCorner.GetStartingVoltage(Prime.VminForwardingService.VminForwardingDataType,System.Double)">
+            <summary>
+            Gets the starting voltage for this corner.
+            This will be the maximum of:
+              the passed in value startVoltagesFromParameter,
+              FastInfra.xml gsds_vmin_source values,
+              FastInfra.xml interdomaincorner_vmin_source values.
+            </summary>
+            <param name="type">VminForwarding data type.</param>
+            <param name="startVoltageFromParameter">The test instances starting value.</param>
+            <returns>The starting voltage to use for the search.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingCorner.GetStartingVoltage(System.Double)">
+            <summary>
+            Gets the starting voltage for this corner.
+            This will be the maximum of:
+              the passed in value startVoltagesFromParameter,
+              FastInfra.xml gsds_vmin_source values,
+              FastInfra.xml interdomaincorner_vmin_source values.
+            </summary>
+            <param name="startVoltageFromParameter">The test instances starting value.</param>
+            <returns>The starting voltage to use for the search.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingCorner.GetStartingVoltage(System.Double,DDG.VminForwardingReadType,System.Boolean)">
+            <summary>
+            Gets the starting voltage for this corner.
+            This will be the maximum of:
+              the passed in value startVoltagesFromParameter,
+              FastInfra.xml gsds_vmin_source values,
+              FastInfra.xml interdomaincorner_vmin_source values.
+            </summary>
+            <param name="startVoltageFromParameter">The test instances starting value.</param>
+            <param name="readTiers">Set a flag to read specified tier voltages.</param>
+            <param name="readNormalizedValues">Set a flag to read normalized values.</param>
+            <returns>The starting voltage to use for the search.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingCorner.StoreVminResult(Prime.VminForwardingService.VminForwardingDataType,System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Updates the vmin forwarding value for this corner.
+            Will also update values associated with the FastInfra.xml
+            store_results_in_gsds and tokens_for_downstream_sockets attributes.
+            </summary>
+            <param name="type">VminForwarding data type.</param>
+            <param name="vmins">Final vmin result.</param>
+            <returns>true if the vmin data was stored correctly.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingCorner.StoreVminResult(Prime.VminForwardingService.VminForwardingDataType,System.Double)">
+            <summary>
+            Updates the vmin forwarding value for this corner.
+            Will also update values associated with the FastInfra.xml
+            store_results_in_gsds and tokens_for_downstream_sockets attributes.
+            </summary>
+            <param name="type">VminForwarding data type.</param>
+            <param name="vmin">Final vmin result.</param>
+            <returns>true if the vmin data was stored correctly.</returns>
+        </member>
+        <member name="T:DDG.IVminForwardingFactory">
+            <summary>
+            Defines the <see cref="T:DDG.IVminForwardingFactory" />.
+            </summary>
+        </member>
+        <member name="M:DDG.IVminForwardingFactory.Get(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Factory method.
+            </summary>
+            <param name="name">Configuration name.</param>
+            <param name="flow">Flow index.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+            <returns>VminForwarding Corner interface.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingFactory.Get(System.String,System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Factory method for creating a IVminForwardingCorner=<see cref="T:DDG.IVminForwardingCorner"/>.
+            </summary>
+            <param name="domain">Domain name (either a single name or a comma separated list).</param>
+            <param name="freqCorner">Frequency corner name (F1, F2, F3, ...).</param>
+            <param name="flow">Flow index.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+            <returns>VminForwarding Corner interface.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingFactory.GetAllDomainNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets a list of all domain names from Primes VminForwarding structures.
+            </summary>
+            <param name="sc">Prime ISessionContextProviderContainer to use.</param>
+            <returns>List of Domain names as strings.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingFactory.GetInstanceNamesForDomain(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the list of Instance names for the given Domain name. (ie. returns [CR0, CR1, CR2, CR3] when given CR).
+            </summary>
+            <param name="domainName">Name of Domain.</param>
+            <param name="sc">Prime ISessionContextProviderContainer to use.</param>
+            <returns>List of instance names as strings.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingFactory.GetCornerNamesForDomainInstance(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the list of valid frequency corner names for this instance. This is the full DomainInstance@Corner name.
+            </summary>
+            <param name="instanceName">Name of the domain instance.</param>
+            <param name="sc">Prime ISessionContextProviderContainer to use.</param>
+            <returns>List of valid corners as a string.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingFactory.GetFrequency(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the frequency constant for the given corner.
+            </summary>
+            <param name="fullCornerName">Full VminForwarding Corner name (ie CR0@F1, CLR@F6).</param>
+            <param name="flow">Flow ID (needed if this corner uses a binmatrix constant for its frequency).</param>
+            <param name="sc">Prime ISessionContextProviderContainer to use.</param>
+            <returns>frequency for the corner.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingFactory.GetDomainName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets domain name for the given full corner name.
+            </summary>
+            <param name="fullCornerName">Full VminForwarding Corner name (ie CR0@F1, CLR@F6).</param>
+            <param name="sc">Prime ISessionContextProviderContainer to use.</param>
+            <returns>Domain name.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingFactory.GetDffTokenMap(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Retrieves the Domain/Corner to Dff token mapping.
+            </summary>
+            <param name="sc">Prime ISessionContextProviderContainer to use.</param>
+            <returns>Dff Token map as a Dictionary with Keys=DFF Token and Value=SharedStorage Use dBy VminForwarding.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingFactory.IsSinglePointMode(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Retrieves the IsSinglePointMode token from shared storage.
+            </summary>
+            <param name="sc">Prime ISessionContextProviderContainer to use.</param>
+            <returns>true if Vmin searches are disabled and should only run a single point.</returns>
+        </member>
+        <member name="M:DDG.IVminForwardingFactory.IsSearchGuardbandEnabled(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Retrieves the SearchGuardbandEnable token from shared storage.
+            </summary>
+            <param name="sc">Prime ISessionContextProviderContainer to use.</param>
+            <returns>true if VminTC should enable its SearchGuardband parameter.</returns>
+        </member>
+        <member name="T:DDG.VminForwarding">
+            <summary>
+            Singleton for DieRecovery service.
+            </summary>
+            <summary>
+            Defines the <see cref="T:DDG.VminForwarding" />.
+            </summary>
+        </member>
+        <member name="P:DDG.VminForwarding.Service">
+            <summary>
+            Gets or sets VminForwarding Service implementation.
+            </summary>
+        </member>
+        <member name="T:DDG.VminForwarding.Globals">
+            <summary>
+            Defines the <see cref="T:DDG.VminForwarding.Globals" />.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingSnapshot">
+            <summary>
+            Gets the name of the Vmin Forwarding SharedStorage Object which contains the snapshot data.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingSnapshotContext">
+            <summary>
+            Gets the context of the Vmin Forwarding SharedStorage Object which contains the snapshot data.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingDffMap">
+            <summary>
+            Gets the name of the Vmin Forwarding SharedStorage Object which contains the VminForwarding Domain/Corner to DFF Token mapping.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingDffMapContext">
+            <summary>
+            Gets the context of the Vmin Forwarding SharedStorage Object which contains the VminForwarding Domain/Corner to DFF Token mapping.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingFlagContext">
+            <summary>
+            Gets the context for any of the VminForwarding flags.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingSinglePointMode">
+            <summary>
+            Gets the name of the Vmin Forwarding SharedStorage Object which contains flag which forces Vmin searches to be single point tests.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingSearchGuardbandEnable">
+            <summary>
+            Gets the name of the Vmin Forwarding SharedStorage Object which contains flag for VminTC SearchGuardband.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingUseLimitCheckAsSourceEnable">
+            <summary>
+            Gets the name of the Vmin Forwarding SharedStorage Object which contains StoreVoltages flag.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingUseVoltagesSourcesEnable">
+            <summary>
+            Gets the name of the Vmin Forwarding SharedStorage Object which contains StoreVoltages flag.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingUseLimitCheckEnable">
+            <summary>
+            Gets the name of the Vmin Forwarding SharedStorage Object which contains StoreVoltages flag.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingStoreVoltagesEnable">
+            <summary>
+            Gets the name of the Vmin Forwarding SharedStorage Object which contains StoreVoltages flag.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.VminForwardingStoreVoltagesDoubleTap">
+            <summary>
+            Gets the name of the Vmin Forwarding SharedStorage Object which contains StoreVoltages flag.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.NameSeparator">
+            <summary>
+            Gets the string used as a separator in shared storage naming.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.PlistModeTokenName">
+            <summary>
+            Shared storage token name for plist mode.
+            Value is an integer. 1 for combined plist mode, 0 for monolithic plist mode.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.EnableVminNormalizerTokenName">
+            <summary>
+            Shared storage token name for VminNormalizer enable.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.DisablePerCoreOvershoot">
+            <summary>
+            Disable per core overshoot token name. In case of an overshoot, all cores are adjusted to the retry voltage.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.FlowIndexMode">
+            <summary>
+            Shared storage token name for flow index mode.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwarding.Globals.EnableVminStoreResult">
+            <summary>
+            Shared storage token name for Enable Vmin Store Result.
+            </summary>
+        </member>
+        <member name="T:DDG.VminForwardingReadType">
+            <summary>
+            Vmin forwarding read type.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwardingReadType.All">
+            <summary>
+            Read both Tier0 and Tier1 voltages.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwardingReadType.Tier1">
+            <summary>
+            Read only Tier1 voltages.
+            </summary>
+        </member>
+        <member name="F:DDG.VminForwardingReadType.Tier0">
+            <summary>
+            Read only Tier0 voltages.
+            </summary>
+        </member>
+        <member name="T:VminForwardingBase.VminForwardingFactory">
+            <summary>
+            Defines the <see cref="T:VminForwardingBase.VminForwardingFactory" />.
+            </summary>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingFactory.Get(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingFactory.Get(System.String,System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingFactory.GetAllDomainNames(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingFactory.GetInstanceNamesForDomain(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException"> Thrown if domain is not valid.</exception>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingFactory.GetCornerNamesForDomainInstance(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException"> Thrown if instance is not valid.</exception>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingFactory.GetFrequency(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+            <exception cref="T:System.ArgumentException"> Thrown if domain or corner is not valid.</exception>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingFactory.GetDomainName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingFactory.GetDffTokenMap(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingFactory.IsSinglePointMode(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingFactory.IsSearchGuardbandEnabled(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:VminForwardingBase.VminForwardingPrediction">
+            <summary>
+            Defines the <see cref="T:VminForwardingBase.VminForwardingPrediction" />.
+            </summary>
+        </member>
+        <member name="F:VminForwardingBase.VminForwardingPrediction.VminMhzFrequencyInMhzPrecisionSignificantBits">
+            <summary>
+            Gets the number of significant bits to use when comparing frequency (in mhz) values.
+            </summary>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingPrediction.#ctor(Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VminForwardingBase.VminForwardingPrediction"/> class.
+            </summary>
+            <param name="console">Prime IConsoleService or null if no printing is required.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingPrediction.GetVoltage(Prime.VminForwardingService.VminForwardingDataType,System.String,System.Int32)">
+            <summary>
+            Gets the current Voltage for a given VminCorner and Flow. Corner should be the full instance@frequencycorner style -- CR0@F3.
+            </summary>
+            <param name="type">VminForwarding data type.</param>
+            <param name="fullCornerName">Full Vmin Instance@FreqCorer - CR1@F3.</param>
+            <param name="flow">Flow ID.</param>
+            <returns>the current Voltage for the corner.</returns>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingPrediction.GetVoltage(System.String,System.Int32)">
+            <summary>
+            Gets the current Voltage for a given VminCorner and Flow. Corner should be the full instance@frequencycorner style -- CR0@F3.
+            </summary>
+            <param name="fullCornerName">Full Vmin Instance@FreqCorer - CR1@F3.</param>
+            <param name="flow">Flow ID.</param>
+            <returns>the current Voltage for the corner.</returns>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingPrediction.GetVoltage(Prime.VminForwardingService.VminForwardingDataType,System.String,System.Int32,System.Double,System.Collections.Generic.List{System.Tuple{System.Double,System.Double}})">
+            <summary>
+            Gets the interpolated voltage for the given VminForwarding Instance at the target frequency using the
+            current voltages at the given flow.
+            Calculated from linear interpolation using the next lower/higher frequency corners,
+            or the closest two corners if the target is outside the normal corner frequency range.
+            </summary>
+            <param name="type">VminForwarding data type.</param>
+            <param name="vminInstance">VminForwarding Instance name. Like CR1, CRU2.</param>
+            <param name="flow">Flow ID to get the current vmin data from.</param>
+            <param name="targetFrequency">Target frequency (in Hz) to calculate the new vmin for.</param>
+            <param name="sortedFrequencyVoltagePairs">Pass frequency voltage pairs for linear prediction.</param>
+            <returns>The interpolated voltage for the given frequency.</returns>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingPrediction.GetVoltage(Prime.VminForwardingService.VminForwardingDataType,System.String,System.Int32,System.Double)">
+            <summary>
+            Gets the interpolated voltage for the given VminForwarding Instance at the target frequency using the
+            current voltages at the given flow.
+            Calculated from linear interpolation using the next lower/higher frequency corners,
+            or the closest two corners if the target is outside the normal corner frequency range.
+            </summary>
+            <param name="type">VminForwarding data type.</param>
+            <param name="vminInstance">VminForwarding Instance name. Like CR1, CRU2.</param>
+            <param name="flow">Flow ID to get the current vmin data from.</param>
+            <param name="targetFrequency">Target frequency (in Hz) to calculate the new vmin for.</param>
+            <returns>The interpolated voltage for the given frequency.</returns>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingPrediction.GetVoltage(System.String,System.Int32,System.Double,System.Collections.Generic.List{System.Tuple{System.Double,System.Double}})">
+            <summary>
+            Gets the interpolated voltage for the given VminForwarding Instance at the target frequency using the
+            current voltages at the given flow.
+            Calculated from linear interpolation using the next lower/higher frequency corners,
+            or the closest two corners if the target is outside the normal corner frequency range.
+            </summary>
+            <param name="vminInstance">VminForwarding Instance name. Like CR1, CRU2.</param>
+            <param name="flow">Flow ID to get the current vmin data from.</param>
+            <param name="targetFrequency">Target frequency (in Hz) to calculate the new vmin for.</param>
+            <param name="sortedFrequencyVoltagePairs">Pass frequency voltage pairs for linear prediction.</param>
+            <returns>The interpolated voltage for the given frequency.</returns>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingPrediction.AdjustVminUsingFrequencyScaling(Prime.VminForwardingService.VminForwardingDataType,System.String,System.Int32,System.Double,System.Double)">
+            <summary>
+            Adjust current corner voltage using linear calculation between current frequency and corner's frequency.
+            </summary>
+            <param name="type">VminForwarding data type.</param>
+            <param name="cornerId">Corner identifier. CRU0@F6.</param>
+            <param name="flow">Flow number.</param>
+            <param name="vmin">Original vmin.</param>
+            <param name="scalingFactor">Scaling factors. Fred= ScalingFactor * Ratio * 1/BCLK.</param>
+            <returns>Adjusted Vmin.</returns>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingPrediction.InterpolateVmin(Prime.VminForwardingService.VminForwardingDataType,System.String,System.Int32)">
+            <summary>
+            Interpolates vmin using adjacent frequency corners.
+            </summary>
+            <param name="type">VminForwarding data type.</param>
+            <param name="cornerId">Corner identifier. CRU0@F6.</param>
+            <param name="flow">Flow number.</param>
+            <returns>Original, adjusted Vmin.</returns>
+        </member>
+        <member name="T:VminForwardingBase.VminForwardingTable">
+            <summary>
+            Main VminForwardingTable class.
+            </summary>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.#ctor(System.Collections.Generic.List{System.String},System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VminForwardingBase.VminForwardingTable"/> class.
+            </summary>
+            <param name="vminCornerInstances">List of Domain Instance @ Corner names (ie CR0@F1, CR1@F3).</param>
+            <param name="flow">Flow Number.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+            <inheritdoc cref="T:VminForwardingBase.VminForwardingTable"/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.#ctor(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VminForwardingBase.VminForwardingTable"/> class.
+            </summary>
+            <param name="vminCorners">String containing comma separated list of Domain Instance @ Corner names (ie CR0@F1, CR1@F3).</param>
+            <param name="flow">Flow Number.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+            <inheritdoc cref="T:VminForwardingBase.VminForwardingTable"/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.#ctor(System.String,System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VminForwardingBase.VminForwardingTable"/> class.
+            </summary>
+            <param name="vminDomain">String containing comma separated list of Domain Instance names.</param>
+            <param name="frequencyCorner">String containing a single Frequency Corner.</param>
+            <param name="flow">Flow Number.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+        </member>
+        <member name="P:VminForwardingBase.VminForwardingTable.Flow">
+            <inheritdoc/>
+        </member>
+        <member name="P:VminForwardingBase.VminForwardingTable.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:VminForwardingBase.VminForwardingTable.Frequency">
+            <inheritdoc/>
+        </member>
+        <member name="P:VminForwardingBase.VminForwardingTable.Domain">
+            <inheritdoc/>
+        </member>
+        <member name="P:VminForwardingBase.VminForwardingTable.Corner">
+            <inheritdoc/>
+        </member>
+        <member name="P:VminForwardingBase.VminForwardingTable.Console">
+            <summary>
+            Gets a variable holding Prime.Services.ConsoleService or null depending on the current instances LogLevel.
+            </summary>
+        </member>
+        <member name="P:VminForwardingBase.VminForwardingTable.SessionContext">
+            <summary>
+            Gets a variable holding the ISessionContextProviderContainer for this instance.
+            </summary>
+        </member>
+        <member name="P:VminForwardingBase.VminForwardingTable.Instances">
+            <summary>
+            Gets or sets the List of Vmin Corners associated with this object.
+            </summary>
+        </member>
+        <member name="P:VminForwardingBase.VminForwardingTable.VminHandler">
+            <summary>
+            Gets or sets the Vmin corner object from Prime.
+            </summary>
+        </member>
+        <member name="P:VminForwardingBase.VminForwardingTable.StoreVoltages">
+            <summary>
+            Gets a value indicating whether Prime VminForwarding StoreVoltages is true or false.
+            </summary>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.GetFrequency">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.GetStartingVoltage(Prime.VminForwardingService.VminForwardingDataType,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.GetStartingVoltage(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.GetStartingVoltage(System.Double,DDG.VminForwardingReadType,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.GetStartingVoltage(Prime.VminForwardingService.VminForwardingDataType,System.Collections.Generic.IList{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.GetStartingVoltage(System.Collections.Generic.IList{System.Double})">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.StoreVminResult(Prime.VminForwardingService.VminForwardingDataType,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:VminForwardingBase.VminForwardingTable.StoreVminResult(Prime.VminForwardingService.VminForwardingDataType,System.Collections.Generic.IList{System.Double})">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

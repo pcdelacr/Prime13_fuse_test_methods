@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Registers": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/definitions/Register" }
+    }
+  },
+  "required": [
+    "Registers"
+  ],
+  "definitions": {
+    "Register": {
+      "type": "object",
+      "properties": {
+        "RegisterName": {
+          "type": ["string", "array"],
+          "minLength": 1,
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/nonEmptyString"
+          }
+        },
+        "LabelName": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "LabelOffset": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "RegisterName",
+        "LabelName",
+        "LabelOffset"
+      ]
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

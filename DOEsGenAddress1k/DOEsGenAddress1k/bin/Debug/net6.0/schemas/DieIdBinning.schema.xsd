@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="DESIGNFILE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DIE_LEVEL" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DIEINFO" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="LEVEL" type="xs:string" use="required" />
+				  <xs:attribute name="REFDES" type="xs:string" use="required" />
+				  <xs:attribute name="DESIGN_DIE_NAME" type="xs:string" use="required" />
+				  <xs:attribute name="ORIGIN_X" type="xs:string" use="required" />
+				  <xs:attribute name="ORIGIN_Y" type="xs:string" use="required" />
+				  <xs:attribute name="STEP" type="xs:string" use="required" />
+				  <xs:attribute name="REV" type="xs:string" use="required" />
+				  <xs:attribute name="DIE_SIZE" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+			  <xs:element name="DIE_LEVEL" minOccurs="0" maxOccurs="unbounded">
+			  <xs:complexType>
+				<xs:sequence>
+				  <xs:element name="DIEINFO" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+					  <xs:attribute name="LEVEL" type="xs:string" use="required" />
+					  <xs:attribute name="REFDES" type="xs:string" use="required" />
+					  <xs:attribute name="DESIGN_DIE_NAME" type="xs:string" use="required" />
+					  <xs:attribute name="ORIGIN_X" type="xs:string" use="required" />
+					  <xs:attribute name="ORIGIN_Y" type="xs:string" use="required" />
+					  <xs:attribute name="STEP" type="xs:string" use="required" />
+					  <xs:attribute name="REV" type="xs:string" use="required" />
+					</xs:complexType>
+				  </xs:element>
+				</xs:sequence>
+			  </xs:complexType>
+			</xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+        <xs:attribute name="ProductName" type="xs:string" use="required" />
+		<xs:attribute name="AssyNum" type="xs:string" use="required" />
+		<xs:attribute name="AssyRev" type="xs:string" use="required" />
+		<xs:attribute name="SPEEDNum" type="xs:string" use="required" />
+		<xs:attribute name="SPEEDRev" type="xs:string" use="required" />
+		<xs:attribute name="UnitOfMeasurement" type="xs:string" use="required" />
+		<xs:attribute name="PLAVERSION" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

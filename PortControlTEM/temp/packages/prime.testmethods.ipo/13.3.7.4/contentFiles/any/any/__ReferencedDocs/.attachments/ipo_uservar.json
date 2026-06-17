@@ -1,0 +1,117 @@
+{
+  "Configuration": {
+    "TestsToExecute": [
+      {
+        "Name": "Ipo::IpoBasicTest_Uservar_P1",
+        "Type": "INSTANCE"
+      }
+    ],
+    "StoreIterationResult": {
+      "SharedStorage": {
+        "Key": "IpoIterationResultKey"
+      }
+    },
+    "Loop": [
+      {
+        "Id": "100-MultipleStep-UV",
+        "Iteration": [
+          {
+            "Id": "010-TwoItem",
+            "StepCount": 2,
+            "UserVar": [
+              {
+                "DataType": "DOUBLE",
+                "Key": "_UserVars.KeyA",
+                "Start": 0.0,
+                "Step": 0.1
+              },
+              {
+                "DataType": "DOUBLE",
+                "Key": "_UserVars.KeyB",
+                "Start": 0.0,
+                "Step": 0.2
+              }
+            ]
+          },
+          {
+            "Id": "011-OneItem",
+            "StepCount": 3,
+            "UserVar": [
+              {
+                "DataType": "INT",
+                "Key": "_UserVars.KeyC",
+                "Start": 0,
+                "Step": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "200-SingleStep-UV",
+        "Iteration": [
+          {
+            "Id": "020-TwoItem",
+            "UserVar": [
+              {
+                "DataType": "STRING",
+                "Key": "_UserVars.FuseString0",
+                "Value": "0000"
+              },
+              {
+                "DataType": "STRING",
+                "Key": "_UserVars.FuseString1",
+                "Value": "1111"
+              }
+            ]
+          },
+          {
+            "Id": "021-OneItem-Toggle",
+            "UserVar": [
+              {
+                "DataType": "STRING",
+                "Key": "_UserVars.FuseString0",
+                "Value": "AAAA"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "300-Toggle-UV",
+        "Iteration": [
+          {
+            "Id": "030-Toggle",
+            "UserVar": [
+              {
+                "DataType": "STRING",
+                "Key": "_UserVars.FuseString0011",
+                "Value": "0011"
+              },
+              {
+                "DataType": "STRING",
+                "Key": "_UserVars.FuseString1100",
+                "Value": "1100"
+              }
+            ]
+          },
+          {
+            "Id": "031-Toggle",
+            "UserVar": [
+              {
+                "DataType": "STRING",
+                "Key": "_UserVars.FuseString0011",
+                "Value": "1100"
+              },
+              {
+                "DataType": "STRING",
+                "Key": "_UserVars.FuseString1100",
+                "Value": "0011"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

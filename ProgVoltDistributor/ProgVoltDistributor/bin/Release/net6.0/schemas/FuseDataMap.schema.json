@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "VirtualFuseDataMap",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "VF_Gap_Field_Name": {
+      "type": "string"
+    },
+    "VF_Field_Map": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/FieldMap"}
+    }
+  },
+  "definitions": {
+    "FieldMap": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "FuseName": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        "StartBit": {
+          "$ref": "#/definitions/ZeroBasedInteger"
+        },
+        "EndBit": {
+          "$ref": "#/definitions/ZeroBasedInteger"
+        }
+      }
+    },
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ZeroBasedInteger": {
+      "type": "integer",
+      "minimum": 0
+    }    
+  }
+}

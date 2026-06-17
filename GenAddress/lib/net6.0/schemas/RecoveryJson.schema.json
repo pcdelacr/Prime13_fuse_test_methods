@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "RecoveryJson",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "Version": {
+      "type": "number",
+      "format": "double"
+    },
+    "RecoveryToken": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ValidOptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "RecoveryPriority": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Int32OrString"
+      }
+    },
+    "ErrorValue": {
+      "type": "string"
+    },
+    "FailValue": {
+      "type": "string"
+    },
+    "PassValue": {
+      "type": "string"
+    },
+    "DesignIps": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/RecoveryIpsJson"
+      }
+    }
+  },
+  "definitions": {
+    "RecoveryIpsJson": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/RecoveryIpTypes"
+        },
+        "Required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "RecoveryOptions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "RecoveryIpTypes": {
+      "type": "string",
+      "enum": [
+        "Partial",
+        "Full"
+      ]
+    },
+    "Int32OrString": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "format": "int32"
+        },
+        {
+          "type": "string",
+          "pattern": "^[+-]?\\d+$"
+        }
+      ]
+    }
+  }
+}

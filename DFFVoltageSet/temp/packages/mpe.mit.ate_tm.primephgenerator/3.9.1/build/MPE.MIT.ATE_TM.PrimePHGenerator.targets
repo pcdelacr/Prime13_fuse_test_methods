@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="Prime.MsBuild.Tasks.BuildPhFilesTask" AssemblyFile="..\prime_tasks\PrimeMsbuildTasks.dll" />
+
+    <!--
+      By default, preheaders will not be generated for TOS4 compilations (.net6.0 and above).
+      If desired, you can force preheader generation by setting the GeneratePreheaders property to true
+      in some .props file that your user code project inherits.
+    -->
+    <PropertyGroup>
+      <GeneratePreheaders Condition="'$(GeneratePreheaders)' == '' and '$(TargetFrameworkIdentifier)' == '.NETFramework'">true</GeneratePreheaders>
+      <GeneratePreheaders Condition="'$(GeneratePreheaders)' == '' and '$(TargetFrameworkIdentifier)' != '.NETFramework'">false</GeneratePreheaders>
+    </PropertyGroup>
+
+  <Target Name="BeforeBuild">
+    <BuildPhFilesTask OutDir="$(OutDir)" OutputDirRelativePath="$(PreHeaderLocationRelativePath)" GeneratePreheaders="$(GeneratePreheaders)" TargetFrameworkIdentifier="$(TargetFrameworkIdentifier)" />
+  </Target>
+</Project>

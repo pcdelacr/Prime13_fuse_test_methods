@@ -1,0 +1,1098 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.FuseManagerService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.FuseManagerService.Factory.FlameEngineFactory">
+            <summary>
+            Factory to create new flame engine instance.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Factory.FlameEngineFactory.FlameEngineInstance">
+            <summary>
+            Gets or sets Flame engine instance.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.FileHandler.FileHandler">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.FuseManagerService.FileHandler.IFileHandler">
+            <summary>
+            This object is responsible to handle files.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.FileHandler.IFileHandler.ReadAll(System.String)">
+            <summary>
+            Read file contents and returns the content as string.
+            </summary>
+            <param name="filePath">Full path of the file.</param>
+            <returns>File content in string.</returns>
+        </member>
+        <member name="T:Prime.FuseManagerService.FuseManagerService">
+            <summary>
+            Fuse service implemenation.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.FuseManagerService.FileHandler">
+            <summary>
+            Gets or sets fileHandler.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.FuseManagerService.Prime#Base#IAlephAble#IAlephAble#AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.FuseManagerService.Prime#Base#IAlephAble#IAlephAble#GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.FuseManagerService.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.FuseManagerService.Prime#Base#IAlephAble#IAlephAble#GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.FuseManagerService.Prime#FuseManagerService#IFuseManagerService#GetVirtualFuseHandler(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FuseManagerService.Helpers.DebugMessageHelper">
+            <summary>
+            Helper class to print the debug messages for debug purposes only.
+            The static nature of this class might cause an issue with mDUT and iDut.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.Helpers.DebugMessageHelper.PrintUpdatedFusesToConsoleForDebug(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print the updated fuses data to console.
+            </summary>
+            <param name="updatedFuses">The dictionary of fuses from single tag.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.Helpers.DebugMessageHelper.PrintUpdatedFuseTagsToConsoleForDebug(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.HashSet{System.String}},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print all the fuse data to console.
+            </summary>
+            <param name="updatedFuses">The dictionary of fuses from single tag.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.Helpers.DebugMessageHelper.PrintDebugMessage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print the debug message.
+            </summary>
+            <param name="msg">The message to be printed.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.Helpers.DebugMessageHelper.PrintFuseDataDetails(System.Collections.Generic.List{Prime.FuseManagerService.ValueDetails},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print the fuse map data to log.
+            </summary>
+            <param name="fuseDataDetails">The fuse map data.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.Helpers.DebugMessageHelper.PrintParsedHeapItems(System.Collections.Generic.IEnumerable{Prime.FuseManagerService.Internal.IHeapParserItemDetailsProxy},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print the Parsed Item Details for debug.
+            </summary>
+            <param name="items">The parsed Item Details.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.Helpers.DebugMessageHelper.PrintDebugToTosConsole(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print the debug message to TOS Console GUI.
+            Define <DefineConstants>LIVE_DEBUG</DefineConstants> in csproj to enable this helper.
+            </summary>
+            <param name="msg">The message to print.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.FuseManagerService.IFuseManagerService">
+            <summary>
+            Fuse service class.
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.SessionService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IFuseManagerService.GetVirtualFuseHandler(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the handler for virtual fuse for a specific namespace.
+            This handler is required to perform actions related to fuses.
+            Test methods and user code will need to get this handler on Verify().
+            Through this handler user will be able to read, write and genreate virtual fuses descriptors (HCS) and data (FDS).
+            </summary>
+            <param name="fusesNamespace">The fuses namespace defined in VirtualFuseConfig .json file.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Virtual fuse handler for requested namespace.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Specified namespace does not exists in storage.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Errors in FLAME engine initialization.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext)/;]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IFuseManagerService.GetVirtualFuseMetadataByFuseName(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This function should return you the virtual fuse metadata by namespace and fuseName.
+            </summary>
+            <param name="fusesNamespace">Virtual fuse namespace.</param>
+            <param name="fuseName">Virtual fuse name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>FuseMetadata.</returns>
+        </member>
+        <member name="M:Prime.FuseManagerService.IFuseManagerService.UpdateDynamicallySizedFusesOverride(System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Updates the override list for dynamically sized fuses in the specified namespace.
+            This method allows the user to specify a new set of dynamically sized fuses that should override the default configuration.
+            </summary>
+            <param name="fusesNamespace">The fuses namespace defined in the VirtualFuseConfig .json file.</param>
+            <param name="dynamicallySizedFusesOverride">A list of fuse names that should override the dynamically sized fuses configuration.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var overrideList = new List<string> { "FuseA", "FuseB" };
+            Prime.Base.ServiceStore<IFuseManagerService>.Service.UpdateDynamicallySizedFusesOverride("U1", overrideList, this.SessionContext);
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="T:Prime.FuseManagerService.CalculationMode">
+            <summary>
+            This will decide the way generating descriptors and data (HCS and FDS) will behave.
+            </summary>
+        </member>
+        <member name="F:Prime.FuseManagerService.CalculationMode.IGNORE_STORED_DATA">
+            <summary>
+            Will ignore all stored data, and calculate the descriptors and data (HCS and FDS) using the provided fuses in the API.
+            </summary>
+        </member>
+        <member name="F:Prime.FuseManagerService.CalculationMode.USE_STORED_DATA_FROM_TAGS">
+            <summary>
+            Will take into account fuses from the provided tags to calculate the descriptors and data (HCS and FDS),
+            along with the provided fuses in the API.
+            </summary>
+        </member>
+        <member name="F:Prime.FuseManagerService.CalculationMode.USE_ALL_STORED_DATA">
+            <summary>
+            Will take into account all the stored fuses under namespace to calculate the descriptors and data (HCS and FDS),
+            along with the provided fuses in the API.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.IVirtualFuseHandler">
+            <summary>
+            Fuse handler class.
+            Through this handler user will be able to read, write and generate virtual fuses descriptors (HCS) and data (FDS).
+            </summary>
+            <remarks>
+            <para>This handler depends on:</para>
+            <list type="bullet">
+            <item><see cref="N:Prime.SessionService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.StoreVirtualFuse(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.String)">
+            <summary>
+            This method stores the provided fuses and values under the given tag.
+            </summary>
+            <param name="fuseNamesAndValues">Fuses names and values in binary.</param>
+            <param name="tag">Tag to store the fuses under.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var fuseNamesAndValues = new Dictionary<string, string>();
+            fuseNamesAndValues.Add("Fuse1", "00100");
+            U1VirtualFuseHandler.StoreVirtualFuse(fuseNamesAndValues, "tag1");]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.StoreVirtualFuse(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            This method stores the provided fuses and values under the given tag.
+            </summary>
+            <param name="fuseNamesAndValues">Fuses names and values in binary.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var fuseNamesAndValues = new Dictionary<string, string>();
+            fuseNamesAndValues.Add("Fuse1", "00100");
+            U1VirtualFuseHandler.StoreVirtualFuse(fuseNamesAndValues);]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.ReadVirtualFusesForSpecificTag(System.String)">
+            <summary>
+            This method will read the fuses data from the given tag. Enable bits defined in the FusesWithEnableBit will be included.
+            </summary>
+            <param name="tag">Tag to pull fuses from.</param>
+            <returns>Dictionary of fuse name to value.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">The specified tag does not exists.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var fusesOfTag1 = U1VirtualFuseHandler.ReadVirtualFusesForSpecificTag("tag1");]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.ReadVirtualFuseWithoutEnableBitsForSpecificTag(System.String)">
+            <summary>
+            This method will read the fuses data from the given tag. Enable bits defined in the FusesWithEnableBit will not be included.
+            </summary>
+            <param name="tag">Tag to pull fuses from.</param>
+            <returns>Dictionary of fuse name to value.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">The specified tag does not exists.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var fusesOfTag1WithoutEnableBit = U1VirtualFuseHandler.ReadVirtualFuseWithoutEnableBitsForSpecificTag("tag1");]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.TryReadVirtualFusesForSpecificTag(System.String,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            This method will try to read the fuses data from the given tag. Enable bits defined in the FusesWithEnableBit will be included.
+            </summary>
+            <param name="tag">Tag to pull fuses from.</param>
+            <param name="virtualFuses">The dictionary of fuse name to value. This parameter will be null if there's any error.</param>
+            <returns>True if the tag exists in the service storage.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            if (!U1VirtualFuseHandler.TryReadVirtualFusesForSpecificTag("tag1", out var virtualFuses))
+            {
+                Prime.Base.ServiceStore<IConsoleService>.Service.PrintDebug(() => "tag1 does not exists in storage", this.sessionContext);
+            }]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.ReadAllVirtualFuse">
+            <summary>
+            This method will read all the fuses. Enable bits defined in the FusesWithEnableBit will be included.
+            </summary>
+            <returns>Dictionary of fuse name to value.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var virtualFuseOfU1 = U1VirtualFuseHandler.ReadAllVirtualFuse();]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.ReadAllVirtualFuseWithoutEnableBits">
+            <summary>
+            This method will read all the fuses. Enable bits defined in the FusesWithEnableBit will not be included.
+            </summary>
+            <returns>Dictionary of fuse name to value.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var virtualFuseOfU1WithoutEnableBits = U1VirtualFuseHandler.ReadAllVirtualFuseWithoutEnableBits();]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.GenerateVirtualFuseWithoutStoredData(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Generates the virtual fuse descriptor and data (HCS and FDS) without using stored data.
+            </summary>
+            <param name="fusesNamesAndValues">Fuses to take into account when generating the descriptor and data.</param>
+            <returns>Virtual Fuse Data structure containing HCS and FDS.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Empty dictionary being sent for generation.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">FLAME encounters an error when generating the descriptor and data.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var fuseNamesAndValues = new Dictionary<string, string>();
+            fuseNamesAndValues.Add("Fuse1", "00100");
+            var uOneVirtualFuseData = U1VirtualFuseHandler.GenerateVirtualFuseWithoutStoredData(fuseNamesAndValues);]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.GenerateVirtualFuseWithTaggedData(System.Collections.Generic.IReadOnlyCollection{System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Generates the virtual fuse descriptor and data (HCS and FDS) using stored data in the service specified by the tag.
+            </summary>
+            <param name="tags">Tags of the data to be obtained from service storage.</param>
+            <param name="extraFuses">Extra fuses to take into account when generating the descriptor and data.</param>
+            <returns>Virtual Fuse Data structure containing HCS and FDS.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">No fuses are stored in the service and empty dictionary is being sent for generation.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">FLAME encounters an error when generating the descriptor and data.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var fuseNamesAndValues = new Dictionary<string, string>();
+            fuseNamesAndValues.Add("Fuse1", "00100");
+            var uOneVirtualFuseData = U1VirtualFuseHandler.GenerateVirtualFuseWithTaggedData("tag3", fuseNamesAndValues);]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.GenerateVirtualFuseWithTaggedData(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <summary>
+            Generates the virtual fuse descriptor and data (HCS an FDS) using stored data in the service specified by the tag.
+            </summary>
+            <param name="tags">Tags of the data to be obtained from service storage.</param>
+            <returns>Virtual Fuse Data structure containing HCS and FDS.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">No fuses are being tagged with the specified tag.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">FLAME encounters an error when generating the descriptor and data.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var uOneVirtualFuseData = U1VirtualFuseHandler.GenerateVirtualFuseWithTaggedData("tag3");]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.GenerateVirtualFuseWithAllData(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Generates the virtual fuse descriptor and data (HCS and FDS) using all stored data in the service.
+            </summary>
+            <param name="extraFuses">Extra fuses to take into account when generating the descriptor and data.</param>
+            <returns>Virtual Fuse Data structure containing HCS and FDS.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">No fuses are stored in the service and empty dictionary is being sent for generation.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">FLAME encounters an error when generating the descriptor and data.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var uOneVirtualFuseData = U1VirtualFuseHandler.GenerateVirtualFuseWithAllData("tag3");]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.GenerateVirtualFuseWithAllData">
+            <summary>
+            Generates the virtual fuse descriptor and data (HCS and FDS) using all stored data in the service.
+            </summary>
+            <returns>Virtual Fuse Data structure containing HCS and FDS.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">No fuses are stored in the service.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">FLAME encounters an error when generating the descriptor and data.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var uOneVirtualFuseData = U1VirtualFuseHandler.GenerateVirtualFuseWithAllData();]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.GenerateVirtualFuseDffString">
+            <summary>
+            This method generates the 'dff' string that contains all fuses info under this namespace.
+            String format is as follow: "TAG1^FUSE11:VAL&amp;FUSE12:VAL|TAG2^FUSE21:VAL&amp;FUSE22:VAL..".
+            </summary>
+            <returns>'dff' string that represents this fuses namespace.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var u1DffFormattedString = U1VirtualFuseHandler.GenerateVirtualFuseDffString();]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.UpdateFusesDataFromDffString(System.String)">
+            <summary>
+            This method update fuses database from DFF string.
+            String format is as follow: "TAG1^FUSE11:VAL&amp;FUSE12:VAL|TAG2^FUSE21:VAL&amp;FUSE22:VAL...".
+            </summary>
+            <param name="stringFromDff">fuses string from dff.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Value from DFF is not formatted correctly.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            var u1DffFormattedString = U1VirtualFuseHandler.UpdateFusesDataFromDffString("TAG1^FUSE11:0001&FUSE12:0010|TAG2^FUSE21:0100");]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.ResetVirtualFuseForTag(System.String)">
+            <summary>
+            This method will delete all the fuses stored under the given tag in the service.
+            </summary>
+            <param name="tag">The fuse tag to reset. Leave it empty if you want to reset all.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            U1VirtualFuseHandler.ResetVirtualFuseForTag();]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.ResetAllVirtualFuse">
+            <summary>
+            This method will delete all the fuses stored in the service.
+            </summary>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            U1VirtualFuseHandler.ResetAllVirtualFuse();]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.AddFuseToTag(System.String,System.String)">
+            <summary>
+            Tag new fuse to a new or existing tag.
+            If the tag hasn't exist previously, new tag will be created.
+            </summary>
+            <param name="fuseName">The fuse name to be added to the tag.</param>
+            <param name="tag">The tag name that the fuse to be added to.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            U1VirtualFuseHandler.AddFuseToTag("Fuse1", "MlcTag";]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.RemoveFuseFromTag(System.String,System.String)">
+            <summary>
+            Remove the specified fuse name from the tag.
+            Specified tag exists.
+            </summary>
+            <param name="fuseName">The fuse name to be removed from the tag.</param>
+            <param name="tag">The tag name that the fuse to be added to.</param>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">No tags are stored in the service.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Specified tag doesn't exists.</exception>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Specified fuse name doesn't exists under the specified tag.</exception>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            <![CDATA[
+            var U1VirtualFuseHandler = Prime.Base.ServiceStore<IFuseManagerService>.Service.GetVirtualFuseHandler("U1", this.SessionContext);
+            U1VirtualFuseHandler.RemoveFuseFromTag("Fuse1", "MlcTag";]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.SaveCurrentFuseStorage">
+            <summary>
+            Save current fuses into the latched storage.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.SaveCurrentFuseStorageForTag(System.String)">
+            <summary>
+            Save current fuses into latched storage for specific tag.
+            </summary>
+            <param name="tag">The tag of the fuses to be saved.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.RestoreSavedFuses">
+            <summary>
+            Restore fuses from latched storage and remove current fuses.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.RestoreSavedFusesForTag(System.String)">
+            <summary>
+            Restore fuses from latched storage and remove current fuses.
+            </summary>
+            <param name="tag">The tag of the fuses to be restored.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.TagExistsInNamespace(System.String)">
+            <summary>
+            This method will determine if the specified tag exists in the current namespace.
+            </summary>
+            <param name="tag">Fuse tag to be verified.</param>
+            <returns>True means tag exists and contains data; false means tag doesn't exists in namespace.</returns>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseHandler.SetHandlerToGenerateFuseDataMap">
+            <summary>
+            This method will set the handler to generate fuse map data together with virtual fuse data (HCS and FDS) at generation phase.
+            </summary>
+            <returns>This VirtualFuseHandler object.</returns>
+        </member>
+        <member name="T:Prime.FuseManagerService.Internal.IHeapGeneratorProxy">
+            <summary>
+            Proxy interface to FLAME HeapGenerator.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapGeneratorProxy.ParsedHeapItemDetails">
+            <summary>
+            Gets or sets the parsed heap item details.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.Internal.IHeapGeneratorProxy.GenerateHeapInfo(System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Generate the heap info.
+            </summary>
+            <param name="fuseData">The fuse data to be generated.</param>
+            <param name="sessionContext">The session context of the operation.</param>
+            <returns>The generated heap information.</returns>
+        </member>
+        <member name="T:Prime.FuseManagerService.Internal.IHeapInfoProxy">
+            <summary>
+            Proxy to HeapOutputInfo from FLAME.
+            This proxy is the boundary layer to FLAME's Heap Object.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapInfoProxy.HeapString">
+            <summary>
+            Gets or sets the heap string proxy for FLAME.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapInfoProxy.DescriptorPointer">
+            <summary>
+            Gets or sets the descriptor pointer proxy for FLAME.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapInfoProxy.DescriptorSize">
+            <summary>
+            Gets or sets the descriptor size proxy for FLAME.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapInfoProxy.DataPointer">
+            <summary>
+            Gets or sets the data pointer proxy for FLAME.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapInfoProxy.FuseDataSize">
+            <summary>
+            Gets or sets the fuse data size proxy for FLAME.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapInfoProxy.HeapMapData">
+            <summary>
+            Gets or sets the heap map proxy for FLAME.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.Internal.IHeapParserItemDetailsProxy">
+            <summary>
+            Proxy to HeapParserItemDetails from FLAME.
+            This proxy is the boundary layer to FLAME's HeapParserItemDetails.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapParserItemDetailsProxy.ParsedHeapItemType">
+            <summary>
+            Gets the item type.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapParserItemDetailsProxy.Summary">
+            <summary>
+            Gets the summary.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapParserItemDetailsProxy.Label">
+            <summary>
+            Gets the label.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapParserItemDetailsProxy.CorrelationId">
+            <summary>
+            Gets the correlation id.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapParserItemDetailsProxy.BitPositionOnHeap">
+            <summary>
+            Gets the bit position on heap.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapParserItemDetailsProxy.BitWidth">
+            <summary>
+            Gets the bit width.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.Internal.IHeapParserItemDetailsProxy.BinaryValue">
+            <summary>
+            Gets the binary value.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.IVirtualFuseData">
+            <summary>
+            Data structure to hold the generated virtual fuses data.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.IVirtualFuseData.HeapControlSection">
+            <summary>
+            Gets the HCS string for virtual fuses.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.IVirtualFuseData.FuseDataSection">
+            <summary>
+            Gets the FDS string for virtual fuses.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.IVirtualFuseFlameEngine">
+            <summary>
+            Interface for Flame fuse engine that is used in Prime fuse service to generate the fuses.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseFlameEngine.Initialize(System.String,System.String,System.Boolean,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This function should perform all the needed initialization on Flame fuse engine, in order to be used in execution time.
+            </summary>
+            <param name="flameKey">Flame key to get chassis, dummy descriptor and meta data.</param>
+            <param name="flameFilePath">The path to the flame file that defines the Flame key details.</param>
+            <param name="enableDynamicallySizedFuses">Gets or sets a value indicating whether gets or sets the switch of Dynamically Sized Fuses.</param>
+            <param name="dynamicallySizedFusesOverride">Gets or sets a string list with all fuses need to be dynamicallys sized.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.IVirtualFuseFlameEngine.GenerateDescriptorAndData(System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This function will be used in execution time to generate descriptor and data (HCS and FDS) for a given list of fuses.
+            </summary>
+            <param name="generateWithFuseMapData">Generate the fuse map data together.</param>
+            <param name="fusesData">Fuses to be used to generate the descriptor and data.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Pair that represents descriptor and ata (HCS and FDS).</returns>
+        </member>
+        <member name="T:Prime.FuseManagerService.Proxies.HeapGeneratorProxy">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.FuseManagerService.Proxies.HeapGeneratorProxy.#ctor(System.String,System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <param name="flameKey">FLAME Key to the Die.</param>
+            <param name="flameFilePath">Path to FLAME VF file.</param>
+            <param name="doHeapParsing">Make the generator parse the heap string for descriptor information.</param>
+            <param name="enableDynamicallySizedFuses">switch toggle for Dynamically Sized Fuses.</param>
+            <param name="dynamicallySizedFusesOverride">dynamicallySizedFusesOverride.</param>
+            <param name="sessionContext">The session context of the operation.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.Proxies.HeapGeneratorProxy.Prime#FuseManagerService#Internal#IHeapGeneratorProxy#GenerateHeapInfo(System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.FuseManagerService.Proxies.HeapParserItemDetailsProxy">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.Proxies.HeapParserItemDetailsProxy.ParsedHeapItemType">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.Proxies.HeapParserItemDetailsProxy.Summary">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.Proxies.HeapParserItemDetailsProxy.Label">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.Proxies.HeapParserItemDetailsProxy.CorrelationId">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.Proxies.HeapParserItemDetailsProxy.BitPositionOnHeap">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.Proxies.HeapParserItemDetailsProxy.BitWidth">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.Proxies.HeapParserItemDetailsProxy.BinaryValue">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.FuseManagerService.HeapInfoProxy">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.FuseManagerService.HeapInfoProxy.#ctor(Intel.FlameVF.HeapGenerator.Models.HeapOutputInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FuseManagerService.HeapInfoProxy"/> class.
+            </summary>
+            <param name="heapOutputInfoFromFlame">Heap info from flame.</param>
+        </member>
+        <member name="P:Prime.FuseManagerService.HeapInfoProxy.HeapString">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.HeapInfoProxy.DescriptorPointer">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.HeapInfoProxy.DescriptorSize">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.HeapInfoProxy.DataPointer">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.HeapInfoProxy.FuseDataSize">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.HeapInfoProxy.HeapMapData">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.FuseManagerService.VirtualFuseConfigFile">
+            <summary>
+            This class represents the structure of VirtualFuse .json input file.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseConfigFile.VirtualFuseConfigs">
+            <summary>
+            Gets or sets list of virtual fuses configurations.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseConfigFile.IsUsingNewDffFormat">
+            <summary>
+            Gets or sets a value indicating whether the service should use old DFF format or new DFF format. Default is using older format.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.VirtualFuseConfigFile.VirtualFuseConfig">
+            <summary>
+            This class represents virtual fuse config section.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseConfigFile.VirtualFuseConfig.Namespaces">
+            <summary>
+            Gets or sets list of namespace under one config section.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseConfigFile.VirtualFuseConfig.FlameKey">
+            <summary>
+            Gets or sets Flame id or key that will be used to pull the matching configs from Flame network path.
+            This key will allow the service to locate: chassis, dummy descriptor and metadata file from Flame.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseConfigFile.VirtualFuseConfig.FlameFile">
+            <summary>
+            Gets or sets Flame file path that will be used to in conjunction with the FlameKey.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseConfigFile.VirtualFuseConfig.EnableDynamicallySizedFuses">
+            <summary>
+            Gets or sets a value indicating whether gets or sets the switch of Dynamically Sized Fuses.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseConfigFile.VirtualFuseConfig.FusesWithEnableBit">
+            <summary>
+            Gets or sets list of enable bit mapping per fuse.
+            This allows the user to rely on the service to automatically update enable bits of specific fuses.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.VirtualFuseConfigFile.FusesWithEnableBit">
+            <summary>
+            Class that represents single mapping of fuse to enable bit fuse.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseConfigFile.FusesWithEnableBit.FuseName">
+            <summary>
+            Gets or sets the fuse name to map.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseConfigFile.FusesWithEnableBit.EnableBitFuseName">
+            <summary>
+            Gets or sets the enable bit fuse name, to map into.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseConfigFile.FusesWithEnableBit.EnableBinaryValue">
+            <summary>
+            Gets or sets the value to write to enable bit fuse when data is written to the fuse name.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.ValueDetails">
+            <summary>
+            Details on the value.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.ValueDetails.Name">
+            <summary>
+            Gets or sets the name of the segment.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.ValueDetails.Start">
+            <summary>
+            Gets or sets the start bit position in the string.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.ValueDetails.End">
+            <summary>
+            Gets or sets the end bit position in the string.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.VirtualFuse">
+            <summary>
+            Base class of virtual fuse information.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuse.Value">
+            <summary>
+            Gets or sets the string value.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuse.ValueDetails">
+            <summary>
+            Gets or sets the details of the value.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.VirtualFuseData">
+            <summary>
+            Data structure to hold the generated virtual fuses data.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseData.HeapControlSection">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseData.FuseDataSection">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.FuseManagerService.VirtualFuseFlameEngine">
+            <summary>
+            Flame engine implementation.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseFlameEngine.FileHandler">
+            <summary>
+            Gets or sets the FileHandler.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseFlameEngine.HeapGenerator">
+            <summary>
+            Gets or sets FlameVf HeapGenerator Interface for unit test injection.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseFlameEngine.Prime#FuseManagerService#IVirtualFuseFlameEngine#Initialize(System.String,System.String,System.Boolean,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseFlameEngine.Prime#FuseManagerService#IVirtualFuseFlameEngine#GenerateDescriptorAndData(System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FuseManagerService.VirtualFuseHandler">
+            <summary>
+            Fuse handler.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FuseManagerService.VirtualFuseHandler"/> class.
+            Handler is responsible for the flame engine.
+            </summary>
+            <param name="nameSpace">The namespace for this handler.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseHandler.FlameVirtualFuseEngine">
+            <summary>
+            Gets flame engine.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#StoreVirtualFuse(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#StoreVirtualFuse(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#ReadVirtualFusesForSpecificTag(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#ReadVirtualFuseWithoutEnableBitsForSpecificTag(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#ReadAllVirtualFuse">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#ReadAllVirtualFuseWithoutEnableBits">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#GenerateVirtualFuseWithoutStoredData(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#GenerateVirtualFuseWithTaggedData(System.Collections.Generic.IReadOnlyCollection{System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#GenerateVirtualFuseWithTaggedData(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#GenerateVirtualFuseWithAllData(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#GenerateVirtualFuseWithAllData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#GenerateVirtualFuseDffString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#UpdateFusesDataFromDffString(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#ResetVirtualFuseForTag(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#ResetAllVirtualFuse">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#TagExistsInNamespace(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#AddFuseToTag(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#RemoveFuseFromTag(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#SaveCurrentFuseStorage">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#SaveCurrentFuseStorageForTag(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#RestoreSavedFuses">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseHandler.Prime#FuseManagerService#IVirtualFuseHandler#RestoreSavedFusesForTag(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FuseManagerService.VirtualFuseNamespaceData">
+            <summary>
+            Class for virtual fuse namespace data that will be stored in SharedStorage.
+            During exectuion, VirtualFuseHandler will acces this class (using SharedStorage) to read and write fuses data.
+            This class is still missing:-
+                - HCS/FDS Fuse Size.
+                - SplitDieHierarchyIndex.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseNamespaceData.#ctor(Prime.FuseManagerService.VirtualFuseConfigFile.VirtualFuseConfig,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FuseManagerService.VirtualFuseNamespaceData"/> class.
+            Constructor for virtual fuse namespace that will be stored in SharedStorage.
+            </summary>
+            <param name="vfConfig">The virtual fuse config for the namespace.</param>
+            <param name="fusesNamespace">The fuse namespace.</param>
+            <param name="isUsingNewDffFormat">Is the namespace going to use new Dff Format.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseNamespaceData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FuseManagerService.VirtualFuseNamespaceData"/> class.
+            Parameterless constructor is required for SharedStorage.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.NamespaceName">
+            <summary>
+            Gets or sets namespace name.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.FlameKey">
+            <summary>
+            Gets or sets FlameKey that will be used to pull the matching data of: chassis_version, dummy_descriptor and metadata.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.FlameFilePath">
+            <summary>
+            Gets or sets Flame file that will be used for the namespace.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.EnableDynamicallySizedFuses">
+            <summary>
+            Gets or sets a value indicating whether gets or sets the switch of Dynamically Sized Fuses.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.DynamicallySizedFuses">
+            <summary>
+            Gets or sets the list of dynamically sized fuses for this namespace.
+            If not initialized, will return null. By returing null, we know this is not overriden by Mbist yet.
+            FIXME: This mechanism is not a good solution, need to be fixed later because this config should be ready
+            in service layer instead of overrding by test methods. The final fix now is pending on customer alignment.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.EnableBitFuses">
+            <summary>
+            Gets or sets EnableBitFuses.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.FuseMetadataByFusename">
+            <summary>
+            Gets or sets FuseMetadataByFusename, the dictionary is indexed by FuseName in this namespace.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.IsUsingNewDffFormat">
+            <summary>
+            Gets or sets a value indicating whether the service should use old DFF format or new DFF format.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.VirtualFuseNamespaceData.EnableBitFuse">
+            <summary>
+            EnableBitFuse.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseNamespaceData.EnableBitFuse.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FuseManagerService.VirtualFuseNamespaceData.EnableBitFuse"/> class.
+            </summary>
+            <param name="fuseName">fuse name.</param>
+            <param name="enableBitFuseName">enable bit fuse name.</param>
+            <param name="enableBinaryValue">enable fuse binary value.</param>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseNamespaceData.EnableBitFuse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FuseManagerService.VirtualFuseNamespaceData.EnableBitFuse"/> class.
+            Parameterless constructor is required for SharedStorage.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.EnableBitFuse.FuseName">
+            <summary>
+            Gets or sets fuseName.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.EnableBitFuse.EnableBitFuseName">
+            <summary>
+            Gets or sets EnableBitFuseName.
+            </summary>
+        </member>
+        <member name="P:Prime.FuseManagerService.VirtualFuseNamespaceData.EnableBitFuse.EnableBinaryValue">
+            <summary>
+            Gets or sets EnableBinaryValue.
+            </summary>
+        </member>
+        <member name="T:Prime.FuseManagerService.VirtualFuseSharedStorageInfo">
+            <summary>
+            Class that continas info about shared storage keys.
+            </summary>
+        </member>
+        <member name="M:Prime.FuseManagerService.VirtualFuseSharedStorageInfo.GetNamespaceSharedStorageKey(System.String)">
+            <summary>
+            Returns the shared storage key to pull name space data from.
+            </summary>
+            <param name="nameSpace">fuse name space.</param>
+            <returns>shared storage key to pull name space data from.</returns>
+        </member>
+    </members>
+</doc>

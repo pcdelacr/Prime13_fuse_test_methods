@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "MBIT_name",
+    "IPDomains"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "MBIT_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Multidomain_Settings": {
+      "$ref": "#/definitions/MultidomainSettings"
+    },
+    "IPDomains": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/domains"
+      }
+    }
+  },
+  "definitions": {
+    "domains": {
+      "type": "object",
+      "required": [
+        "name",
+        "threshold",
+        "shift"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "datalog_mode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain_level_shift_gsds": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain_level_shift_raise_value": {
+          "type": "number"
+        },
+        "threshold": {
+          "type": "number"
+        },
+        "shift": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/shifts"
+          }
+        }
+      }
+    },
+    "shifts": {
+      "type": "object",
+      "required": [
+        "name",
+        "pre",
+        "post"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pre": {
+          "type": "string",
+          "minLength": 1
+        },
+        "post": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "MultidomainSettings": {
+      "type": "object",
+      "required": [
+        "domain_count",
+        "active_domains"
+      ],
+      "properties": {
+        "domain_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "active_domains": {
+          "type": "string",
+          "minLength": 1
+        },
+        "vadtl_recovery": {
+          "type": "string",
+          "minLength": 1
+        },
+        "was_vadtl_recovery": {
+          "type": "string",
+          "minLength": 1
+        },
+        "max_allowed_shifts": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

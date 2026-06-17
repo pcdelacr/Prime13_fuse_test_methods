@@ -1,0 +1,612 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.CallbacksService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.CallbacksService.AppDomains">
+            <summary>
+            AppDomains class.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.AppDomains.AvailableAppDomains">
+            <summary>
+            Gets or Sets list of available appDomains.
+            </summary>
+        </member>
+        <member name="T:Prime.CallbacksService.CallbackExecutor">
+            <summary>
+            The service's internal storage for all the registered callbacks.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.CallbackExecutor.GetSessionContextProviderContainer(System.Boolean,System.Boolean@)">
+            <summary>
+            Get sessionContext, either from current thread or create one ad-ho for the callbacks execution.
+            </summary>
+            <param name="populateAllSessionContextProviders">In case of creating AdHoc sessionContext, should all provider needs to be populated?.</param>
+            <param name="isAdHocSessionContext">wheter the sessionContext created ad-hoc.</param>
+            <returns>valid sessionContext.</returns>
+        </member>
+        <member name="T:Prime.CallbacksService.CallbacksService">
+            <summary>
+            ConsoleService implementation.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.CallbacksService.CallbackExecutor">
+            <summary>
+            Gets or sets the callback executor.
+            This member has no state, it is just to save the creation of it on every TriggerCallback call.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.CallbacksService.StringToFlowEventType(System.String)">
+            <summary>
+            Converts a flow name into enum. If input flow name is not found just return null since it is normal
+            some custom defined flows are defined by the TP.
+            </summary>
+            <param name="flowEventTypeStr">Flow name.</param>
+            <returns>Converted flow name if found.</returns>
+        </member>
+        <member name="T:Prime.CallbacksService.CallbackWrapper">
+            <summary>
+            The service's internal storage for all the registered callbacks.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.CallbackWrapper.Callback">
+            <summary>
+            Gets or sets the callback delegate itself.
+            This field will be null when CurrentAppDomain != CallbackAppDomainName.
+            Because callbacks can be executed only from the appdomain it was created at.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.CallbackWrapper.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.CallbacksService.CallbackWrapperBase">
+            <summary>
+            The service's internal storage for all the registered callbacks.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.CallbackWrapperBase.CallbackName">
+            <summary>
+            Gets or sets the name of the callback.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.CallbackWrapperBase.CallbackAppDomainName">
+            <summary>
+            Gets or sets the AppDomain where this callback created in.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.CallbackWrapperBase.OwnerInstance">
+            <summary>
+            Gets or sets the instance name that registered this callback.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.CallbackWrapperBase.RegistrantInstanceSessionContext">
+            <summary>
+            Gets or sets the SessionContext of the instance registering this callback.
+            This field will be null when CurrentAppDomain != CallbackAppDomainName.
+            Because callbacks can be executed only from the appdomain it was created at.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.CallbackWrapperBase.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.CallbacksService.CallbackWrapperBase.CloneBaseMembers(Prime.CallbacksService.CallbackWrapperBase)">
+            <summary>
+            Clone the member variables of this class.
+            Will be called as part of the Clone() function of the derivatives.
+            </summary>
+            <param name="cloneFrom">the object to clone from.</param>
+        </member>
+        <member name="T:Prime.CallbacksService.DutStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.DutStorage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.CallbacksService.DutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.DutStorage`1.#ctor(System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.CallbacksService.DutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.DutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.DutStorage`1.Get(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.CallbacksService.DutStorage`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="newObject">Object to store.</param>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.DutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="sessionSession">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.CallbacksService.GenericCallbackWrapper">
+            <summary>
+            The service's internal storage for all the registered callbacks.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.GenericCallbackWrapper.Callback">
+            <summary>
+            Gets or sets the callback itself.
+            This field will be null when CurrentAppDomain != CallbackAppDomainName.
+            Because callbacks can be executed only from the appdomain it was created at.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.GenericCallbackWrapper.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.CallbacksService.IDutStorage`1">
+            <summary>
+            Dff service local storage.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:Prime.CallbacksService.IDutStorage`1.Reset(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset storage data.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.IDutStorage`1.Get(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.CallbacksService.IDutStorage`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="newObject">Object to store.</param>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.IDutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="sessionSession">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.CallbacksService.CallbackDelegate">
+            <summary>
+            CS callback delegate for calling C# from C++.
+            </summary>
+            <param name="args">args for the callback.</param>
+            <returns>string results from the callback.
+            if no output results is needed from the callback simply return empty string.
+            In case of failure callback will throw exception.
+            </returns>
+        </member>
+        <member name="T:Prime.CallbacksService.RvCallbackDelegate">
+            <summary>
+            RV callback delegate to be used by RV callbacks registration.
+            Main usage from EVG was DEDC/ForceFlow but this is open for any usage.
+            </summary>
+            <param name="exitPort">the current instance exit port. the callback is allowed to override it.</param>
+        </member>
+        <member name="T:Prime.CallbacksService.ICallbacksService">
+            <summary>
+            <para>Handles all Callbacks.</para>
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="N:Prime.ConsoleService"/></item>
+            <item><see cref="N:Prime.PlatformService"/></item>
+            <item><see cref="T:Prime.SharedStorageService.SharedStorageService"/></item>
+            <item><see cref="T:Prime.SessionService.SessionService"/></item>
+            <item><see cref="N:Prime.DatalogService"/></item>
+            <item><see cref="N:Prime.TelemetryService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.RegisterDeviceEndEvent(Prime.CallbacksService.IDeviceEndEvent,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Registers the given deviceEndEvent to be called during the device start.
+            </summary>
+            <param name="deviceEndEvent">The event to be called during the device end.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.UnregisterDeviceEndEvent(Prime.CallbacksService.IDeviceEndEvent,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Unregisters the given deviceEndEvent from being called during the device start.
+            </summary>
+            <param name="deviceEndEvent">The event to be unregistered from the device end.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.RegisterDeviceStartEvent(Prime.CallbacksService.IDeviceStartEvent,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Registers the given deviceStartEvent to be called during the device start.
+            </summary>
+            <param name="deviceStartEvent">The event to be called during the device start.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.UnregisterDeviceStartEvent(Prime.CallbacksService.IDeviceStartEvent,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Unregisters the given deviceStartEvent from being called during the device start.
+            </summary>
+            <param name="deviceStartEvent">The event to be unregistered from the device start.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.RegisterLotStartEvent(Prime.CallbacksService.ILotStartEvent,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Registers the given lotStartEvent to be called during the lot start.
+            </summary>
+            <param name="lotStartEvent">The event to be called during the lot start.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.UnregisterLotStartEvent(Prime.CallbacksService.ILotStartEvent,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Unregisters the given lotStartEvent from being called during the lot start.
+            </summary>
+            <param name="lotStartEvent">The event to be unregistered from the lot start.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.RegisterPreExecuteEvent(Prime.CallbacksService.IPreExecuteEvent,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Registers the given preExecuteEvent to be called before the Execute.
+            </summary>
+            <param name="preExecuteEvent">The event to be called before the Execute.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.UnregisterPreExecuteEvent(Prime.CallbacksService.IPreExecuteEvent,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Registers the given preExecuteEvent to be called before the Execute.
+            </summary>
+            <param name="preExecuteEvent">The event to be called before the Execute.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.RegisterPostExecuteEvent(Prime.CallbacksService.IPostExecuteEvent,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Registers the given postExecuteEvent to be called after the Execute.
+            </summary>
+            <param name="postExecuteEvent">The event to be called after the Execute.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.UnregisterPostExecuteEvent(Prime.CallbacksService.IPostExecuteEvent,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Registers the given postExecuteEvent to be called after the Execute.
+            </summary>
+            <param name="postExecuteEvent">The event to be called after the Execute.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.TriggerCallback(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Trigger a C# callback by name, Use this only if you registered with RegisterCallback method.
+            </summary>
+            <param name="callbackName">The name of the callback to trigger. Will throw if callback not exist.</param>
+            <param name="arguments">list of arguments to pass to the callback function.</param>
+            <param name="sessionContext">Current session context.</param>
+            <returns>string results from the callback.
+            if no output results is needed from the callback simply return empty string.
+            In case of failure callback will throw exception.
+            </returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            string resultValue = Prime.Base.ServiceStore&lt;ICallbacksService&gt;.Service.TriggerCallback(callbackName, arguments);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.TriggerCallback``1(System.String,Prime.SessionService.ISessionContextProviderContainer,System.Object[])">
+            <summary>
+            Trigger a C# callback by name, Use this only if you registered with attribute [CallbackMethod].
+            </summary>
+            <typeparam name="T">Type of result.</typeparam>
+            <param name="callbackName">The name of the callback to trigger. Will throw if callback not exist.</param>
+            <param name="sessionContext">Current session context.</param>
+            <param name="arguments">list of *objects* holding the arguments to pass to the callback function the first item in the object array is the session context.</param>
+            <returns>object results from the callback.
+            if no output results is needed from the callback simply return null.
+            In case of failure callback will throw exception.
+            </returns>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.DoesCallbackExist(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if a callback was already registered.
+            </summary>
+            <param name="callbackName">name of the callback.</param>
+            <param name="sessionContext">Current session context.</param>
+            <returns>the existent of the callback.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            bool resultValue = Prime.Base.ServiceStore&lt;ICallbacksService&gt;.Service.DoesCallbackExist(callbackName);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.DoesRvCallbackExist(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if a RV callback was already registered.
+            </summary>
+            <param name="callbackName">name of the callback.</param>
+            <param name="sessionContext">Current session context.</param>
+            <returns>the existent of the callback.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            bool resultValue = Prime.Base.ServiceStore&lt;ICallbacksService&gt;.Service.DoesCallbackExist(callbackName);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="M:Prime.SessionService.ISessionService.GetCurrentThreadSessionContextContainer"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.RegisterGuiCallback(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Register TOS Gui Callback with the function name.
+            </summary>
+            <param name="callbackName">function name of the callback.</param>
+            <param name="sessionContext">the current instance's sessionContext.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            Prime.Base.ServiceStore&lt;ICallbacksService&gt;.Service.RegisterGuiCallback(callbackName, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="M:Prime.SharedStorageService.ISharedStorageService.GetRowFromTable``1(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)"/></item>
+            </list>
+            </remarks>
+            <seealso cref="T:Prime.SessionService.ISessionContextProviderContainer"/>
+        </member>
+        <member name="M:Prime.CallbacksService.ICallbacksService.AddFlowEvent(Prime.PlatformService.FlowEventType,System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Adds a new callback to be executed at the given event type time.
+            Callback needs to be previously registered.
+            </summary>
+            <param name="flowEventType">Test program flow event type.</param>
+            <param name="callbackName">Callback name to execute.</param>
+            <param name="args">Arguments for the given callback.</param>
+            <param name="sessionContext">the current instance's sessionContext.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            Prime.Base.ServiceStore&lt;ICallbacksService&gt;.Service.AddFlowEvent(flowEventType, callbackName, args, sessionContext);
+            </code>
+            </example>
+            This function depends on:
+            <list type="bullet">
+            <item><see cref="M:Prime.SharedStorageService.ISharedStorageService.TryGetValue``1(System.String,Prime.SharedStorageService.Context,Prime.SessionService.ISessionContextProviderContainer)"/></item>
+            <item><see cref="M:Prime.SharedStorageService.ISharedStorageService.InsertRowAtTable``1(System.String,``0,Prime.SharedStorageService.Context,Prime.SharedStorageService.ResetPolicy,Prime.SessionService.ISessionContextProviderContainer)"/></item>
+            </list>
+            </remarks>
+            <seealso cref="T:Prime.SessionService.ISessionContextProviderContainer"/>
+        </member>
+        <member name="T:Prime.CallbacksService.IDeviceEndEvent">
+            <summary>
+            Defines the contract of an event to be executed after the Execution of the main flow.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.IDeviceEndEvent.EventName">
+            <summary>
+            Gets the name of the current Event.
+            This name must be unique.
+            This name will be used for printing.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.IDeviceEndEvent.DeviceEnd(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            The event to be executed during the device end.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="T:Prime.CallbacksService.IDeviceStartEvent">
+            <summary>
+            Defines the contract of an event to be executed after the Execute.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.IDeviceStartEvent.EventName">
+            <summary>
+            Gets the name of the current Event.
+            This name must be unique.
+            This name will be used for printing.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.IDeviceStartEvent.DeviceStart(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            The event to be executed during the device start.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="T:Prime.CallbacksService.ILotStartEvent">
+            <summary>
+            Defines the contract of an event to be executed after the Execute.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.ILotStartEvent.EventName">
+            <summary>
+            Gets the name of the current Event.
+            This name must be unique.
+            This name will be used for printing.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.ILotStartEvent.LotStart(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            The event to be executed during the lot start.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="T:Prime.CallbacksService.Internal.ICallbacksService">
+            <summary>
+            Provides the services related to the test program.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.TriggerDeviceStartEventsAsync(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute the events registered to be triggered before the Device Start.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.TriggerDeviceEndEventsAsync(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute the events registered to be triggered before the Device End.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.TriggerLotStartEventsAsync(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute the events registered to be triggered before the Lot Start.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.TriggerPreExecuteEvents(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute the events registered to be triggered before the Execute.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.TriggerPostExecuteEvents(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute the events registered to be triggered after the Execute.
+            </summary>
+            <param name="exitPort">The current instance exit port.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.RegisterCallback(System.String,Prime.CallbacksService.CallbackDelegate,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Store a callback by name to be triggered later by C++ or C# code.
+            </summary>
+            <param name="callbackName">the name of the callback. C++ wil trigger it later by this name.</param>
+            <param name="callback">The callback delegate function itself.</param>
+            <param name="sessionContext">Current session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.RegisterCallback(System.Reflection.MethodInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Store a callback by name to be triggered later by C++ or C# code.
+            </summary>
+            <param name="methodInfoCallback">The callback MethodInfo.</param>
+            <param name="sessionContext">Current session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.UnregisterCallback(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Unregister a callback from the system.
+            </summary>
+            <param name="callbackName">The name of the callback to unregister.</param>
+            <param name="sessionContext">Current session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.RegisterRvCallback(System.String,Prime.CallbacksService.RvCallbackDelegate,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Store a callback by name to be triggered later by C++ or C# code.
+            </summary>
+            <param name="callbackName">the name of the callback. One registered it will be triggered and the post of EVERY instance.</param>
+            <param name="callback">The callback delegate function itself.</param>
+            <param name="sessionContext">Current session context.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.UnregisterRvCallback(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Unregister a callback from the system.
+            </summary>
+            <param name="callbackName">The name of the callback to unregister.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.CallbacksService.Internal.ICallbacksService.TriggerRvCallbacks(System.Int32@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This function will be called by the Kernel's post instance to trigger all the registered RV callbacks (if any) .
+            </summary>
+            <param name="exitPort">The current exit port of the instance. Any RV callback is allowed to override the exit port while only the last executed callback takes priority.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.CallbacksService.IPostExecuteEvent">
+            <summary>
+            Defines the contract of an event to be executed after the Execute.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.IPostExecuteEvent.EventName">
+            <summary>
+            Gets the name of the current Event.
+            This name must be unique.
+            This name will be used for printing.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.IPostExecuteEvent.PostExecute(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            The event to be executed after the Execute.
+            </summary>
+            <param name="exitPort">The exit port of the current instance's Execute.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="T:Prime.CallbacksService.IPreExecuteEvent">
+            <summary>
+            Defines the contract of an event to be executed before the Execute.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.IPreExecuteEvent.EventName">
+            <summary>
+            Gets the name of the current Event.
+            This name must be unique.
+            This name will be used for printing.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.IPreExecuteEvent.PreExecute(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            The event to be executed before the Execute.
+            </summary>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="T:Prime.CallbacksService.PlatformCallbackProperties">
+            <summary>
+            The properties of the FLowEvent to store i SharedStorage.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.PlatformCallbackProperties.CallbackName">
+            <summary>
+            Gets or sets Name of the callback.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.PlatformCallbackProperties.CallbackArgs">
+            <summary>
+            Gets or sets the callback arguments.
+            </summary>
+        </member>
+        <member name="T:Prime.CallbacksService.RvCallbackWrapper">
+            <summary>
+            The service's internal storage for all the registered callbacks.
+            </summary>
+        </member>
+        <member name="P:Prime.CallbacksService.RvCallbackWrapper.RvCallback">
+            <summary>
+            Gets or sets the RV callback delegate itself.
+            This field will be null when CurrentAppDomain != CallbackAppDomainName.
+            Because callbacks can be executed only from the appdomain it was created at.
+            </summary>
+        </member>
+        <member name="M:Prime.CallbacksService.RvCallbackWrapper.Clone">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

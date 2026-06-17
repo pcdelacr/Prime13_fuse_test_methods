@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Fork</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Fork.ForkConfig">
+            <summary>
+            Class that defines the ForkConfig.json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Fork.ForkConfig.LocationCodeToPort">
+            <summary>
+            Gets or sets a mapping of location code to its designated port.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Fork.InvalidPortException">
+            <summary>
+            Exception which is thrown if the user provides an invalid port in their config.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Fork.InvalidPortException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Fork.InvalidPortException"/> class.
+            </summary>
+            <param name="message">Message to set for this exception.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Fork.InvalidPortException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Fork.InvalidPortException"/> class.
+            </summary>
+            <param name="info">Serialization info for this exception.</param>
+            <param name="context">StreamingContext for this exception.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Fork.PrimeForkTestMethod">
+            <summary>
+            This test method allows for the creation of flows that are dedicated to specific
+            location codes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.ScVarCollection">
+            <summary>
+            Defines the name of the SCVar collection.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.LocationCodeScVar">
+            <summary>
+            Defines the name of the var for the TP location code.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.DefaultUserVarCollection">
+            <summary>
+            Defines the "default" location to place uservars into.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.ConfigUserVar">
+            <summary>
+            Defines a string user variable that holds a path to the ForkConfig.json.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.SharedStorageKeyForPort">
+            <summary>
+            Some random key used to store the port into shared storage.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.SharedStorageKeyForTimestamp">
+            <summary>
+            Some random key used to store the configuration's timestamp into shared storage.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.SharedStorageKeyForLocationCode">
+            <summary>
+            Some random key used to store the last location code into SharedStorage.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Fork.PrimeForkTestMethod.#ctor(Prime.UserVarService.IUserVarService,Prime.FileService.IFileService,Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Fork.PrimeForkTestMethod"/> class.
+            </summary>
+            <param name="userVarService">userVarService.</param>
+            <param name="fileService">fileService.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Fork.PrimeForkTestMethod.Behavior">
+            <summary>
+            Defines which parameters this test method will use for the exit port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.Behavior.Config">
+            <summary>
+            Use the "ForkConfig.json" configuration to determine the exit port.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.Behavior.Parameter">
+            <summary>
+            Use the "LocationCodeToMatch" to determine the exit port.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Fork.PrimeForkTestMethod.Bool">
+            <summary>
+            True or false enum used to expose parameters that behave like booleans to TOS.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.Bool.True">
+            <summary>
+            True.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Fork.PrimeForkTestMethod.Bool.False">
+            <summary>
+            False.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Fork.PrimeForkTestMethod.LocationCodeToMatch">
+            <summary>
+            Gets or sets a string that will match to this test program's location code.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Fork.PrimeForkTestMethod.IsRegex">
+            <summary>
+            Gets or sets a value indicating whether the provided "LocationCodeToMatch" parameter is
+            a RegEx, or the exact name of the location code to match to.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Fork.PrimeForkTestMethod.Mode">
+            <summary>
+            Gets or sets a value that will determine how this FORK will determine its exit port.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Fork.PrimeForkTestMethod.Verify">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Fork.PrimeForkTestMethod.Execute">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

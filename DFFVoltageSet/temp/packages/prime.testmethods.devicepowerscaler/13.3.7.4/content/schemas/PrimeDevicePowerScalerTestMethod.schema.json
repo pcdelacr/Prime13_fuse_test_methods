@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [ "Configuration" ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Configuration": {
+      "$ref": "#/definitions/Configuration"
+    }
+  },
+  "definitions": {
+    "Configuration": {
+      "type": "object",
+      "required": [ "PSF", "PowerSumPinsSetting" ],
+      "additionalProperties": false,
+      "properties": {
+        "PSF": {
+          "$ref": "#/definitions/PSF"
+        },
+        "PowerSumPinsSetting": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PowerSumPinSetting"
+          }
+        }
+      }
+    },
+    "PSF": {
+      "type": "object",
+      "required": [ "Equation", "HighLimit", "LowLimit" ],
+      "additionalProperties": false,
+      "properties": {
+        "Equation": {
+          "type": "string"
+        },
+        "HighLimit": {
+          "type": "number",
+          "maximum": 10
+        },
+        "LowLimit": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "PowerSumPinSetting": {
+      "type": "object",
+      "required": [ "PinName", "Tests" ],
+      "additionalProperties": false,
+      "properties": {
+        "PinName": {
+          "type": "string"
+        },
+        "Tests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Test"
+          }
+        }
+      }
+    },
+    "Test": {
+      "type": "object",
+      "required": [ "Type", "Regex", "PSFMultiplier" ],
+      "additionalProperties": false,
+      "properties": {
+        "Type": {
+          "type": "string"
+        },
+        "Regex": {
+          "type": "string"
+        },
+        "PSFMultiplier": {
+          "type": "number",
+          "maximum": 10,
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

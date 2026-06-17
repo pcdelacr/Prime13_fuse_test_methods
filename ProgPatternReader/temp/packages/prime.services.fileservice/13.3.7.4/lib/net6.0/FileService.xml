@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.FileService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.FileService.DirectoryWrapper">
+            <summary>
+            Wrapper class to wrap System.IO.File methods used in this file to be able to mock them for unit testing.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.DirectoryWrapper.Prime#FileService#IDirectoryWrapper#Exists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FileService.FileHandle">
+            <summary>
+            FileHandle class implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.FileHandle.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FileService.FileHandle"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.FileHandle.#ctor(Prime.FileService.IFileWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FileService.FileHandle"/> class.
+            </summary>
+            <param name="fileWrapper">fileWrapper mock.</param>
+        </member>
+        <member name="P:Prime.FileService.FileHandle.FilePath">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.FileService.FileHandle.FileName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.FileService.FileHandle.IsFileChanged">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FileService.FileHandle.Populate(System.String)">
+            <summary>
+            Populate TBD.
+            </summary>
+            <param name="path">path.</param>
+        </member>
+        <member name="M:Prime.FileService.FileHandle.ReparseLocalFile">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FileService.FileService">
+            <summary>
+            Implementation for FileService class.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.FileService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FileService.FileService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.FileService.#ctor(Prime.FileService.IFileWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.FileService.FileService"/> class for UT.
+            </summary>
+            <param name="fileWrapper">fileWrapper mock.</param>
+        </member>
+        <member name="M:Prime.FileService.FileService.EnableLongPath(System.String)">
+            <summary>
+            this function prepend the \\?\ Prefix to allow paths longer than 260 characters. for UNC paths (shared folders begins with "\\"), use the \\?\UNC\ prefix instead of just \\?\.
+            </summary>
+            <param name="path">the input path.</param>
+            <returns>the updated path with the prefix.</returns>
+        </member>
+        <member name="M:Prime.FileService.FileService.NormalizePaths(System.String)">
+            <summary>
+            Gets a path to file or files, translate it's EnvironmentVariable to it's  valid path value,
+            handle double slashes and in case of @LATEST_REV@ token appears in the file path will call function to set the latest revision.
+            </summary>
+            <param name="path">The path to normalize.</param>
+            <returns> Returns a list of normalized Paths.</returns>
+        </member>
+        <member name="T:Prime.FileService.FileWrapper">
+            <summary>
+            Wrapper class to wrap System.IO.File methods used in this file to be able to mock them for unit testing.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.FileWrapper.Prime#FileService#IFileWrapper#Copy(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FileService.FileWrapper.Prime#FileService#IFileWrapper#ReadAllLines(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FileService.FileWrapper.Prime#FileService#IFileWrapper#ReadAllText(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FileService.FileWrapper.Prime#FileService#IFileWrapper#Exists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.FileService.FileWrapper.Prime#FileService#IFileWrapper#GetLastWriteTimeUtc(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.FileService.IDirectoryWrapper">
+            <summary>
+            Interface to wrap System.IO.File methods used in this file to be able to mock them for unit testing.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.IDirectoryWrapper.Exists(System.String)">
+            <summary>
+            Checks if a file exists.
+            </summary>
+            <param name="directoryPath">folder full path.</param>
+            <returns>True if file exits.</returns>
+        </member>
+        <member name="T:Prime.FileService.IFileHandle">
+            <summary>
+            IFileHandle for File Handle related operations.
+            </summary>
+        </member>
+        <member name="P:Prime.FileService.IFileHandle.IsFileChanged">
+            <summary>
+            Gets a value indicating whether the local file timestamp is changed since last read. Note that when the file is first read, it is returns as true.
+            </summary>
+        </member>
+        <member name="P:Prime.FileService.IFileHandle.FilePath">
+            <summary>
+            Gets the file path from local or remote SysC (if SysC service is up will use it as first option).
+            </summary>
+        </member>
+        <member name="P:Prime.FileService.IFileHandle.FileName">
+            <summary>
+            Gets the file name.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.IFileHandle.ReparseLocalFile">
+            <summary>
+            If the file is changed, reparse local file from tester site.
+            </summary>
+        </member>
+        <member name="T:Prime.FileService.IFileService">
+            <summary>
+            IFileService for Files related operations.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.IFileService.TryGetFile(System.String)">
+            <summary>
+            Returns a file from local or remote SysC (if SysC service is up will use it as first option).
+            This function accepts relative path (used "." as first character), user vars (starting with '~') and full paths.
+            </summary>
+            <param name="path">Path to an existing local or remote file.</param>
+            <returns>If the file exists, and the path to local temporary copy of the file or the same input if the file was already local.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileService.IsSysCFileServiceUp">
+            <summary>
+            Checks if SysC file service is up and running.
+            </summary>
+            <returns>True if SySC service is up and running. False - otherwise.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileService.TryGetDriveNetworkMappingFromPath(System.String,System.Boolean@,System.String@)">
+            <summary>
+            Attempts to retrieve the network mapping for a given drive path.
+            </summary>
+            <param name="path">The path for which to find the network mapping.</param>
+            <param name="isNetworkDrive">Outputs a boolean indicating whether the drive is a network drive. True if it is, false otherwise.</param>
+            <param name="networkPath">Outputs the network path if the drive is a network drive. If the drive is not a network drive, this will be "LOCAL_DRIVE". If the drive does not exist or an error occurs, this will be an empty string.</param>
+            <returns>True if the drive is a network drive and the mapping could be retrieved, or if the drive is a local drive (indicated by "LOCAL_DRIVE"). Returns false if the drive does not exist or an error occurs during the retrieval process.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileService.GetNormalizedPath(System.String)">
+            <summary>
+            Returns normalized full path of a relative file path provided - (starting from  "." as first character, ~HDMT_TPL_DIR , user vars and).
+            As well resolves @LATEST_REV@ dynamic token in the file path
+            When @LATEST_REV@ token appears in the file path , Prime will determine the revision directory by looking for a file called latest.txt
+            (in the path instead of @LATEST_REV@ token).
+            It expects the first line of the file to contain the name (and not the full path) of the revision directory.
+            Prime will not check if the directory in the latest.txt file actually exists.
+            If the directory does not exist, it will fail later during the test program when it tries to access files in the directory.
+            the below mechanism
+            Example: PUP_DOWNLOADS_DIR = "I:\ulat\cttr\release\icl\ICLXXDXH60UX\@LATEST_REV@"
+            Prime will:
+            1. Replace @LATEST_REV@ token with latest.txt
+            2. Read the contents of I:\ulat\cttr\release\icl\ICLXXDXH60UX\latest.txt (for example it will return 1000)
+            3. Resolve the directory path as - I:\ulat\cttr\release\icl\ICLXXDXH60UX\1000.
+            </summary>
+            <param name="path">Path to an existing local or remote file.</param>
+            <returns>resolved full file path.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileService.DirectoryExists(System.String)">
+            <summary>
+            Checks if a Directory exists either remotely (if SysC service is up) or locally.
+            This function accepts relative path (used "." as first character), user vars (starting with '~') and full paths.
+            </summary>
+            <param name="path">Path to folder to check for.</param>
+            <returns>True is file is found either remotely or locally, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileService.GetLastModificationTimeUtc(System.String)">
+            <summary>
+            Returns the last time this file was modified, it file is not found will return current time.
+            This function accepts relative path (used "." as first character), user vars (starting with '~') and full paths.
+            </summary>
+            <param name="path">Path to file to check for.</param>
+            <returns>Datetime value of last modification.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileService.GetFileHandle(System.String)">
+            <summary>
+            Create file handle for file handling operations, such as getting file path, checking is file changing,
+            and reparse local file from tester site. Throw exception if file path is not valid.
+            </summary>
+            <param name="path">Path to an existing local or remote file.</param>
+            <returns>File handle.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileService.ReadAllLines(System.String)">
+            <summary>
+            Gets all the lines for the file on given, remote or local.
+            </summary>
+            <param name="path">The local or remote path to the file to read.</param>
+            <returns>All the lines.</returns>
+            <exception cref="T:System.Exception">Thrown if the file doesn't exist local or remotely.</exception>
+            <example>
+            This shows how to call this function.
+            <code>
+            var allLines = Prime.Services.FileService.ReadAllLines(@"~HDMT_TP_PATH\input_file");
+            foreach (var line : allLines)
+            {
+                Prime.Services.Console.Print(line);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.FileService.IFileService.ReadFile(System.String)">
+            <summary>
+            Gets the file content on given, remote or local file.
+            </summary>
+            <param name="path">The local or remote path to the file to read.</param>
+            <returns>File content as a string.</returns>
+            <exception cref="T:System.Exception">Thrown if the file doesn't exist local or remotely.</exception>
+            <example>
+            This shows how to call this function.
+            <code>
+            var fileContent = Prime.Services.FileService.ReadFile(@"~HDMT_TP_PATH\input_file");
+            foreach (var line : fileContent.split("\n"))
+            {
+                Prime.Services.Console.Print(line);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.FileService.IFileService.PushFile(System.String,System.String)">
+            <summary>
+            Copy a file to a remote path.
+            </summary>
+            <param name="path">Path to an existing local or remote file.</param>
+            <param name="remotePath">Path to the remote file path.</param>
+        </member>
+        <member name="M:Prime.FileService.IFileService.GetObjectFromJsonFile``1(System.String)">
+            <summary>
+            Deserializes a JSON file into an object of the specified type. Optionally validates the JSON against a given schema file.
+            </summary>
+            <typeparam name="T">The type of the object to which the JSON file should be deserialized.</typeparam>
+            <param name="jsonFilePath">The path to the JSON file to be deserialized.</param>
+            <returns>An instance of the specified type containing the data from the JSON file.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileService.GetObjectFromJsonFile``1(System.String,System.String)">
+            <summary>
+            Deserializes a JSON file into an object of the specified type. Optionally validates the JSON against a given schema file.
+            </summary>
+            <typeparam name="T">The type of the object to which the JSON file should be deserialized.</typeparam>
+            <param name="jsonFilePath">The path to the JSON file to be deserialized.</param>
+            <param name="schemaFileToValidate">The name of the schema file against which the JSON should be validated. If empty or not provided, no validation will occur.</param>
+            <returns>An instance of the specified type containing the data from the JSON file.</returns>
+        </member>
+        <member name="T:Prime.FileService.IFileWrapper">
+            <summary>
+            Interface to wrap System.IO.File methods used in this file to be able to mock them for unit testing.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.IFileWrapper.Exists(System.String)">
+            <summary>
+            Checks if a file exists.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>True if file exits.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileWrapper.GetLastWriteTimeUtc(System.String)">
+            <summary>
+              Returns the last time this file was modified, it file is not found will return current time.
+            </summary>
+            <param name="input">Path to the file.</param>
+            <returns>Returns the last time this file was modified.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileWrapper.Copy(System.String,System.String)">
+            <summary>
+            Copies an existing file to a new file. Overwriting a file of the same name is not allowed.
+            </summary>
+            <param name="sourceFileName">The file to copy.</param>
+            <param name="destFileName">The name of the destination file. This cannot be a directory or an existing file.</param>
+        </member>
+        <member name="M:Prime.FileService.IFileWrapper.ReadAllLines(System.String)">
+            <summary>
+            Reads the lines of a file.
+            </summary>
+            <param name="path"> The path of the file to read.</param>
+            <returns>list of strings of all the file's lines.</returns>
+        </member>
+        <member name="M:Prime.FileService.IFileWrapper.ReadAllText(System.String)">
+            <summary>
+            Opens a text file, reads all lines of the file, and then closes the file.
+            </summary>
+            <param name="path"> The path of the file to read.</param>
+            <returns>A string containing all lines of the file.</returns>
+        </member>
+        <member name="T:Prime.FileService.Internal.IFileService">
+            <summary>
+            This is an internal interface for the IFileService, not intended for users.
+            </summary>
+        </member>
+        <member name="M:Prime.FileService.Internal.IFileService.Initialize">
+            <summary>
+            Initialize the service.
+            This must be called in the initialize library test method.
+            </summary>
+        </member>
+    </members>
+</doc>

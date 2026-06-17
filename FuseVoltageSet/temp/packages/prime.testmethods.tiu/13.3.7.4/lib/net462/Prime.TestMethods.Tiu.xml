@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Tiu</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Tiu.PreExecuteDecision">
+            <summary>
+            Options to continue when PreExecute.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Tiu.PreExecuteDecision.Continue">
+            <summary>
+            Continue the execution
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Tiu.PreExecuteDecision.StopPort0">
+            <summary>
+            Stop the execution and exit port 0.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Tiu.PreExecuteDecision.StopPort1">
+            <summary>
+            Stop the execution and exit port 1.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.ITiuIdentityExtension">
+            <summary>
+            Class to define extendable method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.ITiuIdentityExtension.CustomValidation">
+            <summary>
+            Called in Execute() to execute custom identity validations.
+            E.g Eeprom Serial Validation.
+            </summary>
+            <returns>The result for the validation.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.ITiuIdentityExtension.PreExecuteEvaluation">
+            <summary>
+            Called in Execute() to evaluate special conditions prior to main identity validation.
+            </summary>
+            <returns>Next step action on fail.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.PrimeTiuIdentityTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuIdentityTestMethod.ValidTiuRegex">
+            <summary>
+            Gets or sets the TIU Regexes in comma separated list.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuIdentityTestMethod.ValidMetalFrameRegex">
+            <summary>
+            Gets or sets the MetalFrame Regexes in comma separated list.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuIdentityTestMethod.ValidElastomerSheetRegex">
+            <summary>
+            Gets or sets the ElastomerSheet Regexes in comma separated list.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuIdentityTestMethod.ValidBottomElastomerSheetRegex">
+            <summary>
+            Gets or sets the ElastomerSheet Regexes in comma separated list.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuIdentityTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.Tiu.ITiuIdentityExtension"/>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.PrimeTiuIdentityTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.PrimeTiuIdentityTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.PrimeTiuIdentityTestMethod.Prime#TestMethods#Tiu#ITiuIdentityExtension#PreExecuteEvaluation">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.PrimeTiuIdentityTestMethod.Prime#TestMethods#Tiu#ITiuIdentityExtension#CustomValidation">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.PrimeTiuPowerSupplyContinuityTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuPowerSupplyContinuityTestMethod.Pins">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuPowerSupplyContinuityTestMethod.HighLimit">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuPowerSupplyContinuityTestMethod.LowLimit">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuPowerSupplyContinuityTestMethod.LevelsTc">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuPowerSupplyContinuityTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.PrimeTiuPowerSupplyContinuityTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.PrimeTiuPowerSupplyContinuityTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.PrimeTiuResistanceTestMethod">
+            <summary>
+            This test method calculates resistance and compares againts limits if provided.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Tiu.PrimeTiuResistanceTestMethod.AttributeVForce">
+            <summary>
+            Attribute Name VForce.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuResistanceTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to use.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuResistanceTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuResistanceTestMethod.Pins">
+            <summary>
+            Gets or sets comma separated Pins to get DC results for. The value must be in Ohm.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuResistanceTestMethod.LowLimits">
+            <summary>
+            Gets or sets comma separated low limits for the measure Pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuResistanceTestMethod.HighLimits">
+            <summary>
+            Gets or sets comma separated high limits for the measure Pins.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.PrimeTiuResistanceTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.PrimeTiuResistanceTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.PrimeTiuSignalPinLeakageTestMethod">
+            <summary>
+            Prime Test Method to test signal pins leakage on TIU.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuSignalPinLeakageTestMethod.Pins">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuSignalPinLeakageTestMethod.HighLimit">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuSignalPinLeakageTestMethod.LowLimit">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuSignalPinLeakageTestMethod.LevelsTc">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.PrimeTiuSignalPinLeakageTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.PrimeTiuSignalPinLeakageTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.PrimeTiuSignalPinLeakageTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.TiuValidationCommon.ITiuValidationBaseParams">
+            <summary>
+            Interface to define base parameter for TIU Validation Test Methods.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.ITiuValidationBaseParams.Pins">
+            <summary>
+            Gets or sets comma separated pins to get DC Results for.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.ITiuValidationBaseParams.HighLimit">
+            <summary>
+            Gets or sets comma separated upper limits for the measured pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.ITiuValidationBaseParams.LowLimit">
+            <summary>
+            Gets or sets comma separated lower limits for the measured pins.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinInformation">
+            <summary>
+            Structure to contain information on the pins such as name, highLimit and lowLimit.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinInformation.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinInformation"/> class.
+            </summary>
+            <param name="pinName">The pin name.</param>
+            <param name="sessionContext">The current context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinInformation.Name">
+            <summary>
+            Gets the name of the pin or pingroup.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinInformation.HighLimit">
+            <summary>
+            Gets or sets the upper limit of the measurement in ohm.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinInformation.LowLimit">
+            <summary>
+            Gets or sets the lower limit of the measurement in ohm.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinInformation.Pins">
+            <summary>
+            Gets the list of pins if it is a pingroup.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinInformation.IsGroup">
+            <summary>
+            Gets a value indicating whether the pin is a pingroup.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinResults">
+            <summary>
+            Class to hold the averaged pin results.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinResults.PinGroup">
+            <summary>
+            Gets or sets the name of the pingroup this pin is part of.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinResults.AveragedPinResults">
+            <summary>
+            Gets or sets the averaged results of the dc measurement for the pin.
+            The key is the Pin name.
+            The value is the averaged value of the measurement.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinResults.ToString">
+            <summary>
+            Construct the string result to be printed on console.
+            </summary>
+            <returns>The result in string format for console printing.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.IPinValidator">
+            <summary>
+            Class to define extendable methods for PinValidator.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.IPinValidator.IsThisPinSupported(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check the given pin is supported for this test method or not.
+            </summary>
+            <param name="pinName">The name of the pin.</param>
+            <param name="sessionContext">The current session context.</param>
+            <returns>True if the pin is supported.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.PinValidatorBase">
+            <summary>
+            Base class for PinValidator.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.PinValidatorBase.SupportedPins">
+            <summary>
+            Gets or sets the list of supported pins.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.PinValidatorBase.Prime#TestMethods#Tiu#TiuValidationCommon#PinValidator#IPinValidator#IsThisPinSupported(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.PinSelector">
+            <summary>
+            Enum for the pin selection.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.PinSelector.DPS">
+            <summary>
+            Digital Power Supply Pins.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.PinSelector.DPIN">
+            <summary>
+            Digital Signal Pins.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.PinValidatorFactory">
+            <summary>
+            Class to get the correct pin validator class.
+            This will act as boundary for future changes if there's specific implementation changes are required.
+                E.g New TOS version defined the resource type differently.
+            This is required since by hook or by crook we have to maintain a list of supported pins.
+            This will minimized the impact if changes are required.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.PinValidatorFactory.PinSelect">
+            <summary>
+            Gets or sets pin to be selected for validation; DPS vs DPIN.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.PinValidatorFactory.PinValidator">
+            <summary>
+            Gets or Sets the Pin Validator class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.Tos3DpinValidator">
+            <summary>
+            Supported digital pins for Tiu Resistance.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.Tos3DpinValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.Tos3DpinValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.Tos3DpsPinValidator">
+            <summary>
+            Supported digital power supply pins for Continuity test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.Tos3DpsPinValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.Tos3DpsPinValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods">
+            <summary>
+            Base class test method for TIU Validation Infrastructure.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods.VerifyThisPinIsSupported(System.String,Prime.TestMethods.Tiu.TiuValidationCommon.PinValidator.PinSelector,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Verify if this pin is supported by the validator.
+            </summary>
+            <param name="pin">The pin name.</param>
+            <param name="pinTypeSelect">The type of the pin to be validated against.</param>
+            <param name="sessionContext">This session context.</param>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">The pin is not supported.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods.GetParameterName``1(``0)">
+            <summary>
+            Helper method to get the parameter name.
+            </summary>
+            <typeparam name="T">Generic.</typeparam>
+            <param name="item">The object that we want the name of.</param>
+            <returns>The name of the parameter.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods.VerifyLimitsAreMatched(System.Int32,System.Int32)">
+            <summary>
+            Verify that both upper and lower limit counts are matched.
+            </summary>
+            <param name="lowLimitsCount">Lower limit count.</param>
+            <param name="highLimitsCount">Upper limit count.</param>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">The limit does not match.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods.VerifyLimitChecksRequirement(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Verifies limit checks.
+            </summary>
+            <param name="lowLimitsCount">count of low limits.</param>
+            <param name="highLimitsCount">count of high limits.</param>
+            <param name="pinCount">total pin count.</param>
+            <returns>true if limits are to be checked, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods.VerifyLimitAndPinMatched(System.Int32,System.Int32)">
+            <summary>
+            Verify that the limits and the pin count matched.
+            </summary>
+            <param name="limitCount">Limit count.</param>
+            <param name="pinCount">Pin count.</param>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">The pins and limits does not match.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods.PopulatePinInfo(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Populate the pin information object.
+            </summary>
+            <param name="pins">The list of pins/pinGroup.</param>
+            <param name="lowLimits">Lower limit list.</param>
+            <param name="highLimits">Upper limit list.</param>
+            <param name="doCheckLimit">Check the limit is enabled or not.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>Dictionary of pin information objects with the pin name as the key.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods.GetDcTestCurrentMeasurement(System.Collections.Generic.List{System.String},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get Dc Test for current measurement.
+            </summary>
+            <param name="pins">The list of pins/pinGroups.</param>
+            <param name="level">The level for measurement.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>IDcTest object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods.PostProcessDcResults(System.Collections.Generic.List{Prime.DcService.IPinGroupDcResults})">
+            <summary>
+            Post process the results.
+            </summary>
+            <param name="allPinGroupDcResults">The list of the results at pinGroup level.</param>
+            <returns>The processed results. The key is the pinGroup name, empty if the measurement doesn't belong to a pinGroup.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods.ConstructResultsPrintOut(System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinResults})">
+            <summary>
+            Construct the result printout for console printing.
+            </summary>
+            <param name="results">The post-processed results from DcTest.</param>
+            <returns>The constructed string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Tiu.TiuValidationCommon.TiuValidationCommonMethods.CheckResultsToBeWithinLimit(System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinResults},System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Tiu.TiuValidationCommon.PinInformation.PinInformation},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Validate the DC results to be within the specified limits of the pins.
+            </summary>
+            <param name="results">The post-processed results from DcTest.</param>
+            <param name="pinInfoList">The list of pin information that includes the upper and lower limits.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+    </members>
+</doc>

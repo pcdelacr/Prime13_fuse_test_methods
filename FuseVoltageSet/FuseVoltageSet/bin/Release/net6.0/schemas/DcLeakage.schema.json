@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "ConfigurationSets"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "ConfigurationSets": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/definitions/ConfigurationSet" }
+    }
+
+  },
+
+  "definitions": {
+    "ConfigurationSet": {
+      "type": "object",
+      "required": [
+        "ConfigurationName",
+        "Settings"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ConfigurationName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Settings": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/definitions/Settings" }
+        }
+      }
+    },
+    "Settings": {
+      "type": "object",
+      "required": [
+        "LimitsSettings",
+        "LeakageElements"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "LimitsSettings": {
+          "type": "object",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/definitions/LimitsSettings" }
+        },
+        "LeakageElements": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "LimitsSettings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "LimitsSettings": {
+          "type": "object",
+          "properties": {
+            "VssLimitLow": {
+              "type": "number"
+            },
+            "VssLimitHigh": {
+              "type": "number"
+            },
+            "VccLimitLow": {
+              "type": "number"
+            },
+            "VccLimitHigh": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+
+}

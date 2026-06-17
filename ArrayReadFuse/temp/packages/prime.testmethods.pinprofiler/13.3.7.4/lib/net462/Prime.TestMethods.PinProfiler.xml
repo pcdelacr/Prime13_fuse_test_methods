@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.PinProfiler</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.PinProfiler.IProfileAction">
+            <summary>
+            Defines the interface of a profile action.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.IProfileAction.Verify">
+            <summary>
+            Verifies if the configuration for the profile action is valid.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.IProfileAction.Execute">
+            <summary>
+            Executes the profile action.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod">
+            <summary>
+            This class is the test method to profile different pins (HDDPS, TDAU).
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.ModeType">
+            <summary>
+            Defines the mode work types this test method has.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.ModeType.Start">
+            <summary>
+            Defines the mode to start the profile of the given pin names and the given tag.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.ModeType.Stop">
+            <summary>
+            Defines the mode to stop the profile of the given pin names and the given tag.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.Mode">
+            <summary>
+            Gets or sets the Mode parameter of the test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.PinNames">
+            <summary>
+            Gets or sets the list of pin names as comma separated. These can be HDDPS or TDAU pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.Tag">
+            <summary>
+            Gets or sets the name of the profile to start or stop by this test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.SamplingInterval">
+            <summary>
+            Gets or sets the sampling rate of the profile in ms. Valid only for Start mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.CallbackName">
+            <summary>
+            Gets or sets the name of the callback to be triggered for ech tag.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.PrimePinProfilerTestMethod.VerifyTag">
+            <summary>
+            Verifies if the Tag parameter is valid.
+            </summary>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">If the tag is empty.</exception>
+        </member>
+        <member name="T:Prime.TestMethods.PinProfiler.ProfileStart">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.ProfileStart.#ctor(System.String,System.Int32,System.Collections.Generic.List{System.String},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PinProfiler.ProfileStart"/> class.
+            </summary>
+            <param name="tag">The name of the tag for the profile.</param>
+            <param name="samplingInterval">The sampling interval for the profile..</param>
+            <param name="pinNames">The list of pins.</param>
+            <param name="callbackName">The name of the callback to be triggered for each tag.</param>
+            <param name="sessionContext">This session context.</param>
+            >
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.ProfileStart.Verify">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.ProfileStart.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.PinProfiler.ProfileStop">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.ProfileStop.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PinProfiler.ProfileStop"/> class.
+            </summary>
+            <param name="tag">The tag to stop.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.ProfileStop.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PinProfiler.ProfileStop.Execute">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

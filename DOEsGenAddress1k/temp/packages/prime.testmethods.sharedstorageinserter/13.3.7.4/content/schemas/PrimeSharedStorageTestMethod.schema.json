@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "string": {
+      "type": "object",
+      "minItems": 1,
+      "additionalProperties": false,
+      "patternProperties": { "^[A-Za-z_][A-Za-z0-9_]*$": { "type": "string" } }
+    },
+    "integer": {
+      "type": "object",
+      "minItems": 1,
+      "additionalProperties": false,
+      "patternProperties": { "^[A-Za-z_][A-Za-z0-9_]*$": { "type": "integer" } }
+    },
+    "double": {
+      "type": "object",
+      "minItems": 1,
+      "additionalProperties": false,
+      "patternProperties": { "^[A-Za-z_][A-Za-z0-9_]*$": { "type": "number" } }
+    }
+  },
+  "additionalProperties": false
+}

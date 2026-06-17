@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces TestLibraryInterfaces.xsd">
+    <TestLibrary name="TestMethodBase">
+    <Imports>
+    </Imports>
+    <PublicBases/>
+    <Parameters>
+      <Parameter name="BypassPort" descriptions="Port number, provided literally to bypass execution. Use nonnegative to bypass">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>-1</Default>
+        <Optional/>
+      </Parameter>
+      <Parameter name="LogLevel" descriptions="Verbosity for console printing of information from code execution">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Disabled</Choice>
+          <Choice>Enabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional/>
+      </Parameter>
+      <Parameter name="InstanceSummaryMode" descriptions="Enable for current instance's test time and memory information">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Disabled</Choice>
+          <Choice>Enabled</Choice>
+        </Choices>
+        <Default>Disabled</Default>
+        <Optional/>
+      </Parameter>
+	  <Parameter name="TelemetryLevel" descriptions="Enable for record detailed test time information">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Critical</Choice>
+		  <Choice>Information</Choice>
+		  <Choice>Debug</Choice>
+		  <Choice>None</Choice>
+        </Choices>
+        <Default>None</Default>
+        <Optional/>
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

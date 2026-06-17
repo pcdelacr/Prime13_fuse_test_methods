@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeSetDffTestMethod" MetaData="dll=Prime.TestMethods.Dff" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeSetDffTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="TokenName" descriptions="DFF Token Name to be set. Single Token Example: TokA. &quot; +&#xD;&#xA;                     &quot;Multiple Token Example: TokA,TokB,TokC. &quot; +&#xD;&#xA;                     &quot;Setting a single field Example: TokA.F1. &quot; +&#xD;&#xA;                     &quot;Setting multiple field Example: TokA.F1, TokA.F2.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="TokenValue" descriptions="DFF Value to set to the token name defined in TokenName parameter. &quot; +&#xD;&#xA;                     &quot;Able to accept USerVar and SharedStorage as a value. &quot; +&#xD;&#xA;                     &quot;Single Value to set Example: 123. &quot; +&#xD;&#xA;                     &quot;Multiple Value to set Example: 123,456. &quot; +&#xD;&#xA;                     &quot;Set using UserVar: UserVarCollection.UserVarName Example: UserVar.VarA. &quot; +&#xD;&#xA;                     &quot;Set using sharedStorage: Storage.StorageName Example: Storage.TokA.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="DieId" descriptions="Die Id for the token to be set to. &quot; +&#xD;&#xA;                     &quot;Only single die id is accepted. If it's empty, it will set the token to the current die id.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

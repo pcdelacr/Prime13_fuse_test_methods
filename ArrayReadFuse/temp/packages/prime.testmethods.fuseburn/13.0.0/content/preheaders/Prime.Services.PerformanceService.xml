@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.PerformanceService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.PerformanceService.DutStorage`1">
+            <summary>
+            Performance service local storage.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceService.DutStorage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PerformanceService.DutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceService.DutStorage`1.#ctor(System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PerformanceService.DutStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceService.DutStorage`1.Get(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.PerformanceService.DutStorage`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="newObject">Object to store.</param>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:Prime.PerformanceService.DutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.PerformanceService.IDutStorage`1">
+            <summary>
+            Performance service local storage.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:Prime.PerformanceService.IDutStorage`1.Get(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.PerformanceService.IDutStorage`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="newObject">Object to store.</param>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:Prime.PerformanceService.IDutStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.PerformanceService.IIpStorage`1">
+            <summary>
+            Performance service local storage.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:Prime.PerformanceService.IIpStorage`1.Get(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.PerformanceService.IIpStorage`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="newObject">Object to store.</param>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:Prime.PerformanceService.IIpStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.PerformanceService.Internal.IPerformanceService">
+            <summary>
+            Performance Service interface.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceService.Internal.IPerformanceService.GetGlobalInstanceSummaryMode(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the global instance summary mode.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Boolean value indicating whether test time summary or memory summary is enable.</returns>
+            <remarks>If key is not found in SharedStorage service the method will return false.</remarks>
+        </member>
+        <member name="M:Prime.PerformanceService.Internal.IPerformanceService.SetDeviceStartTime(System.DateTime,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets to the SharedStorage service an snapshot of the device start time in the format yyyyMMddHHmmss.
+            </summary>
+            <param name="startTime">The start of the instance time.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PerformanceService.Internal.IPerformanceService.SetDeviceEndTime(System.DateTime,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets to the SharedStorage service an snapshot of the device end time in the format yyyyMMddHHmmss.
+            </summary>
+            <param name="endTime">The end of the instance time.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PerformanceService.Internal.IPerformanceService.StartCurrentInstance(System.DateTime,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Starts the current instance and returns the pre-instance time and elapsed time from the start of the device.
+            </summary>
+            <param name="startTime">The start of the instance time.</param>
+            <param name="sessionContext">The session context provider container.</param>
+            <returns>A tuple containing the pre-instance time and elapsed time from the start of the device.</returns>
+            <remarks>
+            The returned tuple contains the following elements:
+            - `PreInstanceTime`: This is the time elapsed between the end of the previous instance and the start of the current instance. It is measured in milliseconds. If there is no previous instance, this value will be 0.
+            - `ElapsedTimeFromStartOfDevice`: This is the time elapsed from the start of the device to the start of the current instance. It is measured in milliseconds. If the device start time is not set or the device end time is set and is earlier than the device start time, this value will be 0.
+            </remarks>
+        </member>
+        <member name="M:Prime.PerformanceService.Internal.IPerformanceService.EndCurrentInstance(System.DateTime,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Marks the end of the current instance.
+            </summary>
+            <param name="endTime">The end of the instance time.</param>
+            <param name="sessionContext">The current instance session context.</param>
+            <remarks>
+            This method should be called at the end of the Execute method to mark the end of the current instance.
+            It updates the internal state of the PerformanceService to reflect that the current instance has ended.
+            </remarks>
+        </member>
+        <member name="T:Prime.PerformanceService.IPerformanceService">
+            <summary>
+            Performance Service interface.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceService.IPerformanceService.GetCurrentInstanceElapsedTime(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the elapsed time from the start of the device to the start of the current test instance.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Value in milliseconds that represents the time that has passed since the start of the device to the start of the current test instance.</returns>
+        </member>
+        <member name="M:Prime.PerformanceService.IPerformanceService.GetDeviceSessionElapsedTime(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the elapsed time of the device session.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>
+            The elapsed time of the device session in milliseconds. This is calculated from the start of the device session
+            to the current time, or to the end of the session if it has ended.
+            </returns>
+        </member>
+        <member name="M:Prime.PerformanceService.IPerformanceService.GetDeviceStartTime(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the device start time in a formatted string.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>String containing an snapshot of the device start time in the format: yyyyMMddHHmmss.</returns>
+        </member>
+        <member name="M:Prime.PerformanceService.IPerformanceService.GetDeviceEndTime(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the device end time in a formatted string.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>String containing an snapshot of the device end time in the format: yyyyMMddHHmmss.</returns>
+        </member>
+        <member name="M:Prime.PerformanceService.IPerformanceService.SetGlobalInstanceSummaryMode(System.Boolean,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the global instance summary mode into SharedStorageService.
+            </summary>
+            <param name="testTimeSummary">Sets the mode of the test time summary.</param>
+            <param name="memorySummary">Sets the mode of the memory summary. Default = false.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>When storing TRUE to test time summary and/or memory summary, test instance execute will print test time and/or memory summary to ituff.</remarks>
+        </member>
+        <member name="T:Prime.PerformanceService.IpStorage`1">
+            <summary>
+            Performance service local storage.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceService.IpStorage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PerformanceService.IpStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceService.IpStorage`1.#ctor(System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PerformanceService.IpStorage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceService.IpStorage`1.Get(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get stored object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Stored object for this session.</returns>
+        </member>
+        <member name="M:Prime.PerformanceService.IpStorage`1.Insert(`0,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Insert object to store by session.
+            </summary>
+            <param name="newObject">Object to store.</param>
+            <param name="sessionContext">SessionContext.</param>
+        </member>
+        <member name="M:Prime.PerformanceService.IpStorage`1.GetLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a lock object by session.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="T:Prime.PerformanceService.PerformanceService">
+            <summary>
+            Implementation for PerformanceService class.
+            </summary>
+        </member>
+    </members>
+</doc>

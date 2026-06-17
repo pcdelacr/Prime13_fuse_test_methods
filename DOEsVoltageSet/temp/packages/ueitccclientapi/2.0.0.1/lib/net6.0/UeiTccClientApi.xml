@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UeiTccClientApi</name>
+    </assembly>
+    <members>
+        <member name="M:HdmtOs.Sdk.Uei.Examples.Examples.GetCachedCommandsExample">
+            <summary>
+            Example showing how to get cached commands
+            </summary>
+        </member>
+        <member name="M:HdmtOs.Sdk.Uei.Examples.Examples.CustomCommandExample">
+            <summary>
+            Example using custom command message types
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.Examples.Examples.CustomRequestCommandMessage">
+            <summary>
+            Custom request command message using helper base class to serialize to/from a struct
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.Examples.Examples.CustomRequestCommandMessage.Payload">
+            <summary>
+            Inner struct describing the payload format
+            </summary>
+        </member>
+        <member name="T:HdmtOs.Sdk.Uei.Examples.Examples.CustomReplyCommandMessage">
+            <summary>
+            Custom reply command message not using struct deserialization
+            </summary>
+        </member>
+        <member name="T:UeiTccClientApi.Thermal">
+            <summary>
+            Static class that contains static UEI TCC streaming methods
+            </summary>
+        </member>
+        <member name="M:UeiTccClientApi.Thermal.StartStreamingAsync">
+            <summary>
+            Start UEI streaming
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UeiTccClientApi.Thermal.ConfigureStreamingAsync(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Configure UEI streaming
+            </summary>
+            <param name="tdList">List of TD pins to stream</param>
+            <param name="powerList" optional="true">List of PowerSumMultiZone pins to stream (optional)</param>
+            
+            <returns></returns>
+        </member>
+        <member name="M:UeiTccClientApi.Thermal.ConfigureAndStartStreamingAsync(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Configure and start UEI streaming
+            </summary>
+            <param name="tdList">List of TD to stream</param>
+            <param name="powerList">List of PowerSumMultiZone pins to stream</param>
+            <returns></returns>
+        </member>
+        <member name="M:UeiTccClientApi.Thermal.StopStreamingAsync">
+            <summary>
+            Stop UEI streaming
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UeiTccClientApi.Thermal.AdjustControlSetValueAsync(System.String,HdmtOs.Sdk.Uei.UeiAdjustControlSetValueAction,System.Int32)">
+            <summary>
+            Adjust Thermal Control Set Value. It wraps UeiClientAdjustControlSetValueAsync method from TOS. 
+            </summary>
+            <param name="pinName">pin name of UeiClientPort0MultiZone Resource</param>
+            <param name="action">Set or Adjust</param>
+            <param name="value">Value to set or adjust</param>
+            <returns></returns>
+        </member>
+        <member name="M:UeiTccClientApi.Thermal.StreamAvgDTS">
+            <summary>
+            Enable DTS Streaming with AVG values. 
+            </summary>
+        </member>
+        <member name="M:UeiTccClientApi.Thermal.StreamMaxDTS">
+            <summary>
+            Enable DTS Streaming with MAX values. 
+            </summary>
+        </member>
+    </members>
+</doc>

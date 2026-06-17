@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.MultiTrialTestService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.MultiTrialTestService.IMultiTrialTestService">
+            <summary>
+            This is the interface of the MultiTrialTest Service.
+            </summary>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.IMultiTrialTestService.GetMultiTrialTestVariables">
+            <summary>
+            Get MultiTrialTest variables content.
+            </summary>
+            <returns>The trial variable's reset value.</returns>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.IMultiTrialTestService.SetTrialVariableResetValue(System.String,System.String,System.UInt32)">
+            <summary>
+            Sets specified trial variable's reset value.
+            If value exceeds multi trial flow's max flow item index, API still return true but an error will be generated on hdmtOS GUI.
+            </summary>
+            <param name="collectionName">The trial collection name.</param>
+            <param name="variableName">The trial variable name.</param>
+            <param name="value">The trial variable reset value.</param>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.IMultiTrialTestService.SetTrialVariableCurrentValue(System.String,System.String,System.UInt32)">
+            <summary>
+            Sets specified trial variable's current value.
+            If value exceeds multi trial flow's max flow item index, API still return true but an error will be generated on hdmtOS GUI.
+            </summary>
+            <param name="collectionName">The trial collection name.</param>
+            <param name="variableName">The trial variable name.</param>
+            <param name="value">The trial variable reset value.</param>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.IMultiTrialTestService.GetTrialVariableResetValue(System.String,System.String)">
+            <summary>
+            Gets specified trial variable's reset value.
+            </summary>
+            <returns>The trial variable's reset value.</returns>
+            <param name="collectionName">The trial collection name.</param>
+            <param name="variableName">The trial variable name.</param>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.IMultiTrialTestService.GetTrialVariableCurrentValue(System.String,System.String)">
+            <summary>
+            Gets specified trial variable's current value.
+            </summary>
+            <returns>The trial variable's current value.</returns>
+            <param name="collectionName">The trial collection name.</param>
+            <param name="variableName">The trial variable name.</param>
+        </member>
+        <member name="T:Prime.MultiTrialTestService.MultiTrialTestService">
+            <summary>
+            MultiTrialTestService.
+            </summary>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.MultiTrialTestService.GetMultiTrialTestVariables">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.MultiTrialTestService.GetTrialVariableCurrentValue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.MultiTrialTestService.GetTrialVariableResetValue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.MultiTrialTestService.SetTrialVariableCurrentValue(System.String,System.String,System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.MultiTrialTestService.SetTrialVariableResetValue(System.String,System.String,System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.MultiTrialTestService.UserVariables">
+            <summary>
+            User Variables for MTT.
+            </summary>
+        </member>
+        <member name="M:Prime.MultiTrialTestService.UserVariables.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.MultiTrialTestService.UserVariables"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.MultiTrialTestService.UserVariables.MultiTrialTestVariables">
+            <summary>
+            Gets the name:Value of MTT variables.
+            </summary>
+        </member>
+    </members>
+</doc>

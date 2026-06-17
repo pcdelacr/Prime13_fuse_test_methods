@@ -1,0 +1,597 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Idv</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Idv.ChainFrequencies">
+            <summary>
+            This class represents the frequencies of all oscillators/fublets for a given chain.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.ChainFrequencies.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Idv.ChainFrequencies"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.ChainFrequencies.AddFrequency(System.Int32,System.Int32,System.Double)">
+            <summary>
+            Adds the frequency value to its corresponding oscillator/fublet combination.
+            </summary>
+            <param name="fubletName">Fublet name.</param>
+            <param name="oscillator">Oscillator name.</param>
+            <param name="frequency">Calculated frequency.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.ChainFrequencies.PrintToItuff">
+            <summary>
+            Print frequencies data for all chains to ituff.
+            Frequencies printing from oscillators is skipped depending on input JSON file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.ChainFrequencies.GetFrequenciesForOscillator(Prime.TestMethods.Idv.ConfigurationFile.Calculations)">
+            <summary>
+            Gets a list of frequencies for a all oscillator/fublet that match the ones indicated on the calculation parameter.
+            </summary>
+            <param name="calculation">The calculation that contains oscillator/fublets to find its frequency.</param>
+            <returns>Returns list of frequencies.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.ChainFrequencies.AddIgnoredOscillator(System.Int32)">
+            <summary>
+            Add an oscillator to ignored list.
+            </summary>
+            <param name="oscillator">C.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.StatisticType">
+            <summary>
+            Enum for statistic types.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.ConfigurationFile.StatisticType.Median">
+            <summary>
+            Median.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.ConfigurationFile.StatisticType.Mean">
+            <summary>
+            Mean.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.ConfigurationFile.StatisticType.Minimum">
+            <summary>
+            Minimum.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.ConfigurationFile.StatisticType.Maximum">
+            <summary>
+            Maximum.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.ConfigurationFile.StatisticType.StdDeviation">
+            <summary>
+            Standard Deviation.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.ConfigurationFile.StatisticType.FubletsCount">
+            <summary>
+            Fublets Count.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.ConfigurationFile.StatisticType.Count">
+            <summary>
+            Count of Fublets within a range.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.Calculations">
+            <summary>
+            Represents an statistic that is applied to matching frequencies of N fublets associated to an oscillator.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.Name">
+            <summary>
+            Gets or sets an identifier name to be printed to ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.Oscillators">
+            <summary>
+            Sets the oscillator names.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.OscillatorValues">
+            <summary>
+            Gets the oscillators as integers.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.Statistic">
+            <summary>
+            Gets or sets the statistic to be applied.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.IsExported">
+            <summary>
+            Gets or sets a value indicating whether this calculation is exported to ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.Fublets">
+            <summary>
+            Sets a list of fublets to apply to the statistic. Dash separated range is supported.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.FubletValues">
+            <summary>
+            Gets the fublets as integers.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.LowerCountLimit">
+            <summary>
+            Gets or sets a lower limit for the Count type of statistic.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.HigherCountLimit">
+            <summary>
+            Gets or sets a higher limit for the Count type of statistic.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.LowerLimitKill">
+            <summary>
+            Gets or sets a lower limit for the Limit Kill feature.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.HigherLimitKill">
+            <summary>
+            Gets or sets a higher limit for the Limit Kill feature.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Calculations.ProcessLimitKill">
+            <summary>
+            Gets or sets process limit for the Limit Kill feature.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.CalculationsTableJsonFile">
+            <summary>
+            This class is used to represent the Calculations table JSON file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.CalculationsTableJsonFile.CalculationList">
+            <summary>
+            Gets or sets a list of all calculations to process.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.Chain">
+            <summary>
+            This class represents .
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Chain.Type">
+            <summary>
+            Gets or sets the chain type.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Chain.Delay">
+            <summary>
+            Gets or sets the chain delay.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Chain.CapturePin">
+            <summary>
+            Gets or sets the chain pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Chain.CounterWidth">
+            <summary>
+            Gets or sets counter width for this chain.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Chain.Fublets">
+            <summary>
+            Gets or sets the list of fublets for this chain.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.Fublet">
+            <summary>
+            This class represents the fublets circuit structures.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Fublet.Name">
+            <summary>
+            Gets or sets name of the fublet.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Fublet.FubletTypes">
+            <summary>
+            Gets or sets the list of fublet types.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.IdvStructureJsonFile">
+            <summary>
+            This class holds the json structure for idv file configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.IdvStructureJsonFile.CounterWidth">
+            <summary>
+            Gets or sets how many bits are in a fublet.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.IdvStructureJsonFile.TapGroupElement">
+            <summary>
+            Gets or sets the TAP group for the configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.IdvStructureJsonFile.OscillatorGroups">
+            <summary>
+            Gets or sets the list of Oscillator groups.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.OutputType">
+            <summary>
+            Dictates the output type that can be used in the idv structure json file.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.ConfigurationFile.OutputType.Frequencies">
+            <summary>
+            Only frequencies are printed to ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.ConfigurationFile.OutputType.None">
+            <summary>
+            No frequencies are printed to ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.ConfigurationFile.OutputType.Custom">
+            <summary>
+            Custom for extendable methods, defined by user.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.Oscillator">
+            <summary>
+            This class represents the oscillator structure.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Oscillator.Number">
+            <summary>
+            Gets or sets oscillator number/identifier.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Oscillator.Cycles">
+            <summary>
+            Gets or sets the cycles used to calculate fublet frequencies.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Oscillator.DataInPattern">
+            <summary>
+            Gets or sets a value indicating whether the data for this oscillator is in the pattern to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Oscillator.Divider">
+            <summary>
+            Gets or sets divider used to calculate fublet frequencies.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.Oscillator.OutputType">
+            <summary>
+            Gets or sets the output type for this oscillator.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.OscillatorGroup">
+            <summary>
+            This class represents the oscillator group structure.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.OscillatorGroup.FubletType">
+            <summary>
+            Gets or sets the type used to associate this group to a fublet.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.OscillatorGroup.Oscillators">
+            <summary>
+            Gets or sets list of oscillators of this group.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.Parser">
+            <summary>
+            This class is in charge of parsing the IDV configuration files.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.ConfigurationFile.Parser.#ctor(Prime.TestMethods.Idv.Wrappers.IFileWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Idv.ConfigurationFile.Parser"/> class.
+            </summary>
+            <param name="fileWrapper">IFileWrapper mock object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.ConfigurationFile.Parser.ParseCalculationsTableFile(System.String)">
+            <summary>
+            Parses calculations table file.
+            </summary>
+            <param name="fileName">IFileWrapper mock object.</param>
+            <returns>Returns calculations table object and its last modified time.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.ConfigurationFile.Parser.ParseIdvStructureFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Parses IDV structure file.
+            </summary>
+            <param name="fileName">IFileWrapper mock object.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Parsed IDV object.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.ConfigurationFile.TapGroup">
+            <summary>
+            This class represents the TAP group.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.TapGroup.Type">
+            <summary>
+            Gets or sets the type for this TAP group.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.ConfigurationFile.TapGroup.Chains">
+            <summary>
+            Gets or sets list of chains for this TAP group.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.Idv">
+            <summary>
+            Intra-die variation test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.Idv.#ctor(System.Double,System.Int32,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Idv.Idv"/> class.
+            Intra-die variation test method.
+            </summary>
+            <param name="tapFrequency">Tap (Test Access Port) frequency.</param>
+            <param name="expectedChainCount">Expected quantity of chains.</param>
+            <param name="rawDataLogging">Controls if the raw/frequencies data is logged into ITUFF.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.Idv.CalculateFrequenciesForAllChains(Prime.TestMethods.Idv.ConfigurationFile.IdvStructureJsonFile,System.String,System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Idv.ConfigurationFile.OscillatorGroup})">
+            <summary>
+            Calculates the frequencies for oscillators/fublets for all chains.
+            </summary>
+            <param name="idvStructureJsonFile">Json structure for idv file configuration.</param>
+            <param name="perPatternCtvData">CTV data resulting from pattern execution.</param>
+            <param name="oscillatorGroupsPerFubletType">Dictionary of oscillators associated to a fublet.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.Idv.CalculateRollUpData(Prime.TestMethods.Idv.ConfigurationFile.CalculationsTableJsonFile)">
+            <summary>
+            This method calculate the statistics/roll up data for all calculations from calculation table file.
+            </summary>
+            <param name="calculationsTableJsonFile">Json structure for calculations table file configuration.</param>
+            <returns>The exit port.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.IPrimeIdvExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.IPrimeIdvExtensions.CalculateFrequenciesForAllChains(Prime.TestMethods.Idv.ConfigurationFile.IdvStructureJsonFile,System.String,System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Idv.ConfigurationFile.OscillatorGroup})">
+            <summary>
+            Provides entry point to define custom order to calculate the frequencies for all chains.
+            </summary>
+            <param name="idvStructureJsonFile">Contains all the information read from input file.</param>
+            <param name="perPatternCtvData">Bit string with captured CTV data.</param>
+            <param name="oscillatorGroupsPerFubletType">Dictionary of oscillators associated to a fublet.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.IPrimeIdvExtensions.CalculateRollUpData(Prime.TestMethods.Idv.ConfigurationFile.CalculationsTableJsonFile)">
+            <summary>
+            Provides entry point to define custom order to print data to ituff.
+            </summary>
+            <param name="calcTableJsonFile">Contains all the information read from input file.</param>
+            <returns>The exit port number.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.PrimeIdvTestMethod">
+            <summary>
+            Intra-die variation (IDV) test method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.PrimeIdvTestMethod.fileWrapper">
+            <summary>
+            fileWrapper for File static class mocking capabilities.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.PrimeIdvTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Idv.PrimeIdvTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.PrimeIdvTestMethod.#ctor(Prime.TestMethods.Idv.Wrappers.IFileWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Idv.PrimeIdvTestMethod"/> class.
+            </summary>
+            <param name="fileWrapper">IFileWrapper mock object.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.PrimeIdvTestMethod.RawDataLoggingControl">
+            <summary>
+            Enum for RawDataLoggingControl values.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.PrimeIdvTestMethod.RawDataLoggingControl.Disabled">
+            <summary>
+            Raw data logging disabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Idv.PrimeIdvTestMethod.RawDataLoggingControl.Enabled">
+            <summary>
+            Raw data logging enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.MaskPins">
+            <summary>
+            Gets or sets  comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.TapFrequency">
+            <summary>
+            Gets or sets Tap Frequency value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.CalculationsTableFile">
+            <summary>
+            Gets or sets CalculationsTableFile file name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.IdvStructureFile">
+            <summary>
+            Gets or sets Idv Structure configuration file name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.TriggerMapName">
+            <summary>
+            Gets or sets comma seperated high limits for the measure pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.Idv.IPrimeIdvExtensions" />
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.RawDataLogging">
+            <summary>
+            Gets or sets if the raw data is logged into ITUFF or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Idv.PrimeIdvTestMethod.IdvChains">
+            <summary>
+            Gets or sets ChainTable object, contains the logic to calculate IDV frequencies.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.PrimeIdvTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Idv.PrimeIdvTestMethod.ForceReVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Idv.PrimeIdvTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Idv.PrimeIdvTestMethod.Prime#TestMethods#Idv#IPrimeIdvExtensions#CalculateFrequenciesForAllChains(Prime.TestMethods.Idv.ConfigurationFile.IdvStructureJsonFile,System.String,System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Idv.ConfigurationFile.OscillatorGroup})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Idv.PrimeIdvTestMethod.Prime#TestMethods#Idv#IPrimeIdvExtensions#CalculateRollUpData(Prime.TestMethods.Idv.ConfigurationFile.CalculationsTableJsonFile)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Idv.RollUpStatistic">
+            <summary>
+            This class is in charge of the handle of roll up/statistic information for all entry in calc table file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.#ctor(System.Collections.Generic.IReadOnlyCollection{System.Double},Prime.TestMethods.Idv.ConfigurationFile.Calculations,System.Collections.Concurrent.ConcurrentBag{System.String}@)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Idv.RollUpStatistic"/> class.
+            </summary>
+            <param name="frequencies">The frequencies to be used in this statistics.</param>
+            <param name="calculation">The calculation object from calc table file to applied the statistics.</param>
+            <param name="consoleOutput">Accumulates console output.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.GetItuffWriter(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Prints calculation data to ituff.
+            </summary>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.ExportToSharedStorage(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Exports the calculation information to shared storage if needed.
+            </summary>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.EvaluateKillLimits(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Evaluates the calculation limits for Limit Kill.
+            </summary>
+            <param name="sessionContext">The session context.</param>
+            <returns>The Exit Port value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.CalculateMinimumFrequency(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Calculates the min value for all fublets of an oscillator.
+            </summary>
+            <param name="frequencies">Frequencies to calculate the min value.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.CalculateMaximumFrequency(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Calculates the max value for all fublets of an oscillator.
+            </summary>
+            <param name="frequencies">Frequencies to calculate the max value.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.CalculateNumberOfZeroFrequency(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Calculates the number of frequencies with value equals 0 for all fublets of an oscillator.
+            </summary>
+            <param name="frequencies">Frequencies to calculate the 0 values.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.CalculateMeanFrequency(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Calculates the mean for all fublets of an oscillator.
+            </summary>
+            <param name="frequencies">Frequencies to calculate the mean.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.CalculateMedianFrequency(System.Collections.Generic.IReadOnlyCollection{System.Double})">
+            <summary>
+            Calculates the median for all fublets of an oscillator.
+            </summary>
+            <param name="frequencies">Frequencies to calculate the median.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.CalculateStdDevFrequency(System.Collections.Generic.IReadOnlyCollection{System.Double},System.Double,System.Double)">
+            <summary>
+            Calculates the std deviation for all fublets of an oscillator.
+            </summary>
+            <param name="frequencies">Frequencies to calculate the std deviation.</param>
+            <param name="mean">Mean used in std deviation formula.</param>
+            <param name="zeroCounter">Counter of zeros to apply to std deviation formula.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.RollUpStatistic.CalculateValue(System.Collections.Generic.IReadOnlyCollection{System.Double},Prime.TestMethods.Idv.ConfigurationFile.Calculations)">
+            <summary>
+            Calculates the needed statistic according to calculation object.
+            </summary>
+            <param name="frequencies">Frequencies to calculate the std deviation.</param>
+            <param name="calculation">The calculation object from calc table file to be computed.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.Wrappers.FileWrapper">
+            <summary>
+            Wrapper class to wrap System.IO.File methods used in this file to be able to mock them for unit testing.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.Wrappers.FileWrapper.ReadAllText(System.String)">
+            <summary>
+             Reads all text from a File.
+            </summary>
+            <param name="input">Path to the file.</param>
+            <returns>String with file contents.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Idv.Wrappers.IFileWrapper">
+            <summary>
+            Interface to wrap System.IO.File methods used in this file to be able to mock them for unit testing.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Idv.Wrappers.IFileWrapper.ReadAllText(System.String)">
+            <summary>
+             Reads all text from a File.
+            </summary>
+            <param name="input">Path to the file.</param>
+            <returns>String with file contents.</returns>
+        </member>
+    </members>
+</doc>

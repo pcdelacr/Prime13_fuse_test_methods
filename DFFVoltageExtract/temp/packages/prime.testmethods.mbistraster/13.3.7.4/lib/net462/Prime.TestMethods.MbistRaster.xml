@@ -1,0 +1,1124 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.MbistRaster</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRasterBitRanges">
+            <summary>Holds the information to decode a single capture for a single controller.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterBitRanges.GetMinMax">
+            <summary>
+            Returns the min/max bit locations for this capture elemnt.
+            </summary>
+            <returns>Tuple Item1=Minimum index, Item2=Maximum location.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterBitRanges.Size">
+            <summary>
+            Gets the Size of this capture.
+            </summary>
+            <returns>size.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterBitRanges.GetHryIndexByMemory">
+            <summary>
+            Gets the HRY index for every Memory.
+            </summary>
+            <returns>Dictionary, Key=MemoryID, Value=HRY index.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRasterInput">
+            <summary>MBIST Raster JSON configuration.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterInput.Validate(System.String)">
+            <summary>
+            Validates the MbistRasterInput instance.
+            </summary>
+            <param name="plist">The name of the PList to validate, if empty will validate all plists.</param>
+            <returns>List of all the errors in string format.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterInput.GetCaptureGroups">
+            <summary>
+            Gets the list of all capture groups and plists.
+            </summary>
+            <returns>List of all capture groups.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterInput.GetSize(System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.MbistRaster.MbistRasterBitRanges})">
+            <summary>
+            Gets the number of capture bits in the given capture group.
+            </summary>
+            <param name="captureGroup">capture group.</param>
+            <returns>Number of capture bits in the capture group.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRasterMemory">
+            <summary>Holds the information for decoding a single Memorys capture.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRasterPlist">
+            <summary>Represents the capture data from a single PList.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRepairElement">
+            <summary>Class representing a single repair element.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRepairGroup">
+            <summary>Repair Group Class.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairGroup.MaxIndex(System.Int32)">
+            <summary>Finds max index to initialize the shared storage.</summary>
+            <param name="value">Max index found currently in this GSDS.</param>
+            <returns>Returns max value.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRepairInput">
+            <summary>MBIST Raster JSON configuration.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.WriteGSDSs(System.Collections.Generic.Dictionary{System.String,System.String},Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>Write GSDSs. </summary>
+            <param name="gsds">List of GSDS to write. </param>
+            <param name="consoleService">consoleService.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.GetRepairType(System.Collections.Generic.List{System.String})">
+            <summary>
+            Given a repair group name, returns the possible repair types.
+            </summary>
+            <param name="repairGroup">.</param>
+            <returns>repair type.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.IsPrimeInputOutput">
+            <summary> Returns whether Prime is being used for input/output data format. </summary>
+            <returns>Whether to output or input from prime. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.CreateInitialGSDS">
+            <summary> Reset GSDS used for repair to all Xs. </summary>
+            <returns>String size to initialize.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.BuildGSDSFromPrime(System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary> Build GSDS from Prime VFDM. </summary>
+            <param name="fuses">Repair Group name.</param>
+            <param name="gsdsinit">Number of characters to init to.</param>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.BuildLegacyfromDff(System.Collections.Generic.Dictionary{System.String,System.String}@,Prime.ConsoleService.IConsoleService,Prime.DffService.IDffService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary> Build GSDS from Prime VFDM. </summary>
+            <param name="gsds">Initilization length of each gsds.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="dffService">dffService.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.BuildLegacyDff(Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.DffService.IDffService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary> Build Legacy DFF from shared storage. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.CheckPrimeEnabled">
+            <summary>
+            Checks if Prime should be enabled in flow.
+            </summary>
+            <returns>Whether to enable prime enabling.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.SetupRegisters">
+            <summary> Return Prime Key. </summary>
+            <returns>2 strings being the Namespace and TAG.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.GetGlobalForRepairGroup(System.String)">
+            <summary>
+            Gets the Global name which holds the fuse values for the given Repair Group.
+            </summary>
+            <param name="group">Repair Group name.</param>
+            <returns>Global name.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.HasRepair(System.String)">
+            <summary>
+            Checks if this Controller has a RepairGroup associated with it.
+            </summary>
+            <param name="controller">Contoller Name.</param>
+            <returns>True if there exists a repair group for this controller.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRepairInput.FindRepairGroup(System.String,System.Int32,System.Int32)">
+            <summary>
+            Returns the repair group name for the given controller, step and mem.
+            Raises an exeption if one does not exist.
+            </summary>
+            <param name="controller">Controller name.</param>
+            <param name="step">Step Index (integer.</param>
+            <param name="mem">Mem ID value (integer.</param>
+            <returns>Repair Group Name.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRepairMemoryMap">
+            <summary>Holds the repair map from the JSON Raster config file.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistShared">
+            <summary>
+            Static helper functions/enums/stuff for MBIST code.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistShared.RepairType">
+            <summary>Enum for repair types.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistShared.RepairType.ROW">
+            <summary>Row Repair.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistShared.RepairType.COL">
+            <summary>Column Repair.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistShared.RepairType.WORD">
+            <summary>Word Repair.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistShared.RepairType.BOTH">
+            <summary>Both Row and Column Repair.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistShared.RepairType.NR">
+            <summary>No Repair.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistShared.RepairType.NONE">
+            <summary>No Repair.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistShared.RepairStatus">
+            <summary>Enum for repair status.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistShared.RepairStatus.AVAIL">
+            <summary>Repair Element is Available.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistShared.RepairStatus.USED">
+            <summary>Repair Element is Used.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistShared.CaptureInterLeaveType">
+            <summary>Enum for how to serialize capture data from multiple pins.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistShared.CaptureInterLeaveType.PinFirst">
+            <summary>All bits from Pin[0] before Pin[1].</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistShared.CaptureInterLeaveType.CycleFirst">
+            <summary>First element of each pin, followed by the 2nd element of each pin, etc.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistShared.RepairPriority">
+            <summary>
+            Gets the order to iterate through repair types. This is to match the Python implentation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.ResolveCapturePins(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This functions takes a CtvCapturePins from HRY or Repair template and maps it to the
+            CapturePins field from the Json input file. This is so that the json doesn't need IP
+            scoping.  For sort/non-intradut this is mostly redundant.
+            </summary>
+            <param name="capturePins">CtvCapturePins from template (with ip scoping for intradut).</param>
+            <param name="requiredPins">CapturePins field from JSON (does not require ip scoping ever).</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="sessionContext">sessionContext.</param>
+            <returns>IP Scoped list of capture pins in the correct order from the JSON input file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.SerializeCaptureData(System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.List{System.String},Prime.TestMethods.MbistRaster.MbistShared.CaptureInterLeaveType)">
+            <summary>
+            Function to convert the per-pin capture data into a single serialized string.
+            Supports two methods, PinFirst and CycleFirst
+                 PinFirst:  Data = { Pin1Data[0-x], Pin2Data[0-x], ... }
+                 CycleFirst: Data = { Pin1Data[0], Pin2Data[0], ..., Pin1Data[1], Pin2Data[1], ... }.
+            </summary>
+            <param name="ctvData">Capture data from Prime, Dictionary where Key=PinName, Value=string of capture dat.</param>
+            <param name="pinlist">List of pins to extract capture data for, must be a subset of the pins in ctvDat.</param>
+            <param name="interleaving">How to interleave the pindata, either PinFirst or CycleFirs.</param>
+            <returns>Single string containing all the serialized capture data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.StringReverse(System.String)">
+            <summary>
+            Simply reverses a string.  This is the quickest way I could find to do it.
+            </summary>
+            <param name="s">String to reverse.</param>
+            <returns>Reversed String.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.AdjustRange(System.String,System.Int32)">
+            <summary>
+            Function to adjust a range by a given offset.
+            </summary>
+            <param name="range">Range value.</param>
+            <param name="offset">Amount to shift range.</param>
+            <returns>New Range.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.RangeToList(System.String)">
+            <summary>
+            Function to convert a string range into a list of integers.
+            Example ranges: "3,6-8" becomes { 3, 6, 7, 8 }.
+            </summary>
+            <param name="range">Range to convert.</param>
+            <returns>List of indexes.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.RangeSize(System.String)">
+            <summary>
+            Gets the number of bits in a range.
+            </summary>
+            <param name="range">Range.</param>
+            <returns>Number of bits in the range.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.SetSubData(System.String,System.String,System.String)">
+            <summary>
+            Replaces a substring at the given indexes in the full string.
+            </summary>
+            <param name="range">Range value giving the index positions in the full string.</param>
+            <param name="subDataStr">SubString to write.</param>
+            <param name="fullDataStr">Full String to update.</param>
+            <returns>Updated full string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.ExtractSubData(System.String,System.String)">
+            <summary>
+            Extract substring at the given indexes in the full string.
+            </summary>
+            <param name="range">Range value giving the index positions in the full string.</param>
+            <param name="fullDataStr">Full String to extract.</param>
+            <returns>Updated full string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.GetSubData(System.String,System.String)">
+            <summary>
+            Get a substring based on a range (bit locations separated by commas or bitranges using -).
+            </summary>
+            <param name="range">Indexes of the data to return. ie "1,3,5,9-11,15".</param>
+            <param name="data">Full string.</param>
+            <returns>SubString.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.GetMbistHRYData(Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the current MBIST HRY string.
+            </summary>
+            <returns>full HRY string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistShared.SetMbistHRYData(System.String,Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Writes the given string to the MBIST HRY Global.
+            </summary>
+            <param name="hry">HRY data to write.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="sharedStorageServic">sharedStorageServic.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.FailContainer">
+            <summary>
+            Helper class containing fail information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.#ctor(Prime.ConsoleService.IConsoleService,Prime.TestMethods.MbistRaster.MbistRasterInput,Prime.TestMethods.MbistRaster.MbistRepairInput)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.MbistRaster.FailContainer"/> class.
+            </summary>
+            <param name="consoleService">consoleService.</param>
+            <param name="rasterinput">Object containing the JSON configuration file for raster.</param>
+            <param name="repairinput">Object containing the JSON configuration file for repair.</param>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailContainer.Count">
+            <summary>Gets the Number of Defects in this FailContainer object.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailContainer.Contents">
+            <summary>Gets the Base container for the failure.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailContainer.FailRows">
+            <summary>Gets the container to keep track of just the failing rows.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailContainer.RepairFails">
+            <summary>Gets the container to track unrepaired defects.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailContainer.MustRepairIO">
+            <summary>Gets the container for possible repairs.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailContainer.RepairedDefects">
+            <summary>Gets the container for possible repairs.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailContainer.RasterConfig">
+            <summary>Gets the pointer to the JSON Raster file.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailContainer.RepairConfig">
+            <summary>Gets the pointer to the JSON Raster file.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.Clear">
+            <summary>Remove everything from this container.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.RepairsNeeded">
+            <summary>
+            Returns true if there are repairs needed, otherwise False.
+            </summary>
+            <returns>True if repairs are needed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.RepairsNeeded(System.Collections.Generic.List{System.String})">
+            <summary>
+            Returns true if the specified RepairGroup has any defects which need repairs.
+            </summary>
+            <param name="groups">Repair Group name.</param>
+            <returns>True if repairs are needed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.RepairsNeeded(System.Collections.Generic.List{System.String},Prime.TestMethods.MbistRaster.MbistShared.RepairType)">
+            <summary>
+            Returns true if the specified RepairGroup has any defects which need repairs of the specified type.
+            </summary>
+            <param name="groups">Repair Group name.</param>
+            <param name="type">Repair Type.</param>
+            <returns>True if repairs are needed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.FailAddresses(System.Collections.Generic.List{System.String},Prime.TestMethods.MbistRaster.MbistShared.RepairType)">
+            <summary>
+            Gets all the Defects for the specified RepairGroup and Type.
+            </summary>
+            <param name="groups">Name of the RepairGroup.</param>
+            <param name="type">Defect Type.</param>
+            <returns>List of defects.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.MarkForRepair(System.Collections.Generic.List{System.String},Prime.TestMethods.MbistRaster.MbistShared.RepairType)">
+            <summary>
+            Assigns defects for repair in the given RepairGroup/Type.
+            </summary>
+            <param name="groups">Repair Group.</param>
+            <param name="type">Repair Type.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.MarkForRepair(System.Collections.Generic.List{System.String},Prime.TestMethods.MbistRaster.MbistShared.RepairType,System.Int32)">
+            <summary>
+            Assigns the given defect a Repair element.
+            </summary>
+            <param name="groups">Name of the Repair Group.</param>
+            <param name="type">Type of the Repair.</param>
+            <param name="address">Address of the defect.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.GetRepairGroups">
+            <summary>
+            Gets the names of all the RepairGroups that have defects.
+            </summary>
+            <returns>List of RepairGroup names.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.CountNeededRepairs(System.Collections.Generic.List{System.String},Prime.TestMethods.MbistRaster.MbistShared.RepairType,System.Int32)">
+            <summary>
+            Counts the number of repairs needed in the given defect.
+            </summary>
+            <param name="groups">RepairGroup name.</param>
+            <param name="type">Type of repair.</param>
+            <param name="address">Address of the defect.</param>
+            <returns>the number of repairs needed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.MustRepairIOCheck(System.Collections.Generic.List{System.String},System.Int32)">
+            <summary>
+            Returns if .
+            </summary>
+            <param name="groups">RepairGroup name.</param>
+            <param name="io">The IO to be repaired.</param>
+            <returns>MustRepair IO.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.CountNeededRepairs(System.Collections.Generic.List{System.String},Prime.TestMethods.MbistRaster.MbistShared.RepairType)">
+            <summary>
+            Counts the number of repairs needed in the given defect.
+            </summary>
+            <param name="groups">RepairGroup name.</param>
+            <param name="type">Type of repair.</param>
+            <returns>the number of repairs needed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.FailingRows(System.String,System.Int32)">
+            <summary>
+            Gets the number of failing rows for the given memory.
+            </summary>
+            <param name="controller">Name of the Controller.</param>
+            <param name="mem">Memory ID.</param>
+            <returns>Number of failing rows.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.GetAllControllers">
+            <summary>
+            Gets a list of all the Controllers.
+            </summary>
+            <returns>List of controller names.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.GetAllSteps(System.String)">
+            <summary>
+            Gets all the valid STEP values for the given controller.
+            </summary>
+            <param name="controller">Controller Name.</param>
+            <returns>List of valid STEP values.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.GetAllMems(System.String,System.Int32)">
+            <summary>
+            Gets all the valid MemoryIDs for the given controller and step.
+            </summary>
+            <param name="controller">Controller Name.</param>
+            <param name="step">STEP value.</param>
+            <returns>List of MemoryIDs.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.GetAllFailAddresses(System.String,System.Int32,System.Int32)">
+            <summary>
+            Get all the addresses of failures.
+            </summary>
+            <param name="controller">Controller Name.</param>
+            <param name="step">STEP value.</param>
+            <param name="mem">MemoryID.</param>
+            <returns>List of FailData.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailContainer.Add(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Records a defect at the given.
+            </summary>
+            <param name="cont">Controller Name.</param>
+            <param name="step">STEP Value.</param>
+            <param name="mem">MemoryID.</param>
+            <param name="bank">BANK Value (Z address).</param>
+            <param name="row">ROW Value (X address).</param>
+            <param name="col">COLUMN Value (Yaddress).</param>
+            <param name="bit">Failing Bit/IO location.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.FailData">
+            <summary>
+            Base container to hold fail data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailData.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.MbistRaster.FailData"/> class.
+            </summary>
+            <param name="cont">Controller Name.</param>
+            <param name="step">STEP Value.</param>
+            <param name="mem">Memory ID.</param>
+            <param name="bank">Bank Value (Z Address).</param>
+            <param name="row">Row Value (X Address).</param>
+            <param name="col">Column Value (Y Address).</param>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailData.Controller">
+            <summary>Gets the Controller name for this failure.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailData.Step">
+            <summary>Gets the STEP value for this failure.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailData.Mem">
+            <summary>Gets the MemoryID for this failure.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailData.Bank">
+            <summary>Gets the Bank Value (Z address) for this failure.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailData.Row">
+            <summary>Gets the Row Value (X address) for this failure.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailData.Col">
+            <summary>Gets the Column Value (Yaddress) for this failure.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.FailData.Bits">
+            <summary>Gets the Controller name for this failure.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailData.Add(System.Int32)">
+            <summary>
+            Adds a new failure.
+            </summary>
+            <param name="failBit">Failing Bit/IO.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.FailData.GetAllBits">
+            <summary>
+            Gets all the failing Bits/IOs at this address.
+            </summary>
+            <returns>List of failing Bits/IOs.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration">
+            <summary>Holds the information to decode a single capture for a single controller.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.NA">
+            <summary>Constant used as default for optional ranges.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.Status">
+            <summary>Gets or sets STATUS.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.Step">
+            <summary>Gets or sets STEP.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.ErrorCnt">
+            <summary>Gets or sets ERROR_CNT.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.GoIDs">
+            <summary>Gets or sets GOID.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.LoopCounter">
+            <summary>Gets or sets LOOP_COUNTER.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.AddrZ">
+            <summary>Gets or sets ADDR_Z.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.AddrX">
+            <summary>Gets or sets ADDR_X.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.AddrY">
+            <summary>Gets or sets ADDR_Y.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.Instruction">
+            <summary>Gets or sets INSTRUCTION.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterBitRangesConfiguration.Algorithm">
+            <summary>Gets or sets ALGO_SEL.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRasterConfiguration">
+            <summary>MBIST Raster JSON configuration.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterConfiguration.Version">
+            <summary>Gets or sets Version.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterConfiguration.HryLength">
+            <summary>Gets or sets HRY Length (not a JSON element).</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterConfiguration.HryFullMemList">
+            <summary>Gets or sets HRY String element which contains a list of all memories in the hry string.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterConfiguration.PLists">
+            <summary>Gets or sets PLists.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterConfiguration.CaptureDecoders">
+            <summary>Gets or sets CaptureDecoders.  Key=Capture Name, Value={Dict Key=Controller, Value=Decoder}.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRasterMemoryConfiguration">
+            <summary>Holds the information for decoding a single Memorys capture.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterMemoryConfiguration.MemoryId">
+            <summary>Gets or sets MEM.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterMemoryConfiguration.GoIDBits">
+            <summary>Gets or sets BITS.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRasterPlistConfiguration">
+            <summary>Represents the capture data from a single PList.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterPlistConfiguration.CapturePins">
+            <summary>Gets or sets CapturePins.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterPlistConfiguration.CaptureInterLeaveMode">
+            <summary>Gets or sets CaptureInterLeaveMode.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterPlistConfiguration.CaptureGroups">
+            <summary>Gets or sets Captures.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRepairElementConfiguration">
+            <summary>Class representing a single repair element.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairElementConfiguration.Type">
+            <summary>Gets or sets TYPE.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairElementConfiguration.LogSize">
+            <summary>Gets or sets LOG_SIZE.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairElementConfiguration.FusePos">
+            <summary>Gets or sets FUSE_POS.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairElementConfiguration.Status">
+            <summary>Gets or sets STATUS.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairElementConfiguration.PrimeName">
+            <summary>Gets or sets PrimeName.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairElementConfiguration.PrimeEnableName">
+            <summary>Gets or sets PrimeName.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRepairGroupConfiguration">
+            <summary>Repair Group Class.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairGroupConfiguration.GlobalName">
+            <summary>Gets or sets GLOBALNAME.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairGroupConfiguration.LEGACYDFF">
+            <summary>Gets or sets LEGACYDFF.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairGroupConfiguration.Repairs">
+            <summary>Gets or sets REPAIRS.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairGroupConfiguration.Width">
+            <summary>Gets or sets WIDTH for WORD repair.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRepairInputConfiguration">
+            <summary>MBIST Raster JSON configuration.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairInputConfiguration.Version">
+            <summary>Gets or sets Version.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairInputConfiguration.Prime_Vfdm_Setup">
+            <summary>Gets or sets JSON Element.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairInputConfiguration.PrimeOutput">
+            <summary>Gets or sets a value indicating whether PRIME VFDM is the output JSON Element.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairInputConfiguration.RepairMap">
+            <summary>
+            Gets or sets RepairMap, Key=Controller Name, Value=(Dictionary) Key=Step(format="STEP[01]"), Value=List of MbistRepairMemoryMap.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairInputConfiguration.RepairGroups">
+            <summary>Gets or sets REPAIRGROUPS. Key=RepairGroup Name, Value=RepairGroup object.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRepairMemoryMapConfiguration">
+            <summary>Holds the repair map from the JSON Raster config file.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairMemoryMapConfiguration.MemRange">
+            <summary>Gets or sets MEM.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRepairMemoryMapConfiguration.RepairGroup">
+            <summary>Gets or sets REPAIRGROUP.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm">
+            <summary>
+            Main class for MBIST Raster/Repair.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.#ctor(Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.FileService.IFileService,Prime.SessionService.ISessionContextProviderContainer,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm"/> class.
+            </summary>
+            <param name="consoleService">consoleService.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="fileService">fileService.</param>
+            <param name="sessionContext">sessionContext.</param>
+            <param name="fafiMode">True if this should run in FAFI mode.</param>
+            <param name="repairMode">True if Repair should be attempted.</param>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.RepairMode">
+            <summary>Gets a value indicating whether the algorithm should include repair.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.FailDatabase">
+            <summary>Gets the FailDatabase.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.DutCollection">
+            <summary>Gets or sets the uservar collection name for the X,Y identifiers for this DUT (for the TFile).</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.DutXGlobal">
+            <summary>Gets or sets the uservar variable name for the X identifiers for this DUT (for the TFile).</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.DutYGlobal">
+            <summary>Gets or sets the uservar variable name for the Y identifiers for this DUT (for the TFile).</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.ControllerStatusFailure">
+            <summary>Gets a value indicating whether the Controller Status has failed.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.MafFlag">
+            <summary>Gets a value indicating whether an MAF (massive failure) has occurred.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.Repaired">
+            <summary>Gets a value indicating whether Repair has been successful.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.RepairConfig">
+            <summary>Gets a Repair config file.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.MergeFuseValues(System.Collections.Generic.List{System.String})">
+            <summary>
+            Attempts to combine the fuse values.
+            </summary>
+            <param name="values">List of fuse values.</param>
+            <returns>Single merged fuse value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.PliststoExecute(System.Char[],System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.Int32}})">
+            <summary>Creating list of plists to run raster on.</summary>
+            <param name="hrystring">Current HRY string.</param>
+            <param name="rasterChars">Characters to run raster on.</param>
+            <param name="indexPerPlist">List of Indexs per plist.</param>
+            <returns>rasterPlists.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.Bin2Hex(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Convert the given binary string to hex.
+            </summary>
+            <param name="sbin">Binary String.</param>
+            <param name="reverse">True if the string should be reversed befor converting to hex.</param>
+            <param name="prefix">If true, hex value will be len'hvalue format.  eg 9'h003.</param>
+            <returns>Hex string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.Bin2dec(System.String,System.Boolean)">
+            <summary>
+            Convert the given binary string to Decimal.
+            </summary>
+            <param name="sbin">Binary String.</param>
+            <param name="reverse">True if the string should be reversed befor converting.</param>
+            <returns>Int32.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.IsPrimeRepairenabled">
+            <summary>Check if Prime Fuse is enabled.</summary>
+            <returns>Bool.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.Initialize(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Clears out any previously stored data.
+            </summary>
+            <param name="contFail">Value for ControllerStatus Flag (defaults to false).</param>
+            <param name="mafFlag">Value for MAF Flag (defaults to false).</param>
+            <param name="repaired">Value for Repaired flag (defaults to false).</param>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.LoadRasterInputFile(System.String)">
+            <summary>
+            Loads the given JSON config file into the Input structure, returns null on any error.
+            </summary>
+            <param name="rasterfile">Name of the JSON file to lao.</param>
+            <returns>MbistRasterInput loaded from the file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.LoadRepairInputFile(System.String)">
+            <summary>
+            Loads the given JSON config file into the Input structure, returns null on any error.
+            </summary>
+            <param name="repairfile">Name of the JSON file to lao.</param>
+            <returns>MbistRasterInput loaded from the file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.WriteLYASharedStorage(System.String,System.String)">
+            <summary>
+            Writes the shared FailDatabase to the Raster log (TFile).
+            </summary>
+            <param name="instanceName">Instance name to use in the log.</param>
+            <param name="lyasskey">This is the LYA shared storage token to write.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.WriteRasterLog(System.String,Prime.UserVarService.IUserVarService,Prime.DatalogService.IDatalogService)">
+            <summary>
+            Writes the current FailDatabase to the Raster log (TFile).
+            </summary>
+            <param name="instanceName">Instance name to use in the log.</param>
+            <param name="userVarService">userVarService.</param>
+            <param name="datalogService">datalogService.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.GetRepairGlobalValues(System.Collections.Generic.List{System.String})">
+            <summary>
+            Gets the values for the repair fuses for the given RepairGroups.
+            </summary>
+            <param name="repairGroups">Names of the Repair Groups.</param>
+            <returns>Dictionary, Key=RepairGroup Name, Value=Current Fuse Value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.SetRepairGlobalValues(System.Collections.Generic.List{System.String})">
+            <summary>
+            Saves the fuse values for the given repair groups.
+            </summary>
+            <param name="repairGroups">Repair Group name.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.AvailableRepairTypes(System.Collections.Generic.List{System.String})">
+            <summary>
+            Returns the available repair types for the given repair group.
+            </summary>
+            <param name="repairGroup">Repair Group name.</param>
+            <returns>Dictionary, Key=Repair Type, Value=Number of available repairs of that type.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.BuildPrimeFuse(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary> Build GSDS from Prime VFDM. </summary>
+            <param name="fusevalues">Fuse values to be fused.</param>
+            <returns> return list of fuses to store.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.PerformRepair(Prime.TestMethods.MbistRaster.IPrimeVF)">
+            <summary>
+            Main wrapper function for performing repair.
+            </summary>
+            <param name="vFprime">Prime VF passed to run prime vf.</param>
+            <returns>true if repair was successful.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.RasterPlists(System.Char[],System.String,System.String)">
+            <summary>Creating list of plists to run raster on.</summary>
+            <param name="hrystring">Current HRY string.</param>
+            <param name="rasterChars">Characters to run raster on.</param>
+            <param name="skipPriority">Regexs to skip or set priority for raster.</param>
+            <returns>rasterPlists.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.ReorderPlist(System.Collections.Generic.List{System.String},System.String)">
+            <summary>Creating list of plists to run raster on.</summary>
+            <param name="listofplists">List of plists to execute.</param>
+            <param name="priority">Priority.</param>
+            <returns>rasterPlists.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.Removeplists(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>Creating list of plists to run raster on.</summary>
+            <param name="listofplists">List of plists to execute.</param>
+            <param name="operations">Operation and what memories to act upon.</param>
+            <returns>rasterPlists.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.Prioritizeplist(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>Creating list of plists to run raster on.</summary>
+            <param name="listofplists">List of plists to execute.</param>
+            <param name="operations">Operation and what memories to act upon.</param>
+            <returns>rasterPlists.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.UpdateHry(Prime.TestMethods.MbistRaster.MbistRasterPlist,System.String)">
+            <summary>
+            Updates the HRY data for the given controllers.
+            </summary>
+            <param name="plist">PList object to get the controllers from.</param>
+            <param name="hrystring">Current HRY string.</param>
+            <returns>A New/Updated HRY string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.DecodeAllCaptures(Prime.TestMethods.MbistRaster.MbistRasterPlist,System.String)">
+            <summary>
+            Main function for Decoding Raster capture memory.
+            </summary>
+            <param name="plist">JSON input struct for the Plist.</param>
+            <param name="ctvData">Serialized capture data.</param>
+            <returns>The number of captures successfully processed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.DecodeSingleControllerCapture(System.String,System.Int32,Prime.TestMethods.MbistRaster.MbistRasterBitRanges,System.String,System.Int32)">
+            <summary>
+            Decodes a single captures worth of raster data.
+            </summary>
+            <param name="controllerName">Name of the controller that the data belongs to.</param>
+            <param name="captureGroupNum">Globally, which capture this is (for FAFI logging).</param>
+            <param name="decoder">RasterConfig JSON decoder for this data.</param>
+            <param name="ctvData">Capture data.</param>
+            <param name="offset">Location of bit 0 within the full ctv string (only used for FAFI printing).</param>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.CheckMustRepair">
+            <summary>
+            Perform the Must Repair Algorithm.
+            </summary>
+            <returns>false if repair was not possible.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.FindIndexPerPlist">
+            <summary> Finds indexs associated with each plist. </summary>
+            <returns>Indexs per plist.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterAlgorithm.UpdateRepairStatusFromFuses(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Updates the RepairStatus fields in the global RasterConfig based
+            on the given fuse values.
+            </summary>
+            <param name="repairFuseValues">Fuse Values, Key=RepairGroup Name, Value=Fuse Value.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.IPrimeVF">
+            <summary>
+            Prime VFDM functions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.IPrimeVF.ResetFuses">
+            <summary>
+            Gets or sets initializing Prime handlers.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.IPrimeVF.BuildVirtualFuseHandlers(Prime.FuseManagerService.IFuseManagerService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializing Prime handlers.
+            </summary>
+            <param name="fuseManagerService">fuseManagerService.</param>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.IPrimeVF.ReadOrigPrimeVFDM">
+            <summary> Extract Original Fusing.</summary>
+            <returns>dictionary of fuse values.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.IPrimeVF.NamespacetagExist(System.String)">
+            <summary> Find if namespace/tag exists.</summary>
+            <param name="fusename"> Fusename.</param>
+            <returns>Boolean state of found. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.IPrimeVF.SetUpdateValues(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary> Updates values in update fields. </summary>
+            <param name="fuses"> Fusename.</param>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.IPrimeVF.StoreFuses">
+            <summary> Store Fuses that were found.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.IPrimeVF.SaveCurrentFuses">
+            <summary> Store Fuses that were found.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.IPrimeVF.RestoreCurrentFuses">
+            <summary> Store Fuses that were found.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.IPrimeVF.PrimeVFDMFit">
+            <summary> Fusesize Check.</summary>
+            <returns> Whether prime VFDM fits. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.PrimeVF">
+            <summary>
+            Prime VFDM functions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeVF.#ctor(System.ValueTuple{System.String,System.String,System.String,System.String},System.Boolean,Prime.ConsoleService.IConsoleService,Prime.FuseDBService.IFuseDBService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary> Initializes a new instance of the <see cref="T:Prime.TestMethods.MbistRaster.PrimeVF"/> class.</summary>
+            <param name="args"> Contains, hcs,fdx,namespace,tag.</param>
+            <param name="compressdisable">Sets whether compression is disabled.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="fuseDBService">fuseDBService.</param>
+            <param name="sessioncontext">Session context to print.</param>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeVF.OriginalVFDMValue">
+            <summary> Gets or sets the Original Fuse values.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeVF.UpdateFuses">
+            <summary> Gets or sets a list of fuses that need to be applied as extra to make sure they fit.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeVF.PrimeVirtualFuseHandleler">
+            <summary> Gets or sets Bisrpatmod handler.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeVF.NoCompress">
+            <summary> Gets or sets a value indicating whether compression enabled.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeVF.Tag">
+            <summary> Gets or sets a FDS size.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeVF.HCS_SIZE">
+            <summary> Gets or sets a HDS size.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeVF.FDS_SIZE">
+            <summary> Gets or sets a FDS size.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeVF.Namespace">
+            <summary> Gets or sets a HDS size.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeVF.SessionContext">
+            <summary> Gets or setsSessionContext.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeVF.ResetFuses">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeVF.BuildVirtualFuseHandlers(Prime.FuseManagerService.IFuseManagerService,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeVF.ReadOrigPrimeVFDM">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeVF.NamespacetagExist(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeVF.SetUpdateValues(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeVF.StoreFuses">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeVF.SaveCurrentFuses">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeVF.RestoreCurrentFuses">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeVF.PrimeVFDMFit">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod">
+            <summary>
+            MBIST Raster/Repair Test Template.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.#ctor(Prime.DatalogService.IDatalogService,Prime.DffService.IDffService,Prime.FileService.IFileService,Prime.FunctionalService.IFunctionalService,Prime.FuseDBService.IFuseDBService,Prime.FuseManagerService.IFuseManagerService,Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.UserVarService.IUserVarService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod"/> class.
+            </summary>
+            <param name="datalogService">datalogService.</param>
+            <param name="dffService">dffService.</param>
+            <param name="fileService">fileService.</param>
+            <param name="functionalService">functionalService.</param>
+            <param name="fuseDBService">fuseDBService.</param>
+            <param name="fuseManagerService">fuseManagerService.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="userVarService">userVarService.</param>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.MyBoolean">
+            <summary>Simple enum so parameters can be True/False.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.MyBoolean.TRUE">
+            <summary>True.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.MyBoolean.FALSE">
+            <summary>False.</summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.FuseFunctions.Initialize">
+            <summary>
+            initialize.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.FuseFunctions.NoCompressCheck">
+            <summary>
+            nocompresscheck.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.FuseFunctions.Reset">
+            <summary>
+            reset.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.FuseFunctions.Dff">
+            <summary>
+            dff.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.FuseFunctions.Read">
+            <summary>
+            read.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.FuseFunctions.Write">
+            <summary>
+            write.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.CtvCapturePins">
+            <summary>
+            Gets or sets comma separated pins for CTV capture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.RasterInputFile">
+            <summary>Gets or sets the name of the Raster/Repair JSON configuration file.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.RepairInputFile">
+            <summary>Gets or sets the name of the Raster/Repair JSON configuration file.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.EnableRepair">
+            <summary>Gets or sets EnableRepair flag.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.RasterOffHry">
+            <summary>Gets or sets Raster off HRY.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.SkipPriority">
+            <summary>Gets or sets Raster off HRY.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.LYASharedStorage">
+            <summary>Gets or sets The SharedStorage value for LYA.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.FuseFunctionality">
+            <summary>Gets or sets a value indicating whether will reset DFFs and shared .</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.PlistLimit">
+            <summary>Gets or sets Raster off HRY.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.EnableFAFI">
+            <summary>Gets or sets EnableFAFI flag.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.Verify">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.PrimeMbistRasterTestMethod.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.MbistRaster.MbistRasterRepairUtilities">
+            <summary>
+            Defines the <see cref="T:Prime.TestMethods.MbistRaster.MbistRasterRepairUtilities" />.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterRepairUtilities.GetFile(System.String,Prime.FileService.IFileService)">
+            <summary>
+            Wrapper function for Prime GetFile which actually prints out the name of the file if it isn't found
+            or GetFile fails.
+            </summary>
+            <param name="fileName">Filename to create a local copy of.</param>
+            <param name="fileService">fileService.</param>
+            <returns>Local file name.</returns>
+            <exception cref="T:System.IO.FileNotFoundException"> if file is not found.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterRepairUtilities.GetDescription``1(``0)">
+            <summary>
+            GetDescription.
+            </summary>
+            <typeparam name="T">My type.</typeparam>
+            <param name="e">e.</param>
+            <returns>Des.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.MbistRaster.MbistRasterRepairUtilities.GetPListStruct(System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.MbistRaster.MbistRasterPlist},System.String)">
+            <summary>
+            Returns the PList struct for the given plist name.
+            Checks all variations with/without ip scoping.
+            </summary>
+            <param name="rasterPListList">rasterPListList.</param>
+            <param name="plist">The name of the PList.</param>
+            <returns>PList Object.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Inline" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:Schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <!-- Definitions of enum data types -->
+  <xs:simpleType name="ZeroOrOneDef">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SsidDef">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WFR" />
+      <xs:enumeration value="PKG" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!--xs:simpleType name="RefLevelDef">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(,?[U][1-9](.[U][0-99])?)+|,?PKG" />
+    </xs:restriction>
+  </xs:simpleType-->
+  <xs:simpleType name="GlobalTypeDef">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BINARY" />
+      <xs:enumeration value="DOUBLE" />
+      <xs:enumeration value="HEX" />
+      <xs:enumeration value="INTEGER" />
+      <xs:enumeration value="STRING" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RequiredDef">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="REQ_DEFINED" />
+      <xs:enumeration value="REQ_UNDEFINED" />
+      <xs:enumeration value="OPTIONAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DelimModeDef">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STATIC" />
+      <xs:enumeration value="DYNAMIC_BMFC" />
+      <xs:enumeration value="DYNAMIC_UPS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GsdsTypeDef">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GROUPED" />
+      <xs:enumeration value="INDIVIDUAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Definitions of other data types -->
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NonNegativeInteger">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TokenName">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z0-9_]+" />
+      <xs:maxLength value="8"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SimpleStringCaseInsensitive">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9_]+(,[a-zA-Z0-9_]+)*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FuseNameElement">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9_/|]+(,[a-zA-Z0-9_/|]+)*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DecoderValuesElement">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9_&quot;,:./-]+" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FuseAddressElement">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]+(:[0-9]+)?([,\|][0-9]+(:[0-9]+)?)*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- choice of either one of the element being used at a given time within ValueDecoderField hence the use of substitutionGroup -->
+  <xs:element name="allowed_values" type="DecoderValuesElement" />
+  <xs:element name="disallowed_values" type="DecoderValuesElement" substitutionGroup="allowed_values" />
+  <!-- Definitions of complex elements -->
+  <xs:element name="inline" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DFF">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Info" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="MTL_Name" type="NonEmptyString" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="MTL_Full_Name" type="NonEmptyString" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="Description" type="NonEmptyString" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="Created_By" type="NonEmptyString" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="Created_DateTime" type="NonEmptyString" minOccurs="0" maxOccurs="1" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="HCSL_Mapping" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ProcessStep" minOccurs="1" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="Type" type="NonEmptyString" use="required"/>
+                        <xs:attribute name="Step" type="NonEmptyString" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+                <xs:unique name="unique-Step">
+                  <xs:selector xpath="ProcessStep"/>
+                  <xs:field xpath="@Step"/>
+                </xs:unique>
+              </xs:element>
+              <xs:element name="TokenList" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Token" minOccurs="1" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:all>
+                          <xs:element name="dff_token_id" type="NonNegativeInteger" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="name" type="TokenName" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="first_socket_upload" type="NonEmptyString" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="ssid" type="SsidDef" minOccurs="1" maxOccurs="1" />
+                          <!--xs:element name="ref_level" type="RefLevelDef" minOccurs="0" maxOccurs="1" /-->
+						  <xs:element name="ref_level" type="xs:string" minOccurs="0" maxOccurs="1" />
+                          <xs:element name="module" type="NonEmptyString" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="global_type" type="GlobalTypeDef" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="data_format_check" type="ZeroOrOneDef" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="data_range_check" type="ZeroOrOneDef" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="delimiter_count" type="NonNegativeInteger" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="delimiter_mode" type="DelimModeDef" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="gsds_type" type="GsdsTypeDef" minOccurs="1" maxOccurs="1" />
+                          <xs:element name="upload_process_step" type="xs:string" />
+                          <xs:element name="allow_overwrite" type="ZeroOrOneDef" />
+                          <xs:element name="compression" type="ZeroOrOneDef" minOccurs="0" maxOccurs="1" />
+                          <xs:element name="ValueDecoder" minOccurs="1" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ValueDecoderField" minOccurs="1" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:all>
+                                      <xs:element ref="allowed_values" minOccurs="0" maxOccurs="1" />
+                                      <xs:element name="default_value" type="NonEmptyString" />
+                                      <xs:element name="fuse_address" type="FuseAddressElement" minOccurs="0" maxOccurs="1" />
+                                      <xs:element name="fuse_name" type="FuseNameElement" minOccurs="0" maxOccurs="1" />
+                                      <xs:element name="fuse_register" type="SimpleStringCaseInsensitive" minOccurs="0" maxOccurs="1" />
+                                      <xs:element name="name" type="NonEmptyString" minOccurs="1" maxOccurs="1" />
+                                      <xs:element name="required" type="RequiredDef" minOccurs="1" maxOccurs="1" />
+                                      <xs:element name="string_length" type="NonNegativeInteger" minOccurs="1" maxOccurs="1" />
+                                      <xs:element name="index" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                    </xs:all>
+                                  </xs:complexType>
+                                </xs:element>
+                                <!-- ValueDecoderField -->
+                              </xs:sequence>
+                            </xs:complexType>
+                            <xs:unique name="Unique_name">
+                              <xs:selector xpath="ValueDecoderField" />
+                              <xs:field xpath="name" />
+                            </xs:unique>
+                          </xs:element>
+                          <!-- ValueDecoder -->
+                        </xs:all>
+                      </xs:complexType>
+                    </xs:element>
+                    <!-- Token -->
+                  </xs:sequence>
+                </xs:complexType>
+                <xs:unique name="Unique_Dff_Token_ID">
+                  <xs:selector xpath="Token/dff_token_id" />
+                  <xs:field xpath="." />
+                </xs:unique>
+              </xs:element>
+              <!-- TokenList -->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <!-- DFF -->
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- inline -->
+</xs:schema>

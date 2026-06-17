@@ -1,0 +1,393 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Base.Utilities</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Base.Utilities.Base32">
+            <summary>
+            Helper class to convert ToFrom base32.
+            https://gist.github.com/erdomke/9335c394c5cc65404c4cf9aceab04143.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.Base32.FromBase32String(System.String)">
+            <summary>
+            Converts from base32 string to byte array.
+            </summary>
+            <param name="encoded">The encoded string.</param>
+            <returns>The converted data.</returns>
+        </member>
+        <member name="M:Prime.Base.Utilities.Base32.ToBase32String(System.Byte[])">
+            <summary>
+            Convert byte data to base32.
+            </summary>
+            <param name="data">the bytes data.</param>
+            <returns>The base32 string.</returns>
+        </member>
+        <member name="T:Prime.Base.Utilities.DataTableUtilities">
+            <summary>
+            Represents string manipulation utilities.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.DataTableUtilities.BuildConsoleTable(System.Data.DataTable,System.String)">
+            <summary>
+            Build console table.
+            </summary>
+            <param name="table">Table object to print.</param>
+            <param name="title">Header table to present.</param>
+            <returns>Ordered text to represent in console the table.</returns>
+        </member>
+        <member name="M:Prime.Base.Utilities.DataTableUtilities.AddHorizontalSeparatorForConsolePrint(System.Data.DataTable)">
+            <summary>
+            Add Empty row that will be changed in ConsolePrint as horizontal separator between rows.
+            </summary>
+            <param name="table">Current table.</param>
+        </member>
+        <member name="T:Prime.Base.Utilities.LongUtilities">
+            <summary>
+            Contains a set of utilities for long types.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.LongUtilities.ToEngineeringNotation(System.Int64)">
+            <summary>
+            Converts the given long into engineering notation.
+            </summary>
+            <param name="number">The long number to convert.</param>
+            <returns>The given number converted to engineering notation.</returns>
+        </member>
+        <member name="T:Prime.Base.Utilities.Memory">
+            <summary>
+            Memory utility class.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.Memory.GetCurrentProcessMemory">
+            <summary>
+            Gets the current process memory.
+            </summary>
+            <returns>The private and virtual bytes.</returns>
+        </member>
+        <member name="T:Prime.Base.Utilities.StringMatcher.AllMatcher">
+            <summary>
+            Local function for AllMatcher Class.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.AllMatcher.Is(System.String)">
+            <summary>
+            Checker for empty pattern, or any pattern.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+            <returns>true or false.</returns>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            AllMatcher allMatcher;
+            var boolResult = allMatcher.Is(stringPattern);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.AllMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Utilities.StringMatcher.EndsWithMatcher">
+            <summary>
+            Local function for EndsWithMatcher under StringMatcher.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.EndsWithMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Utilities.StringMatcher.EndsWithMatcher"/> class.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.EndsWithMatcher.Is(System.String,System.String@)">
+            <summary>
+            Checker for first match of the pattern.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+            <param name="outPattern">Pattern content in string that match.</param>
+            <returns>true or false.</returns>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            EndsWithMatcher endsWithMatcher;
+            var statusResult = endsWithMatcher.Is(stringPattern, out var matched pattern);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.EndsWithMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Utilities.StringMatcher.ExactMatcher">
+            <summary>
+            Local function for ExactMatcher under StringMatcher.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.ExactMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Utilities.StringMatcher.ExactMatcher"/> class.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.ExactMatcher.Is(System.String,System.String@)">
+            <summary>
+            Checker for first match of the pattern.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+            <param name="outPattern">Pattern content in string that match.</param>
+            <returns>true or false.</returns>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            ExactMatcher exactMatcher;
+            var statusResult = ExactMatcher.Is(stringPattern, out var matched pattern);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.ExactMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Utilities.StringMatcher.FastRegexMatcher">
+            <summary>
+            Local function for FastRegexMatcher under StringMatcher.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.FastRegexMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Utilities.StringMatcher.FastRegexMatcher"/> class.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.FastRegexMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Utilities.StringMatcher.IStringMatcher">
+            <summary>
+            Local function that similar to regex expression.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.IStringMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <summary>
+            Filter Function mainly sorted set for string collection..
+            </summary>
+            <param name="originalCollection">The input String.</param>
+            <returns>Sorted Set of output matched string.</returns>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            IStringMatcher stringMatcher;
+            var filteredString = stringMatcher.Filter(originalCollection);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="T:Prime.Base.Utilities.StringMatcher.MatcherBuilder">
+            <summary>
+            Local function for MatcherBuilder under StringMatcher.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.MatcherBuilder.TryGetFirstMatch(System.String,System.Text.RegularExpressions.Regex,System.String@)">
+            <summary>
+            Checker for first match of the pattern.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+            <param name="matchingRegex">Pattern content that matching Regex.</param>
+            <param name="outPattern">Pattern content in string that match.</param>
+            <returns>true or false.</returns>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            MatcherBuilder matcherBuilder;
+            var statusResult = matcherBuilder.TryGetFirstMatch(stringPattern,out var matched pattern);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.MatcherBuilder.Build(System.String)">
+            <summary>
+            Build Function for matcher Builder Class.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+            <returns>Content Matching Results.</returns>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            MatcherBuilder matcherBuilder;
+            var matcherObject = matcherBuilder.Build(stringPattern);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="T:Prime.Base.Utilities.StringMatcher.PartialMatcher">
+            <summary>
+            Local function for PartialMatcher under StringMatcher.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.PartialMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Utilities.StringMatcher.PartialMatcher"/> class.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.PartialMatcher.Is(System.String,System.String@)">
+            <summary>
+            Checker for first match of the pattern.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+            <param name="outPattern">Pattern content in string that match.</param>
+            <returns>true or false.</returns>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            PartialMatcher partialMatcher;
+            var statusResult = partialMatcher.Is(stringPattern, out var matched pattern);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.PartialMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Utilities.StringMatcher.SlowRegexMatcher">
+            <summary>
+            Local function for SlowRegexMatcher under StringMatcher.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.SlowRegexMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Utilities.StringMatcher.SlowRegexMatcher"/> class.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.SlowRegexMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Utilities.StringMatcher.StartsWithMatcher">
+            <summary>
+            Local function for StartsWithMatcher under StringMatcher.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.StartsWithMatcher.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Utilities.StringMatcher.StartsWithMatcher"/> class.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.StartsWithMatcher.Is(System.String,System.String@)">
+            <summary>
+            Checker for first match of the pattern.
+            </summary>
+            <param name="pattern">Pattern content in string.</param>
+            <param name="outPattern">Pattern content in string that match.</param>
+            <returns>true or false.</returns>
+            <remarks>
+            <example>
+            Code example:
+            <code>
+            StartsWithMatcher startsWithMatcher;
+            var statusResult = startsWithMatcher.Is(stringPattern, out var matched pattern);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringMatcher.StartsWithMatcher.Filter(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Utilities.StringUtilities">
+            <summary>
+            Represents string manipulation utilities.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringUtilities.StringWithUnitsToDouble(System.String)">
+            <summary>
+            Converts string representing number with units to double value.
+            </summary>
+            <param name="strWithUnits">string representing number with units.</param>
+            <returns>floating point result.</returns>
+            <exception>thrown if the conversion is failed.</exception>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringUtilities.DeflateCompress(System.String)">
+            <summary>
+            Applies deflate algorithm on the provided string.
+            </summary>
+            <param name="uncompressedString">string to apply the deflate algorithm on.</param>
+            <returns>compressed byte[].</returns>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringUtilities.DeflateCompress32(System.String)">
+            <summary>
+            Applies deflate algorithm on the provided string. Returns base32 string.
+            </summary>
+            <param name="uncompressedString">string to apply the deflate algorithm on.</param>
+            <returns>compressed string in base32.</returns>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringUtilities.DeflateDecompress(System.Byte[])">
+            <summary>
+            Applied decompress deflate algorithm.
+            </summary>
+            <param name="compressedData">compressed data.</param>
+            <returns>decompressed data.</returns>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringUtilities.DeflateDecompress32(System.String)">
+            <summary>
+            Applied decompress deflate algorithm on a string (base32).
+            </summary>
+            <param name="compressedData">compressed data string.</param>
+            <returns>decompressed data string.</returns>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringUtilities.ConvertBinaryToHex(System.String)">
+            <summary>
+            Convert incoming binary string to hex string.
+            </summary>
+            <param name="binaryString">binary string to be convert to hex string.</param>
+            <returns>hex string.</returns>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringUtilities.ConvertNumberedStringToRLE(System.String)">
+            <summary>
+            Applies RLE algorithm on the string that contain 0-9.
+            </summary>
+            <param name="numberedString">String contain 0-9 to apply the RLE algorithm on.</param>
+            <returns>RLE string.</returns>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">Thrown when input string is null or empty.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the input string contains invalid character that will fail the conversion.</exception>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringUtilities.Reverse(System.String)">
+            <summary>
+            Reverse the incoming string.
+            </summary>
+            <param name="incoming">Incoming string to reverse.</param>
+            <returns>The reversed string.</returns>
+        </member>
+        <member name="M:Prime.Base.Utilities.StringUtilities.MapNumberToRLEAlphabet(System.Char)">
+            <summary>
+            Map the Numbered Character (0-9 to A-J) or Alphabet Character (s to K) and return the RLE Alphabet.
+            </summary>
+            <param name="evaluateCharacter">Case sensitive character that is 0 to 9 or s.</param>
+            <returns>RLE Alphabet.</returns>
+            <exception cref="T:System.ArgumentException">The character to map is invalid.</exception>
+        </member>
+        <member name="T:Prime.Base.Utilities.XmlDeserializer`1">
+            <summary>
+            This is an utility class to help the developer on the deserialization of XML files.
+            </summary>
+            <typeparam name="T">The root class of the XML file generated by the xsd.exe tool included in VS.</typeparam>
+        </member>
+        <member name="M:Prime.Base.Utilities.XmlDeserializer`1.Deserialize(System.String,System.String,System.String)">
+            <summary>
+            Returns the root object of type T with the content of the XML file.
+            </summary>
+            <param name="xmlLocalPath">The local path to the XML file.</param>
+            <param name="xsdLocalPath">The local path to the XSD file to check the XML file.</param>
+            <param name="schemaNamespace">The schema namespace defined on the XSD file.</param>
+            <returns>The root object from the XML.</returns>
+        </member>
+    </members>
+</doc>

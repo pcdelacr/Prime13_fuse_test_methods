@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "Configurations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "MiniFlowName": { "type": "string" },
+          "TestConfigurations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "Name": { "type": "string" },
+                "ExecuteMode": { "type": "string" },
+                "Param1": { "type": "string" },
+                "Param2": { "type": "string" },
+                "DataType": { "type": "string" },
+                "OnTrue": { "type": "string" },
+                "OnFalse": { "type": "string" }
+              },
+              "required": [ "Name", "ExecuteMode", "Param1", "Param2", "OnTrue", "OnFalse" ]
+            }
+          }
+        },
+        "required": [ "MiniFlowName", "TestConfigurations" ]
+      }
+    }
+  },
+  "required": [ "Configurations" ]
+}

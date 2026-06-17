@@ -1,0 +1,491 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.TestConditionService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestConditionService.CommonFunction">
+            <summary>
+            Class for common functions.
+            </summary>
+        </member>
+        <member name="T:Prime.TestConditionService.FileWrapper">
+            <summary>
+            Wrapper class to wrap System.IO.File methods used in this file to be able to mock them for unit testing.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.FileWrapper.ReadAllText(System.String)">
+            <summary>
+             Reads all text from a File.
+            </summary>
+            <param name="input">Path to the file.</param>
+            <returns>String with file contents.</returns>
+        </member>
+        <member name="T:Prime.TestConditionService.IFileWrapper">
+            <summary>
+            Interface to wrap System.IO.File methods used in this file to be able to mock them for unit testing.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.IFileWrapper.ReadAllText(System.String)">
+            <summary>
+             Reads all text from a File.
+            </summary>
+            <param name="input">Path to the file.</param>
+            <returns>String with file contents.</returns>
+        </member>
+        <member name="T:Prime.TestConditionService.ITestCondition">
+            <summary>
+            Represents test condition handler.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.GetName">
+            <summary>
+            Gets the name of the test condition that this object represents.
+            </summary>
+            <returns>Returns the name of the test condition that this object represents.</returns>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.GetPinAttributeValue(System.String,System.String)">
+            <summary>
+            Retrieval of a pin attribute value for the particular test condition.
+            </summary>
+            <param name="pinOrPinGroupName">pin or pinGroup name.</param>
+            <param name="pinAttributeName">pin attribute name.</param>
+            <returns>pin attribute value.</returns>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.GetSpecSetValue(System.String)">
+            <summary>
+            Retrieval of a specification set value for the particular test condition.
+            </summary>
+            <param name="specSetName">specification set name.</param>
+            <returns>specification set value.</returns>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.SetDcTestCounterName(System.String)">
+            <summary>
+            Set the counter name for Dc Testing.
+            </summary>
+            <param name="counterName">The standard counter name for DC tests.</param>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.Apply(Prime.TestConditionService.SmartTcCategoryType)">
+            <summary>
+            Apply the test condition with the given smartTCCategory.
+            If the smartTCCategory is LEVELS_SETUP, and if powerUp is being defined,
+            power up LevelsTc will be applied before the particular test condition being applied.
+            If the smartTCCategory is TIMING, and if the HdmtApi::IsKeepAliveExecuting() return true, skip applying the TimingsTc.
+            If the SmartTC is enabled, it will skip applying if the same test condition name is being applied before under same smartTCCategory type.
+            If the SmartTC is disabled, it will give warning to inform user that the SmartTC is being disabled.
+            </summary>
+            <param name="smartTcCategory">smartTC category type.</param>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.Apply">
+            <summary>
+            Apply the test condition with the given smartTCCategory.
+            If the smartTCCategory is LEVELS_SETUP, and if powerUp is being defined,
+            power up LevelsTc will be applied before the particular test condition being applied.
+            If the smartTCCategory is TIMING, and if the HdmtApi::IsKeepAliveExecuting() return true, skip applying the TimingsTc.
+            If the SmartTC is enabled, it will skip applying if the same test condition name is being applied before under same smartTCCategory type.
+            If the SmartTC is disabled, it will give warning to inform user that the SmartTC is being disabled.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.ForceApply(Prime.TestConditionService.SmartTcCategoryType)">
+            <summary>
+            Force apply test condition with smartTccategory being defined
+            Flush the specific SmartTcCategory if the category is not NONE, and apply the particular test condition only
+            If the smartTCCategory is TIMING, and if the HdmtApi::IsKeepAliveExecuting() return true, skip applying the TimingsTc.
+            </summary>
+            <param name="smartTcCategory">smartTC category type.</param>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.ForceApply">
+            <summary>
+            Force apply test condition to hardware. With or without smartTcCategory.
+            TODO add extra behavior documentation for all cases.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.Resolve">
+            <summary>
+            Resolves the current test condition.
+            this in turn may mean a spec set or UserVar evaluate and then a test condition update.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.SetPinAttributeValue(System.String,System.String,System.String)">
+            <summary>
+            Allows direct modification of test condition attribute value for a specified pin.
+            </summary>
+            <param name="pinName">test condition pin name.</param>
+            <param name="attributeName">test condition attribute name.</param>
+            <param name="attributeValue">test condition attribute value.</param>
+            <remarks>This function only supports modification of Level and Timing Test Conditions.</remarks>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestCondition.SetSpecSetValue(System.String,System.String)">
+            <summary>
+            Allows direct modification of a SpecSet variable used by a test condition without knowledge of SpecSet selector.
+            </summary>
+            <param name="specSetName">specification set name.</param>
+            <param name="specSetValue">specification set value.</param>
+            <remarks>This will impact any Test Condition that also uses that same SpecSet variable/selector combination.</remarks>
+        </member>
+        <member name="T:Prime.TestConditionService.SmartTcCategoryType">
+            <summary>
+            Represents SmartTC category types.
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.SmartTcCategoryType.LEVELS_SETUP">
+            <summary>
+            Level / Instance setup category type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.SmartTcCategoryType.LEVELS_POWER_ON">
+            <summary>
+            Level power-on category type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.SmartTcCategoryType.LEVELS_POWER_DOWN">
+            <summary>
+            Level power-down category type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.SmartTcCategoryType.TIMING">
+            <summary>
+            Timing category type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.SmartTcCategoryType.RELAY">
+            <summary>
+            Relay category type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.SmartTcCategoryType.THERMAL">
+            <summary>
+            Thermal category type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.SmartTcCategoryType.NONE">
+            <summary>
+            NONE
+            </summary>
+        </member>
+        <member name="T:Prime.TestConditionService.TestConditionType">
+            <summary>
+            Represents test condition types.
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.TestConditionType.TIMING">
+            <summary>
+            Timing test condition type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.TestConditionType.LEVELS">
+            <summary>
+            Levels test condition type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.TestConditionType.ALL">
+            <summary>
+            All test condition types
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.TestConditionType.PREBUILT">
+            <summary>
+            Pre built test condition type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.TestConditionType.THERMALMEASURE">
+            <summary>
+            Thermal measure test condition type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.TestConditionType.THERMALCONTROL">
+            <summary>
+            Thermal control test condition type
+            </summary>
+        </member>
+        <member name="F:Prime.TestConditionService.TestConditionType.TRIGGER">
+            <summary>
+            Trigger test condition type
+            </summary>
+        </member>
+        <member name="T:Prime.TestConditionService.ITestConditionService">
+            <summary>
+            Service handling all test conditions operations
+            Timing , levels, thermal and responsible for handling SmartTC feature.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.Exists(System.String)">
+            <summary>
+            Checks if the given test condition name exists.
+            </summary>
+            <param name="testConditionName">The name of the test condition to check.</param>
+            <returns>True if the test condition name exists, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.SetIpEndSequenceTestCondition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the test condition to apply on the "ApplyEndSequence" for the current IP.
+            </summary>
+            <param name="testConditionName">The name of the test condition name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>This function fails if it is called from the Package scope.</remarks>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.ApplyEndSequence(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Applies the TPL file specified EndSequence of the currently loaded test plan to the hardware
+            It will throw error if HdmtApi::IsKeepAliveExecuting() return true when this function is being called.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.CreateTestConditionFromChangeVariable(System.String,System.String,System.String)">
+            <summary>
+            Build new test conditions ahead of time. For shmoo, search and similar test methodologies.
+            </summary>
+            <param name="baseTestCondition">Base TestCondition name.</param>
+            <param name="specSetVariableName">SpecificationSet variable name.</param>
+            <param name="specSetVariableValue">SpecificationSet variable value.</param>
+            <returns>new TestCondition name. </returns>
+            <remarks>For Shmoo, IpSearch and Search usage, to pre-create test condition for better run time performance.</remarks>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.SetPowerUpTcName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the power up TC name. It must be a valid test condition name. For disabling power up TC, you will need to set it to an empty string.
+            </summary>
+            <param name="powerUpTcName">power up test condition name.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.GetPowerUpTcName(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the current power up tc name. If it is empty, means the power up TC is disabled.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>power up test condition name.</returns>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.IsSmartTcEnabled">
+            <summary>
+            Check if smart test condition is enabled.
+            </summary>
+            <returns>
+              <c>true</c> if the smartTC is enabled; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.EnableSmartTc">
+            <summary>
+            Enable smartTC capability.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.DisableSmartTc">
+            <summary>
+            Disable smartTC capability.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.FlushSmartTcCategory(Prime.TestConditionService.SmartTcCategoryType)">
+            <summary>
+            Flushes the smart test condition state for a given category if SmartTC is enabled. Will throw an exception if the category given is NONE.
+            </summary>
+            <param name="smartTcCategory">smartTC category type.</param>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.FlushAllSmartTcCategories">
+            <summary>
+            Flushes all the smart test condition state for all categories if SmartTC is enabled.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.ResolveAllTestConditions">
+            <summary>
+            After any test program global or spec set parameter was modified, evaluate to propagate the values
+            through all equations in all dependent spec sets, collection sets and test conditions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.GetTesterPeriodValue(System.String)">
+            <summary>
+            Takes user input of Domain name and gets applied Timing TC Period Value..
+            </summary>
+            <param name="domainName">Domain name.</param>
+            <returns>tester period value.</returns>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.GetTestCondition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create a new test condition object for a given test condition name. It will throw error if the test condition name is invalid.
+            </summary>
+            <param name="testConditionName">Name of the test condition.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>TestCondition object for newly created TC.</returns>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.GetTestCondition(System.String,Prime.TestConditionService.SmartTcCategoryType,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create a new test condition object for a given test condition name. It will throw error if the test condition name is invalid.
+            </summary>
+            <param name="testConditionName">Name of the test condition.</param>
+            <param name="smartTcCategory">smartTC category type.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>TestCondition object for newly created TC.</returns>
+        </member>
+        <member name="M:Prime.TestConditionService.ITestConditionService.CreateDirectTestCondition(System.String,Prime.TestConditionService.TestConditionType,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create a direct test condition for a given test condition name and type.
+            </summary>
+            <param name="tcName">Name of the new test condition.</param>
+            <param name="tcType">Type of test condition (Levels, Timing, ThermalMeasure, or ThermalControl).</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>TestCondition object for newly created TC.</returns>
+        </member>
+        <member name="T:Prime.TestConditionService.TestCondition">
+            <summary>
+            TestCondition implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.#ctor(System.String,Prime.TestConditionService.SmartTcCategoryType,Prime.SharedStorageService.Internal.IUnsafeRow{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestConditionService.TestCondition"/> class.
+            </summary>
+            <param name="testConditionName">the Test Condition Name.</param>
+            <param name="smartCategory">The SmartTC category.</param>
+            <param name="powerUpTcNameRow">UnsafeRow for Power Up TCName.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.#ctor">
+             <summary>
+             Initializes a new instance of the <see cref="T:Prime.TestConditionService.TestCondition"/> class.
+             TestCondition has 'ActionAction' members that are initialized in the regular c'tor and holding handle to Hdmt internals.
+             These handles cannot be deserialized from SharedStorage.
+             Also The regular c'tor cannot be called during deserialization to populate the handles because the deserialization
+             occur on different thread and the HdmtApi cannot identify the current DUT thread and fail.
+            
+             As a WA this c'tor will be used when deserialization occur (only once per AppDomain) and set a flag that the handles require to be populated before being used.
+             </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.GetName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.GetPinAttributeValue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.GetSpecSetValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.SetDcTestCounterName(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.Apply">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.Apply(Prime.TestConditionService.SmartTcCategoryType)">
+            <inheritdoc/>
+            Pending to remove after adjust c++ TOS3 implementation to use handle member
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.ForceApply(Prime.TestConditionService.SmartTcCategoryType)">
+            <inheritdoc/>
+            Pending to remove after adjust c++ TOS3 implementation to use handle member
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.ForceApply">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.Resolve">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.SetPinAttributeValue(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestCondition.SetSpecSetValue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestConditionService.TestConditionJsonReader">
+            <summary>
+            TestConditionJsonReader class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionJsonReader.Parse``1(System.String)">
+            <summary>
+            Parsers input file and returns populated object.
+            </summary>
+            <typeparam name="T">Type of Json object.</typeparam>
+            <param name="fileName">File name.</param>
+            <returns>Populated object.</returns>
+        </member>
+        <member name="T:Prime.TestConditionService.TestConditionService">
+            <summary>
+            TestConditionService implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.Exists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.SetIpEndSequenceTestCondition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.ApplyEndSequence(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.CreateTestConditionFromChangeVariable(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.SetPowerUpTcName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.GetPowerUpTcName(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.IsSmartTcEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.EnableSmartTc">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.DisableSmartTc">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.FlushSmartTcCategory(Prime.TestConditionService.SmartTcCategoryType)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.FlushAllSmartTcCategories">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.ResolveAllTestConditions">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.GetTesterPeriodValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.GetTestCondition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+            Pending to remove after adjust c++ TOS3 implementation to receive smartTc category
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.GetTestCondition(System.String,Prime.TestConditionService.SmartTcCategoryType,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.CreateDirectTestCondition(System.String,Prime.TestConditionService.TestConditionType,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestConditionService.TestConditionService.GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestConditionService.TestConditionsTriggerMap">
+            <summary>
+            Test conditions trigger map class to be loaded from json file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestConditionService.TestConditionsTriggerMap.TestConditions">
+            <summary>
+            Gets or sets the configurations.
+            </summary>
+        </member>
+        <member name="T:Prime.TestConditionService.TestConditionsTriggerMap.JsonTestConditions">
+            <summary>
+            Json test condition map names.
+            </summary>
+        </member>
+        <member name="P:Prime.TestConditionService.TestConditionsTriggerMap.JsonTestConditions.Name">
+            <summary>
+            Gets or sets the Plist Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestConditionService.TestConditionsTriggerMap.JsonTestConditions.PatternTriggerMap">
+            <summary>
+            Gets or sets the configuration Name.
+            </summary>
+        </member>
+    </members>
+</doc>

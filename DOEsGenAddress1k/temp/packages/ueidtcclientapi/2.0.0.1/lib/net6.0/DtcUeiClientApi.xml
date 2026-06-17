@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DtcUeiClientApi</name>
+    </assembly>
+    <members>
+        <member name="M:DtcUeiClientApi.DtcUeiClient.UeiConfigureStreamingAsync">
+            <summary>
+            Configures UEI streaming with the DTC UEI client FW. Only needs to be called once. <see cref="M:DtcUeiClient::UeiStartStreamingAsync" /> must be called later to start streaming.
+            </summary>
+            <remarks>
+            <para>This API will issue a series of UEI commands (64-68) to establish the streaming setup with the UEI client.</para>
+            <para>After streaming is configured <see cref="M:DtcUeiClient::UeiStartStreamingAsync" /> must be called to start streaming.</para>
+            <para>An exception will be thrown if streaming is currently running. Call <see cref="M:DtcUeiClient.UeiStopStreamingAsync" /> before calling this API.</para>
+            <para>This will stream at the currently-set baud rate and streaming interval (4ms default). An exception will be thrown if the baud is too low.</para>
+            <para>Note that TOS auto-updates to the fastest baud during TOS init if the client supports UEI command 76</para>
+            </remarks>
+            <exception cref="T:HdmtOs.Sdk.Uei.UeiException">
+            If the call fails.  <see cref="P:HdmtOs.Sdk.Uei.UeiException.ErrorType" /> will be set to <see cref="F:HdmtOs.Sdk.Uei.UeiErrorType.UeiStreamingCurrentlyRunning" /> if streaming is already running, as any new settings will not have taken effect.
+            </exception>
+            <exception cref="T:System.Exception">
+            If the returned streaming values from the DTC firmware do not match what's expected.
+            </exception>
+        </member>
+        <member name="M:DtcUeiClientApi.DtcUeiClient.UeiStartStreamingAsync">
+            <summary>Sends the Start Streaming UEI command.</summary>
+            <remarks>
+            <para>Starts UEI streaming by sending the StartStreaming UEI command.</para>
+            <para>This API must be be called after <see cref="M:DtcUeiClient::UeiConfigureStreamingAsync()" /> to start streaming.</para>
+            <para>This API must also be called after <see cref="M:DtcUeiClient::UeiStopStreamingAsync" /> to re-start streaming.</para>
+            <para>This API allows configuring UEI streaming once and providing a quick way to Stop/Start streaming afterwards.</para>
+            <para><see cref="M:DtcUeiClient::UeiConfigureStreamingAsync()" /> must be called before this API.</para>
+            <para>No exception will be thrown if streaming is already running.</para>
+            </remarks>
+            <exception cref="T:HdmtOs.Sdk.Uei.UeiException">If the call fails</exception>
+        </member>
+        <member name="M:DtcUeiClientApi.DtcUeiClient.UeiStopStreamingAsync">
+            <summary>Sends the Stop Streaming UEI command.</summary>
+            <remarks>
+            <para>Stops any active UEI streaming by sending the StopStreaming UEI command.</para>
+            </remarks>
+            <exception cref="T:HdmtOs.Sdk.Uei.UeiException">If the call fails</exception>
+        </member>
+        <member name="M:DtcUeiClientApi.DtcUeiClient.AdjustControlSetValueAsync(System.Byte,System.Byte,System.Byte,HdmtOs.Sdk.Uei.UeiAdjustControlSetValueAction,HdmtOs.Sdk.Uei.UeiControlSetValueId,System.Int32)">
+            <summary>
+            Adjusts a control set value in the UEI client's control set.
+            </summary>
+            <remarks>
+            <param name="packageDutIndex">The DUT index to modify the CS value of. This is the Pkg-level DUT index and does not correlate to different IPs for intraDUT. This maps to the DUT ordering in the .soc file.</param>
+            <param name="zoneIndex">The thermal zone index to modify the CS value of.</param>
+            <param name="csIndex">The Control Set index to modify. Set to all Fs for active CS or global setting. Exact behavior can be client-defined.</param>
+            <param name="action">What action to take on the specified CS value.</param>
+            <param name="valueId">Which field in the client's control set to adjust.</param>
+            <param name="value">
+            If <paramref name="action" /> == <see cref="F:HdmtOs.Sdk.Uei.UeiAdjustControlSetValueAction.Set" />, set to this new value.
+            If <paramref name="action" /> == <see cref="F:HdmtOs.Sdk.Uei.UeiAdjustControlSetValueAction.Adjust" />, adjust existing value by specified amount.
+            Clients can treat this as a float if needed:
+            <code><![CDATA[value = BitConverter.SingleToInt32Bits(float_delta)]]></code>
+            Client FW side (C++): <code><![CDATA[float val = *(float*)(&uei_rx_data)]]></code>
+            </param>
+            </remarks>
+            <exception cref="T:HdmtOs.Sdk.Uei.UeiException">If the call fails</exception>
+        </member>
+        <member name="M:DtcUeiClientApi.DtcUeiClient.IsConnectedAsync">
+            <summary>
+            Returns True if a UEI client is attached, by checking the UEI alive sideband line.
+            </summary>
+            <remarks>
+            This does not communicate to the RCTC FW or UEI client.
+            </remarks>
+            <returns>true if UEI client is attached, false if UEI client is not attached or on error.</returns>
+        </member>
+        <member name="M:DtcUeiClientApi.DtcUeiClient.GetSwVersionAsync(System.Byte)">
+            <summary>
+            Sends a UEI command to request the SW version of the attached UEI client.
+            </summary>
+            <remarks>
+            <para>Sends the Get SW Version UEI command.</para>
+            </remarks>
+            <param name="subsystemIndex">Which subsystem in the UEI client to retrieve the SW version of. Typically 0. See the UEI SW guide for more info.</param>
+            <returns>The version information returned by the client.  Only <see cref="P:System.Version.Major" /> and <see cref="P:System.Version.Minor" /> are populated</returns>
+            <exception cref="T:HdmtOs.Sdk.Uei.UeiException">If the call fails</exception>
+        </member>
+        <member name="M:DtcUeiClientApi.DtcUeiClient.TargetIdTestAsync(System.UInt32)">
+            <summary>
+            Sends the Target ID UEI command and compares against the expected UEI ID, to ensure the correct device is connected.
+            </summary>
+            <param name="expectedUeiId">
+            The expected ID of the attached UEI client. UEI IDs are initially assigned by the TOS team to ensure they're unique.<br />
+            Pass in 0 to skip the target ID check and return success if the client simply replied.<br />
+            DIE_SORT_TEL_DTC has ID 0x56D4CCFC
+            </param>
+            <exception cref="T:HdmtOs.Sdk.Uei.UeiException">If the call fails.  <see cref="P:HdmtOs.Sdk.Uei.UeiException.ErrorType" /> will be set to <see cref="F:HdmtOs.Sdk.Uei.UeiErrorType.UeiClientIdInvalid" /> if the expected UEI ID and target UEI ID mismatch.</exception>
+        </member>
+        <member name="M:DtcUeiClientApi.DtcUeiClient.GotoSafeStateAsync">
+            <summary>Sends the UEI SafeState command to the UEI client.</summary>
+            <exception cref="T:HdmtOs.Sdk.Uei.UeiException">If the call fails</exception>
+        </member>
+        <member name="M:DtcUeiClientApi.DtcUeiClient.ReadeRTDx2ModeAsync(System.Int32)">
+            <summary>
+            TReadeRTDx2ModeAsync is a custom DTC FW command and casn be called to display the temperature of the thermal head. 
+            </summary>
+            <param name="thermalHeadId"> This is the Thermal Head ID, can be either 1 or 2 </param>
+            <exception cref="T:HdmtOs.Sdk.Uei.UeiException">If the call fails.  <see cref="P:HdmtOs.Sdk.Uei.UeiException.ErrorType" /> will be set to <see cref="F:HdmtOs.Sdk.Uei.UeiErrorType.UeiClientIdInvalid" /> if the expected UEI ID and target UEI ID mismatch.</exception>
+            <exception cref="T:System.Exception">
+            If the value returned from the DTC firmware was out-of-range or returned an unexpected reply to the command.
+            </exception>
+        </member>
+        <member name="M:DtcUeiClientApi.DtcUeiClient.IsTdynEnabledAsync(System.Int32)">
+            <summary>
+            The IsTdynEnabledAsync can be called to check if TDYN (Dynamic Temperature) is enabled (Output of 1) or not (Output of 0)
+            </summary>
+            <param name="thermalHeadId">This is the Thermal Head ID, can be either 1 or 2</param>
+            <exception cref="T:HdmtOs.Sdk.Uei.UeiException">If the call fails.  <see cref="P:HdmtOs.Sdk.Uei.UeiException.ErrorType" /> will be set to <see cref="F:HdmtOs.Sdk.Uei.UeiErrorType.UeiClientIdInvalid" /> if the expected UEI ID and target UEI ID mismatch.</exception>
+            <exception cref="T:System.Exception">
+            If the value returned from the DTC firmware was out-of-range or returned an unexpected reply to the command.
+            </exception>
+        </member>
+        <member name="T:DtcUeiClientApi.DtcClientCmdErtdX2ModeThReadRequest.Payload">
+            <summary>
+            The payload for this command contains the thermal head ID
+            </summary>
+        </member>
+        <member name="T:DtcUeiClientApi.DtcClientCmdTdynCheckRequest.Payload">
+            <summary>
+            The payload for this command contains the thermal head ID
+            </summary>
+        </member>
+    </members>
+</doc>

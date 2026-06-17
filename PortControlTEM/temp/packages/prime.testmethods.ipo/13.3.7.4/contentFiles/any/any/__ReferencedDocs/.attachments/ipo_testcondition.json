@@ -1,0 +1,128 @@
+{
+  "Configuration": {
+    "TestsToExecute": [
+      {
+        "Name": "Ipo::IpoBasicTest_TestCondition_P1",
+        "Type": "INSTANCE"
+      }
+    ],
+    "StoreIterationResult": {
+      "SharedStorage": {
+        "Key": "IpoIterationResultKey"
+      }
+    },
+    "Loop": [
+      {
+        "Id": "100-MultipleStep-TC",
+        "Iteration": [
+          {
+            "Id": "010-TwoItem",
+            "StepCount": 2,
+            "TestCondition": [
+              {
+                "Name": "Ipo::basic_func_timing_10MHz_20MHz",
+                "Parameter": "mult1",
+                "Start": 0,
+                "Step": 1
+              },
+              {
+                "Name": "Ipo::basic_func_timing_10MHz_20MHz",
+                "Parameter": "mult2",
+                "Start": 0,
+                "Step": 1
+              }
+            ]
+          },
+          {
+            "Id": "011-OneItem",
+            "StepCount": 3,
+            "TestCondition": [
+              {
+                "Name": "Ipo::basic_func_lvl_nom",
+                "Parameter": "vil",
+                "Start": 0,
+                "Step": 0.1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "200-SingleStep-TC",
+        "Iteration": [
+          {
+            "Id": "020-TwoItem",
+            "StepCount": 1,
+            "TestCondition": [
+              {
+                "Name": "Ipo::basic_func_timing_10MHz_20MHz",
+                "Parameter": "div1",
+                "Start": 1,
+                "Step": 0
+              },
+              {
+                "Name": "Ipo::basic_func_timing_10MHz_20MHz",
+                "Parameter": "div2",
+                "Start": 2,
+                "Step": 0
+              }
+            ]
+          },
+          {
+            "Id": "021-OneItem-Toggle",
+            "StepCount": 1,
+            "TestCondition": [
+              {
+                "Name": "Ipo::basic_func_timing_10MHz_20MHz",
+                "Parameter": "div1",
+                "Start": 1,
+                "Step": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "300-Toggle-TC",
+        "Iteration": [
+          {
+            "Id": "030-Toggle",
+            "StepCount": 1,
+            "TestCondition": [
+              {
+                "Name": "Ipo::basic_func_timing_10MHz_20MHz",
+                "Parameter": "ratio1",
+                "Start": 0,
+                "Step": 0
+              },
+              {
+                "Name": "Ipo::basic_func_timing_10MHz_20MHz",
+                "Parameter": "ratio2",
+                "Start": 0,
+                "Step": 0
+              }
+            ]
+          },
+          {
+            "Id": "031-Toggle",
+            "StepCount": 1,
+            "TestCondition": [
+              {
+                "Name": "Ipo::basic_func_timing_10MHz_20MHz",
+                "Parameter": "ratio1",
+                "Start": 1,
+                "Step": 0
+              },
+              {
+                "Name": "Ipo::basic_func_timing_10MHz_20MHz",
+                "Parameter": "ratio2",
+                "Start": 1,
+                "Step": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,2861 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Gfx</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod">
+            <summary>
+            AddTagBySkuName test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.#ctor(Prime.TestMethods.Gfx.Common.GfxAggregator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod"/> class.
+            </summary>
+            <param name="aggregator">IGfxAggregator mock object.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.UserInputParamType">
+            <summary>
+            Indicate if the user input param is sku or recovery and if it comes from SharedStorage Keys or literal values.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.UserInputParamType.SkuName">
+            <summary>
+            SkuName.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.UserInputParamType.SkuNameSharedStorageKey">
+            <summary>
+            SkuNameSharedStorageKey.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.UserInputParamType.RecoveryString">
+            <summary>
+            RecoveryString.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.UserInputParamType.RecoveryStringSharedStorageKey">
+            <summary>
+            RecoveryStringSharedStorageKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.Area">
+            <summary>
+            Gets or sets the Area.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.Content">
+            <summary>
+            Gets or sets the Content.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.Tag">
+            <summary>
+            Gets or sets the Tag.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.UserInputType">
+            <summary>
+            Gets or sets the UserInputType.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.UserInput">
+            <summary>
+            Gets or sets the UserInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.HryPassSymbol">
+            <summary>
+            Gets or sets the HryPassSymbol.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.HryFailSymbol">
+            <summary>
+            Gets or sets the HryFailSymbol.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxAddTagByUserDefinitionTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.HelperClasses.StringEnumCaseInsensitiveConverter">
+            <summary>
+            StringEnumCaseInsensitiveConverter.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.HelperClasses.StringEnumCaseInsensitiveConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk">
+            <summary>
+            Represent a chunk.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk.#ctor(System.String,System.String,Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk.ChunkTypes)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk"/> class.
+            </summary>
+            <param name="data">data part.</param>
+            <param name="counter">counter part.</param>
+            <param name="chunkType">chunk type.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk.ChunkTypes">
+            <summary>
+            Chunk type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk.ChunkTypes.ErrorCounterChunk">
+            <summary>
+            error counter detected.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk.ChunkTypes.ValidChunk">
+            <summary>
+            Valid Chunk.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk.ChunkData">
+            <summary>
+            Gets or sets Chunk Data part.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk.ChunkCounter">
+            <summary>
+            Gets or sets Chunk Counter part.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk.ChunkType">
+            <summary>
+            Gets the chunk type.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilde.ChunkCreator">
+            <summary>
+            Chunk creator.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilde.ChunkCreator.#ctor(ConfigurationFiles.Pins)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilde.ChunkCreator"/> class.
+            </summary>
+            <param name="pins">Pins definition.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilde.ChunkCreator.CreateChunk(System.Collections.Generic.List{System.String},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Generate new Chunk.
+            </summary>
+            <param name="failingPins">list of failing pins.</param>
+            <param name="expectedCounter">chunk expectedCounter.</param>
+            <param name="sessionContext">session context.</param>
+            <returns>new chunk.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ContinueAction">
+            <summary>
+            Default behavior -> continue decoding.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ContinueAction.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ContinueAction.GetBehaviourType">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ContinueAction.Initialize">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.EndPatternsAction">
+            <summary>
+            End Patterns Behavior Action.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.EndPatternsAction.#ctor(System.Boolean,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.EndPatternsAction"/> class.
+            </summary>
+            <param name="retestStatus">retest status.</param>
+            <param name="remainingPacketsToDecode">additional packets to decode per behavior.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.EndPatternsAction.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.EndPatternsAction.GetBehaviourType">
+            <summary>
+            Return the behavior type for action.
+            </summary>
+            <returns>behavior type.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.EndPatternsAction.Initialize">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ErrorHandler">
+            <summary>
+            error Handling Class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ErrorHandler.#ctor(ConfigurationFiles.DecodeSettingsEntities.PacketSettings,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ErrorHandler"/> class.
+            </summary>
+            <param name="packetSetting">packet settings object.</param>
+            <param name="maxPacketsToDecode">max packets to decode.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ErrorHandler.ConvertPacketError(System.Enum)">
+            <summary>
+            Converts packet error.
+            </summary>
+            <param name="perPacketErrorEnum">perPacketErrorEnum.</param>
+            <returns>converted enum packet error of type ErrorHandlingPerPacket.PacketError.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ErrorHandler.StopDecoding(Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.Packet)">
+            <summary>
+            Execute the relevant behaviour command.
+            Update the relevant packets counters, and return if the decoding process should be continue or not.
+            </summary>
+            <param name="packet">packet for checking and deciding the next step.</param>
+            <returns>true if decode should be continue or not.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ErrorHandler.StopExecutionOfNextPattern">
+            <summary>
+            Indicates if decoding phase should run for the the next pattern.
+            in case last behavior is NEXT_PATTERN -> True, false other.
+            </summary>
+            <returns>True if decoding should run for next pattern, false other.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.ErrorHandler.GetError">
+            <summary>
+            Return the last error detected during the decoding.
+            The last error is critical for taking decision of the port number.
+            </summary>
+            <returns>last error detected during the decoding phase.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.NextPatternAction">
+            <summary>
+            Next Pattern behavior.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.NextPatternAction.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.NextPatternAction"/> class.
+            </summary>
+            <param name="remainingPackets">remaining packets to decode.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.NextPatternAction.GetBehaviourType">
+            <summary>
+            Return the behavior type for action.
+            </summary>
+            <returns>behavior type.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.NextPatternAction.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.ErrorHandle.NextPatternAction.Initialize">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.IPacketBuilder">
+            <summary>
+            Packet Builder interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.IPacketBuilder.BuildPacketsInDfmMode(System.Collections.Generic.List{Prime.FunctionalService.IFailureData})">
+            <summary>
+            Return packets per pattern based on DFM capture data.
+            </summary>
+            <param name="failPerCycle">fail Per Cycle for plist or pattern.</param>
+            <returns>list of packets per pattern.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.IPacketBuilder.BuildPacketsInDmemMode(System.Collections.Generic.List{Prime.FunctionalService.ICtvPerPattern},System.Collections.Generic.List{Prime.FunctionalService.IFailureData})">
+            <summary>
+            Return packets per pattern based on DMEM capture data. Expectations: ctv should be only on one pin.
+            </summary>
+            <param name="ctvPerPattern">ctv data per pattern.</param>
+            /// <param name="dfmFails">dfm fails.</param>
+            <returns>list of packets per pattern.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.IPacketBuilder.GetError">
+            <summary>
+            Return the last error detected during the decoding stage.
+            </summary>
+            <returns>last error detected for packet.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilder">
+            <summary>
+            This class is responsible for building packets.
+            It should be able to handle string of bits values, and create packets out of it.
+            It should support DFM only.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilder.#ctor(ConfigurationFiles.ConfigFile,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilder"/> class.
+            </summary>
+            <param name="configurationData">Config file object.</param>
+            <param name="isDebugEnabled">true if debug on, false otherwise.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilder.SessionContext">
+            <summary>
+            Gets or sets the session context.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilder.BuildPacketsInDfmMode(System.Collections.Generic.List{Prime.FunctionalService.IFailureData})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilder.BuildPacketsInDmemMode(System.Collections.Generic.List{Prime.FunctionalService.ICtvPerPattern},System.Collections.Generic.List{Prime.FunctionalService.IFailureData})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilder.GetError">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilder.IsAllZerosPacket(System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk})">
+            <summary>
+            Will check if the chunks builds up all zeros packets. Those kinds of packets need to be ignored by request of GFX users.
+            </summary>
+            <param name="chunks">chunks from the captured data.</param>
+            <returns>true if this is all zero packet, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilder.DecodeDMEMFailData(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Decode failing data and return map of fields and data per pattern based on DMEM cature mode.
+            </summary>
+            <param name="ctvPerPin">tv per pin. guaranteed that it has only one pin.</param>
+            <returns>List of packets.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilder.DecodeDFMFailData(System.Collections.Generic.List{Prime.FunctionalService.IFailureData})">
+            <summary>
+            Decode failing data and return map of fields and data per pattern.
+            </summary>
+            <param name="failPerCycle">per pattern capture data.</param>
+            <returns>List of packets.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilderCreator.IPacketBuilderCreator">
+            <summary>
+            packet builder creator.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilderCreator.IPacketBuilderCreator.CreatePacketBuilder(ConfigurationFiles.ConfigFile,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Packet builder creator.
+            </summary>
+            <param name="configurationData">config file object.</param>
+            <param name="debugEnabled">true if debug enabled, false otherwise.</param>
+            <param name="sessionContext">session context.</param>
+            <returns>PacketBuilder instance.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilderCreator.PacketBuilderCreator">
+            <summary>
+            packet builder creator.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilderCreator.PacketBuilderCreator.CreatePacketBuilder(ConfigurationFiles.ConfigFile,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket">
+            <summary>
+            Represent packets that couldn't be constructed.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket.error">
+            <summary>
+            Gets or sets error.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket.#ctor(System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk},Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket.IncompletePacketErrorTypes,System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket"/> class.
+            </summary>
+            <param name="invalidChunks">list of chunks.</param>
+            <param name="error">error list detected.</param>
+            <param name="debugData">debug data.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket.IncompletePacketErrorTypes">
+            <summary>
+            InvalidPacketErrors.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket.IncompletePacketErrorTypes.COUNTER_ERROR">
+            <summary>
+            Counter error.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket.IncompletePacketErrorTypes.DOA_ERROR">
+            <summary>
+            DOA error.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket.IncompletePacketErrorTypes.MAX_AMOUNT_REACHED">
+            <summary>
+            Max amount of packets reached.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket.IsOverFlowDetected">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket.GetPacketError">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.IncompletePacket.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.InvalidPacket">
+            <summary>
+            Represent Invalid Packet.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.InvalidPacket.error">
+            <summary>
+            Gets or sets Packet error.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.InvalidPacket.#ctor(System.Text.StringBuilder,Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.InvalidPacket.InvalidPacketErrorTypes,System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.InvalidPacket"/> class.
+            </summary>
+            <param name="rawBinary">rawBinary string format.</param>
+            <param name="errors">errors list.</param>
+            <param name="debugData">debug data.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.InvalidPacket.InvalidPacketErrorTypes">
+            <summary>
+            InvalidPacketErrors.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.InvalidPacket.InvalidPacketErrorTypes.INVALID_PACKET_ID">
+            <summary>
+            Invalid packet type id.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.InvalidPacket.IsOverFlowDetected">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.InvalidPacket.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.InvalidPacket.GetPacketError">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.Packet">
+            <summary>
+            Represent a packet.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.Packet.#ctor(System.Boolean,System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.Packet"/> class.
+            </summary>
+            <param name="gfxAggStatus">gfx aggregator reporting flag.</param>
+            <param name="debugData">debug data.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.Packet.DebugData">
+            <summary>
+            Gets DebugData.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.Packet.GetPacketEidFailureToGfxAgg">
+            <summary>
+            Indicating if failing eids should be reported to GFX Aggregator.
+            </summary>
+            <returns>gfx agg reporting status.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.Packet.IsOverFlowDetected">
+            <summary>
+            Indicating is overFlow detected.
+            </summary>
+            <returns>true if overFlow detected and false other.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.Packet.GetPacketError">
+            <summary>
+            Retrieve the error type per packet.
+            </summary>
+            <returns>error type per packet.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory">
+            <summary>
+            Packet Creation factory.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory.#ctor(ConfigurationFiles.DecodeSettingsEntities.PacketSettings,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory"/> class.
+            </summary>
+            <param name="packetSettings">packet settings definition.</param>
+            <param name="sessionContext">session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory.Error">
+            <summary>
+            It tells what kinds of error packet builder encounters.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory.Error.COUNTER_ERROR">
+            <summary>
+            Counter error.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory.Error.DOA_ERROR">
+            <summary>
+            DOA error.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory.Error.INVALID_PACKET_ID">
+            <summary>
+            Invalid packet type id.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory.Error.MAX_AMOUNT_REACHED">
+            <summary>
+            Max amount of packets reached.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory.SessionContext">
+            <summary>
+            Gets or sets the session context.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory.CreateDoaPacket(System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData})">
+            <summary>
+            Create Doa Packet.
+            </summary>
+            <returns>incomplete packet with DoaError.</returns>
+            <param name="chunksDataForDebug">debug data.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.PacketFactory.Create(System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.ChunkBuilder.Chunk},System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData})">
+            <summary>
+            Factory method for building packet.
+            </summary>
+            <param name="chunks">list of chunks.</param>
+            <param name="dataForDebug">debug data.</param>
+            <returns>Packet.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket">
+            <summary>
+            Represent valid rawBinary.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket.#ctor(System.Boolean,System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket"/> class.
+            </summary>
+            <param name="reportStatus">flag indicating whether eid should be reported.</param>
+            <param name="debugData">debug data to print.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket.ValidPacketErrorTypes">
+            <summary>
+            ValidPacketErrors.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket.ValidPacketErrorTypes.NO_ERROR">
+            <summary>
+            No error.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket.ValidPacketErrorTypes.OVER_FLOW">
+            <summary>
+            OverFlow error.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket.Fields">
+            <summary>
+            Gets packet fields.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket.IsOverFlowDetected">
+            <summary>
+            Return overFlow status for rawBinary.
+            </summary>
+            <returns>true if overFlow detected and false other.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket.GetEid">
+            <summary>
+            Returns eid value.
+            </summary>
+            <returns>eid field value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket.GetPacketError">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.ValidPacket.UpdateValidPacketSpecifics(System.String,System.Text.StringBuilder,ConfigurationFiles.DecodeSettingsEntities.PacketSettings.MSBSideForFieldConversion,ConfigurationFiles.DecodeSettingsEntities.PacketSettings)">
+            <summary>
+            UpdateValidPacketSpecifics.
+            </summary>
+            <param name="id">packetID.</param>
+            <param name="rawBinary">rawBinary as a string.</param>
+            <param name="msbFieldsDirection">tells what side is the MSB when converting fields values.</param>
+            <param name="packetSettings">packetSettings object.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData">
+            <summary>
+            Packet debug data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData.#ctor(System.UInt64,System.UInt64,System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData"/> class.
+            </summary>
+            <param name="address">address.</param>
+            <param name="cycle">cycle.</param>
+            <param name="failingPins">failingPins.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData.Address">
+            <summary>
+            Gets address.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData.Cycle">
+            <summary>
+            Gets address.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData.FailingPins">
+            <summary>
+            Gets address.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData.Chunk">
+            <summary>
+            Gets address.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.PacketBuilder.PacketDebugData.UpdateChunk(System.String)">
+            <summary>
+            Updates chunk after it's creation.
+            </summary>
+            <param name="chunk">chunk.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.Interfaces.IBehaviourAction">
+            <summary>
+            interface to define actions per packet type.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.Interfaces.IBehaviourAction.Execute">
+            <summary>
+            Execute the expected behavior.
+            </summary>
+            <returns>true if execute done, or false if should continue.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.Interfaces.IBehaviourAction.Initialize">
+            <summary>
+            initialize action packets counters.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.Interfaces.IBehaviourAction.GetBehaviourType">
+            <summary>
+            Return the behavior type for action.
+            </summary>
+            <returns>behavior type.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.Interfaces.IGfxBaseParams">
+            <summary>
+            Interface for defing the base Gfx params.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.Interfaces.IGfxBaseParams.Area">
+            <summary>
+            Gets or sets the Area for Gfx test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.Interfaces.IGfxBaseParams.Content">
+            <summary>
+            Gets or sets the Content for GfxScoreboard TM.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.Interfaces.IGfxBaseParams.StartSku">
+            <summary>
+            Gets or sets the start sku for Gfx test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.Interfaces.IGfxBaseParams.EndSku">
+            <summary>
+            Gets or sets the end sku for Gfx test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.Interfaces.IGfxExtendedParams">
+            <summary>
+            Interface for defing the base GfxScoreboard params.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.Interfaces.IGfxExtendedParams.Tag">
+            <summary>
+            Gets or sets the tag for GfxScoreboard TM.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.Interfaces.IGfxExtendedParams.ResultSkuKey">
+            <summary>
+            Gets or sets the result sku for GfxScoreboard TM.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.Interfaces.IGfxExtendedParams.HryRawStringDatalog">
+            <summary>
+            Gets or sets the Hry raw string datalog for GfxScoreboard TM.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.Interfaces.IGfxExtendedParams.HryTreeLevelDatalog">
+            <summary>
+            Gets or sets the Hry tree level datalog for GfxScoreboard TM.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.Interfaces.IGfxMinimalParams">
+            <summary>
+            Interface for defing the minimal Gfx params.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.Interfaces.IGfxMinimalParams.Area">
+            <summary>
+            Gets or sets the Area for Gfx test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.Common.Interfaces.IGfxMinimalParams.Content">
+            <summary>
+            Gets or sets the Content for GfxScoreboard TM.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.GfxAggregator">
+            <summary>
+            GfxAggregator.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.GfxAggregator"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.InitializeAggregator(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes the AreasAndSubAreas object.
+            </summary>
+            <param name="areaName">the area name.</param>
+            <param name="contentName">Name of the content.</param>
+            <param name="sessionContext">The session context object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.SetSkuBounds(System.String,System.String,System.String)">
+            <summary>
+            Sets the start and end skus per area sku bounds. Those bounds will be used for the SKU resolution during the Evaluate API.
+            This function saved the input sku bounds (start and end or one of them) to shared storage under a predefined key, for example, "GlobalStartSku_{area name}".
+            </summary>
+            <param name="area">The area name. used for building the shared storage key.</param>
+            <param name="startSku">Name of the startSku.</param>
+            <param name="endSku">Name of the endSku.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.AreSkuBoundsValid(System.String,System.String)">
+            <summary>
+            Validates that the per area sku boundaries are valid and exist in the database.
+            </summary>
+            <param name="startSku">Name of the startSku.</param>
+            <param name="endSku">Name of the endSku.</param>
+            <returns>if SkuBounds are Valid returns true, otherwise returns false. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.ClearTags">
+            <summary>
+            Clears all the saved tags in the area.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetUpsRecoveryStorageKey">
+            <summary>
+            Gets the recovery for the input sku as defined in Aleph file.</summary>
+            <returns>the recovery for the input sku as defined in Aleph file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetMatchedTagsForEvaluation">
+            <summary>
+            Returning the matched regex tags for evaluation.
+            </summary>
+            <returns>list of tags per content which matched the regex.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetMatchedTagsForEvaluation(System.Text.RegularExpressions.Regex)">
+            <summary>
+            Returning the matched regex tags for evaluation.
+            </summary>
+            <param name="requiredTags">The regular expression of the required tags.</param>
+            <returns>list of tags per content which matched the regex.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetMatchedTagsForEvaluation(System.Text.RegularExpressions.Regex,System.Text.RegularExpressions.Regex)">
+            <summary>
+            Returning the matched regex tags for evaluation.
+            </summary>
+            <param name="requiredTags">The regular expression of the required tags.</param>
+            <param name="optionalTags">The regular expression of the optional tags.</param>
+            <returns>list of tags per content which matched the regex.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.IsHrySymbolValid(System.String,System.Boolean)">
+            <summary>
+            Validate Hry Symbol.
+            </summary>
+            <param name="symbol">symbol.</param>
+            <param name="isDoa">isDoa symbol.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetEidsIdsPerRecoveryGroup">
+            <summary>
+            gets only the eids ids for each Recovery Group.
+            </summary>
+            <returns>dictionary of Eids Ids per Recovery Group.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetEidStatuses">
+            <summary>
+            Creates an eid status object.
+            </summary>
+            <returns>Eid status object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.EvaluateTags(System.String,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Returns the result of the evaluation.
+            </summary>
+            <returns>A tuple which contains:( eids statuses per recovery group, evaluation result, a multiple content evaluation flag).</returns>
+            <param name="startSkuName">Name of the startSku.</param>
+            <param name="endSkuName">Name of the endSku.</param>
+            <param name="tagsForEvaluation">The tags to evaluate.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.UpdateHryTree(System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses})">
+            <summary>
+            Creates an eid status object.
+            </summary>
+            <param name="eidStatuses">List of eids statuses.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.UpdateHryTree(System.Collections.Generic.Dictionary{System.Int32,Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid})">
+            <summary>
+            UpdateHryTree using the scoreboard eids.
+            </summary>
+            <param name="eidStatuses">List of eids statuses.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.AddTestMethodTag(System.String)">
+            <summary>
+            Adds Test Method tag, uses the current content eids , expected to update them before adding the tag.
+            </summary>
+            <param name="tagName">The tag name.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.AddUserTagByRecoveryString(System.String,System.String,Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol,Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            Creates new tag gived the sku per given area and content.
+            </summary>
+            <param name="tag">Name of the tag.</param>
+            <param name="recoveryGroupString"> RecoveryGroup string.</param>
+            <param name="pass">the Pass hry Symbol respectively.</param>
+            <param name="fail">the fail hry Symbol respectively.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.AddUserTagBySkuNameDefaultRecovery(System.String,System.String,Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol,Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            Creates new tag gived the sku per given area and content.
+            </summary>
+            <param name="tag">Name of the tag.</param>
+            <param name="sku">Name of the sku or RecoveryGroup string.</param>
+            <param name="pass">the Pass hry Symbol respectively.</param>
+            <param name="fail">the fail hry Symbol respectively.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetHryTreeDatalog(System.Int32)">
+            <summary>
+            Returns a list of hrytree nodes by the level num.
+            </summary>
+            <returns>List of HryTreeComponent.</returns>
+            <param name="levelNum">The max Level number.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetSessionContext">
+            <summary>
+            get the current session context from aggregator.
+            </summary>
+            <returns>session context.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.CreateInitializeScbEids(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Initialize the scoreboard eids with the not tested status in the current content eids and creates a a structure to map between Id to eid.
+            </summary>
+            <param name="eidsIds">List of eids ids .</param>
+            <returns>  only the scoreboard eids with the not tested status.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.Evaluate(System.String,System.String,System.Boolean)">
+            <summary>
+            Evaluates the EIDs dynamic data processed form plist execution results (CTVs) and returns the SKU object with the SKU data matching the EID status.
+            </summary>
+            <param name="startSku">Name of the startSku.</param>
+            <param name="endSku">Name of the endSku.</param>
+            <param name="isPerPattern">Boolean which indicates if the mode is per pattern.</param>
+            <returns>ISkuResult object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetAreaRecoveryGroupsNumber">
+            <summary>
+            Returning the number of recovery groups in the area.
+            </summary>
+            <returns>recovery groups size.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetHRYSymbol(System.String)">
+            <summary>
+            Checks if the symbols are valid.
+            </summary>
+            <param name="symbol">The eid Symbol.</param>
+            <returns>The hry symbol object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetHryRawStringForDatalog(System.Collections.Generic.Dictionary{System.String,Prime.TestMethods.Gfx.Aleph.Eid.EidsStatuses})">
+            <summary>
+            Gets the HryRawString for datalog.
+            </summary>
+            <param name="eidsDic"> The eids statuses per recovery group.</param>
+            <returns>All eids statuses in a space separated string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetEidNotTestedSymbol">
+            <summary>
+            Get the hry symbol for EidNotTestedSymbol.
+            </summary>
+            <returns>EidNotTestedSymbol.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.UpdateContentEidsWithScbEidsStatuses(System.Collections.Generic.IEnumerable{Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid})">
+            <summary>
+            Update the current content eids with the calculated ScoreBoard Eids Statuses.
+            </summary>
+            <param name="scbEidsStatuses">the calculated ScoreBoard Eids Statuses.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.ValidateHryTreeLevel(System.Int32)">
+            <summary>
+            Validate hry tree level.
+            </summary>
+            <param name="levelNum">The Level number.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.ResetEidsStatuses">
+            <summary>
+            Reset the content eids to the not tested status.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.UpdateContentWithFailingEids(System.Collections.Generic.HashSet{System.Int32},System.String,System.String)">
+            <summary>
+            This function is used to update all recovery groups with the failing eids received in function parameter.
+            </summary>
+            <param name="failingEids"> failing eids.</param>
+            <param name="passSymbol">passSymbol.</param>
+            <param name="failSymbol">failSymbol.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetDatalogFormat">
+            <summary>
+            Gets DatalogFormat object.
+            </summary>
+            <returns> DatalogFormat object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetDatalogFormat(System.String)">
+            <summary>
+            Gets DatalogFormat object.
+            </summary>
+            <param name="patternIndex">if in per pattern mode, pass the pattern index to add the prints to Ituff.</param>
+            <returns> DatalogFormat object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.EvaluateSubArea">
+            <summary>
+            Evaluate sub area.
+            </summary>
+            <returns>the evaluated sku result object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.GetLocalEvaluatedRecovery(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String}@)">
+            <summary>
+            GetLocalEvaluatedRecovery.
+            </summary>
+            <param name="recoveryGroups">recoveryGroups.</param>
+            <param name="failRecoveryGroupsNames">list of the failing recovery groups names.</param>
+            <returns>recovery string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxAggregator.InitializeArea(System.String,System.String)">
+            <summary>
+            Return the area object.
+            </summary>
+            <param name="areaName">The area name.</param>
+            <param name="contentName">The content name.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.GfxDatalogFormat">
+            <summary>
+            Writer to write Gfx  information to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.GfxDatalogFormat"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.#ctor(Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.GfxDatalogFormat"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <param name="patternIndex">result sku.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.Common.GfxDatalogFormat"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.AppendFormatlList">
+            <summary>
+            Append every strval format in the ituffFormatsList.
+            </summary>
+            <returns>string of the appended formats.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.HryRawStringDatalog(System.String)">
+            <summary>
+            Set HryRawString to strgvalWritter.
+            </summary>
+            <param name="hryString">Hry string to print.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.IdDatalog(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)">
+            <summary>
+            Set id to strgvalWritter.
+            </summary>
+            <param name="ids">list of ids.</param>
+            <param name="usePid">indicates whether to print the eids ids or part ids.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.WriteFormatListToItuff">
+            <summary>
+            Write to Ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.RecoveryGroupsDatalog(System.Collections.Generic.List{System.String})">
+            <summary>
+            Set RecoveryGroups to strgvalWritter.
+            </summary>
+            <param name="recoveryGroups">result sku.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.SubAreaSkuResultsDatalog(System.Collections.Generic.List{System.String})">
+            <summary>
+            Set RecoveryGroups to strgvalWritter.
+            </summary>
+            <param name="skuResults">result sku.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.SkuDatalog(System.String)">
+            <summary>
+            Set skuData to strgvalWritter.
+            </summary>
+            <param name="sku">result sku.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.TagsDatalog(System.Collections.Generic.List{System.String})">
+            <summary>
+            Set TagsList to strgvalWritter.
+            </summary>
+            <param name="tags">tags list.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.GfxDatalogFormat.HryTreeComponentDatalog(System.Collections.Generic.List{System.ValueTuple{System.String,System.String,System.Int32}},System.Int32)">
+            <summary>
+            Set HryTreeComponent to strgvalWritter.
+            </summary>
+            <param name="hryTreeData">hry tree data.</param>
+            <param name="levelIndex">the level index.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.Common.StabilizingListSorting">
+            <summary>
+            StabilizingListSorting class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.Common.StabilizingListSorting.System#Collections#Generic#IComparer{System#ValueTuple{System#String,System#String,System#Int32}}#Compare(System.ValueTuple{System.String,System.String,System.Int32},System.ValueTuple{System.String,System.String,System.Int32})">
+            <summary>
+            Builds new component for the tree.
+            </summary>
+            <param name="firstValue">the first value.</param>
+            <param name="secondValue">the second value.</param>
+            <returns>The smaller value.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod">
+            <summary>
+            The gfx evaluate test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.#ctor(Prime.TestMethods.Gfx.Common.GfxAggregator,Prime.BusinessLogic.InputData.IInputDataFactory,Prime.TestMethods.Gfx.Common.GfxDatalogFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod"/> class with GFX aggregator injected for the UT .
+            </summary>
+            <param name="aggregator">IGfxAggregator mock object.</param>
+            <param name="inputDataFactory">IInputDataFactory for dependency injection.</param>
+            <param name="gfxFormater">THE GFX FORMATER OBJECT.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.EnabledDisabledMode">
+            <summary>
+            Settings to enable or disable .
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.EnabledDisabledMode.ENABLED">
+            <summary>
+            Enable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.EnabledDisabledMode.DISABLED">
+            <summary>
+            Disable.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.Area">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.StartSku">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.EndSku">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.HryRawStringDatalog">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.Tag">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.HryTreeLevelDatalog">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.ResultSkuKey">
+            <summary>
+            Gets or sets for ResultSkuKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.FailRecoveryGroupsKey">
+            <summary>
+            Gets or sets for FailRecoveryGroupsKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.Content">
+            <summary>
+            Gets or sets for Content.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.RequiredTagsForEvaluation">
+            <summary>
+            Gets or sets for RequiredTags.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.OptionalTagsForEvaluation">
+            <summary>
+            Gets or sets for OptionalTags.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.MatchedTagsForEvaluation">
+            <summary>
+            Gets or sets for MatchedTagsForEvaluation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxEvaluateTestMethod.GetTagsForEvaluation">
+            <summary>
+            Checks if the tags are valid.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod">
+            <summary>
+            Prime GfxMbistHryToTag Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.#ctor(Prime.TestMethods.Gfx.Common.GfxAggregator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod"/> class.
+            </summary>
+            <param name="aggregator">IGfxAggregator mock object.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.Area">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.Content">
+            <summary>
+            Gets or sets for Content.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.Tag">
+            <summary>
+            Gets or sets the tag name to create after decoding the HRY.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.TagPassSymbol">
+            <summary>
+            Gets or sets the TagPassSymbol. This symbol will be used in the generated Tag to represent passing engine id.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.TagFailSymbol">
+            <summary>
+            Gets or sets the TagFailSymbol.This symbol will be used in the generated Tag to represent failing engine id.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.HryMapKeys">
+            <summary>
+            Gets or sets comma separated list of shared storage keys that hold the HRY - eid mapping.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.HryValueKeys">
+            <summary>
+            Gets or sets comma separated list of shared storage keys that hold the HRY values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.HryPassSymbols">
+            <summary>
+            Gets or sets comma separated list of characters symbols that desribes pass status from the HRY received from another test method or user code.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.HryMappingConfig">
+            <summary>
+            Gets or sets ConfigFile input file.
+            This file holds the mapping from component name in the "HryMapKeys" shared storage, to actual eid.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.Verify">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxMbistHryToTagTestMethod.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PacketMonitor.ConfigFileProcessed">
+            <summary>
+            This file contains the raw parsed file + additional ready to consume variables for runtimes
+            like dictionaries and etc.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PacketMonitor.ConfigFileProcessed.RawConfigFile">
+            <summary>
+            Gets or sets this is the raw parsed .json file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.ConfigFileProcessed.ParseConfigFile(System.String)">
+            <summary>
+            Parse raw config file.
+            </summary>
+            <param name="jsonContent">input file content.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatRaster">
+            <summary>
+            Packets Datalog Format for Raster data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatRaster.GetRasterData(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.Packet}},System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            this function gets dict holding the patterns and thiers pakets,
+            returns string containing the pakets fields information in a comma separated list format.
+            </summary>
+            <param name="decodedPacketsPerPattern"> holds a map from pattern name to list of packets.</param>
+            <param name="arrayName">the Array name for the raster header.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+            <returns>string conatining the data to write to raster file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatRaster.SetRasterHeader(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the string bulider to contain the header data for raster.
+            </summary>
+            <param name="arrayName">the Array name for the raster header.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+            <returns>string builder containing the header.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatScan">
+            <summary>
+            Writer to write Gfx  information to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatScan.Reset">
+            <summary>
+            clear the steam.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatScan.SetTnamePrefix(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatScan.SetTnamePostfix(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatScan.SetInstanceHeader(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            SetInstanceHeader.
+            </summary>
+            <param name="plist">plist name.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatScan.DatalogFields(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.Gfx.Common.PacketBuilder.PacketTypes.Packet}})">
+            <summary>
+            Print to scan datalog in this format:
+                2_plist_PacPlist3
+                2_tname_InstanceName
+                2_pttrn_PacMon_3
+                DSS_id_0_eid_0_hdata_000002_hdata_r_080000 _rge_bdata_r_010000000000000000000
+                DSS_id_0_eid_0_hdata_000001_hdata_r_000000 _rge_bdata_r_010000000111000000000
+                2_pttrn_PacMon_4
+                NO_FAIL
+                2_pttrn_PacMon_5
+                NO_FAIL.
+            </summary>
+            <param name="decodedPacketsPerPattern">holds a map from pattern name to list of packet fields.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatScan.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatScan.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatScan.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PacketMonitor.DatalogFormatters.PacketsDatalogFormatScan.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.EnabledDisabledMode">
+            <summary>
+            Settings to enable or disable .
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.EnabledDisabledMode.ENABLED">
+            <summary>
+            Enable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.EnabledDisabledMode.DISABLED">
+            <summary>
+            Disable.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PacketsDatalogModes">
+            <summary>
+            AggregationMode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.PacketsDatalogModes.SCAN">
+            <summary>
+            SCAN.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.PacketsDatalogModes.TFILE">
+            <summary>
+            SCAN.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.PacketsDatalogModes.DISABLED">
+            <summary>
+            DISABLED.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod"/> class with GFX aggregator injected for the UT .
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.#ctor(Prime.TestMethods.Gfx.Common.GfxAggregator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod"/> class with GFX aggregator injected for the UT .
+            </summary>
+            <param name="aggregator">IGfxAggregator mock object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.#ctor(Prime.TestMethods.Gfx.Common.GfxAggregator,Prime.FunctionalService.ICaptureFailureTest,Prime.TestMethods.Gfx.Common.PacketBuilder.PacketBuilderCreator.IPacketBuilderCreator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod"/> class with GFX aggregator injected for the UT .
+            </summary>
+            <param name="aggregator">IGfxAggregator mock object.</param>
+            <param name="captureFailureTest">captureFailureTest mock object.</param>
+            <param name="packetBuilderCreator">packetBuilderCreator.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.Area">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.StartSku">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.EndSku">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.Tag">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.ResultSkuKey">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.HryRawStringDatalog">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.HryTreeLevelDatalog">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.Content">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.FailRecoveryGroupsKey">
+            <summary>
+            Gets or sets FailRecoveryGroupsKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.FailEidsKey">
+            <summary>
+            Gets or sets FailEidsKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.MaximumTotalFailures">
+            <summary>
+            Gets or sets MaximumTotalFailures.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.MaximumFailuresPerPattern">
+            <summary>
+            Gets or sets MaximumFailuresPerPattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.MaskPins">
+            <summary>
+            Gets or sets  comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.ConfigFile">
+            <summary>
+            Gets or sets ConfigFile input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.ArrayName">
+            <summary>
+            Gets or sets the ArrayName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.PacketDatalogMode">
+            <summary>
+            Gets or sets the PacketDatalogMode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.GfxAggregationMode">
+            <summary>
+            Gets or sets the GfxAggregation mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.HryPassSymbol">
+            <summary>
+            Gets or sets the HryPassSymbol.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.HryFailSymbol">
+            <summary>
+            Gets or sets the HryFailSymbol.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.EngineeringOutputFilePath">
+            <summary>
+            Gets or sets EngineeringOutputFilePath. Default value is empty string which will make prints go to datalog file based on PacketDatalogMode.
+            If value is not empty, a new file will be created, and the packets prints are rerouted into this file.
+            Please note the format of the prints is based on what selected on PacketDatalogMode. If PacketDatalogMode is Disabled Verify will fail.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.PatternsInPlist">
+            <summary>
+            Gets or sets this is used in run time to log patterns that has no failures.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.AmblesPatternsInPlist">
+            <summary>
+            Gets or sets PatternsInPlist amblesPatternsInPlist.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.HryRawStringDatalogMode">
+            <summary>
+            Gets or sets HryRawStringDatalogMode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.DecideExitPort(ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.PacketError)">
+            <summary>
+            This function should decide the exit port based on execution status.
+            </summary>
+            <returns>exit port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.ExecutePlist">
+            <summary>
+            This function will execute the func test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.SetupFunctionalTest">
+            <summary>
+            This method should initialize functional test object, based on capture type (DFM/DMEM) requested by
+            user in input file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.ParseInputFile">
+            <summary>
+            This function should parse input .json file into a dedicated variable.
+            Note that validation of the content is not here. See ValidateInputs().
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.GFXHandling">
+            <summary>
+            When Gfx aggregation is ON, this function should do all what is related to Gfx service, like
+            updaing failing EIDS, SKU calculation and more.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxPacketMonitorTestMethod.GetFailingEIDSFromCapturedData">
+            <summary>
+            This function processes the captured data and calls relevant APIs on PacketBuilder.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.GfxScoreBoard.GfxDataSlicer">
+            <summary>
+            GfxDataSlicer class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.GfxDataSlicer.#ctor(Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration,Prime.TestMethods.Gfx.Common.GfxAggregator,System.Collections.Generic.Dictionary{System.Int32,Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.GfxScoreBoard.GfxDataSlicer"/> class.
+            </summary>
+            <param name="scoreBoardConfigurationObj">the config object for initialize the calculation parameters.</param>
+            <param name="aggregator">the Gfx Aggregator for getting to the content eids and HryHierarchy .</param>
+            <param name="scbEidsStatuses">the mapping between id to tuple (id. pid) for each eid.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.GfxDataSlicer.CollectEidsStatusesIterateThenChunk(System.String,System.Collections.Generic.List{Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid})">
+            <summary>
+            CollectEidsStatusesIterateThenChunk.
+            </summary>
+            <param name="ctvString">capture Data.</param>
+            <param name="scbEidsStatusesPerPattern">list of socreboared Eids per pattern.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.GfxDataSlicer.CollectEidsStatusesChunkThenIterate(System.String,System.Collections.Generic.List{Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid})">
+            <summary>
+            CollectEidsStatusesChunkThenIterate.
+            </summary>
+            <param name="ctvString">capture Data.</param>
+            <param name="scbEidsStatusesPerPattern">list of socreboared Eids per pattern.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.GfxScoreBoard.IHandleCtvData">
+            <summary>
+            IHandleCtvData interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.IHandleCtvData.PreProcessCtvData(System.String)">
+            <summary>
+            Processing the dtas ctv data to match the scoreboard use.
+            </summary>
+            <param name="ctvData">The ctv data string.</param>
+            <returns>The ctv data after processing.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.CaptureLocation">
+            <summary>
+            CaptureLocation.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.CaptureLocation.StartLabel">
+            <summary>
+            Gets or sets StartLabel.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.CaptureLocation.StopLabel">
+            <summary>
+            Gets or sets StopLabel.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.CaptureLocation.Domain">
+            <summary>
+            Gets or sets Domain.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.CaptureLocation.HrySymbol">
+            <summary>
+            Gets or sets HrySymbol.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.CaptureLocation.StartAddress">
+            <summary>
+            Gets or sets startAddress.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.CaptureLocation.StopAddress">
+            <summary>
+             Gets or sets stopAddress.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.DoaLabels">
+            <summary>
+            DoaLabels.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.DoaLabels.CaptureLocations">
+            <summary>
+            Gets or sets CaptureLocation.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.ScoreBoardConfigurationInput">
+            <summary>
+            ScoreBoardConfigurationInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.ScoreBoardConfigurationInput.Iterations">
+            <summary>
+            Gets or sets Iterations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.ScoreBoardConfigurationInput.ChunkSize">
+            <summary>
+            Gets or sets ChunkSize.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.ScoreBoardConfigurationInput.ChunkIndex">
+            <summary>
+            Gets or sets ChunkIndex.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.ScoreBoardConfigurationInput.ValueToDecodeInput">
+            <summary>
+            Gets or sets ValueToDecodeMapping.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.ScoreBoardConfigurationInput.DoaLabelsObj">
+            <summary>
+            Gets or sets ValueToDecodeMapping.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.ValueToDecodeMapping">
+            <summary>
+            ValueToDecodeMapping.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.ValueToDecodeMapping.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.InputFile.ValueToDecodeMapping.Decode">
+            <summary>
+            Gets or sets Decode.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration">
+            <summary>
+            ScoreBoaredConfigurationInput.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.SchemaFileName">
+            <summary>
+            The Schema File Name.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.valueToDecodeMap">
+            <summary>
+            mapping of resource name to object.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.doaLabelsPerDomainAndPattern">
+            <summary>
+            mapping of resource  doaLabels Address Per Domain And Pattern.(domain, (pattern,labelRange)).
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.chunks">
+            <summary>
+            list of chunk indexes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.eidsIds">
+            <summary>
+            list of chunk indexes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.scoreBoardConfigObj">
+            <summary>
+            object for the input json data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.GetValueToDecode">
+            <summary>
+            Get ValueToDecode Dictionary.
+            </summary>
+            <returns>dictionary of ValueToDecode.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.GetDoaLabelsCount">
+            <summary>
+            returns DoaLabels Count.
+            </summary>
+            <returns>number of DoaLabels in the list.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.GetEidsIds">
+            <summary>
+            gets scbEidsPerRecoveryGroup list.
+            </summary>
+            <returns>scbEidsPerRecoveryGroup list.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.GetIterations">
+            <summary>
+            returns iterations.
+            </summary>
+            <returns>iterations.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.GetChunkSize">
+            <summary>
+            returns chunkSize.
+            </summary>
+            <returns>chunkSize.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.GetChunkList">
+            <summary>
+            gets ChunkList.
+            </summary>
+            <returns>ChunkList.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.GetDoaLabelsPerDomainAndPattern">
+            <summary>
+            gets doaLabelsList.
+            </summary>
+            <returns>doaLabelsList.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.GetExpectedCtvSizePerPattern">
+            <summary>
+            gets Expected CtvSize PerPattern- ChunkSize* (num of chunks) * iterations .
+            </summary>
+            <returns>expected Ctv size PerPattern.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.Initialize(System.String,System.Collections.Generic.IEnumerable{System.String},Prime.TestMethods.Gfx.Common.GfxAggregator,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Parsing ScoreBoard configuration input json file.
+            </summary>
+            <param name="configFilePath">json hry input file.</param>
+            <param name="patternsInPlist">the patterns list in plist.</param>
+            <param name="aggregator">aggregator object.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardConfiguration.IsFailInDOARange(System.String,System.String,System.UInt64,System.String@)">
+            <summary>
+            Checks if the input address .
+            </summary>
+            <param name="domain">domain.</param>
+            <param name="patternName">pattern.</param>
+            <param name="address">lableRange with address.</param>
+            <param name="outDoaSymbol">outDoaSymbol.</param>
+            <returns>IsFailInDOARange.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid">
+            <summary>
+            ScoreBoardEid.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid.#ctor(System.ValueTuple{System.Int32,System.Int32},Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid"/> class.
+            </summary>
+            <param name="eidKey"> The eidKey (id, PartId).</param>
+            <param name="eidStatus">The eidStatus (HrySymbol).</param>
+            <param name="recoveryGroupName">The recovery group name that the eid belong to.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid.#ctor(Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid"/> class, creates a copy of the object.
+            </summary>
+            <param name="scoreBoardEid">scoreBoardEid object to copy.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid.EidKey">
+            <summary>
+            Gets or Sets the eid's key (id, partid).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid.EidHrySymbol">
+            <summary>
+            Gets or Sets the eid's HrySymbol.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid.RecoveryGroupName">
+            <summary>
+            Gets or Sets the Recovery Group Name.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.GfxScoreBoard.ScoreBoardEid.UpdateEidHrySymbol(Prime.TestMethods.Gfx.Aleph.Hry.HrySymbol)">
+            <summary>
+            Update the current EidHrySymbol according the Priority.
+            </summary>
+            <param name="hrySymbol">The new hry symbol.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.EidDecodeMethodSettings">
+            <summary>
+            Settings EidDecodeMethod.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.EidDecodeMethodSettings.ITERATE_THEN_CHUNK">
+            <summary>
+            ITERATE_THEN_CHUNK.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.EidDecodeMethodSettings.CHUNK_THEN_ITERATE">
+            <summary>
+            CHUNK_THEN_ITERATE.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.EnabledDisabledModeEnum">
+            <summary>
+            Settings to enable or disable .
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.EnabledDisabledModeEnum.ENABLED">
+            <summary>
+            Enable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.EnabledDisabledModeEnum.DISABLED">
+            <summary>
+            Disable.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod">
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="F:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.scoreBoardConfigurationObj">
+            <summary>
+            ScoreBoardConfiguration object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.#ctor(Prime.TestMethods.Gfx.Common.GfxAggregator,Prime.BusinessLogic.ScoreboardLogger.IScoreboardFactory,Prime.BusinessLogic.InputData.IInputDataFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod"/> class with GFX aggregator injected for the UT .
+            </summary>
+            <param name="aggregator">GfxAggregator mock object.</param>
+            <param name="scoreboardFactory">IScoreboardFactory for dependency injection.</param>
+            <param name="inputDataFactory">IInputDataFactory for dependency injection.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.Area">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.StartSku">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.EndSku">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.Tag">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.ResultSkuKey">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.HryRawStringDatalog">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.HryTreeLevelDatalog">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.Content">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.EidDecodeMethod">
+            <summary>
+            Gets or sets eidDecodeMethod.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.HryPerPattern">
+            <summary>
+            Gets or sets hryPerPattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.FailRecoveryGroupsKey">
+            <summary>
+            Gets or sets FailRecoveryGroupsKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.FailEidsKey">
+            <summary>
+            Gets or sets FailEidsKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.PassEidsKey">
+            <summary>
+            Gets or sets PassEidsKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.CtvPinName">
+            <summary>
+            Gets or sets CtvPinNames to capture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.DOAPinNames">
+            <summary>
+            Gets or sets DOAPinNames to capture.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.ConfigFile">
+            <summary>
+            Gets or sets ResourcesFile input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.BaseNumbers">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.PatternNameCounterIndexes">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.MaxFailsNum">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.TestMethodExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.HryRawStringDatalogMode">
+            <summary>
+            Gets or sets HryRawStringDatalogMode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.ForceReVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxScoreBoardTestMethod.Prime#TestMethods#Gfx#GfxScoreBoard#IHandleCtvData#PreProcessCtvData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.EidMapper">
+            <summary>
+            EidMapper class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.EidMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.EidMapper"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.EidMapper.#ctor(System.Collections.Generic.List{Prime.TestMethods.Gfx.PatternRegexMapping})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.EidMapper"/> class for unit testing purpose.
+            </summary>
+            <param name="patternRegexMappingList">The pattern mapping regex list.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.EidMapper.InitializeEidMapper(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializing the patternToEidMapping dictionary.
+            </summary>
+            <param name="plistPatternNames">The pattern names in the plist.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.EidMapper.GetFailingEids(Prime.FunctionalService.ICtvPerPattern,System.String)">
+            <summary>
+            Returning the failing Eids Ids by failing ctv index and pattern name.
+            </summary>
+            <param name="ctvPerPattern">The ctv per pattern object.</param>
+            <param name="ctvCapturePin">The ctv capture pin.</param>
+            <returns>Hash set of failing Eids ids.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.EidMapper.ValidateCtvLength(Prime.FunctionalService.ICtvPerPattern,System.String)">
+            <summary>
+            Validating the ctv data length for pattern.
+            </summary>
+            <param name="ctvPerPattern">The ctv per pattern object.</param>
+            <param name="ctvCapturePin">The ctv capture pin.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PatternRegexMapping">
+            <summary>
+            EidMapping class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PatternRegexMapping.#ctor(System.String,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PatternRegexMapping"/> class.
+            </summary>
+            <param name="patternNameRegex">The pattern regex.</param>
+            <param name="ctvEidMappingOrder">The ctv mapping order.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PatternRegexMapping.PatternNameRegex">
+            <summary>
+            Gets for PatternName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PatternRegexMapping.CtvEidMappingOrder">
+            <summary>
+            Gets for CtvEidMappingOrder.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PatternRegexMapping.ResolvePatternNames(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Resolving the pattern names.
+            </summary>
+            <param name="plistPatternNames">The pattern names in the plist.</param>
+            <returns>The matching patterns.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PatternRegexMapping.GetEid(System.Int32)">
+            <summary>
+            The Eid id by the ctv index, The ctv index maybe bigger than the list size, so need to use modolu to get valid result.
+            </summary>
+            <param name="index">The ctv index.</param>
+            <returns>Eid Id.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod">
+            <summary>
+            Prime SsnScoreBoard Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.#ctor(Prime.TestMethods.Gfx.Common.GfxAggregator,Prime.BusinessLogic.InputData.IInputDataFactory,Prime.TestMethods.Gfx.Common.GfxDatalogFormat,System.Collections.Generic.List{Prime.FunctionalService.ICtvPerPattern})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod"/> class with GFX aggregator injected for the UT .
+            </summary>
+            <param name="aggregator">IGfxAggregator mock object.</param>
+            <param name="inputDataFactory">IInputDataFactory for dependency injection.</param>
+            <param name="gfxDatalogFormater">THE GFX FORMATER OBJECT.</param>
+            <param name="ctvPerPatternList">The ctvPerPattern list.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.Area">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.StartSku">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.EndSku">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.HryRawStringDatalog">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.Tag">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.HryTreeLevelDatalog">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.ResultSkuKey">
+            <summary>
+            Gets or sets for ResultSkuKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.FailRecoveryGroupsKey">
+            <summary>
+            Gets or sets for FailRecoveryGroupsKey.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.Content">
+            <summary>
+            Gets or sets for Content.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.InputFile">
+            <summary>
+            Gets or sets ResourcesFile input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.PatternRegexToIgnore">
+            <summary>
+            Gets or sets for Pattern Regex To Ignore.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.CtvCapturePin">
+            <summary>
+            Gets or sets pin name for CTV capture.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.Verify">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxSsnScoreBoardTestMethod.GFXHandling">
+            <summary>
+            Handlig all the gfx aggregator functions, such as updating eids, evaluating and adding new tag.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod">
+            <summary>
+            This test method resets the unit to unit dynamic data (GFX tags).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod.#ctor(Prime.TestMethods.Gfx.Common.GfxAggregator,Prime.BusinessLogic.InputData.IInputDataFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod"/> class.
+            </summary>
+            <param name="aggregator">GfxAggregator mock object for dependency injection.</param>
+            <param name="inputDataFactory">inputDataFactory mock object for dependency injection.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod.Area">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod.StartSku">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod.EndSku">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod.Content">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Gfx.PrimeGfxStartOfDeviceTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:ConfigurationFiles.CaptureSettings">
+            <summary>
+            CaptureSettings fields.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.CaptureSettings.perPatternLabelToAddressMap">
+            <summary>
+            Gets or sets label to address.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.CaptureSettings.DataSourceMode">
+            <summary>
+            source for packet Creation.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.CaptureSettings.DataSourceMode.DFM">
+            <summary>
+            Pattern data.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.CaptureSettings.DataSourceMode.DMEM">
+            <summary>
+            Ctv data.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.CaptureSettings.DoaStartLabel">
+            <summary>
+            Gets or sets Doa Start label.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.CaptureSettings.DoaDomain">
+            <summary>
+            Gets or sets Domain where search for DOA failure.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.CaptureSettings.StartLabel">
+            <summary>
+            Gets or sets StartLabel.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.CaptureSettings.EndLabel">
+            <summary>
+            Gets or sets StopLabel.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.CaptureSettings.Domain">
+            <summary>
+            Gets or sets Domain.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.CaptureSettings.DecodeSettings">
+            <summary>
+            Gets or sets DecodeSettings.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.CaptureSettings.Mode">
+            <summary>
+            Gets or sets Mode.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.CaptureSettings.Pins">
+            <summary>
+            Gets or sets Pins.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.CaptureSettings.MaximumPackets">
+            <summary>
+            Gets or sets MaximumPacketsToCapture.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.CaptureSettings.ValidateCounterPinsValues(System.String,System.String)">
+            <summary>
+            Validate counter values.
+            </summary>
+            <param name="countersInitialValue">initial value.</param>
+            <param name="countersEndValue">end value.</param>
+        </member>
+        <member name="M:ConfigurationFiles.CaptureSettings.ValidateCaptureSettings(Prime.TestMethods.TestMethodsParams.Plist)">
+            <summary>
+            validate capture settings.
+            </summary>
+            <param name="patList">plist.</param>
+        </member>
+        <member name="M:ConfigurationFiles.CaptureSettings.ValidatePins(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Validate pins.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:ConfigurationFiles.CaptureSettings.ValidateAndMapLabels(System.Collections.Generic.IEnumerable{Prime.PlatformService.IPlistContent})">
+            <summary>
+            validating labels existence in the patterns.
+            </summary>
+            <param name="patternList">list of patterns.</param>
+        </member>
+        <member name="M:ConfigurationFiles.CaptureSettings.GetStartAndStopAddressForPattern(System.String)">
+            <summary>
+            Get start and stop address per pattern.
+            </summary>
+            <param name="patternName">pattern name.</param>
+            <returns>start and stop address.</returns>
+        </member>
+        <member name="M:ConfigurationFiles.CaptureSettings.GetDoaConfig(System.String)">
+            <summary>
+            Get Doa Start Stop address and Domain per pattern.
+            </summary>
+            <param name="patternName">pattern Name.</param>
+            <returns>Doa config data.</returns>
+        </member>
+        <member name="M:ConfigurationFiles.CaptureSettings.SetDoaDefaultValue">
+            <summary>
+            Set the start and end address for Doa.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.ConfigFile">
+            <summary>
+            This class should hold the .json file fields and structure.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.ConfigFile.CaptureSettings">
+            <summary>
+            Gets or sets CaptureSettings.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.ConfigFile.RecoverySettings">
+            <summary>
+            Gets or sets RecoverySettings.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.ConfigFile.Validate(Prime.TestMethods.TestMethodsParams.Plist,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            validate config file.
+            </summary>
+            <param name="plist">plist name.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettings">
+            <summary>
+            DecodeSettings json fields.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettings.CounterSettings">
+            <summary>
+            Gets or sets CounterSettings. This is optional parameter.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettings.PacketSettings">
+            <summary>
+            Gets or sets PacketSettings.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettings.ValidateDecodeSettings(System.Int32,ConfigurationFiles.CaptureSettings.DataSourceMode)">
+            <summary>
+            Validate decode settings.
+            </summary>
+            <param name="dataPinsCount">data pins count.</param>
+            <param name="captureMode">DFM or DMEM capture mode.</param>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.CounterSettings">
+            <summary>
+            CounterSettings fields.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.CounterSettings.InitialValue">
+            <summary>
+            Gets or sets InitialValue.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.CounterSettings.EndValue">
+            <summary>
+            Gets or sets EndValue.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.CounterSettings.Order">
+            <summary>
+            Gets or sets Order.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.CounterSettings.InitialAndValidateCaptureSettings">
+            <summary>
+            Init and validate captureSettings.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.CounterSettings.GetCounterList">
+            <summary>
+            Get the counter list.
+            </summary>
+            <returns>counter list.</returns>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket">
+            <summary>
+            Represent the behaviour for each type of packet.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.BehaviourType">
+            <summary>
+            Represent the behaviour per PacketType.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.BehaviourType.CONTINUE">
+            <summary>
+            Continue decode - default behaviour.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.BehaviourType.NEXT_PATTERN">
+            <summary>
+            Skip to next pattern after ‘delay’ number of packets.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.BehaviourType.END_PATTERNS_RETEST_ON">
+            <summary>
+            Stop running patterns after ‘delay’ number of packets. This will continue on to the retests if appropriate.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.BehaviourType.END_PATTERNS_RETEST_OFF">
+            <summary>
+            Stop running patterns and do not proceed to retests after ‘delay’ packets.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.PacketError">
+            <summary>
+            packet errors.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.PacketError.NoError">
+            <summary>
+            No Error - default value.
+            default behaviour for no error is CONTINUE.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.PacketError.OverFlow">
+            <summary>
+            OverFlow detected.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.PacketError.InvalidId">
+            <summary>
+            InvalidId.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.PacketError.InvalidCounter">
+            <summary>
+            Invalid Counter.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.PacketError.DoaError">
+            <summary>
+            Doa error.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.PacketError.MaxAmountOfPacketsReached">
+            <summary>
+            Number of decoded patterns reached the max limit.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.PacketErrorType">
+            <summary>
+            Gets or sets the packetType.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.Behaviour">
+            <summary>
+            Gets or sets the behaviour for packetType.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.AdditionalPacketsToDecode">
+            <summary>
+            Gets or sets additional number of packets to decode after error.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.Field">
+            <summary>
+            field property fields.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.Field.IsEid">
+            <summary>
+            if it is Eid Field.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.Field.IsEid.EID">
+            <summary>
+            Eid Field.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.Field.IsEid.NON_EID">
+            <summary>
+            Non EID.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.Field.FieldType">
+            <summary>
+            Represent field type.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.Field.FieldType.DEC">
+            <summary>
+            Decimal.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.Field.FieldType.HEX">
+            <summary>
+            HexDecimal.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.Field.FieldType.BIN">
+            <summary>
+            Binary.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.Field.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.Field.Type">
+            <summary>
+            Gets or sets type.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.Field.IsEidField">
+            <summary>
+            Gets or sets if field is eid.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.Field.StartBit">
+            <summary>
+            Gets or sets StartBit.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.Field.EndBit">
+            <summary>
+            Gets or sets EndBit.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.Field.OverFlow">
+            <summary>
+            Gets or sets OverFlow expected value.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.Field.IsOverFlowDetected(System.String)">
+            <summary>
+            Check if overflow detected.
+            </summary>
+            <param name="fieldValue">field value.</param>
+            <returns>true if overFlow detected, false other.</returns>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.PacketConfiguration">
+            <summary>
+            Packet fields json fields.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketConfiguration.Name">
+            <summary>
+            Gets or sets Fields Name.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketConfiguration.Fields">
+            <summary>
+            Gets or sets Fields.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketConfiguration.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketConfiguration.ReportToGFXAggregator">
+            <summary>
+            Gets or sets a value indicating whether gets or sets ReportToGFXAggregator.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.PacketField">
+            <summary>
+            Packet fields json fields.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketField.Name">
+            <summary>
+            Gets or sets PacketFields Name.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketField.Fields">
+            <summary>
+            Gets or sets Fields.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.PacketId">
+            <summary>
+            PacketId fields.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketId.StartBit">
+            <summary>
+            Gets or sets startBit.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketId.EndBit">
+            <summary>
+            Gets or sets EndBit.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketId.ValidatePacketId">
+            <summary>
+            Validate PacketId.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketId.GetPacketId(System.Text.StringBuilder)">
+            <summary>
+            return packetId.
+            </summary>
+            <param name="packet">packet.</param>
+            <returns>packetid.</returns>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.PacketSettings">
+            <summary>
+            Packet Setting.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.MSBSideForFieldConversion">
+            <summary>
+            source for packet Creation.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.MSBSideForFieldConversion.RIGHT">
+            <summary>
+            MSB side is on the right of the binary value.
+            </summary>
+        </member>
+        <member name="F:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.MSBSideForFieldConversion.LEFT">
+            <summary>
+            MSB side is on the left of the binary value.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.PacketSize">
+            <summary>
+            Gets or sets PacketSize.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.PacketIdDefinition">
+            <summary>
+            Gets or sets PacketId.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.MsbDirection">
+            <summary>
+            Gets or sets FieldsMSBDirection.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.PacketFieldsConfig">
+            <summary>
+            Gets or sets Fields.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.ErrorHandling">
+            <summary>
+            Gets or sets error handling behaviour for all packet.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.GetErrorHandlerForPacket(ConfigurationFiles.DecodeSettingsEntities.ErrorHandlingPerPacket.PacketError)">
+            <summary>
+            Return the expected behaviour for packet error type.
+            </summary>
+            <param name="packetError">packet error type.</param>
+            <returns>expected behavior.</returns>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.ValidatePacketSettings">
+            <summary>
+            Packet size validation.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.IsPacketIdValid(System.String)">
+            <summary>
+            validate that packet Id exists.
+            </summary>
+            <param name="packetId">packet id string.</param>
+            <returns>true if exists false other.</returns>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.GetPacketFields(System.String)">
+            <summary>
+            get list of fields per packetId.
+            </summary>
+            <param name="packetId">packet ID.</param>
+            <returns>list of fields.</returns>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.AreEidsReportedToGfx(System.String)">
+            <summary>
+            return true if packet eid failures should be reported by GFX or not.
+            </summary>
+            <param name="packetId">packet id.</param>
+            <returns>true or false.</returns>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.GetPacketType(System.String)">
+            <summary>
+            return packetType.
+            </summary>
+            <param name="packetId">packetId.</param>
+            <returns>packet type corresponded to id.</returns>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.ValidatePacketSize(System.Int32)">
+            <summary>
+            Validates packet size.
+            </summary>
+            <param name="expectedPacketSize">expected packet size.</param>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.BuildAndValidatePacketFields">
+            <summary>
+            Validate Packet fields.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.Point">
+            <summary>
+            Struct to define field start and stop values as 1D range.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.Point.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.Point"/> struct.
+            </summary>
+            <param name="start">start value.</param>
+            <param name="end">end value.</param>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.Point.Start">
+            <summary>
+            Gets or sets the start value.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketSettings.Point.End">
+            <summary>
+            Gets or sets the end value.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.DecodeSettingsEntities.PacketType">
+            <summary>
+            Packet Type.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketType.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketType.Id">
+            <summary>
+            Gets or sets Id.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.DecodeSettingsEntities.PacketType.ReportToGFXAggregator">
+            <summary>
+            Gets or sets ReportToGFXAggregator.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.DecodeSettingsEntities.PacketType.ReportToGfx">
+            <summary>
+            return true if eid's failures at that packetType should be reported.
+            </summary>
+            <returns>true if ON and False others.</returns>
+        </member>
+        <member name="T:ConfigurationFiles.Pins">
+            <summary>
+            Pins fields.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.Pins.DoaPin">
+            <summary>
+            Gets or sets DoaPin.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.Pins.CounterPins">
+            <summary>
+            Gets or sets CounterPins. Optional. Not required in DFM mode.
+            MSB to LSB.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.Pins.DataPins">
+            <summary>
+            Gets or sets DataPins.
+            MSB to LSB.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.Pins.ValidateCounterPins(System.String,System.String)">
+            <summary>
+            validating counter pins.
+            </summary>
+            <param name="initialValue">initial value.</param>
+            <param name="endValue">end value.</param>
+        </member>
+        <member name="M:ConfigurationFiles.Pins.ValidatePins(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Validate that all specified pins are existed in the PinDef.
+            </summary>
+            <param name="sessionContext">The current sessionContext.</param>
+        </member>
+        <member name="T:ConfigurationFiles.RecoverySettings">
+            <summary>
+            RecoverySettings fields.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.RecoverySettings.MaxEIDRepairs">
+            <summary>
+            Gets or sets MaxEIDRepairs.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.RecoverySettings.VminExportSharedStorage">
+            <summary>
+            Gets or sets VminSharedStorage.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.RecoverySettings.VoltageSteppings">
+            <summary>
+            Gets or sets VoltageSteppings.
+            </summary>
+        </member>
+        <member name="T:ConfigurationFiles.RecoverySettingsEntities.VoltageStepping">
+            <summary>
+            Voage stepping.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.RecoverySettingsEntities.VoltageStepping.StartingVoltageSource">
+            <summary>
+            Gets or Sets StartingVoltageSource.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.RecoverySettingsEntities.VoltageStepping.NominalSkuShredStorageKey">
+            <summary>
+            Gets or sets NominalSkuShredStorageKey.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.RecoverySettingsEntities.VoltageStepping.VoltageParameter">
+            <summary>
+            Gets or sets v.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.RecoverySettingsEntities.VoltageStepping.StartingVoltage">
+            <summary>
+            Gets or sets v.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.RecoverySettingsEntities.VoltageStepping.Resolution">
+            <summary>
+            Gets or sets v.
+            </summary>
+        </member>
+        <member name="P:ConfigurationFiles.RecoverySettingsEntities.VoltageStepping.Steps">
+            <summary>
+            Gets or sets v.
+            </summary>
+        </member>
+        <member name="M:ConfigurationFiles.RecoverySettingsEntities.VoltageStepping.GetVoltageStepperValues(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get list of voltage stepper search point.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>list of searching points.</returns>
+        </member>
+        <member name="T:GfxCommon.PacketBuilder.ErrorHandler.IBehaviourAction">
+            <summary>
+            interface to define actions per packet type.
+            </summary>
+        </member>
+        <member name="M:GfxCommon.PacketBuilder.ErrorHandler.IBehaviourAction.Execute">
+            <summary>
+            Execute the expected behavior.
+            </summary>
+            <returns>true if execute done, or false if should continue.</returns>
+        </member>
+        <member name="M:GfxCommon.PacketBuilder.ErrorHandler.IBehaviourAction.Initialize">
+            <summary>
+            initialize action packets counters.
+            </summary>
+        </member>
+        <member name="M:GfxCommon.PacketBuilder.ErrorHandler.IBehaviourAction.GetBehaviourType">
+            <summary>
+            Return the behavior type for action.
+            </summary>
+            <returns>behavior type.</returns>
+        </member>
+    </members>
+</doc>

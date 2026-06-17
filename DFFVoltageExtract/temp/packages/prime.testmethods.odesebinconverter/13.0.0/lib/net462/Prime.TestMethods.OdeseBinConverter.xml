@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.OdeseBinConverter</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.OdeseBinConverter.IOdeseBinConverterExtensions">
+            <summary>
+            Interface for extending Odese Converter Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.OdeseBinConverter.IOdeseBinConverterExtensions.CreateTestInstanceResults">
+            <summary>
+            Called prior to any test in Execute to generate the test instance results object.
+            </summary>
+            <returns>The test instance results object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.OdeseBinConverter.IOdeseBinConverterExtensions.ConvertSoftBin(Prime.TestMethods.OdeseBinConverter.OdeseTestInstanceResults)">
+            <summary>
+            Provides the user the ability to post process exit port, and implement their logic for Softbin Calculation.
+            </summary>
+            <param name="results">The object for holding the exit port, and 8-digit softbin.</param>
+            <returns>Converted 4-digit value.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.OdeseBinConverter.OdeseTestInstanceResults">
+            <summary>
+            Class to allow proper user modification of exit port.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.OdeseBinConverter.OdeseTestInstanceResults.CurrentSoftBin">
+            <summary>
+            Gets or sets 8-digit soft bin.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.OdeseBinConverter.PrimeOdeseBinConverterTestMethod">
+            <summary>
+            Test Method for Odese 8 digits Softbin conversion to 4 digits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.OdeseBinConverter.PrimeOdeseBinConverterTestMethod.TestMethodExtension">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.OdeseBinConverter.PrimeOdeseBinConverterTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.OdeseBinConverter.PrimeOdeseBinConverterTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.OdeseBinConverter.PrimeOdeseBinConverterTestMethod.Prime#TestMethods#OdeseBinConverter#IOdeseBinConverterExtensions#CreateTestInstanceResults">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.OdeseBinConverter.PrimeOdeseBinConverterTestMethod.Prime#TestMethods#OdeseBinConverter#IOdeseBinConverterExtensions#ConvertSoftBin(Prime.TestMethods.OdeseBinConverter.OdeseTestInstanceResults)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Mbist</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Mbist.DieExecutor">
+            <summary>
+            Executes the logic related to each of the Pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.DieExecutor.MbistResultExitPort">
+            <summary>
+            Gets or Sets MbistResultExitPort.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.DieExecutor.GetNewStatus(Prime.TestMethods.Mbist.MbistResultExitPort,Prime.TestMethods.Mbist.MbistResultExitPort)">
+            <summary>
+            Compares the flow MbistResultExitPort flag and returns the one with higher priority.
+            </summary>
+            <param name="currentMbistResultExitPort">current flowflag.</param>
+            <param name="newMbistResultExitPort">flow flag to be compared.</param>
+            <returns>A higher priority flow flag.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.MbistResultExitPort">
+            <summary>
+            CTV processing status.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.MbistResultExitPort.Fail">
+            <summary>
+            Mbist fails.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.MbistResultExitPort.FullPass">
+            <summary>
+            The pin doesnt have any fails.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.MbistResultExitPort.Repairable">
+            <summary>
+            Repairable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.MbistResultExitPort.Recovery">
+            <summary>
+            Recovery.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.MbistResultExitPort.RepairRecovery">
+            <summary>
+            RepairRecovery.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.MbistResultExitPort.Error">
+            <summary>
+            Error.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.MbistResultExitPort.UndetermineResult">
+            <summary>
+            UndetermineResult.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.MbistResultExitPort.Reset">
+            <summary>
+            SetBisrResultDataDefaultValue.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.MbistResultExitPort.FailedBisrCompression">
+            <summary>
+            FailedBisrCompression.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.PrimeMbistTestMethod">
+            <summary>
+            Mbist test method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.dies">
+            <summary>
+            Stores Hry/bisrChain info per pin (future SSN support). Key = pin name / Value = DieDecoder.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.PrimeMbistTestMethod.#ctor(Prime.BusinessLogic.Mbist.IMbistFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Mbist.PrimeMbistTestMethod"/> class with unit testing purposes.
+            </summary>
+            <param name="mbistFactory">An IMbistFactory for dependency injection.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.PrimeMbistTestMethod.EnabledStates">
+            <summary>
+            Enabled States.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.EnabledStates.Disabled">
+            <summary>
+            Disabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Mbist.PrimeMbistTestMethod.EnabledStates.Enabled">
+            <summary>
+            Collect recoverable IPs.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.LevelsTc">
+            <summary>
+            Gets or sets the Symbol of the levels file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.FailCaptureCount">
+            <summary>
+            <para>
+            Gets or sets FailCaptureCount.
+            Setting this parameter to 1 will set stop-on-first-fail.
+            Any value greater than 1 will run full plist unless used in combination with ReturnOn plist options.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.PrintToItuff">
+            <summary>
+            Gets or sets which values should be printed to the ituff. Possible values are: 'hry' and 'bisrcompfail'.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.RecoveryModeDownbin">
+            <summary>
+            Gets or sets set the recovery mode of the instance's MbistTestMode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.BisrMode">
+            <summary>
+            Gets or sets mode used to store BISR data in TP. Possible values are 'compress', 'patmod', 'birabuild' and 'uncompress'.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.DffOperation">
+            <summary>
+            Gets or sets the dff operation modes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.DffSocket">
+            <summary> Gets or sets dff socket. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MappingConfigurationFile">
+            <summary> Gets or sets  Mapping Configuration file. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.VfdmConfigurationFile">
+            <summary> Gets or sets  Vfdm Configuration file. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.ClearVariables">
+            <summary>
+            Gets or sets mode for clearing or not global Hry string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.MbistTestMode">
+            <summary>
+            Gets or sets enables default or post repair flows.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.ItuffNameExtenstion">
+            <summary>
+            Gets or sets the Ituff name extension which is added to the hry tag when printing to the ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.LookupTableConfigurationFile">
+            <summary>
+            Gets or sets LookupTableConfigurationFile.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.RecoveryConfigurationFile">
+            <summary>
+            Gets or sets RecoveryConfigurationFile.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Mbist.PrimeMbistTestMethod.IgnoreResetFail">
+            <summary> Gets or sets to ignore reset fail.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Mbist.PrimeMbistTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Base.Exceptions</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Base.Exceptions.AlarmException">
+            <summary>
+            The alarm exception class.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Exceptions.AlarmException.#ctor(System.String,System.String,System.UInt32,System.String,System.Collections.Generic.List{Prime.Base.Exceptions.AlarmException.AlarmInfo})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.AlarmException"/> class.
+            </summary>
+            <param name="file">file name of the exception.</param>
+            <param name="function">function name of the exception.</param>
+            <param name="line">line number of the exception.</param>
+            <param name="message">the message of the exception.</param>
+            <param name="alarmInfo">the alarm info of the exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.AlarmException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.AlarmException"/> class.
+            </summary>
+            <param name="info">the serialization info.</param>
+            <param name="context">the serialization context.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.AlarmException.GetAlarmInfo">
+            <summary>
+            Get the alarm info.
+            </summary>
+            <returns>the alarm infos.</returns>
+        </member>
+        <member name="M:Prime.Base.Exceptions.AlarmException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Base.Exceptions.AlarmException.GetAlarmMessage">
+            <summary>
+            Get the constructed alarm message.
+            </summary>
+            <returns>the alarm message.</returns>
+        </member>
+        <member name="M:Prime.Base.Exceptions.AlarmException.GetConsolePrintout(System.String,System.String@,System.String@)">
+            <summary>
+            Get the exception info to the console.
+            </summary>
+            <param name="instanceName">the name of the instance.</param>
+            <param name="errorMessage">the error message.</param>
+            <param name="stackTrace">the stack trace.</param>
+        </member>
+        <member name="T:Prime.Base.Exceptions.AlarmException.AlarmInfo">
+            <summary>
+            struct of the Alarm Information.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Exceptions.AlarmException.AlarmInfo.#ctor(System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.Nullable{System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.AlarmException.AlarmInfo"/> struct.
+            </summary>
+            <param name="name">Tha name of the alarm.</param>
+            <param name="description">The description of the alarm.</param>
+            <param name="module">The module that triggers the alarm.</param>
+            <param name="slot">The slot that triggers the alarm.</param>
+            <param name="pin">The pin name that triggers the alarm.</param>
+            <param name="channel">The channel of the pin that triggers the alarm.</param>
+            <param name="measuredValue">The value measured at the point of alarm triggerred.</param>
+        </member>
+        <member name="P:Prime.Base.Exceptions.AlarmException.AlarmInfo.Name">
+            <summary>
+            Gets the alarm name.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.Exceptions.AlarmException.AlarmInfo.Description">
+            <summary>
+            Gets the alarm description.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.Exceptions.AlarmException.AlarmInfo.Pin">
+            <summary>
+            Gets the alarm pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.Exceptions.AlarmException.AlarmInfo.Module">
+            <summary>
+            Gets the alarm module.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.Exceptions.AlarmException.AlarmInfo.Channel">
+            <summary>
+            Gets the alarm pin channel.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.Exceptions.AlarmException.AlarmInfo.Slot">
+            <summary>
+            Gets the alarm slot.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.Exceptions.AlarmException.AlarmInfo.MeasuredValue">
+            <summary>
+            Gets the measured value.
+            0.0D is a valid value, so we need this to be nullable.
+            </summary>
+        </member>
+        <member name="T:Prime.Base.Exceptions.BaseException">
+            <summary>
+            The Base exception for all Prime exceptions.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Exceptions.BaseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.BaseException"/> class.
+            </summary>
+            <param name="info">the serialization info.</param>
+            <param name="context">the serialization context.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.BaseException.#ctor(System.String,System.String,System.UInt32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.BaseException"/> class.
+            </summary>
+            <param name="file">file name of the exception.</param>
+            <param name="function">function name of the exception.</param>
+            <param name="line">line number of the exception.</param>
+            <param name="message">the message of the exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.BaseException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.BaseException"/> class.
+            </summary>
+            <param name="message">the message of the exception.</param>
+            <param name="innerException">An inner exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.BaseException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.BaseException"/> class.
+            </summary>
+            <param name="message">the message of the exception.</param>
+        </member>
+        <member name="P:Prime.Base.Exceptions.BaseException.File">
+            <summary>
+            Gets the File name of the exception.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.Exceptions.BaseException.Function">
+            <summary>
+            Gets the Function name of the exception.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.Exceptions.BaseException.Line">
+            <summary>
+            Gets the line number of the exception.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.Exceptions.BaseException.StackTrace">
+            <summary>
+            Gets the StackTrace information from the exception
+            Override the Exception.StackTrace property
+            to make stack trace shorter in console printout strip out the .NET framework from it
+            https://stackoverflow.com/questions/13451622/filter-out-non-user-code-methods-from-stacktrace.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Exceptions.BaseException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Exceptions.DffException">
+            <summary>
+            The dff exception class.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Exceptions.DffException.#ctor(System.String,System.String,System.UInt32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.DffException"/> class.
+            </summary>
+            <param name="file">file name of the exception.</param>
+            <param name="function">function name of the exception.</param>
+            <param name="line">line number of the exception.</param>
+            <param name="message">the message of the exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.DffException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.DffException"/> class.
+            </summary>
+            <param name="message">the message of the exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.DffException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.DffException"/> class.
+            </summary>
+            <param name="info">the serialization info.</param>
+            <param name="context">the serialization context.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.DffException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Exceptions.ExceptionExtensions">
+            <summary>
+            Extension methods for the system.Exception.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Exceptions.ExceptionExtensions.GetExtendedMessage(System.Exception)">
+            <summary>
+            Get the extended message of the exception.
+            </summary>
+            <param name="ex">the exception object.</param>
+            <returns>the message.</returns>
+        </member>
+        <member name="M:Prime.Base.Exceptions.ExceptionExtensions.GetExtendedStackTrace(System.Exception)">
+            <summary>
+            Get the extended statck trace of the exception.
+            </summary>
+            <param name="ex">the exception object.</param>
+            <returns>the stack trace.</returns>
+        </member>
+        <member name="M:Prime.Base.Exceptions.ExceptionExtensions.GetConsolePrintout(System.Exception,System.String,System.String@,System.String@)">
+            <summary>
+            Get the exception info to the console.
+            </summary>
+            <param name="ex">the exception object.</param>
+            <param name="instanceName">the name of the instance.</param>
+            <param name="errorMessage">the error message.</param>
+            <param name="stackTrace">the stack trace.</param>
+        </member>
+        <member name="T:Prime.Base.Exceptions.FatalException">
+            <summary>
+            The Prime Fatal exception class.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Exceptions.FatalException.#ctor(System.String,System.String,System.UInt32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.FatalException"/> class.
+            </summary>
+            <param name="file">file name of the exception.</param>
+            <param name="function">function name of the exception.</param>
+            <param name="line">line number of the exception.</param>
+            <param name="message">the message of the exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.FatalException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.FatalException"/> class.
+            </summary>
+            <param name="message">the message of the exception.</param>
+            <param name="innerException">An inner exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.FatalException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.FatalException"/> class.
+            </summary>
+            <param name="message">the message of the exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.FatalException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.FatalException"/> class.
+            </summary>
+            <param name="info">the serialization info.</param>
+            <param name="context">the serialization context.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.FatalException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Exceptions.FlowIndexFunctionException">
+            <summary>
+            The Exception for LowIndex mismatch.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Exceptions.FlowIndexFunctionException.#ctor(System.String,System.String,System.UInt32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.FlowIndexFunctionException"/> class.
+            </summary>
+            <param name="file">file name of the exception.</param>
+            <param name="function">function name of the exception.</param>
+            <param name="line">line number of the exception.</param>
+            <param name="message">the message of the exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.FlowIndexFunctionException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.FlowIndexFunctionException"/> class.
+            </summary>
+            <param name="message">the message of the exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.FlowIndexFunctionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.FlowIndexFunctionException"/> class.
+            </summary>
+            <param name="info">the serialization info.</param>
+            <param name="context">the serialization context.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.FlowIndexFunctionException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Exceptions.NotImplementedException">
+            <summary>
+            THe exception for non implemented function.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Exceptions.NotImplementedException.#ctor(System.String,System.String,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.NotImplementedException"/> class.
+            </summary>
+            <param name="file">file name of the exception.</param>
+            <param name="function">function name of the exception.</param>
+            <param name="line">line number of the exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.NotImplementedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.NotImplementedException"/> class.
+            </summary>
+            <param name="info">the serialization info.</param>
+            <param name="context">the serialization context.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.NotImplementedException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.Exceptions.TestMethodException">
+            <summary>
+            This exception is defined to be used by the Prime test methods.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.Exceptions.TestMethodException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.TestMethodException"/> class.
+            </summary>
+            <param name="message">the message of the exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.TestMethodException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.TestMethodException"/> class.
+            </summary>
+            <param name="message">the message of the exception.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.TestMethodException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.Exceptions.TestMethodException"/> class.
+            </summary>
+            <param name="info">the serialization info.</param>
+            <param name="context">the serialization context.</param>
+        </member>
+        <member name="M:Prime.Base.Exceptions.TestMethodException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

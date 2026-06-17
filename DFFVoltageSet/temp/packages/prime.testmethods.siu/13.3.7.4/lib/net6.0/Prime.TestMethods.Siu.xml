@@ -1,0 +1,1220 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Siu</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.Json.FileHandler">
+            <summary>
+            Main file handler implementation.
+            For basic file IO operations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Json.FileHandler.Prime#TestMethods#Siu#ContactResistance#Json#IFileHandler#ReadAll(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.Json.IFileHandler">
+            <summary>
+            File handling interfaces.
+            Usage of FileService is preferred.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Json.IFileHandler.ReadAll(System.String)">
+            <summary>
+            Read all file contents and return it content as string.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>File content as string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.Json.JsonSchemaValidator">
+            <summary>
+            Validates the Json file has the correct format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Json.JsonSchemaValidator.#ctor(Prime.TestMethods.Siu.ContactResistance.Json.IFileHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ContactResistance.Json.JsonSchemaValidator"/> class.
+            </summary>
+            <param name="fileHandler">File handler to be set.</param>>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.JsonSchemaValidator.FileHandler">
+            <summary>
+            Gets or sets the File handler.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.JsonSchemaValidator.SchemaFilePath">
+            <summary>
+            Gets or sets the Schema file path for this TM.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.JsonSchemaValidator.ErrorList">
+            <summary>
+            Gets or sets the error list from the schema validation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Json.JsonSchemaValidator.ValidateFile(System.String)">
+            <summary>
+            Executes the validation for a file with the json schema.
+            Adds validation errors to a common list.
+            </summary>
+            <param name="configurationFilePath">The json file path.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Json.JsonSchemaValidator.GetSchemaValidator(System.String)">
+            <summary>
+            Returns a schema validation instance from a json schema file.
+            </summary>
+            <param name="schemaFile">Full file path to load.</param>
+            <returns>Schema validator instance.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Json.JsonSchemaValidator.GetSchemaFileContent(System.String)">
+            <summary>
+            Returns the content of a json schema file from the filesystem.
+            </summary>
+            <param name="schemaFile">Full file path to load.</param>
+            <returns>Text content of the file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Json.JsonSchemaValidator.GetErrorDetails">
+            <summary>
+            Gets all the validation errors detail as a string.
+            </summary>
+            <returns>All validation errors details.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.Json.SetupFileReader">
+            <summary>
+            ContactResistanceDB.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Json.SetupFileReader.#ctor(Prime.TestMethods.Siu.ContactResistance.Json.IFileHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ContactResistance.Json.SetupFileReader"/> class.
+            </summary>
+            <param name="fileHandler">File handler to be set.</param>>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Json.SetupFileReader.GetXiuSetup(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Parsing array resources input json file.
+            </summary>
+            <param name="xiuName">Array Name.</param>
+            <param name="jsonFilePath">json hry input file.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>Returns the XIU.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput">
+            <summary>
+            SetupJsonFileInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.XIUs">
+            <summary>
+            Gets or sets XIUs.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu">
+            <summary>
+            Gets or sets XIU.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Pins">
+            <summary>
+            Gets or sets Pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.PinGroups">
+            <summary>
+            Gets or sets PinGroups.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Pin">
+            <summary>
+            Gets or sets Pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Pin.Channel">
+            <summary>
+            Gets or sets Channel.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Pin.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Pin.BaseReading">
+            <summary>
+            Gets or sets BaseReading.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Pin.ContactResistanceLimit">
+            <summary>
+            Gets or sets ContactResistanceLimit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Pin.OpensMask">
+            <summary>
+            Gets or sets a value indicating whether this pin should be masked for the opens test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Pin.ShortsMask">
+            <summary>
+            Gets or sets a value indicating whether this pin should be masked for the shorts test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Pin.ContactResistanceMask">
+            <summary>
+            Gets or sets a value indicating whether this pin should be masked for the contact resistance test.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.PinGroup">
+            <summary>
+            Gets or sets PinGroup.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.PinGroup.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.PinGroup.OpensLimit">
+            <summary>
+            Gets or sets OpensLimit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.PinGroup.ShortsLimit">
+            <summary>
+            Gets or sets ShortsLimit.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.PinCreationInfo">
+            <summary>
+            It contains all the information related to the pin group.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.PinCreationInfo.#ctor(Prime.PinService.IPin,Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.PinGroup,System.Double,System.Collections.Generic.IEnumerable{Prime.TestMethods.Siu.ContactResistance.Json.SetupJsonFileInput.Xiu.Pin})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ContactResistance.PinCreationInfo"/> class.
+            </summary>
+            <param name="servicePin">Service pin object (could also be type pin group).</param>
+            <param name="jsonPinGroup">Information of the pin group from the Json.</param>
+            <param name="forcedCurrent">The forced current in this pin group.</param>
+            <param name="pins">Setup information for each pin.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinCreationInfo.ServicePin">
+            <summary>
+            Gets of the service pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinCreationInfo.JsonPinGroup">
+            <summary>
+            Gets this pin group information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinCreationInfo.ForcedCurrent">
+            <summary>
+            Gets the forced current.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinCreationInfo.JsonPins">
+            <summary>
+            Gets the base reading.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.PinCreationInfo.GetJsonPinInformation(Prime.PinService.IPin,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the json information corresponding to the service pin.
+            </summary>
+            <param name="servicePin">Service pin.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>Returns the json pin.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.PinCreationInfo.GetCurrentPinJsonInformation(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the json information corresponding to the service pin.
+            </summary>
+            <param name="sessionContext">Session context.</param>
+            <returns>Returns the json pin.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.PinGroupUnderTest">
+            <summary>
+            It contains all the information related to the pin group.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.PinGroupUnderTest.#ctor(Prime.TestMethods.Siu.ContactResistance.PinCreationInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ContactResistance.PinGroupUnderTest"/> class.
+            </summary>
+            <param name="pinsInfo">Contains information needed to create the pin group.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinGroupUnderTest.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinGroupUnderTest.Pins">
+            <summary>
+            Gets the name to pin object dictionary.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.PinUnderTest">
+            <summary>
+            It contains all the information related to the pin.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.#ctor(System.String,System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ContactResistance.PinUnderTest"/> class.
+            </summary>
+            <param name="pinName">Name of the pin.</param>
+            <param name="channel">The channel of the pin.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.#ctor(Prime.TestMethods.Siu.ContactResistance.PinCreationInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ContactResistance.PinUnderTest"/> class.
+            </summary>
+            <param name="pinInfo">Contains information needed to create the pin.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.Name">
+            <summary>
+            Gets the name of the pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.Channel">
+            <summary>
+            Gets this pin group channel.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.ForcedCurrent">
+            <summary>
+            Gets or sets the forced current.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.BaseReading">
+            <summary>
+            Gets or sets the base reading.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.RawVoltage">
+            <summary>
+            Gets or sets the raw voltage obtained from the dc tests.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.ContactResistanceResult">
+            <summary>
+            Gets or sets the resistance results.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.TestTypeMasking">
+            <summary>
+            Gets or sets the test type to is masked dictionary.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.TestTypeLimits">
+            <summary>
+            Gets or sets the test type to limit dictionary.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.GetTestTypeLimit(Prime.TestMethods.Siu.ContactResistance.TestType)">
+            <summary>
+            Gets the limit corresponding to the test type.
+            </summary>
+            <param name="type">Test type.</param>
+            <returns>The limit corresponding to the test type.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.SetTestLimits(System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the limits.
+            </summary>
+            <param name="shortsLimit">Shorts limit.</param>
+            <param name="opensLimit">Opens limit.</param>
+            <param name="contactResistanceLimit">Contact Resistance limit.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.SetTestMasks(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Gets the masks corresponding to the test type.
+            </summary>
+            <param name="shortsMask">Shorts limit.</param>
+            <param name="opensMask">Opens limit.</param>
+            <param name="contactResistanceMask">Contact Resistance limit.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.PinUnderTest.IsMasked(Prime.TestMethods.Siu.ContactResistance.TestType)">
+            <summary>
+            Gets whether or not the pin is masked for that specific test type.
+            </summary>
+            <param name="type">Test type.</param>
+            <returns>Whether or not the pin is masked for that specific test type.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.ContactResistanceTest">
+            <summary>
+            It is the Contact Resistance test and its outcome.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.ContactResistanceTest.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ContactResistance.ContactResistanceTest"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.ContactResistanceTest.ToNormalizedString(System.Double)">
+            <summary>
+            check for negative zero and normalize to positive zero.
+            </summary>
+            <param name="value">ContactResistanceResult double value.</param>
+            <returns>ContactResistanceResult string value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.ContactResistanceTest.PrintResultsToItuff">
+            <summary>
+            Print test results to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.ContactResistanceTest.DidTestFailed(Prime.TestMethods.Siu.ContactResistance.PinUnderTest)">
+            <summary>
+            Checks if the test failed.
+            </summary>
+            <param name="pin"> Pin object to get the results from.</param>
+            <returns>Whether or not the test failed.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.OpensTest">
+            <summary>
+            It is the Opens test and its outcome.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.OpensTest.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ContactResistance.OpensTest"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.OpensTest.PrintResultsToItuff">
+            <summary>
+            Print test results to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.OpensTest.DidTestFailed(Prime.TestMethods.Siu.ContactResistance.PinUnderTest)">
+            <summary>
+            Checks if the test failed.
+            </summary>
+            <param name="pin"> Pin object to get the results from.</param>
+            <returns>Whether or not the test failed.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.ShortsTest">
+            <summary>
+            It is the Shorts test and its outcome.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.ShortsTest.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ContactResistance.ShortsTest"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.ShortsTest.PrintResultsToItuff">
+            <summary>
+            Print test results to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.ShortsTest.DidTestFailed(Prime.TestMethods.Siu.ContactResistance.PinUnderTest)">
+            <summary>
+            Checks if the test failed.
+            </summary>
+            <param name="pin"> Pin object to get the results from.</param>
+            <returns>Whether or not the test failed.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.TestType">
+            <summary>
+            Indicates the type of test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ContactResistance.TestType.Opens">
+            <summary>
+            Test succedded.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ContactResistance.TestType.Shorts">
+            <summary>
+            Test failed.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ContactResistance.TestType.ContactResistance">
+            <summary>
+            The test outcome doesnt matter because it is masked.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ContactResistance.Test">
+            <summary>
+            It is the test and its outcome.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Test.TestType">
+            <summary>
+            Gets or sets the test type of the current test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Test.FailedChannelsFormatted">
+            <summary>
+            Gets the list of all the failed pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Test.PassChannelsFormatted">
+            <summary>
+            Gets the list of passing pin objects.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ContactResistance.Test.FailedPinObjects">
+            <summary>
+            Gets the list of failed pin objects.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Test.ProcessPinResult(Prime.TestMethods.Siu.ContactResistance.PinUnderTest)">
+            <summary>
+            Reads the voltage and current values from the pin and sorts it according to the result.
+            </summary>
+            <param name="pin"> Pin object to get the results from.</param>
+            <returns>Whether the test passed or not.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Test.ClearPreviousResults">
+            <summary>
+            Clears the results of the previous tests.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ContactResistance.Test.DidTestFailed(Prime.TestMethods.Siu.ContactResistance.PinUnderTest)">
+            <summary>
+            Checks if the test failed.
+            </summary>
+            <param name="pin"> Pin object to get the results from.</param>
+            <returns>Whether or not the test failed.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod">
+            <summary>
+            Contact resistance test method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.secondLevelDcTest">
+            <summary>
+            The DC test to be executed for TWOPOINT mode.
+            This level name must be in the format of {LevelsTc}_twopoint.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.pinGroups">
+            <summary>
+            Contains a map with pin name to pin group object.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.individualPins">
+            <summary>
+            Contains a map with pin name to pin objects of pins to be tested individually without a pin group.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.contactResistanceTest">
+            <summary>
+            Instance of Contact Resistance test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.contactResistanceTestTwoPoint">
+            <summary>
+            Instance of Contact Resistance test for twopoint mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.opensTest">
+            <summary>
+            Instance of Opens test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.opensTestTwoPoint">
+            <summary>
+            Instance of Opens test for twopoint.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.shortsTest">
+            <summary>
+            Instance of Shorts test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.shortsTestTwoPoint">
+            <summary>
+            Instance of Shorts test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.xiuName">
+            <summary>
+            Name of the current XIU.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.datalogItemList">
+            <summary>
+            The list to store DatalogItems provided by users.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.VIPR_MODE">
+            <summary>
+            Indicates the type of test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.VIPR_MODE.ONEPOINT">
+            <summary>
+            Onepoint Mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.VIPR_MODE.TWOPOINT">
+            <summary>
+            Twopoint mode.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.DatalogItemName">
+            <summary>
+            Predefined Datalog item names. Used by users to select which datalog will be outputed to iTUFF.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.DatalogItemName.CresBaseLimit">
+            <summary>
+            Enable ituff output token: goldenbase and limit
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.DatalogItemName.TwoPointVoltage">
+            <summary>
+            The two raw data (voltage) in TWOPOINT mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.LevelsTc">
+            <summary>
+            Gets or sets the Name of the levels file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.SetupFilePath">
+            <summary>
+            Gets or sets the path of the Setup file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.Mode">
+            <summary>
+            Gets or Sets if user wants to run in onepoint or twopoint mode. If TWOPOINT is set, copy of levels chosen with _TWOPOINT must be set in program (specifying second measure point).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.DatalogItems">
+            <summary>
+            Gets or sets comma seperated toggles, used to enable/disable ituff outputs.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.FileHandler">
+            <summary>
+            Gets or sets the file handler.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.IsSchemaValidationEnabled">
+            <summary>
+            Returns if the schema validation should be processed for the configuration files handled by Aleph.
+            By default schema validation is disabled. But if IsSysCFileServiceUp = False (not a VPO or Production) the validation is enabled automatically.
+            This is to avoid the user to be aware of enabling the validation for local/eng runs or forget to set to False the parameter in a production TP to save init time.
+            </summary>
+            <returns>True is schema validation for configuration files should be executed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.PrimeContactResistanceTestMethod.InitializeMembers">
+            <summary>
+            Initializes members.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.Json.FileHandler">
+            <summary>
+            Main file handler implementation.
+            For basic file IO operations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Json.FileHandler.Prime#TestMethods#Siu#ElectricalZAlignment#Json#IFileHandler#ReadAll(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.Json.IFileHandler">
+            <summary>
+            File handling interfaces.
+            Usage of FileService is preferred.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Json.IFileHandler.ReadAll(System.String)">
+            <summary>
+            Read all file contents and return it content as string.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>File content as string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.Json.JsonSchemaValidator">
+            <summary>
+            Validates the Json file has the correct format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Json.JsonSchemaValidator.#ctor(Prime.TestMethods.Siu.ElectricalZAlignment.Json.IFileHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ElectricalZAlignment.Json.JsonSchemaValidator"/> class.
+            </summary>
+            <param name="fileHandler">File handler to be set.</param>>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.JsonSchemaValidator.FileHandler">
+            <summary>
+            Gets the File handler.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.JsonSchemaValidator.ErrorList">
+            <summary>
+            Gets or sets the error list from the schema validation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Json.JsonSchemaValidator.ValidateFile(System.String)">
+            <summary>
+            Executes the validation for a file with the json schema.
+            Adds validation errors to a common list.
+            </summary>
+            <param name="configurationFilePath">The json file path.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Json.JsonSchemaValidator.GetSchemaValidator(System.String)">
+            <summary>
+            Returns a schema validation instance from a json schema file.
+            </summary>
+            <param name="schemaFile">Full file path to load.</param>
+            <returns>Schema validator instance.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Json.JsonSchemaValidator.GetSchemaFileContent(System.String)">
+            <summary>
+            Returns the content of a json schema file from the filesystem.
+            </summary>
+            <param name="schemaFile">Full file path to load.</param>
+            <returns>Text content of the file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Json.JsonSchemaValidator.GetErrorDetails">
+            <summary>
+            Gets all the validation errors detail as a string.
+            </summary>
+            <returns>All validation errors details.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupFileReader">
+            <summary>
+            ElectricalZAlignmentDB.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupFileReader.#ctor(Prime.TestMethods.Siu.ElectricalZAlignment.Json.IFileHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupFileReader"/> class.
+            </summary>
+            <param name="fileHandler">File handler to be set.</param>>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupFileReader.GetSetup(System.String)">
+            <summary>
+            Parsing array resources input json file.
+            </summary>
+            <param name="jsonFilePath">json hry input file.</param>
+            <returns>Returns the XIU.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput">
+            <summary>
+            SetupJsonFileInput.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.Pins">
+            <summary>
+            Gets or sets Pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.PinGroups">
+            <summary>
+            Gets or sets PinGroups.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.Pin">
+            <summary>
+            Gets or sets Pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.Pin.Channel">
+            <summary>
+            Gets or sets Channel.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.Pin.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.Pin.OpensMask">
+            <summary>
+            Gets or sets a value indicating whether this pin should be masked for the opens test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.Pin.ShortsMask">
+            <summary>
+            Gets or sets a value indicating whether this pin should be masked for the shorts test.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.PinGroup">
+            <summary>
+            Gets or sets PinGroup.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.PinGroup.Name">
+            <summary>
+            Gets or sets Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.PinGroup.OpensLimit">
+            <summary>
+            Gets or sets OpensLimit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.PinGroup.ShortsLimit">
+            <summary>
+            Gets or sets ShortsLimit.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeightStatus">
+            <summary>
+            Indicates the status of the Z Height test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeightStatus.Pass">
+            <summary>
+            Indicates that all pins of the DUT are making contact with the wafer bumps.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeightStatus.Contact">
+            <summary>
+            Indicates that at least one pin is making contact with the wafer bumps.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeightStatus.Open">
+            <summary>
+            Indicates that all pins failed. No pin is align, hence, no pin is making contact.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeightStatus.Error">
+            <summary>
+            Indicates there was an error.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeight">
+            <summary>
+            This class is in charge of managing the ZHeight UserVars.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeight.GetCurrentWaferId(System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Retrieves the current wafer ID based on the last run. The method logs the Z Height touch values
+            to ITUFF if datalogging is enabled.
+            </summary>
+            <param name="lastWaferId">The wafer id from the last run.</param>
+            <param name="isDatalogEnabled">Indicates whether the datalog is enabled.</param>
+            <param name="sessionContext">The context of the current session.</param>
+            <returns>Returns the current wafer ID.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeight.ThrowEzaException(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets status of the Z Height test (SC_EZA_TEST_RESULT) as error.
+            </summary>
+            <param name="errorMessage">Error message.</param>
+            <param name="sessionContext">Current instance's session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeight.SetZHeightStatus(Prime.TestMethods.Siu.ElectricalZAlignment.OpensTest,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Updates the Z Height test status in the 'SC_EZA_TEST_RESULT' user variable based on the results of the opens test.
+            Additionally, it updates the list of failed pins in the corresponding user variable if any failures are detected.
+            </summary>
+            <param name="opens">The OpensTest object containing the results of the opens test.</param>
+            <param name="sessionContext">The context of the current session.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeight.SetError(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the error code in the TP_ZHEIGHT user var (SC_EZA_TEST_RESULT).
+            </summary>
+            <param name="sessionContext">Current instance's context session.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeight.SetAlarmError(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the error code in the TP_ZHEIGHT user var (SC_EZA_TEST_RESULT).
+            </summary>
+            <param name="sessionContext">Current instance's context session.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeight.SetFailedPinsUserVar(Prime.TestMethods.Siu.ElectricalZAlignment.OpensTest,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the Failed pins to the user var.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeight.SetStatusInUserVar(Prime.TestMethods.Siu.ElectricalZAlignment.IO.UserVar.ZHeightStatus,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the error code in the TP_ZHEIGHT user var (SC_EZA_TEST_RESULT).
+            </summary>
+            <param name="zHeightStatus"> Z Height status.</param>
+            <param name="sessionContext">Current instance's context session.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo">
+            <summary>
+            It contains all the information related to the pin group.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo.#ctor(Prime.PinService.IPin,Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.PinGroup,System.Double,System.Collections.Generic.IEnumerable{Prime.TestMethods.Siu.ElectricalZAlignment.Json.SetupJsonFileInput.Pin})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo"/> class.
+            </summary>
+            <param name="servicePin">Service pin object (could also be type pin group).</param>
+            <param name="jsonPinGroup">Information of the pin group from the Json.</param>
+            <param name="forcedCurrent">The forced current in this pin group.</param>
+            <param name="pins">Setup information for each pin.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo.ServicePin">
+            <summary>
+            Gets of the service pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo.JsonPinGroup">
+            <summary>
+            Gets this pin group information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo.ForcedCurrent">
+            <summary>
+            Gets the forced current.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo.JsonPins">
+            <summary>
+            Gets the base reading.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo.GetJsonPinInformation(Prime.PinService.IPin,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the json information corresponding to the service pin.
+            </summary>
+            <param name="servicePin">Service pin.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>Returns the json pin.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo.GetCurrentPinJsonInformation(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the json information corresponding to the service pin.
+            </summary>
+            <param name="sessionContext">Session context.</param>
+            <returns>Returns the json pin.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.PinGroupUnderTest">
+            <summary>
+            It contains all the information related to the pin group.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinGroupUnderTest.#ctor(Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ElectricalZAlignment.PinGroupUnderTest"/> class.
+            </summary>
+            <param name="pinsInfo">Contains information needed to create the pin group.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.PinGroupUnderTest.Pins">
+            <summary>
+            Gets the name to pin object dictionary.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest">
+            <summary>
+            It contains all the information related to the pin.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.testTypeStatus">
+            <summary>
+            Gets or sets a dictionary that maps each TestType to its corresponding TestStatus.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.testTypeMasking">
+            <summary>
+            Gets or sets a dictionary that maps each TestType to a boolean value indicating whether the test type should be masked.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.testTypeLimits">
+            <summary>
+            Gets or sets a dictionary that associates each TestType with a double value representing its threshold limit.
+            This limit is used to determine the pass/fail criteria for the corresponding test type.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.#ctor(System.String,System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest"/> class.
+            </summary>
+            <param name="pinName">Name of the pin.</param>
+            <param name="channel">The channel of the pin.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.#ctor(Prime.TestMethods.Siu.ElectricalZAlignment.PinCreationInfo,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest"/> class.
+            </summary>
+            <param name="pinInfo">Contains information needed to create the pin.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.Name">
+            <summary>
+            Gets the name of the pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.Channel">
+            <summary>
+            Gets this pin group channel.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.ForcedCurrent">
+            <summary>
+            Gets or sets the forced current.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.RawVoltage">
+            <summary>
+            Gets or sets the raw voltage obtained from the dc tests.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.GetTestTypeLimit(Prime.TestMethods.Siu.ElectricalZAlignment.TestType)">
+            <summary>
+            Gets the limit corresponding to the test type.
+            </summary>
+            <param name="type">Test type.</param>
+            <returns>The limit corresponding to the test type.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.SetTestLimits(System.Double,System.Double)">
+            <summary>
+            Sets the limits.
+            </summary>
+            <param name="shortsLimit">Shorts limit.</param>
+            <param name="opensLimit">Opens limit.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.SetTestMasks(System.Boolean,System.Boolean)">
+            <summary>
+            Gets the masks corresponding to the test type.
+            </summary>
+            <param name="shortsMask">Shorts limit.</param>
+            <param name="opensMask">Opens limit.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.IsMasked(Prime.TestMethods.Siu.ElectricalZAlignment.TestType)">
+            <summary>
+            Gets whether or not the pin is masked for that specific test type.
+            </summary>
+            <param name="type">Test type.</param>
+            <returns>Whether or not the pin is masked for that specific test type.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.GetTestStatus(Prime.TestMethods.Siu.ElectricalZAlignment.TestType)">
+            <summary>
+            Returns the status of the test.
+            </summary>
+            <param name="type">Test type.</param>
+            <returns>Whether or not the pin is masked for that specific test type.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest.SetTestStatus(Prime.TestMethods.Siu.ElectricalZAlignment.TestType,Prime.TestMethods.Siu.ElectricalZAlignment.TestStatus)">
+            <summary>
+            Returns the status of the test.
+            </summary>
+            <param name="type">Test type.</param>
+            <param name="status">Test status.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.OpensTest">
+            <summary>
+            It is the Opens test and its outcome.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.OpensTest.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ElectricalZAlignment.OpensTest"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.OpensTest.GetFailedPins(System.Boolean,System.Int32)">
+            <summary>
+            Get string with pins failing the test.
+            </summary>
+            <param name="hasMaxFailingPinsToSave"> Whether it has a maximum of pins to add on the string.</param>
+            <param name="maxFailingPinsToSave">Maximum number of pins to add on the string.</param>
+            <returns>Comma separated string with the pins failing the test.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.OpensTest.DidTestFailed(Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest)">
+            <summary>
+            Checks if the test failed.
+            </summary>
+            <param name="pin"> Pin object to get the results from.</param>
+            <returns>Whether or not the test failed.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.ShortsTest">
+            <summary>
+            It is the Shorts test and its outcome.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.ShortsTest.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ElectricalZAlignment.ShortsTest"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.ShortsTest.DidTestFailed(Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest)">
+            <summary>
+            Checks if the test failed.
+            </summary>
+            <param name="pin"> Pin object to get the results from.</param>
+            <returns>Whether or not the test failed.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.TestType">
+            <summary>
+            Indicates the type of test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.TestType.Opens">
+            <summary>
+            Test succedded.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.TestType.Shorts">
+            <summary>
+            Test failed.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.TestStatus">
+            <summary>
+            Indicates the status of the test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.TestStatus.Pass">
+            <summary>
+            Indicates that the test passed.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.TestStatus.Fail">
+            <summary>
+            Indicates that the test failed.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.TestStatus.Pending">
+            <summary>
+            Indicates that test is not done yet.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.ElectricalZAlignment.Test">
+            <summary>
+            It is the test and its outcome.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.ElectricalZAlignment.Test.LimitsBaseLimit">
+            <summary>
+            Constant to be compared against the limits.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Test.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Siu.ElectricalZAlignment.Test"/> class.
+            </summary>
+            <param name="sessionContext">This session contest.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Test.AtLeastOneTestPass">
+            <summary>
+            Gets a value indicating whether at least one test passed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Test.FailedChannelsFormatted">
+            <summary>
+            Gets the list of all the failed pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Test.TestType">
+            <summary>
+            Gets or sets the test type of the current test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.ElectricalZAlignment.Test.FailedPinObjects">
+            <summary>
+            Gets the list of failed pin objects.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Test.ProcessPinResult(Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest)">
+            <summary>
+            Reads the voltage and current values from the pin and sorts it according to the result.
+            </summary>
+            <param name="pin"> Pin object to get the results from.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Test.PrintResultsToItuff">
+            <summary>
+            Print test results to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.ElectricalZAlignment.Test.DidTestFailed(Prime.TestMethods.Siu.ElectricalZAlignment.PinUnderTest)">
+            <summary>
+            Checks if the test failed.
+            </summary>
+            <param name="pin"> Pin object to get the results from.</param>
+            <returns>Whether or not the test failed.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod">
+            <summary>
+            Electrical Z Alignment test method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.pinGroups">
+            <summary>
+            Contains a map with pin name to pin group object.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.individualPins">
+            <summary>
+            Contains a map with pin name to pin objects of pins to be tested individually without a pin group.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.opensTest">
+            <summary>
+            Instance of Opens test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.shortsTest">
+            <summary>
+            Instance of Shorts test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.LevelsTc">
+            <summary>
+            Gets or sets the Name of the levels file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.SetupFilePath">
+            <summary>
+            Gets or sets the path of the Setup file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.ItuffDataloggingEnabled">
+            <summary>
+            Gets or sets whether or not the Test Method will do the Ituff Datalogging.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.FileHandler">
+            <summary>
+            Gets or sets the file handler.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Siu.PrimeElectricalZAlignmentTestMethod.IsSchemaValidationEnabled">
+            <summary>
+            Returns if the schema validation should be processed for the configuration files handled by Aleph.
+            By default schema validation is disabled. But if IsSysCFileServiceUp = False (not a VPO or Production) the validation is enabled automatically.
+            This is to avoid the user to be aware of enabling the validation for local/eng runs or forget to set to False the parameter in a production TP to save init time.
+            </summary>
+            <returns>True is schema validation for configuration files should be executed.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="PrimeInitializeLibraryTestMethod" MetaData="dll=Prime.TestMethods.Initializers" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>PrimeInitializeLibraryTestMethodCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="GlobalTelemetryLevel" descriptions="Sets the Performance telemetry level">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>None</Choice>
+          <Choice>Debug</Choice>
+          <Choice>Information</Choice>
+          <Choice>Critical</Choice>
+        </Choices>
+        <Default>None</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="ForceFullInit" descriptions="Indicating whether to force full init and skip any 2nd init or InitOffline optimizations. When set to false (i.e. do not force full init), each test method will have the option to force it's own verify by overriding the default ForceReVerify API. This is a debug feature to allow modifying input files, for production TP this is expected to always be False.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>True</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="PerformanceCounterLogLevel" descriptions="Sets the Performance Counter level">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>None</Choice>
+          <Choice>GlobalOnly</Choice>
+          <Choice>GlobalAndInstance</Choice>
+        </Choices>
+        <Default>GlobalOnly</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="TelemetryDebugInstances" descriptions="Path to a file with a list of test instance to set telemetry to debug.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="PerformanceCounterSampleRate" descriptions="Sets the Performance telemetry level">
+        <Type>
+          <Tester>Integer</Tester>
+          <TestProgram>Integer</TestProgram>
+        </Type>
+        <Default>1</Default>
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>PASS PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>FAIL PORT</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

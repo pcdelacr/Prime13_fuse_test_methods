@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Prime.TestMethods.Hptp</id>
+    <version>13.3.7.4</version>
+    <authors>MPE MIT ATE Test Methods</authors>
+    <projectUrl>https://dev.azure.com/mit-us/PRIME</projectUrl>
+    <description>Package Description</description>
+    <releaseNotes>'Merged PR 11090: Merged PR 11079: PrimeHptpTimingCalibration Test Method support of read/write...'
+'Merged PR 10833: Squash Cherry-pick of several commits from 13_dev to 13.03.xx'
+'Merged PR 10733: PrimeHPTPTimingCalibrationTestMethod fixing Port Exiting, adding more details to ReadMe'
+'Merged PR 10696: Merged PR 10668: [HPTP] HPTPTimingCalibration add new parameters.'
+'Merged PR 10284: adding SetupScan into Hptp'
+'Merged PR 10270: Merged PR 10211: [Hptp] Hptp Impedance test method adoption.'</releaseNotes>
+    <copyright>Copyright (2005) (2025) Intel Corporation</copyright>
+    <repository type="git" url="https://mit-us@dev.azure.com/mit-us/PRIME/_git/PRIME" commit="844be61cd7141529d49e2a33078c0df8b76bd0f9" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.TestMethodsParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.Dc" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.ResistanceOffset" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.TestMethodBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DatalogService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FileService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FunctionalService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PatConfigService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PinService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlatformService.Interface" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TestConditionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TesterService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.ATE_TM.PrimePHGenerator" version="[3.9.1, 4.0.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="8.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ValueTuple" version="4.5.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.TestMethodsParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.Dc" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.ResistanceOffset" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.TestMethodBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DatalogService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FileService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FunctionalService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PatConfigService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PinService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PlatformService.Interface" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TestConditionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.TesterService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="HdmtOs.Sdk.Meta" version="[4.0.2]" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.ATE_TM.PrimePHGenerator" version="[3.9.1, 4.0.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="8.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ComponentModel.Composition" version="6.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework=".NETFramework4.6.2" />
+    </frameworkAssemblies>
+    <contentFiles>
+      <files include="any/any/__ReferencedDocs/.attachments/HptpTimingCalibration/.attachments/firstIterationVisualization.PNG" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/HptpTimingCalibration/.attachments/FlowExecution.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/HptpTimingCalibration/.attachments/OtherIterationVisualization.PNG" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/HptpTimingCalibration/.attachments/Picture1.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/HptpImpedance.md" buildAction="None" />
+      <files include="any/any/__ReferencedDocs/HptpTimingCalibration.md" buildAction="None" />
+    </contentFiles>
+  </metadata>
+</package>

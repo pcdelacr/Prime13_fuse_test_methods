@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [ "Setup" ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Setup": {
+      "type": "object",
+      "required": [
+        "PatModConfigSets",
+        "CaptureConfigSets",
+        "SlicePinMapping"
+      ],
+      "properties": {
+        "PatModConfigSets": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/PatModConfigSets" }
+        },
+        "CaptureConfigSets": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/CaptureConfigSets" }
+        },
+        "SlicePinMapping": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/SlicePinMapping" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PatModConfigSets": {
+      "type": "array",
+      "description": "String name to list of PatternModify objects relationship",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "CaptureConfigSets": {
+      "type": "object",
+      "description": "Definition for a CaptureSet object.",
+      "additonalProperties": { "$ref": "#/definitions/CaptureDecodingSet" }
+    },
+    "SlicePinMapping": {
+      "type": "object",
+      "description": "Definition for a PinMappingSet object.",
+      "additonalProperties": { "$ref": "#/definitions/PinMappingSet" }
+    },
+    "CaptureDecodingSet": {
+      "type": "object",
+      "required": [
+        "Length",
+        "DecodingElements"
+      ],
+      "properties": {
+        "SlicesTotal": {
+          "type": "integer"
+        },
+        "Length": {
+          "type": "integer"
+        },
+        "DecodingElements": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/DecodingElement" }
+        }
+      }
+    },
+    "DecodingElement": {
+      "type": "object",
+      "required": [
+        "Start",
+        "End"
+      ],
+      "properties": {
+        "Start": {
+          "type": "integer"
+        },
+        "End": {
+          "type": "integer"
+        }
+      }
+    },
+    "PinMappingSet": {
+      "type": "object",
+      "properties": {
+        "MulticorePatternEnabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "Configurations": {
+          "type": "object",
+          "required": [
+            "ArrayNameRegex",
+            "IsRasterModeSupported",
+            "IsGetDwordFromFailIoIndex",
+            "PreScreenLabelRegex",
+            "LabelRegExTokens"
+          ],
+          "properties": {
+            "ArrayNameRegex": {
+              "type": "string"
+            },
+            "IsRasterModeSupported": {
+              "type": "boolean"
+            },
+            "IsGetDwordFromFailIoIndex": {
+              "type": "boolean"
+            },
+            "PreScreenLabelRegex": {
+              "type": "string"
+            },
+            "LabelRegExTokens": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "PinMappings": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PinMapping" }
+        }
+      }
+    },
+    "PinMapping": {
+      "type": "object",
+      "properties": {
+        "SliceId": { "type": "string" },
+        "PinName": {
+          "type": "string",
+          "default": ""
+        },
+        "PatName": {
+          "type": "string",
+          "default": ""
+        },
+        "HryName": { "type": "string" },
+        "HryNamePrefix": { "type": "string" }
+      },
+      "oneOf": [
+        { "required": [ "HryNamePrefix" ] },
+        { "required": [ "HryName" ] }
+      ],
+      "anyOf": [
+        { "required": [ "PinName" ] },
+        { "required": [ "PatName" ] }
+      ]
+    }
+  }
+}

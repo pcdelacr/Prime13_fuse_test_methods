@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.MemoryProfiler</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler">
+            <summary>
+            Handles sending memory profiling data to level 4 ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.TsattrValueSeparator">
+            <summary>
+            Separator for tsattr values.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.GetOrderedItuffData(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets ordered ituff data for lotStartDatalogTM.
+            </summary>
+            <param name="context">Context.</param>
+            <returns>Ituff string.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.IsItuffMemoryProfilingDisabled">
+            <summary>
+            Finds out if memory ituff memory profiling is disabled via _UserVars.DISABLE_MEMORY_STATISTICS_ITUFF uservar.
+            </summary>
+            <returns>True if disabled.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.RegisterPostInitMemoryFlowEvent(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Enables Post init flow event = StoreCurrentMemoryParameters. Refer to callback documentation for more details.
+            </summary>
+            <param name="context">Session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.SetOverallVerifyInstancesMemoryProfile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets overall verify instances memory profile for ituff. Used by InitializeInstances TM TestInstanceStatistics.cs.
+            </summary>
+            <param name="overallVerifyItuffLine">Ituff line.</param>
+            <param name="context">Session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.SetTopInstancesMemoryProfile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets top instances memory profile data.
+            </summary>
+            <param name="topInstancesMemoryProfileItuffLine">Ituff line.</param>
+            <param name="context">Context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.SetPerClassMemoryProfile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets per class memory profile data.
+            </summary>
+            <param name="perClassMemoryProfileItuffLine">Ituff line.</param>
+            <param name="context">Context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.SetPerServiceMemoryProfile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets per service memory profile data.
+            </summary>
+            <param name="perServiceMemoryProfileItuffLine">Ituff line.</param>
+            <param name="context">Context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.SetOverallServicesMemoryProfile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets overall memory profile for services data.
+            </summary>
+            <param name="overallServicesMemoryProfileItuffLine">Ituff line.</param>
+            <param name="context">Context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.SetInitStartMemoryParams(System.Int64,System.Int64,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stores the init memory params. Meant to be used by InitializeLibrary TM to store start init memory params.
+            </summary>
+            <param name="privateMemory">Private memory at start of init flow.</param>
+            <param name="virtualMemory">Virtual memory at start of init flow.</param>
+            <param name="context">Context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.MemoryProfilerItuffHandler.GetInitFlowMemoryParamsString(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets init flow memory params string.
+            </summary>
+            <param name="context">Context.</param>
+            <returns>String with init flow memory statistics.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.MemoryProfiler.Profiler">
+            <summary>
+            Helper class for profiling memory use on the machine this instance of
+            Prime is running on.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.MemoryProfiler.Profiler.KeyForTestMethodList">
+            <summary>
+            Key used to get list of keys in shared storage.
+            <remarks>Shouldn't be used by user of this class. Methods within this namespace should abstract having to access this in SS.</remarks>
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.Profiler.#ctor(Prime.SharedStorageService.ISharedStorageService,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.MemoryProfiler.Profiler"/> class.
+            </summary>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="consoleService">consoleService.</param>
+        </member>
+        <member name="T:Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod">
+            <summary>
+            The test method that is using this API.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod.INITIALIZEINSTANCESMEMORYUSE">
+            <summary>
+            InitializeInstancesTM is using this API.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod.INITIALIZELIBRARYMEMORYUSE">
+            <summary>
+            InitializeLibraryTM is using this API.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod.INITIALIZESERVICESMEMORYUSE">
+            <summary>
+            InitializeServicesTM is using this API.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod.LOTSTARTSETUPMEMORYUSE">
+            <summary>
+            LotStartSetupTM is using this API.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod.DEVICESTARTSETUPMEMORYUSAGE">
+            <summary>
+            DeviceStartSetupTM is using this API.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.MemoryProfiler.Profiler.MemoryInUseByProcess">
+            <summary>
+            Gets amount of memory in use by the current process running Prime.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.MemoryProfiler.Profiler.TotalPhysicalMemory">
+            <summary>
+            Gets total amount of physical memory of machine in Bytes.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.Profiler.IsInstanceExceedingMemory">
+            <summary>
+            Perform a check to see if the instance using PRIME is exceeding physical memory.
+            </summary>
+            <returns>Whether the instance is exceeding memory or not.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.Profiler.GetQueriedTestMethods(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets a list of keys of all the submissions of memory profiling.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>List of all testmethods queried.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.Profiler.RecordMemoryUseByProcess(Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Submit the current memory use by process utilizing the PRIME library to <see cref="T:Prime.SharedStorageService.SharedStorageService"/>.
+            This data is retrieved later by evoking
+            <see cref="M:Prime.BusinessLogic.MemoryProfiler.Profiler.GetRecordedMemoryUseByProcess(Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod,Prime.SessionService.ISessionContextProviderContainer)"/>.
+            </summary>
+            <param name="tm">The TM using this API.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.Profiler.RecordMemoryUseAndThrowIfExceedingMaxMemory(Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This method will record instance memory use, but throws if exceeding physical memory of machine.
+            </summary>
+            <param name="tm">The TM using this API.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>Main purpose is to not allow TPs that will be slow due to OS paging,
+            severely impacting test time and potentially crashing the tester.</remarks>
+        </member>
+        <member name="M:Prime.BusinessLogic.MemoryProfiler.Profiler.GetRecordedMemoryUseByProcess(Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Retrieve profiled values from each test methods that evoked
+            <see cref="M:Prime.BusinessLogic.MemoryProfiler.Profiler.RecordMemoryUseByProcess(Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod,Prime.SessionService.ISessionContextProviderContainer)"/>
+            before evoking this method.
+            </summary>
+            <param name="tm">The test method that evoked <see cref="M:Prime.BusinessLogic.MemoryProfiler.Profiler.RecordMemoryUseByProcess(Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod,Prime.SessionService.ISessionContextProviderContainer)"/>. </param>.
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Memory usage profiled for when the given test method evoked <see cref="M:Prime.BusinessLogic.MemoryProfiler.Profiler.RecordMemoryUseByProcess(Prime.BusinessLogic.MemoryProfiler.Profiler.TestMethod,Prime.SessionService.ISessionContextProviderContainer)"/>. </returns>
+        </member>
+    </members>
+</doc>

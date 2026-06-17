@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Dff</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Dff.PrimeDffEndOfFlowValidationTestMethod">
+            <summary>
+            Test method responsible for validating DFF data set during the floww.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Dff.PrimeDffEndOfFlowValidationTestMethod.EnabledDisabledModes">
+            <summary>
+            Settings to enable or disable a parameter.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Dff.PrimeDffEndOfFlowValidationTestMethod.EnabledDisabledModes.DISABLED">
+            <summary>
+            Enable the parameter.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Dff.PrimeDffEndOfFlowValidationTestMethod.EnabledDisabledModes.ENABLED">
+            <summary>
+            Disable the parameter
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeDffEndOfFlowValidationTestMethod.EnableFailingPortForDefaultValue">
+            <summary>
+            Gets or sets Enable or disable failing port (port 2) for dff tokens that wasn't updated during Main Flow execution. This will take priorities over failing port (port 0) for token check failure.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Dff.PrimeDffEndOfFlowValidationTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Dff.PrimeDffEndOfFlowValidationTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Dff.PrimeDffReadTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Dff.PrimeDffReadTestMethod.EnabledDisabledModes">
+            <summary>
+            Settings to enable individual tokens printout in datalog.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Dff.PrimeDffReadTestMethod.EnabledDisabledModes.ENABLED">
+            <summary>
+            Enable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Dff.PrimeDffReadTestMethod.EnabledDisabledModes.DISABLED">
+            <summary>
+            Disable.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeDffReadTestMethod.EnabledModules">
+            <summary>
+            Gets or sets The IFE object of type IUltDecoderExtensions.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeDffReadTestMethod.LogIndividualTokens">
+            <summary>
+            Gets or sets The setting for DFF Tokens to be logged individually in iTuff for ARIES consumption.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeDffReadTestMethod.IsInlineDff">
+            <summary>
+            Gets or sets InlineDFF flag to enabling or Disabling Inline DFF feature.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Dff.PrimeDffReadTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Dff.PrimeDffReadTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Dff.PrimeGetDffTestMethod">
+            <summary>
+            This test method is to get the DFF data.
+            It supports only single token grab with die id, optype support.
+            </summary>
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="T:Prime.TestMethods.Dff.PrimeGetDffTestMethod.EnabledDisabledModes">
+            <summary>
+            Settings to enable or disable to GetDff setting source.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Dff.PrimeGetDffTestMethod.EnabledDisabledModes.ENABLED">
+            <summary>
+            Enable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Dff.PrimeGetDffTestMethod.EnabledDisabledModes.DISABLED">
+            <summary>
+            Disable.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeGetDffTestMethod.TokenName">
+            <summary>
+            Gets or sets TokenName for the token we would like to get.
+            Whole Token Example: TokA.
+            By Field Name Example: TokA.F1.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeGetDffTestMethod.DieId">
+            <summary>
+            Gets or sets DieId for the token we would like to pull from.
+            Only single die id is allowed.
+            Value is optional. If left empty, it will grab from the currently set die id.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeGetDffTestMethod.OpType">
+            <summary>
+            Gets or sets Optype on the optype we would like to pull dff from.
+            Only single optype is allowed.
+            Value is optional. If left empty, it use the DFFVars.Read_Optype as the optype.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeGetDffTestMethod.Storage">
+            <summary>
+            Gets or sets for where to keep the data. Accept uservar or sharedstorage.
+            Example On UserVar: UserVarCollection.UserVarName ("." is important).
+            Example On SharedStorage: Any string value as long as it's not delimited by ".".
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeGetDffTestMethod.Vid">
+            <summary>
+            Gets or sets for Vid we would like to pull dff data from.
+            Only single vid is allowed.
+            Value is optional. If left empty, it would not find dff based on vid.
+            If defined, user will also need to define die id and optype.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeGetDffTestMethod.ForceGetFromUBE">
+            <summary>
+            Gets or sets ForceGetFromUBE, to decide whether to forcefully get Dff directly from UBE file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Dff.PrimeGetDffTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Dff.PrimeGetDffTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Dff.ApiSerialize">
+            <summary>
+            Class to serialize the API.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Dff.ApiSerialize.MutexLock">
+            <summary>
+            Mutex lock to serial the api call.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Dff.PrimeInlineGetDffTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeInlineGetDffTestMethod.TimeOut">
+            <summary>
+            Gets or sets the TimeOut (this comment will be used on the pre-header file).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Dff.PrimeInlineGetDffTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Dff.PrimeInlineGetDffTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Dff.PrimeSetDffTestMethod">
+            <summary>
+            This test method is to Set Dff value to current Dff Database.
+            It supports set to multiple tokens but only for single die id.
+            </summary>
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeSetDffTestMethod.TokenName">
+            <summary>
+            Gets or sets dFF Token Name to be set.
+            Single Token Example: TokA
+            Multiple Token Example: TokA,TokB,TokC
+            Setting a single field Example: TokA.F1
+            Setting multiple field Example: TokA.F1, TokA.F2.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeSetDffTestMethod.TokenValue">
+            <summary>
+            Gets or sets dFF Value to set to the token name defined in TokenName parameter.
+            Able to accept USerVar and SharedStorage as a value.
+            Single Value to set Example: 123
+            Multiple Value to set Example: 123,456
+            Set using UserVar: UserVarCollection.UserVarName Example: UserVar.VarA
+            Set using sharedStorage: Storage.StorageName Example: Storage.TokA.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Dff.PrimeSetDffTestMethod.DieId">
+            <summary>
+            Gets or sets die Id for the token to be set to.
+            Only single die id is accepted. If it's empty, it will set the token to the current die id.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Dff.PrimeSetDffTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Dff.PrimeSetDffTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:PrimeTestMethods.UltData">
+            <summary>
+            Hold the ULT data.
+            </summary>
+        </member>
+        <member name="M:PrimeTestMethods.UltData.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PrimeTestMethods.UltData"/> class.
+            </summary>
+            <param name="lot">The lot to set.</param>
+            <param name="wafer">The wafer to set.</param>
+            <param name="xLoc">The X location to set.</param>
+            <param name="yLoc">The Y location to set.</param>
+        </member>
+        <member name="P:PrimeTestMethods.UltData.Lot">
+            <summary>
+            Gets or sets lot.
+            </summary>
+        </member>
+        <member name="P:PrimeTestMethods.UltData.Wafer">
+            <summary>
+            Gets or sets wafer.
+            </summary>
+        </member>
+        <member name="P:PrimeTestMethods.UltData.XLoc">
+            <summary>
+            Gets or sets X location.
+            </summary>
+        </member>
+        <member name="P:PrimeTestMethods.UltData.YLoc">
+            <summary>
+            Gets or sets Y location.
+            </summary>
+        </member>
+    </members>
+</doc>

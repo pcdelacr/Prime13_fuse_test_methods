@@ -1,0 +1,118 @@
+{
+  "definitions": {
+    "RecoveryIpsJson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Type": {
+          "type": "string",
+          "enum": [
+            "Partial",
+            "Full"
+          ]
+        },
+        "Required": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "RecoveryOptions": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "Type",
+        "Required",
+        "RecoveryOptions"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "Version": {
+      "type": "number"
+    },
+    "RecoveryToken": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "ValidOptions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "RecoveryPriority": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "ErroValue": {
+      "type": "string"
+    },
+    "FailValue": {
+      "type": "string"
+    },
+    "PassValue": {
+      "type": "string"
+    },
+    "DesignIps": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "$ref": "#/definitions/RecoveryIpsJson"
+      }
+    }
+  },
+  "required": [
+    "Version",
+    "RecoveryToken"
+  ]
+}

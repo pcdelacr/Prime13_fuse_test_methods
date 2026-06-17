@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Kernel.ITestMethod</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Kernel.ITelemetryAwareTestMethod">
+            <summary>
+            TestMethods telemetry control interface.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITelemetryAwareTestMethod.RegisterCurrentLogger">
+            <summary>
+            Registers the current Instance logger in the session service. used only for TOS3.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITelemetryAwareTestMethod.UnregisterCurrentLogger">
+            <summary>
+            Removes the current Instance logger from the session service. used only for TOS3.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITelemetryAwareTestMethod.CreateInstanceContextLogger(MPE.MIT.Logging.ILogger)">
+            <summary>
+            Creates the instance context logger, during every verify.
+            </summary>
+            <param name="kernelInstanceLogger">The kernel instance context logger.</param>
+        </member>
+        <member name="M:Prime.Kernel.ITelemetryAwareTestMethod.InnerExecute">
+            <summary>
+            The instance inner execution itself, for telemetry wrapping.
+            To be executed per die.
+            </summary>
+            <returns>instance exit port.</returns>
+        </member>
+        <member name="M:Prime.Kernel.ITelemetryAwareTestMethod.InnerPreExecute">
+            <summary>
+            The instance inner pre execution itself, for telemetry wrapping.
+            To be executed per die.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITelemetryAwareTestMethod.InnerPostExecute">
+            <summary>
+            The instance inner post execution itself, for telemetry wrapping.
+            To be executed per die.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITelemetryAwareTestMethod.InnerCustomPreVerify">
+            <summary>
+            The instance inner custom pre verify itself, for telemetry wrapping.
+            To be executed per die.
+            Keeping this for backward compatibility.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITelemetryAwareTestMethod.InnerVerify">
+            <summary>
+            The instance inner verify itself, for telemetry wrapping.
+            To be executed per die.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITelemetryAwareTestMethod.InnerCustomVerify">
+            <summary>
+            The instance inner custom verify itself, for telemetry wrapping.
+            To be executed per die.
+            </summary>
+        </member>
+        <member name="T:Prime.Kernel.ITestMethod">
+            <summary>
+            The interface class for any Prime Test Method.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.SetInstanceParameters(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Set instance parameters.
+            </summary>
+            <param name="instanceParams">pairs of parameter's name and value.</param>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.PopulateTestMethodExtension">
+            <summary>
+            Populate the Test Method ITME extension if exist.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.CustomPreVerify">
+            <summary>
+            This will be executed right before the Test Method Verify function passed.
+            User doing ITME can override this function custom pre verify his instance.
+            Keeping this for backward compatibility.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.InitializeSessionContext(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialize the instance's session context.
+            </summary>
+            <param name="kernelSessionContext">The kernel session object passed by ref.</param>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.InitializeTelemetry(MPE.MIT.Logging.ILogger)">
+            <summary>
+            Initialize the instance telemetry.
+            </summary>
+            <param name="kernelTelemetryLogger">the global telemetry logger from the kernel.</param>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.Verify">
+            <summary>
+            Verify function of the Test Method
+            Usually will be called once per instance unless some parameter were changed.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.VerifyCommonParams">
+            <summary>
+            This will be executed right before the Test Method Verify function.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.CustomVerify">
+            <summary>
+            This will be executed right after the Test Method Verify function passed
+            User doing ITME can override this function to verify his instance parameters.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.CustomBypass">
+            <summary>
+            This will be executed before the execute of the test method (also before pre-execute event if exist).
+            User doing ITME can override this function to decide whether to bypass this instance execution.
+            </summary>
+            <returns>Bypass value.</returns>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.ForceReVerify">
+            <summary>
+            This will give each test method the option to force it's own verify.
+            According to the methodology implementation, user can decide what are the conditions in which
+            the test method should be force verified and in these cases return true from this API.
+            </summary>
+            <returns>Should or should not the test method be force verified.</returns>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.Execute">
+            <summary>
+            The instance execution itself
+            To be executed per die.
+            </summary>
+            <returns>instance exit port.</returns>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.PreExecute">
+            <summary>
+            Execute the pre-execute code defined by the target.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.PostExecute">
+            <summary>
+            Execute the post-execute code defined by the target.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.Load">
+            <summary>
+            This will be executed right after the Test Method object is created in loading.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.Unload">
+            <summary>
+            Will be called by the kernel just before the instance is going to unloaded.
+            This will allow the TM to make last minute cleanups if needed.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.RegisterCurrentSessionContext">
+            <summary>
+            Registers the current SessionContext in the session service. used only for TOS3.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.UnregisterCurrentSessionContext">
+            <summary>
+            Removes the current SessionContext from the session service. used only for TOS3.
+            </summary>
+        </member>
+        <member name="M:Prime.Kernel.ITestMethod.PopulateTestInstanceProperties(System.String,System.String,System.String,System.String)">
+            <summary>
+            Populate the TestMethodBase properties after the instance was created.
+            </summary>
+            <param name="instanceName">the instance name.</param>
+            <param name="globalLoggerSessionId">global session id for Telemetry logger.</param>
+            <param name="testMethodName">the TM name.</param>
+            <param name="containingDllName">the dll name this TM reside in.</param>
+        </member>
+    </members>
+</doc>

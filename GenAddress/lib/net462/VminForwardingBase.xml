@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestLibraryInterfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://vtsm.intel.com/2009/TestLibraryInterfaces file:///C:/Intel/hdmt/hdmtOS_3.9.0.1_Release/TOSRelease/bin/release/TestLibraryInterfaces.xsd" xmlns="http://vtsm.intel.com/2009/TestLibraryInterfaces">
+  <TestLibrary name="PrimeTestInstance">
+    <TestClass name="VminForwardingBase" MetaData="dll=Prime.TestMethods.DDGBaseInitializers" />
+    <Imports>
+      <FileName>TestMethodBase.xml</FileName>
+      <FileName>VminForwardingBaseCommonParams.xml</FileName>
+    </Imports>
+    <PublicBases>
+      <BaseName>TestMethodBase</BaseName>
+    </PublicBases>
+    <Parameters>
+      <Parameter name="Mode" descriptions="Gets or sets the Templates Execution mode (Either Configure or DumpTables).">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>Configure</Choice>
+          <Choice>DumpTables</Choice>
+        </Choices>
+        <Default>Configure</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="VminSinglePointMode" descriptions="Gets or sets the operation mode to force VminTC to only run a single test point.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="SearchGuardbandEnable" descriptions="Gets or sets the operation mode to enable VminTC SearchGuardband mode.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="UseDffAsSource" descriptions="Gets or sets the operation mode flag OperationModeFlag.UseLimitCheckAsSource.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="UseLimitCheck" descriptions="Gets or sets the operation mode flag OperationModeFlag.UseLimitCheck.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="UseVoltagesSources" descriptions="Gets or sets the operation mode flag OperationModeFlag.UseVoltagesSources.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>True</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="StoreVoltages" descriptions="Gets or sets the operation mode flag OperationModeFlag.StoreVoltages.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>True</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="DffMappingFile" descriptions="Gets or sets the name of the DFF-to-GSDS mapping file.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>File</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="DffMappingSet" descriptions="Gets or sets the name of the Set within the DffMappingFile to use.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="DffMappingOptype" descriptions="Gets or sets the location to read the DFF data from.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="StoreVoltagesDoubleTap" descriptions="Gets or sets an offset to add to stored vmin when delta is greater than the entered offset.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Default />
+        <Optional />
+      </Parameter>
+      <Parameter name="EnableHermesMode" descriptions="Gets or sets the VminTC flag to enable or disable hermes.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="EnableVminNormalizer" descriptions="Gets or sets the VminTC flag to enable or disable vmin normalizer.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="DisablePerCoreOvershoot" descriptions="Gets or sets the VminTC flag to disable per-core overshoot. If there is overshoot all cores will start at retry voltage.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="FlowIndexMode" descriptions="Gets or sets the FlowIndex mode.Default is VminForwarding_and_Logging while Logging_Only will only use FlowIndex for logging purposes and will use 1 for VminForwarding.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>VminForwardingAndLogging</Choice>
+          <Choice>LoggingOnly</Choice>
+        </Choices>
+        <Default>VminForwardingAndLogging</Default>
+        <Optional />
+      </Parameter>
+      <Parameter name="EnableVminStoreResult" descriptions="Gets or sets the VminTC flag to enable or disable vmin store results.">
+        <Type>
+          <Tester>String</Tester>
+          <TestProgram>String</TestProgram>
+        </Type>
+        <Choices>
+          <Choice>True</Choice>
+          <Choice>False</Choice>
+        </Choices>
+        <Default>False</Default>
+        <Optional />
+      </Parameter>
+    </Parameters>
+    <ExitPorts>
+      <ExitPort>
+        <PortNumber>1</PortNumber>
+        <PortType>Pass</PortType>
+        <PortDescriptions>Pass!</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>0</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>Fail!</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-1</PortNumber>
+        <PortType>Error</PortType>
+        <PortDescriptions>PORT FAIL FOR SW ERROR CONDITION</PortDescriptions>
+      </ExitPort>
+      <ExitPort>
+        <PortNumber>-2</PortNumber>
+        <PortType>Fail</PortType>
+        <PortDescriptions>PORT FAIL FOR HW ALARM CONDITION</PortDescriptions>
+      </ExitPort>
+    </ExitPorts>
+  </TestLibrary>
+</TestLibraryInterfaces>

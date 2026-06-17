@@ -1,0 +1,1061 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.PinService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.PinService.ActiveCollection">
+            <summary>
+            Wrapper for the Active collection identifier.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.ActiveCollection.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinService.ActiveCollection"/> struct.
+            </summary>
+            <param name="collectionName">name of the active collection.</param>
+        </member>
+        <member name="P:Prime.PinService.ActiveCollection.CollectionName">
+            <summary>
+            Gets identifier of an active collection.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.ConfigurationFile.Parser">
+            <summary>
+            Configuration file, parser class.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.ConfigurationFile.Parser.ValidationErrors">
+            <summary>
+            Gets the validation errors details.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.ConfigurationFile.Parser.ParseFile(System.String)">
+            <summary>
+            Loads a configuration object from the file.
+            </summary>
+            <param name="fileContent">The Configuration file's path.</param>
+            <returns>The configuration object.</returns>
+        </member>
+        <member name="T:Prime.PinService.ConfigurationFile.Structures.ConfigurationFile">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.ConfigurationFile.Structures.ConfigurationFile.Pins">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.ConfigurationFile.Structures.Pin">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.ConfigurationFile.Structures.Pin.Name">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.ConfigurationFile.Structures.Pin.Id">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.DataCollection">
+            <summary>
+            Abstraction for a data profile.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.DataCollection.StorageData">
+            <summary>
+            Gets or sets the data collected per pin.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.Domain">
+            <summary>
+            Wrapper for the settings of a profile.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.Domain.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinService.Domain"/> struct.
+            </summary>
+            <param name="name">identifier.</param>
+        </member>
+        <member name="P:Prime.PinService.Domain.Name">
+            <summary>
+            Gets .
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.Domain.PinOrder">
+            <summary>
+            Gets or sets.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.Internal.IPinService">
+            <summary>
+            PinService for internal usage.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.Internal.IPinService.DeviceEnd(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clears all active data collections.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PinService.Internal.IPinService.GetPinMap(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the stored pin map data.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Map of all stored pins with each id.</returns>
+        </member>
+        <member name="T:Prime.PinService.IPinService">
+            <summary>
+            Service with the functionality related to pin or any resource defined on the tester datfiles.
+            </summary>
+            <remarks>
+            <para>This service depends on:</para>
+            <list type="bullet">
+            <item><see cref="T:Prime.SessionService.SessionService"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Prime.PinService.IPinService.Exists(System.String)">
+            <summary>
+            Checks if pin exists.
+            </summary>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string pinName = "pinA";
+            var isPinExist = Prime.Base.ServiceStore&lt;IPinService&gt;.Service.Exists(pinName);
+            </code>
+            </example>
+            </Remarks>
+            <param name="pinName">Name of the pin.</param>
+            <returns>Boolean true if pin exist, else false.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.StartDataCollection(System.String,System.Collections.Generic.IEnumerable{System.String},System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Starts collecting data for the given pin names (DPS or TDAU).
+            </summary>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string collectionName = "CollectionName";
+            var pinsToMeasure = new List&lt;string&gt;{ "pinA", "pinB" };
+            int sampleRate = 2;
+            Prime.Base.ServiceStore&lt;IPinService&gt;.Service.StartDataCollection(collectionName, pinsToMeasure, sampleRate, this.sessionContext);
+            </code>
+            </example>
+            </Remarks>
+            <param name="collectionName">The tag for the current profile.</param>
+            <param name="pinsToMeasure">The list of pins to profile.</param>
+            <param name="sampleRate">The sampling interval of the measurements in ms.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.DeleteDataCollection(System.String)">
+            <summary>
+            Deletes the data for the given collection.
+            </summary>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string collectionName = "CollectionName";
+            Prime.Base.ServiceStore&lt;IPinService&gt;.Service.DeleteDataCollection(collectionName);
+            </code>
+            </example>
+            </Remarks>
+            <param name="collectionName">The tag for the current profile.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.StopDataCollection(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stops collecting data for the given pin names (DPS or TDAU).
+            </summary>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string collectionName = "CollectionName";
+            Prime.Base.ServiceStore&lt;IPinService&gt;.Service.StopDataCollection(collectionName, this.sessionContext);
+            </code>
+            </example>
+            </Remarks>
+            <param name="collectionName">The tag for the current profile.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.GetDataCollection(System.String,System.Collections.Generic.IList{System.String},System.String)">
+            <summary>
+            Gets the data that was collected for the given pin names (DPS or TDAU).
+            </summary>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">HdmtApi GetSensorCollectionDataAsync failed with these collection name, pin names and measurement type.</exception>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string collectionName = "CollectionName";
+            var pinNames = new List&lt;string&gt; { "pin01" };
+            string measurementType = "thermal";
+            var dataCollection = Prime.Base.ServiceStore&lt;IPinService&gt;.Service.GetDataCollection(collectionName, pinNames, measurementType);
+            </code>
+            </example>
+            </Remarks>
+            <param name="collectionName">The tag for the desired collection.</param>
+            <param name="pinNames">The list of pins to profile.</param>
+            <param name="measurementType">type of data that was collected Ex: Voltage.</param>
+            <returns>collected measurements per pin.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.StartPerInstanceProfile(System.String,System.Collections.Generic.IList{System.String},System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Starts the per instance profiler for the given pin names (DPS or TDAU).
+            </summary>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">When callback is not registered to current tag.</exception>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string tag = "Tag1";
+            var pinNames = new List&lt;string&gt; { "pin01" };
+            int sampleRate = 4;
+            string callback = "someCallBack";
+            Prime.Base.ServiceStore&lt;IPinService&gt;.Service.StartPerInstanceProfile(tag, pinNames, callback, this.sessionContext);
+            </code>
+            </example>
+            </Remarks>
+            <param name="tag">The tag for the current profile.</param>
+            <param name="pinNames">The list of pins to profile.</param>
+            <param name="sampleInterval">The sampling interval of the measurements in ms.</param>
+            <param name="callbackName">The name of the callback to be trigerred for each tag.</param>>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.StopPerInstanceProfile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stops the per instance profiler started by the given tag.
+            </summary>
+            <exception cref="T:Prime.Base.Exceptions.FatalException">No active profile for current tag.</exception>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string tag = "Tag1";
+            Prime.Base.ServiceStore&lt;IPinService&gt;.Service.StopPerInstanceProfile(tag, this.sessionContext);
+            </code>
+            </example>
+            </Remarks>
+            <param name="tag">The tag for the current profile.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.GetPinAttributeValues(System.String,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Retrieve a Pin Attribute for a given pin or pingroup name.
+            </summary>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string pinName = "pin01";
+            var attributeNames = new List&lt;string&gt; { "attributeName" };
+            var pinAttributesValues = Prime.Base.ServiceStore&lt;IPinService&gt;.Service.GetPinAttributeValues(pinName, attributeNames);
+            </code>
+            </example>
+            </Remarks>
+            <param name="pinName">Name of the pin or group.</param>
+            <param name="attributeNames">Name of the attributes to be retrieved.</param>
+            <returns>Value of the Attribute for the given pin or pingroup.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.SetPinAttributeValues(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Set a Pin Attribute for a given pin or pingroup name.
+            </summary>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string pinName = "pin01";
+            var attributeValues = new Dictionary &lt;string, string&gt;();
+            {
+              { "attributeKey", "atributeValue" },
+            }
+            Prime.Base.ServiceStore&lt;IPinService&gt;.Service.SetPinAttributeValues(pinName, attributeValues);
+            </code>
+            </example>
+            </Remarks>
+            <param name="pinName">Name of the pin or pin group.</param>
+            <param name="attributeValues">Value of the attributes to be set.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.SetDriveTiming(System.String,System.String)">
+            <summary>
+            Adjust drive timing while the pattern generator is running.
+            </summary>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string targetPin = "pin01";
+            string attributeValue = "attributeValue";
+            Prime.Base.ServiceStore&lt;IPinService&gt;.Service.SetDriveTiming(targetPin, attributeValue);
+            </code>
+            </example>
+            </Remarks>
+            <param name="targetPin">Pin name or pin group to set values.</param>
+            <param name="attributeValue">Drive time delta to set.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.SetCompareTiming(System.String,System.String)">
+            <summary>
+            Modifies the compare timing on a pin in hardware.
+            </summary>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string targetPin = "pin01";
+            string attributeValue = "attributeValue";
+            Prime.Base.ServiceStore&lt;IPinService&gt;.Service.SetCompareTiming(targetPin, attributeValue);
+            </code>
+            </example>
+            </Remarks>
+            <param name="targetPin">Pin name or pin group to set values.</param>
+            <param name="attributeValue">Compare time delta to set.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.GetStreamingSensorData(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the streaming sensor data for the current tag.
+            </summary>
+            <Remarks>
+            <example>
+            This is code example:
+            <code>
+            string tag = "tag01";
+            var streamingSensorData = Prime.Base.ServiceStore&lt;IPinService&gt;.Service.GetStreamingSensorData(tag, this.sessionContext);
+            </code>
+            </example>
+            </Remarks>
+            <param name="tag">The tag for the current profile.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A list containing the streaming sensor data for the current tag.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.GetAll(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the List of all defined pins.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A list containing all defined pins.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.GetAll(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the List of all defined pins for the given resource type.
+            </summary>
+            <param name="type">The resource type.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A list containing all defined pins for given resource type.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.Get(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the IPin handler for the given pin name.
+            </summary>
+            <param name="name">The name of the pin.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The handler of the pin.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.Get(System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets an IPin with the information for the given pin Channel.
+            </summary>
+            <param name="channel">The pin Channel to get.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>The IPin with the information for the given pin Name.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.IsPinMapEnabled(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if PinMap is enabled.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>true - PinMap enabled, false - otherwise.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.GetOrderedPinsByChannelForDomain(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a map with the name of pins and the channel they belong to for a specific domain.
+            </summary>
+            <param name="domainName">Name of the domain.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Returns a map of pin names and channels.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.PreExecute(System.String,System.UInt32,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute the actions for the per instance profiler that goes before the Execute.
+            </summary>
+            <param name="currentInstance">Name of the current test instances.</param>
+            <param name="currentUnitIndex">Number of the unit in the current lot.</param>
+            <param name="debug">If has to print or not.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.PostExecute(System.String,System.UInt32,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute the actions for the per instance profiler that goes after the Execute.
+            </summary>
+            <param name="currentInstance">Name of the current test instances.</param>
+            <param name="currentUnitIndex">Number of the unit in the current lot.</param>
+            <param name="debug">If has to print or not.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.DeviceEnd(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clears all active data collections.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PinService.IPinService.GetPinMap(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the stored pin map data.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Map of all stored pins with each id.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.GetPinNamesInPattern(System.String)">
+            <summary>
+            Get pin names in pattern.
+            </summary>
+            <param name="patternName">Pattern name of interest to extract pin names.</param>
+            <returns>Pin names existed in pattern.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPinService.GetChannelByPinName(System.String)">
+            <summary>
+            Get channel by pin name.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <returns>Pin channel. Return 0 if pin name is a pin group.</returns>
+        </member>
+        <member name="T:Prime.PinService.IPerPinDataCollection">
+            <summary>
+            Contains the methods necessary to post process the streaming sensor data.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.IPerPinDataCollection.GetPinName">
+            <summary>
+            Gets the name of the current pin.
+            </summary>
+            <returns>A string containing the name of the current pin.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPerPinDataCollection.GetDataType">
+            <summary>
+            Gets the data type.
+            </summary>
+            <returns>A string containing the data type.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPerPinDataCollection.GetData">
+            <summary>
+            Gets the streaming sensor data.
+            </summary>
+            <returns>A list of double containing the streaming sensor data.</returns>
+        </member>
+        <member name="T:Prime.PinService.IPin">
+            <summary>
+            A handler for a pin.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetName">
+            <summary>
+            Returns the name of the pin as the user requested.
+            </summary>
+            <returns>string.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetFullName">
+            <summary>
+            Gets the full name of the current pin for the platform, including the scope if it applies.
+            </summary>
+            <returns>The full name including the scope.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.IsType(System.String)">
+            <summary>
+            IsType.
+            </summary>
+            <param name="type">type.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetChannel">
+            <summary>
+            Get channel number.
+            </summary>
+            <returns>return the channel number of this object.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.IsGroup">
+            <summary>
+            If the current pin is a pin group or not.
+            </summary>
+            <returns>True if the current pin is a pin group, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetResourceType">
+            <summary>
+            Gets the resource type from the platform perspective.
+            </summary>
+            <returns>The platform resource type for the current pin.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.VerifyAttribute(System.String,System.String)">
+            <summary>
+            VerifyAttribute.
+            </summary>
+            <param name="attribute">attribute.</param>
+            <param name="value">value.</param>
+        </member>
+        <member name="M:Prime.PinService.IPin.SetAttributes(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Gets all the attributes and values for a pin or each pin in a pin group.
+            </summary>
+            <param name="attributeValues">The list of attribute->value pairs to be applied.</param>
+            <exception cref="T:System.Exception">If the there are invalid pairs or if the attribute->values are invalid for the current IPin object.</exception>
+            <example>
+            <code>
+            var attributeValues = new Dictionary&lt;string, string&gt;() {
+                { "StartMeasurement", "True" },
+                { "PreMeasurementDelay", "1" },
+                { "SamplingRatio", "1" },
+                { "SamplingMode", "Average" },
+                { "SamplingCount", "1" }
+            };
+            var pin = Prime.Services.PinService.Get("MyHcDps");
+            pin.SetPinAttributeValues(attributeValues);
+            </code>
+            </example>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetAllAttributes">
+            <summary>
+            Gets all the attributes for the resource of the given pin.
+            </summary>
+            <returns>A list of attribute names.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetVforceMandatoryAttributes">
+            <summary>
+            Gets all the attributes required to apply a VForce for the resource of the given pin.
+            </summary>
+            <returns>The list of attributes.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetIforceMandatoryAttributes">
+            <summary>
+            Gets all the attributes required to apply an IForce for the resource of the given pin.
+            </summary>
+            <returns>The list of attributes.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetPinAttributeValues(System.Collections.Generic.List{System.String})">
+            <summary>
+            Gets all the attributes and values for a pin or each pin if current IPin is a pin group.
+            </summary>
+            <param name="attributeNames">Attribute names.</param>
+            <returns>The list of attributes.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetPinNames">
+            <summary>
+            Gets all the pin names in a pin group if current IPin is a pin group, otherwise
+            the current IPin name.
+            </summary>
+            <returns>The list of pin names.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.HasMapId(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            If the current pin has Map Id or not.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>True if the current pin has Map Id, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetMapId(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets current Map Id.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>unsigned value of unique identifier.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetSubPins">
+            <summary>
+            Gets all the sub pins of the given pin group.
+            </summary>
+            <returns>The list of sub pins.</returns>
+        </member>
+        <member name="M:Prime.PinService.IPin.GetDomains">
+            <summary>
+            Get all domains for current pins.
+            </summary>
+            <returns>Hashset of domains.</returns>
+        </member>
+        <member name="T:Prime.PinService.PerPinDataCollection">
+            <summary>
+            Wrapper for the settings of a profile.
+            </summary>
+        </member>
+        <member name="F:Prime.PinService.PerPinDataCollection.Pin">
+            <summary>
+            Gets the name of the pin from which the data was measured.
+            </summary>
+        </member>
+        <member name="F:Prime.PinService.PerPinDataCollection.Data">
+            <summary>
+            Gets the actual data stored.
+            </summary>
+        </member>
+        <member name="F:Prime.PinService.PerPinDataCollection.Type">
+            <summary>
+            Gets the type of the collected data.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.PerPinDataCollection.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinService.PerPinDataCollection"/> struct.
+            </summary>
+            <param name="pin">name of the pin.</param>
+            <param name="type">type of the collected data.</param>
+            <param name="data">actual values collected.</param>
+        </member>
+        <member name="M:Prime.PinService.PerPinDataCollection.GetPinName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PerPinDataCollection.GetDataType">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PerPinDataCollection.GetData">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PinService.PinCache">
+            <summary>
+            Cache o fIPins.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.PinMapId">
+            <summary>
+            Wrapper for the settings of a profile.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinMapId.MapId">
+            <summary>
+            Gets or sets .
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.PinService">
+            <summary>
+            PinService implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.PinService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinService.PinService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.PinService.Exists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.StartDataCollection(System.String,System.Collections.Generic.IEnumerable{System.String},System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.DeleteDataCollection(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.StopDataCollection(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.GetDataCollection(System.String,System.Collections.Generic.IList{System.String},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.StartPerInstanceProfile(System.String,System.Collections.Generic.IList{System.String},System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.StopPerInstanceProfile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.GetPinAttributeValues(System.String,System.Collections.Generic.IList{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.SetPinAttributeValues(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.SetDriveTiming(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.SetCompareTiming(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.GetStreamingSensorData(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.GetAll(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.GetAll(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.Get(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.Get(System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.IsPinMapEnabled(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.GetOrderedPinsByChannelForDomain(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.DeviceEnd(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.GetPinMap(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.GetPinNamesInPattern(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PinService.PinService.GetChannelByPinName(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PinService.PinService.PreExecute(System.String,System.UInt32,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.PostExecute(System.String,System.UInt32,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.PinService.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.PinService.DPin">
+            <summary>
+            DPin pin.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.Dps">
+            <summary>
+            Power Supply pin.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.Dps.AllAttributes">
+            <summary>
+            Gets or Sets list of all attributes.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.Dps.GetAllAttributes">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PinService.Dps.GetVforceMandatoryAttributes">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PinService.Dps.GetIforceMandatoryAttributes">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PinService.Dps.FilterVForceAttribute(System.String)">
+            <summary>
+            Add  VForce attributes.
+            </summary>
+            <param name="attribute">name of the attribute.</param>
+        </member>
+        <member name="M:Prime.PinService.Dps.FilterIForceAttribute(System.String)">
+            <summary>
+            Add  IForce attributes.
+            </summary>
+            <param name="attribute">name of the attribute.</param>
+        </member>
+        <member name="T:Prime.PinService.HbiHcDps">
+            <summary>
+            Abstraction for High current DPS pins on HBI.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.HbiHcDps.GetIforceMandatoryAttributes">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PinService.HbiLcDps">
+            <summary>
+            Abstraction for low current DPS pins on HBI.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.HbiLcDps.GetIforceMandatoryAttributes">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PinService.HbiVMeasureDps">
+            <summary>
+            HbiVMeasureDps pin.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.HbiVMeasureDps.GetIforceMandatoryAttributes">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PinService.HbiVMeasureDps.GetVforceMandatoryAttributes">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PinService.HbiVTargetDps">
+            <summary>
+            Abtarcion for the type of pins: HbiVTargetDps.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.HbiVTargetDps.GetIforceMandatoryAttributes">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PinService.HcDps">
+            <summary>
+            represents a pin of type: High current DPS.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.HvDps">
+            <summary>
+            High Voltage DPS pin.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.LcDps">
+            <summary>
+            Low current DPS pin.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.Pin">
+            <summary>
+            Wrapper for the settings of a profile.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetFullName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.IsType(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetChannel">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.IsGroup">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetResourceType">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.VerifyAttribute(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.SetAttributes(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetAllAttributes">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetVforceMandatoryAttributes">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetIforceMandatoryAttributes">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetPinAttributeValues(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetPinNames">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.HasMapId(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetMapId(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetSubPins">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.PinService.Pin.GetDomains">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PinService.PinAttributeNamesConstant">
+            <summary>
+            Pin attribute name constants.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.IClampHi">
+            <summary>
+            Gets IClampHi string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.IClampLo">
+            <summary>
+            Gets IClampLo string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.IRange">
+            <summary>
+            Gets IRange string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.VRange">
+            <summary>
+            Gets VRange string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.OPMode">
+            <summary>
+            Gets OPMode string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.OPModeCheck">
+            <summary>
+            Gets OPModeCheck string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.PinModeSel">
+            <summary>
+            Gets PinModeSel string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.VClampHi">
+            <summary>
+            Gets VClampHi string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.VClamp">
+            <summary>
+            Gets VClamp string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.VClampLo">
+            <summary>
+            Gets VClampLo string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.FreeDriveTime">
+            <summary>
+            Gets FreeDriveTime string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.OverVoltageMargin">
+            <summary>
+            Gets OverVoltageMargin string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.OverVoltageLimit">
+            <summary>
+            Gets OverVoltageLimit string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.UnderVoltageMargin">
+            <summary>
+            Gets UnderVoltageMargin string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.UnderVoltageLimit">
+            <summary>
+            Gets UnderVoltageLimit string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.VSlewStepRatio">
+            <summary>
+            Gets VSlewStepRatio string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.FreeDriveCurrentHi">
+            <summary>
+            Gets FreeDriveCurrentHi string constant.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.PinAttributeNamesConstant.FreeDriveCurrentLo">
+            <summary>
+            Gets FreeDriveCurrentLo string constant.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.Pmu">
+            <summary>
+            Pmu pin.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.Pmu.AllAttributes">
+            <summary>
+            Gets or Sets list of all attributes.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.Pmu.GetAllAttributes">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PinService.Pmu.GetVforceMandatoryAttributes">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PinService.Pmu.GetIforceMandatoryAttributes">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PinService.Pmu.FilterVForceAttribute(System.String)">
+            <summary>
+            Add  VForce attributes.
+            </summary>
+            <param name="attribute">name of the attribute.</param>
+        </member>
+        <member name="M:Prime.PinService.Pmu.FilterIForceAttribute(System.String)">
+            <summary>
+            Add IForce attributes.
+            </summary>
+            <param name="attribute">name of the attribute.</param>
+        </member>
+        <member name="M:Prime.PinService.Pmu.AttributeIsPresent(System.String)">
+            <summary>
+            Check is attribute present.
+            </summary>
+            <param name="attribute">Attribute to check.</param>
+            <returns>True if attribute present.</returns>
+        </member>
+        <member name="T:Prime.PinService.VlcDps">
+            <summary>
+            Wrapper for the settings of a profile.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.ProfileSettings">
+            <summary>
+            Wrapper for the settings of a profile.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.ProfileSettings.#ctor(System.Collections.Generic.IList{System.String},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PinService.ProfileSettings"/> struct.
+            </summary>
+            <param name="pinNames">list of pins.</param>
+            <param name="callbackName">callback.</param>
+        </member>
+        <member name="P:Prime.PinService.ProfileSettings.PinNames">
+            <summary>
+            Gets.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.ProfileSettings.CallbackName">
+            <summary>
+            Gets.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.ProfileSettingsContainer">
+            <summary>
+            Container for profile settings.
+            </summary>
+        </member>
+        <member name="P:Prime.PinService.ProfileSettingsContainer.ProfileSettingsByTag">
+            <summary>
+            Gets or sets profile setting map.
+            </summary>
+        </member>
+        <member name="T:Prime.PinService.Utility">
+            <summary>
+            Utility methods for the whole service.
+            </summary>
+        </member>
+        <member name="M:Prime.PinService.Utility.GetFullPinName(System.String)">
+            <summary>
+            Get a pin full name.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <returns>Pin full name.</returns>
+        </member>
+        <member name="M:Prime.PinService.Utility.ConvertToFullName(System.String)">
+            <summary>
+            Convert pin name to IP domain pin name.
+            </summary>
+            <param name="pinName">Pin name.</param>
+            <returns>Pin name with IP domain, return same as input if not in IP domain.</returns>
+        </member>
+    </members>
+</doc>

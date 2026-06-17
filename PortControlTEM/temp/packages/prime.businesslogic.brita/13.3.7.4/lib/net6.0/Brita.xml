@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.Brita</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.Brita.Brita">
+            <summary>
+            Builds a default Brita handler object.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.Brita.#ctor(Prime.UserVarService.IUserVarService,Prime.PlatformService.IPlatformService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Brita.Brita"/> class.
+            </summary>
+            <param name="userVarService">userVarService.</param>
+            /// <param name="platformService">platformService.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.Brita.Prime#BusinessLogic#Brita#IBrita#TryEnableFlowTrace">
+            <inheritdoc cref="T:Prime.BusinessLogic.Brita.IBrita"/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.Brita.Prime#BusinessLogic#Brita#IBrita#TryDisableFlowTrace">
+            <inheritdoc cref="T:Prime.BusinessLogic.Brita.IBrita"/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.Brita.Prime#BusinessLogic#Brita#IBrita#TryGetDeviceEndDatalogData(Prime.SessionService.ISessionContextProviderContainer,System.String@)">
+            <inheritdoc cref="T:Prime.BusinessLogic.Brita.IBrita"/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.Brita.Prime#BusinessLogic#Brita#IBrita#TryGetLotStartDatalogData(Prime.SessionService.ISessionContextProviderContainer,Prime.BusinessLogic.Brita.LotStartData@)">
+            <inheritdoc cref="T:Prime.BusinessLogic.Brita.IBrita"/>
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.BritaHandler">
+            <summary>
+            Implementation of the BritaHandler interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandler.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Brita.BritaHandler"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandler.#ctor(Trace.PrimeTraceId.Service.IPrimeTraceIdService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.BusinessLogic.Brita.BritaHandler"/> class.
+            Constuctor for using trace id mock for unit tests.
+            </summary>
+            <param name="traceIdServiceMock">traceidService mock.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandler.GetChecksumAndVersion(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc cref="T:Prime.BusinessLogic.Brita.IBritaHandler"/>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaHandler.GetTraceId(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc cref="T:Prime.BusinessLogic.Brita.IBritaHandler"/>
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.BritaStorage">
+            <summary>
+            PortBinInfo class.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Brita.BritaStorage.BritaChecksumInstanceNames">
+            <summary>
+            Gets or sets a value indicating whether die id post execute is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Brita.BritaStorage.FlowItemsListNoFlowable">
+            <summary>
+            Gets or sets a value indicating whether die id post execute is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Brita.BritaStorage.FlowItemToFlowable">
+            <summary>
+            Gets or sets a value indicating whether die id post execute is enabled.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.Brita.BritaStorage.ConcurrentFlowables">
+            <summary>
+            Gets or sets a value indicating whether die id post execute is enabled.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.BritaStorage.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.IBrita">
+            <summary>
+            Interface to abstract the building of a Brita handler.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.IBrita.TryEnableFlowTrace">
+            <summary>
+            Try to enable flow trace if brita is enabled.
+            </summary>
+            <returns>true if enabling succeeded.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.IBrita.TryDisableFlowTrace">
+            <summary>
+            Try to disable flow trace if brita is enabled.
+            </summary>
+            <returns>true if disabling succeeded.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.IBrita.TryGetLotStartDatalogData(Prime.SessionService.ISessionContextProviderContainer,Prime.BusinessLogic.Brita.LotStartData@)">
+            <summary>
+            Try to get lot start data to be datalogged if available.
+            </summary>
+            /// <param name="sessionContext">session context.</param>
+            /// <param name="data">data for lot start to be datalogged.</param>
+            <returns>true if data available, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.IBrita.TryGetDeviceEndDatalogData(Prime.SessionService.ISessionContextProviderContainer,System.String@)">
+            <summary>
+            Gets device end data to be datalogged if available.
+            </summary>
+            /// <param name="sessionContext">session context.</param>
+            /// <param name="data">data for device end to be datalogged.</param>
+            <returns>true if data available, false otherwise.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.IBritaHandler">
+            <summary>
+            Scoreboard Logger interface.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.IBritaHandler.GetChecksumAndVersion(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets checksum string encoded by Trace API.
+            </summary>
+            <param name="sessionContext">session context.</param>
+            <returns>LotStartData struct.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.Brita.IBritaHandler.GetTraceId(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets trace id string representing executed instances and ports encoded for Trace.
+            </summary>
+            <param name="sessionContext">session context.</param>
+            <returns>Brita trace id for currently executed unit/flow.</returns>
+        </member>
+        <member name="T:Prime.BusinessLogic.Brita.LotStartData">
+            <summary>
+            LotStartData struct.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Brita.LotStartData.Checksum">
+            <summary>
+            Checksum string.
+            </summary>
+        </member>
+        <member name="F:Prime.BusinessLogic.Brita.LotStartData.Version">
+            <summary>
+            Version string.
+            </summary>
+        </member>
+    </members>
+</doc>

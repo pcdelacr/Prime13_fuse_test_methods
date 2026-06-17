@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Base.ServiceStore.Cs</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Base.IBootstrapper">
+            <summary>
+            Represents an object that can bootstrap the services and dependencies of a specific dll.
+            When dynamically loading a dll, the tool will use reflection to find all implementations of this interface.
+            The tool will then instantiate this class and call the Bootstrap method.
+            Any implementations of this interface must have a public default constructor (constructor with no parameters).
+            </summary>
+        </member>
+        <member name="M:Prime.Base.IBootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Used to bootstrap the assemblies services.
+            </summary>
+            <param name="serviceCollection">serviceCollection.</param>
+        </member>
+        <member name="T:Prime.Base.IMefAble">
+            <summary>
+            Interface for TestMethodBase to populate the services from within its the AppDomain.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.IMefAble.InitMef">
+            <summary>
+            Init the Mef Manager for the specific AppDomain
+            Will do work only once per AppDomain.
+            </summary>
+        </member>
+        <member name="T:Prime.Base.MefManager">
+            <summary>
+            This class owned the MEF management
+            to compose all services using MEF.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.MefManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.MefManager"/> class.
+            private constructor to make this class singleton.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.MefManager.Singleton">
+            <summary>
+            Gets the singleton object instance of this class.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.MefManager.GetAllExports``1">
+            <summary>
+            Return all exports that derived from the type T.
+            </summary>
+            <typeparam name="T">The type of the exports.</typeparam>
+            <returns>collection of the exported objects.</returns>
+        </member>
+        <member name="M:Prime.Base.MefManager.Init">
+            <summary>
+            Initialize the MEF manager with loading all proxy dlls.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.MefManager.ComposeParts(System.Object)">
+            <summary>
+            Trigger compose parts which is the population of the services implementations into its interfaces.
+            </summary>
+            <param name="obj">The object toholds the interfaces needs to be populated.</param>
+        </member>
+        <member name="M:Prime.Base.MefManager.GetExport``1">
+            <summary>
+            Get service implementation through the MEF.
+            </summary>
+            <typeparam name="T">The type to export.</typeparam>
+            <returns>The service implementation instance.</returns>
+        </member>
+        <member name="M:Prime.Base.MefManager.GetAllExportsAsDictionary">
+            <summary>
+            Traverses all Services exported to MEF container and creates a (Type, object) dictionary.
+            </summary>
+            <returns>A (Type, object) dictionary. The key is the Service interface and the value is the implementaion object.</returns>
+        </member>
+        <member name="M:Prime.Base.MefManager.SetupPerTos(System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Setup the specific configuration for TOS3 or TOS4.
+            </summary>
+            <param name="finalServicesDllsToLoad">list of dll path to load.</param>
+        </member>
+        <member name="M:Prime.Base.MefManager.LoadAssembly(System.String,System.Collections.Generic.List{System.Reflection.Assembly}@)">
+            <summary>
+            Load the assembly that was not yet loaded.
+            </summary>
+            <param name="dll">dll path to load.</param>
+            <param name="loadedAssemblies">the list of loaded assemblies so far.</param>
+            <returns>loaded assembly.</returns>
+        </member>
+        <member name="M:Prime.Base.MefManager.IsMefInitialized">
+            <summary>
+            Check if MEF was initialized or not.
+            When running in UT environment MEF is not initialized and all services are being mocked.
+            </summary>
+            <returns>The status of the MEF initialization.</returns>
+        </member>
+        <member name="T:Prime.Base.MefManagerTOS4">
+            <summary>
+            This class owned the MEF management
+            to compose all services using MEF.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.MefManagerTOS4.LoadAssembly(System.String,System.Collections.Generic.List{System.Reflection.Assembly}@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.Base.MefManagerTOS4.SetupPerTos(System.Collections.Generic.List{System.String}@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.Base.ServiceStore`1">
+            <summary>
+            Service singletons provider implementation from the MEF.
+            </summary>
+            <typeparam name="TService">the service type.</typeparam>
+        </member>
+        <member name="P:Prime.Base.ServiceStore`1.Service">
+            <summary>
+            Gets or sets a service singleton implementation from MEF.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.ServiceStore`1.GetAllServices">
+            <summary>
+            Get all the services that are matches with the TService criteria (derived from it).
+            </summary>
+            <returns>Collection of the matching services.</returns>
+        </member>
+        <member name="M:Prime.Base.ServiceStore`1.Init">
+            <summary>
+            Initialize the ServiceStore add the current AppDomain.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.ServiceStore`1.GetAllExportsAsDictionary">
+            <summary>
+            Traverses all Services exported to MEF container and creates a (Type, object) dictionary.
+            </summary>
+            <returns>A (Type, object) dictionary. The key is the Service interface and the value is the implementaion object.</returns>
+        </member>
+    </members>
+</doc>

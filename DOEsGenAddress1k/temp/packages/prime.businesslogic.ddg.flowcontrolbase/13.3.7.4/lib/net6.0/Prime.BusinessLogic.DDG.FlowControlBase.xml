@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.DDG.FlowControlBase</name>
+    </assembly>
+    <members>
+        <member name="T:DDG.FlowControl">
+            <summary>
+            Singleton for DieRecovery service.
+            </summary>
+        </member>
+        <member name="P:DDG.FlowControl.Service">
+            <summary>
+            Gets or sets FlowControl Service implementation.
+            </summary>
+        </member>
+        <member name="T:DDG.IFlowControlFactory">
+            <summary>
+            Defines the <see cref="T:DDG.IFlowControlFactory" />.
+            </summary>
+        </member>
+        <member name="P:DDG.IFlowControlFactory.AreDownbinsAllowed">
+            <summary>
+            Gets or sets a value indicating whether downbins are allowed.
+            </summary>
+        </member>
+        <member name="P:DDG.IFlowControlFactory.UseMTT">
+            <summary>
+            Gets or sets a value indicating whether flow control is using MTT.
+            </summary>
+        </member>
+        <member name="M:DDG.IFlowControlFactory.GetDomainCurrentFlow(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the current flow for the domain.
+            </summary>
+            <param name="domainName">Flow domain name.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>Flow number.</returns>
+        </member>
+        <member name="M:DDG.IFlowControlFactory.SetDomainCurrentFlow(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the current flow for the domain.
+            </summary>
+            <param name="domainName">Flow domain name.</param>
+            <param name="flow">Flow number.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:DDG.IFlowControlFactory.CreateFlowDomain(System.String,System.Int32,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a new flow domain.
+            </summary>
+            <param name="domainName">Flow domain name.</param>
+            <param name="flowIndex">Flow index.</param>
+            <param name="dffTokenName">DFF token name.</param>
+            <param name="useDff">Flag to use DFF.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="T:FlowControlBase.FlowControlFactory">
+            <summary>
+            Defines the <see cref="T:FlowControlBase.FlowControlFactory" />.
+            </summary>
+        </member>
+        <member name="P:FlowControlBase.FlowControlFactory.AreDownbinsAllowed">
+            <inheritdoc/>
+        </member>
+        <member name="P:FlowControlBase.FlowControlFactory.UseMTT">
+            <inheritdoc/>
+        </member>
+        <member name="M:FlowControlBase.FlowControlFactory.GetDomainCurrentFlow(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FlowControlBase.FlowControlFactory.SetDomainCurrentFlow(System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FlowControlBase.FlowControlFactory.CreateFlowDomain(System.String,System.Int32,System.String,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

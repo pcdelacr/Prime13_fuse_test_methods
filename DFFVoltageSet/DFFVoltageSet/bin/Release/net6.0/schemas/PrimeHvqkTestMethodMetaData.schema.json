@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+      "$schema": {
+          "type": "string",
+          "minLength": 1
+      }
+  },
+  "required": [ 
+    "VoltageIndicators",
+    "HvqkInstances"],
+  "properties": {
+  "StandardIdOverride": {
+  "$ref": "#/definitions/NonEmptyString"
+    },
+    "VoltageIndicators": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/VoltageIndicators"
+      }
+    },
+    "HvqkInstances": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/HvqkInstances"
+      }
+    }
+  },
+  "definitions": {
+    "VoltageIndicators": {
+      "type": "object",
+      "required": [
+        "Name",
+        "VoltageSteps"
+      ],
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+          "VoltageSteps": {
+          "type": "dictionary",
+          "minLength": 1,
+          "minItems": 1
+          }
+        }
+    },
+    "HvqkInstances": {
+      "type": "object",
+      "required": [
+        "Name",
+        "InstancesMapping"
+      ],
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+          "InstancesMapping": {
+          "type": "array",
+          "minLength": 1,
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/NonEmptyString"
+            }
+          }
+        }
+    },
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

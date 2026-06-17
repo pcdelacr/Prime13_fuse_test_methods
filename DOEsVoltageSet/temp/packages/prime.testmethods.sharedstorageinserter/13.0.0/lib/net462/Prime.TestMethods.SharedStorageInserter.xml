@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.SharedStorageInserter</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.SharedStorageInserter.JsonParser">
+            <summary>
+            JsonParser.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SharedStorageInserter.JsonParser.SchemaFilesEnvVarName">
+            <summary>
+            The environment variable name of the Aleph schema files path.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.JsonParser.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SharedStorageInserter.JsonParser"/> class.
+            JsonParser constructor.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.JsonParser.GetData(System.String@)">
+            <summary>
+            GetData.
+            </summary>
+            <param name="configurationFilePath">Name.</param>
+            <returns>Return data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.JsonParser.GetSchemaFileContent">
+            <summary>
+            Returns the content of a json schema file from the filesystem.
+            </summary>
+            <returns>Text content of the file.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.JsonParser.GetSchemaValidator">
+            <summary>
+            Returns a schema validation instance from a json schema file.
+            </summary>
+            <returns>Schema validator instance.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SharedStorageInserter.PrimeSharedStorageInserterTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SharedStorageInserter.PrimeSharedStorageInserterTestMethod.ShareStorageContext">
+            <summary>
+            ShareStorageContext.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SharedStorageInserter.PrimeSharedStorageInserterTestMethod.ShareStorageContext.LOT">
+            <summary>
+            LOT context.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SharedStorageInserter.PrimeSharedStorageInserterTestMethod.ShareStorageContext.DUT">
+            <summary>
+            DUT context.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SharedStorageInserter.PrimeSharedStorageInserterTestMethod.ShareStorageContext.IP">
+            <summary>
+            IP context.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SharedStorageInserter.PrimeSharedStorageInserterTestMethod.Path">
+            <summary>
+            Gets or sets the config file path (this comment will be used on the pre-header file).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SharedStorageInserter.PrimeSharedStorageInserterTestMethod.Scope">
+            <summary>
+            Gets or sets the ShareStorage scope.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.PrimeSharedStorageInserterTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.PrimeSharedStorageInserterTestMethod.ForceReVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.PrimeSharedStorageInserterTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.SharedStorageInserter.EmptySharedStorageInserterConsole">
+            <summary>
+            ShareStorageInserterConsole.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.EmptySharedStorageInserterConsole.Print(System.String@,System.String@,Prime.SharedStorageService.Context@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.EmptySharedStorageInserterConsole.Print(System.String@,System.Int32@,Prime.SharedStorageService.Context@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.EmptySharedStorageInserterConsole.Print(System.String@,System.Double@,Prime.SharedStorageService.Context@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.EmptySharedStorageInserterConsole.PrintHeader``1(System.Collections.Generic.Dictionary{System.String,``0}@,Prime.SharedStorageService.Context)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.SharedStorageInserter.ISharedStorageInserterConsole">
+            <summary>
+            SharedStorageInserterConsole.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.ISharedStorageInserterConsole.PrintHeader``1(System.Collections.Generic.Dictionary{System.String,``0}@,Prime.SharedStorageService.Context)">
+            <summary>
+            Print To Console Data To Store.
+            </summary>
+            <typeparam name="T">Generic object(String, Double, Integer).</typeparam>
+            <param name="dictionary">Dictionary with data to store in sharedStorage.</param>
+            <param name="context">SharedStorage context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.ISharedStorageInserterConsole.Print(System.String@,System.String@,Prime.SharedStorageService.Context@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if the value exist in table and print the changed in console.
+            </summary>
+            <param name="key">Key to found in table.</param>
+            <param name="value">New value.</param>
+            <param name="context">SharedStorage context.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.ISharedStorageInserterConsole.Print(System.String@,System.Int32@,Prime.SharedStorageService.Context@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if the value exist in table and print the changed in console.
+            </summary>
+            <param name="key">Key to found in table.</param>
+            <param name="value">New value.</param>
+            <param name="context">SharedStorage context.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.ISharedStorageInserterConsole.Print(System.String@,System.Double@,Prime.SharedStorageService.Context@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if the value exist in table and print the changed in console.
+            </summary>
+            <param name="key">Key to found in table.</param>
+            <param name="value">New value.</param>
+            <param name="context">SharedStorage context.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SharedStorageInserter.SharedStorageInserterConsole">
+            <summary>
+            ShareStorageInserterConsole.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.SharedStorageInserterConsole.Print(System.String@,System.String@,Prime.SharedStorageService.Context@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.SharedStorageInserterConsole.Print(System.String@,System.Int32@,Prime.SharedStorageService.Context@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.SharedStorageInserterConsole.Print(System.String@,System.Double@,Prime.SharedStorageService.Context@,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SharedStorageInserter.SharedStorageInserterConsole.PrintHeader``1(System.Collections.Generic.Dictionary{System.String,``0}@,Prime.SharedStorageService.Context)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.SharedStorageInserter.ValuesToStore">
+            <summary>
+            ValuesToStore.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SharedStorageInserter.ValuesToStore.StringsToStore">
+            <summary>
+            Gets or sets StringsToStore.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SharedStorageInserter.ValuesToStore.IntegersToStore">
+            <summary>
+            Gets or sets IntegersToStore.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SharedStorageInserter.ValuesToStore.DoublesToStore">
+            <summary>
+            Gets or sets DoublesToStore.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,16 @@
+Version 0.1.0;
+
+#This format takes CustomField and prints its value
+Format TelemetryEventFormat
+{
+   DLL    "HMI_DatalogFormat";  #Make sure to use same dll for all your formats
+   Format "%s";                 #Print the content of CustomField
+   Fields "TelemetryField";
+}
+
+# This format is used to send token "7_lend" during HMI Lot end
+Format TelemetryEndOfTransmissionFormat
+{
+   DLL    "HMI_DatalogFormat";
+   Format "7_lend\n";
+}

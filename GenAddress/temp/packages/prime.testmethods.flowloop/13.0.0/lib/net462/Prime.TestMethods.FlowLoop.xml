@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.FlowLoop</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.FlowLoop.FlowLoopControlJsonData">
+            <summary>
+            This class represents the data structure of the Flow Loop Control json input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.FlowLoopControlJsonData.FlowItemControl">
+            <summary>
+            Gets or sets List of Loop control configs to edit.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowLoop.FlowLoopControlJsonData.LoopControlConfig">
+            <summary>
+            Loop Control Config defines configName as id and respective FlowItem to edit for Loop Control.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.FlowLoopControlJsonData.LoopControlConfig.ConfigName">
+            <summary>
+            Gets or sets configuration name to apply the settings for a given flow loop Control Instances.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.FlowLoopControlJsonData.LoopControlConfig.FlowItemsList">
+            <summary>
+            Gets or sets flow items list to edit loop flow items.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowLoop.FlowLoopControlJsonData.LoopControlConfig.FlowItemsToEdit">
+            <summary>
+            FlowItem Loop Control attributes to edit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.FlowLoopControlJsonData.LoopControlConfig.FlowItemsToEdit.FlowName">
+            <summary>
+            Gets or sets instance name to find the flow item.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.FlowLoopControlJsonData.LoopControlConfig.FlowItemsToEdit.LoopCount">
+            <summary>
+            Gets or sets Count of loop to flowloop item.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.FlowLoopControlJsonData.LoopControlConfig.FlowItemsToEdit.LoopDuration">
+            <summary>
+            Gets or sets time control to flowloop item.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.FlowLoopControlJsonData.LoopControlConfig.FlowItemsToEdit.SetBreakRange">
+            <summary>
+            Gets or sets time control loop to flow item.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowLoop.LoopItemParam">
+            <summary>
+            Class to store all Loop Items config to pass to the Flow Loop Control APIs.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowLoop.LoopItemParam.#ctor(Prime.TestMethods.FlowLoop.FlowLoopControlJsonData.LoopControlConfig.FlowItemsToEdit)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowLoop.LoopItemParam"/> class.
+            Constructor for LoopItem parameters to be set.
+            </summary>
+            <param name="loopControlConfigData">Loop item params from input config file.</param>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.LoopItemParam.FlowItemName">
+            <summary>
+            Gets or sets name of the FlowItem whose loop config will be changed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.LoopItemParam.IsLoopCount">
+            <summary>
+            Gets or sets a value indicating whether loop count or loop duration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.LoopItemParam.LoopValue">
+            <summary>
+            Gets or sets loop value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.LoopItemParam.BreakRange">
+            <summary>
+            Gets or sets break range condition.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.FlowLoop.PrimeFlowLoopControlTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.FlowLoop.PrimeFlowLoopControlTestMethod.flowLoopListToModify">
+            <summary>
+            The list of the LoppFlowItems to modify, this will points at run time to the correct element from the VerifyDataStructure.ListOfLoopFlowItemsPerConfig.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowLoop.PrimeFlowLoopControlTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.FlowLoop.PrimeFlowLoopControlTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.PrimeFlowLoopControlTestMethod.InputJsonConfigFile">
+            <summary>
+            Gets or sets the DummyParam1 (this comment will be used on the pre-header file).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.PrimeFlowLoopControlTestMethod.SetConfig">
+            <summary>
+            Gets or sets the configname to selectively execute a set to modify Flow Loop Control.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowLoop.PrimeFlowLoopControlTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowLoop.PrimeFlowLoopControlTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.FlowLoop.CountBasedLoopControl">
+            <summary>
+            CountBasedLoop Flow control.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowLoop.CountBasedLoopControl.Execute(Prime.TestProgramService.IFlowLoopStatus)">
+            <summary>
+            Defining Exit check method.
+            </summary>
+            <param name="flowLoopStatus"> loop status passed from the main test method.</param>
+            <returns>Port Exit.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FlowLoop.ILoopControl">
+            <summary>
+            Loop control interface to distinguish between time or count based.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowLoop.ILoopControl.Execute(Prime.TestProgramService.IFlowLoopStatus)">
+            <summary>
+            Common functional for both Loop control method.
+            </summary>
+            <param name="flowLoopStatus">Flow Loop Status to be used in derived classes.</param>
+            <returns>Exit Port, derived by the implementation of respective classes.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.FlowLoop.PrimeFlowLoopExitTestMethod">
+            <summary>
+            Test Method to exit out of flow loops.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.PrimeFlowLoopExitTestMethod.FlowItemName">
+            <summary>
+            Gets or sets the flow item name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.FlowLoop.PrimeFlowLoopExitTestMethod.ItuffWriter">
+            <summary>
+            Gets or sets ituff writer.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowLoop.PrimeFlowLoopExitTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.FlowLoop.PrimeFlowLoopExitTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.FlowLoop.TimeBasedLoopControl">
+            <summary>
+            CountBasedLoop Flow control.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.FlowLoop.TimeBasedLoopControl.Execute(Prime.TestProgramService.IFlowLoopStatus)">
+            <summary>
+            Defining Exit check method.
+            </summary>
+            <param name="flowLoopStatus"> loop status passed from the main test method.</param>
+            <returns>Port Exit.</returns>
+        </member>
+    </members>
+</doc>

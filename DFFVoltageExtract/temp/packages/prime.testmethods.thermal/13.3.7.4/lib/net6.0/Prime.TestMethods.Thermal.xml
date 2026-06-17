@@ -1,0 +1,1062 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Thermal</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Thermal.DffHandler">
+            <summary>
+            Wrapper class to wrap IDffService methods used in this file to be able to mock them for unit testing.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.DffHandler.#ctor(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Thermal.DffHandler"/> class.
+            </summary>
+            <param name="tokens">tokens.</param>
+            <param name="sessionContext">This session contest.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.DffHandler.SetDff(System.Int32,System.Collections.Generic.List{Prime.ThermalService.IThermalParametricData})">
+            <summary>
+            SetDff dump data per Pin in dff using token name..
+            </summary>
+            <param name="index">Index to set data per pin to dump in dff.</param>
+            <param name="parametricDataPerPin">ParametricDataPerPin to get data needed to dump in Dff.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.IDffHandler">
+            <summary>
+            IDffHandler to prepare data to dump in dff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.IDffHandler.SetDff(System.Int32,System.Collections.Generic.List{Prime.ThermalService.IThermalParametricData})">
+            <summary>
+            SetDff dump data per Pin in dff using token name.
+            </summary>
+            <param name="index">Index to set data per pin to dump in dff.</param>
+            <param name="parametricDataPerPin">ParametricDataPerPin to get data needed to dump in Dff.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeTdauParametricDataLoggerTestMethod">
+            <summary>
+            Print to Ituff the parametric info of the specified TDAU pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeTdauParametricDataLoggerTestMethod.PinNames">
+            <summary>
+            Gets or sets pins to be used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeTdauParametricDataLoggerTestMethod.DffTokens">
+            <summary>
+            Gets or sets Dff tokens to be used.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeTdauParametricDataLoggerTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeTdauParametricDataLoggerTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeTdauParametricDataLoggerTestMethod.VerifyPinNames(System.Collections.Generic.List{System.String})">
+            <summary>
+            Verifies if the PinNames parameter is valid.
+            </summary>
+            <param name="pinNames">List of pin names.</param>
+            <exception cref="T:System.ArgumentException">If the PinNames parameter is invalid.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeTdauParametricDataLoggerTestMethod.IsDffTokensValid(System.Int32)">
+            <summary>
+            Verifies if the PinNames parameter is valid.
+            </summary>
+            <exception cref="T:System.ArgumentException">If the PinNames parameter is invalid.</exception>
+            <param name="numberOfPins">Number of pins.</param>
+            <returns>Return if DffToken is valid.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalControlSetInitTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalControlSetInitTestMethod.TemperatureSetName">
+            <summary>
+            Gets or sets the name of the TemperatureSet to apply.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalControlSetInitTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalControlSetInitTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalControlSetInitTestMethod.VerifyTemperatureSetName">
+            <summary>
+            Verifies that the TemperatureSet is not empty.
+            </summary>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">If the TemperatureSetName parameter is empty.</exception>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalControlSetTestMethod">
+            <summary>
+            Dummy placeholder.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalControlSetTestMethod.controlSetIndex">
+            <summary>
+            Gets or Sets the index of the control set to be applied.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalControlSetTestMethod.UeiPinName">
+            <summary>
+            Gets or sets the name of the pin to apply a control set change.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalControlSetTestMethod.ControlSet">
+            <summary>
+            Gets or sets the ControlSet name to use. That name matches an index that represents a configuration on the file with all the controlSets.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalControlSetTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalControlSetTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.ThermalEndOfTest.Logger">
+            <summary>
+            Class to print messages to console.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalEndOfTest.Logger.LogThermalHeadTemperature(System.Double,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs the thermal head temperature to the ituff.
+            </summary>
+            <param name="thermalHeadTemperature">Temperature value to log.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>A mrslt formatter that represent the data.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimits">
+            <summary>
+            temperature limits.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimits.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimits"/> struct.
+            </summary>
+            <param name="lowLimit">low temperature limit.</param>
+            <param name="highLimit">high temperature limit.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimits.LowLimit">
+            <summary>
+            Gets Low temperature limit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimits.HighLimit">
+            <summary>
+            Gets High temperature limit.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimitValidator">
+            <summary>
+            Class that holds temperature limits.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimitValidator.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimitValidator"/> class.
+            </summary>
+            <param name="integrityLowLimit">Integrity lowLimit temperature limit.</param>
+            <param name="integrityHighLimit">Integrity high temperature limit.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimitValidator.IntegrityLowLimit">
+            <summary>
+            Gets Integrity low temperature limit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimitValidator.IntegrityHighLimit">
+            <summary>
+            Gets Integrity high temperature limit.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimitValidator.DefinePerPinEotLimits(System.Collections.Generic.Dictionary{System.String,Prime.ThermalService.IPcsPinToken},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            creates a dictionary with the temperature limits foe each of the pins.
+            </summary>
+            <param name="pcsPinTokens">pcs tokens to take out the sot per pin.</param>
+            <param name="pins">list with the name of the pins.</param>
+            <param name="upperTolerance">offset to calculate higher limit.</param>
+            <param name="lowerTolerance">offset to calculate lower limit.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalEndOfTest.TemperatureLimitValidator.CheckEotLimitsPerPin(Prime.ThermalService.IPcsData,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if the maximum or min measurements are inside limits.
+            </summary>
+            <param name="pcsTokens">PerPin pcs data.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns> status of the limit verification.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod">
+            <summary>
+            Test Method for reading single thermal measurement.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.ContinuousReadCollectionKey">
+            <summary>
+            Internal field to store if the continuous read mode is enabled to retrieve its value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.pcsPerPinSelectors">
+            <summary>
+            Internal field to store datalog selectors for each pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.PinNames">
+            <summary>
+            Gets or sets pins to be used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.UpperTolerance">
+            <summary>
+            Gets or sets the maximum tolerance value to calculate the high limits of the measurement.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.LowerTolerance">
+            <summary>
+            Gets or sets the minimum tolerance value to calculate the low limits of the measurement.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.IntegrityHighLimit">
+            <summary>
+            Gets or sets the high temperature limit of a measurement integrity check.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.IntegrityLowLimit">
+            <summary>
+            Gets or sets the low temperature limit of a measurement integrity check.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.PcsDatalogSelector">
+            <summary>
+            Gets or sets datalog selectors to use for each Pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.ContinuousReadSampleRate">
+            <summary>
+            Gets or sets the sample rate time in milliseconds in which the continuous read will be performed.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.PrintPcsData(Prime.ThermalService.IPcsData)">
+            <summary>
+            The method takes care of printing PCS tokens to ituff.
+            </summary>
+            <param name="pcsData">Tokens to print.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalEndOfTestTestMethod.GetPcsData">
+            <summary>
+            The method takes care of printing PCS tokens to ituff.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.FactLogger">
+            <summary>
+            Class for printing ramp for FACT format to ituff.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.FactLogger.#ctor(System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Thermal.FactLogger"/> class.
+            </summary>
+            <param name="pinTokens">Per pin log tokens.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.FactLogger.FormatAndPrint(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}},System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.GenericRampLogger">
+            <summary>
+            Class for printing a general format to ituff varying ramp name.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.GenericRampLogger.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Thermal.GenericRampLogger"/> class.
+            </summary>
+            <param name="name">Ramp name.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.GenericRampLogger.FormatAndPrint(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}},System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.IThermalRampExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.IThermalRampExtensions.GetDynamicPinMask">
+            <summary>
+            Gets the list of pins to mask execution after execution. The test method will merge this list with the ones from the test instance parameter.
+            </summary>
+            <returns>The list of mask pins.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod">
+            <summary>
+            Test Method that runs calibration and waits for set point temperature to be reached.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.limitsPerPin">
+            <summary>
+            Internal field to store limits on a per pin basis.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.RampModeType">
+            <summary>
+            Enumerated type for selecting Ramp mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.RampModeType.Presoak">
+            <summary>
+            Run a pre-soak ramp, no ituff printing.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.RampModeType.Normal">
+            <summary>
+            Run regular ramp process.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.RampModeType.Soak">
+            <summary>
+            Run ramp for soak.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.RampModeType.Fact">
+            <summary>
+            Run ramp for Fact.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.PinNames">
+            <summary>
+            Gets or sets TDAU pins to check.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.LogPinToken">
+            <summary>
+            Gets or sets datalog selectors to use for each Pin when printing to ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.RampMode">
+            <summary>
+            Gets or sets Ramp mode (changes print format).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.Patlist">
+            <summary>
+            Gets or sets optional pattern run during soak.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.LevelsTc">
+            <summary>
+            Gets or sets levels Test Condition used with pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.TimingsTc">
+            <summary>
+            Gets or sets timing Test Condition used with pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.SetPoints">
+            <summary>
+            Gets or sets set points, use one for all or one per pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.UpperTolerance">
+            <summary>
+            Gets or sets list of tolerance values to calculate the high limits of the measurement.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.LowerTolerance">
+            <summary>
+            Gets or sets list of tolerance values to calculate the low limits of the measurement.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.IntegrityHighLimit">
+            <summary>
+            Gets or sets the high temperature limit of a measurement integrity check.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.IntegrityLowLimit">
+            <summary>
+            Gets or sets the low temperature limit of a measurement integrity check.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.Timeout">
+            <summary>
+            Gets or sets timeout in miliseconds.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.Thermal.IThermalRampExtensions" />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.Prime#TestMethods#Thermal#IThermalRampExtensions#GetDynamicPinMask">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.PrintToItuff(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}})">
+            <summary>
+            This functions takes care of formatting data for printing.
+            </summary>
+            <param name="results">Set of results per pin.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalRampTestMethod.SetPListExecutor">
+            <summary>
+            If TimingTC, LevelTC and PList are defined creates a new functional test object for plistExecutor.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.RampLoggerBase">
+            <summary>
+            Class for specialized logging.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.RampLoggerBase.FormatAndPrint(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}},System.Double)">
+            <summary>
+            This function applies specific format and print data to ituff.
+            </summary>
+            <param name="temperatureData">Pins with values from ramp measurements.</param>
+            <param name="totalTime">Total ramp time in ms.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.ThermalRamp.TemperatureLimits">
+            <summary>
+            Class that holds temperature limits.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalRamp.TemperatureLimits.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Thermal.ThermalRamp.TemperatureLimits"/> class.
+            </summary>
+            <param name="lowLimit">LowLimit temperature limit.</param>
+            <param name="highLimit">High temperature limit.</param>
+            <param name="integrityCheckLowLimit">Integrity lowLimit temperature limit.</param>
+            <param name="integrityCheckHighLimit">Integrity high temperature limit.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalRamp.TemperatureLimits.LowLimit">
+            <summary>
+            Gets Low temperature limit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalRamp.TemperatureLimits.IntegrityCheckLowLimit">
+            <summary>
+            Gets Integrity low temperature limit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalRamp.TemperatureLimits.HighLimit">
+            <summary>
+            Gets High temperature limit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalRamp.TemperatureLimits.IntegrityCheckHighLimit">
+            <summary>
+            Gets Integrity high temperature limit.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalRamp.TemperatureLimits.IsInRange(System.Double)">
+            <summary>
+            Check if the measurement is or is not inside the limit range.
+            </summary>
+            <param name="temperatureMeasurement">temperature measurement.</param>
+            <returns>true if the temperature is inside the range.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalRamp.TemperatureLimits.GetRampLimitsStatus(System.Double,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if the a temperature measurement is inside the defined limits.
+            </summary>
+            <param name="temperatureMeasurement"> measurement to check.</param>
+            <param name="pinName">name of the pin.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns> status of the limit verification.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalRamp.TemperatureLimits.GetIntegrityLimitsStatus(System.Double,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if the a temperature measurement is off the integrity limits.
+            </summary>
+            <param name="temperatureMeasurement"> measurement to check.</param>
+            <param name="pinName">name of the pin.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns> status of the limit verification.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.ThermalSingleMeasurement.Logger">
+            <summary>
+            Class to print messages to console.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalSingleMeasurement.Logger.SessionContext">
+            <summary>
+            Gets or sets the SessionContext.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalSingleMeasurement.Logger.LogMeasurement(Prime.DatalogService.DatalogSpec.IMrsltFormat,Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.MeasurementTypes,System.String,System.Double)">
+            <summary>
+            log the measurement information to Ituff.
+            </summary>
+            <param name="mrsltWritter">ituff object.</param>
+            <param name="measurementType">type of measurement.</param>
+            <param name="pinName">name of the thermal sensor.</param>
+            <param name="temperatureMeasurement">measured value.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalSingleMeasurement.Logger.LogPcsDieForceMeasurement(System.String,System.Double)">
+            <summary>
+            Logs the thermal head temperature to the ituff according to the measurement mode.
+            </summary>
+            <param name="pinIndex">Index to use when printing pin to ituff.</param>
+            <param name="temperatureMeasurement">Temperature value to log.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalSingleMeasurement.Logger.LogThermalHeadTemperature(Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.MeasurementTypes,System.Double)">
+            <summary>
+            Logs the thermal head temperature to the ituff according to the measurement mode.
+            </summary>
+            <param name="measurementType">SOT or EOT.</param>
+            <param name="thermalHeadTemperature">Temperature value to log.</param>
+            <returns>A mrslt formatter that represent the data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalSingleMeasurement.Logger.LogExcludedMeasurement(Prime.DatalogService.DatalogSpec.IMrsltFormat,Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.MeasurementTypes,System.String,System.Double)">
+            <summary>
+            log the measurement information to Ituff.
+            </summary>
+            <param name="mrsltWritter">ituff object.</param>
+            <param name="measurementType">type of measurement.</param>
+            <param name="pinName">name of the thermal sensor.</param>
+            <param name="temperatureMeasurement">measured value.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimits">
+            <summary>
+            temperature limits.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimits.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimits"/> struct.
+            </summary>
+            <param name="lowLimit">low temperature limit.</param>
+            <param name="highLimit">high temperature limit.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimits.LowLimit">
+            <summary>
+            Gets Low temperature limit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimits.HighLimit">
+            <summary>
+            Gets High temperature limit.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator">
+            <summary>
+            Class that holds temperature limits.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator.PassLimitResult">
+            <summary>
+            The result number for passing limits result.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator.LowLimitResult">
+            <summary>
+            The result number for LowLimit.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator.HighLimitResult">
+            <summary>
+            The result number for HighLimit.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator.IntegrityLowLimitResult">
+            <summary>
+            The result number for IntegrityLowLimit.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator.IntegrityHighLimitResult">
+            <summary>
+            The result number for IntegrityHighLimit.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator"/> class.
+            </summary>
+            <param name="integrityLowLimit">Integrity lowLimit temperature limit.</param>
+            <param name="integrityHighLimit">Integrity high temperature limit.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator.IntegrityLowLimit">
+            <summary>
+            Gets Integrity low temperature limit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator.IntegrityHighLimit">
+            <summary>
+            Gets Integrity high temperature limit.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator.DefineLimitsForMeasurement(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            creates a dictionary with the temperature limits foe each of the pins.
+            </summary>
+            <param name="pins">list with the name of the pins.</param>
+            <param name="upperTolerance">offset to calculate higher limit.</param>
+            <param name="lowerTolerance">offset to calculate lower limit.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalSingleMeasurement.TemperatureLimitValidator.CheckLimits(System.Double,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check if the a temperature measurement is inside the defined limits.
+            </summary>
+            <param name="temperatureMeasurement"> measurement to check.</param>
+            <param name="pinName">name of the pin.</param>
+            <param name="sessionContext">Current instance's session context.</param>
+            <returns> status of the limit verification.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod">
+            <summary>
+            Test Method for reading single thermal measurement.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.ContinuousReadCollectionKey">
+            <summary>
+            Internal field to store if the continuous read mode is enabled to retrieve its value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.logger">
+            <summary>
+            Internal object to log information to console or ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.thermalHead">
+            <summary>
+            Internal object to perform thermal head actions.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.pinsNames">
+            <summary>
+            Internal object that holds pins.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.temperatureLimitValidator">
+            <summary>
+            Internal field to store limits for the measurements.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.userVarNames">
+            <summary>
+            Internal list of the uservar names to store the temperature measurements.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.tokenNames">
+            <summary>
+            Internal list to store the token Names per Pin.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.MeasurementTypes">
+            <summary>
+            Type of measurement that this Test will do.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.MeasurementTypes.SOT">
+            <summary>
+            Start of test measurement.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.MeasurementTypes.TJ">
+            <summary>
+            Thermal measurement.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.MeasurementTypes.CHECK_DIE_FORCE">
+            <summary>
+            Non-tagged measurement
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.State">
+            <summary>
+            Indicates enabled or disabled state of the feature.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.State.Enabled">
+            <summary>
+            Feature is enabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.State.Disabled">
+            <summary>
+            Feature is disabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.PinNames">
+            <summary>
+            Gets or sets pins to be used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.PinNamesExcluded">
+            <summary>
+            Gets or sets pins to be excluded.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.DffTokens">
+            <summary>
+            Gets or sets DffTokens.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.UpperTolerance">
+            <summary>
+            Gets or sets list of tolerance values to calculate the high limits of the measurement.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.LowerTolerance">
+            <summary>
+            Gets or sets list of tolerance values to calculate the low limits of the measurement.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.IntegrityHighLimit">
+            <summary>
+            Gets or sets the high temperature limit of a measurement integrity check.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.IntegrityLowLimit">
+            <summary>
+            Gets or sets the low temperature limit of a measurement integrity check.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.MeasurementType">
+            <summary>
+            Gets or sets type of measurement.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.StorageTag">
+            <summary>
+            Gets or sets additional storage tag.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.UserVarStoreNames">
+            <summary>
+            Gets or sets the list of uservar names in which the measurements for every pin will be stored.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.ContinuousRead">
+            <summary>
+            Gets or sets the ContinuousRead mode. It can be `Enabled` or `Disabled`.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.ContinuousReadSampleRate">
+            <summary>
+            Gets or sets the sample rate time in milliseconds in which the continuous read will be performed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.RetriesMaxCount">
+            <summary>
+            Gets or sets the max number of retries once a measurement fails.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.RetriesDelay">
+            <summary>
+            Gets or sets the delay between retries in ms.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.PreMeasurementLevelName">
+            <summary>
+            Gets or sets the name of the Level test Condition to be applied before the measurement.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.PcsDatalogSelector">
+            <summary>
+            Gets or sets the index to use when printing each pin in "CHECK_DIE_FORCE" mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalSingleMeasurementTestMethod.CheckUserVarList(System.Int32)">
+            <summary>
+            check if the input list of uservar names follow the expected conditions.
+            </summary>
+            /// <param name="pinNumber">the  number of pins, used as the expeted amount of uservar names.</param>
+            <returns>Boolean values representing if the input list is usable or not.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.ThermalHead">
+            <summary>
+            Class thermal head actions.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.ThermalHead.ThermalHeadIndexUserVar">
+            <summary>
+            Internal field to store thermal head index to retrieve its value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.ThermalHead.ThermalHeadIndexUserVarBackUp">
+            <summary>
+            Internal field to store thermal head index to retrieve its value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.ThermalHead.ThermalHeadPcsToken">
+            <summary>
+            Internal field to store the key of the thermal head temperature in the shared storage.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.ThermalHead.ThermalHeadUserVar">
+            <summary>
+            Internal field to store thermal head index to retrieve its value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.ThermalHead.SessionContext">
+            <summary>
+            Gets or sets the session context.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalHead.StoreThermalHeadTemperature(System.Double)">
+            <summary>
+            Store the thermal head temperature to the shared storage.
+            </summary>
+            <param name="thermalHeadTemperature">temperature value.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.ThermalHead.GetThermalHeadTemperature">
+            <summary>
+            Gets the thermal head temperature.
+            </summary>
+            <returns>temperature value.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod">
+            <summary>
+            Thermal profiling enable disable.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.SlaveType">
+            <summary>
+            For selecting slave type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.SlaveType.DTC">
+            <summary>
+            DTC slave type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.SlaveType.TCC">
+            <summary>
+            TCC slave type.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.StreamActionType">
+            <summary>
+            Enum for selection action to perform.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.StreamActionType.Start">
+            <summary>
+            Start action.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.StreamActionType.Stop">
+            <summary>
+            Stop action.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.DtsModes">
+            <summary>
+            Enum for selection action to perform.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.DtsModes.Disabled">
+            <summary>
+            Dts disabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.DtsModes.Average">
+            <summary>
+            Dts streaming average values.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.DtsModes.Max">
+            <summary>
+            Dts streaming max values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.UeiSlaveType">
+            <summary>
+            Gets or sets Slave Type.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.CollectPins">
+            <summary>
+            Gets or sets Tdau pins to perform actions on.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.ActionType">
+            <summary>
+            Gets or sets action type.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.DtsMode">
+            <summary>
+            Gets or sets the Dts mode for the UEI streaming.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.ScsGroups">
+            <summary>
+            Gets or sets the scs groups for UEI streaming.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.PowerPins">
+            <summary>
+            Gets or sets Power zone pins for TCC UEI streaming. Required for power multizone.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Thermal.PrimeThermalUeiStreamTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.ThermalCommon">
+            <summary>
+            Class with functions used by single measurement and ramp test methods.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.ThermalCommon.UndefinedThermalHeadTemperature">
+            <summary>
+            Internal field to store the undefined double value.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.CreatePerPinDatalogSelectors(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Sets the datalog selector for each pin.
+            </summary>
+            <param name="pinList">List of pin names.</param>
+            <param name="datalogSelector">User defined indexes for each pin.</param>
+            <returns>Pin names mapped to index to use when printing to ituff.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.CheckTolerancesRange(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Int32},System.Int32,System.Int32)">
+            <summary>
+            verify if the input tolerance and limits values are in the expected range.
+            </summary>
+            <param name="upperTolerance">list of upper tolerance values.</param>
+            <param name="lowerTolerance">list of lower tolerance values.</param>
+            <param name="integrityHighLimit">integrity high limit.</param>
+            <param name="integrityLowLimit">integrity low limit.</param>
+            <exception cref="T:System.ArgumentException">argument exception.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.CheckIntegerTolerancesRange(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            verify if the input tolerance and limits values are in the expected range.
+            </summary>
+            <param name="upperTolerance">upper tolerance values.</param>
+            <param name="lowerTolerance">lower tolerance values.</param>
+            <param name="integrityHighLimit">integrity high limit.</param>
+            <param name="integrityLowLimit">integrity low limit.</param>
+            <exception cref="T:System.ArgumentException">argument exception.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.GetToleranceValues(System.String)">
+            <summary>
+            Get the tolerance values, either form a userVar or directly from user params.
+            </summary>
+            <param name="tolerance">input user tolerance parameter.</param>
+            <returns>tolerance input values as integers.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.GetToleranceValue(System.String)">
+            <summary>
+            Get the tolerance value, either form a userVar or directly from user params.
+            </summary>
+            <param name="tolerance">input user tolerance parameter.</param>
+            <returns>tolerance input value as integer.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.CheckToleranceListCount(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            check that the number of values in each tolerance list is according to expected.
+            </summary>
+            <param name="lowerToleranceCount">number of elements of the low tolerance list.</param>
+            <param name="upperToleranceCount">number of elements of the high tolerance list.</param>
+            <param name="pinsCount">number of elements of the pin list.</param>
+            <exception cref="T:System.ArgumentException">the input parameter are not right.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.CheckToleranceListCount(System.Int32,System.Int32)">
+            <summary>
+            check that the number of values in the given tolerance list is expected.
+            </summary>
+            <param name="toleranceCount">number of elements of the tolerance list.</param>
+            <param name="pinsCount">number of elements of the pin list.</param>
+            <exception cref="T:System.ArgumentException">the input parameter are not right.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.CheckToleranceValues(System.String,System.String)">
+            <summary>
+            Verifies that tolerance parameters are not empty.
+            </summary>
+            <param name="lowerTolerance">Low tolerance value.</param>
+            <param name="upperTolerance">High tolerance value.</param>
+            <exception cref="T:System.ArgumentException">the input parameter are not right.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.PrintLimitFail(System.String,System.Double,System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print info when a a limit fail occur.
+            </summary>
+            <param name="pinName">name of the pin.</param>
+            <param name="temperatureMeasurement">temperature to check limit.</param>
+            <param name="limit">limit value.</param>
+            <param name="limitName">name of the limit that is failing.</param>
+            <param name="sessionContext">Current instance's session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.PrintMaximumLimitFail(System.Double,System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print info when a a limit fail occur.
+            </summary>
+            <param name="temperatureMeasurement">temperature to check limit.</param>
+            <param name="limit">limit value.</param>
+            <param name="limitName">name of the limit that is failing.</param>
+            <param name="sessionContext">Current instance's session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.PrintMinimumLimitFail(System.Double,System.Int32,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Print info when a a limit fail occur.
+            </summary>
+            <param name="temperatureMeasurement">temperature to check limit.</param>
+            <param name="limit">limit value.</param>
+            <param name="limitName">name of the limit that is failing.</param>
+            <param name="sessionContext">Current instance's session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.GetSetPointValue">
+            <summary>
+            Gets the integer value read from the SetPointValue uservar.
+            </summary>
+            <returns>An integer associated to the value read from SetPointValue uservar.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.ThermalCommon.GetThermalHeadMeasurement(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the measurement done during the start of test stage.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns>An decimal value associated to the measuremnt from SOT stage.</returns>
+        </member>
+    </members>
+</doc>

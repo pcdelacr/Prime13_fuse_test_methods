@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [ "Configurations" ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Configurations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/Configuration"
+      }
+    }
+  },
+  "definitions": {
+    "Configuration": {
+      "type": "object",
+      "required": [
+        "Name",
+        "Pins"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Pins": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": [
+            { "$ref": "#/definitions/Pin" }
+          ]
+        },
+        "DatalogValues": {
+          "type": "boolean"
+        },
+        "CompressedDatalog": {
+          "type": "boolean"
+        },
+        "ExportToSharedStorage": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Pin": {
+      "type": "object",
+      "required": [
+        "PinName"
+      ],
+      "properties": {
+        "PinName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "SensorsList": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": [
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "NumberOfSensors": {
+          "$ref": "#/definitions/PositiveInteger"
+        },
+        "SensorRegisterSize": {
+          "$ref": "#/definitions/PositiveInteger"
+        },
+        "SensorIndexesToLog": {
+          "type": "string",
+          "minLength": 1
+        },
+        "CtvCaptureFromBits": {
+          "type": "string",
+          "minLength": 1
+        },
+        "SetPoint": {
+          "$ref": "#/definitions/PositiveInteger"
+        },
+        "Slope": {
+          "type": "number"
+        },
+        "Offset": {
+          "type": "integer"
+        },
+        "UpperTolerance": {
+          "type": "integer"
+        },
+        "LowerTolerance": {
+          "type": "integer"
+        },
+        "PrintMaxSensor": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PositiveInteger": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

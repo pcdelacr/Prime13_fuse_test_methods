@@ -1,0 +1,1250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Shmoo</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Shmoo.AxisData">
+            <summary>
+            Wrapper for all data for a specific cardinal axis (x or y).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.AxisData.#ctor(Prime.TestMethods.Shmoo.IShmooAxis,System.String,Prime.TestMethods.Shmoo.PrimeShmooTestMethod.UnitPrefixForDatalog,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.AxisData"/> class. Intended to group all unique axis information used during execution and printing.
+            </summary>
+            <param name="axis">Unique shmoo axis.</param>
+            <param name="axisNameForDatalog">friendly name used during datalog prints for axis.</param>
+            <param name="datalogScalar">Scalar used when printing axis values.</param>
+            <param name="points">Points to be executed on axis.</param>
+            <param name="stringPoints">string Points to be executed on axis.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.AxisData.Axis">
+            <summary>
+            Gets or sets Shmoo Axis for points to run over.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.AxisData.DatalogName">
+            <summary>
+            Gets or sets Name of axis used during datalog prints.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.AxisData.DatalogScalar">
+            <summary>
+            Gets or sets Scalar used during datalog prints to apply to axis values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.AxisData.Points">
+            <summary>
+            Gets or sets List of points as strings to run over shmoo axis.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.AxisData.First">
+            <summary>
+            Gets or sets Name of axis used during datalog prints.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.AxisData.Last">
+            <summary>
+            Gets or sets Name of axis used during datalog prints.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.AxisData.Resolution">
+            <summary>
+            Gets or sets Name of axis used during datalog prints.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.AxisData.GetPrefixValue(Prime.TestMethods.Shmoo.PrimeShmooTestMethod.UnitPrefixForDatalog)">
+            <summary>
+            Gets value for prefix string.
+            </summary>
+            <param name="axisScale">Enum for scalar of datalog.</param>
+            <returns>multiplier to be used to scale based on units.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.AxisData.GetResolution(System.Collections.Generic.HashSet{System.Double})">
+            <summary>
+            Returns resolution of shmoo point list.
+            </summary>
+            <param name="shmooPoints">list of shmoo points being run.</param>
+            <returns>Resolution based on spacing between points.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.IShmooExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooExtensions.GetXAxisPoints(System.String)">
+            <summary>
+            Method to be implemented by user to return all the points in the x-axis range that TestMethod should iterate over.
+            </summary>
+            <param name="pointValue">string from test method parameter "XAxisRange". It usually contains the needed information
+            so user can generate the list of double points for this axis. User is responsible for string format.</param>
+            <returns>List of double points values for x-axis to iterate over.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooExtensions.GetYAxisPoints(System.String)">
+            <summary>
+            Method to be implemented by user to return all the points in the y-axis range that TestMethod should iterate over.
+            </summary>
+            <param name="pointValue">string from test method parameter "YAxisRange". It usually contains the needed information
+            so user can generate the list of double points for this axis. User is responsible for string format.</param>
+            <returns>List of double points values for y-axis to iterate over.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooExtensions.GetFunctionalTest(System.String,System.String,System.String)">
+            <summary>
+            Extension to allow modification of plist execution settings, for example set capture pins or disable incremental mode (starting from last failing pattern).
+            </summary>
+            <param name="patlist">The plist name to build the IFunctionalTest.</param>
+            <param name="levelsTc">The levels test condition name to build the IFunctionalTest.</param>
+            <param name="timingsTc">The timings test condition name to build the IFunctionalTest.</param>
+            <returns>The IFunctionalTest object build as per user requirements.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooExtensions.PrePointExecute(Prime.TestMethods.Shmoo.ShmooPoint,Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Extension to allow user to run custom code prior to plist execution on a specific shmoo point.
+            </summary>
+            <param name="point">The shmoo point to apply the custom code to.</param>
+            <param name="functionalTest">Functional test object that contains execution data for the plist.</param>
+            <returns>
+            <c>true</c> if the custom code was successfully applied and the shmoo point is relevant for the test;
+            otherwise, <c>false</c> if the shmoo point should be skipped.
+            </returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooExtensions.PostPointExecute(Prime.TestMethods.Shmoo.ShmooPoint,Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Extension to allow user to run custom code after plist execution on a specific shmoo point.
+            </summary>
+            <param name="point">The shmoo point to apply the custom code to.</param>
+            <param name="functionalTest">Functional test object that contains execution data for the plist.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooExtensions.PointExecute(Prime.TestMethods.Shmoo.ShmooPoint,Prime.TestMethods.Shmoo.ShmooTestInstanceResults)">
+            <summary>
+            Extension to allow user to override the code that runs on a specific shmoo point. By default, the provided plist will be executed.
+            </summary>
+            <param name="point">The shmoo point to apply the custom code to.</param>
+            <param name="results">The object for holding the exit port, and the normal/regional functional results.</param>
+            <returns><c>true</c> if the shmoo point has passed; otherwise, <c>false</c> if the shmoo point has failed.</returns>
+            <remarks>The return value of this function will impact the exit port of the instance.</remarks>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooExtensions.PostExecute(Prime.FunctionalService.IFunctionalTest,Prime.TestMethods.Shmoo.ShmooTestInstanceResults)">
+            <summary>
+            Extension to allow user to run custom code after all shmoo points have been executed, and determines the final exit port.
+            </summary>
+            <param name="functionalTest">Functional test object that contains execution data for the plist.</param>
+            <param name="results">The object for holding the exit port, and the normal/regional functional results.</param>
+            <remarks>
+            By default, if at least one Shmoo point fails, the instance will exit from port 0.
+            Otherwise, the instance will exit from port 1.
+            </remarks>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooExtensions.PreExecute(Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Extension to allow user to run custom code before any shmoo points are executed.
+            </summary>
+            <param name="functionalTest">Functional test object that contains execution data for the plist.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooExtensions.CreateTestInstanceResults">
+            <summary>
+            Called prior to any test in Execute to generate the test instance results object.
+            </summary>
+            <returns>The test instance results object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooExtensions.GetDynamicPinMask">
+            <summary>
+            Gets the list of pins to mask execution after execution. The test method will merge this list with the ones from the test instance parameter.
+            </summary>
+            <returns>The list of mask pins.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PlotLegend">
+            <summary>
+            This class will manage shmoo plot legend characters.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegend.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.PlotLegend"/> class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PlotLegend.ReservedSymbols">
+            <summary>
+            Reserved symbols.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PlotLegend.ReservedSymbols.PASS">
+            <summary>
+            pass.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PlotLegend.ReservedSymbols.SKIP">
+            <summary>
+            skip.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PlotLegend.ReservedSymbols.EXCESSIVE_FAIL">
+            <summary>
+            excessive fail. This should be used when no more characters left to be used.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegend.AddData(Prime.TestMethods.Shmoo.ShmooPoint,System.String)">
+            <summary>
+            Adds a new fail info and returns the assigned character for it.
+            Note: method will take care of the duplicated fail info.
+            </summary>
+            <param name="point">point.</param>
+            <param name="info">info.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegend.AddData(Prime.TestMethods.Shmoo.ShmooPoint,System.Collections.Generic.KeyValuePair{System.String,System.String})">
+            <summary>
+            Adds a new per pin fail info and returns the assigned character for it.
+            Note: method will take care of the duplicated fail info.
+            </summary>
+            <param name="point">point.</param>
+            <param name="perPinInfo">per pin info.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegend.FlagSkippedPoint(Prime.TestMethods.Shmoo.ShmooPoint)">
+            <summary>
+            Flag a point as skipped. There's a reserved symbol for skipped point.
+            </summary>
+            <param name="point">point to flag as skipped.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegend.GetPointSymbol(Prime.TestMethods.Shmoo.ShmooPoint,System.String)">
+            <summary>
+            This should return symbol for the given point. If this point doesn't have entry, we assume it's passing.
+            </summary>
+            <param name="point">point.</param>
+            <param name="shmooPinName">pin name.</param>
+            <returns>symbol.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegend.GetPlotLegend">
+            <summary>
+            Returns the plot legend mapping from key to value.
+            </summary>
+            <returns>Legend map.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegend.ResetLegend">
+            <summary>
+            Resets data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PlotLegendBase">
+            <summary>
+            This defines the base class for plot legend.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PlotLegendBase.PinNameToPointToSymbolMap">
+            <summary>
+            Gets or sets PinNameToPointToSymbolMap.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PlotLegendBase.PointToSymbolMap">
+            <summary>
+            Gets or sets pointToSymbolMap.
+            This map holds the shmoo map that will be printed to ituff/console.
+            This will hold the symbol per point. (not the legend. The legend has a separate class).
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendBase.GetPointSymbol(Prime.TestMethods.Shmoo.ShmooPoint,System.String)">
+            <summary>
+            This should return symbol for the given point.
+            </summary>
+            <param name="point">point.</param>
+            <param name="shmooPinName">name of shmoo pin.</param>
+            <returns>symbol.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendBase.GetPlotLegend">
+            <summary>
+            This should return the plot legend data.
+            </summary>
+            <returns>Legend.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendBase.ResetLegend">
+            <summary>
+            Resets legend data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendBase.GetEnumerator">
+            <summary>
+            Used to loop over legend map.
+            </summary>
+            <returns>enumerator for the loop.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendBase.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendBase.Reset">
+            <summary>
+            Resets data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendBase.SetPointSymbol(Prime.TestMethods.Shmoo.ShmooPoint,System.String)">
+            <summary>
+            Sets symbol. It can be used only be inheriting classes.
+            </summary>
+            <param name="point">point.</param>
+            <param name="symbol">symbol.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendBase.SetPinNameToPointSymbol(Prime.TestMethods.Shmoo.ShmooPoint,System.String,System.String)">
+            <summary>
+            Sets symbol. It can be used only be inheriting classes.
+            </summary>
+            <param name="point">point.</param>
+            <param name="pinName">pin name.</param>
+            <param name="symbol">symbol.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PlotLegendCustom">
+            <summary>
+            This class represents custom plot legend.
+            User of Shmoo test method, can decide to use 'CUSTOM' plot mode through the parameter.
+            In this custom mode, user will have control over the symbol to write for each shmoo point,
+            and over the legend keys and values. Note that in custom mode, there's no direct connection between
+            symbol and legend key; unlike the default plotting mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendCustom.AddData(Prime.TestMethods.Shmoo.ShmooPoint,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+             <summary>
+             Populates the shmoo map with the following information per a given point:
+             [1] symbol: the symbol of this point to show when plotting the map to ituff/console.
+             [2] legend data: the key and values to show when printing the legend following the plotting map.
+                  Note: from user's perspective, there's no restriction or any connection between key and symbol.
+                        but at the end, the final legend key will appear on ituff/console as follow:
+            
+                        E.g. point=(4, 7);
+                             legendKeyAndValue=(keys: MySpecialPoint, HelloABC | values=FailInfo1, FailInfo2)
+            
+                             plotting:
+            
+                             2_tname_INSTANCE_NAME^LEGEND^[4,7,MySpecialPoint]
+                             2_strgval_fail_FailInfo1
+                             2_tname_INSTANCE_NAME^LEGEND^[4,7,HelloABC]
+                             2_strgval_fail_FailInfo2.
+             </summary>
+             <param name="point">point under test.</param>
+             <param name="symbol">symbol for this point, when printing the shmoo map.</param>
+             <param name="legendKeyAndValue">legend info to add. See example.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendCustom.GetPlotLegend">
+            <summary>
+            Returns the plot legend mapping from key to value.
+            </summary>
+            <returns>Legend map.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendCustom.GetPointSymbol(Prime.TestMethods.Shmoo.ShmooPoint,System.String)">
+            <summary>
+            This should return symbol for the given point. If this point doesn't have entry, we throw an exception;
+            since in custom plot legend mode, user need to fill the symbol for each possible point.
+            </summary>
+            <param name="point">point.</param>
+            <param name="shmooPinName">pin name.</param>
+            <returns>symbol.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendCustom.ResetLegend">
+            <summary>
+            Resets legend data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PlotLegendCustom.GenerateKey(Prime.TestMethods.Shmoo.ShmooPoint,System.String)">
+            <summary>
+            This function should be used (internally by Prime developers) to create the key for the legend.
+            </summary>
+            <param name="point">point.</param>
+            <param name="key">requested key for this point.</param>
+            <returns>the final key to be used with the shmoo legend.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PrimeShmooTestMethod">
+            <summary>
+            Test method responsible for executing Shmoo.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ExecMode">
+            <summary>
+            Enum for Execution Mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ExecMode.AllPin">
+            <summary>
+            All Pin Mode, which is the default execution mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ExecMode.PerPin">
+            <summary>
+            Per Pin mode.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooAxisType">
+            <summary>
+            Enum for X/Y IShmooAxis Type parameters.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooAxisType.None">
+            <summary>
+            ShmooAxis is unused.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooAxisType.LevelsTestCondition">
+            <summary>
+            ShmooAxis is a Prime LevelsTestCondition type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooAxisType.TimingTestCondition">
+            <summary>
+            ShmooAxis is a Prime TimingTestCondition type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooAxisType.PatConfig">
+            <summary>
+            ShmooAxis is a list of Prime PatConfigs.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooAxisType.PatConfigSetPoint">
+            <summary>
+            ShmooAxis is a list of Prime PatConfigSetPoints.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooAxisType.VoltageConfig">
+            <summary>
+            ShmooAxis is a voltage configuration (fivr/dlvr).
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooAxisType.UserDefined">
+            <summary>
+            ShmooAxis is user defined. By default shmoo execution functions will do nothing. Functions can be overwritten using extensions.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.UnitPrefixForDatalog">
+            <summary>
+            Scale for a given axis.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.UnitPrefixForDatalog.Base">
+            <summary>
+            Axis should be printed to datalog in base units.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.UnitPrefixForDatalog.Milli">
+            <summary>
+            Axis should be printed to datalog in milli units.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.UnitPrefixForDatalog.Micro">
+            <summary>
+            Axis should be printed to datalog in micro units.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.UnitPrefixForDatalog.Nano">
+            <summary>
+            Axis should be printed to datalog in nano units.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooPrintFormat">
+            <summary>
+            Enum for format to print to ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooPrintFormat.ShmooHub">
+            <summary>
+            Shmoohub print in format.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooPrintFormat.ECADS">
+            <summary>
+            ECADS print in format.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooPrintFormat.ARIES">
+            <summary>
+            ARIES print in format.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.PowerDownBetweenPointsSettings">
+            <summary>
+            Settings to enable or disable PowerDownBetweenPoints.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.PowerDownBetweenPointsSettings.ENABLED">
+            <summary>
+            Enable power down between points.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.PowerDownBetweenPointsSettings.DISABLED">
+            <summary>
+            Disable power down between points.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooPlotMode">
+            <summary>
+            Shmoo plot mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooPlotMode.NORMAL">
+            <summary>
+            Normal mode where symbol and key in the plot is automatically chosen, but user control the legend fail string.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooPlotMode.CUSTOM">
+            <summary>
+            Custom mode where user control all the plot attributes, symbol key and legend fail string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.XAxisParam">
+            <summary>
+            Gets or sets the XAxisParameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.XAxisParamType">
+            <summary>
+            Gets or sets the XAxisParamType.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ExecutionMode">
+            <summary>
+            Gets or sets the ExecutionMode. None by AllPin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooPins">
+            <summary>
+            Gets or sets comma separated shmoo pins for PerPin mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.XAxisDatalogPrefix">
+            <summary>
+            Gets or sets the unit prefix for scaling the X axis. (Base, Milli, Micro, Nano).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.XAxisDatalogName">
+            <summary>
+            Gets or sets the name used during datalog prints for X axis. Uses XAxisParam by default.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.XAxisRange">
+            <summary>
+            Gets or sets the XAxisRange. Default format: "Start: Resolution: NumberOfPoints".
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.YAxisParam">
+            <summary>
+            Gets or sets the YAxisParameter. Empty by default.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.YAxisParamType">
+            <summary>
+            Gets or sets the YAxisParamType. None by default.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.YAxisRange">
+            <summary>
+            Gets or sets the YAxisRange. Default format: "Start: Resolution: NumberOfPoints".
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.YAxisDatalogPrefix">
+            <summary>
+            Gets or sets the unit prefix for scaling the Y axis. (Base, Milli, Micro, Nano).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.YAxisDatalogName">
+            <summary>
+            Gets or sets the name used during datalog prints for Y Axis. Uses YAxisParam by default.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.RegionalKillLimits">
+            <summary>
+            Gets or sets the RegionalKillLimits. Format is: "XMin, XMax, YMin, YMax".
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.PrintFormat">
+            <summary>
+            Gets or sets the print format for shmoo ituffs.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.PowerDownBetweenPoints">
+            <summary>
+             Gets or sets power_down_between_point. This will trigger EndSequence before ApplyTestCondition in PrePointExecute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.PlotMode">
+            <summary>
+            Gets or sets PlotMode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.Shmoo.IShmooExtensions" />
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.PlotLegend">
+            <summary>
+            Gets or sets the PlotLegend.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooLoopPoints">
+            <summary>
+            Gets or sets all shmoo points arranged in one list. At execute we iterate over this list to create shmoo.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.XAxisData">
+            <summary>
+            Gets or sets data for x axis.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.YAxisData">
+            <summary>
+            Gets or sets data for y axis.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Printer">
+            <summary>
+            Gets or sets Shmoo Printer.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.RegionalKillLimitsStructure">
+            <summary>
+            Gets or sets regional kill limits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.XAxisStringPoints">
+            <summary>
+            Gets or sets the X axis points as string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.YAxisStringPoints">
+            <summary>
+            Gets or sets the Y axis points as string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.YAxisPoints">
+            <summary>
+            Gets or sets the Y axis points.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.XAxisPoints">
+            <summary>
+            Gets or sets the X axis points.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.GetPlotLegend">
+            <summary>
+            Returns normal plot legend.
+            </summary>
+            <returns>normal plot legend.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.GetCustomPlotLegend">
+            <summary>
+            Returns custom plot legend.
+            </summary>
+            <returns>custom plot legend.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.GetShmooAxis(System.String,Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ShmooAxisType)">
+            <summary>
+            Gets a shmoo axis using the default type enum ShmooAxisType.
+            </summary>
+            <param name="axisParameter">parameter to create axis with.</param>
+            <param name="axisType">type of axis to create.</param>
+            <returns>shmoo axis.</returns>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">AxisType was not found.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#Shmoo#IShmooExtensions#GetXAxisPoints(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#Shmoo#IShmooExtensions#GetYAxisPoints(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#Shmoo#IShmooExtensions#GetFunctionalTest(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#Shmoo#IShmooExtensions#CreateTestInstanceResults">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#Shmoo#IShmooExtensions#PrePointExecute(Prime.TestMethods.Shmoo.ShmooPoint,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#Shmoo#IShmooExtensions#PreExecute(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#Shmoo#IShmooExtensions#PostExecute(Prime.FunctionalService.IFunctionalTest,Prime.TestMethods.Shmoo.ShmooTestInstanceResults)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.SetPinMask">
+            <summary>
+            Set the list of pins that will be masked when plist is executed.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#Shmoo#IShmooExtensions#PointExecute(Prime.TestMethods.Shmoo.ShmooPoint,Prime.TestMethods.Shmoo.ShmooTestInstanceResults)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#Shmoo#IShmooExtensions#PostPointExecute(Prime.TestMethods.Shmoo.ShmooPoint,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.Prime#TestMethods#Shmoo#IShmooExtensions#GetDynamicPinMask">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.SetupPlotLegend">
+            <summary>
+            function to set plot legend based on the parameter.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ExtractedRangeFields">
+            <summary>
+            ExtractedRangedFields.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ExtractedRangeFields.Start">
+            <summary>
+            Gets or sets Start.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ExtractedRangeFields.NumberOfPoints">
+            <summary>
+            Gets or sets NumberOfPoints.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.ExtractedRangeFields.Resolution">
+            <summary>
+            Gets or sets Resolution.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.KillLimits">
+            <summary>
+            RegionalKillLimits.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.KillLimits.AreLimitsUsed">
+            <summary>
+            Gets or sets a value indicating whether limits are used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.KillLimits.XMin">
+            <summary>
+            Gets or sets XMin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.KillLimits.XMax">
+            <summary>
+            Gets or sets XMax.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.KillLimits.YMin">
+            <summary>
+            Gets or sets YMin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PrimeShmooTestMethod.KillLimits.YMax">
+            <summary>
+            Gets or sets YMax.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.EmptyShmooAxis">
+            <summary>
+            EmptyShmooAxis axis used when no parameter is provided.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.EmptyShmooAxis.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.EmptyShmooAxis"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.EmptyShmooAxis.OriginalValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.EmptyShmooAxis.AxisInput">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.EmptyShmooAxis.Units">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.EmptyShmooAxis.SessionContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.EmptyShmooAxis.PrePointExecute(System.String,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.EmptyShmooAxis.PostExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.EmptyShmooAxis.PreExecute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.IShmooAxis">
+            <summary>
+            ShmooAxis class is used to determine what actions are taken during execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.IShmooAxis.OriginalValue">
+            <summary>
+            Gets original value for the axis parameter as a string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.IShmooAxis.AxisInput">
+            <summary>
+            Gets the name of the thing the axis is iterating over.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.IShmooAxis.Units">
+            <summary>
+            Gets name of the base units for the axis.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.IShmooAxis.SessionContext">
+            <summary>
+            Gets sessionContext passed in through test method used for prints.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooAxis.PrePointExecute(System.String,Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Runs before each point is executed. Sets the TC spec value of X and Y if they are defined.
+            </summary>
+            <param name="axisValue">current point.</param>
+            <param name="functionalTest">functionalTest of the executed plist.</param>
+            <returns>false if this point should be skipped, true otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooAxis.PostExecute">
+            <summary>
+            Runs after execute for cleanup/print functions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.IShmooAxis.PreExecute">
+            <summary>
+            Runs before all shmoo points have been executed.
+            </summary>
+            <returns>True if successfully executed, false otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PatConfigAxis">
+            <summary>
+            PatConfigAxis version of axis.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PatConfigAxis.#ctor(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.PatConfigAxis"/> class.
+            </summary>
+            <param name="patConfigNames">list of pat config names.</param>
+            <param name="plist">plist to apply.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PatConfigAxis.OriginalValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PatConfigAxis.AxisInput">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PatConfigAxis.Units">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PatConfigAxis.SessionContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PatConfigAxis.PrePointExecute(System.String,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PatConfigAxis.PostExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PatConfigAxis.PreExecute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.PatConfigSetPointAxis">
+            <summary>
+            PatConfigSetPointAxis axis.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PatConfigSetPointAxis.#ctor(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.PatConfigSetPointAxis"/> class.
+            </summary>
+            <param name="patConfigPairs">list of pat config names.</param>
+            <param name="plist">plist to apply.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PatConfigSetPointAxis.OriginalValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PatConfigSetPointAxis.AxisInput">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PatConfigSetPointAxis.Units">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.PatConfigSetPointAxis.SessionContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PatConfigSetPointAxis.PrePointExecute(System.String,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PatConfigSetPointAxis.PostExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.PatConfigSetPointAxis.PreExecute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.LevelAxis">
+            <summary>
+            LevelsTestCondition version of axis.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.LevelAxis.#ctor(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.LevelAxis"/> class.
+            </summary>
+            <param name="axisParameter">name of parameter that axis is made of.</param>
+            <param name="testConditionName">input levels test condition.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.LevelAxis.Units">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.LevelAxis.ApplyTestCondition(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.TestConditionAxis">
+            <summary>
+            TestConditionAxis version of axis.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.TestConditionAxis.#ctor(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.TestConditionAxis"/> class.
+            </summary>
+            <param name="axisInput">name of specset that axis is made of.</param>
+            <param name="testCondition">input test condition name.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.TestConditionAxis.OriginalValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.TestConditionAxis.AxisInput">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.TestConditionAxis.Units">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.TestConditionAxis.SessionContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.TestConditionAxis.ApplyTestCondition(Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Applies test condition if the axis value has changed.
+            </summary>
+            <param name="functionalTest">functional test to apply test condition onto.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.TestConditionAxis.PrePointExecute(System.String,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.TestConditionAxis.PostExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.TestConditionAxis.PreExecute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.TimingAxis">
+            <summary>
+            TimingTestCondition version of axis.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.TimingAxis.#ctor(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.TimingAxis"/> class.
+            </summary>
+            <param name="axisParameter">name of parameter that axis is made of.</param>
+            <param name="testConditionName">input timing test condition.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.TimingAxis.Units">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.TimingAxis.ApplyTestCondition(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.UserDefinedAxis">
+            <summary>
+            UserDefinedAxis. Users are expected to populate each extension.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.UserDefinedAxis.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.UserDefinedAxis"/> class.
+            </summary>
+            <param name="axisInput">name of object that axis is made of.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.UserDefinedAxis.OriginalValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.UserDefinedAxis.AxisInput">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.UserDefinedAxis.Units">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.UserDefinedAxis.SessionContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.UserDefinedAxis.PrePointExecute(System.String,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.UserDefinedAxis.PostExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.UserDefinedAxis.PreExecute">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis">
+            <summary>
+            VoltageConfigurationAxis version of axis.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis.#ctor(System.String,Prime.TestMethods.TestMethodsParams.LevelsCondition,Prime.TestMethods.TestMethodsParams.Plist,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis"/> class.
+            </summary>
+            <param name="voltageConfigurationString">Configurations for the voltage config axis.</param>
+            <param name="levelsTc">Levels to apply.</param>
+            <param name="plist">plist to apply.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis.OriginalValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis.AxisInput">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis.Units">
+            <inheritdoc/>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis.SessionContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis.PrePointExecute(System.String,Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis.PostExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis.PreExecute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationAxis.GetVoltageOverrides(System.String)">
+            <summary>
+            Gets voltage overrides from VoltageConverterOptions.
+            </summary>
+            <param name="overridesParameter">override string parameters.</param>
+            <returns>Voltage overrides values in dictionary format.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationOptions">
+            <summary>
+            Defines options used by voltage configurations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationOptions.FivrCondition">
+            <summary>
+            Gets or sets the fivr condition name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationOptions.Overrides">
+            <summary>
+            Gets or sets the list of overrides using specific syntax.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationOptions.DlvrPins">
+            <summary>
+            Gets or sets the list of dlvr pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.VoltageConfigurations.VoltageConfigurationOptions.Domains">
+            <summary>
+            Gets or sets the list of domains.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.ShmooConstants">
+            <summary>
+            Constants used by the entire shmoo test method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.ShmooConstants.DoubleTolerance">
+            <summary>
+            Tolerance used during floating point arithmetic to prevent floating point issues. formatter goes out to 12 digits to support up to 0.01 ns increments.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Shmoo.ShmooConstants.DecimalPlaces">
+            <summary>
+            Number of decimals to go out to for tolerance.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.ShmooPoint">
+            <summary>
+            ShmooPoint.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.ShmooPoint.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.ShmooPoint"/> class.
+            </summary>
+            <param name="xValue"> xValue. </param>
+            <param name="yValue"> yValue. </param>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.ShmooPoint.XValue">
+            <summary>
+            Gets XValue.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.ShmooPoint.YValue">
+            <summary>
+            Gets YValue.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.ShmooPoint.Equals(System.Object)">
+            <summary>
+            Equals.
+            </summary>
+            <param name="obj">obj.</param>
+            <returns>return.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.ShmooPoint.GetHashCode">
+            <summary>
+            this.
+            </summary>
+            <returns>return.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.AriesPrinter">
+            <summary>
+            Print class for Aries format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.AriesPrinter.#ctor(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.AriesPrinter"/> class.
+            </summary>
+            <param name="shmooPins">Lists of shmoo pins.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.AriesPrinter.PrintPlotToItuff(Prime.TestMethods.Shmoo.PlotLegendBase,Prime.TestMethods.Shmoo.AxisData,Prime.TestMethods.Shmoo.AxisData)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.EcadsPrinter">
+            <summary>
+            Print class for ecads format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.EcadsPrinter.#ctor(System.String,System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.EcadsPrinter"/> class.
+            </summary>
+            <param name="testInstanceName">Name of current test instance to be used during print.</param>
+            /// <param name="shmooPins">Lists of shmoo pins.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.EcadsPrinter.PrintPlotToItuff(Prime.TestMethods.Shmoo.PlotLegendBase,Prime.TestMethods.Shmoo.AxisData,Prime.TestMethods.Shmoo.AxisData)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.ShmooHubPrinter">
+            <summary>
+            Print class for ShmooHub.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.ShmooHubPrinter.#ctor(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.ShmooHubPrinter"/> class.
+            </summary>
+            <param name="shmooPins">Lists of shmoo pins.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.ShmooHubPrinter.PrintPlotToItuff(Prime.TestMethods.Shmoo.PlotLegendBase,Prime.TestMethods.Shmoo.AxisData,Prime.TestMethods.Shmoo.AxisData)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.ShmooPrinter">
+            <summary>
+            Base class used for ituff prints.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.ShmooPrinter.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Shmoo.ShmooPrinter"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.ShmooPrinter.GetFailString(System.Collections.Generic.List{Prime.FunctionalService.IFailureData})">
+            <summary>
+            Returns failure data string ot be used by Plot legend.
+            </summary>
+            <param name="fails">list of failures for functional test.</param>
+            <returns>Formatted failure string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.ShmooPrinter.GetPerPinFailString(System.Collections.Generic.List{Prime.FunctionalService.IFailureData})">
+            <summary>
+            Returns per pin failure data string ot be used by Plot legend.
+            </summary>
+            <param name="fails">list of failures for functional test.</param>
+            <returns>Dictionary of pin name with formatted fail string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.ShmooPrinter.PrintPlotToItuff(Prime.TestMethods.Shmoo.PlotLegendBase,Prime.TestMethods.Shmoo.AxisData,Prime.TestMethods.Shmoo.AxisData)">
+            <summary>
+            Prints plot to ituff. Prints to console at the same time.
+            </summary>
+            <param name="plotLegend">legend for plot.</param>
+            <param name="xAxisData">xAxisData to print.</param>
+            <param name="yAxisData">yAxisData to print.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Shmoo.ShmooPrinter.PrintSSTP(Prime.TestMethods.Shmoo.AxisData,Prime.TestMethods.Shmoo.AxisData)">
+            <summary>
+            Generates SSTP summary for shmoo plot print. prints in the format: 2_strgval_X_{originalXValue}_Y_4{originalYValue} Used by Aries and ShmooHub formats.
+            </summary>
+            <param name="xAxisData">xAxisData to print SSTP for.</param>
+            <param name="yAxisData">yAxisData to print SSTP for.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Shmoo.ShmooTestInstanceResults">
+            <summary>
+            Class to allow proper user modification of exit port.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.ShmooTestInstanceResults.FunctionalResults">
+            <summary>
+            Gets or sets collection of functional result per point.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.ShmooTestInstanceResults.IsAllPassing">
+            <summary>
+            Gets or sets a value indicating whether all points are passing. True by default.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.ShmooTestInstanceResults.IsAllFailures">
+            <summary>
+            Gets or sets a value indicating whether all points are failing. True by default.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Shmoo.ShmooTestInstanceResults.IsRegionPassing">
+            <summary>
+            Gets or sets a value indicating whether all points in the regional kill area are passing. True by default.
+            </summary>
+        </member>
+    </members>
+</doc>

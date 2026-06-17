@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [ "TestConditions" ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "TestConditions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/TestCondition"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "TestCondition": {
+      "type": "object",
+      "required": [ "Name", "PatternTriggerMap" ],
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "PatternTriggerMap": {
+          "type": "string",
+          "minLength": 0
+        }
+      }
+    }
+  }
+}

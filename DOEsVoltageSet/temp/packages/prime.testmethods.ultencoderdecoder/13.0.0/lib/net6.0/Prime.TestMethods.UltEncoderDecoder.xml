@@ -1,0 +1,394 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.UltEncoderDecoder</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.Common.Ult">
+            <summary>
+            Ult struct to hold Unit Level Traceability.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.Common.Ult.Lot">
+            <summary>
+            Gets or sets the lot to hold the lot number.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.Common.Ult.Wafer">
+            <summary>
+            Gets or sets the Wafer to hold wafer number.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.Common.Ult.XLocation">
+            <summary>
+            Gets or sets the XLocation to hold X axis location.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.Common.Ult.YLocation">
+            <summary>
+            Gets or sets the YLocation to hold Y axis location.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.Common.Ult.ToString">
+            <summary>
+            Convert to string Ult.
+            </summary>
+            <returns>Return a multiline Ult data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.Common.Ult.GetULT">
+            <summary>
+            Get ULT as string in a single line.
+            </summary>
+            <returns>Return a string with ULT information separate by underscore (_).</returns>
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.IUltDecoderPlugin">
+            <summary>
+            An plugin interface for the different types of UltDecoders.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.IUltDecoderPlugin.Initialize(System.String)">
+            <summary>
+            Initialize the plugin object.
+            </summary>
+            <param name="userInput">The user's input in the parameter.</param>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.IUltDecoderPlugin.VerifyExpectedBinCount(System.UInt32)">
+            <summary>
+            Verifies if the user's provided expected count.
+            </summary>
+            <param name="expectedBitCount">The user-provided expected bit count.</param>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.IUltDecoderPlugin.Decode(System.String,System.String,Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.CtvsOrder,System.UInt32,System.Int32)">
+            <summary>
+            Executes the ult decoding.
+            </summary>
+            <param name="dieId">The current instances results for the ongoing DUT session.</param>
+            <param name="binaryData">The binary data to decode for the current <paramref name="dieId"/>.</param>
+            <param name="order">The order of the bits.</param>
+            <param name="expectedBitCount">The expected count.</param>
+            <param name="offset">The bits' offset.</param>
+            <returns>If the decoding was success or not.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.TsmcUltDecoderPlugin">
+            <summary>
+            Tsmc's specific UltDecoder plugin implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.TsmcUltDecoderPlugin.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.UltEncoderDecoder.TsmcUltDecoderPlugin"/> class.
+            </summary>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.TsmcUltDecoderPlugin.Initialize(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.TsmcUltDecoderPlugin.VerifyExpectedBinCount(System.UInt32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.TsmcUltDecoderPlugin.Decode(System.String,System.String,Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.CtvsOrder,System.UInt32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.UltDecoderPlugin">
+            <summary>
+            Intel's specific UltDecoder plugin implementation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.UltDecoderPlugin.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.UltEncoderDecoder.UltDecoderPlugin"/> class.
+            </summary>
+            <param name="sessionContext">sessionContext.</param>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.UltDecoderPlugin.VerifyExpectedBinCount(System.UInt32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.UltDecoderPlugin.Decode(System.String,System.String,Prime.BusinessLogic.FuseLogicCollection.UltDecoderBasic.Ult.CtvsOrder,System.UInt32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.UltDecoderPlugin.Initialize(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.IUltDecoderExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.IUltDecoderExtensions.CustomPostProcessResults(Prime.TestMethods.UltEncoderDecoder.UltDecoderTestInstanceResults)">
+            <summary>
+            Called right after successful execution to allow the user to post process exit port, CTV results, and functional results.
+            </summary>
+            <param name="results">The object for holding the exit port, CTV results, and functional results.</param>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.IUltDecoderExtensions.CreateTestInstanceResults">
+            <summary>
+            Called prior to any test in Execute to generate the test instance results object.
+            </summary>
+            <returns>The test instance results object.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.IUltDecoderExtensions.GetDynamicPinMask">
+            <summary>
+            Gets the list of pins to mask execution after execution. The test method will merge this list with the ones from the test instance parameter.
+            </summary>
+            <returns>The list of mask pins.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod">
+            <summary>
+            Ult decode test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.#ctor(Prime.TestMethods.UltEncoderDecoder.IUltDecoderPlugin)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod"/> class.
+            </summary>
+            <param name="ultDecoderPlugin">ultDecoderPlugin.</param>
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.HasToPrintUltDataPerDieIdToItuff">
+            <summary>
+            If the capability is enabled or disabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.HasToPrintUltDataPerDieIdToItuff.Enabled">
+            <summary>
+            If the test instance has to print the Ult data per die id to the ituff.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.HasToPrintUltDataPerDieIdToItuff.Disabled">
+            <summary>
+            If the test instance doesn't have to print the Ult data per die id to the ituff.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.CtvsOrder">
+            <summary>
+            CTVs order options for decoding.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.CtvsOrder.Msb">
+            <summary>
+            Most Significant Bit first.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.CtvsOrder.Lsb">
+            <summary>
+            Least Significant Bit first.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.CapturePins">
+            <summary>
+            Gets or sets pins name for CTV capture.
+            Comma separated list of pins for CTV capture one for each Die Id.
+            Use capture pins empty when you use UserVarsList parameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.ExpectedBitCount">
+            <summary>
+            Gets or sets expected total bit count.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.DieIdNames">
+            <summary>
+            Gets or sets the Name Die Id name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.PackageEfuse">
+            <summary>
+            Gets or sets DieId Name to print ituff as PackageEfuse.
+            DieId Ult info will print under trlot, trwafer, trxloc, tryloc.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Offset">
+            <summary>
+            Gets or sets list of offsets to start ctvs decoding.
+            If one value is given it will be use as offsets for all Ctvs. Default is 0 (zero).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.UserVarsList">
+            <summary>
+            Gets or sets list of comma separated userVarNames in the format of collection.userVarName variables.
+            Can also use SharedStorage keys separated by commas.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.CtvOrder">
+            <summary>
+            Gets or sets CTVs order for decoding.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.PrintUltDataPerDieIdToItuff">
+            <summary>
+            Gets or sets if the current instance has to print the ult data per die id to the ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.UltDecoderPluginName">
+            <summary>
+            Gets or sets the UltDecoderPlugin name to use.
+            If empty, the default will be used (<see cref="T:Prime.TestMethods.UltEncoderDecoder.UltDecoderPlugin"/>).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.UltPluginUserInput">
+            <summary>
+            Gets or sets DieId Name to print ituff as UltPluginUserInput.
+            DieId Ult info will print under trlot, trwafer, trxloc, tryloc.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.UltEncoderDecoder.IUltDecoderExtensions" />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.ProcessCtvAndUltData(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Process CTV and ult data.
+            </summary>
+            <param name="ctvData">Ctv data with capture pin as key and ctv data as value.</param>
+            <returns>Test methods pass or fail port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Prime#TestMethods#UltEncoderDecoder#IUltDecoderExtensions#CustomPostProcessResults(Prime.TestMethods.UltEncoderDecoder.UltDecoderTestInstanceResults)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Prime#TestMethods#UltEncoderDecoder#IUltDecoderExtensions#CreateTestInstanceResults">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Prime#TestMethods#UltEncoderDecoder#IUltDecoderExtensions#GetDynamicPinMask">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.ExecuteOnlyDecoder">
+            <summary>
+            Executes decoder portion of execute.
+            </summary>
+            <returns>int representing exit port.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltDecoderTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.UltDecoderTestInstanceResults">
+            <summary>
+            Class to allow proper user modification of exit port.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.UltDecoderTestInstanceResults.FunctionalResult">
+            <summary>
+            Gets or sets a value indicating whether functional execution passes or fails.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.UltDecoderTestInstanceResults.CtvResults">
+            <summary>
+            Gets or sets CTV results.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod">
+            <summary>
+            Ult encode test method.
+            Use to encode ult to 50, 56 and 64 bits.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.CtvsOrder">
+            <summary>
+            CTVs order options for encoding.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.CtvsOrder.Msb">
+            <summary>
+            Most Significant Bit first.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.CtvsOrder.Lsb">
+            <summary>
+            Least Significant Bit first.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.BitCount">
+            <summary>
+            Gets or sets expected bit count.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.DieIdName">
+            <summary>
+            Gets or sets the Name Die Id name, use when data are taken from share storage.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.UserVarForLotName">
+            <summary>
+            Gets or sets user var name for lot number.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.UserVarForWafer">
+            <summary>
+            Gets or sets user var name for wafer.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.UserVarForXCoordinate">
+            <summary>
+            Gets or sets user var name for x coordinate.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.UserVarForYCoordinate">
+            <summary>
+            Gets or sets user var name for x coordinate.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.TargetUserVar">
+            <summary>
+            Gets or sets user var name for save the result.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.CtvOrder">
+            <summary>
+            Gets or sets CTVs order for decoding.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.UltEncoderDecoder.PrimeUltEncoderTestMethod.EncodeULT(Prime.TestMethods.UltEncoderDecoder.Common.Ult,System.UInt64)">
+            <summary>
+            Method to encode Ult.
+            Errors are returned as TestMethodException.
+            </summary>
+            <param name="ult"> is the  ult to be encoded.</param>
+            <param name="bitCount"> is the size of the string to be return.</param>
+            <returns>a string with the ult encoded.</returns>
+        </member>
+    </members>
+</doc>

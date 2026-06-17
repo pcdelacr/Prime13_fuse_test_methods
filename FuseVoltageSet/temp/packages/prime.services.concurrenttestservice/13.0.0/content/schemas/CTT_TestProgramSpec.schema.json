@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "TestProgramSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "Project",
+    "CCRModuleName",
+    "ResourcesPowerRailMapping"
+  ],
+  "properties": {
+    "Project": {
+      "type": "string"
+    },
+    "CCRModuleName": {
+      "type": "string"
+    },
+    "ResourcesPowerRailMapping": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/PowerRailMapping"
+      }
+    }
+  },
+  "definitions": {
+    "PowerRailMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "GroupName",
+        "FlowDomain",
+        "InstanceToVminFwdInstance",
+        "InstanceToPowerRail"
+      ],
+      "properties": {
+        "GroupName": {
+          "type": "string"
+        },
+        "FlowDomain": {
+          "type": "string"
+        },
+        "InstanceToVminFwdInstance": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "InstanceToPowerRail": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

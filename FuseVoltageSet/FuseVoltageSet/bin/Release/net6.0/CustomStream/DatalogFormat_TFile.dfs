@@ -1,0 +1,13 @@
+Version 0.1.0;
+#This format takes CustomField and prints its value
+Format TFileEventFormat
+{
+	DLL "HMI_DatalogFormat";  #Make sure to use same dll for all your formats
+	Format "%s";      #Print the content of CustomField
+	Fields "TFileField";
+}
+Format TFileEndOfTransmissionFormat
+{
+	DLL "HMI_DatalogFormat";
+	Format "\n";
+}

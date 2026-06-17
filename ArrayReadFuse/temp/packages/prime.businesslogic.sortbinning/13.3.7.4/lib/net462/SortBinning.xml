@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.SortBinning</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.SortBinning.BinOperations">
+            <summary>
+            This class contains methods which perform operations on bin numbers needed to execute the main
+            binning algorithms.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.SortBinning.BinOperations.GetHardBin(System.UInt32)">
+            <summary>
+            Gets the hardbin digits from a given 7-8 digit bin.
+            </summary>
+            <param name="bin">The bin from which to get the hardbin from.</param>
+            <returns>The calculated hardbin.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.SortBinning.BinOperations.GetFunctionalBin(System.UInt32)">
+            <summary>
+            Gets the Functional Bin digits from a given 7-8 digit bin.
+            </summary>
+            <param name="bin">The bin from which to get the fbin from.</param>
+            <returns>The calculated fbin.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.SortBinning.BinOperations.GetLastTwoDigitsOfFunctionalBin(System.UInt32)">
+            <summary>
+            Gets the last two digits of the Functional Bin from a 7-8 digit bin.
+            </summary>
+            <param name="bin">The bin from which to get the last two digits of the fbin from.</param>
+            <returns>The last two digits of the fbin.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.SortBinning.BinOperations.IsBinFailBin(System.UInt32)">
+            <summary>
+            Determines whether a given bin is a failing bin.
+            If the Hardbin is equal to or greater than 7 it is a fail bin, otherwise it is a pass bin.
+            </summary>
+            <param name="bin">The bin to check for failing criteria.</param>
+            <returns>True if the bin is a fail bin.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.SortBinning.BinOperations.GetHardbinFromFbin(System.UInt32)">
+            <summary>
+            Gets the hardbin digits from a 4-digit functional Bin.
+            </summary>
+            <param name="fBin">The functional bin from which to calculate the hardbin.</param>
+            <returns>The calculated hardbin.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.SortBinning.BinOperations.CalculateDbinFromFbin(System.UInt32)">
+            <summary>
+            Calculates an 8-digit Dbin from the fBin.
+            </summary>
+            <param name="fBin">The fBin from which to calculate the fail bin from.</param>
+            <returns>The calculated fail bin.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.SortBinning.BinOperations.CorrectBinForBin26(System.UInt32)">
+            <summary>
+            Corrects a bin number to account for condition WASBIN26 == true.
+            </summary>
+            <param name="bin">The bin number to correct.</param>
+            <returns>The corrected bin value.</returns>
+        </member>
+        <member name="M:Prime.BusinessLogic.SortBinning.BinOperations.ValidateNumberOfDigits(System.UInt32)">
+            <summary>
+            Validates that a bin number has between 7 to 8 digits.
+            </summary>
+            <param name="binNumber">The bin number to get the number of digits from.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.SortBinning.BinOperations.GetNumberOfDigits(System.UInt32)">
+            <summary>
+            Gets the number of digits in a bin number or a bin exclusion.
+            </summary>
+            <param name="binNumber">The bin number from which to get the number of digits.</param>
+            <returns>The number of digits in the bin number.</returns>
+        </member>
+    </members>
+</doc>

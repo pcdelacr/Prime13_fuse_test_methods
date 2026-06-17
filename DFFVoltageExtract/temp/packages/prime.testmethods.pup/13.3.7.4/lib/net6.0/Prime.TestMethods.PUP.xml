@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.PUP</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.PUP.IPUPExtensions">
+            <summary>
+            Pup test method extension.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PUP.IPUPExtensions.GetAdHocConfigSets">
+            <summary>
+            Get adHoc config set database to be added to PupService.
+            </summary>
+            <returns>A list of IPupConfig set to be added to Pup Service database.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.PUP.IPUPExtensions.GetModelData">
+            <summary>
+            Get lists of plists targeted by the model.
+            </summary>
+            <returns>A list of plists objects targeted by the model and per model version.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.PUP.PrimePUPTestMethod">
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="M:Prime.TestMethods.PUP.PrimePUPTestMethod.#ctor(PrimeSDKAbstraction.IMLModelPlugin)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PUP.PrimePUPTestMethod"/> class.
+            </summary>
+            <param name="myPlugInImplementation">myPlugInImplementation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.PUP.PrimePUPTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PUP.PrimePUPTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PUP.PrimePUPTestMethod.State">
+            <summary>
+            Indicates enabled or disabled state of the feature.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PUP.PrimePUPTestMethod.State.Enabled">
+            <summary>
+            Feature is enabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PUP.PrimePUPTestMethod.State.Disabled">
+            <summary>
+            Feature is disabled.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PUP.PrimePUPTestMethod.MatchMode">
+            <summary>
+            Match mode -  mode for matching and resolving PUP execution modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PUP.PrimePUPTestMethod.MatchMode.VidOnly">
+            <summary>
+            Match by VID only.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PUP.PrimePUPTestMethod.MatchMode.EfuseOnly">
+            <summary>
+            Match by eFuse only.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PUP.PrimePUPTestMethod.MatchMode.VidAndEfuseBoth">
+            <summary>
+            Match by both Vid and eFuse -  both must be defined.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PUP.PrimePUPTestMethod.MatchMode.EfuseAndVidOptional">
+            <summary>
+            Match by VID and Efuse , but VID is optional.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.PupDebugMode">
+            <summary>
+            Gets or sets the debug mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.Mode">
+            <summary>
+            Gets or sets the operation mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.MonitorLoopNum">
+            <summary>
+            Gets or sets the Monitor Loop Num.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.PatternsFilePath">
+            <summary>
+            Gets or sets the path of the patterns file.
+            Setting its type as String instead of a File because it can have @LATEST_REV@ token in the path , which makes the file path not valid until resolved.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.TargetedPlistsFilePath">
+            <summary>
+            Gets or sets the path of the targeted plists file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.EFuseUserFormat">
+            <summary>
+            Gets or sets the current EFuse user format.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.PupMatchMode">
+            <summary>
+            Gets or sets desired PUP match mode which defined how the per unit nodes in PUP.json will be matched.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.ForceExecutionMode">
+            <summary>
+            Gets or sets desired PUP match mode which defined how the per unit nodes in PUP.json will be matched.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.PluginName">
+            <summary>
+            Gets or sets the name of the PUP plugin to use.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.PluginInputFile">
+            <summary>
+            Gets or sets the user input file to the plugin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PUP.PrimePUPTestMethod.TestMethodExtension">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.PUP.PrimePUPTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PUP.PrimePUPTestMethod.ForceReVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PUP.PrimePUPTestMethod.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.PUP.PrimePUPTestMethod.Prime#TestMethods#PUP#IPUPExtensions#GetAdHocConfigSets">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.PUP.PrimePUPTestMethod.Prime#TestMethods#PUP#IPUPExtensions#GetModelData">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.PUP.PrimePUPTestMethod.ConvertUnitMatchMode">
+            <summary>
+            Convert TM param to Pup enum.
+            </summary>
+            <returns>Pup enum.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.PUP.PrimePUPTestMethod.ResolvePupFile">
+            <summary>
+            Resolve Pup file path logic.
+            </summary>
+            <returns>Pup file path.</returns>
+        </member>
+    </members>
+</doc>

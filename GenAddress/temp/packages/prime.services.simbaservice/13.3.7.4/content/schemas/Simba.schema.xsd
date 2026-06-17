@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:simpleType name="ConfigSetId">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9_]+" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConfigSetName">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9_,]*" />
+      <xs:minLength value="0" />
+      <xs:whiteSpace value="collapse" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ModeName">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((SKIP|TEST),)*(SKIP|TEST)" />
+      <xs:minLength value="0" />
+      <xs:whiteSpace value="collapse" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProcessTypeName">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z]+" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BypassName">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9_:]+(:){2}(\*|[a-zA-Z0-9*_]+)" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Simba_ULAT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FileRevision" type="xs:string" minOccurs="1" />
+        <xs:element name="ConfigSets" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ConfigSet" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Bypass" minOccurs="1" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="BypassName" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="ConfigSetId" use="required" />
+                </xs:complexType>
+                <xs:unique name="uniqueBypassName">
+                  <xs:selector xpath="Bypass" />
+                  <xs:field xpath="@name" />
+                </xs:unique>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="uniqueConfigSetID">
+            <xs:selector xpath="ConfigSet" />
+            <xs:field xpath="@id" />
+          </xs:unique>
+        </xs:element>
+        <xs:element name="ProcessTypes" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ProcessType" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:choice>
+                    <xs:sequence>
+                      <xs:element name="Lot" minOccurs="1" maxOccurs="1">
+                        <xs:complexType>
+                          <xs:attribute name="ConfigSet" type="ConfigSetName" use="required" />
+                          <xs:attribute name="Mode" type="ModeName" use="optional" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                    <xs:sequence>
+                      <xs:element name="Unit" minOccurs="1" maxOccurs="unbounded">
+                        <xs:complexType>
+                          <xs:attribute name="VID" type="xs:string" use="required" />
+                          <xs:attribute name="ULT" type="xs:string" use="required" />
+                          <xs:attribute name="ConfigSet" type="ConfigSetName" use="required" />
+                          <xs:attribute name="Mode" type="ModeName" use="optional" />
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:choice>
+                  <xs:attribute name="name" type="ProcessTypeName" use="required" />
+                </xs:complexType>
+                <xs:unique name="uniqueVID">
+                  <xs:selector xpath="Unit" />
+                  <xs:field xpath="@VID" />
+                </xs:unique>
+                <xs:unique name="uniqueULT">
+                  <xs:selector xpath="Unit" />
+                  <xs:field xpath="@ULT" />
+                </xs:unique>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="uniqueProcessTypeName">
+            <xs:selector xpath="ProcessType" />
+            <xs:field xpath="@name" />
+          </xs:unique>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

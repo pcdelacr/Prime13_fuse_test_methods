@@ -1,0 +1,911 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.SortAdtl</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.SortAdtl.Common.Data">
+            <summary>
+            Gets the value from a SharedStorage, DFF, or UserVar.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.Common.Data.ValueType">
+            <summary>
+            Defines the data types.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.Data.ValueType.Integer">
+            <summary>
+            Integer.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.Data.ValueType.Double">
+            <summary>
+            Double.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.Data.ValueType.String">
+            <summary>
+            String.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.Data.GetStringToken(System.String,System.String)">
+            <summary>
+            Gets the string value from a SharedStorage, DFF, or UserVar.
+            </summary>
+            <param name="variable">Variable of holding the string token to read.</param>
+            <param name="nameVariable">Name of the Variable holding the token to read.</param>
+            <returns>String from token read.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.Data.GetDoubleToken(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the double value from a SharedStorage, DFF, or UserVar.
+            </summary>
+            <param name="variable">Variable of holding the string token to read.</param>
+            <param name="nameVariable">Name of the Variable holding the token to read.</param>
+            <param name="sessionContext">Current session context provider container.</param>
+            <returns>String from token read.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.Data.CheckDFFToken(System.String)">
+            <summary>
+            Checks the DFF token string format.
+            </summary>
+            <param name="variable">Variable of holding the string token to verified.</param>
+            <returns>Returns a true if the format matches a DFF.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.Data.CheckSharedStorageToken(System.String)">
+            <summary>
+            Checks the SharedStorage token string format.
+            </summary>
+            <param name="variable">Variable of holding the string token to verified.</param>
+            <returns>Returns a true if the format matches a SharedStorage.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.Data.CheckUserVarToken(System.String)">
+            <summary>
+            Checks the UserVar token string format.
+            </summary>
+            <param name="variable">Variable of holding the string token to verified.</param>
+            <returns>Returns a true if the format matches a UserVar.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.Data.SetSharedStorage(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the string value from a SharedStorage.
+            </summary>
+            <param name="variable">Variable of holding the string token to written.</param>
+            <param name="nameVariable">Name of the Variable holding the token to written.</param>
+            <param name="data">String data to be set in variable.</param>
+            <param name="sessionContext">The current instance session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.Common.DffConstants">
+            <summary>
+            Common constants for Dff Service.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.DffConstants.DffWrappersCollection">
+            <summary>
+            Dff Wrapper UserVar collection.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.DffConstants.DefaultMessage">
+            <summary>
+            Default error message.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.Common.DffSvr">
+            <summary>
+            Gets the value from a DFF.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.DffSvr.GetDFFSVR(System.String,System.String,System.String)">
+            <summary>
+            Gets the string value DFF.
+            </summary>
+            <param name="tokenName">Variable of holding the string token to read.</param>
+            <param name="operationType">Optype from which the data will be retrieve.</param>
+            <param name="dffwrappertoken">Name of the DFFWrapper token.</param>
+            <returns>String from token read.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.DffSvr.GetDFFSVR(System.String,System.String)">
+            <summary>
+            Gets the string value DFF.
+            </summary>
+            <param name="tokenName">Variable of holding the string token to read.</param>
+            <param name="dffwrappertoken">Name of the DFFWrapper token.</param>
+            <returns>String from token read.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.DffSvr.GetDFFSVR(System.String)">
+            <summary>
+            Gets the string value DFF.
+            </summary>
+            <param name="tokenName">Variable of holding the string token to read.</param>
+            <returns>String from token read.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.DffSvr.IsFromSort">
+            <summary>
+            Ask if the actual SC_LOCN is from SORT.
+            </summary>
+            <returns>Returns true if matching the intended location set.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.Common.File">
+            <summary>
+            Common Reading File Functions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.File.ReadJSON``1(System.String)">
+            <summary>
+            Reads a JSON File and returns the parsed object.
+            </summary>
+            <typeparam name="T">The JSON Format to be passed against.</typeparam>
+            <param name="configFile">The JSON File with path to be parsed.</param>
+            <returns>The pasred ojbect back to the main function.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.Common.FormatsCheck">
+            <summary>
+            Generic Regex to check and extract value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.Caret">
+            <summary>
+            Separator for user inputs.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.Colon">
+            <summary>
+            Separator for user inputs.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.Comma">
+            <summary>
+            Separator for user inputs.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.DffFirstChar">
+            <summary>
+            First character of DFF tokens.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.Dot">
+            <summary>
+            Separator for user inputs.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.Pipe">
+            <summary>
+            Separator for user inputs.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.Underscore">
+            <summary>
+            Separator for user inputs.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.Binary0">
+            <summary>
+            A zero.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.Binary1">
+            <summary>
+            A one.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.OpTypes">
+            <summary>
+            Possible DFF operation types.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.Common.FormatsCheck.Contexts">
+            <summary>
+            Possible Shared Storage contexts.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.Common.FormatsCheck.RegexsToCheck">
+            <summary>
+            Delegate for process a variable in different formats.
+            </summary>
+            <param name="variable">Variable of holding the string token to read.</param>
+            <returns>Returns a true if the format matches any method in the delegate.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.FormatsCheck.IsBinaryString(System.String)">
+            <summary>
+            Check if the value is a binary string.
+            </summary>
+            <param name="str">A string that represents a binary string.</param>
+            <returns>True if it is a binary string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.FormatsCheck.IsDff(System.String)">
+            <summary>
+            Check if the value is a DFF token.
+            </summary>
+            <param name="dff">A string that represents a DFF token.</param>
+            <returns>True if it is a DFF token.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.FormatsCheck.IsDffById(System.String)">
+            <summary>
+            Check if the value is a DFF token without the optype.
+            </summary>
+            <param name="dff">A string that represents a DFF token without the optype.</param>
+            <returns>True if it is a DFF token without the optype.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.FormatsCheck.IsDouble(System.String)">
+            <summary>
+            Check if the value is a double.
+            </summary>
+            <param name="str">A string that represents a double.</param>
+            <returns>True if it is a double.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.FormatsCheck.IsInteger(System.String)">
+            <summary>
+            Check if the value is an integer.
+            </summary>
+            <param name="str">A string that represents an integer.</param>
+            <returns>True if it is an integer.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.FormatsCheck.IsSharedStorage(System.String)">
+            <summary>
+            Check if the value is a SharedStorage key.
+            </summary>
+            <param name="key">A string that represents a Shared Storage key.</param>
+            <returns>True if it is a Shared Storage key.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.FormatsCheck.IsUserVar(System.String)">
+            <summary>
+            Check if the value is a UserVar.
+            </summary>
+            <param name="str">A string that represents a UserVar.</param>
+            <returns>True if it is a UserVar.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.Common.FormatsCheck.IsCommaSeparatedDoubleList(System.String,System.Char)">
+            <summary>
+            Check if the value is a SharedStorage.
+            </summary>
+            <param name="commaSeparatedString">A string that represents a shared storage.</param>
+            <param name="separator">A char to split the string. The default is comma.</param>
+            <returns>True if it is a UserVar.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.Config">
+            <summary>
+            Storages the ADTL config entries.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Config.Tests">
+            <summary>
+            Gets or sets the different tests for ADTL.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode">
+            <summary>
+            Contains Kill and Predict Mode Verify and Execute.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.BelowKill">
+            <summary>
+            Comparison term BELOW.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.AboveKill">
+            <summary>
+            Comparison term ABOVE.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.BothKill">
+            <summary>
+            Comparison term BOTH.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.sigmaTokens">
+            <summary>
+            Sigma tokens dictionary.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.finalPortResult">
+            <summary>
+            Sigma tokens dictionary.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.#ctor(Prime.TestMethods.TestMethodsParams.File,Prime.TestMethods.TestMethodsParams.Integer,Prime.TestMethods.TestMethodBase.PrimeLogLevel,Prime.TestMethods.TestMethodsParams.String,Prime.TestMethods.TestMethodsParams.String,Prime.TestMethods.TestMethodsParams.String,Prime.TestMethods.TestMethodsParams.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode"/> class.
+            Verifies Kill and Predict Mode variables from Json file.
+            </summary>
+            <param name="configFile">configFile from ADTL.</param>
+            <param name="resolution">resolution from ADTL.</param>
+            <param name="logLevel">logLevel from ADTL.</param>
+            <param name="yMinMax">Min and Max limits for Y component.</param>
+            <param name="xMinMax">Min and Max limits for X component.</param>
+            <param name="sigmaOutput">Print Sigma (Ituff Print reduction).</param>
+            <param name="sSPriority">Print Fail on priority test (defined in json) to GSDS.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.UseAltVminToken">
+            <summary>
+            Gets or sets a value indicating whether AltToken Flag is true or false.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.UseAltIDVToken">
+            <summary>
+            Gets or sets a value indicating whether AltToken Flag is true or false.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.PrintSigma">
+            <summary>
+            Gets or sets a value indicating whether AltToken Flag is true or false.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.PriorityGSDS">
+            <summary>
+            Gets or sets a value indicating whether AltToken Flag is true or false.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.PriorityFailString">
+            <summary>
+            Gets or sets the prioritized failed GSDS string.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.CurrPriorityLevel">
+            <summary>
+            Gets or sets the current prioritized value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.KillString">
+            <summary>
+            Gets or sets the killstring for ituff printing.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.Resolution">
+            <summary>
+            Gets or sets Resolution to set in the final values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.YMinMax">
+            <summary>
+            Gets or sets Min and Max limits for Y component.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.XMinMax">
+            <summary>
+            Gets or sets Min and Max limits for X component.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.LogLevel">
+            <summary>
+            Gets or sets LogLevel from ADTL to print in console.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.SessionContext">
+            <summary>
+            Gets the Session context object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.Execute">
+            <summary>
+            Calculates ADTL Mode Vmin and CalcKill results.
+            </summary>
+            <returns>Result port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.PrintInItuff(System.String,System.String)">
+            <summary>
+            Prints to Ituff (STRING).
+            </summary>
+            <param name="postFix"> Variable Name. </param>
+            <param name="data"> Variable Value. </param>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.PrintInItuff(System.String,System.Int32)">
+            <summary>
+            Prints to Ituff (Double).
+            </summary>
+            <param name="postFix"> Variable Name. </param>
+            <param name="data"> Variable Value. </param>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.CheckToken(System.String,System.String,System.String)">
+            <summary>
+            Checks if SS or Uservar is in correct format.
+            </summary>
+            <param name="variable">variable name.</param>
+            <param name="nameVariable">name of variable param.</param>
+            <param name="testName">name of test.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.ExpandVector(System.Double[],System.Int32,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Expands a vector with the same values it contains.
+            </summary>
+            <param name="variable">doubles vector to expand.</param>
+            <param name="expectedSize">expected vector size.</param>
+            <param name="finalSize">resulted vector size.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>doubles vector expanded.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.NormalizeCalcKillValue(Prime.TestMethods.SortAdtl.Test,System.Double)">
+            <summary>
+            Normalizes the <paramref name="yCalcKill"/>.
+            </summary>
+            <param name="test">Json test settings.</param>
+            <param name="yCalcKill">calcKill value to be normalized.</param>
+            <returns>double CalcKill value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.GetToken(System.String,System.String,System.String)">
+            <summary>
+            Delimits a string by commas and parse it to an array of doubles.
+            </summary>
+            <param name="variable">string to be delimited.</param>
+            <param name="nameVariable">Token key containing the data to be parsed.</param>
+            <param name="testName">test name.</param>
+            <returns>doubles array with the stored data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.VerifyFile(Prime.TestMethods.SortAdtl.Config)">
+            <summary>
+            Checks variables for vailidity.
+            </summary>
+            <param name="file">Json file.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.GenerateSigmaToken(Prime.TestMethods.SortAdtl.Test,Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables)">
+            <summary>
+            Allows kill mode to push data to Sigma dictionary.
+            </summary>
+            <param name="test">doubles vector to expand.</param>
+            <param name="killModeParams">expected vector size.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.BaseAdtlMode.GenerateFinalPortList(Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables)">
+            <summary>
+            Allows kill mode to push data to ResultPort list.
+            </summary>
+            <param name="killModeParams">doubles vector to expand.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Above">
+            <summary>
+            Compare if Y input is greater than Y calcKill.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Above.CompareInputAgainstCalcKill(System.Double,System.Double,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Above.CompareInputAgainstCalcKill(System.Double,System.Double,System.Boolean,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Below">
+            <summary>
+            Compare if Y input is greater than Y calcKill.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Below.CompareInputAgainstCalcKill(System.Double,System.Double,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Below.CompareInputAgainstCalcKill(System.Double,System.Double,System.Boolean,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Both">
+            <summary>
+            Compare if Y input is greater and less than Y calcKill.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Both.CompareInputAgainstCalcKill(System.Double,System.Double,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Both.CompareInputAgainstCalcKill(System.Double,System.Double,System.Boolean,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Compare">
+            <summary>
+            Use the comparison term to call the Compare Class Above or Below.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.Compare.Comparison(System.String,System.String)">
+            <summary>
+            Compare the measured against calcKill with the comparison term <paramref name="killComparison"/>.
+            </summary>
+            <param name="killComparison">The comparison term.</param>
+            <param name="testName">Name of the test.</param>
+            <returns>The ICompare interface.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.ICompare">
+            <summary>
+            Define if Y input is greater, less or equal to Y_CalcKill.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.ICompare.CompareInputAgainstCalcKill(System.Double,System.Double,System.Boolean)">
+            <summary>
+            Compares the <paramref name="measured"/> with the <paramref name="calcKill"/>.
+            </summary>
+            <param name="measured">The Y input in the Json File.</param>
+            <param name="calcKill">The Y CalcKill ARRAY in the ADTL.</param>
+            <param name="kill">Kill when it is true or EDC when is false.</param>
+            <returns>Returns the FailFlag.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.Comparators.ICompare.CompareInputAgainstCalcKill(System.Double,System.Double,System.Boolean,System.String)">
+            <summary>
+            Overloaded to give comparator term.
+            </summary>
+            <returns name="KillMode.FailFlag">FailFlagEnum.</returns>
+            <param name=" measured">measured.</param>
+            <param name="calcKill">calcKill.</param>
+            <param name="kill">kill.</param>
+            <param name="comparator">comparator.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables">
+            <summary>
+            Contains Kill Mode variables.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables"/> class.
+            Verifies Kill and Predict Mode variables from Json file.
+            </summary>
+            <param name="vectorSize">configFile from ADTL.</param>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.FailFlags">
+            <summary>
+            Gets or sets the Fail Flag that shows Measured value and the CalcKill value comparison result.
+            It takes the next values: 0->Fail, 1->Pass, 2->EDC Fail, 8->Invalid calculation and 9->Skip testing due to set up problem.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.AboveKillLimit">
+            <summary>
+            Gets or sets the CalcKill Final Value as KillLimit that compares against the <see cref="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.VminData"/> value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.BelowKillLimit">
+            <summary>
+            Gets or sets the CalcKill Final Value as KillLimit that compares against the <see cref="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.VminData"/> value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.VminData">
+            <summary>
+            Gets or sets the measured value concatenated to be printed in console and Ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.IdvData">
+            <summary>
+            Gets or sets the measured value concatenated to be printed in console and Ituff.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.X">
+            <summary>
+            Gets or sets a value indicating whether X data is initialized or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.X1">
+            <summary>
+            Gets or sets the array of doubles with the X1 values to calculate the kill limit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.Y">
+            <summary>
+            Gets or sets a value indicating whether Y data is initialized or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.Y1">
+            <summary>
+            Gets or sets the measured values from Json File as an array of doubles.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.AboveCalcKill">
+            <summary>
+            Gets or sets the calcKill value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.AboveCalcKillNormalized">
+            <summary>
+            Gets or sets the calcKill value normalized.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.BelowCalcKill">
+            <summary>
+            Gets or sets the calcKill value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.BelowCalcKillNormalized">
+            <summary>
+            Gets or sets the calcKill value normalized.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.BestFit">
+            <summary>
+            Gets or sets the best fit line inputted by user.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.FailPortResult">
+            <summary>
+            Gets or sets the fail port result of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.KillModeVariables.SkipTesting">
+            <summary>
+            Gets or sets the Skip Testing Flag.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.ModesClasses.PortResultHelper">
+            <summary>
+            Generates and stores tokens for top sigmas in AGG_Tokens and sigmas for individual vmin search tests.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.ModesClasses.PortResultHelper.finalPort">
+            <summary>
+            Init current port.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.PortResultHelper.PortList">
+            <summary>
+            Gets or sets list of ports collected throughout all vmin tests.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.PortResultHelper.PopulatePortList(Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag)">
+            <summary>
+            Adds Ports to List and compares inputPort (current port) to items in list.
+            </summary>
+            <param name="inputPort">inputSigma.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.PortResultHelper.ClearFinalPortList">
+            <summary>
+            Clear Port List.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.PortResultHelper.FinalPort">
+            <summary>
+            Calculates final port across all tests.
+            </summary>
+            <returns name="finalPort">finalPort.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.ModesClasses.SigmaTokenHelper">
+            <summary>
+            Generates and stores tokens for top sigmas in AGG_Tokens and sigmas for individual vmin search tests.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.ModesClasses.SigmaTokenHelper.currSigma">
+            <summary>
+            Init current sigma.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.ModesClasses.SigmaTokenHelper.SigmaList">
+            <summary>
+            Gets or sets sigmas for either AGG_Tokens or individual vmin search tests.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.SigmaTokenHelper.PopulateAggSigmas(System.String,System.Int32)">
+            <summary>
+            This method will first check if the input already exists in the SigmaList dictionary. If not, it will create a key for it.
+            If the input already exists in the dictionary, compare its sigma with the current inputSigma for that AGG token, does this for MIN and MAX.
+            </summary>
+            <param name="token">aggtoken.</param>
+            <param name="inputSigma">inputSigma.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.SigmaTokenHelper.PopulateAggSigmas(System.String)">
+            <summary>
+            This method will first check if the input already exists in the SigmaList dictionary. If not, it will create a key for it.
+            If the input already exists in the dictionary, compare its sigma with the current inputSigma for that AGG token, does this for MIN and MAX.
+            </summary>
+            <param name="token">aggtoken.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.SigmaTokenHelper.GetCurrSigma">
+            <summary>
+            Return current sigma for test.
+            </summary>
+            <returns name="currSigma">currSigma.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.SigmaTokenHelper.ClearCurrSigma">
+            <summary>
+            clears current sigma for next test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.SigmaTokenHelper.AdtlMax">
+            <summary>
+            Calculates ADTL MAX across all tests.
+            </summary>
+            <returns name="adtlMax">adtlMax.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.SigmaTokenHelper.AdtlMin">
+            <summary>
+            Calculates ADTL MIN across all tests.
+            </summary>
+            <returns name="adtlMin">adtlMin.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.ModesClasses.StringHelper">
+            <summary>
+            Extension to help in common string operations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.ModesClasses.StringHelper.ConcatenateToString(System.String,System.String)">
+            <summary>
+            Concatenate <paramref name="dataToConcatenate"/> into <paramref name="input"/> with a '_' as a delimiter.
+            </summary>
+            <param name="input">Input string to be modified.</param>
+            <param name="dataToConcatenate">New portion string to be added in <paramref name="input"/>.</param>
+            <returns>The string concatenated.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag">
+            <summary>
+            The fail flag contains 0, 1, 2, 3, 4, 5, 8 and 9.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag.Fail">
+            <summary>
+            When the calculation fails (soft fail, GSDS token not found)
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag.Pass">
+            <summary>
+            When the comparison passes (measured is within kill limit(s))
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag.AboveFail">
+            <summary>
+            When measured is above kill line
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag.BelowFail">
+            <summary>
+            When measured is below kill line
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag.BothFail">
+            <summary>
+            When at least one test has failed for below, and another has failed for above
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag.EDCFailAbove">
+            <summary>
+            When above fail, but KILL mode is off (EDC MODE)
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag.EDCFailBelow">
+            <summary>
+            When below fail, but KILL mode is off (EDC MODE)
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag.Invalid">
+            <summary>
+            When the calculation is invalid - ex: log calculation is invalid, could be caused by invalid input value. Does not define FailPort, just prints.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.FailFlag.SkipTesting">
+            <summary>
+            When there are setup problem - user gives incorrect value in json file. Does not define FailPort, just prints.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.ConfigFile">
+            <summary>
+            Gets or sets Name of the screen tests file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.Resolution">
+            <summary>
+            Gets or sets the Resolution to be used as input for Vmin calculation.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.YMinMax">
+            <summary>
+            Gets or sets the Y Min and Max values check for invalidity.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.XMinMax">
+            <summary>
+            Gets or sets the X Min and Max values check for invalidity.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.PrintPriorityGSDS">
+            <summary>
+            Gets or sets the X Min and Max values check for invalidity.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.PrintSigmas">
+            <summary>
+            Gets or sets the X Min and Max values check for invalidity.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SortAdtl.PrimeSortAdtlTestMethod.Execute">
+            <summary>
+            Execute the method.
+            </summary>
+            <returns>Returns the port number. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.SortAdtl.Test">
+            <summary>
+            This is vector based equation storage where X and Y are always a shared storage the slope and
+            intercept are arrays. All of them will hold the same number of element at all times.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.Name">
+            <summary>
+            Gets or sets the Name of test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.TestName">
+            <summary>
+            Gets or sets the TestName for tracking purposes, DUMMY Variable, never used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.AggToken">
+            <summary>
+            Gets or sets the AggToken value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.Y1">
+            <summary>
+            Gets or sets the Y1 point to compare against. Y1 must be defined.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.Y1a">
+            <summary>
+            Gets or sets the alternative Y1 point to compare against. Optional.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.X1">
+            <summary>
+            Gets or sets the X1 point to be used to calculate Y1.  X1 must be defined.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.X1a">
+            <summary>
+            Gets or sets the alternative X1 point to be used to calculate Y1. Optional.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.CompareTerm">
+            <summary>
+            Gets or sets the comparator. Acceptable entries: "=" (ABOVE), (BELOW), or (BOTH).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.M">
+            <summary>
+            Gets or sets the slope vector. M must be defined.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.B">
+            <summary>
+            Gets or sets the intercept vector. B must be defined.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.AboveKillOffset">
+            <summary>
+            Gets or sets the AboveKillOffset.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.BelowKillOffset">
+            <summary>
+            Gets or sets the BelowKillOffset.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.VectorSize">
+            <summary>
+            Gets or sets the expected vector size.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.ExpandedVectorSize">
+            <summary>
+            Gets or sets the expected vector size.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.Kill">
+            <summary>
+            Gets or sets a value indicating whether to kill or monitor.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.MaxValue">
+            <summary>
+            Gets or sets the Maximum allowed value for the calculated result.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.MinValue">
+            <summary>
+            Gets or sets the Minimum allowed value for the calculated result.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.StepSize">
+            <summary>
+            Gets or sets the StepSize value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SortAdtl.Test.Priority">
+            <summary>
+            Gets or sets priority value of test.
+            </summary>
+        </member>
+    </members>
+</doc>

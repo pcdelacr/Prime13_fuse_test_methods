@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.PinMonitor</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.PinMonitor.IBaseMode">
+            <summary>
+            Base mode defining monitor interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.IBaseMode.Execute(Prime.SessionService.ISessionContextProviderContainer,System.String,Prime.PinMonitorService.DumpModes,System.Int32,System.String)">
+            <summary>
+            Define Execute method which uses the configuration name.
+            </summary>
+            <param name="sessionContext">SessionContext.</param>
+            <param name="configName">ConfigName.</param>
+            <param name="pinsDumpMode">PinsDumpMode.</param>
+            <param name="samplingInterval">SamplingInterval.</param>
+            <param name="tagName">TagName.</param>
+            <returns>0 or 1.[Fail/Pass respectively].</returns>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.IBaseMode.CanHandle(Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.MonitorModes)">
+            <summary>
+            Determines whether or not the implementation can be instantiated.
+            </summary>
+            <param name="mode">The current mode.</param>
+            <returns>true or false.[Can/Cannot handle respectively].</returns>
+        </member>
+        <member name="T:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.#ctor(Prime.PinMonitorService.IPinMonitorService,System.Collections.Generic.IEnumerable{Prime.TestMethods.PinMonitor.IBaseMode})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod"/> class.
+            </summary>
+            <param name="pinMonitorService">ConsoleService.</param>
+            <param name="instanceModes">InstanceModes.</param>
+        </member>
+        <member name="T:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.MonitorModes">
+            <summary>
+            Pin Monitor modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.MonitorModes.Start">
+            <summary>
+            Start Monitoring.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.MonitorModes.Stop">
+            <summary>
+            Stop Monitoring.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.MonitorModes.StopAll">
+            <summary>
+            StopAll Monitoring.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.DumpMode">
+            <summary>
+            Gets or sets the Dump mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.Mode">
+            <summary>
+            Gets or sets the Monitor modes.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.ConfigurationName">
+            <summary>
+            Gets or sets this Configuration Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.SamplingInterval">
+            <summary>
+            Gets or sets sampling interval in milliseconds.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.TagName">
+            <summary>
+            Gets or sets suffix Tag Name for ituff purpose only.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.PinMonitor.StartMonitor">
+            <summary>
+            Defines start monitor class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.StartMonitor.#ctor(Prime.PinMonitorService.IPinMonitorService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PinMonitor.StartMonitor"/> class.
+            Start monitor mode with sampling interval.
+            </summary>
+            <param name="pinMonitorService">PinMonitorService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.StartMonitor.Execute(Prime.SessionService.ISessionContextProviderContainer,System.String,Prime.PinMonitorService.DumpModes,System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.StartMonitor.CanHandle(Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.MonitorModes)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.PinMonitor.StopAllMonitor">
+            <summary>
+            Defines StopAll monitor class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.StopAllMonitor.#ctor(Prime.PinMonitorService.IPinMonitorService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PinMonitor.StopAllMonitor"/> class.
+            </summary>
+            <param name="pinMonitorService">PinMonitorService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.StopAllMonitor.Execute(Prime.SessionService.ISessionContextProviderContainer,System.String,Prime.PinMonitorService.DumpModes,System.Int32,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.StopAllMonitor.CanHandle(Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.MonitorModes)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.PinMonitor.StopMonitor">
+            <summary>
+            Defines Stop monitor class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.StopMonitor.#ctor(Prime.PinMonitorService.IPinMonitorService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.PinMonitor.StopMonitor"/> class.
+            </summary>
+            <param name="pinMonitorService">PinMonitorService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.StopMonitor.Execute(Prime.SessionService.ISessionContextProviderContainer,System.String,Prime.PinMonitorService.DumpModes,System.Int32,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PinMonitor.StopMonitor.CanHandle(Prime.TestMethods.PinMonitor.PrimePinMonitorTestMethod.MonitorModes)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

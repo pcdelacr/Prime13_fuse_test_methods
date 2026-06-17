@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.CurrentDieIdManager</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.CurrentDieIdManager.GetOperation">
+            <summary>
+            Defining Set Operation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.GetOperation.#ctor(Prime.SessionService.ISessionContextProviderContainer,Prime.UserVarService.IUserVarService,Prime.DffService.IDffService,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.CurrentDieIdManager.GetOperation"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+            <param name="userVarService">userVarService.</param>
+            <param name="dffService">dffService.</param>
+            <param name="consoleService">consoleService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.GetOperation.Execute(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.GetOperation.GetOperationMode">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.CurrentDieIdManager.Operation">
+            <summary>
+            Indicates whether to Set or Get the Current Die Id.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.CurrentDieIdManager.Operation.GetOperation">
+            <summary>
+            To enable the Get Current DieId function.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.CurrentDieIdManager.Operation.SetOperation">
+            <summary>
+            To enable the Set Current DieId function.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.CurrentDieIdManager.IOperationMode">
+            <summary>
+            Interface to defining Get or Set Operation Execute Sequence.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.IOperationMode.Execute(System.String)">
+            <summary>
+            Defining execute methods for each of the operations.
+            </summary>
+            <param name="dieIdValue">user input from param to set a Die Id.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.IOperationMode.GetOperationMode">
+            <summary>
+            Gets the operation mode.
+            </summary>
+            <returns>Operation mode.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.CurrentDieIdManager.PrimeCurrentDieIdManagerTestMethod">
+            <summary>
+            This test method is to get and set the current id.
+            </summary>
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.PrimeCurrentDieIdManagerTestMethod.#ctor(Prime.ConsoleService.IConsoleService,Prime.UserVarService.IUserVarService,System.Collections.Generic.IEnumerable{Prime.TestMethods.CurrentDieIdManager.IOperationMode})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.CurrentDieIdManager.PrimeCurrentDieIdManagerTestMethod"/> class.
+            </summary>
+            <param name="consoleService">consoleService.</param>
+            <param name="userVarService">userVarService.</param>
+            <param name="operationModes">operationModes.</param>
+        </member>
+        <member name="P:Prime.TestMethods.CurrentDieIdManager.PrimeCurrentDieIdManagerTestMethod.OperationHandler">
+            <summary>
+            Gets or sets of the Operation on handling the Current Die Id.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.CurrentDieIdManager.PrimeCurrentDieIdManagerTestMethod.DieIdValue">
+            <summary>
+            Gets or sets of the value to the current dieID.
+            leave empty to clear current dieID on Set Operation.
+            leave empty to print current dieID on Get Operation.
+            Set Operation Value Example: U2.U1.
+            Set or Get Operation value from/to UserVar Example: UserVarCollection.UserVar.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.PrimeCurrentDieIdManagerTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.PrimeCurrentDieIdManagerTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.CurrentDieIdManager.PrimeCurrentDieIdManagerTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.PrimeCurrentDieIdManagerTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.CurrentDieIdManager.SetOperation">
+            <summary>
+            Defining Set Operation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.SetOperation.#ctor(Prime.SessionService.ISessionContextProviderContainer,Prime.UserVarService.IUserVarService,Prime.DffService.IDffService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.CurrentDieIdManager.SetOperation"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+            <param name="userVarService">userVarService.</param>
+            <param name="dffService">dffService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.SetOperation.Execute(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.CurrentDieIdManager.SetOperation.GetOperationMode">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

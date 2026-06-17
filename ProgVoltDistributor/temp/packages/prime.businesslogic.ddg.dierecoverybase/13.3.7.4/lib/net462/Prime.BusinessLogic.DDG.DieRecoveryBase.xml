@@ -1,0 +1,2120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.DDG.DieRecoveryBase</name>
+    </assembly>
+    <members>
+        <member name="T:DieRecoveryBase.RecoverySKU">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.RecoverySKU" />.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.RecoverySKU.#ctor(System.String,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DieRecoveryBase.RecoverySKU"/> class.
+            </summary>
+            <param name="area">RecoveryArea.</param>
+            <param name="name">SKU Group name.</param>
+            <param name="bitvectors">List of valid Recovery BitVectors for this sku.</param>
+        </member>
+        <member name="M:DieRecoveryBase.RecoverySKU.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DieRecoveryBase.RecoverySKU"/> class.
+            Prime SharedStorage requirement to have default constructor.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RecoverySKU.SkuGroupName">
+            <summary>
+            Gets or sets the SKU Group name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RecoverySKU.RecoveryArea">
+            <summary>
+            Gets or sets the RecoveryArea name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RecoverySKU.RecoveryBitVectors">
+            <summary>
+            Gets or sets the list of Valid Recovery BitVectors for this sku.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.RecoverySKU.IsValid(System.String,System.String,System.Collections.BitArray,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Determines if the given BitArray is valid for this sku.
+            </summary>
+            <param name="name">Name of the rule.</param>
+            <param name="area">Recovery area.</param>
+            <param name="inputBitVector">BitArray to test.</param>
+            <param name="bitMask">BitMask to apply (bits that are a 1 are not compared).</param>
+            <param name="recoveryBitVectors">all bit vectors to test.</param>
+            <param name="validBitVectors">return list of matching bit vector.</param>
+            <returns>true if the sku is valid.</returns>
+        </member>
+        <member name="M:DieRecoveryBase.RecoverySKU.Retrieve(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Retrieve the given sku group from SharedStorage.
+            </summary>
+            <param name="area">RecoveryArea.</param>
+            <param name="sku">SKU group name.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>RecoverySKU object.</returns>
+        </member>
+        <member name="M:DieRecoveryBase.RecoverySKU.Store(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Saves this object to shared storage.
+            </summary>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+        </member>
+        <member name="T:DieRecoveryBase.SkuDefinitionFile">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.SkuDefinitionFile" />.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuDefinitionFile.IpArea">
+            <summary>
+            Gets or sets the Value.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.SkuDefinitionFile.Area">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.SkuDefinitionFile.Area" />.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuDefinitionFile.Area.Name">
+            <summary>
+            Gets or sets the Area name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuDefinitionFile.Area.SkuGroups">
+            <summary>
+            Gets or sets the Value.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.SkuDefinitionFile.Area.SKUGroup">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.SkuDefinitionFile.Area.SKUGroup" />.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuDefinitionFile.Area.SKUGroup.Name">
+            <summary>
+            Gets or sets the SKU Group name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuDefinitionFile.Area.SKUGroup.RecoverySkus">
+            <summary>
+            Gets or sets the Value.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.SkuDefinitionFile.Area.SKUGroup.SKU">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.SkuDefinitionFile.Area.SKUGroup.SKU" />.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuDefinitionFile.Area.SKUGroup.SKU.Name">
+            <summary>
+            Gets or sets the SKU name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuDefinitionFile.Area.SKUGroup.SKU.RecoveryBitVector">
+            <summary>
+            Gets or sets the recovery bit vector for this sku.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.SkuRule">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.SkuRule" />.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuRule.Name">
+            <summary>
+            Gets or sets the Name of this rule. This is how it's referenced by the test program.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuRule.RecoveryArea">
+            <summary>
+            Gets or sets SKU RecoveryArea to use with this rule.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuRule.ValidSkuGroups">
+            <summary>
+            Gets or sets the list of valid sku groups for this rule. All must exist within the given RecoveryArea.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuRule.ValidCombinations">
+            <summary>
+            Gets or sets the list of valid combinations.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuRule.BitMask">
+            <summary>
+            Gets or sets a BitMask (binary string) where a 1 means that bit location is ignored when evaluating the rules.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuRule.Trackers">
+            <summary>
+            Gets or sets the Trackers to use when evaluating this rule.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.SkuRule.Retrieve(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the named SkuRule from shared storage.
+            </summary>
+            <param name="name">Name of the rule.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns><see cref="T:DieRecoveryBase.SkuRule"/>.</returns>
+        </member>
+        <member name="M:DieRecoveryBase.SkuRule.Store(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Saves this object to shared storage.
+            </summary>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+        </member>
+        <member name="M:DieRecoveryBase.SkuRule.IsValidRule">
+            <summary>
+            Checks that either ValidSKUs or ValidCombinations have at least one element but not both.
+            </summary>
+            <returns>True if the condition is satisfied, False otherwise.</returns>
+        </member>
+        <member name="T:DieRecoveryBase.SkuRuleContainer">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.SkuRuleContainer" />.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SkuRuleContainer.Rules">
+            <summary>
+            Gets or sets the list of Rules.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.DieRecoveryFactory">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.DieRecoveryFactory" />.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryFactory.CurrentSlice">
+            <summary>
+            Gets or sets current slice index.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.GetTrackingStructure(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.GetPinMap(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.GetDecoder(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.GetSkuRule(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.GetSKU(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.GetTrackerDefinition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.GetHistory(Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.SetFlag(DDG.DieRecovery.Flag,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.GetFlag(DDG.DieRecovery.Flag,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.GetTable(DDG.DieRecovery.Table,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.CloneTracker(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.LoadTrackerFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.LoadSkuDefinitionFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.LoadSkuRulesFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryFactory.LoadPinMapDecoderFile(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DieRecoveryBase.DieRecoveryTracker">
+            <summary>
+            Main DieRecovery Class.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTracker.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DieRecoveryBase.DieRecoveryTracker"/> class.
+            </summary>
+            <param name="trackingStructureNames">List of names of the Trackers to load.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this tracker.</param>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTracker.ResetValue">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTracker.SetRule(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTracker.Read">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTracker.RunRule(System.Collections.BitArray,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTracker.Write(System.Collections.BitArray,System.Collections.BitArray,System.Boolean,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTracker.Log(System.Collections.BitArray,System.Collections.BitArray)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTracker.GenerateResultsFromRules(System.Collections.Generic.Dictionary{System.String,System.Int32},System.Collections.BitArray)">
+            <summary>
+            Take the return value from running the rules and get the bits that belong to this Tracking structure.
+            </summary>
+            <param name="resultsLocation">Map of where each tracker bit is in the rules bit vector.</param>
+            <param name="results">List of passing bit vectors from the rules.</param>
+            <returns>bit vector containing only the tracker bits.</returns>
+        </member>
+        <member name="T:DieRecoveryBase.DieRecoveryTrackerBase">
+            <summary>
+            Main DieRecovery Class.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTrackerBase.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DieRecoveryBase.DieRecoveryTrackerBase"/> class.
+            </summary>
+            <param name="trackingStructureNames">List of names of the Trackers to load.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this tracker.</param>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.SessionContext">
+            <summary>
+            Gets or sets the session context.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.Size">
+            <summary>
+            Gets or sets the size of the tracker.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.Names">
+            <summary>
+            Gets the names of the trackers.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.NameForLogging">
+            <summary>
+            Gets the names of the trackers for logging.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.TestName">
+            <summary>
+            Gets current instance name for this tracker.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.LogHistory">
+            <summary>
+            Gets a value indicating whether to log history.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTrackerBase.Log(System.String,System.Collections.BitArray,System.Collections.BitArray,System.Collections.BitArray,System.Collections.BitArray,System.String)">
+            <summary>
+            Logs the current state of the trackers.
+            </summary>
+            <param name="trackers">tracker names to log.</param>
+            <param name="mask">current mask.</param>
+            <param name="result">current test result.</param>
+            <param name="incoming">incoming bit vector.</param>
+            <param name="outgoing">outgoing vit vector.</param>
+            <param name="tag">optional tag name.</param>
+        </member>
+        <member name="T:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult">
+            <summary>
+            Container to hold the results of a running a SKU-based rule.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.#ctor(System.Collections.BitArray,System.Collections.BitArray,System.Collections.BitArray)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult"/> class.
+            </summary>
+            <param name="preTestBitArray">BitArray for Rules check using the PreTest Token Values.</param>
+            <param name="testOnlyBitArray">BitArray for Rules check using the TestResults Values only.</param>
+            <param name="postTestBitArray">BitArray for Rules check using the Final PostTest/Merged Values.</param>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.BitVectorPreTest">
+            <summary>
+            Gets the string value of the bitvector used for the PreTest rules check.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.BitVectorTestOnly">
+            <summary>
+            Gets the string value of the bitvector used for the TestOnly rules check.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.BitVectorPostTest">
+            <summary>
+            Gets the string value of the bitvector used for the PostCheck/Standard rules check.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.IsPostTestRulePassing">
+            <summary>
+            Gets or sets a value indicating whether the rule passed.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.IsPreTestRulePassing">
+            <summary>
+            Gets a value indicating whether the outgoing tracker was passing before evaluation.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.IsTestResultOnlyRulePassing">
+            <summary>
+            Gets or sets a value indicating whether the test result was passing.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.PassingSKU">
+            <summary>
+            Gets or sets the name of the passing sku.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.PassingTestVector">
+            <summary>
+            Gets or sets the passing BitVector for just the bits in this tracker.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.PassingRuleVector">
+            <summary>
+            Gets or sets the full passing BitVector for this rule.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.TrackersChanged">
+            <summary>
+            Gets a value indicating whether the PassingRuleVector is different from the current
+            value of the Trackers.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.UpdateResult(System.Boolean,System.Boolean,System.Boolean,System.String,System.Collections.BitArray,System.Collections.BitArray,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult"/> class.
+            </summary>
+            <param name="isTestResultPassing">True if the test result was passing.</param>
+            <param name="isTrackerPassing">True if the outgoing tracker was passing before evaluation.</param>
+            <param name="isRulePassing">True if the rule passed.</param>
+            <param name="sku">The name of the passing SKU Group.</param>
+            <param name="testArray">The passing bit vector for the included trackers.</param>
+            <param name="ruleArray">The full passing bit vector for the rule.</param>
+            <param name="trackersChanged">Indicates that the PassingRuleVector is different from the current value of the trackers.</param>
+        </member>
+        <member name="M:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult.ToString">
+            <summary>
+            Create a printable summary of this data.
+            </summary>
+            <returns>string.</returns>
+        </member>
+        <member name="T:DieRecoveryBase.ACMDecoder">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.ACMDecoder" />.
+            This generic map type to convert different CTV data into failing index.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ACMDecoder.PinName">
+            <summary>
+            Gets or sets the number of CTV bits to be read.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ACMDecoder.SharedStorageKey">
+            <summary>
+            Gets or sets the number of CTV bits to be read.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.ACMDecoder.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.ACMDecoder.GetFailTrackerFromPlistResults(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DieRecoveryBase.AnyFailSingleSliceDecoder">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.AnyFailSingleSliceDecoder" />.
+            This is meant to be used for SCAN decoding, where each core is tested
+            separately and any failure on a set of pins means that core (and only
+            that core) should be marked as a failure.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.AnyFailSingleSliceDecoder.PinList">
+            <summary>
+            Gets or sets the raw list of pins in this PinMap.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.AnyFailSingleSliceDecoder.GetDecoderType">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.AnyFailSingleSliceDecoder.GetFailTrackerFromPlistResults(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.AnyFailSingleSliceDecoder.MaskPlistFromTracker(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DieRecoveryBase.FailDataEntry">
+            <summary>
+            Common class for generic decoder.
+            Supports matching on PatternNames, Labels/offsets, Domains, TraceRegister1.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.PatternName">
+            <summary>
+            Gets or sets the Regex used to check the pattern name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.Label">
+            <summary>
+            Gets or sets the regex used to check against the previous label in the same location as the failure (subroutine or main).
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.Domain">
+            <summary>
+            Gets or sets the regex used to check against the failing domain name. It should match domain for failing pins.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.Offset">
+            <summary>
+            Gets or sets the offset from label/address.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.PinName">
+            <summary>
+            Gets or sets the pin name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.Register1">
+            <summary>
+            Gets or sets the register 1 value.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.Index">
+            <summary>
+            Gets or sets the index name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.OffsetList">
+            <summary>
+            Gets or sets converted list of offsets.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.PatternNameRegx">
+            <summary>
+            Gets or sets pattern name regex object.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.LabelRegx">
+            <summary>
+            Gets or sets label regex object.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.LabelIsInteger">
+            <summary>
+            Gets or sets a value indicating whether Label is a simple integer or not.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.LabelAsInteger">
+            <summary>
+            Gets or sets the integer value of Label if LabelIsInteger is true.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.DomainRegx">
+            <summary>
+            Gets or sets domain regex object.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataEntry.LabelCache">
+            <summary>
+            Gets or sets the label cache (linked to parent).
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.FailDataEntry.Verify(Prime.SessionService.ISessionContextProviderContainer,DieRecoveryBase.LabelInfo)">
+            <summary>
+            Build the Regex and initialize the instance.
+            </summary>
+            <param name="session">Session Context for printing and other optimization.</param>
+            <param name="labelCache">Label cache object to use.</param>
+        </member>
+        <member name="M:DieRecoveryBase.FailDataEntry.IsMatch(Prime.FunctionalService.IFailureData,Prime.ConsoleService.IConsoleService)">
+            <summary>
+            Check if the Prime Cycle Failure matches this object.
+            </summary>
+            <param name="failure">Prime Cycle Fail.</param>
+            <param name="console">Console Service for debug prints.</param>
+            <returns>True if the failure matches this object.</returns>
+        </member>
+        <member name="T:DieRecoveryBase.LabelInfo">
+            <summary>
+            Simple helper class for caching the last Label.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.LabelInfo.GetLabel(System.String,System.String,System.UInt32)">
+            <summary>
+            Gets the label for the given pattern/domain/address.
+            </summary>
+            <param name="pattern">Pattern Name.</param>
+            <param name="domain">Domain Name.</param>
+            <param name="address">Address.</param>
+            <returns>Label name and vector as an ILabel.</returns>
+        </member>
+        <member name="T:DieRecoveryBase.ConcurrentTracesDecoder">
+            <summary>
+            Implements IConcurrentTraces.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.Description">
+            <summary>
+            Gets or sets a description. Optional field.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.Variables">
+            <summary>
+            Gets or sets mask targets configuration.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.MaskConfigurations">
+            <summary>
+            Gets or sets mask targets configuration.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.StartPatterns">
+            <summary>
+            Gets or sets mask targets configuration.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.Entries">
+            <summary>
+            Gets or sets list of pattern entries.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.ConcurrentTracesDecoder.GetFailTrackerFromPlistResults(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.ConcurrentTracesDecoder.MaskPlistFromTracker(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.ConcurrentTracesDecoder.GetDecoderType">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.ConcurrentTracesDecoder.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.ConcurrentTracesDecoder.ApplyPlistSettings(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.ConcurrentTracesDecoder.Restore">
+            <inheritdoc />
+        </member>
+        <member name="T:DieRecoveryBase.ConcurrentTracesDecoder.PlistElementOption">
+            <summary>
+            Defined plist element options for concurrent traces.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.PlistElementOption.Patlist">
+            <summary>
+            Gets or sets the pattern name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.PlistElementOption.Index">
+            <summary>
+            Gets or sets the index in current patlist.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.PlistElementOption.Options">
+            <summary>
+            Gets or sets PlistElementOptions values.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.ConcurrentTracesDecoder.MaskTarget">
+            <summary>
+            Mask configuration entry.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.MaskTarget.Comment">
+            <summary>
+            Gets or sets some optional comment.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.MaskTarget.TargetPositions">
+            <summary>
+            Gets or sets the failing pattern occurrence.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.MaskTarget.PatternNames">
+            <summary>
+            Gets or sets a list of regular expressions for pattern masking.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.MaskTarget.Options">
+            <summary>
+            Gets or sets PlistElement options.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry">
+            <summary>
+            ConcurrentTracesConfiguration entry.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry.Comment">
+            <summary>
+            Gets or sets some optional comment.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry.FailFilters">
+            <summary>
+            Gets or sets the list of fail filters for a given entry.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry.StartPattern">
+            <summary>
+            Gets or sets the start pattern information for a given entry.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry.FailFilter">
+            <summary>
+            Defines fail filter for a given entry.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry.FailFilter.Burst">
+            <summary>
+            Gets or sets the failing burst.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry.FailFilter.PatternName">
+            <summary>
+            Gets or sets the failing pattern.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry.FailFilter.UseRegx">
+            <summary>
+            Gets or sets a value indicating whether PatternName should support regex matching.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry.FailFilter.PatternOccurrence">
+            <summary>
+            Gets or sets the failing pattern occurrence.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry.FailFilter.FailingPins">
+            <summary>
+            Gets or sets the list of failing pins by target position.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.ConfigurationEntry.FailFilter.TargetPositions">
+            <summary>
+            Gets or sets the failing pattern occurrence.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.ConcurrentTracesDecoder.StartPatternInfo">
+            <summary>
+            Defines start pattern information for a given entry.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.StartPatternInfo.PatternName">
+            <summary>
+            Gets or sets the starting pattern.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.StartPatternInfo.PatternOccurrence">
+            <summary>
+            Gets or sets the starting pattern.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.ConcurrentTracesDecoder.StartPatternInfo.PlistElementOptions">
+            <summary>
+            Gets or sets the list of optional plist element options.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.CtvDataDecoder">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.CtvDataDecoder" />.
+            This generic map type to convert different CTV data into failing index.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.CtvDataDecoder.CtvCount">
+            <summary>
+            Gets or sets the number of CTV bits to be decoded.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.CtvDataDecoder.Entries">
+            <summary>
+            Gets or sets the CTV Decode map.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.CtvDataDecoder.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.CtvDataDecoder.GetFailTrackerFromPlistResults(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DieRecoveryBase.CtvDataDecoder.CtvDataEntry">
+            <summary>
+            CTV data entry for mapping.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.CtvDataDecoder.CtvDataEntry.PinName">
+            <summary>
+            Gets or sets the pin name to read the CTV from.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.CtvDataDecoder.CtvDataEntry.Range">
+            <summary>
+            Gets or sets the Range value. These are the bits in the full CTV string to read --> "0,1,2,3,5,6,7" or "0-3,05,6,7" or "0-3,5-7".
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.CtvDataDecoder.CtvDataEntry.PassingValues">
+            <summary>
+            Gets or sets the List of Passing Values. Defaults to all 0's.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.CtvDataDecoder.CtvDataEntry.Index">
+            <summary>
+            Gets or sets the Indexes to set in the output bitmask when this entry fails.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.CtvDataDecoder.CtvDataEntry.CtvLocations">
+            <summary>
+            Gets the list of CTV bits to read for this entry.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.CtvDataDecoder.CtvDataEntry.PassingValuesDict">
+            <summary>
+            Gets the optimized PassingValues structure.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.FailDataDecoder">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.FailDataDecoder" />.
+            This generic map type to convert different vector fail data information into failing index.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataDecoder.FailDataIndexMap">
+            <summary>
+            Gets or sets the raw fail data to bit mapping.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataDecoder.DoaPins">
+            <summary>
+            Gets or sets the DOA Pins. PinMasking gets skipped.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataDecoder.ForcePinMasking">
+            <summary>
+            Gets or sets a value indicating whether to force plist wide pin masking.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataDecoder.PatternsToProcess">
+            <summary>
+            Gets or sets a value indicating the number of patterns to process. Zero or Negative value will process all.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.FailDataDecoder.LabelCache">
+            <summary>
+            Gets or sets the local label cache (saves the last label).
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.FailDataDecoder.GetDecoderType">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.FailDataDecoder.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.FailDataDecoder.GetFailTrackerFromPlistResults(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.FailDataDecoder.MaskPlistFromTracker(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DieRecoveryBase.LOG1Decoder">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.LOG1Decoder" />.
+            Log1 decoder.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.LOG1Decoder.DecoderMode">
+            <summary>
+            Log1 mode.
+            </summary>
+        </member>
+        <member name="F:DieRecoveryBase.LOG1Decoder.DecoderMode.MISR_ON">
+            <summary>
+            log1 with pair.
+            </summary>
+        </member>
+        <member name="F:DieRecoveryBase.LOG1Decoder.DecoderMode.MISR_OFF">
+            <summary>
+            log1 no misr.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.LOG1Decoder.Log1DecoderType">
+            <summary>
+            Gets or sets the decoder type [MISR_ON, MISR_OFF].
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.LOG1Decoder.Rehash">
+            <summary>
+            Gets or sets a value indicating whether Rehash is needed.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.LOG1Decoder.RecoveryTrackingName">
+            <summary>
+            Gets or sets the recovery tracking Name.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.LOG1Decoder.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.LOG1Decoder.GetFailTrackerFromPlistResults(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DieRecoveryBase.PinMapDecoderBase">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.PinMapDecoderBase" />.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DieRecoveryBase.PinMapDecoderBase"/> class.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.IpPatternConfigure">
+            <inheritdoc/>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.IpPatConfigSetPoints">
+            <inheritdoc/>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.IpPlistModifications">
+            <inheritdoc/>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.BitwiseNot">
+            <inheritdoc/>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.NumberOfTrackerElements">
+            <inheritdoc/>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.VoltageTargetGroups">
+            <inheritdoc/>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.SharedStorageResults">
+            <inheritdoc/>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.Console">
+            <summary>
+            Gets or sets a variable to hold the Prime.Console service or null based on the instances LogLevel.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.SessionContext">
+            <summary>
+            Gets or sets the Prime ISessionContextProviderContainer associated with this object.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderBase.CurrentMask">
+            <summary>
+            Gets or sets the current mask bits.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.ClearPatConfigCache(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clears concurrent dictionary with all pat config handles.
+            </summary>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.GetDecoderType">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.GetFailTrackerFromPlistResults(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.MaskPlistFromTracker(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.GetPatConfigForSliceControl(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.ApplyPatConfigSetPointForSliceControl(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.ApplyPlistSettings(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.Restore">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.SaveResultsToSharedStorage(System.Collections.BitArray)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.SaveToSharedStorage">
+            <summary>
+            Saves the decoder to shared storage.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.SetCurrentSlice(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.SetCurrentMask(System.Collections.BitArray)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.RetrieveFromSharedStorage(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reads the full DieRecovery PinMapBase table from shared storage.
+            </summary>
+            <param name="decoderName">Name of the decoder.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>A list of <see cref="T:DDG.IPinMapDecoder"/>.</returns>
+            <exception cref="N:Prime.Base.Exceptions">Thrown when the table doesn't exist.</exception>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.ApplySetPoints(System.String,DDG.SetPoints)">
+            <summary>
+            Applied patconfig setpoint.
+            </summary>
+            <param name="patlist">Patlist name.</param>
+            <param name="setPoint">Set point data.</param>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.GetPatConfigFromCache(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets a PatConfigHandle for the given PatConfig and Patlist, either creates a new copy or returns a previously cached copy.
+            </summary>
+            <param name="config">PatConfig name.</param>
+            <param name="patlist">Plist - can be null.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>IPatConfigHandle for the given config and patlist.</returns>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderBase.GetPatConfigSetPointFromCache(System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets a PatConfigSetPointHandle from cache.
+            </summary>
+            <param name="module">Module name.</param>
+            <param name="group">Group name.</param>
+            <param name="patlist">Plist - can be null.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>IPatConfigHandle for the given config and patlist.</returns>
+        </member>
+        <member name="T:DieRecoveryBase.PinMapDecoderExpressionContext">
+            <summary>
+            Wraps the expression context to add additional parameter named 'value' to be used in the expression.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapDecoderExpressionContext.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DieRecoveryBase.PinMapDecoderExpressionContext"/> class.
+            </summary>
+            <param name="value">Value parameter.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapDecoderExpressionContext.value">
+            <summary>
+            Gets or sets the value to be used in the expression.
+            Need to suppress SA1300 warning as the property name is defined by the expression.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.PinToSliceIndexDecoder">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.PinToSliceIndexDecoder" />.
+            This is meant to be used for per-core testing like SBFT where each core maps
+            to a different pin, and any failure on that pin means the corresponding core fails.
+            It can support mapping multiple pins to a single core or a single pin to one or more cores.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinToSliceIndexDecoder.PinToSliceIndexMap">
+            <summary>
+            Gets or sets the raw Pin to Slice Bits mapping.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinToSliceIndexDecoder.DoaPins">
+            <summary>
+            Gets or sets the DOA Pins. PinMasking gets skipped.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinToSliceIndexDecoder.SliceIndexToPinMap">
+            <summary>
+            Gets or sets the Slice Bit to Pin mapping.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.PinToSliceIndexDecoder.GetDecoderType">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinToSliceIndexDecoder.GetFailTrackerFromPlistResults(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinToSliceIndexDecoder.MaskPlistFromTracker(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinToSliceIndexDecoder.ReBuildAfterDeserialized(System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Helper function reconstruct non-serialized structures.
+            </summary>
+            <param name="context">object.</param>
+        </member>
+        <member name="T:DieRecoveryBase.RegisterCompareDecoder">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.RegisterCompareDecoder" />.
+            This generic map type to convert different vector fail data information into failing index.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.RegisterCompareDecoder.LogModeEnum">
+            <summary>
+            Specifies the logging mode for an operation or system.
+            </summary>
+            <remarks>This enumeration defines the available logging levels, allowing the caller to control
+            the granularity of log output. Use <see cref="F:DieRecoveryBase.RegisterCompareDecoder.LogModeEnum.None"/> to disable logging, <see cref="F:DieRecoveryBase.RegisterCompareDecoder.LogModeEnum.Fail"/> to log only
+            failures, or <see cref="F:DieRecoveryBase.RegisterCompareDecoder.LogModeEnum.All"/> to log all events.</remarks>
+        </member>
+        <member name="F:DieRecoveryBase.RegisterCompareDecoder.LogModeEnum.None">
+            <summary>
+            No logging..
+            </summary>
+        </member>
+        <member name="F:DieRecoveryBase.RegisterCompareDecoder.LogModeEnum.Fail">
+            <summary>
+            Logging only failures.
+            </summary>
+        </member>
+        <member name="F:DieRecoveryBase.RegisterCompareDecoder.LogModeEnum.All">
+            <summary>
+            Represents a value that includes all possible options or states.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RegisterCompareDecoder.ComparePins">
+            <summary>
+            Gets or sets the register compare pins.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RegisterCompareDecoder.CapturedBitsPerPattern">
+            <summary>
+            Gets or sets the number of captured bits per pattern.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RegisterCompareDecoder.Registers">
+            <summary>
+            Gets or sets the register compare pins.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RegisterCompareDecoder.RegistersMap">
+            <summary>
+            Gets or sets the register compare map.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RegisterCompareDecoder.LogMode">
+            <summary>
+            Gets or sets the register compare pins.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.RegisterCompareDecoder.GetDecoderType">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.RegisterCompareDecoder.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.RegisterCompareDecoder.ApplyPlistSettings(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.RegisterCompareDecoder.GetFailTrackerFromPlistResults(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DieRecoveryBase.RegisterCompareDecoder.RegisterItem">
+            <summary>
+            Represents a register item for the RegisterCompareDecoder.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RegisterCompareDecoder.RegisterItem.Indexes">
+            <summary>
+            Gets or sets of sets the indexes using a range string representation.
+            Example: "0-3,5,7-9" will be converted to a list of indexes [0, 1, 2, 3, 5, 7, 8, 9].
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RegisterCompareDecoder.RegisterItem.CtvPin">
+            <summary>
+            Gets or sets the CTV PIN associated with the object.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.RegisterCompareDecoder.RegisterItem.Bits">
+            <summary>
+            Gets or sets the collection of bit values.
+            List of strings represent the bits ranges for the register item.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.SafeZonesDecoder">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.FailDataDecoder" />.
+            This generic map type to convert different vector fail data information into failing index.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.SafeZones">
+            <summary>
+            Gets or sets the safe zones.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.IgnoredPatternsRegx">
+            <summary>
+            Gets or sets an ignored patterns regex..
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.IgnoredPatternMatcher">
+            <summary>
+            Gets or sets the IStringMatcher to use for IgnoredPatternsRegx.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.SafeZonesOverride">
+            <summary>
+            Gets or sets a list of safe zone patterns to override automatic detection algorithm.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.PatternIdPositions">
+            <summary>
+            Gets or sets the pattern id positions. Typically, maps tuple and/or tid.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.SafeZonesDecoder.GetSafeZones(System.String)">
+            <summary>
+            Identifies safe zones for target plist.
+            </summary>
+            <param name="plist">The plist name.</param>
+            <returns>List of safe zones.</returns>
+        </member>
+        <member name="M:DieRecoveryBase.SafeZonesDecoder.GetDecoderType">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.SafeZonesDecoder.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.SafeZonesDecoder.ApplyPlistSettings(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.SafeZonesDecoder.Restore">
+            <inheritdoc />
+        </member>
+        <member name="T:DieRecoveryBase.SafeZonesDecoder.PreBurstPlistOption">
+            <summary>
+            Class defines Instrumental patterns.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.PreBurstPlistOption.Name">
+            <summary>
+             Gets or sets the pattern name regx.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.PreBurstPlistOption.PreBurstListName">
+            <summary>
+            Gets or sets PreBurstListName.
+            </summary>
+        </member>
+        <member name="T:DieRecoveryBase.SafeZonesDecoder.StartPattern">
+            <summary>
+            Defines a pattern occurrence in a plist.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.StartPattern.Pattern">
+            <summary>
+             Gets or sets the pattern name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.StartPattern.PatternMatcher">
+            <summary>
+             Gets or sets the pattern name.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.StartPattern.Index">
+            <summary>
+            Gets or sets PreBurstListName.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.StartPattern.Occurrence">
+            <summary>
+            Gets or sets PreBurstListName.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.SafeZonesDecoder.StartPattern.Burst">
+            <summary>
+            Gets or sets PreBurstListName.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.SafeZonesDecoder.StartPattern.Verify">
+            <summary>
+            Build the string matcher.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.SafeZonesDecoder.StartPattern.IsMatch(DDG.PatternOccurrence)">
+            <summary>
+            Check if this object matches the PatternOccurence object.
+            </summary>
+            <param name="patOccurence">PatternOccurrence object.</param>
+            <returns>true if they match.</returns>
+        </member>
+        <member name="T:DieRecoveryBase.PinMapBase">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.PinMapBase" />.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DieRecoveryBase.PinMapBase"/> class.
+            </summary>
+            <param name="name">Name of the PinMapBase.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this instance.</param>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapBase.Name">
+            <summary>
+            Gets the name of this PinMapBase.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapBase.FullTrackerSize">
+            <summary>
+            Gets the full number of Tracker Bits associated with this PinMapBase.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapBase.FullVoltageTargetCount">
+            <summary>
+            Gets the full number of Voltage Targets associated with this PinMapBase.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapBase.Configurations">
+            <summary>
+            Gets or sets the PinMapBase Configuration objects.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapBase.Console">
+            <summary>
+            Gets the Prime.Console service or null based on the instances LogLevel.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapBase.SessionContext">
+            <summary>
+            Gets the Prime ISessionContextProviderContainer associated with this object.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapBase.CurrentMask">
+            <summary>
+            Gets or sets the current mask value.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.PinMapBase.PreviousMask">
+            <summary>
+            Gets or sets the previous mask value.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.DecodeFailure(Prime.FunctionalService.IFunctionalTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.FailTrackerToFailVoltageDomains(System.Collections.BitArray)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.VoltageDomainsToFailTracker(System.Collections.BitArray)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.SetCurrentMask(System.Collections.BitArray,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.MaskPins(Prime.FunctionalService.IFunctionalTest@,System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.ApplyPlistSettings(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.GetMaskPins(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.Restore">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.Reset">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <inheritdoc />
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.ApplyPatConfig(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.ApplyPatConfig">
+            <inheritdoc/>
+        </member>
+        <member name="M:DieRecoveryBase.PinMapBase.GetConfiguration">
+            <inheritdoc/>
+        </member>
+        <member name="T:DieRecoveryBase.TrackerElement">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.TrackerElement" />.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.TrackerElement.Name">
+            <summary>
+            Gets or sets the Name of the Data.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.TrackerElement.Size">
+            <summary>
+            Gets or sets the number of bits in this structure.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.TrackerElement.InitialValue">
+            <summary>
+            Gets or sets the initial value for the tracker.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.TrackerElement.SessionContext">
+            <summary>
+            Gets or sets the Prime ISessionContextProviderContainer associated with this object.
+            </summary>
+        </member>
+        <member name="M:DieRecoveryBase.TrackerElement.Clone(System.String)">
+            <summary>
+            Clones current tracker.
+            </summary>
+            <param name="newTrackerName">New tracker name.</param>
+        </member>
+        <member name="M:DieRecoveryBase.TrackerElement.SaveDefinition(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Stores the Tracker definition in shared storage.
+            </summary>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+        </member>
+        <member name="M:DieRecoveryBase.TrackerElement.SaveData(System.String)">
+            <summary>
+            Updates the current data for this tracker.
+            </summary>
+            <param name="data">Data to save.</param>
+        </member>
+        <member name="M:DieRecoveryBase.TrackerElement.TryGetData(System.String@)">
+            <summary>
+            Gets the current data for this tracker or a default value that is passed in.
+            </summary>
+            <param name="currentData">Current Data if it has data.</param>
+            <returns>true if the tracker data is valid.</returns>
+        </member>
+        <member name="M:DieRecoveryBase.TrackerElement.GetDefinition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the named Tracker Definition from shared storage.
+            </summary>
+            <param name="name">Name of the tracker.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns><see cref="T:DieRecoveryBase.TrackerElement"/> object.</returns>
+        </member>
+        <member name="T:DieRecoveryBase.TrackerTable">
+            <summary>
+            Defines the <see cref="T:DieRecoveryBase.TrackerTable" />.
+            This class is only meant to read in the Tracker configuration file.
+            It is not used to track current data.
+            </summary>
+        </member>
+        <member name="P:DieRecoveryBase.TrackerTable.Trackers">
+            <summary>
+            Gets or sets the Trackers.
+            </summary>
+        </member>
+        <member name="T:DDG.DieRecovery">
+            <summary>
+            Singleton for DieRecovery service.
+            </summary>
+            <summary>
+            Defines the Flags in <see cref="T:DDG.DieRecovery" />.
+            </summary>
+            <summary>
+            Defines the Flags in <see cref="T:DDG.DieRecovery" />.
+            </summary>
+            <summary>
+            Defines the Flags in <see cref="T:DDG.DieRecovery" />.
+            </summary>
+        </member>
+        <member name="F:DDG.DieRecovery.Separator">
+            <summary>
+            Standard separator.
+            </summary>
+        </member>
+        <member name="F:DDG.DieRecovery.SeparatorForLogging">
+            <summary>
+            Separator for logging.
+            </summary>
+        </member>
+        <member name="P:DDG.DieRecovery.Service">
+            <summary>
+            Gets or sets Dlvr service implementation.
+            </summary>
+        </member>
+        <member name="T:DDG.DieRecovery.Flag">
+            <summary>
+            Enum containing DieRecovery Flags.
+            </summary>
+        </member>
+        <member name="F:DDG.DieRecovery.Flag.AreTrackerChangesAllowed">
+            <summary>
+            Flag to indicate that Tracker Changes (ie downbins) are allowed.
+            </summary>
+        </member>
+        <member name="F:DDG.DieRecovery.Flag.IsHistoryEnabled">
+            <summary>
+            Flag to indicate that Tracker History (ie saving all tests which update a tracker) is enabled.
+            </summary>
+        </member>
+        <member name="F:DDG.DieRecovery.Flag.IsPreTestCheckEnabled">
+            <summary>
+            Flag to indicate that PreTest Rules check is enabled (for sort force flow).
+            </summary>
+        </member>
+        <member name="T:DDG.DieRecovery.Flags">
+            <summary>
+            Defines the <see cref="T:DDG.DieRecovery.Flags" />.
+            </summary>
+        </member>
+        <member name="M:DDG.DieRecovery.Flags.Default(DDG.DieRecovery.Flag)">
+            <summary>
+            Gets the default value for a flag if it's not set.
+            </summary>
+            <param name="flag">flag.</param>
+            <returns>true or false.</returns>
+        </member>
+        <member name="M:DDG.DieRecovery.Flags.GetKey(DDG.DieRecovery.Flag)">
+            <summary>
+            Gets the SharedStorage key for a flag.
+            </summary>
+            <param name="flag">flag.</param>
+            <returns>SharedStorage key.</returns>
+        </member>
+        <member name="M:DDG.DieRecovery.Flags.GetContext">
+            <summary>
+            Gets the SharedStorage context for a flag.
+            </summary>
+            <returns>Context.</returns>
+        </member>
+        <member name="T:DDG.DieRecovery.TrackerRecord">
+            <summary>
+            Defines the Flags in <see cref="T:DDG.DieRecovery.TrackerRecord" />.
+            </summary>
+        </member>
+        <member name="M:DDG.DieRecovery.TrackerRecord.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.DieRecovery.TrackerRecord"/> class.
+            This is used to store the history of every tracker.
+            </summary>
+            <param name="tracker">Name of the tracker.</param>
+            <param name="test">Name of the test making the update.</param>
+            <param name="oldValue">Current/old value of the tracker.</param>
+            <param name="newValue">Updated/New value of the tracker.</param>
+        </member>
+        <member name="P:DDG.DieRecovery.TrackerRecord.Name">
+            <summary>
+            Gets or sets the name of the tracker.
+            </summary>
+        </member>
+        <member name="P:DDG.DieRecovery.TrackerRecord.PreviousValue">
+            <summary>
+            Gets or sets the previous/current value of this tracker.
+            </summary>
+        </member>
+        <member name="P:DDG.DieRecovery.TrackerRecord.NewValue">
+            <summary>
+            Gets or sets the new/updated value of this tracker.
+            </summary>
+        </member>
+        <member name="P:DDG.DieRecovery.TrackerRecord.Test">
+            <summary>
+            Gets or sets the name of the test that caused the update.
+            </summary>
+        </member>
+        <member name="T:DDG.DieRecovery.History">
+            <summary>
+            Defines the <see cref="T:DDG.DieRecovery.History" />.
+            </summary>
+        </member>
+        <member name="M:DDG.DieRecovery.History.Get(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the tracking history for a tracker.
+            </summary>
+            <param name="trackerName">Name of tracker.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>History of all updates.</returns>
+        </member>
+        <member name="M:DDG.DieRecovery.History.Add(System.String,System.String,System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Updates the tracking history for the tracker.
+            </summary>
+            <param name="trackerName">Name of the tracker.</param>
+            <param name="oldValue">Old/Previous value for the tracker.</param>
+            <param name="newValue">New value for the tracker.</param>
+            <param name="test">Name of the test making the update.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+        </member>
+        <member name="T:DDG.DieRecovery.Table">
+            <summary>
+            Defines the die recovery table types.
+            </summary>
+        </member>
+        <member name="F:DDG.DieRecovery.Table.TrackerNames">
+            <summary>
+            Table containing the names of all existing Trackers.
+            </summary>
+        </member>
+        <member name="F:DDG.DieRecovery.Table.PinMapDecoderNames">
+            <summary>
+            Table containing the names of all existing PinMapDecoders.
+            </summary>
+        </member>
+        <member name="F:DDG.DieRecovery.Table.RuleNames">
+            <summary>
+            Table containing the names of all existing Rules.
+            </summary>
+        </member>
+        <member name="F:DDG.DieRecovery.Table.SkuRuleNames">
+            <summary>
+            Table containing the names of all existing Rules.
+            </summary>
+        </member>
+        <member name="F:DDG.DieRecovery.Table.SkuDefinition">
+            <summary>
+            Table containing the names of all existing SKUs.
+            </summary>
+        </member>
+        <member name="T:DDG.DieRecovery.Tables">
+            <summary>
+            Defines the <see cref="T:DDG.DieRecovery.Tables" />.
+            </summary>
+        </member>
+        <member name="M:DDG.DieRecovery.Tables.Add(DDG.DieRecovery.Table,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Adds an item to the stored list.
+            </summary>
+            <param name="tableName">Name of the StoredList table to add to.</param>
+            <param name="item">Item to add.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+        </member>
+        <member name="M:DDG.DieRecovery.Tables.Get(DDG.DieRecovery.Table,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the full stored list.
+            </summary>
+            <param name="tableName">Name of the table to get.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>List of string.</returns>
+        </member>
+        <member name="T:DDG.IDieRecovery">
+            <summary>
+            Interface for main DieRecovery object.
+            </summary>
+        </member>
+        <member name="P:DDG.IDieRecovery.ResetValue">
+            <summary>
+            Gets the Reset/Initial value associated with this DieRecovery Tracker.
+            </summary>
+        </member>
+        <member name="M:DDG.IDieRecovery.Read">
+            <summary>
+            Returns the Tracking Structure as a BitArray, true elements are ones which should be masked.
+            </summary>
+            <returns>The <see cref="T:System.Collections.BitArray"/> containing the plist mask, true elements should be masked.</returns>
+        </member>
+        <member name="M:DDG.IDieRecovery.Write(System.Collections.BitArray,System.Collections.BitArray,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Run the rules on the given testResults and if they pass, write the result to the trackers.
+            </summary>
+            <param name="testResults">The testResults<see cref="T:System.Collections.BitArray"/> to update the tracking structure with.</param>
+            <param name="mask">Bit array specifying which slice bits should be ignored. Elements set to true means that bit will ignore the testResults and use the current value of the tracker. Default is null (all bits enabled).</param>
+            <param name="merge">Indicating whether the new data should overwrite existing data or be merged (default is Merge).</param>
+            <param name="log">Boolean indicating whether to log the update to Ituff or not (default true==PrintToItuff).</param>
+            <param name="skipRules">Skips the RunRules and just writes testResults directly to the trackers.</param>
+            <returns>true if write was successful.</returns>
+        </member>
+        <member name="M:DDG.IDieRecovery.RunRule(System.Collections.BitArray,System.Boolean)">
+            <summary>
+            Run the SKU based rule associated with this tracker.
+            If it passes, the passing bit vector associated with this tracker is returned.
+            </summary>
+            <param name="testResults">BitVector with the pass/fail test results for this Tracking structure.</param>
+            <param name="merge">Boolean indicating if tracking and test results should be merged for evaluation.</param>
+            <returns><see cref="T:DieRecoveryBase.DieRecoveryTrackerBase.RuleResult"/>.</returns>
+        </member>
+        <member name="M:DDG.IDieRecovery.Log(System.Collections.BitArray,System.Collections.BitArray)">
+            <summary>
+            Logs current test data without updating current tracker.
+            </summary>
+            <param name="mask">Mask bits.</param>
+            <param name="result">Result bits.</param>
+        </member>
+        <member name="M:DDG.IDieRecovery.SetRule(System.String)">
+            <summary>
+            Associates the give SKU based rule with this Tracking structure.
+            This rule will be run when the RunRule or Write methods are invoked.
+            </summary>
+            <param name="ruleName">Name of the SKU based ruleName.</param>
+        </member>
+        <member name="T:DDG.IDieRecoveryFactory">
+            <summary>
+            Defines the <see cref="T:DDG.IDieRecoveryFactory" />.
+            </summary>
+        </member>
+        <member name="P:DDG.IDieRecoveryFactory.CurrentSlice">
+            <summary>
+            Gets or sets current slice index.
+            </summary>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.GetTrackingStructure(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a Tracking Structure for the given comma-separated list of Trackers.
+            </summary>
+            <param name="name">Comma-separated list of trackers.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this tracker.</param>
+            <returns><see cref="T:DDG.IDieRecovery"/>. Main DieRecovery Tracker interface.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.GetPinMap(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create a PinMap object with the given comma-separated list of PinMap Decoder configurations.
+            </summary>
+            <param name="decoders">Comma-separated list of PinMap Decoder names.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer for this tracker.</param>
+            <returns><see cref="T:DDG.IPinMap"/>.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.GetDecoder(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the named PinMapDecoder from shared storage.
+            </summary>
+            <param name="name">Name of the decoder.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>decoder object.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.GetSkuRule(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the named DieRecovery SKU based Rule.
+            </summary>
+            <param name="name">Name of the rule to get.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns><see cref="T:DieRecoveryBase.SkuRule"/>.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.GetSKU(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the named DieRecovery SKU definition.
+            </summary>
+            <param name="area">Recovery area where the sku is located.</param>
+            <param name="sku">Name of the sku.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns><see cref="T:DieRecoveryBase.RecoverySKU"/>.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.GetTrackerDefinition(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the named DieRecovery Tracker Definition.
+            </summary>
+            <param name="name">Name of the individual tracker.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns><see cref="T:DieRecoveryBase.TrackerElement"/> object.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.GetHistory(Prime.SessionService.ISessionContextProviderContainer,System.String)">
+            <summary>
+            Gets the full history of which tests updated trackers.
+            Return dictionary is keys=Tracker, value=list of updates.
+            </summary>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <param name="trackerNameRegx">tracker name for matching. If null or empty it will pull full history.</param>
+            <returns>Dictionary.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.SetFlag(DDG.DieRecovery.Flag,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Internal function to set a flag.
+            </summary>
+            <param name="flag"><see cref="T:DDG.DieRecovery.Flag"/> type.</param>
+            <param name="value">Value to set.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.GetFlag(DDG.DieRecovery.Flag,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the value for the given DieRecovery Flag.
+            </summary>
+            <param name="flag"><see cref="T:DDG.DieRecovery.Flag"/> type.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>true or false.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.GetTable(DDG.DieRecovery.Table,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets the contents of a DieRecovery Table.
+            </summary>
+            <param name="tableName"><see cref="T:DDG.DieRecovery.Table"/> name.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>Contents of the table.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.CloneTracker(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clones tracker definition and data using new tracker name.
+            </summary>
+            <param name="existingTrackerName">Existing tracker name.</param>
+            <param name="newTrackerName">New tracker name.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.LoadTrackerFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Loads the given Json file containing DieRecovery Tracker definitions.
+            </summary>
+            <param name="trackerFile">Json file containing DieRecovery Tracker definitions.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.LoadSkuDefinitionFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Loads the given SKU Recovery XML file and saves the skus to shared storage.
+            </summary>
+            <param name="skuDefFile">Name of the xml file to load.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>false.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.LoadSkuRulesFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Loads the given SKU Rules Json file and saves the rules to shared storage.
+            </summary>
+            <param name="skuRules">Name of the json file to load.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>true.</returns>
+        </member>
+        <member name="M:DDG.IDieRecoveryFactory.LoadPinMapDecoderFile(System.String,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Loads the given Json file containing DieRecovery Tracker definitions.
+            </summary>
+            <param name="decoderFile">Json file containing DieRecovery PinMap Decoder definitions.</param>
+            <param name="decoderType">Type of the decoder to load.</param>
+            <param name="sessionContext">Prime ISessionContextProviderContainer.</param>
+            <returns>true on success.</returns>
+        </member>
+        <member name="T:DDG.IPinMapDecoder">
+            <summary>
+            Defines the <see cref="T:DDG.IPinMapDecoder" />.
+            </summary>
+        </member>
+        <member name="P:DDG.IPinMapDecoder.Name">
+            <summary>
+            Gets or sets the Name of this PlistDecoder object.
+            </summary>
+        </member>
+        <member name="P:DDG.IPinMapDecoder.IpPatternConfigure">
+            <summary>
+            Gets or sets the name of the Pattern Configuration used to Enable/Disable this IP.
+            </summary>
+        </member>
+        <member name="P:DDG.IPinMapDecoder.IpPatConfigSetPoints">
+            <summary>
+            Gets or sets a list of PatConfigSetPoints used to Enable/Disable this IP.
+            </summary>
+        </member>
+        <member name="P:DDG.IPinMapDecoder.IpPlistModifications">
+            <summary>
+            Gets or sets a list of Plist element modifications list used to Enable/Disable this IP.
+            </summary>
+        </member>
+        <member name="P:DDG.IPinMapDecoder.BitwiseNot">
+            <summary>
+            Gets or sets a value indicating whether data should apply a bitwise not operation.
+            </summary>
+        </member>
+        <member name="P:DDG.IPinMapDecoder.NumberOfTrackerElements">
+            <summary>
+            Gets or sets the Size of the Tracker BitArray generated by this decoder.
+            </summary>
+        </member>
+        <member name="P:DDG.IPinMapDecoder.VoltageTargetGroups">
+            <summary>
+            Gets or sets how many Tracker bits to consume for each VoltageTarget.
+            Normally the decoder represents a single voltage target which consumes all the tracker bits,
+            but if a decoder is attached to multiple voltage targets, use this to specify how the bits
+            are assigned.
+            </summary>
+        </member>
+        <member name="P:DDG.IPinMapDecoder.SharedStorageResults">
+            <summary>
+            Gets or sets the decoder result in the indicated SharedStorage token.
+            </summary>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.GetDecoderType">
+            <summary>
+            Returns typeof decoder as string. Base implementation should be sufficient for most decoders.
+            </summary>
+            <returns>typeof decoder.</returns>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.GetFailTrackerFromPlistResults(Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Generates a BitArray where each element refers to a separately tracked item (usually core or slice).
+            A true value means that element had a failure.
+            </summary>
+            <param name="functionalTest">A <see cref="T:Prime.FunctionalService.IFunctionalTest"/> object containing the test execution results.</param>
+            <returns>A BitArray=<see cref="T:System.Collections.BitArray"/>.</returns>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.MaskPlistFromTracker(Prime.FunctionalService.IFunctionalTest@)">
+            <summary>
+            Given a BitArray with one element per tracked item, where true means that element had a failure,
+            returns the list of pins to mask. The functionalTest is pass-by-reference so it can be updated, however
+            the pin masking should not be done here.
+            Called from IPinMap.MaskPins() and IPinMap.GetMaskPins(). Base implementation returns an empty list.
+            </summary>
+            <param name="plist">A <see cref="T:Prime.FunctionalService.IFunctionalTest"/> object containing the functionalTest to mask.</param>
+            <returns>The list of pins to mask.</returns>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.GetPatConfigForSliceControl(System.String)">
+            <summary>
+            Gets a <see cref="T:Prime.PatConfigService.IPatConfigHandle"/> to enable/disable this IP according to the given BitArray.
+            Base implementation should be sufficient for most decoders.
+            </summary>
+            <param name="patlist">Specific PList to associated with the pattern modify (if null or string.Empty, it should affect all plists).</param>
+            <returns><see cref="T:Prime.PatConfigService.IPatConfigHandle"/>.</returns>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.ApplyPatConfigSetPointForSliceControl(System.String)">
+            <summary>
+            Applies a list of <see cref="T:Prime.PatConfigService.IPatConfigSetPointHandle"/> to enable/disable this IP according to the given BitArray.
+            Base implementation should be sufficient for most decoders.
+            </summary>
+            <param name="patlist">Specific PList to associated with the pattern modify (if null or string.Empty, it should affect all plists).</param>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.ApplyPlistSettings(System.String)">
+            <summary>
+            Applies plist settings for the given IFunctionalTestForSearch object using
+            the BitArray representing a Tracking structure. Base implementation doesn't do anything.
+            Called from IPinMap.MaskPins() and IPinMap.GetMaskPins().
+            </summary>
+            <param name="plist">PList object to apply the mask to.</param>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.Restore">
+            <summary>
+            Resets or restores patterns and/or plists based on decoder configuration. Should undo any per-Unit state.
+            Called from IPinMap.Restore().
+            </summary>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.SaveResultsToSharedStorage(System.Collections.BitArray)">
+            <summary>
+            Saves decoded result to SharedStorage token specified in the configuration file. Base implementation should be sufficient for most decoders.
+            Called from IPinMap.DecodeFailure().
+            </summary>
+            <param name="results">Decoded BitArray.</param>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <summary>
+            Verify routine to be called during init.
+            </summary>
+            <param name="plist">PList object.</param>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.SetCurrentSlice(System.Int32)">
+            <summary>
+            Not Used. Use DDG.DieRecovery.Service.CurrentSlice instead.
+            </summary>
+            <param name="slice">Slice number.</param>
+        </member>
+        <member name="M:DDG.IPinMapDecoder.SetCurrentMask(System.Collections.BitArray)">
+            <summary>
+            Sets current mask to be applied. Base implementation should be enough for most decoders.
+            Called from IPinMap.SetCurrentMask().
+            </summary>
+            <param name="mask">Mask bits.</param>
+        </member>
+        <member name="T:DDG.PlistElementModifications">
+            <summary>
+            PlistElementModifications settings.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistElementModifications.Indexes">
+            <summary>
+            Gets or sets the bit vector positions.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistElementModifications.Values">
+            <summary>
+            Gets or sets the values to match.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistElementModifications.Masks">
+            <summary>
+            Gets or sets the masks to match.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistElementModifications.EnablePatternsRegex">
+            <summary>
+            Gets or sets regex for patterns to enable.
+            </summary>
+        </member>
+        <member name="P:DDG.PlistElementModifications.DisablePatternsRegex">
+            <summary>
+            Gets or sets the list of set points to apply.
+            </summary>
+        </member>
+        <member name="T:DDG.SetPoints">
+            <summary>
+            SetPoint settings.
+            </summary>
+        </member>
+        <member name="P:DDG.SetPoints.Indexes">
+            <summary>
+            Gets or sets the bit vector positions.
+            </summary>
+        </member>
+        <member name="P:DDG.SetPoints.Values">
+            <summary>
+            Gets or sets the values to match.
+            </summary>
+        </member>
+        <member name="P:DDG.SetPoints.Masks">
+            <summary>
+            Gets or sets the masks to match.
+            </summary>
+        </member>
+        <member name="P:DDG.SetPoints.PatConfigSetPoints">
+            <summary>
+            Gets or sets the list of set points to apply.
+            </summary>
+        </member>
+        <member name="P:DDG.SetPoints.SharedStorageTokens">
+            <summary>
+            Gets or sets a dictionary of shared storage tokens to set using expression engine.
+            </summary>
+        </member>
+        <member name="P:DDG.SetPoints.UseLambda">
+            <summary>
+            Gets or sets a value indicating whether expression should be converted to a lambda function.
+            </summary>
+        </member>
+        <member name="T:DDG.IPinMap">
+            <summary>
+            Base definition of the Recovery PinMapBase Interface.
+            </summary>
+        </member>
+        <member name="P:DDG.IPinMap.Name">
+            <summary>
+            Gets the name of this PinMapBase.
+            </summary>
+        </member>
+        <member name="P:DDG.IPinMap.FullTrackerSize">
+            <summary>
+            Gets the full number of Tracker Bits associated with this PinMapBase.
+            </summary>
+        </member>
+        <member name="M:DDG.IPinMap.SetCurrentMask(System.Collections.BitArray,System.Boolean)">
+            <summary>
+            Sets current mask bits.
+            </summary>
+            <param name="mask">Bit array containing the mask to apply.</param>
+            <param name="reset">Resets state variables.</param>
+        </member>
+        <member name="M:DDG.IPinMap.MaskPins(Prime.FunctionalService.IFunctionalTest@,System.Collections.Generic.List{System.String})">
+            <summary>
+            Updates the pin masking for the given IFunctionalTestForSearch object using
+            the BitArray representing a Tracking structure.
+            </summary>
+            /// <param name="plist">PList object.</param>
+            <param name="maskedPins">Additional masked pins. They will be added to the resulting list.</param>
+        </member>
+        <member name="M:DDG.IPinMap.GetMaskPins(System.Collections.Generic.List{System.String})">
+            <summary>
+            Gets the Pins to mask from the BitArray representing a Tracking structure.
+            </summary>
+            <param name="maskedPins">Additional masked pins. They will be added to the resulting list.</param>
+            <returns>List of pins to mask.</returns>
+        </member>
+        <member name="M:DDG.IPinMap.ApplyPlistSettings(System.String)">
+            <summary>
+            Applies plist settings. This is expected to be called along with MaskPins.
+            </summary>
+            <param name="plist">Resolved plist name.</param>
+        </member>
+        <member name="M:DDG.IPinMap.Reset">
+            <summary>
+            Resets variables to initial states.
+            </summary>
+        </member>
+        <member name="M:DDG.IPinMap.Restore">
+            <summary>
+            Runs a restore routine. Used for restoring patterns and/or plist to their original states.
+            </summary>
+        </member>
+        <member name="M:DDG.IPinMap.Verify(Prime.FunctionalService.IFunctionalTest@)">
+            <summary>
+            Verify routine to be called during Init.
+            </summary>
+            /// <param name="plist">PList object.</param>
+        </member>
+        <member name="M:DDG.IPinMap.DecodeFailure(Prime.FunctionalService.IFunctionalTest)">
+            <summary>
+            Decodes the failure for the given IFunctionalTest based on the pin mapping.
+            Implemented decoder will need to cast object to the specific IFunctionalTest implementation.
+            Returns a BitArray with each element representing pass (false) or fail (true) for each element in the Tracking structure.
+            </summary>
+            <param name="functionalTest">IFunctionalTest=<see cref="T:Prime.FunctionalService.IFunctionalTest"/> generic functional test. </param>
+            <returns>BitArray representing the failures.</returns>
+        </member>
+        <member name="M:DDG.IPinMap.FailTrackerToFailVoltageDomains(System.Collections.BitArray)">
+            <summary>
+            Converts the FailTracker BitVector to a BitVector representing Failing Voltage Domains.
+            </summary>
+            <param name="trackerBitArray">BitArray output of DecodeFailure.</param>
+            <returns>BitArray with true for each failing voltage domain.</returns>
+        </member>
+        <member name="M:DDG.IPinMap.VoltageDomainsToFailTracker(System.Collections.BitArray)">
+            <summary>
+            Expands a BitArray from 1 bit per voltage domain to 1 bit per fail tracker bit.
+            This is the opposite of FailTrackerToFailVoltageDomains().
+            </summary>
+            <param name="voltageDomainBitArray">BitArray with 1 bit per voltage target/domain.</param>
+            <returns>BitArray with 1 Bit per fail tracker.</returns>
+        </member>
+        <member name="M:DDG.IPinMap.ApplyPatConfig(System.String)">
+            <summary>
+            Applies the IP Enable/Disable pattern modify associated with this PinMapBase object using the supplied BitArray.
+            </summary>
+            <param name="plist">Specific PList to apply the pattern modify to.</param>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException"> thrown if there's a problem with the patmodify.</exception>
+        </member>
+        <member name="M:DDG.IPinMap.ApplyPatConfig">
+            <summary>
+            Applies the IP Enable/Disable pattern modify associated with this PinMapBase object using the supplied BitArray.
+            </summary>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException"> thrown if there's a problem with the patmodify.</exception>
+        </member>
+        <member name="M:DDG.IPinMap.GetConfiguration">
+            <summary>
+            Returns list of pinmaps and expected size.
+            </summary>
+            <returns>List of pinmaps.</returns>
+        </member>
+        <member name="T:DDG.PrimeDefeatureTracker">
+            <summary>
+            Wrapper for Prime Defeature Tracking Service.
+            </summary>
+        </member>
+        <member name="M:DDG.PrimeDefeatureTracker.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DDG.PrimeDefeatureTracker"/> class.
+            </summary>
+            <param name="trackerNames">Group name.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:DDG.PrimeDefeatureTracker.Handler">
+            <summary>
+            Gets or sets the prime Handler for tracking structure.
+            </summary>
+        </member>
+        <member name="P:DDG.PrimeDefeatureTracker.ResetValue">
+            <inheritdoc/>>
+        </member>
+        <member name="M:DDG.PrimeDefeatureTracker.Read">
+            <inheritdoc/>>
+        </member>
+        <member name="M:DDG.PrimeDefeatureTracker.Write(System.Collections.BitArray,System.Collections.BitArray,System.Boolean,System.Boolean,System.Boolean)">
+            <inheritdoc/>>
+        </member>
+        <member name="M:DDG.PrimeDefeatureTracker.RunRule(System.Collections.BitArray,System.Boolean)">
+            <inheritdoc/>>
+        </member>
+        <member name="M:DDG.PrimeDefeatureTracker.Log(System.Collections.BitArray,System.Collections.BitArray)">
+            <inheritdoc/>>
+        </member>
+        <member name="M:DDG.PrimeDefeatureTracker.SetRule(System.String)">
+            <inheritdoc/>>
+        </member>
+        <member name="M:DDG.PrimeDefeatureTracker.RunRule(System.Collections.BitArray,System.Collections.BitArray,System.Boolean)">
+            <summary>
+            Run the rule on the given testResults and if it passes, write the result to the trackers.
+            </summary>
+            <param name="testResults">test results.</param>
+            <param name="currentValue">current value.</param>
+            <param name="merge">merge condition.</param>
+            <returns>Rule evaluation result.</returns>
+        </member>
+    </members>
+</doc>

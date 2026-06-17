@@ -1,0 +1,538 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Vadtl</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Vadtl.Common.DictionaryExtensions">
+            <summary>
+            Contains extension methods for the generic Dictionary class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Vadtl.Common.DictionaryExtensions.TryAdd``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+            <summary>
+            Adds a key/value entry to a dictionary only when it does not exist.
+            </summary>
+            <typeparam name="TKey"> Dictionary key type. </typeparam>
+            <typeparam name="TValue"> Dictionary value type. </typeparam>
+            <param name="dictionary"> The dictionary to be updated. </param>
+            <param name="key"> The entry key to be added. </param>
+            <param name="value"> the entry value to be added. </param>
+            <returns> True in case the value was added, otherwise false. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.Common.OverallMax">
+            <summary>
+            Object to store the values to calculate the results.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Common.OverallMax.MultiDomain">
+            <summary>
+            Gets or sets the MultiDomain maximus.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Common.OverallMax.MaxShiftMultiDomain">
+            <summary>
+            Gets or sets the MultiDomain maximus.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Common.OverallMax.SingleDomain">
+            <summary>
+            Gets or sets the SingleDomain maximus.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Common.OverallMax.VadtlRecoveryKeys">
+            <summary>
+            Gets or sets the SingleDomain VadtlRecoveryKeys.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Vadtl.Common.OverallMax.SetDictionaries(System.String,System.String,System.String,System.Double)">
+            <summary>
+            SetDictionaries.
+            </summary>
+            <param name="dictionary"> Which dictionary to set.</param>
+            <param name="key"> Key to save in the Shared Storage.</param>
+            <param name="valueS"> String value to save.</param>
+            <param name="valueD"> Double value to save.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.PrimeVadtlOverallResultsToItuffTestMethod">
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="M:Prime.TestMethods.Vadtl.PrimeVadtlOverallResultsToItuffTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Vadtl.PrimeVadtlOverallResultsToItuffTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.VadtlOverallConstants">
+            <summary>
+            VadtlOverallConstants.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlOverallConstants.OverallResultsKey">
+            <summary>
+            OverallResultsKey.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlOverallConstants.VadtlDefeatureKey">
+            <summary>
+            VadtlDefeatureKey.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlOverallConstants.SingleDomainToken">
+            <summary>
+            SingleDomainToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlOverallConstants.MultiDomainToken">
+            <summary>
+            MultiDomainToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlOverallConstants.FinalResultsToken">
+            <summary>
+            FinalResultsToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlOverallConstants.VadtlRecoveyToken">
+            <summary>
+            VadtlRecoveyToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlOverallConstants.PostRecoveryToken">
+            <summary>
+            PostRecoveryToken.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.ConfigurationFile.ConfigurationLoader">
+            <summary>
+            Passes information from Configuration Files objects to Shared Storage structures.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Vadtl.ConfigurationFile.ConfigurationLoader.CreateConfigurationValues(Prime.TestMethods.Vadtl.ConfigurationFile.Structures.ConfigurationFile,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Inserts configuration into Shared Storage.
+            </summary>
+            <param name="configurationInfo">The parsed configuration object.</param>
+            <param name="token">Access token to the shared storage.</param>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.ConfigurationFile">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.ConfigurationFile.MBitName">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.ConfigurationFile.MultidomainSettings">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.ConfigurationFile.Domains">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.Domain">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.Domain.Name">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.Domain.Threshold">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.Domain.DatalogMode">
+            <summary>
+            Gets or sets a value indicating whether gets or sets the DatalogMode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.Domain.Shifts">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.MultidomainSettings">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.MultidomainSettings.DomainCount">
+            <summary>
+            Gets or sets the DomainCount.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.MultidomainSettings.ActiveDomains">
+            <summary>
+            Gets or sets the ActiveDomains.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.MultidomainSettings.VadtlRecovery">
+            <summary>
+            Gets or sets the VadtlRecovery.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.MultidomainSettings.WasVadtlRecovery">
+            <summary>
+            Gets or sets the WasVadtlRecovery.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.MultidomainSettings.MaxAllowedShifts">
+            <summary>
+            Gets or sets the MaxAllowedShifts.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.MultidomainSettings.DomainGroup">
+            <summary>
+            Gets or sets the grouping.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.Shift">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.Shift.Name">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.Shift.PreValue">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.ConfigurationFile.Structures.Shift.PostValue">
+            <summary>
+            Gets or sets the property.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.PrimeVadtlTestMethod">
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.PrimeVadtlTestMethod.ConfigurationFile">
+            <summary>
+            Gets or sets the Configuration file path.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Vadtl.PrimeVadtlTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Vadtl.PrimeVadtlTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.Storage.DomainList">
+            <summary>
+            Object to save in Shared Storage for the Domains.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.DomainList.Value">
+            <summary>
+            Gets or sets the data member.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.DomainList.MultidomainSetting">
+            <summary>
+            Gets or sets the multidomainSetting member.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.Storage.DomainShift">
+            <summary>
+            Vadtl shifts configuration object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.DomainShift.ShiftName">
+            <summary>
+            Gets or sets the Shift name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.DomainShift.PreValue">
+            <summary>
+            Gets or sets the PreValue.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.DomainShift.PostValue">
+            <summary>
+            Gets or sets the PostValue.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.Storage.FailingDomain">
+            <summary>
+            Object that stores each value when a domain doesn't comply with the threshold.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.FailingDomain.DomainNumber">
+            <summary>
+            Gets or sets the DomainNumber.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.FailingDomain.ShiftName">
+            <summary>
+            Gets or sets the Shift name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.FailingDomain.Value">
+            <summary>
+            Gets or sets the Value.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.Storage.MultidomainSettings">
+            <summary>
+            Multidomain Settings object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.MultidomainSettings.DomainCount">
+            <summary>
+            Gets or sets the DomainCount.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.MultidomainSettings.ActiveDomains">
+            <summary>
+            Gets or sets the ActiveDomains.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.MultidomainSettings.VadtlRecovery">
+            <summary>
+            Gets or sets the VadtlRecovery.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.MultidomainSettings.WasVadtlRecovery">
+            <summary>
+            Gets or sets the WasVadtlRecovery.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.MultidomainSettings.MaxAllowedShifts">
+            <summary>
+            Gets or sets the MaxAllowedShifts.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.MultidomainSettings.DomainGrouping">
+            <summary>
+            Gets or sets the DomainGrouping.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.Storage.VadtlDomain">
+            <summary>
+            Vadtl Domains to store.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.VadtlDomain.DomainName">
+            <summary>
+            Gets or sets the Domain name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.VadtlDomain.Threshold">
+            <summary>
+            Gets or sets the Threshold.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.VadtlDomain.DatalogMode">
+            <summary>
+            Gets or sets a value indicating whether gets or sets the DatalogMode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Vadtl.Storage.VadtlDomain.Shifts">
+            <summary>
+            Gets or sets the Shifts.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Vadtl.VadtlConstants">
+            <summary>
+            Constants class.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.VoltageSeparator">
+            <summary>
+            VoltageSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.DomainSeparator">
+            <summary>
+            DomainSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.DomainGroupSeparator">
+            <summary>
+            DomainGroupSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.DecimalPoint">
+            <summary>
+            DecimalPoint.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.DefaultVoltageValueStr">
+            <summary>
+            DefaultVoltageValueStr.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.InvalidVoltageValueStr">
+            <summary>
+            InvalidVoltageValueStr.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.SkippedVoltageValueStr">
+            <summary>
+            SkippedVoltageValueStr.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.InactiveDomain">
+            <summary>
+            InactiveDomain.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.DefaulShiftValue">
+            <summary>
+            DefaulShiftValue.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.InvalidShiftValue">
+            <summary>
+            InvalidShiftValue.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.SkippedShiftValue">
+            <summary>
+            SkippedShiftValue.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.InactiveDomainValue">
+            <summary>
+            InactiveDomainValue.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.TokenSeparator">
+            <summary>
+            TokenSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.MultiDomainToken">
+            <summary>
+            MultiDomainToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.SingleDomainToken">
+            <summary>
+            SingleDomainToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.MDMaxShiftToken">
+            <summary>
+            MaxShiftToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.MDMaxShiftAllToken">
+            <summary>
+            MaxShiftAllToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.ValidCountToken">
+            <summary>
+            ValidCountToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.InvalidCountToken">
+            <summary>
+            MDInvalidCountToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.SkippedCountToken">
+            <summary>
+            SkippedCountToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.MDRecoveryToken">
+            <summary>
+            MDRecoveryToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.MDIpContentToken">
+            <summary>
+            MDIpContentToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.MDPreValueToken">
+            <summary>
+            MDPreValueToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.MDPostValueToken">
+            <summary>
+            MDPostValueToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.SDPostValueToken">
+            <summary>
+            SDPostValueToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.SDPreValueToken">
+            <summary>
+            SDPreValueToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.IsVadtlRecoveryUserKey">
+            <summary>
+            IsVadtlRecoveryUserKey.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.WasVadtlRecoveryUserKey">
+            <summary>
+            WasVadtlRecoveryUserKey.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.SDMaxShiftResult">
+            <summary>
+            SDShiftResult.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.SDShiftResult">
+            <summary>
+            SDShiftResult.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.MDShiftResult">
+            <summary>
+            MDShiftResult.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.FailingValuesSeparator">
+            <summary>
+            FailingValuesSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.DomainsSeparator">
+            <summary>
+            DomainsSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.IsVadtlToken">
+            <summary>
+            IsVadtlToken.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.IsVadtlTrue">
+            <summary>
+            IsVadtlTrue.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.IsVadtlFalse">
+            <summary>
+            IsVadtlFalse.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Vadtl.VadtlConstants.NonVadtlFailure">
+            <summary>
+            NonVadtlFailure.
+            </summary>
+        </member>
+    </members>
+</doc>

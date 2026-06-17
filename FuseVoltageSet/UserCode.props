@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<UserCodePropsVersion>2.0.0</UserCodePropsVersion>
+		<TargetFrameworks>net462;net6.0</TargetFrameworks>
+		<PlatformTarget>x64</PlatformTarget>
+		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<ErrorReport>prompt</ErrorReport>
+		<AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+		<WarningLevel>4</WarningLevel>
+		<Copyright>Copyright ©  2024</Copyright>
+		<OutDir Condition="!$(MSBuildProjectName.EndsWith('.UnitTest'))">$(SolutionDir)lib\$(TargetFramework)\</OutDir>
+		<OutDir Condition="$(MSBuildProjectName.EndsWith('.UnitTest'))">$(SolutionDir)UnitTests\$(TargetFramework)\</OutDir>
+		<DocumentationFile>$(OutDir)$(MSBuildProjectName).doc.xml</DocumentationFile>
+		<TargetPath>$(Outdir)$(AssemblyName).dll</TargetPath> <!-- Re-populate TargetPath after changing the OutDir. Otherwise UT project won't "see" the target project .dll-->
+		<NoWarn Condition="'$(AllowPreReleaseVersions)' != 'false'">$(NoWarn);NU1103</NoWarn> <!-- In a deployment pipeline set AllowPreReleaseVersions=true to prevent preleases bleeding into production enviornment -->
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Prime.UserCode.Settings"/>
+		<PackageReference Include="StyleCop.Analyzers">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<AdditionalFiles Include="$(MSBuildThisFileDirectory)StyleCop.json">
+			<Link>StyleCop.json</Link>
+		</AdditionalFiles>
+	</ItemGroup>
+	
+	<ItemGroup Condition="!$(MSBuildProjectName.EndsWith('.UnitTest'))"> <!--User Code Project Only-->
+		<PackageReference Include="MPE.MIT.ATE_TM.PrimePHGenerator"/>
+	</ItemGroup>
+	<ItemGroup Condition="$(MSBuildProjectName.EndsWith('.UnitTest'))"> <!--Unit Test Project Only-->
+		<PackageReference Include="Moq"/>
+		<PackageReference Include="MSTest.TestAdapter"/>
+		<PackageReference Include="MSTest.TestFramework"/>
+		<PackageReference Include="Microsoft.NET.Test.Sdk"/>
+		<PackageReference Include="coverlet.collector"/>
+	</ItemGroup>
+	<ItemGroup>
+	</ItemGroup>
+	<ItemGroup Condition="$(TargetFramework)=='net462'">
+		<Reference Include="Microsoft.CSharp" />
+		<Reference Include="System.Data.DataSetExtensions" />
+		<Reference Include="System.Net.Http" />
+	</ItemGroup>
+
+	<!-- This section below added to simplify the required customization when using Microsoft.ML-->
+	<ItemGroup Condition="$(UseMicrosoftML)=='true'">
+		<PackageReference Include="Microsoft.ML"/>
+		<MlNativedlls Include="$(NuGetPackageRoot)\Microsoft.ML\$(MsMLVersion)\runtimes\win-x64\native\*.dll"/>
+		
+		<PackageReference Include="Microsoft.ML.CpuMath"/>
+		<MlNativedlls Include="$(NuGetPackageRoot)\Microsoft.ML.CpuMath\$(MsMLCpuVersion)\runtimes\win-x64\nativeassets\netstandard2.0\*.dll"/>
+		
+		<PackageReference Include="System.Runtime.CompilerServices.Unsafe"/>
+	</ItemGroup>
+
+	<Target Name="CopyMLNativeFiles" AfterTargets="Build" Condition="$(UseMicrosoftML)=='true'">
+		<Copy SourceFiles="@(MlNativedlls)" DestinationFolder="$(OutDir)"/>
+	</Target>
+	<!-- End of Microsoft.ML customization-->
+
+</Project>

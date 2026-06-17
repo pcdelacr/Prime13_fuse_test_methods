@@ -1,0 +1,338 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [ "Configurations" ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Configurations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Configurations"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "Configurations": {
+      "type": "object",
+      "required": [ "Name", "Registers" ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Registers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Registers"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Registers": {
+      "type": "object",
+      "required": [ "Name" ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "SimulationString": {
+          "type": "string"
+        },
+        "Reverse": {
+          "type": "boolean"
+        },
+        "DatalogFormat": {
+          "type": "string",
+          "enum": [ "RLE", "HEX", "DEFLATE", "BINARY" ]
+        },
+        "Masks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Masks"
+          }
+        },
+        "UltDecode": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/UltDecode"
+          }
+        },
+        "FuseGroupsToHide": {
+          "type": "string"
+        },
+        "MarginSweep": {
+          "type": "object",
+          "required": [ "EnableCompare", "ItuffPrintMode", "EnableRestore", "MarginDefaultValue", "MarginSettings", "PatternModifyConfig" ],
+          "properties": {
+            "EnableCompare": {
+              "type": "boolean"
+            },
+            "ItuffPrintMode": {
+              "type": "string",
+              "enum": [ "PER_READOUT", "COMPOSITE" ]
+            },
+            "EnableRestore": {
+              "type": "boolean"
+            },
+            "MarginDefaultValue": {
+              "type": "string"
+            },
+            "MarginSettings": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MarginSettings"
+              }
+            },
+            "PatternModifyConfig": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "type": "string"
+                },
+                "Ratio": {
+                  "type": "integer"
+                },
+                "PatternsRegEx": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Name"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "SSPEC": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SSPEC"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Masks": {
+      "type": "object",
+      "required": [ "Name", "FuseGroup", "Value" ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "FuseGroup": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string",
+          "pattern": "^[01sm]*$"
+        },
+        "Dynamic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Dynamic"
+          }
+        },
+        "MismatchBits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MismatchBits"
+          }
+        },
+        "FailPort": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "UltDecode": {
+      "type": "object",
+      "required": [ "FuseGroup" ],
+      "properties": {
+        "FuseGroup": {
+          "type": "string"
+        },
+        "FailPort": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Dynamic": {
+      "type": "object",
+      "required": [ "FuseGroup" ],
+      "oneOf": [
+        {
+          "description": "If uservar is present, sharedstorage and dff field cant be present.",
+          "required": [ "uservar" ],
+          "not": {
+            "required": [ "sharedstorage", "DFF" ]
+          }
+        },
+        {
+          "description": "If sharedstorage is present, uservar and dff field cant be present.",
+          "required": [ "sharedstorage" ],
+          "not": {
+            "required": [ "uservar", "DFF" ]
+          }
+        },
+        {
+          "description": "If DFF is present, uservar and sharedstorage field cant be present.",
+          "required": [ "DFF" ],
+          "not": {
+            "required": [ "uservar", "sharedstorage" ]
+          }
+        }
+      ],
+      "properties": {
+        "FuseGroup": {
+          "type": "string",
+          "minLength": 1,
+          "uniqueItems": true
+        },
+        "uservar": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/uservar"
+          }
+        },
+        "sharedstorage": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/sharedstorage"
+          }
+        },
+        "DFF": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/DFF"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "MismatchBits": {
+      "type": "object",
+      "oneOf": [
+        {
+          "required": [ "uservar" ]
+        },
+        {
+          "required": [ "sharedstorage" ]
+        }
+      ],
+      "properties": {
+        "uservar": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/uservar"
+          }
+        },
+        "sharedstorage": {
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/sharedstorage"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "MarginSettings": {
+      "type": "object",
+      "required": [ "Name", "Value" ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string",
+          "pattern": "^[01_]*$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SSPEC": {
+      "type": "object",
+      "required": [ "QDF", "FuseGroup", "Value" ],
+      "properties": {
+        "QDF": {
+          "type": "string"
+        },
+        "FuseGroup": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        },
+        "Dynamic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Dynamic"
+          }
+        },
+        "MismatchBits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MismatchBits"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "uservar": {
+      "type": "object",
+      "minItems": 1,
+      "maxItems": 1,
+      "required": [ "Name" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "sharedstorage": {
+      "type": "object",
+      "minItems": 1,
+      "maxItems": 1,
+      "required": [ "Name", "Scope" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Scope": {
+          "type": "string",
+          "enum": [ "DUT", "IP", "LOT" ],
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DFF": {
+      "type": "object",
+      "minItems": 1,
+      "maxItems": 1,
+      "required": [ "Name", "Optype", "DieID" ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Optype": {
+          "type": "string",
+          "minLength": 1
+        },
+        "DieID": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

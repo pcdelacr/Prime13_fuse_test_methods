@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.HptpTimingCalibration</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.NominalMode">
+            <summary>
+            Used to select whether to set back to nominal mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.NominalMode.TRUE">
+            <summary>
+            Reset to nominal
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.NominalMode.FALSE">
+            <summary>
+            No reset to nominal
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute the timing calibration on.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.TimingCalibratePins">
+            <summary>
+            Gets or sets comma separated pins for timing calibration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.TimingCalibrationNames">
+            <summary>
+            Gets or sets comma separated Params for timing calibration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.TimingCalPatmodConfiguration">
+            <summary>
+            Gets or sets the configuration to patch the termination codes in the timing calibration pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.StartLargeOffset">
+            <summary>
+            Gets or sets the static value for the starting point in the Y axis for the 1D shmoo.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.XAxisDriveOffsetParameter">
+            <summary>
+            Gets or sets the name of the global drive offset parameter for the RX pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.YAxisStrobeOffsetParameter">
+            <summary>
+            Gets or sets the name of the global strobe offset parameter for the TX pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.TimingCalibrationRange">
+            <summary>
+            Gets or sets the maximum swing range for the timing calibration to take place.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.CalTDRRegisterFieldSequence">
+            <summary>
+            Gets or sets the field sequence value of the cal tdr register to be patmod into the pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.ResetToNominal">
+            <summary>
+            Gets or sets the option to restore the timing specs after the test is executed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.MaxCaptures">
+            <summary>
+            Gets or sets maximum number of captures admited before pattern execution is stopped.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.RunTimingCalibration(System.Double)">
+            <summary>
+            Runs the timing calibration test for all the lanes in the TimingCalibratePins list.
+            </summary>
+            <param name="startlargeOffset"> The starting point in the Y axis for the 1D shmoo.</param>
+            <returns>
+            State of the timing calibration, true if calibration was possible, false if not.
+            </returns>
+        </member>
+        <member name="M:Prime.TestMethods.HptpTimingCalibration.PrimeHptpTimingCalibrationTestMethod.GetInitialTimingTC">
+            <summary>
+            Populates the parameterDefault list once per verify (once per TP run).
+            </summary>
+        </member>
+    </members>
+</doc>

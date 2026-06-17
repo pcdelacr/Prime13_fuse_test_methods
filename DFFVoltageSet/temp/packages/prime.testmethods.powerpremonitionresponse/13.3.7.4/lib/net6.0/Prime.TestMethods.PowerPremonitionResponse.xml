@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.PowerPremonitionResponse</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.Modes">
+            <summary>
+            Plist modes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.Modes.SHORT">
+            <summary>
+            short plist execution mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.Modes.FULL">
+            <summary>
+            full plist execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.Modes.MONITOR">
+            <summary>
+            pup monitor mode for plist.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable">
+            <summary>
+            Class that represents the entries of the PPR look up table.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.LutTimeStamp">
+            <summary>
+            Gets or sets the time stamp for the current LUT.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.PprControlSet">
+            <summary>
+            Gets or sets the name of the control set applied before pre emphasis action.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.PreEmphasisTimeOut">
+            <summary>
+            Gets or sets the timeout to stop pre emphasis action.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.PostEmphasisTimeOut">
+            <summary>
+            Gets or sets the timeout to stop post emphasis action.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.StopLearning">
+            <summary>
+            Gets or sets a value indicating whether the current DUT has stopped learning.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionList">
+            <summary>
+            Gets or sets PPR Look Up Table actions.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionDefinition">
+            <summary>
+            Entries for the PPR look up table.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionDefinition.TestInstanceName">
+            <summary>
+            Gets or sets instance name in which PPR actions will be performed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionDefinition.PerTtrModeActionList">
+            <summary>
+            Gets or sets instance name in which PPR actions will be performed.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams">
+            <summary>
+            Entries for the PPR look up table.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.ModeList">
+            <summary>
+            Gets or sets delta value to adjust the current set point.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.TemperatureOffset">
+            <summary>
+            Gets or sets delta value to adjust the current set point.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.PowerScalarFactor">
+            <summary>
+            Gets or sets the scale to modify the power seen by the tester.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.UpperTolerance">
+            <summary>
+            Gets or sets the upper tolerance from release temperature.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.LowerTolerance">
+            <summary>
+            Gets or sets the lower tolerance from release temperature.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.PprExitTempRangeUpperTolerance">
+            <summary>
+            Gets or sets the upper tolerance for exit premphasis.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.PprExitTempRangeLowerTolerance">
+            <summary>
+            Gets or sets the lower tolerance for exit premphasis.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.PowerSurgeTime">
+            <summary>
+            Gets or sets the time to wait for a power surge after a control set switch.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.DesiredTestTemperatureScUserGlobal">
+            <summary>
+            Gets or sets the uservar name containing the setpoint temperature.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.IsBackToBack">
+            <summary>
+            Gets or sets a value indicating whether a instance will be repeated in a loop or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.PreEmphasisTimeOutOverride">
+            <summary>
+            Gets or sets the timeout to stop pre emphasis action.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PowerPremonitionResponseLookUpTable.ActionParams.PostEmphasisTimeOutOverride">
+            <summary>
+            Gets or sets the timeout to stop post emphasis action.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod">
+            <summary>
+            This test methods enables the Power Premonition Response feature that would be call for some selected test instances.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.ControllerType">
+            <summary>
+            Type of the thermal controller hardware to use.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.ControllerType.TCC">
+            <summary>
+            Thermal Controller Card.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.ControllerType.DTC">
+            <summary>
+            Dynamic Thermal Controller.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.Boolean">
+            <summary>
+            Boolean state.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.Boolean.True">
+            <summary>
+            True value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.Boolean.False">
+            <summary>
+            False value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.ThermalController">
+            <summary>
+            Gets or sets a value indicating whether to use DTC or TCC).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.IsProfileModeEnabled">
+            <summary>
+            Gets or sets the profile mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.ValidLutTimeOut">
+            <summary>
+            Gets or sets validation time out in seconds.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.LocalLookUpTable">
+            <summary>
+            Gets or sets the file of the look up table.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.LookUpTableParsedContent">
+            <summary>
+            Gets or sets the look up table data contents as objects.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.ProcessLookUpTableUserVar">
+            <summary>
+            This private function verifies that the LookUpTableFilePath parameter is not empty.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.VerifyLookUpTableActions">
+            <summary>
+            Check if the contents from the look up table are under the expected values.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseDeviceStartTestMethod.IsLookUpTableValid">
+            <summary>
+            This private function verifies if the LUT has the minimum components to be valid.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.FileHandler">
+            <summary>
+            Main file handler implementation.
+            For basic file IO operations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PowerPremonitionResponse.FileHandler.Prime#TestMethods#PowerPremonitionResponse#IFileHandler#ReadAll(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.IFileHandler">
+            <summary>
+            File handling interfaces.
+            Usage of FileService is preferred.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PowerPremonitionResponse.IFileHandler.ReadAll(System.String)">
+            <summary>
+            Read all file contents and return it content as string.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>File content as string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.InstanceSetUp">
+            <summary>
+            dfdfd.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.InstanceSetUp.PowerSumPinName">
+            <summary>
+            Gets or sets the name of the PowerSum pin assigned to this instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.InstanceSetUp.UeiPinName">
+            <summary>
+            Gets or sets the name of the UEI pin assigned to this instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.InstanceSetUp.SkipPreEmphasis">
+            <summary>
+            Gets or sets a value indicating whether to skip PreEmphasis.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.InstanceSetUp.SkipPostEmphasis">
+            <summary>
+            Gets or sets a value indicating whether to skip PostEmphasis.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.InstanceSetUp.SkipPowerScalarFactor">
+            <summary>
+            Gets or sets a value indicating whether to skip PowerScalarFactor.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod">
+            <summary>
+            This test methods enables the Power Premonition Response feature that would be call for some selected test instances.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.parsedTaggedInstances">
+            <summary>
+            Gets or sets the look up table data contents as objects.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.ControllerType">
+            <summary>
+            Type of the thermal controller hardware to use.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.ControllerType.TCC">
+            <summary>
+            Thermal Controller Card.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.ControllerType.DTC">
+            <summary>
+            Dynamic Thermal Controller.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.SerialCaptureProfileState">
+            <summary>
+            Enable or disable DTS profile from serial capture.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.SerialCaptureProfileState.ENABLED">
+            <summary>
+            Serial capture DTS profile enabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.SerialCaptureProfileState.DISABLED">
+            <summary>
+            Serial capture DTS profile disabled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.ProfileInstanceFilePath">
+            <summary>
+            Gets or sets the path to the file with the info of the instances to profile.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.SerialCaptureDtsProfile">
+            <summary>
+            Gets or sets a value indicating whether to capture DTS data or not.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.ThermalController">
+            <summary>
+            Gets or sets a value indicating whether to use DTC or TCC).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.MinimumPercentageOfValidDTSData">
+            <summary>
+            Gets or sets the percentage of allowed invalid values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.ProfileInstancesFile">
+            <summary>
+            Gets or sets the file of instances to profile.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.PowerPremonitionResponse.PrimePowerPremonitionResponseInitTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.PowerPremonitionResponse.TaggedInstances">
+            <summary>
+            Class with the info of the instances to profile.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.TaggedInstances.PowerScalingMultiplierUserVarName">
+            <summary>
+            Gets or sets the SC UserVariable which contains a value to multiply with the PowerScalingFactor.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.PowerPremonitionResponse.TaggedInstances.Instances">
+            <summary>
+            Gets or setsDictionary mapping the name of the tagged instances to a pin configuration.
+            </summary>
+        </member>
+    </members>
+</doc>

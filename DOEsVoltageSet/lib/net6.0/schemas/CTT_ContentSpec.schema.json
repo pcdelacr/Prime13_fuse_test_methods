@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "ContentSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "Project",
+    "ContentGroupsDef",
+    "PowerGroupsDef"
+  ],
+  "properties": {
+    "Project": {
+      "type": "string"
+    },
+    "ContentGroupsDef": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/ContentDefn"
+      }
+    },
+    "PowerGroupsDef": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/PowerDefn"
+      }
+    }
+  },
+  "definitions": {
+    "ContentDefn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Tag",
+        "PatternNames"
+      ],
+      "properties": {
+        "Tag": {
+          "type": "string"
+        },
+        "PatternNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "PowerDefn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TickOnTag",
+        "FailureMapDef",
+        "FlowDef"
+      ],
+      "properties": {
+        "Description": {
+          "type": "string"
+        },
+        "TickOnTag": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "FailureMapDef": {
+          "$ref": "#/definitions/FailMapWrapper"
+        },
+        "FlowDef": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FlowDefn"
+          }
+        }
+      }
+    },
+    "FailMapWrapper": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "PinBasedMapDef": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "PacketService": {
+          "oneOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "UserMethod": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/UserMethodFailMap"
+            }
+          ]
+        }
+      }
+    },
+    "UserMethodFailMap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Validator"
+      ],
+      "properties": {
+        "Params": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "Validator": {
+          "type": "string"
+        },
+        "Decoder": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Assembly": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Class": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "FlowDefn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Name"
+      ],
+      "properties": {
+        "Module": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Source": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Units": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

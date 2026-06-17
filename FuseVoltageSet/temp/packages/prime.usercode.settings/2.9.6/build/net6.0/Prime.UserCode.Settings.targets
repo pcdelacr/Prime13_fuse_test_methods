@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <UserCodePropsFileName>UserCode.props</UserCodePropsFileName>
+    <UserCodePropsFileName Condition="$(UserCodePropsVersion)=='1.0.0'">UserCode_v1.props</UserCodePropsFileName>
+    <UserCodePropsFileName Condition="$(UserCodePropsVersion)=='2.0.0'">UserCode_v2.props</UserCodePropsFileName>
+    <CopyDirectoryPackagesPropsFile Condition="$(UserCodePropsVersion)=='2.0.0'">true</CopyDirectoryPackagesPropsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <FilesToCopy Include="$(MSBuildThisFileDirectory)/../StyleCop.json"/>
+  </ItemGroup>
+  <Target Name="UserCodePreBuildStep" BeforeTargets="_CollectTargetFrameworkForTelemetry">
+    <Copy SourceFiles="@(FilesToCopy)" 
+          DestinationFolder="$(SolutionDir)"
+          SkipUnchangedFiles="true"
+          ContinueOnError="true"/>
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)/../$(UserCodePropsFileName)"
+          DestinationFiles="$(SolutionDir)UserCode.props"
+          SkipUnchangedFiles="true"
+          ContinueOnError="true"/>
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)/../Directory.Packages.props"
+          DestinationFiles="$(SolutionDir)Directory.Packages.props"
+          SkipUnchangedFiles="true"
+          ContinueOnError="true"
+          Condition="$(CopyDirectoryPackagesPropsFile)=='true' AND !Exists('$(MSBuildThisFileDirectory)/../Directory.Packages.props')"/>
+  </Target>
+</Project>

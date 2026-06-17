@@ -1,0 +1,1691 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly Prime.Services.PlatformService.Proxy, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly MPE.MIT.Logging, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Assembly Prime.Base.Exceptions, Version=13.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Assembly Prime.Base.IAlephable, Version=13.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Assembly Prime.Base.ServiceStore.Cs, Version=13.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Assembly Prime.Services.PlatformService, Version=13.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Assembly Prime.Services.SessionContextMessageIds, Version=13.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Assembly Prime.Services.SessionService, Version=13.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Assembly System.ComponentModel.Composition, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: 
+	hash=None, flags=None
+Assembly System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Class Prime.PlatformService.Proxy.BinInfo: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(HdmtApi.BinInfo*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IBinInfo
+  Properties:
+    UInt32 BinID 'get ' : 
+    Boolean IsHardBin 'get ' : 
+    UInt64 BinCount 'get ' : 
+    System.String BinName 'get ' : 
+  Methods:
+    get_BinName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BinCount(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_IsHardBin(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BinID(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    ConvertBinInfo(BinInfo* IsImplicitlyDereferenced): PrivateScope, Public, Static, HideBySig
+Class Prime.PlatformService.Proxy.FlowItem: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(System.String, System.Collections.Generic.IEnumerable`1[Prime.PlatformService.IFlowItemResult]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IFlowItem
+    System.IDisposable
+  Properties:
+    System.Collections.Generic.IEnumerable`1[Prime.PlatformService.IFlowItemResult] FlowItemResults 'get ' : 
+    System.String FlowItemName 'get ' : 
+  Methods:
+    get_FlowItemName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_FlowItemResults(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.FlowItemResult: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(HdmtApi.FlowItemResult*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IFlowItemResult
+    System.IDisposable
+  Properties:
+    Int32 ReturnPort 'get ' : 
+    System.String NextTarget 'get ' : 
+    Prime.PlatformService.IFlowItemResultProperty Property 'get ' : 
+    System.String Counter 'get ' : 
+    Prime.PlatformService.IBinDetails BinDetails 'get ' : 
+    Int32 Result 'get ' : 
+  Methods:
+    get_Result(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BinDetails(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Counter(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Property(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_NextTarget(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_ReturnPort(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.FlowItemResultProperty: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(HdmtApi.FlowItemResultProperty*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IFlowItemResultProperty
+    System.IDisposable
+  Properties:
+    System.String PropertyValue 'get ' : 
+    System.String PropertyName 'get ' : 
+  Methods:
+    get_PropertyName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PropertyValue(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.BinDetails: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(System.String, UInt32, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(HdmtApi.BinDetails*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IBinDetails
+    System.IDisposable
+  Properties:
+    System.String Description 'get ' : 
+    UInt32 SoftBin 'get ' : 
+    System.String BinName 'get ' : 
+  Methods:
+    get_BinName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_SoftBin(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Description(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.FlowItemInfo: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(FlowItemTrace*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IFlowItemInfo
+    System.IDisposable
+  Properties:
+    System.String FlowItemName 'get ' : 
+    System.String FlowableName 'get ' : 
+    System.String Parent 'get ' : 
+  Methods:
+    get_Parent(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_FlowableName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_FlowItemName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.LoopConfiguration: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Internal.FlowItemLoopType, System.String, System.String, UInt32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ILoopConfiguration
+    System.IDisposable
+  Properties:
+    UInt32 ResolvedMaxLoopValue 'get ' : 
+    System.String BreakRangeExpression 'get ' : 
+    System.String MaxLoopValue 'get ' : 
+    Prime.PlatformService.Internal.FlowItemLoopType LoopType 'get ' : 
+  Methods:
+    get_LoopType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_MaxLoopValue(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BreakRangeExpression(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_ResolvedMaxLoopValue(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.LoopStatus: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(UInt32, UInt32, UInt32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ILoopStatus
+    System.IDisposable
+  Properties:
+    UInt32 TotalLoopValue 'get ' : 
+    UInt32 CompletedLoopTimeInSeconds 'get ' : 
+    UInt32 CompletedLoopIterations 'get ' : 
+  Methods:
+    get_CompletedLoopIterations(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_CompletedLoopTimeInSeconds(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TotalLoopValue(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<HdmtApi::TraceFlowItem>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<HdmtApi::TraceFlowItem>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.TraceFlowItem: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(std.shared_ptr<HdmtApi::TraceFlowItem>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.ITraceFlowItem
+    System.IDisposable
+  Properties:
+    System.String PredefinedFlowName 'get ' : 
+    System.String FlowItemStringType 'get ' : 
+    System.Collections.Generic.IReadOnlyList`1[System.String] FlowableCallingPaths 'get ' : 
+    Prime.PlatformService.FlowItemType FlowItemType 'get ' : 
+    System.String UserVariableInfo 'get ' : 
+    System.String Statuses 'get ' : 
+    System.Collections.Generic.IEnumerable`1[System.String] Counters 'get ' : 
+    System.String BinName 'get ' : 
+    Int32 ExitPort 'get ' : 
+    Prime.PlatformService.IFlowItemInfo FlowItemInfo 'get ' : 
+  Methods:
+    get_FlowItemInfo(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_ExitPort(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BinName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Counters(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Statuses(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_UserVariableInfo(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_FlowItemType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_FlowableCallingPaths(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_FlowItemStringType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PredefinedFlowName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<HdmtApi::MultiTrialTestContent>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<HdmtApi::MultiTrialTestContent>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.MultiTrialTestContent: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(std.shared_ptr<HdmtApi::MultiTrialTestContent>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IMultiTrialTestContent
+    System.IDisposable
+  Properties:
+    Prime.PlatformService.Internal.ITrialTestContent TrialTest 'get ' : 
+    Prime.PlatformService.Internal.TrialVarExitActionType TrialVarExitType 'get ' : 
+    System.String TrialVariableName 'get ' : 
+  Methods:
+    get_TrialVariableName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TrialVarExitType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TrialTest(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<HdmtApi::TrialTestContent>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<HdmtApi::TrialTestContent>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.TrialTestContent: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(HdmtApi.TrialTestContent*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ITrialTestContent
+    System.IDisposable
+  Properties:
+    System.Collections.Generic.IEnumerable`1[Prime.PlatformService.Internal.ITrialTestParamContent] Parameters 'get ' : 
+    System.String TrialTestNameExpression 'get ' : 
+    System.String TrialTestClassName 'get ' : 
+  Methods:
+    get_TrialTestClassName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TrialTestNameExpression(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Parameters(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.TrialTestParamContent: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(HdmtApi.TrialTestParamContent*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ITrialTestParamContent
+    System.IDisposable
+  Properties:
+    Boolean IsTrialParam 'get ' : 
+    System.String ValueExpression 'get ' : 
+    System.String Name 'get ' : 
+  Methods:
+    get_Name(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_ValueExpression(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_IsTrialParam(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ICycleDataWithCaptureData>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::ICycleDataWithCaptureData>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::ICycleDataWithCaptureData>*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.CycleDataWithCaptureData: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ICycleDataWithCaptureData>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ICycleDataWithCaptureData
+    Prime.PlatformService.Internal.ICycleData
+    System.IDisposable
+  Properties:
+    UInt64 TraceLogRegister1 'get ' : 
+    UInt64 TraceLogCycle 'get ' : 
+    UInt32 BurstIndex 'get ' : 
+    Boolean HasCtv 'get ' : 
+    Boolean HasFail 'get ' : 
+    System.String ParentPlist 'get ' : 
+    System.String SubroutineName 'get ' : 
+    UInt32 LinkCount 'get ' : 
+    UInt64 PatternCycle 'get ' : 
+    UInt64 VectorAddress 'get ' : 
+    Prime.PlatformService.Internal.IPatternInfo Pattern 'get ' : 
+    System.String DomainName 'get ' : 
+    System.Collections.Generic.IReadOnlyDictionary`2[Prime.PlatformService.Internal.CaptureType,System.String] Data 'get ' : 
+  Methods:
+    get_Data(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_DomainName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Pattern(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_VectorAddress(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PatternCycle(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_LinkCount(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_SubroutineName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_ParentPlist(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_HasFail(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_HasCtv(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BurstIndex(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TraceLogCycle(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TraceLogRegister1(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IPatternInfo>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IPatternInfo>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IPatternInfo>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.PatternInfo: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IPatternInfo>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPatternInfo
+    System.IDisposable
+  Fields:
+    clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IPatternInfo> cppImpl IsByValue : Public, InitOnly
+  Properties:
+    Boolean IsPatternAnAmble 'get ' : 
+    UInt32 PatternOccurrence 'get ' : 
+    System.String PatternName 'get ' : 
+    UInt32 OverallPatternIndex 'get ' : 
+  Methods:
+    get_OverallPatternIndex(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PatternName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PatternOccurrence(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_IsPatternAnAmble(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.Duts: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IDuts
+    Prime.PlatformService.IDuts
+    System.IDisposable
+  Methods:
+    GetDefinedDuts(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDisabledDuts(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetOnHoldDuts(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDutContext(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<HdmtApi::IDutContext>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<HdmtApi::IDutContext>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<HdmtApi::IDutContext>*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.DutContext: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(std.shared_ptr<HdmtApi::IDutContext>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IDutContext
+    System.IDisposable
+  Methods:
+    Associate(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IFailCycleData>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IFailCycleData>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IFailCycleData>*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.FailCycleData: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IFailCycleData>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IFailCycleData
+    Prime.PlatformService.Internal.ICycleData
+    System.IDisposable
+  Properties:
+    UInt64 TraceLogRegister1 'get ' : 
+    UInt64 TraceLogCycle 'get ' : 
+    UInt32 BurstIndex 'get ' : 
+    Boolean HasCtv 'get ' : 
+    Boolean HasFail 'get ' : 
+    System.String ParentPlist 'get ' : 
+    System.String SubroutineName 'get ' : 
+    UInt32 LinkCount 'get ' : 
+    UInt64 PatternCycle 'get ' : 
+    UInt64 VectorAddress 'get ' : 
+    Prime.PlatformService.Internal.IPatternInfo Pattern 'get ' : 
+    System.String DomainName 'get ' : 
+    System.Collections.Generic.IEnumerable`1[System.String] FailingPinNames 'get ' : 
+  Methods:
+    get_FailingPinNames(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_DomainName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Pattern(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_VectorAddress(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PatternCycle(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_LinkCount(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_SubroutineName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_ParentPlist(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_HasFail(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_HasCtv(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BurstIndex(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TraceLogCycle(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TraceLogRegister1(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IFunctionalSettings>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IFunctionalSettings>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IFunctionalSettings>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.FunctionalSettings: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IFunctionalSettings>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IFunctionalSettings
+    System.IDisposable
+  Fields:
+    clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IFunctionalSettings> cppImpl IsByValue : Public, InitOnly
+  Properties:
+    System.Collections.Generic.IEnumerable`1[System.String] EdgeCounterPins 'set' : 
+  Methods:
+    set_EdgeCounterPins(IEnumerable`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    SetCaptureType(CaptureType): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetSoftwareTrigger(SoftwareTriggerExecuteFunction): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EnableCaptureFailures(UInt64, UInt64, ExecutionMaxFailBehavior): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EnableCaptureFailures(UInt64, UInt64): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EnableCaptureFailures(UInt64, ExecutionMaxFailBehavior): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EnableCaptureFailures(UInt64): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DisableCaptureCtv(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DisableCaptureFailures(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EnableCaptureCtv(CtvCaptureMode, IEnumerable`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IPinData>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IPinData>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IPinData>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.PinData: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IPinData>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPinData
+    System.IDisposable
+  Properties:
+    System.Collections.Generic.IReadOnlyDictionary`2[Prime.PlatformService.Internal.CaptureType,System.String] Data 'get ' : 
+    System.String PinName 'get ' : 
+  Methods:
+    get_PinName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Data(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IFunctionalTestResult>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IFunctionalTestResult>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IFunctionalTestResult>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.FunctionalTestResult: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IFunctionalTestResult>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IFunctionalTestResult
+    Prime.PlatformService.Internal.IResult
+    System.IDisposable
+  Fields:
+    clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IFunctionalTestResult> cppImpl IsByValue : Public, InitOnly
+  Properties:
+    System.Collections.Generic.IReadOnlyDictionary`2[System.String,System.UInt64] PinFailureCounts 'get ' : 
+    System.Collections.Generic.IReadOnlyDictionary`2[System.String,System.Collections.Generic.IReadOnlyDictionary`2[System.UInt32,System.UInt64]] EdgeCounters 'get ' : 
+    System.Collections.Generic.IEnumerable`1[System.String] Domains 'get ' : 
+    Boolean OverallBurstResult 'get ' : 
+    System.Collections.Generic.IEnumerable`1[Prime.PlatformService.Internal.IPinData] PerPinCtvData 'get ' : 
+    System.Collections.Generic.IEnumerable`1[Prime.PlatformService.Internal.ICycleDataWithCaptureData] CtvCycleData 'get ' : 
+    System.Collections.Generic.IEnumerable`1[Prime.PlatformService.Internal.IFailCycleData] FailCycleData 'get ' : 
+    System.Collections.Generic.IEnumerable`1[Prime.PlatformService.Internal.IPatternInfo] FailingPatterns 'get ' : 
+  Methods:
+    get_FailingPatterns(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_FailCycleData(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_CtvCycleData(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PerPinCtvData(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_OverallBurstResult(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Domains(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_EdgeCounters(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PinFailureCounts(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    ~FunctionalTestResult(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IFunctionalTest>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IFunctionalTest>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IFunctionalTest>*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.FunctionalTest: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IFunctionalTest>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IFunctionalTest
+    System.IDisposable
+  Properties:
+    Prime.PlatformService.Internal.IFunctionalSettings Settings 'get ' : 
+  Methods:
+    get_Settings(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    ValidateSettings(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Execute(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SendTriggerToResumePattern(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    StopPatgenExecution(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetStartPattern(UInt32, String, UInt32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetStartPattern(UInt32, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetStartPattern(UInt32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetStartPatternForConcurrentPlist(Dictionary`2): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ResetStartPattern(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetMaskPins(IEnumerable`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RestoreMaskPins(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ~FunctionalTest(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IInstructionVectorRange>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IInstructionVectorRange>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IInstructionVectorRange>*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.Parametric: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Cpp.IParametric*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IParametric
+    Prime.PlatformService.IParametric
+    System.IDisposable
+  Methods:
+    CreateMeasurementRequest(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.MeasurementRequest: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Cpp.IParametric*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IMeasurementRequest
+    System.IDisposable
+  Methods:
+    Execute(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Add(IEnumerable`1, IEnumerable`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.PinMeasurementResult: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(System.String, System.String, Prime.PlatformService.MeasurementType, System.Collections.Generic.IEnumerable`1[System.Double]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPinMeasurementResult
+  Properties:
+    System.Collections.Generic.IEnumerable`1[System.Double] Measurements 'get ' : 
+    Prime.PlatformService.MeasurementType MeasurementType 'get ' : 
+    System.String PinName 'get ' : 
+    System.String PinGroupName 'get ' : 
+  Methods:
+    get_PinGroupName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PinName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_MeasurementType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Measurements(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Class Prime.PlatformService.Proxy.IThreadingMonitor: AutoLayout, AnsiClass, Class, Public, Abstract, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Create(): PrivateScope, Public, Static, HideBySig
+    Enter(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Exit(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.ThreadingMonitor: AutoLayout, AnsiClass, Class, Public, Sealed, Serializable, BeforeFieldInit
+  :Prime.PlatformService.Proxy.IThreadingMonitor
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Enter(): PrivateScope, Public, Final, Virtual, HideBySig
+    Exit(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.ThreadingMonitorDisabled: AutoLayout, AnsiClass, Class, Public, Sealed, Serializable, BeforeFieldInit
+  :Prime.PlatformService.Proxy.IThreadingMonitor
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Enter(): PrivateScope, Public, Final, Virtual, HideBySig
+    Exit(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.Pattern: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPattern
+    Prime.PlatformService.IPattern
+    System.IDisposable
+  Methods:
+    GetAvailableCaptureCapacity(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPatternLabels(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPatternSizePerDomain(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetSubroutineForPattern(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetVectorAddressForLabel(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ReloadPattern(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetPatternModificationCacheLimits(UInt64, UInt64, UInt64): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetLabelFromAddress(String, String, UInt32, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetChannelLinkingMode(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetNumberOfChannelLinkedVectorsInRange(String, String, UInt64, UInt64): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.PatternLabel: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(HdmtApi.PatternLabel*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPatternLabel
+  Properties:
+    UInt64 LabelAddress 'get ' : 
+    System.String LabelName 'get ' : 
+  Methods:
+    get_LabelName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_LabelAddress(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    ConvertPatternLabel(PatternLabel* IsImplicitlyDereferenced): PrivateScope, Public, Static, HideBySig
+Class clr_shared_ptr_wrapper<std::vector<HdmtApi::PatternLabel\,std::allocator<HdmtApi::PatternLabel> > >: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<std::vector<HdmtApi::PatternLabel\,std::allocator<HdmtApi::PatternLabel> > >*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<std::vector<HdmtApi::PatternLabel\,std::allocator<HdmtApi::PatternLabel> > >*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class EnumerableVector<HdmtApi::PatternLabel\,Prime::PlatformService::Internal::IPatternLabel ^>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(std.shared_ptr<std::vector<HdmtApi::PatternLabel\,std::allocator<HdmtApi::PatternLabel> > >*, ToCsFunc): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[Prime.PlatformService.Internal.IPatternLabel]
+    System.Collections.IEnumerable
+    System.IDisposable
+  Fields:
+    clr_shared_ptr_wrapper<std::vector<HdmtApi::PatternLabel\,std::allocator<HdmtApi::PatternLabel> > > data IsByValue : Public, InitOnly
+    ToCsFunc toCsFunc : Public
+  Methods:
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetEnumerator2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ~EnumerableVector<HdmtApi::PatternLabel,Prime::PlatformService::Internal::IPatternLabel ^>(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class EnumerableVector<HdmtApi::PatternLabel\,Prime::PlatformService::Internal::IPatternLabel ^>+ToCsFunc: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(PatternLabel* IsImplicitlyDereferenced): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(PatternLabel* IsImplicitlyDereferenced, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class EnumerableVector<HdmtApi::PatternLabel\,Prime::PlatformService::Internal::IPatternLabel ^>+enumerator: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+    Void .ctor(EnumerableVector<HdmtApi::PatternLabel\,Prime::PlatformService::Internal::IPatternLabel ^>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerator`1[Prime.PlatformService.Internal.IPatternLabel]
+    System.IDisposable
+    System.Collections.IEnumerator
+  Fields:
+    EnumerableVector<HdmtApi::PatternLabel\,Prime::PlatformService::Internal::IPatternLabel ^> colInst : Public
+    Int32 currentIndex : Public
+  Properties:
+    System.Object Current2 'get ' : 
+    Prime.PlatformService.Internal.IPatternLabel Current 'get ' : 
+  Methods:
+    MoveNext(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_Current(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Current2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Reset(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IPatternVectorContainer>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IPatternVectorContainer>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IPatternVectorContainer>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IPinDataCollection>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IPinDataCollection>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IPinDataCollection>*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IPinDataVectorRange>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IPinDataVectorRange>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IPinDataVectorRange>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IPvcVectorRange>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IPvcVectorRange>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IPvcVectorRange>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.PerformanceSnapshot: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPerformanceSnapshot
+    Prime.PlatformService.IPerformanceSnapshot
+    System.IDisposable
+  Methods:
+    PausePerformanceTracking(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ResumePerformanceTracking(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ResetPerformanceMetrics(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllocatedVectorCountPerDomainForPattern(String, ToQuery): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetHitCount(String, ToQuery): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetMissCountForPattern(String, ToQuery): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetMissPenaltyTime(String, ToQuery): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetReferenceCount(String, ToQuery): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetVectorCountPerDomain(String, ToQuery): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetBuildTimeForPlist(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.Pins: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Cpp.IPins*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPins
+    Prime.PlatformService.IPins
+    System.IDisposable
+  Methods:
+    GetPinAttributes(String, IList`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetPinAttributes(String, IDictionary`2): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllInPinGroup(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    VerifyPinAttributeValue(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Exists(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDomainsForPattern(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    StartDataCollection(String, IEnumerable`1, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    StopDataCollection(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DeleteDataCollection(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDataCollection(String, IEnumerable`1, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPinNameForConfiguredChannel(Int32, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPinNameForSlotChannel(UInt32, UInt32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetDriveTiming(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetCompareTiming(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAll(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllForResourceType(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IsPinGroup(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPinResourceType(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetResourceAttributes(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetSlotAndChannelNumberForPin(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllPinGroupNames(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDomainsForPin(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPinName(UInt32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDomainForPinAndPattern(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetType(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetChannelNumberForPin(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    MarkDataCollection(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetStreamingDataCollection(String, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPinsInDomain(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ReadTdauVIData(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetUeiClientType(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ApplyControlSetAttribute(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetIndexControlSetAttribute(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.SlotChannel: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(System.String, UInt32, UInt32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ISlotChannel
+  Properties:
+    UInt32 ChannelNumber 'get ' : 
+    UInt32 SlotNumber 'get ' : 
+    System.String PinName 'get ' : 
+  Methods:
+    get_PinName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_SlotNumber(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_ChannelNumber(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Class Prime.PlatformService.Proxy.ThermalParametricData: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(System.String, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IThermalParametricData
+  Properties:
+    Double GetIeValIe3 'get ' : 
+    Double GetIeValIe2 'get ' : 
+    Double GetIeValIe1 'get ' : 
+    Double GetIbLeakageIe3 'get ' : 
+    Double GetIbLeakageIe2 'get ' : 
+    Double GetIbLeakageIe1 'get ' : 
+    Double GetIeLeakageIe3 'get ' : 
+    Double GetIeLeakageIe2 'get ' : 
+    Double GetIeLeakageIe1 'get ' : 
+    Double GetIbIe3 'get ' : 
+    Double GetIbIe2 'get ' : 
+    Double GetIbIe1 'get ' : 
+    Double GetVbeIe3 'get ' : 
+    Double GetVbeIe2 'get ' : 
+    Double GetVbeIe1 'get ' : 
+    Double GetTemperature 'get ' : 
+    System.String GetDiodeName 'get ' : 
+  Methods:
+    get_GetDiodeName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetTemperature(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetVbeIe1(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetVbeIe2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetVbeIe3(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIbIe1(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIbIe2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIbIe3(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIeLeakageIe1(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIeLeakageIe2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIeLeakageIe3(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIbLeakageIe1(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIbLeakageIe2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIbLeakageIe3(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIeValIe1(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIeValIe2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_GetIeValIe3(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Class Prime.PlatformService.Proxy.Console: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Cpp.IConsole*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IConsole
+    Prime.PlatformService.IConsole
+    System.IDisposable
+  Methods:
+    Write(String, ConsoleColor): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Write(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.Plist: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Cpp.IPlist*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPlist
+    Prime.PlatformService.IPlist
+    System.IDisposable
+  Properties:
+    System.Collections.Generic.IReadOnlyList`1[Prime.PlatformService.IPlistElement] Elements 'get ' : 
+    Prime.PlatformService.IPListDefinitionOptions Options 'get ' : 
+    System.String Name 'get ' : 
+  Methods:
+    GetPatternsAndIndexes(String, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ClearBurstStartPattern(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetBurstStartPattern(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPlistOptions(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetSkipElementOption(String, UInt32, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Resolve(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetElementOptions(String, UInt32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RemovePlistElementOptions(String, UInt32, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RemovePlistOptions(String, IEnumerable`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetElementOptions(String, UInt32, IDictionary`2): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetOptions(String, IDictionary`2): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    UnloadPlist(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    MakePListGroupAvailable(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllPlists(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CopyPlist(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CopyPlist(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetLoadedPlistFilePaths(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetOptions(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ResolvePlist(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDomains(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RemoveElementAt(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddPatternElement(String, PlistElementExecutionType): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    InsertPatternElement(String, PlistElementExecutionType, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddPlistElement(String, PlistElementExecutionType): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    InsertPlistElement(String, PlistElementExecutionType, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddBurstBreakElement(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    InsertBurstBreakElement(String, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddPattern(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RemoveItem(String, UInt32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_Name(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Options(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Elements(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.PlistContent: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Cpp.PlistContent*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IPlistContent
+    System.IDisposable
+  Properties:
+    UInt32 BurstIndex 'get ' : 
+    Boolean IsPattern 'get ' : 
+    UInt32 Index 'get ' : 
+    System.String Name 'get ' : 
+  Methods:
+    get_Name(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Index(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_IsPattern(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BurstIndex(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.PlistHandling: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPlistHandling
+    Prime.PlatformService.IPlistHandling
+    System.IDisposable
+  Methods:
+    CreatePlistContainer(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.SensorCollection: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ISensorCollection
+    Prime.PlatformService.ISensorCollection
+    System.IDisposable
+  Methods:
+    StartDataCollection(String, IEnumerable`1, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    StopDataCollection(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDataCollection(String, IEnumerable`1, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DeleteDataCollection(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    MarkDataCollection(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetStreamingDataCollection(String, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.TestConditions: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ITestConditions
+    Prime.PlatformService.ITestConditions
+    System.IDisposable
+  Methods:
+    EnableSmartTC(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DisableSmartTC(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IsValidToApply(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CheckIfTestConditionExists(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateDirectTestCondition(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ReleaseDirectTestCondition(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ValidatePatternTriggerMap(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ApplyPatternTriggerMap(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ResolveAllTestConditions(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IsSmartTCEnabled(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPatternTriggerMapInfo(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTestConditionItemValue(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ResolveTestCondition(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ApplyEndSequence(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetTestConditionVariableValue(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetTestConditionItemValue(String, String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateTestConditionFromBaseChange1Variable(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDomainPeriodValue(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ApplySerialCaptureGroupMap(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetSerialCaptureGroupMapInfo(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetSerialCaptureGroupMapNames(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTestConditionComponents(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetSpecificationSetVariableValue(String, String, String, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetSpecificationSetVariableValue(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTestConditionHandle(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.TestConditionHandle: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.ITestConditionHandle
+    System.IDisposable
+  Methods:
+    ApplyTC(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddSequenceBreakToTestCondition(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddPinToTestCondition(String, IEnumerable`1, IEnumerable`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CommitToHW(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ReleaseTestCondition(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<HdmtApi::PatternTriggerMapInfo>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<HdmtApi::PatternTriggerMapInfo>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.PatternTriggerMap: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(std.shared_ptr<HdmtApi::PatternTriggerMapInfo>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPatternTriggerMap
+    System.IDisposable
+  Properties:
+    System.Collections.Generic.IReadOnlyDictionary`2[System.UInt32,Prime.PlatformService.Internal.IPatternTrigger] TriggerMapLevels 'get ' : 
+    System.String TriggerMapName 'get ' : 
+  Methods:
+    get_TriggerMapName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TriggerMapLevels(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.PatternTrigger: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(std.basic_string<char\,std::char_traits<char>\,std::allocator<char> >*, std.basic_string<char\,std::char_traits<char>\,std::allocator<char> >*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPatternTrigger
+    System.IDisposable
+  Fields:
+    System.String patternTriggerName : Public
+    System.String testConditionName : Public
+  Properties:
+    System.String TestConditionName 'get ' : 
+    System.String PatternTriggerName 'get ' : 
+  Methods:
+    get_PatternTriggerName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TestConditionName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<HdmtApi::SerialCaptureGroupMapInfo>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<HdmtApi::SerialCaptureGroupMapInfo>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.SerialCaptureGroupMapInfo: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(std.shared_ptr<HdmtApi::SerialCaptureGroupMapInfo>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ISerialCaptureGroupMapInfo
+    System.IDisposable
+  Properties:
+    System.Collections.Generic.IReadOnlyDictionary`2[System.UInt32,System.Collections.Generic.IReadOnlyList`1[System.String]] SerialCaptureGroupMap 'get ' : 
+    System.String SerialCaptureGroupMapName 'get ' : 
+  Methods:
+    get_SerialCaptureGroupMapName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_SerialCaptureGroupMap(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<HdmtApi::TCInfo>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<HdmtApi::TCInfo>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.TestConditionInfo: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(std.shared_ptr<HdmtApi::TCInfo>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.ITestConditionInfo
+    System.IDisposable
+  Properties:
+    System.String Trigger 'get ' : 
+    System.String Timing 'get ' : 
+    System.String TestConditionGroupName 'get ' : 
+    System.String SpecSet 'get ' : 
+    System.String Selector 'get ' : 
+    System.String Level 'get ' : 
+    System.String BlockType 'get ' : 
+    System.String BlockName 'get ' : 
+    System.String AnalogRf 'get ' : 
+  Methods:
+    get_AnalogRf(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BlockName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BlockType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Level(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Selector(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_SpecSet(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TestConditionGroupName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Timing(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Trigger(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.TestPlan: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Cpp.ITestPlan*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ITestPlan
+    Prime.PlatformService.ITestPlan
+    System.IDisposable
+  Methods:
+    GetUserVariable(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetUserVariable(String, String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetUserVariableValueAndType(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SendTestInstanceNameToUei(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetEnvironmentVariableValue(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetSocPath(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    UserVariableExists(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetUserVariableNamesPerCollection(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllUserVarCollections(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ExecutePreDefinedFlow(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCurrentExecutingPreDefinedFlow(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllTestConditionNames(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllTestInstanceNames(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllTestInstanceParameters(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTestClassNameForInstance(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ExecuteFlow(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ExecuteTestInstance(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTplPath(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetStplPath(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetEnvPath(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPListPath(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetTestInstanceParameter(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTestInstanceParameter(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTpLoadDurationMs(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    VerifyTestInstance(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetSuspendPoint(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetTestInstanceDirtyFlag(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetLoopingStatus(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetLoopConfig(String, Boolean(HasFieldMarshal), String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetLoopConfig(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddUserVarToFlowTrace(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RemoveUserVarFromFlowTrace(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EnableFlowTrace(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DisableFlowTrace(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllFlowTraceData(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetFlowTraceEnabledStatus(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllFlowItemsNameAndType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllPossibleFlowableCallingPaths(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IsLegacyFlowTrace(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetTrialVariableResetValue(String, String, UInt32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetTrialVariableCurrentValue(String, String, UInt32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTrialVariableResetValue(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTrialVariableCurrentValue(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetMultiTrialTestContent(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetMultiTrialTestContentPerFlowItem(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllPatternNames(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetPlatformCallbacksManager(PlatformCallbacksManager): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EnableGuiCallback(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetConcurrentFlowExecutionMode(List`1, ConcurrentFlowExecutionMode): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCurrentFlowItemName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetFlowItemsResults(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetFlowItemBinsPerPort(HashSet`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetFlowItemCountersPerPort(HashSet`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetFlowItemStatusesPerPort(HashSet`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDependentVariablesForExpression(String, Boolean(HasFieldMarshal), String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDependentVariablesForExpression(String, Boolean(HasFieldMarshal), String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.UserVariableData: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IUserVariableData
+    System.IDisposable
+  Properties:
+    Boolean IsTouched 'get ' : 
+    System.String UserVariableValue 'get ' : 
+    System.String UserVariableType 'get ' : 
+  Methods:
+    get_UserVariableType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_UserVariableValue(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_IsTouched(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.TestInstanceParameterData: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(System.String, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.ITestInstanceParameterData
+  Properties:
+    System.String Value 'get ' : 
+    System.String Name 'get ' : 
+    System.String Type 'get ' : 
+  Methods:
+    get_Type(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Name(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Value(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Class Prime.PlatformService.Proxy.TestSetup: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Cpp.ITestSetup*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ITestSetup
+    Prime.PlatformService.ITestSetup
+    System.IDisposable
+  Methods:
+    CreateSetVForce(String, Double): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateSmartTestConditionApply(String, String, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateSmartTestConditionApply(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateSmartTestConditionFlushCategory(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateTestConditionApply(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    FlushAllSmartTcCategories(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateDirectTestConditionContainer(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ISetVForceAction>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::ISetVForceAction>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::ISetVForceAction>*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.SetVForceAction: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ISetVForceAction>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ISetVForceAction
+    Prime.PlatformService.Internal.IAction
+    System.IDisposable
+  Methods:
+    Execute(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ~SetVForceAction(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ISmartTestConditionApplyAction>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::ISmartTestConditionApplyAction>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::ISmartTestConditionApplyAction>*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.SmartTestConditionApplyAction: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ISmartTestConditionApplyAction>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ISmartTestConditionApplyAction
+    System.IDisposable
+  Methods:
+    Execute(Boolean&): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Execute(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ~SmartTestConditionApplyAction(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ISmartTestConditionFlushCategoryAction>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::ISmartTestConditionFlushCategoryAction>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::ISmartTestConditionFlushCategoryAction>*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.SmartTestConditionFlushCategoryAction: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ISmartTestConditionFlushCategoryAction>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ISmartTestConditionFlushCategoryAction
+    Prime.PlatformService.Internal.IAction
+    System.IDisposable
+  Methods:
+    Execute(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ~SmartTestConditionFlushCategoryAction(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ITestConditionApplyAction>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::ITestConditionApplyAction>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::ITestConditionApplyAction>*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.TestConditionApplyAction: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ITestConditionApplyAction>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ITestConditionApplyAction
+    Prime.PlatformService.Internal.IAction
+    System.IDisposable
+  Methods:
+    Execute(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ~TestConditionApplyAction(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IDirectTestConditionContainerCpp>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IDirectTestConditionContainerCpp>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IDirectTestConditionContainerCpp>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.DirectTestConditionContainerProxy: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IDirectTestConditionContainerCpp>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IDirectTestConditionContainer
+    System.IDisposable
+  Methods:
+    CreateDirectTestCondition(String, DirectTestConditionType): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateDirectTimingTestCondition(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    WriteAll(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Delete(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ReadAll(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddExistingSequentialTestCondition(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ~DirectTestConditionContainerProxy(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IDirectTestCondition>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IDirectTestCondition>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IDirectTestCondition>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.DirectTestConditionProxy: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IDirectTestCondition>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IDirectTestCondition
+    System.IDisposable
+  Properties:
+    Prime.PlatformService.DirectTestConditionType Type 'get ' : 
+  Methods:
+    InsertPin(String, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddPin(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RemoveItemAt(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddSequenceBreak(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    InsertSequenceBreak(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_Type(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    ~DirectTestConditionProxy(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.DirectTimingTestConditionProxy: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IDirectTimingTestCondition
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ISequenceBreakCpp>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::ISequenceBreakCpp>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::ISequenceBreakCpp>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.SequenceBreakProxy: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::ISequenceBreakCpp>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.ISequenceBreak
+    Prime.PlatformService.IDirectTestConditionItem
+    System.IDisposable
+  Properties:
+    System.String Delay 'get set' : 
+  Methods:
+    get_Delay(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_Delay(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    ~SequenceBreakProxy(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IDirectTestConditionPinCpp>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IDirectTestConditionPinCpp>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<Prime::PlatformService::Cpp::IDirectTestConditionPinCpp>*): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+Class Prime.PlatformService.Proxy.DirectTestConditionPinProxy: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IDirectTestConditionPinCpp>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IDirectTestConditionPin
+    Prime.PlatformService.IPinWithAttributes
+    Prime.PlatformService.IDirectTestConditionItem
+    System.IDisposable
+  Properties:
+    System.String PinName 'get ' : 
+  Methods:
+    SetAttributeValue(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_PinName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    ~DirectTestConditionPinProxy(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.Tester: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Cpp.ITester*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.ITester
+    Prime.PlatformService.ITester
+    System.IDisposable
+  Methods:
+    GetOperationMode(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    LoadFromTDRFile(String, IEnumerable`1, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    HandleAlarms(Int32, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ReadTiuAuxiliaryData(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTiuName(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCurrentPartNumberOfEEPROM(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDutSocketIndex(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IsTesterHbi(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    WriteTiuBoardCounterToEEPROM(UInt32, UInt32, UInt32, UInt32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetSerialNumberOfEEPROM(UInt32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ReadTiuBoardCounterFromEEPROM(UInt32, UInt32, UInt32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IsTesterOffline(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTesterMesId(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetSerialCaptureGroupFilterAlarmEnableState(Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IsQuickSimEnabled(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.Bin: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IBin
+    Prime.PlatformService.IBin
+    System.IDisposable
+  Methods:
+    GetBin(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DoesBinExist(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateBin(String, Int32, String, String, Boolean(HasFieldMarshal), String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateBin(String, Int32, String, String, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetSortBin(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetBin(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllBins(Nullable`1&, Nullable`1&, Nullable`1&): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetAllBins(UInt32, UInt32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCountersForLot(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BackupCurrentCounters(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RestoreBackedUpCounters(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetBinsForLot(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTopParentBinId(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateCounter(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCountersForUnit(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IsReservedBinSetByTosAlarm(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetReservedBinSetByTosAlarm(Int32&, Int32&): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.Board: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(Prime.PlatformService.Internal.ITester, Prime.PlatformService.Cpp.IBoard*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IBoard
+    Prime.PlatformService.IBoard
+    System.IDisposable
+  Methods:
+    ReadI2cData(String, Byte, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    WriteI2cData(String, Byte, IEnumerable`1, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    WriteI2cData(String, Byte, IEnumerable`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    WriteReadI2cData(String, Byte, IEnumerable`1, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTiuTdrCalValues(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetRcHwSyncTimer(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ExecuteTdrCalibration(String, IEnumerable`1, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ReadThermalHeadTemperatureFromDtc(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetUeiStreamingDtsAverageMode(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SetUeiStreamingDtsMaxMode(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    StartUeiStreaming(List`1, List`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    StartUeiStreaming(Boolean(HasFieldMarshal), List`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    StopUeiStreaming(Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AdjustCurrentControlSetSetPointValue(Boolean(HasFieldMarshal), Int32, String, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DebugSubscribeToUeiStreaming(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DebugUnsubscribeFromUeiStreaming(IntPtr): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetLatestUeiStreaming(IntPtr): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<Prime::PlatformService::Cpp::IUeiStreamingData>: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IUeiStreamingData>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.UeiStreamingData: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(std.shared_ptr<Prime::PlatformService::Cpp::IUeiStreamingData>*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IUeiStreamingData
+    System.IDisposable
+  Methods:
+    GetRxPackets(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTxPackets(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.Datalog: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IDatalog
+    Prime.PlatformService.IDatalog
+    System.IDisposable
+  Methods:
+    Print(DatalogType, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OpenStreams(DatalogType, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CloseAllStreams(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    FlushAllStreams(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.File: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IFile
+    Prime.PlatformService.IFile
+    System.IDisposable
+  Methods:
+    FindFileViaSysC(String, String, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    FindFileViaSysC(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    PullFileToSiteCViaSysC(String, String, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    PullFileToSiteCViaSysC(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    PushFileViaSysC(String, String, String, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    PushFileViaSysC(String, String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IsSysCFileServiceUp(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDffFromUltDatabase(String, String, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDffFromUltDatabase(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetModifiedTimeOnFileViaSysC(String, String, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetModifiedTimeOnFileViaSysC(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Prime.PlatformService.Proxy.Utils: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IUtils
+    Prime.PlatformService.IUtils
+  Methods:
+    GetCurrentIpIndex(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCurrentDutId(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCurrentIpName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCurrentTestInstanceName(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ConvertDutIdToDutIndex(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetAllDutDomainNamesOnPackage(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCurrentDutIndex(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetTOSRootFullPath(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCurrentTiuIndex(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetPowerSumResourceType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetDefinedDutStates(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class Prime.PlatformService.Proxy.PlatformService: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.Internal.IPlatformService
+    Prime.SessionService.ISessionContextProvidable
+  Properties:
+    Prime.PlatformService.Internal.IPerformanceSnapshot PerformanceSnapshot 'get ' : 
+    Prime.PlatformService.Internal.ISensorCollection SensorCollection 'get ' : 
+    Prime.PlatformService.Internal.IBoard Board 'get ' : 
+    Prime.PlatformService.Internal.IDatalog Datalog 'get ' : 
+    Prime.PlatformService.Internal.IBin Bins 'get ' : 
+    Prime.PlatformService.Internal.IParametric Parametric 'get ' : 
+    Prime.PlatformService.Internal.IDuts Duts 'get ' : 
+    Prime.PlatformService.Internal.IPattern Pattern 'get ' : 
+    Prime.PlatformService.Internal.ITestSetup TestSetup 'get ' : 
+    Prime.PlatformService.Internal.IPins Pins 'get ' : 
+    Prime.PlatformService.Internal.IPatternModify PatternModify 'get ' : 
+    Prime.PlatformService.Internal.IFunctional Functional 'get ' : 
+    Prime.PlatformService.Internal.IConsole Console 'get ' : 
+    Prime.PlatformService.Internal.ITester Tester 'get ' : 
+    Prime.PlatformService.Internal.IFile File 'get ' : 
+    Prime.PlatformService.Internal.ITestConditions TestConditions 'get ' : 
+    Prime.PlatformService.Internal.IPlist Plist 'get ' : 
+    Prime.PlatformService.Internal.IPlistHandling PlistHandling 'get ' : 
+    Prime.PlatformService.Internal.ITestPlan TestPlan 'get ' : 
+    Prime.PlatformService.Internal.IUtils Utils 'get ' : 
+  Methods:
+    AddProviders(ISessionContextProviderContainer&): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_Utils(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TestPlan(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PlistHandling(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Plist(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TestConditions(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_File(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Tester(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Console(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Functional(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PatternModify(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Pins(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TestSetup(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Pattern(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Duts(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Parametric(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Bins(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Datalog(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Board(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_SensorCollection(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_PerformanceSnapshot(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Class Prime.PlatformService.Proxy.PlatformServiceExternal: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Prime.PlatformService.IPlatformService
+  Properties:
+    Prime.PlatformService.IPins Pins 'get ' : 
+    Prime.PlatformService.IBin Bins 'get ' : 
+    Prime.PlatformService.ITester Tester 'get ' : 
+    Prime.PlatformService.IUtils Utils 'get ' : 
+    Prime.PlatformService.IFile File 'get ' : 
+    Prime.PlatformService.ITestConditions TestConditions 'get ' : 
+    Prime.PlatformService.IPlist Plist 'get ' : 
+    Prime.PlatformService.ITestPlan TestPlan 'get ' : 
+    Prime.PlatformService.ITestSetup TestSetup 'get ' : 
+    Prime.PlatformService.IPlistHandling PlistHandling 'get ' : 
+  Methods:
+    get_PlistHandling(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TestSetup(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TestPlan(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Plist(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_TestConditions(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_File(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Utils(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Tester(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Bins(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Pins(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Class Prime.PlatformService.Proxy.DutContextProvider: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :Prime.SessionService.SessionContextProvider`1[Prime.PlatformService.Internal.IDutContext]
+    Void .ctor(Prime.PlatformService.Proxy.Duts): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    HandleMessage(): PrivateScope, Public, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<std::vector<HdmtApi::BinInfo\,std::allocator<HdmtApi::BinInfo> > >: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<std::vector<HdmtApi::BinInfo\,std::allocator<HdmtApi::BinInfo> > >*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<std::vector<HdmtApi::BinInfo\,std::allocator<HdmtApi::BinInfo> > >*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class EnumerableVector<HdmtApi::BinInfo\,Prime::PlatformService::Internal::IBinInfo ^>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(std.shared_ptr<std::vector<HdmtApi::BinInfo\,std::allocator<HdmtApi::BinInfo> > >*, ToCsFunc): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[Prime.PlatformService.Internal.IBinInfo]
+    System.Collections.IEnumerable
+    System.IDisposable
+  Fields:
+    clr_shared_ptr_wrapper<std::vector<HdmtApi::BinInfo\,std::allocator<HdmtApi::BinInfo> > > data IsByValue : Public, InitOnly
+    ToCsFunc toCsFunc : Public
+  Methods:
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetEnumerator2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ~EnumerableVector<HdmtApi::BinInfo,Prime::PlatformService::Internal::IBinInfo ^>(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class EnumerableVector<HdmtApi::BinInfo\,Prime::PlatformService::Internal::IBinInfo ^>+ToCsFunc: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(BinInfo* IsImplicitlyDereferenced): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(BinInfo* IsImplicitlyDereferenced, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class EnumerableVector<HdmtApi::BinInfo\,Prime::PlatformService::Internal::IBinInfo ^>+enumerator: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+    Void .ctor(EnumerableVector<HdmtApi::BinInfo\,Prime::PlatformService::Internal::IBinInfo ^>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerator`1[Prime.PlatformService.Internal.IBinInfo]
+    System.IDisposable
+    System.Collections.IEnumerator
+  Fields:
+    EnumerableVector<HdmtApi::BinInfo\,Prime::PlatformService::Internal::IBinInfo ^> colInst : Public
+    Int32 currentIndex : Public
+  Properties:
+    System.Object Current2 'get ' : 
+    Prime.PlatformService.Internal.IBinInfo Current 'get ' : 
+  Methods:
+    MoveNext(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_Current(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Current2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Reset(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<std::vector<HdmtApi::TraceFlowItem\,std::allocator<HdmtApi::TraceFlowItem> > >: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<std::vector<HdmtApi::TraceFlowItem\,std::allocator<HdmtApi::TraceFlowItem> > >*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<std::vector<HdmtApi::TraceFlowItem\,std::allocator<HdmtApi::TraceFlowItem> > >*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class EnumerableVector<HdmtApi::TraceFlowItem\,Prime::PlatformService::ITraceFlowItem ^>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(std.shared_ptr<std::vector<HdmtApi::TraceFlowItem\,std::allocator<HdmtApi::TraceFlowItem> > >*, ToCsFunc): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[Prime.PlatformService.ITraceFlowItem]
+    System.Collections.IEnumerable
+    System.IDisposable
+  Fields:
+    clr_shared_ptr_wrapper<std::vector<HdmtApi::TraceFlowItem\,std::allocator<HdmtApi::TraceFlowItem> > > data IsByValue : Public, InitOnly
+    ToCsFunc toCsFunc : Public
+  Methods:
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetEnumerator2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ~EnumerableVector<HdmtApi::TraceFlowItem,Prime::PlatformService::ITraceFlowItem ^>(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class EnumerableVector<HdmtApi::TraceFlowItem\,Prime::PlatformService::ITraceFlowItem ^>+ToCsFunc: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(TraceFlowItem* IsImplicitlyDereferenced): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(TraceFlowItem* IsImplicitlyDereferenced, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class EnumerableVector<HdmtApi::TraceFlowItem\,Prime::PlatformService::ITraceFlowItem ^>+enumerator: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+    Void .ctor(EnumerableVector<HdmtApi::TraceFlowItem\,Prime::PlatformService::ITraceFlowItem ^>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerator`1[Prime.PlatformService.ITraceFlowItem]
+    System.IDisposable
+    System.Collections.IEnumerator
+  Fields:
+    EnumerableVector<HdmtApi::TraceFlowItem\,Prime::PlatformService::ITraceFlowItem ^> colInst : Public
+    Int32 currentIndex : Public
+  Properties:
+    System.Object Current2 'get ' : 
+    Prime.PlatformService.ITraceFlowItem Current 'get ' : 
+  Methods:
+    MoveNext(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_Current(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Current2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Reset(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class clr_shared_ptr_wrapper<std::vector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,std::allocator<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> > > > >: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(std.shared_ptr<std::vector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,std::allocator<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> > > > >*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    op_Implicit(shared_ptr<std::vector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,std::allocator<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> > > > >*): PrivateScope, Public, HideBySig, SpecialName
+    op_MemberSelection(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class EnumerableVector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,System::String ^>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(std.shared_ptr<std::vector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,std::allocator<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> > > > >*, ToCsFunc): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[System.String]
+    System.Collections.IEnumerable
+    System.IDisposable
+  Fields:
+    clr_shared_ptr_wrapper<std::vector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,std::allocator<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> > > > > data IsByValue : Public, InitOnly
+    ToCsFunc toCsFunc : Public
+  Methods:
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetEnumerator2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ~EnumerableVector<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,System::String ^>(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class EnumerableVector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,System::String ^>+ToCsFunc: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(basic_string<char\,std::char_traits<char>\,std::allocator<char> >* IsImplicitlyDereferenced): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(basic_string<char\,std::char_traits<char>\,std::allocator<char> >* IsImplicitlyDereferenced, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class EnumerableVector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,System::String ^>+enumerator: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+    Void .ctor(EnumerableVector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,System::String ^>): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerator`1[System.String]
+    System.IDisposable
+    System.Collections.IEnumerator
+  Fields:
+    EnumerableVector<std::basic_string<char\,std::char_traits<char>\,std::allocator<char> >\,System::String ^> colInst : Public
+    Int32 currentIndex : Public
+  Properties:
+    System.Object Current2 'get ' : 
+    System.String Current 'get ' : 
+  Methods:
+    MoveNext(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_Current(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Current2(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Reset(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

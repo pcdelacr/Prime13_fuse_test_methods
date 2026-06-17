@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.SimbaInit</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.SimbaInit.UlatEnableMode">
+            <summary>
+            Indicates the ULAT enabling mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimbaInit.UlatEnableMode.Disabled">
+            <summary>
+            Mode to clear all bypass data.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SimbaInit.UlatEnableMode.Enabled">
+            <summary>
+            Production Mode to read file path from uservar.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SimbaInit.PrimeSimbaInitTestMethod">
+            <summary>
+            Method to be run at some point in the Init flow to enable Simba.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimbaInit.PrimeSimbaInitTestMethod.UlatEnableMode">
+            <summary>
+            Gets or sets the ULAT enable mode (OFF/PROD).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimbaInit.PrimeSimbaInitTestMethod.UlatFileType">
+            <summary>
+            Gets or sets the ULAT input file format (LOT/UNIT).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimbaInit.PrimeSimbaInitTestMethod.UnitIdentificationMethod">
+            <summary>
+            Gets or sets the unit identification Method (VID/ULT/VID_AND_ULT).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimbaInit.PrimeSimbaInitTestMethod.SsidKeyForUltData">
+            <summary>
+            Gets or sets the SSID key to access ULT/eFuse data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SimbaInit.PrimeSimbaInitTestMethod.UlatFilePath">
+            <summary>
+            Gets or sets the path to the ulat file. If it's empty, Simba will take the ulat file from the SCVars.SC_ULAT_FILE user variable.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SimbaInit.PrimeSimbaInitTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SimbaInit.PrimeSimbaInitTestMethod.Execute">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

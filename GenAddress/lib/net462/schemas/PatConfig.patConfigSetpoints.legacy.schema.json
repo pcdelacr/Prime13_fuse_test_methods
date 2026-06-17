@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+        "type": "string",
+        "minLength": 1
+    },
+	"Module": {
+      "$ref": "#/definitions/nonEmptyString"
+    },
+    "Groups": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/definitions/Group" }
+    }
+  },
+  "required": [
+    "Module",
+    "Groups"
+  ],
+  "definitions": {
+    "Group": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "Default": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "SetPoints": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/definitions/SetPoint" }
+        }
+      },
+      "required": [
+        "Name",
+        "Default",
+        "SetPoints"
+      ]
+    },
+    "SetPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "Configurations": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "Name": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "ElementName": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "Data": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "UserVar": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "SharedStorage": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "DFF": {
+                "$ref": "#/definitions/nonEmptyString"
+              }
+            },
+            "required": [
+              "Name"
+            ],
+            "oneOf": [
+              { "required": [ "Data" ] },
+              { "required": [ "UserVar" ] },
+              { "required": [ "SharedStorage" ] },
+              { "required": [ "DFF" ] }
+            ]
+          }
+        }
+      },
+      "required": [
+        "Name",
+        "Configurations"
+      ]
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

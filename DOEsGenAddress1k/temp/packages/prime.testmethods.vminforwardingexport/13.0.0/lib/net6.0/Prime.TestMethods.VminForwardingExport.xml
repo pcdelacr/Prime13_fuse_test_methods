@@ -1,0 +1,676 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.VminForwardingExport</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Export.CornerUtilities">
+            <summary>
+            Common functions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.CornerUtilities.GetRealCornerData(Prime.VminForwardingService.VminForwardingCornerRecord,System.Boolean)">
+            <summary>
+            Gets the real corner data to be used to export.
+            Possible outcomes are: corner's ActiveData (with valid value), a disabled value (-9.999) or the last item stored.
+            </summary>
+            <param name="record"> The CornerRecord object.</param>
+            <param name="includeDisabledCornerAtExport"> Indicate whether the Export procedure should check if the corner was disabled in one point for the current ActiveData flow.</param>
+            <returns>Corner data to export.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions">
+            <summary>
+            Class that holds the data to configure and build the export tokens.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions.IncludeDisabledCornerAtExport">
+            <summary>
+            Gets or sets a value indicating whether to IncludeDisabledCornerAtExport.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions.FrequencyPrintMultiplier">
+            <summary>
+            Gets or sets the FrequencyPrintMultiplier.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions.MaxFlowNumber">
+            <summary>
+            Gets or sets the MaxFlowNumber.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions.AllFlowExpansion">
+            <summary>
+            Gets or sets a value indicating whether to AllFlowExpansion.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions.AllowBypassCorners">
+            <summary>
+            Gets or sets a value indicating whether to AllowBypassCorners.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions.PrintOnlyPassingFlowAtFrequencyNameToken">
+            <summary>
+            Gets or sets a value indicating whether to print only the passing flow onwards data in the token with frequency names, leaving the lower failed flows with empty data, but with the flow separator.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Export.ITokenBuilder">
+            <summary>
+            Main interface for UPS token builders.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.ITokenBuilder.AddDomain(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.VminForwardingService.VminForwardingCornerRecord}},System.String)">
+            <summary>
+            Add domain to process the data.
+            </summary>
+            <param name="cornerData"> The corner record that includes all corners and voltages.</param>
+            <param name="domain">Domain name. Example IA.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.ITokenBuilder.GetTokenValue">
+            <summary>
+            Gets the string token value.
+            </summary>
+            <returns>The token value.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Export.StringTokenExport">
+            <summary>
+            Provides the main UPS token export capability.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.StringTokenExport.#ctor(Prime.VminForwardingService.IVminForwardingService,System.String,System.String,Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminForwardingExport.Export.StringTokenExport"/> class.
+            </summary>
+            <param name="forwardingService">Service reference.</param>
+            <param name="sharedStoragePassingFlowWithFreqValueKey">Key of the string table to export the passing flow token with the numerical frequency value.</param>
+            <param name="sharedStoragePassingFlowWithFreqIdKey">Key of the string table to export the passing flow token with the frequency identifier value.</param>
+            <param name="exportFormatOptions"> Struct that holds the includeDisabledCornerAtExport, frequencyPrintMultiplier and maxFlowNumber. </param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.StringTokenExport.ExportData(Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType)">
+            <summary>
+            Exports the data to the shared storage with the UPS required format.
+            </summary>
+            <param name="data">Forwarding Data to export.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.StringTokenExport.SetPassingFlows">
+            <summary>
+            This method can be optimized with Parallel.ForEach and ConcurrentDictionary at high instance count.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Export.TokenBuilderConstants">
+            <summary>
+            Constants to build the tokens.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Export.TokenBuilderConstants.DomainSeparator">
+            <summary>
+            DomainSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Export.TokenBuilderConstants.FrequencyStartSeparator">
+            <summary>
+            FrequencyStartSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Export.TokenBuilderConstants.FrequencyNameStartSeparator">
+            <summary>
+            FrequencyNameStartSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Export.TokenBuilderConstants.VoltageValuesStartSeparator">
+            <summary>
+            VoltageValuesStartSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Export.TokenBuilderConstants.FrequencySeparator">
+            <summary>
+            FrequencySeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Export.TokenBuilderConstants.VoltageSeparator">
+            <summary>
+            VoltageSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Export.TokenBuilderConstants.InstanceCornerSeparator">
+            <summary>
+            InstanceCornerSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Export.TokenBuilderConstants.FlowSeparator">
+            <summary>
+            FlowSeparator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Export.TokenBuilderConstants.DoubleValueVoltageFormat">
+            <summary>
+            Format to print the voltage value format in the token.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNameAllFlows">
+            <summary>
+            Builds TokenFrequencyName for All Flows.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNameAllFlows.#ctor(System.Collections.Generic.Dictionary{System.String,System.Int32},Prime.VminForwardingService.IVminForwardingExportHandler,Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNameAllFlows"/> class.
+            </summary>
+            <param name="passingFlows"> Passing flow for the domains and corners. </param>
+            <param name="forwardingExportHandler"> Service reference. </param>
+            <param name="exportFormatOptions"> Export format options. </param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNameAllFlows.Prime#TestMethods#VminForwardingExport#Export#ITokenBuilder#AddDomain(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.VminForwardingService.VminForwardingCornerRecord}},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNameAllFlows.Prime#TestMethods#VminForwardingExport#Export#ITokenBuilder#GetTokenValue">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNameAllFlows.GetPassingFlowsData(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.VminForwardingService.VminForwardingCornerRecord}},System.String)">
+            <summary>
+            Gets the voltage data for all flows up to the passing flow.
+            </summary>
+            <param name="cornerData">Instances(sub domains) current data.</param>
+            <param name="domain">Domain name.</param>
+            <returns>Structure containing all corned data filled until the passing flow (included).</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNamePassingFlow">
+            <summary>
+            Builds TokenFrequencyName only for Passing Flow.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNamePassingFlow.#ctor(Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNamePassingFlow"/> class.
+            </summary>
+            <param name="exportFormatOptions"> exportFormatOptions.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNamePassingFlow.Prime#TestMethods#VminForwardingExport#Export#ITokenBuilder#AddDomain(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.VminForwardingService.VminForwardingCornerRecord}},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyNamePassingFlow.Prime#TestMethods#VminForwardingExport#Export#ITokenBuilder#GetTokenValue">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyValue">
+            <summary>
+            TokenFrequencyValue.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyValue.#ctor(Prime.TestMethods.VminForwardingExport.Export.ExportFormatOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyValue"/> class.
+            </summary>
+            <param name="exportFormatOptions"> exportFormatOptions. </param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyValue.Prime#TestMethods#VminForwardingExport#Export#ITokenBuilder#AddDomain(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.VminForwardingService.VminForwardingCornerRecord}},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyValue.Prime#TestMethods#VminForwardingExport#Export#ITokenBuilder#GetTokenValue">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Export.TokenFrequencyValue.MergeResultsFromRepeatedFrequencies(System.Collections.Generic.IDictionary{System.Double,System.Collections.Generic.List{System.Double}},System.Int32)">
+            <summary>
+            This function merge the results from frequencies with the same value. This applies when different corners in the same flow have the same frequency value.
+            Example:  Flow 2:  F1 ..... F4 (3000), F5(3000), F6(3400).
+            Having 17 instances (subdomains), for frequency=3000 we will have 34 voltage results, instead of the expected 17 as the other unique frequencies.
+            This algorithm merges, by position and determining the required chunks considering the instanceCount, the positional values of the voltages and uses the Max value found.
+            </summary>
+            <param name="result">Collection with the frequency value and a list of voltage results (with count = instanceCount).</param>
+            <param name="instanceCount">Instance/subdomain count, equals to the expected result count in the token for each frequency.</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Helpers.DataLogger">
+            <summary>
+            Class for Snapshot and Export data debug handling.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Helpers.DataLogger.#ctor(Prime.VminForwardingService.IVminForwardingService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminForwardingExport.Helpers.DataLogger"/> class.
+            </summary>
+            <param name="forwardingService">Forwarding service.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Helpers.DataLogger.PrintSnapshotDataToConsole(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.VminForwardingService.VminForwardingCornerRecord}}},System.String)">
+            <summary>
+            Prints Snapshot data to console.
+            </summary>
+            <param name="snapshotData">Current forwarding data.</param>
+            <param name="methodName">Caller method name.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Helpers.DataLogger.CreateVminForwardingServiceInstancesSet">
+            <summary>
+            Creates an all instances collection with full instances names: IA45@F1, ...
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Helpers.IEnumerableExtensions">
+            <summary>
+            Class for IEnumerable extension methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Helpers.IEnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Returns if the list is null or empty.
+            </summary>
+            <typeparam name="T">IList type.</typeparam>
+            <param name="origin">The List.</param>
+            <returns>True if the object is null or empty.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Helpers.IEnumerableExtensions.IsNullOrDifferentSizeOf``1(System.Collections.Generic.IList{``0},System.Int32)">
+            <summary>
+            Returns if the list is null or have different size.
+            </summary>
+            <typeparam name="T">IList type.</typeparam>
+            <param name="origin">The List.</param>
+            <param name="size">The expected list size.</param>
+            <returns>True if the object is null or have a different size to the specified at the parameter.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Helpers.NumericExtensions">
+            <summary>
+            Numeric types extensions.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Helpers.NumericExtensions.Round(System.Double)">
+            <summary>
+            Rounds a double value to fixed decimals.
+            </summary>
+            <param name="input">The value.</param>
+            <returns>Double value rounded to <see cref="F:Prime.TestMethods.VminForwardingExport.Helpers.NumericExtensions.MathRoundDecimals"/> decimals.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.IVminForwardingExportExtensions">
+            <summary>
+            VminForwarding Export TM main interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.IVminForwardingExportExtensions.CreateSnapshot(System.String)">
+            <summary>
+            Creates an snapshot of the current VminForwarding data of all corners in the VminForwarding Service's configuration file.
+            </summary>
+            <param name="snapshotKey">The data key.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.IVminForwardingExportExtensions.GetSnapshot(System.String)">
+            <summary>
+            Gets a snapshot data, previously stored by CreateSnapshot method.
+            </summary>
+            <param name="snapshotKey">The data key.</param>
+            <returns>Each domain as keys and a list of VminForwarding record data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.IVminForwardingExportExtensions.GetCurrentForwardingData">
+            <summary>
+            Gets the current VminForwarding data of all corners in the VminForwarding Service's configuration file.
+            </summary>
+            <returns>Each domain as keys and a list of VminForwarding record data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.IVminForwardingExportExtensions.ProcessData(Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType,Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType)">
+            <summary>
+            Applies the pre-export or processing logic before exporting the data.
+            </summary>
+            <param name="baseData">Data collection as base. Usually a snapshot data.</param>
+            <param name="newData">New data collection to compare.</param>
+            <returns>List of VminForwarding record data.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.IVminForwardingExportExtensions.ExportData(Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType,System.Boolean)">
+            <summary>
+            Exports the forwarding data.
+            </summary>
+            <param name="data">List of VminForwarding record data.</param>
+            <param name="includeDisabledCornerAtExport">If the corner should be exported as Disabled when was killed at least one time in the corner's history (even when recovered).</param>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType">
+            <summary>
+            Export extension methods return type.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType.Value">
+            <summary>
+            Gets or sets the data member.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.OperationMode">
+            <summary>
+            Operation mode for the extension.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.OperationMode.Snapshot">
+            <summary>
+            Saves a snapshot of VminForwarding data with the specified key.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.OperationMode.Export">
+            <summary>
+            Execute the export of data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.PreProcessMode">
+            <summary>
+            Pre processing data modes or implementations.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.PreProcessMode.None">
+            <summary>
+            Empty preprocessing. The base data is used without changes.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.PreProcessMode.Interpolation">
+            <summary>
+            Interpolator implementation.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.PreProcessMode.InterpolationWithForwardingUpdate">
+            <summary>
+            Interpolator implementation, updating the values interpolated back to the forwarding corner data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.ExportType">
+            <summary>
+            Export data output type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.ExportType.SharedStorageUPSTokens">
+            <summary>
+            Shared storage UPS tokens: passing flow.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Boolean">
+            <summary>
+            Enum for Boolean values.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Boolean.FALSE">
+            <summary>
+            False / Disabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Boolean.TRUE">
+            <summary>
+            True / Enabled.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod">
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.InstanceCornerSeparator">
+            <summary>
+            Instance key/corner separator. i.e.: IA45@F5.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.DisabledCoreVoltage">
+            <summary>
+            Disabled / kill core voltage value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.OperationMode">
+            <summary>
+            Gets or sets the TM operation mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.SnapshotKey">
+            <summary>
+            Gets or sets the shared storage's key used to save the snapshot data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.FrequencyPrintMultiplier">
+            <summary>
+            Gets or sets the multiplier to be applied to the frequency values printed into the export token with frequency values.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.AllFlowExpansion">
+            <summary>
+            Gets or sets if all flows values will be printed into the export token with frequency id.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.ExportDataLog">
+            <summary>
+            Gets or sets if Search and Check data will be export as the interpolator results.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.AllowBypassCorners">
+            <summary>
+            Gets or sets if a bypass corner is allowed. If true print -9.999 if false will throw exception.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.PreProcessMode">
+            <summary>
+            Gets or sets the data processing mode mechanism.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.ExportType">
+            <summary>
+            Gets or sets the export type.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.ExportKeys">
+            <summary>
+            Gets or sets the export keys available to export the data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.MaxFlowNumber">
+            <summary>
+            Gets or sets the maximum expected flow number to export data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.IncludeDisabledCornerAtExport">
+            <summary>
+            Gets or sets a value indicating whether the Export procedure should check if the corner was disabled in one point.
+            If True(1) and the corner was disabled at one point in the voltage history, the Disabled value is Exported instead.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.PrintOnlyPassingFlowAtFrequencyNameToken">
+            <summary>
+            Gets or sets a value indicating whether the Export token for all flows with frequency name includes only the passing flow onwards data, leaving the lower failed flows with empty data, but with the flow separator.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.PreProcessInput">
+            <summary>
+            Gets or sets the preprocess data (ie: interpolation objects string token) input.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.VminForwardingExport.IVminForwardingExportExtensions" />
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.DataLogger">
+            <summary>
+            Gets an instance to log vminforwarding table values into the console.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.Prime#TestMethods#VminForwardingExport#IVminForwardingExportExtensions#CreateSnapshot(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.Prime#TestMethods#VminForwardingExport#IVminForwardingExportExtensions#GetSnapshot(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.Prime#TestMethods#VminForwardingExport#IVminForwardingExportExtensions#GetCurrentForwardingData">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.Prime#TestMethods#VminForwardingExport#IVminForwardingExportExtensions#ProcessData(Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType,Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.PrimeVminForwardingExportTestMethod.Prime#TestMethods#VminForwardingExport#IVminForwardingExportExtensions#ExportData(Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Process.DataProcessHandler">
+            <summary>
+            Main data processing context class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.DataProcessHandler.#ctor(Prime.TestMethods.VminForwardingExport.Process.IProcessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminForwardingExport.Process.DataProcessHandler"/> class.
+            </summary>
+            <param name="processStrategy">The data pre-process strategy.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.DataProcessHandler.SetStrategy(Prime.TestMethods.VminForwardingExport.Process.IProcessor)">
+            <summary>
+            Sets the strategy to use with the data.
+            </summary>
+            <param name="processStrategy">The data pre-process strategy.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.DataProcessHandler.GetProcessedData(Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType,Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType)">
+            <summary>
+            Executes the main processing logic.
+            </summary>
+            <param name="baseData">Data collection as base. Usually a snapshot data.</param>
+            <param name="newData">New data collection to compare to. Usually a snapshot with newer data.</param>
+            <returns>The filtered data.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Process.EmptyProcessor">
+            <summary>
+            Empty / null preprocessor. To avoid any changes prior to the Export step.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.EmptyProcessor.Prime#TestMethods#VminForwardingExport#Process#IProcessor#ProcessData(Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType,Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType)">
+            <summary>
+            Returns the same baseData.
+            </summary>
+            <param name="baseData">Data collection as base. Usually a snapshot data.</param>
+            <param name="newData">New data collection to compare to. Usually a snapshot with newer data.</param>
+            <returns>The same baseData collection.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Process.InterpolationPivotData">
+            <summary>
+            Placeholder class for pivot data for interpolation.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.InterpolationPivotData.#ctor(Prime.VminForwardingService.VminForwardingCornerData,Prime.VminForwardingService.VminForwardingCornerData,Prime.VminForwardingService.VminForwardingCornerData,Prime.VminForwardingService.VminForwardingCornerData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminForwardingExport.Process.InterpolationPivotData"/> class.
+            </summary>
+            <param name="pivotOneBaseData">First pivot search data.</param>
+            <param name="pivotOneNewData">First pivot check data.</param>
+            <param name="pivotTwoBaseData">Second pivot search data.</param>
+            <param name="pivotTwoNewData">Second pivot check data.</param>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.Process.InterpolationPivotData.PivotOneBaseData">
+            <summary>
+            Gets the First pivot search data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.Process.InterpolationPivotData.PivotOneNewData">
+            <summary>
+            Gets the First pivot check data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.Process.InterpolationPivotData.PivotTwoBaseData">
+            <summary>
+            Gets the Second pivot search data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.VminForwardingExport.Process.InterpolationPivotData.PivotTwoNewData">
+            <summary>
+            Gets the Second pivot check data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.InterpolationPivotData.IsAnyCornerDisabled">
+            <summary>
+            Checks if any pivot corner has a disabled value as the voltage.
+            </summary>
+            <returns>True if one corner have a disabled value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.InterpolationPivotData.AreAnyPivotFrequenciesDifferent">
+            <summary>
+            Checks if the first or second pivot frequencies are different from the Base and New data.
+            </summary>
+            <returns>True if a frequency is different from base to new data on a pivot.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor">
+            <summary>
+            Main Interpolator implementation.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.pivotLocations">
+            <summary>
+            Pivot applied locations: ["IA"]["F1"]= {F2}, ["IA"]["F3"]= {F2, F4}.
+            For a O(1) search when processing.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.interpolatorMap">
+            <summary>
+            Mapping locations: ["IA"]["F2"] = {F1, F3}.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.pivotOrder">
+            <summary>
+            List with the order of pivots to check.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.#ctor(Prime.VminForwardingService.IVminForwardingService,Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.InterpolatorConfigurations,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor"/> class.
+            </summary>
+            <param name="forwardingService">Forwarding consoleService reference.</param>
+            <param name="interpolatorConfigurations">Struct that hold the data to configure the interpolator.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.Prime#TestMethods#VminForwardingExport#Process#IProcessor#ProcessData(Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType,Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.GetRealCornerData(Prime.VminForwardingService.VminForwardingCornerRecord)">
+            <summary>
+            If the corner last store operation was disabled (with a -9.999) the disabled value is returned.
+            Otherwise the ActiveData (with valid value) is returned.
+            </summary>
+            <param name="record">The CornerRecord object.</param>
+            <returns>The corner data instance.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.SetupMappings(System.String,Prime.VminForwardingService.IVminForwardingConfigurationHandler)">
+            <summary>
+            Builds the corner mapping objects with pivots and linked corners to update.
+            </summary>
+            <param name="cornerMapping">String token with mapping raw data. Ex: "IA:F2@F1-F3,F4@F3-F6,F5@F3-F6|CLM:...".</param>
+            <param name="configurationHandler">Configuration handler service reference.</param>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.SetupPivotLocations">
+            <summary>
+            Setups the pivot locations dictionary.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.InterpolatorConfigurations">
+            <summary>
+            struct that holds the data configure the interpolator.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.InterpolatorConfigurations.CornerMapping">
+            <summary>
+            CornerMapping.
+            The corner mapping token. Example: IA:F2@F1-F3,F4@F3-F6,F5@F3-F6|IAX:...|SSE:...
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.InterpolatorConfigurations.MaxFlow">
+            <summary>
+            MaxFlow.
+            Limit flow number.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.InterpolatorConfigurations.UpdateForwardingValues">
+            <summary>
+            UpdateForwardingValues.
+            Sets whether the interpolated values should be updated at the forwarding consoleService current corner data.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.VminForwardingExport.Process.InterpolationProcessor.InterpolatorConfigurations.AllowBypassCorners">
+            <summary>
+            AllowBypassCorners.
+            If the interpolator should allow bypass corners.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.VminForwardingExport.Process.IProcessor">
+            <summary>
+            Main interface for data processor implementations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.VminForwardingExport.Process.IProcessor.ProcessData(Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType,Prime.TestMethods.VminForwardingExport.VminForwardingExportDataType)">
+            <summary>
+            Main method to pre-process the VminForwarding data, prior to export.
+            </summary>
+            <param name="baseData">Data collection as base. Usually a snapshot data.</param>
+            <param name="newData">New data collection to compare to. Usually a snapshot with newer data.</param>
+            <returns>A list with processed values to export.</returns>
+        </member>
+    </members>
+</doc>

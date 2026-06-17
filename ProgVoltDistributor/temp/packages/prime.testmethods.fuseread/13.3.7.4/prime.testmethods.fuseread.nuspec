@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Prime.TestMethods.FuseRead</id>
+    <version>13.3.7.4</version>
+    <authors>MPE MIT ATE Test Methods</authors>
+    <projectUrl>https://dev.azure.com/mit-us/PRIME</projectUrl>
+    <description>Package Description</description>
+    <releaseNotes>'Merged PR 11142: [13.3.7.x] [Prime Ticket 62510] Merged PR 11093: [FuseRead] FuseGroupToDatalog should follow per register per DieID pairing.'
+'Merged PR 10981: [FuseRead FuseBurn] File Based Miniflow.'
+'Merged PR 10949: [CherryPick][61911][FuseRead] Fix racing condition for ULTHandler storing ult to sharedstorage when execute multiple test in parallel.'
+'Merged PR 10900: Merged PR 10851: [FuseRead] fusestring datalog in RLE format error handing.'
+'Merged PR 10800: Merged PR 10654: [59279] [FuseRead] Improve FuseRead fail to convert fusestring to RLE format error message and should exit port 0.'
+'Merged PR 10409: [CherryPick PR10407] [Doc] [PrimeFuseReadMaskULTDecodeTestMethod] test instance parameter "PrintUltDataPerDieIdToItuff" to control ituff printing of "2_psnbinary".'
+'Merged PR 10281: Merged PR 10247: 57316 [Prime 13.1.1][prime callback 13.1.1] PrimePostProcess...'</releaseNotes>
+    <copyright>Copyright (2005) (2025) Intel Corporation</copyright>
+    <repository type="git" url="https://mit-us@dev.azure.com/mit-us/PRIME/_git/PRIME" commit="844be61cd7141529d49e2a33078c0df8b76bd0f9" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.TestMethodsParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.Func" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.FuseLogicCollection" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.CommonParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.ITestMethod" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.TestMethodBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DffService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FunctionalService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PatConfigService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PinService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.UserVarService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.ATE_TM.PrimePHGenerator" version="[3.9.1, 4.0.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ValueTuple" version="4.5.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="Prime.Base.Exceptions" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.ServiceStore" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Base.TestMethodsParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.Func" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.BusinessLogic.FuseLogicCollection" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.CommonParams" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.ITestMethod" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Kernel.TestMethodBase" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.ConsoleService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.DffService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.FunctionalService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PatConfigService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.PinService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SessionService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.SharedStorageService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="Prime.Services.UserVarService" version="[13.3.7.4, 13.4.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="HdmtOs.Sdk.Meta" version="[4.0.2]" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.ATE_TM.PrimePHGenerator" version="[3.9.1, 4.0.0)" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="MPE.MIT.Logging" version="1.7.0.86" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+        <dependency id="System.ComponentModel.Composition" version="6.0.0" include="Runtime,Build,Native,ContentFiles,Analyzers,BuildTransitive" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework=".NETFramework4.6.2" />
+    </frameworkAssemblies>
+    <contentFiles>
+      <files include="any/any/__ReferencedDocs/.attachments/fuseReadConfigurationFile.json" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/fuseReadMaskUltDecodeConfigurationFile.json" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/fuseReadVoltageFile.json" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMarginSweep/Console1.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMarginSweep/Console2.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMarginSweep/Console3.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMarginSweep/Console4.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMarginSweep/Datalog1.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMarginSweep/Datalog2.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMarginSweep/Datalog3.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMarginSweep/Datalog4.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/CustomDatalogFuseStringByFuseGroupNameFlowChart.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/CustomExecuteFlowChart.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/ExecuteFailingMask.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/ExecutePassingMask.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/image-0e9d3844-eeee-4d11-b038-1d47b5b66d8f1.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/image-926e05fb-0c2b-4c03-a832-13c5d8c5bced1.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/MainExecuteFlowChart.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/MiniFlowUserReference.cs" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/parameterRelationTable.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/PostUltCustomExecuteFlowChart.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/UltCustomExecuteFlowChart.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/Universal intel ULT decode-e936fbde-838c-4a0c-9bdd-3e697d14afce1.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/UserVar2DieIDWithNoPackEfuse.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/UserVar2DieIDWithPackEfuse.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseReadMaskUltDecode/VerifyFlowChart.png" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/.attachments/FuseRead/PrimeMiniFlow_UserGuides.pptx" buildAction="Content" />
+      <files include="any/any/__ReferencedDocs/FuseRead.md" buildAction="None" />
+      <files include="any/any/__ReferencedDocs/FuseReadMarginSweep.md" buildAction="None" />
+      <files include="any/any/__ReferencedDocs/FuseReadMaskUltDecode.md" buildAction="None" />
+      <files include="any/any/__ReferencedDocs/FuseReadMask.md" buildAction="None" />
+      <files include="any/any/__ReferencedDocs/FuseReadSspec.md" buildAction="None" />
+    </contentFiles>
+  </metadata>
+</package>

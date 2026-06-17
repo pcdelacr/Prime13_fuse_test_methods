@@ -1,0 +1,258 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "configurations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "configurationName": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "layout": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "layoutName": {
+                "type": "string"
+              },
+              "layers": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "layerName": {
+                      "type": "string"
+                    },
+                    "layerSize": {
+                      "type": "integer"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "xAxisData": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "axisName": {
+                    "type": "string"
+                  },
+                  "axisUnits": {
+                    "type": "string"
+                  },
+                  "axisMultiplier": {
+                    "type": "integer"
+                  },
+                  "axisOffset": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "yAxisData": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "axisName": {
+                    "type": "string"
+                  },
+                  "axisUnits": {
+                    "type": "string"
+                  },
+                  "axisMultiplier": {
+                    "type": "integer"
+                  },
+                  "axisOffset": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "gridMapping": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "beginX": {
+                      "type": "integer"
+                    },
+                    "endX": {
+                      "type": "integer"
+                    },
+                    "beginY": {
+                      "type": "integer"
+                    },
+                    "endY": {
+                      "type": "integer"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "groupByLayer": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "layoutName",
+              "xAxisData",
+              "yAxisData",
+              "layers"
+            ],
+            "gridMapping": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "parametersInput": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "parameter": {
+                      "type": "string"
+                    },
+                    "lowLimit": {
+                      "type": "integer"
+                    },
+                    "highLimit": {
+                      "type": "integer"
+                    }
+                  },
+				  "additionalProperties": false,
+                  "required": [
+                    "parameter"
+                  ]
+                }
+              },
+              "metaTag": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "parametersInput"
+            ]
+          },
+          "sharedStorage": {
+            "type": "object",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "string"
+                },
+                "tokenPrefix": {
+                  "type": "string"
+                },
+                "base": {
+                  "type": "integer"
+                },
+                "reverse": {
+                  "type": "boolean"
+                },
+                "stringSize": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "parameters",
+                "tokenPrefix"
+              ]
+            }
+          },
+          "defeature": {
+            "type": "object",
+            "items": {
+              "type": "object",
+              "properties": {
+                "layerName": {
+                  "type": "string"
+                },
+                "defeatureLogic": {
+                  "type": "string"
+                },
+                "sharedStorage": {
+                  "type": "string"
+                },
+                "sharedStorageMap": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ctvPin": {
+                        "type": "string"
+                      },
+                      "bitSequence": {
+                        "type": "array"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "groupBy": {
+            "type": "string"
+          },
+          "pinFinder": {
+            "type": "object",
+            "items": {
+              "type": "object",
+              "properties": {
+                "layerName": {
+                  "type": "string"
+                },
+                "pinFinderMap": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ctvPin": {
+                        "type": "string"
+                      },
+                      "bitSequence": {
+                        "type": "array"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "configurationName",
+          "description",
+          "layout"
+        ]
+      }
+    }
+  }
+}

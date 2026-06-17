@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.ParallelTasksService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.ParallelTasksService.IParallelTasksService">
+            <summary>
+            Prime library for parallel execution.
+            </summary>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IParallelTasksService.ParallelAction(System.Action)">
+            <summary>
+            Returns a prime Action for parallel activity (Task.Factory.StartNew method or TPL).
+            </summary>
+            <param name="action">An Action delegate to execute asynchronously.</param>
+            <returns>An Action for a Task.</returns>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IParallelTasksService.ParallelAction``1(System.Action{``0})">
+            <summary>
+            Returns a prime Action for parallel activity (Task.Factory.StartNew method or TPL).
+            </summary>
+            <typeparam name="TResult">The type of the result available through the
+            <see cref="T:System.Threading.Tasks.Task`1">Task</see>.
+            </typeparam>
+            <param name="action">An Action delegate to execute asynchronously.</param>
+            <returns>An Action for a Task.</returns>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IParallelTasksService.ParallelFunc``1(System.Func{System.Object,``0})">
+            <summary>
+            Returns a Prime Func for parallel activity (Task.Factory.StartNew method or TPL).
+            </summary>
+            <typeparam name="TResult">The type of the result available through the
+            <see cref="T:System.Threading.Tasks.Task`1">Task</see>.
+            </typeparam>
+            <param name="function">A function delegate that returns the future result to be available through
+            the <see cref="T:System.Threading.Tasks.Task`1"/>.</param>
+            <returns>An Func for a Task.</returns>
+        </member>
+        <member name="M:Prime.ParallelTasksService.IParallelTasksService.ParallelFunc``1(System.Func{``0})">
+            <summary>
+            Returns a Prime Func for parallel activity (Task.Factory.StartNew method or TPL).
+            </summary>
+            <typeparam name="TResult">The type of the result available through the
+            <see cref="T:System.Threading.Tasks.Task`1">Task</see>.
+            </typeparam>
+            <param name="function">A function delegate that returns the future result to be available through
+            the <see cref="T:System.Threading.Tasks.Task`1"/>.</param>
+            <returns>An Func for a Task.</returns>
+        </member>
+        <member name="T:Prime.ParallelTasksService.ParallelTasksService">
+            <summary>
+            Pattern Service.
+            </summary>
+        </member>
+        <member name="M:Prime.ParallelTasksService.ParallelTasksService.ParallelAction(System.Action)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ParallelTasksService.ParallelTasksService.ParallelAction``1(System.Action{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ParallelTasksService.ParallelTasksService.ParallelFunc``1(System.Func{System.Object,``0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ParallelTasksService.ParallelTasksService.ParallelFunc``1(System.Func{``0})">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

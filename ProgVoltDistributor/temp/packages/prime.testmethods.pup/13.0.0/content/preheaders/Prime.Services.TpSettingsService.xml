@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.TpSettingsService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TpSettingsService.BoolTpFeature">
+            <summary>
+            BoolTpFeature to Enable or Diable.
+            </summary>
+        </member>
+        <member name="F:Prime.TpSettingsService.BoolTpFeature.Midas">
+            <summary>
+            Midas stream.
+            </summary>
+        </member>
+        <member name="F:Prime.TpSettingsService.BoolTpFeature.Raster">
+            <summary>
+            Raster stream.
+            </summary>
+        </member>
+        <member name="F:Prime.TpSettingsService.BoolTpFeature.TFile">
+            <summary>
+            TFile stream.
+            </summary>
+        </member>
+        <member name="F:Prime.TpSettingsService.BoolTpFeature.Telemetry">
+            <summary>
+            Telemetry stream.
+            </summary>
+        </member>
+        <member name="F:Prime.TpSettingsService.BoolTpFeature.Trace">
+            <summary>
+            Trace feature.
+            </summary>
+        </member>
+        <member name="T:Prime.TpSettingsService.ITpSettingsService">
+            <summary>
+            ITpSettingsService to set general purpose TP configurations.
+            </summary>
+        </member>
+        <member name="M:Prime.TpSettingsService.ITpSettingsService.IsTpFeatureEnabled(Prime.TpSettingsService.BoolTpFeature,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the feature status flag.
+            </summary>
+            <param name="name">name of the feature: Midas/Raster/TFile/Telemetry/Trace.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>boolean: true/false [true=enabled/false=disabled].</returns>
+            <returns>if the name is not exist  will throw exception.</returns>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            bool resultValue = Prime.Services.TpSettingsService&gt;.Service.IsTpFeatureEnabled(name, sessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.TpSettingsService.ITpSettingsService.EnableTestProgramDebug(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Enables the test program debug mode.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            Prime.Services.TpSettingsService&gt;.Service.EnableTestProgramDebug(sessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.TpSettingsService.ITpSettingsService.DisableTestProgramDebug(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Disables the test program debug mode.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            Prime.Services.TpSettingsService&gt;.Service. DisableTestProgramDebug(sessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Prime.TpSettingsService.ITpSettingsService.IsTestProgramDebugEnabled(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns if the test program is debug mode not.
+            </summary>
+            <returns>The test program debug mode.</returns>
+            <param name="sessionContext">The session context of this operation.</param>
+            <remarks>
+            <example>
+            This is a code example:
+            <code>
+            bool resultValue = Prime.Services.TpSettingsService&gt;.Service.IsTestProgramDebugEnabled(sessionContext);
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="T:Prime.TpSettingsService.TpSettingsService">
+            <summary>
+            Implemantation for TpSettingsService class- once we move to fully c# , this class implamentation needs to move to the base class.
+            </summary>
+        </member>
+        <member name="M:Prime.TpSettingsService.TpSettingsService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TpSettingsService.TpSettingsService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.TpSettingsService.TpSettingsService.AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TpSettingsService.TpSettingsService.DisableTpFeature(Prime.TpSettingsService.BoolTpFeature,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This function set the TP feature to disable.
+            </summary>
+            <param name="name">Name of the feature to disable.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TpSettingsService.TpSettingsService.EnableTpFeature(Prime.TpSettingsService.BoolTpFeature,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This function set the TP feature to enable.
+            </summary>
+            <param name="name">Name of the feature to enable.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TpSettingsService.TpSettingsService.GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TpSettingsService.TpSettingsService.GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TpSettingsService.TpSettingsService.GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TpSettingsService.TpSettingsService.IsTpFeatureEnabled(Prime.TpSettingsService.BoolTpFeature,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TpSettingService.TpSettingsFeatures.TpSettingsFeature">
+            <summary>
+            Object contains TpSettings features for shared strorage.
+            </summary>
+        </member>
+        <member name="M:Prime.TpSettingService.TpSettingsFeatures.TpSettingsFeature.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TpSettingService.TpSettingsFeatures.TpSettingsFeature"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TpSettingService.TpSettingsFeatures.TpSettingsFeature.BoolTpSettingsFeature">
+            <summary>
+            Gets or sets BoolTpSettingsFeature.
+            </summary>
+        </member>
+    </members>
+</doc>

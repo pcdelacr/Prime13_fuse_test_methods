@@ -1,0 +1,592 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.DDG.DTSBase</name>
+    </assembly>
+    <members>
+        <member name="T:DTSBase.Configuration">
+            <summary>
+            DTS decode configuration.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.Name">
+            <summary>
+            Gets or sets the configuration name.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.IsEnabled">
+            <summary>
+            Gets or sets a value indicating whether DTS decoding is enabled for the entire program.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.ExcludeFromMaxCalc">
+            <summary>
+            Gets or sets a value indicating whether DTS should exclude this configuration from the overall Min/Max temperature calculations.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.LastPattern">
+            <summary>
+            Gets or sets a value indicating whether DTS decoding is enabled for the entire program.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.SensorsMap">
+            <summary>
+            Gets or sets the dieid sensors map.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.Mode">
+            <summary>
+            Gets or sets the decoding mode. Default is linear.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.RegisterSize">
+            <summary>
+            Gets or sets sensor register size (number of bits).
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.Slope">
+            <summary>
+            Gets or sets the slope for DTS decoding.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.Offset">
+            <summary>
+            Gets or sets the offset for DTS decoding.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.SetPoint">
+            <summary>
+            Gets or sets temperature set point. It can read double or user var value.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.UpperTolerance">
+            <summary>
+            Gets or sets upper tolerance limit to fail for worst sensor.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.LowerTolerance">
+            <summary>
+            Gets or sets lower tolerance limit to fail for worst sensor.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.UpperIntegrityLimit">
+            <summary>
+            Gets or sets upper integrity limit. Values above this number are treated as invalid reads and ignored.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.LowerIntegrityLimit">
+            <summary>
+            Gets or sets lower integrity limit. Values below this number are treated as invalid reads and ignored.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.DatalogMode">
+            <summary>
+            Gets or sets data mode. DISABLED, REDUCED, ALL.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.CompressedDatalog">
+            <summary>
+            Gets or sets a value indicating whether DEFLATE32 compressed format should be printed to ituff.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.SharedStorage">
+            <summary>
+            Gets or sets a shared storage token to save DTS measurements.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.PinName">
+            <summary>
+            Gets or sets captured pin name.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.SensorsList">
+            <summary>
+            Gets or sets list ALL DTS sensors.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.IgnoredSensorsList">
+            <summary>
+            Gets or sets list of ignored DTS sensors.
+            </summary>
+        </member>
+        <member name="M:DTSBase.Configuration.VerifySettings(System.Collections.Generic.List{DTSBase.Configuration})">
+            <summary>
+            Verifies the settings of the DTS configuration.
+            </summary>
+            <param name="settings">The list of DTS configurations to verify.</param>
+            <exception cref="T:System.Exception">Thrown when the configuration is invalid.</exception>
+        </member>
+        <member name="M:DTSBase.Configuration.VerifySettings(DTSBase.Configuration)">
+            <summary>
+            Verifies the settings of the DTS configuration.
+            </summary>
+            <param name="set">Individual DTS configurations to verify.</param>
+            <exception cref="T:System.Exception">Thrown when the configuration is invalid.</exception>
+        </member>
+        <member name="M:DTSBase.Configuration.FilterValues(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}},System.Boolean)">
+            <summary>
+            Filters the values based on the sensors map.
+            </summary>
+            <param name="values">Entered values.</param>
+            <param name="useLast">Use last pattern read only.</param>
+            <returns>Filtered results.</returns>
+        </member>
+        <member name="M:DTSBase.Configuration.FilterValuesMax(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}},System.Boolean)">
+            <summary>
+            Filters the values based on the sensors map.
+            </summary>
+            <param name="values">Entered values.</param>
+            <param name="useLast">Use last pattern read only.</param>
+            <returns>Filtered results.</returns>
+        </member>
+        <member name="T:DTSBase.Configuration.DieSensors">
+            <summary>
+            Represents the sensors for a specific die.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.DieSensors.PinName">
+            <summary>
+            Gets or sets the CTV pin name for the DieId.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.DieSensors.Sensors">
+            <summary>
+            Gets or sets the list of sensors.
+            </summary>
+        </member>
+        <member name="P:DTSBase.Configuration.DieSensors.IgnoredSensors">
+            <summary>
+            Gets or sets the list of ignored sensors.
+            </summary>
+        </member>
+        <member name="T:DTSBase.DTSFactory">
+            <summary>
+            Defines the <see cref="T:DTSBase.DTSFactory" />.
+            </summary>
+        </member>
+        <member name="M:DTSBase.DTSFactory.Get(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.DTSFactory.EndOfDevice(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.DTSFactory.StartOfDevice(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:DTSBase.DTSImpl">
+            <summary>
+            DTSImpl.
+            </summary>
+        </member>
+        <member name="M:DTSBase.DTSImpl.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DTSBase.DTSImpl"/> class.
+            </summary>
+            <param name="configurationName">Configuration.</param>
+            <param name="sessionContext">Session Context.</param>
+        </member>
+        <member name="P:DTSBase.DTSImpl.DtsType">
+            <inheritdoc/>
+        </member>
+        <member name="P:DTSBase.DTSImpl.LowerTolerance">
+            <summary>
+            Gets or sets the lower tolerances.
+            </summary>
+        </member>
+        <member name="P:DTSBase.DTSImpl.UpperTolerance">
+            <summary>
+            Gets or sets the upper tolerances.
+            </summary>
+        </member>
+        <member name="P:DTSBase.DTSImpl.LowerIntegrityLimit">
+            <summary>
+            Gets or sets the lower integrity limit. Values lower than this are considered invalid and ignored.
+            </summary>
+        </member>
+        <member name="P:DTSBase.DTSImpl.UpperIntegrityLimit">
+            <summary>
+            Gets or sets the upper integrity limit. Values higher than this are considered invalid and ignored.
+            </summary>
+        </member>
+        <member name="P:DTSBase.DTSImpl.Console">
+            <summary>
+            Gets a variable holding Prime.Services.ConsoleService or null depending on the current instances LogLevel.
+            </summary>
+        </member>
+        <member name="M:DTSBase.DTSImpl.Start(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.DTSImpl.Stop(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.DTSImpl.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.DTSImpl.EvaluateLimits(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.DTSImpl.PrintToDatalog(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.DTSImpl.GetValues(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}}@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.DTSImpl.IsEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.DTSImpl.GetPinNames">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.DTSImpl.GetVoltageTargetsMapping">
+            <inheritdoc/>
+        </member>
+        <member name="T:DTSBase.PrimeDTS">
+            <summary>
+            Defines the <see cref="T:DTSBase.PrimeDTS" />.
+            </summary>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.#ctor(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DTSBase.PrimeDTS"/> class.
+            </summary>
+            <param name="configurationName">Configuration.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="P:DTSBase.PrimeDTS.DtsType">
+            <inheritdoc/>
+        </member>
+        <member name="P:DTSBase.PrimeDTS.Console">
+            <summary>
+            Gets a variable holding Prime.Services.ConsoleService or null depending on the current instances LogLevel.
+            </summary>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.Stop(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.EvaluateLimits(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.GetPinNames">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.GetValues(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}}@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.IsEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.Start(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.PrintToDatalog(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.GetVoltageTargetsMapping">
+            <inheritdoc/>
+        </member>
+        <member name="M:DTSBase.PrimeDTS.ProcessCapturedData(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Process capture data.
+            </summary>
+            <param name="ctv">Captured CTVs.</param>
+            <param name="instanceName">Instance name.</param>
+            <returns>true when it passes.</returns>
+        </member>
+        <member name="T:DDG.DTS">
+            <summary>
+            Singleton for DTS service.
+            </summary>
+        </member>
+        <member name="F:DDG.DTS.DTSConfigurationTable">
+            <summary>
+            Gets key for DTS configuration table in shared storage.
+            </summary>
+        </member>
+        <member name="F:DDG.DTS.DTSVoltageTargetsMappingTable">
+            <summary>
+            Gets key for DTS configuration voltage targets mapping in shared storage.
+            </summary>
+        </member>
+        <member name="F:DDG.DTS.MaxTemperatureToken">
+            <summary>
+            MaxTemperatureToken SharedStorage token name.
+            </summary>
+        </member>
+        <member name="F:DDG.DTS.MaxInstanceToken">
+            <summary>
+            MaxInstanceToken SharedStorage token name.
+            </summary>
+        </member>
+        <member name="F:DDG.DTS.MaxSensorToken">
+            <summary>
+            MaxSensorToken SharedStorage token name.
+            </summary>
+        </member>
+        <member name="F:DDG.DTS.MinTemperatureToken">
+            <summary>
+            MinTemperatureToken SharedStorage token name.
+            </summary>
+        </member>
+        <member name="F:DDG.DTS.MinInstanceToken">
+            <summary>
+            MinInstanceToken SharedStorage token name.
+            </summary>
+        </member>
+        <member name="F:DDG.DTS.MinSensorToken">
+            <summary>
+            MinSensorToken SharedStorage token name.
+            </summary>
+        </member>
+        <member name="P:DDG.DTS.Service">
+            <summary>
+            Gets or sets Dlvr service implementation.
+            </summary>
+        </member>
+        <member name="T:DDG.DTSHandler">
+            <summary>
+            Wrapper for DTS post-processing.
+            </summary>
+        </member>
+        <member name="M:DDG.DTSHandler.GetServiceType">
+            <summary>
+            Gets service type. scs or ctv.
+            </summary>
+            <returns>Type.</returns>
+        </member>
+        <member name="M:DDG.DTSHandler.SetConfiguration(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets DTS configuration pointer.
+            </summary>
+            <param name="configuration">Configuration name.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:DDG.DTSHandler.IsDtsEnabled">
+            <summary>
+            Indicates if DTS capture mode is enabled.
+            </summary>
+            <returns>true when enabled.</returns>
+        </member>
+        <member name="M:DDG.DTSHandler.GetCtvPinNames">
+            <summary>
+            Gets CTV capture pin.
+            </summary>
+            <returns>Pin name.</returns>
+        </member>
+        <member name="M:DDG.DTSHandler.Reset">
+            <summary>
+            Resets captured values.
+            </summary>
+        </member>
+        <member name="M:DDG.DTSHandler.Start(System.String)">
+            <summary>
+            Starts DTS capturing.
+            </summary>
+            <param name="instanceName">Instance Name.</param>
+        </member>
+        <member name="M:DDG.DTSHandler.Stop(System.String)">
+            <summary>
+            Starts DTS capturing.
+            </summary>
+            <param name="instanceName">Instance Name.</param>
+        </member>
+        <member name="M:DDG.DTSHandler.ProcessPlistDts(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean)">
+            <summary>
+            Process plist settings for DTS modes.
+            </summary>
+            <param name="ctvData"> CtvStringToProcess.</param>
+            <param name="instanceName">Instance name.</param>
+            <param name="executionResult">Plist result.</param>
+        </member>
+        <member name="M:DDG.DTSHandler.EvaluateLimits(System.String)">
+            <summary>
+            Evaluates DTS limits.
+            </summary>
+            <param name="instanceName">Instance Name..</param>
+            <returns>true when passing.</returns>
+        </member>
+        <member name="M:DDG.DTSHandler.GetPerTargetPerSensorMax(System.Collections.Generic.List{System.String})">
+            <summary>
+            Evaluates DTS limits.
+            </summary>
+            <param name="voltageTargets">List of voltage targets to evaluate.</param>
+            <returns>true when passing.</returns>
+        </member>
+        <member name="M:DDG.DTSHandler.PrintToDatalog(System.String)">
+            <summary>
+            Prints datalog values to datalog.
+            </summary>
+            <param name="instanceName">Instance Name..</param>
+        </member>
+        <member name="T:DDG.IDTS">
+            <summary>
+            Interface for VoltageConverter methods extending PRIME capabilities.
+            </summary>
+        </member>
+        <member name="P:DDG.IDTS.DtsType">
+            <summary>
+            Gets the dts service type: scs or ctv.
+            </summary>
+        </member>
+        <member name="M:DDG.IDTS.IsEnabled">
+            <summary>
+            Returns true if this DTS is enabled.
+            </summary>
+            <returns>true or false.</returns>
+        </member>
+        <member name="M:DDG.IDTS.Start(System.String)">
+            <summary>
+            Starts DTS capturing. SCS only.
+            </summary>
+            <param name="instanceName">Instance Name.</param>
+        </member>
+        <member name="M:DDG.IDTS.Stop(System.String)">
+            <summary>
+            Starts DTS capturing. SCS only.
+            </summary>
+            <param name="instanceName">Instance Name.</param>
+        </member>
+        <member name="M:DDG.IDTS.Reset">
+            <summary>
+            Clears any internal state.
+            </summary>
+        </member>
+        <member name="M:DDG.IDTS.GetPinNames">
+            <summary>
+            Returns the list of pin names from which the CTVs are going to be captured.
+            </summary>
+            <returns>pin names as list of string.</returns>
+        </member>
+        <member name="M:DDG.IDTS.GetValues(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}}@)">
+            <summary>
+            Decodes CTV data into DTS readings.
+            </summary>
+            <param name="ctv">Dictionary: Key=Pin, Data=CTV binary data (LSB-MSB).</param>
+            <param name="instanceName">Instance name.</param>
+            <param name="executionResult">Execution result.</param>
+            <param name="values">Output values.</param>
+        </member>
+        <member name="M:DDG.IDTS.EvaluateLimits(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}})">
+            <summary>
+            Evaluates DTS limits for captured data.
+            </summary>
+            <param name="values">DTS values by sensor.</param>
+            <returns>Pass status.</returns>
+        </member>
+        <member name="M:DDG.IDTS.PrintToDatalog(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Double}},System.String)">
+            <summary>
+            Prints data to console according to user settings.
+            </summary>
+            <param name="values">DTS captured data.</param>
+            <param name="suffix">Tname suffix.</param>
+        </member>
+        <member name="M:DDG.IDTS.GetVoltageTargetsMapping">
+            <summary>
+            Gets the mapping of voltage targets to sensors.
+            </summary>
+            <returns>Dictionary where keys are the voltage targets and the values are the associated to the sensors.</returns>
+        </member>
+        <member name="T:DDG.IDTSFactory">
+            <summary>
+            Defines the <see cref="T:DDG.IDTSFactory" />.
+            </summary>
+        </member>
+        <member name="M:DDG.IDTSFactory.Get(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Factory method.
+            </summary>
+            <param name="name">Configuration name.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>DTS interface.</returns>
+        </member>
+        <member name="M:DDG.IDTSFactory.StartOfDevice(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Clears PCS_DTSMAX stats.
+            </summary>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:DDG.IDTSFactory.EndOfDevice(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Logs PCS_DTSMAX stats.
+            </summary>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="T:DDG.IDTSHandler">
+            <summary>
+            Interface for DTSHandler.
+            </summary>
+        </member>
+        <member name="M:DDG.IDTSHandler.GetServiceType">
+            <summary>
+            Gets service type. scs or ctv.
+            </summary>
+            <returns>Type.</returns>
+        </member>
+        <member name="M:DDG.IDTSHandler.SetConfiguration(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets DTS configuration pointer.
+            </summary>
+            <param name="configuration">Configuration name.</param>
+            <param name="sessionContext">Session context.</param>
+        </member>
+        <member name="M:DDG.IDTSHandler.IsDtsEnabled">
+            <summary>
+            Indicates if DTS capture mode is enabled.
+            </summary>
+            <returns>true when enabled.</returns>
+        </member>
+        <member name="M:DDG.IDTSHandler.GetCtvPinNames">
+            <summary>
+            Gets CTV capture pin.
+            </summary>
+            <returns>Pin name.</returns>
+        </member>
+        <member name="M:DDG.IDTSHandler.Reset">
+            <summary>
+            Resets captured values.
+            </summary>
+        </member>
+        <member name="M:DDG.IDTSHandler.Start(System.String)">
+            <summary>
+            Starts DTS capturing.
+            </summary>
+            <param name="instanceName">Instance Name.</param>
+        </member>
+        <member name="M:DDG.IDTSHandler.Stop(System.String)">
+            <summary>
+            Starts DTS capturing.
+            </summary>
+            <param name="instanceName">Instance Name.</param>
+        </member>
+        <member name="M:DDG.IDTSHandler.ProcessPlistDts(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean)">
+            <summary>
+            Process plist settings for DTS modes.
+            </summary>
+            <param name="ctvData"> CtvStringToProcess.</param>
+            <param name="instanceName">Instance name.</param>
+            <param name="executionResult">Plist result.</param>
+        </member>
+        <member name="M:DDG.IDTSHandler.EvaluateLimits(System.String)">
+            <summary>
+            Evaluates DTS limits.
+            </summary>
+            <param name="instanceName">Instance Name..</param>
+            <returns>true when passing.</returns>
+        </member>
+        <member name="M:DDG.IDTSHandler.GetPerTargetPerSensorMax(System.Collections.Generic.List{System.String})">
+            <summary>
+            Evaluates DTS limits.
+            </summary>
+            <param name="voltageTargets">List of voltage targets to evaluate.</param>
+            <returns>true when passing.</returns>
+        </member>
+        <member name="M:DDG.IDTSHandler.PrintToDatalog(System.String)">
+            <summary>
+            Prints datalog values to datalog.
+            </summary>
+            <param name="instanceName">Instance Name..</param>
+        </member>
+    </members>
+</doc>

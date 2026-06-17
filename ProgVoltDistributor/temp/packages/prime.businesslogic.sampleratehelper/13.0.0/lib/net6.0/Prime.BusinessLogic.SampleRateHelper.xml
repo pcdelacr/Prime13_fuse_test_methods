@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.BusinessLogic.SampleRateHelper</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.BusinessLogic.SampleRateHelper.GlobalDataStorage">
+            <summary>
+            Global data storage class to store global sampleRate data.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.SampleRateHelper.GlobalDataStorage.GlobalSampleRateValue">
+            <summary>
+            Gets or sets sampleRate value initialized from test method.
+            </summary>
+        </member>
+        <member name="P:Prime.BusinessLogic.SampleRateHelper.GlobalDataStorage.CurrentGlobalSampleCount">
+            <summary>
+            Gets or sets current sampleRate count.
+            </summary>
+        </member>
+        <member name="T:Prime.BusinessLogic.SampleRateHelper.SampleRateGlobalHandle">
+            <summary>
+            This class store the logic to perform global sample rate.
+            </summary>
+        </member>
+        <member name="M:Prime.BusinessLogic.SampleRateHelper.SampleRateGlobalHandle.InitializeServices(Prime.ConsoleService.IConsoleService,Prime.SharedStorageService.ISharedStorageService,Prime.PlatformService.IPlatformService)">
+            <summary>
+            Initalizes services used by <see cref="T:Prime.BusinessLogic.SampleRateHelper.SampleRateGlobalHandle"/>.
+            </summary>
+            <param name="consoleService">consoleService.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="platformService">platformService.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.SampleRateHelper.SampleRateGlobalHandle.InitialiseGlobalSampleRate(System.UInt32,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes global sampleRate value in sharedStorage.
+            </summary>
+            <param name="sampleRateValue">Sample rate value.</param>
+            <param name="currentInstanceSampleCount">Decide if dut sampling start first.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.SampleRateHelper.SampleRateGlobalHandle.GetGlobalSampleRateStatus(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the status of current sampleRate.
+            </summary>
+            <returns>True when sampling success, false otherwise.</returns>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.BusinessLogic.SampleRateHelper.SampleRateGlobalHandle.ExecuteGlobalDutSampling(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Execute global dutSampling, decrease counter and update latest value to sharedStorage when sampling unsuccessful.
+            </summary>
+            <returns>True when sampling success, false otherwise.</returns>
+            <param name="sessionContext">This session context.</param>
+        </member>
+    </members>
+</doc>

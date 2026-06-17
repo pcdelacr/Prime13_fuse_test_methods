@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "PinNames",
+    "TCCTempSet"
+  ],
+  "properties": {
+    "TCCTempSet": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/TCCTempSets"
+      },
+      "PinNames": {
+        "type": "string",
+        "maxItems": 1,
+        "uniqueItems": true
+      }
+    }
+  },
+  "definitions": {
+    "controlSet": {
+      "type": "object",
+      "required": [
+        "index",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "TCCTempSets": {
+      "type": "object",
+      "required": [
+        "name",
+        "ControlSetMapping"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ControlSetMapping": {
+          "type": "object",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/controlSet"
+          }
+        }
+      }
+    }
+  }
+}

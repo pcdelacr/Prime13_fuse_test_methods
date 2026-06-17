@@ -1,0 +1,1872 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.LSARaster</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.LSARaster.HryTableConfig">
+            <summary>
+            Class representing XML property.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.ReverseCtvCaptureData">
+            <summary> Gets or sets a value indicating whether to reverse Ctv capture data. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.CtvToHryMapping">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.Criterias">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.Algorithms">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.HryTableConfig.ValidateConfig(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Make sure the deserialized config has all necessary elements for ctv decoding.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> A value indicating whether this config is valid. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.HryTableConfig.GetCriterias(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns this HryTableConfig list of map objects.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns> List of <see cref="T:Prime.TestMethods.LSARaster.HryTableConfig.CriteriaObject"/>. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.HryTableConfig.GetHryCharMapping(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns this HryTableConfig list of criteria objects.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns> List of <see cref="T:Prime.TestMethods.LSARaster.HryTableConfig.MapObject"/>. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.HryTableConfig.CtvToHryMappingContainer">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.CtvToHryMappingContainer.Map">
+            <summary>
+            Gets or sets XML property.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.HryTableConfig.MapObject">
+            <summary>
+            Class to represent XML element.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.MapObject.Ctv_Data">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.MapObject.Hry_Data">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.HryTableConfig.CriteriasContainer">
+            <summary> Gets or sets XML property. </summary>>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.CriteriasContainer.Criteria">
+            <summary>
+            Gets or sets XML property.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.HryTableConfig.CriteriaObject">
+            <summary>
+            Class to represent XML element.
+            </summary>s
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.CriteriaObject.Hry_Index">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.CriteriaObject.Pin">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.CriteriaObject.Ctv_Index_Range">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.CriteriaObject.Condition">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.CriteriaObject.Hry_Output_On_Condition_Fail">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.CriteriaObject.Bypass_Global">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.HryTableConfig.AlgorithmsContainer">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.AlgorithmsContainer.Algorithm">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.HryTableConfig.AlgorithmsContainer.GetCtvDataSize">
+            <summary>
+            Method for retrieving ctvData size.
+            </summary>
+            <returns> This Algorithm container's ctvData size. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.HryTableConfig.AlgorithmObject">
+            <summary>
+            Class to represent XML element.
+            </summary>s
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.AlgorithmObject.Index">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.AlgorithmObject.Name">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.AlgorithmObject.Pat_Modify_Label">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryTableConfig.AlgorithmObject.Ctv_Size">
+            <summary> Gets or sets XML property. </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.JsonSchemaValidator">
+            <summary>
+            Validates the Json file has the correct format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.JsonSchemaValidator.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.JsonSchemaValidator"/> class.
+            </summary>
+            <param name="schemaFileContent">Schema file path.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.JsonSchemaValidator.ValidateFile(System.String,System.String@)">
+            <summary>
+            Executes the validation for a file with the json schema.
+            </summary>
+            <param name="configFileContent">The json file path.</param>
+            <param name="errors">If the method returns false, this field is populated with the errors.</param>
+            <returns>A value indicating if the file passed validation. If false, the errors field is populated with errors.</returns>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Thrown if the file failed schema validation.</exception>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.MetadataConfig">
+            <summary> This class represents the Metadata configuration.</summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.MetadataConfig.LabelRegexTokens">
+            <summary>
+            All possible value types when parsing a label's RegEx groups.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.MetadataConfig.LabelRegexTokens.SLICE">
+            <summary> The RegEx group represents SliceId/Module. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.MetadataConfig.LabelRegexTokens.MULTIPORT">
+            <summary> The RegEx group represents the Multiport in a mbd address. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.MetadataConfig.LabelRegexTokens.BANK">
+            <summary> The RegEx group represents the Bank in a mbd address. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.MetadataConfig.LabelRegexTokens.DWORD">
+            <summary> The RegEx group represents the Dword in a mbd address. </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.MetadataConfig.ArrayType">
+            <summary>
+            Represents the type of array we're dealing with during execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.MetadataConfig.ArrayType.ATOM">
+            <summary>
+            The PinMappingSet supports ATOM products.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.MetadataConfig.ArrayType.BIGCORE">
+            <summary>
+            The PinMappingSet supports BIGCORE products.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.MetadataConfig.SliceSource">
+            <summary>
+            Determines how to get the failing sliceId/module during prescreen.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.MetadataConfig.SliceSource.LABEL">
+            <summary>
+            Get the sliceId/module from the Slice RegEx token.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.MetadataConfig.SliceSource.PIN">
+            <summary>
+            Get the sliceId/module by getting the sliceId/module mapped to the failing pins.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.Setup">
+            <summary>
+            Gets or sets root for this JSON object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.ConvertLabelRegexTokenToEnum(System.String)">
+            <summary>
+            Converts a label regex token to its LabelRegexTokens enum equivalent.
+            </summary>
+            <param name="token">String representing the label regex token.</param>
+            <returns> LabelRegexTokens value corresponding to the regex token. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.ArrayTypeToSliceOrModule(Prime.TestMethods.LSARaster.MetadataConfig.ArrayType)">
+            <summary>
+            Determines what slice represents in code. Slice can either represent "slice" or "module" depending on product.
+            </summary>
+            <param name="type"> Type of array stored in the DB. </param>
+            <returns> A string containing the name of the root key. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.GetPinMappingSet(System.String)">
+            <summary>
+            Try and fetch a PinMappingSet corresponding to the given pinMappingSetKey.
+            </summary>
+            <param name="pinMappingSetKey"> String representing the string key that matches to a pinMappingSet obj. </param>
+            <returns> A <see cref="T:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet"/> object. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.GetCaptureSet(System.String)">
+            <summary>
+            Try and fetch a CaptureSet corresponding to the given CaptureSet name.
+            </summary>
+            <param name="captureSetKey"> String representing the string key that matches to a captureSet obj. </param>
+            <returns> <see cref="T:Prime.TestMethods.LSARaster.MetadataConfig.CaptureSet"/> instance. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.MetadataConfig.Root">
+            <summary>
+            Root object for this JSON object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.Root.PatModConfigSets">
+            <summary>
+            Gets or sets PatModConfigSet for this object instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.Root.CaptureConfigSets">
+            <summary>
+            Gets or sets CaptureConfigSets for this JSON object instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.Root.SlicePinMapping">
+            <summary>
+            Gets or sets SlicePinMapping for this JSON object instance.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.MetadataConfig.CaptureSet">
+            <summary> Json property containing info for CaptureSet. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.CaptureSet.SlicesTotal">
+            <summary> Gets or sets SlicesTotal for this CaptureSet. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.CaptureSet.Length">
+            <summary> Gets or sets Length for this CaptureSet. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.CaptureSet.DecodingElements">
+            <summary> Gets or sets mapping of DecodingElements to their respective name. </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.MetadataConfig.DecodingElement">
+            <summary> Json property containing info for DecodingElement. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.DecodingElement.Start">
+            <summary> Gets or sets Start for this DecodingElement. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.DecodingElement.End">
+            <summary> Gets or sets End for this Decoding Element. </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet">
+            <summary> Class representing deserialized version of the PinMappingSet. Contains helper methods to access info inside the config without need of diving into its structure. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.MulticorePatternEnabled">
+            <summary> Gets or sets a value indicating whether multicore patterns are enabled for this PinMappingSet. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.HasPatternPerSliceId">
+            <summary> Gets or sets a value indicating whether patterns per slice are enabled for this PinMappingSet. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetSliceFrom">
+            <summary> Gets or sets where to get the slice from when executing in prescreen. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.Configurations">
+            <summary> Gets or sets Configurations for this PinMappingSet. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.PinMappings">
+            <summary> Gets or sets a list of PinMapping for this PinMappingSet. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.WhereToGetSliceFrom">
+            <summary>
+            Gets an enum that determines where to get the slice/module from when in prescreen mode.
+            </summary>
+            <returns>An enum representing where to get the slice/module from.</returns>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">If the user provided value is invalid, this is thrown.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.ValidateAndSetupItems(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Method for validating and converting config properties to objects for execution.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> A value representing whether this PinMappingSet is valid and successfully converted into the proper objects. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetArrayType">
+            <summary>
+            Determine what product is supported by the current PinMappingSet.
+            </summary>
+            <returns> An enum representing the product that this PinMappingSet supports. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetPinMappedToSliceOrModule(System.Collections.Generic.List{System.String})">
+            <summary>
+            Given a list of slices, convert them into pins for ctv capture.
+            </summary>
+            <param name="keys"> List of strings containing slices. </param>
+            <returns> List of pins for ctv captures. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetPinMappedToSliceOrModule(System.String)">
+            <summary>
+            Given a slice, convert into pin for ctv capture.
+            </summary>
+            <param name="key"> String containing slice. </param>
+            <returns> Pin name for ctv captures. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetArrayNameRegex">
+            <summary>
+            Fetch ArrayNameRegex from this PinMappingSet.
+            </summary>
+            <returns> A string containing the ArrayNameRegex pattern. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetPrescreenLabelRegex">
+            <summary>
+            Fetch PrescreenLabelRegex from this PinMappingSet.
+            </summary>
+            <returns> A string containing the PrescreenLabelRegex pattern. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetLabelRegexTokens">
+            <summary>
+            Fetch LabelRegexTokens from this PinMappingSet.
+            </summary>
+            <returns> A list of strings containing Label regex tokens. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.IsRasterModeSupported">
+            <summary>
+            Fetch IsRasterModeSupported from this PinMappingSet.
+            </summary>
+            <returns> A value indicating whether Raster is supported for a given PinMappingSet. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetSliceIdFromPin(System.String,System.String@)">
+            <summary>
+            Given a pin name, find the SliceId mapped to that pin.
+            </summary>
+            <param name="pin"> Name of the pin which is mapped to a SliceId. </param>
+            <param name="hryIdentifier"> HryIdentifier from the pin mapping used to map the given pin. </param>
+            <returns> SliceId mapped to the given pin. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetModuleFromPin(System.String,System.String@)">
+            <summary>
+            Fetch module given the name of a pin.
+            </summary>
+            <param name="pin"> The name of the pin that is mapped to a module. </param>
+            <param name="hryIdentifier"> HryIdentifier from the pin mapping used to map the given pin. </param>
+            <returns> The module that the pin is mapped to. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetHryNameFromSliceId(System.String)">
+            <summary>
+            Get HryName mapped to the given sliceId.
+            </summary>
+            <param name="sliceId"> SliceId that is mapped to an HryName. </param>
+            <returns> HryName of the given sliceId. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetPinsToMask(System.Collections.Generic.List{System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Method to get all pins to mask given slice(s) or module(s) we're currently iterating over.
+            </summary>
+            <param name="slices"> All slices we're currently interested in. </param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> A list of pins that aren't mapped to the list of slices. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetPatternMappedToSlice(System.String)">
+            <summary>
+            Get PatName mapped to the given sliceId.
+            </summary>
+            <param name="sliceId"> SliceId that is mapped to an PatName. </param>
+            <returns> HryName of the given sliceId. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.IsGetSliceFromLabel">
+            <summary>
+            Method for determining if we should get slice from Label when performing prescreen algorithm.
+            </summary>
+            <returns> A value indicating whether to use Label as a source for SliceId. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetSliceList">
+            <summary>
+            Method to return all available slices in this PinMappingSet.
+            </summary>
+            <returns> List of slices contained in this pinMappingSet. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetHryNameFromModule(System.String)">
+            <summary>
+            Get HryName mapped to the given sliceId.
+            </summary>
+            <param name="sliceId"> SliceId that is mapped to an HryName. </param>
+            <returns> HryName of the given sliceId. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet.GetModuleList">
+            <summary>
+            Method to return all available modules in this PinMappingSet.
+            </summary>
+            <returns> List of modules contained in this pinMappingSet. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.MetadataConfig.Configurations">
+            <summary> Json property containing info for Configurations. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.Configurations.ArrayNameRegex">
+            <summary> Gets or sets ArrayNameRegex for this Configurations. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.Configurations.IsRasterModeSupported">
+            <summary> Gets or sets a value indicating whether raster mode is supported for this PinMappingSet. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.Configurations.PrescreenLabelRegex">
+            <summary> Gets or sets PreScreenLabelRegex for this Configurations. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.Configurations.LabelRegExTokens">
+            <summary> Gets or sets a list of strings representing LabelRegExTokens. </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.MetadataConfig.PinMapping">
+            <summary> Json property containing info for PinMapping. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMapping.SliceId">
+            <summary> Gets or sets SliceId for this PinMapping. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMapping.PinName">
+            <summary> Gets or sets PinName for this PinMapping.. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMapping.PatName">
+            <summary> Gets or sets PatName for this PinMapping. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMapping.Module">
+            <summary> Gets or sets Module for this PinMapping. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMapping.HryName">
+            <summary> Gets or sets HryName for this PinMapping. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.MetadataConfig.PinMapping.HryPrefix">
+            <summary> Gets or sets HryPrefix for this PinMapping. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMapping.DoesSliceIdExistInPinMapping(System.String)">
+            <summary>
+            Check ranged or single slice-id existence in metadata pin mapping.
+            </summary>
+            <param name="singleSliceId">Slice id to check.</param>
+            <returns>True if slice found, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.MetadataConfig.PinMapping.DoesModuleExistInPinMapping(System.String)">
+            <summary>
+            Check ranged or single module existence in metadata pin mapping.
+            </summary>
+            <param name="singleModule">Module name.</param>
+            <returns>True if module found, false otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.RasterConfig">
+            <summary>
+            Class that holds deserialized version of Ldat config for Raster mode.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.RasterConfig.PatTargets">
+            <summary>
+            Enum to represent all possible patTargets when performing raster.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.RasterConfig.PatTargets.MULTIPORT">
+            <summary> Enum representing a pat target. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.RasterConfig.PatTargets.BANK">
+            <summary> Enum representing a pat target. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.RasterConfig.PatTargets.DWORD">
+            <summary> Enum representing a pat target. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.RasterConfig.PatTargets.MAXDEFECTSCOUNT">
+            <summary> Enum representing a pat target. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.RasterConfig.PatTargets.IOMASK">
+            <summary> Enum representing a pat target. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.Setup">
+            <summary>
+            Gets or sets name of the Plist for this array.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.ConvertStringToPatTarget(Prime.TestMethods.LSARaster.RasterConfig.PatModifyElement)">
+            <summary>Helper method to convert a string to a <see cref="T:Prime.TestMethods.LSARaster.RasterConfig.PatTargets"/>.</summary>
+            <param name="patTarget">String to convert to a <see cref="T:Prime.TestMethods.LSARaster.RasterConfig.PatTargets"/>.</param>
+            <returns>Value of <see cref="T:Prime.TestMethods.LSARaster.RasterConfig.PatTargets"/>.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.Verify(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Verify that all Ldat arrays within this config contain the proper elements within their DwordElements.
+            </summary>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns>A value indicating whether all ldat arrays in this config contain the required targets in their DwordElements.</returns>
+            <remarks>This is the only check needed to perform after deserialization. The JSON schema takes care of the rest.</remarks>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.GetLdatArray(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get desired LdatArray from internal dictionary.
+            </summary>
+            <param name="arrayName"> Name of the array to retrieve. </param>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns> <see cref="T:Prime.TestMethods.LSARaster.RasterConfig.LdatArray"/> instance linked to passed array name. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.CheckIfLdatArrayHasRasterEnabled(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            This checks the RasterConfig JSON file to see if RasterExists is true or false. Default assumes true if not defined.
+            </summary>
+            <param name="arrayName">Name of the array.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>true or false which matches the json definition.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.GetReductionConfigSet(System.String)">
+            <summary>
+            Get desired LdatArray from internal dictionary.
+            </summary>
+            <param name="name">Name of the config set to retrieve.</param>
+            <returns><see cref="T:Prime.TestMethods.LSARaster.RasterConfig.ReductionConfigSet"/> linked to passed name.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.IsRasterInParallel">
+            <summary>
+            Method for returning the RasterInParallel configuration option.
+            </summary>
+            <returns>A value indicating whether to raster serially or in parallel.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.RasterConfig.Root">
+            <summary>
+            Root of this configuration object.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.Root.RasterInParallel">
+            <summary>
+            Gets or sets a value indicating whether to raster the arrays in the DB in parallel or serially.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.Root.LdatArrays">
+            <summary>
+            Gets or sets mapping of array name to their configurations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.Root.ReductionConfigSets">
+            <summary>
+            Gets or sets mapping of reduction config set name to the container object.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.RasterConfig.ReductionConfigSet">
+            <summary>
+            Class representing a reductionConfigSet.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.ReductionConfigSet.MaxCoresCount">
+            <summary>
+            Gets or sets maximum cores to raster during execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.ReductionConfigSet.ArrayMaxCount">
+            <summary>
+            Gets or sets maximum arrays to raster during execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.ReductionConfigSet.ArrayMAFMax">
+            <summary>
+            Gets or sets limit of arrays that can fail per slice before that specific slice is removed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.ReductionConfigSet.ArrayPriority">
+            <summary>
+            Gets or sets the priority of arrays to keep when considering reductions.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.ReductionConfigSet.MaxMBDsCount">
+            <summary>
+            Gets or sets the maximum number of MBDs per array, per slice.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.ReductionConfigSet.ItuffPrint">
+            <summary>
+            Gets or sets a value indicating whether to print reductions to Ituff.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.RasterConfig.LdatArray">
+            <summary>
+            Class holding information on a given LdatArray.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.LdatArray.RasterExists">
+            <summary>
+            Gets or sets if raster valid for this array (true false).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.LdatArray.PlistName">
+            <summary>
+            Gets or sets name(s) of the Plist for this array.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.LdatArray.PatModConfigSetName">
+            <summary>
+            Gets or sets name of the PatMod for this array.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.LdatArray.CaptureSetName">
+            <summary>
+            Gets or sets name of the CaptureSet for this array.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.LdatArray.SliceRange">
+            <summary>
+            Gets or sets the slice range.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.LdatArray.DwordElement">
+            <summary>
+            Gets or sets name of the Plist for this array.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.LdatArray.CreatePatConfigHandles(Prime.TestMethods.LSARaster.RasterConfig.DwordElement,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Method for converting a <see cref="T:Prime.TestMethods.LSARaster.RasterConfig.DwordElement"/> into a list of <see cref="T:Prime.PatConfigService.IPatConfigHandle"/>.
+            </summary>
+            <param name="dwordElement">An instance of <see cref="T:Prime.TestMethods.LSARaster.RasterConfig.DwordElement"/> to convert.</param>
+            <param name="plistName">Name of the plist to apply handles to.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>A list of <see cref="T:Prime.PatConfigService.IPatConfigHandle"/>.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.LdatArray.MatchAddressToDwordElement(System.Tuple{System.Int32,System.Int32,System.Int32},Prime.TestMethods.LSARaster.RasterConfig.DwordElement@)">
+            <summary>
+            Check of a label matches against given PatModElement values.
+            </summary>
+            <param name="mbdAddress">MBD address being checked for validity.</param>
+            <param name="dwordElement"><see cref="T:Prime.TestMethods.LSARaster.RasterConfig.DwordElement"/> containing pat modify info for raster.</param>
+            <returns>A value indicating whether the given label passes the check against the given patModElements.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.RasterConfig.DwordElement">
+            <summary>
+            Class holding information on PatModifyElements.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.DwordElement.PatModifyElement">
+            <summary>
+            Gets or sets list of PatModifys.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.DwordElement.GetMultiPortValue">
+            <summary>
+            Method for getting multiport value for this <see cref="T:Prime.TestMethods.LSARaster.RasterConfig.DwordElement"/>.
+            </summary>
+            <returns>Multiport value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.DwordElement.GetBankValue">
+            <summary>
+            Method for getting bank value for this <see cref="T:Prime.TestMethods.LSARaster.RasterConfig.DwordElement"/>.
+            </summary>
+            <returns>Bank value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.RasterConfig.DwordElement.GetDwordValue">
+            <summary>
+            Method for getting dword value for this <see cref="T:Prime.TestMethods.LSARaster.RasterConfig.DwordElement"/>.
+            </summary>
+            <returns>Dword value.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.RasterConfig.PatModifyElement">
+            <summary>
+            Class holding information on PatModifys.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.PatModifyElement.PatTarget">
+            <summary>
+            Gets or sets PatTarget for this PatModify.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.RasterConfig.PatModifyElement.Value">
+            <summary>
+            Gets or sets value for this PatModify.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.FailedArrayDatabase">
+            <summary>
+            A class to act as a container for all failed array information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.FailedArrayDatabase"/> class.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.FailedArrayDatabase.Database">
+            <summary> Gets or sets defects found during Prescreen.</summary>
+            <remarks> Mapping of Map(ArrayName -> Map(SliceId/Module -> MBD addresses)). </remarks>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.FailedArrayDatabase.CoreReductionsDatalog">
+            <summary> Gets or sets datalog of reductions when reducing cores for this Raster execution. Tuple represents array name, sliceId, number of failing MBDs. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.FailedArrayDatabase.MassArrayFailureReductionsDatalog">
+            <summary> Gets or sets datalog of reductions when removing slices for arrays that have reached the MAF (Mass Array Failure) limit. Tuple represents array name, sliceId, number of failing MBDs. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.FailedArrayDatabase.MaxArrayReductionsDatalog">
+            <summary> Gets or sets datalog of reductions when removing arrays for slices that have exceeded MaxArrayCount, but less than MAF limit. Tuple represents array name, sliceId, number of failing MBDs. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.FailedArrayDatabase.MaxMbdCountReductionsDatalog">
+            <summary> Gets or sets datalog of reductions when removing MBD addresses that exceeded MaxMBDCountPerArrayPerSlice. Tuple represents array name, slice, defect address (MBD values concatenated). </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.FailedArrayDatabase.ReductionParameters">
+            <summary> Gets or sets Reduction config set containing params for reduction. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.GetDatabaseFromSharedStorage(System.String,Prime.TestMethods.LSARaster.RasterConfig.ReductionConfigSet,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Method for getting internal DB from storage.
+            </summary>
+            <param name="prescreenMapName"> Map name/key to use when fetching internalDB from SharedStorage. </param>
+            <param name="reductionConfigSet"> Reduction configurations to use when reducing internal DB. </param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> InternalDB from SharedStorage. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.CreateDatabaseFromString(System.String,Prime.TestMethods.LSARaster.MetadataConfig.ArrayType,Prime.TestMethods.LSARaster.RasterConfig.ReductionConfigSet,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a FailedArrayDatabase by faking a rasterMap from a string.
+            </summary>
+            <param name="simulationDatabase"> String containing simulated raster map. </param>
+            <param name="arrayType"> Type of array this FailedArrayDatabase is dealing with. </param>
+            <param name="reductionConfigSet"> Reduction params to use on the simulated map. </param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> Instance of <see cref="T:Prime.TestMethods.LSARaster.FailedArrayDatabase"/> with a simulated DB. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.StoreDatabaseInStorage(System.String)">
+            <summary>
+            Method to submit <see cref="T:Prime.TestMethods.LSARaster.FailedArrayDatabase"/> to SharedStorage. Since Tuples can't be stored in SharedStorage, has extra logic for converting a list of tuples into a list of strings.
+            </summary>
+            <remarks> This method has extra logic to convert the internal structure to something that can be stored in SharedStorage. </remarks>
+            <param name="prescreenMapKey"> Key used to submit the internal DB to SharedStorage. </param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.AddNewEntry(System.Tuple{System.Int32,System.Int32,System.Int32},System.String,System.String,System.String)">
+            <summary>
+            Adds a failing array + mbd address (multiport/bank/dword address) + slice/module that failed to the database for raster.
+            </summary>
+            <param name="mbdAddress">The mbd address that failed for this array.</param>
+            <param name="slice">The slice/module that failed for this array and mbd address.</param>
+            <param name="sliceOrModule">Used to print either "slice" or "module" to console.</param>
+            <param name="arrayName">Name of the array that failed.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.PrintDefectsToConsole(Prime.TestMethods.LSARaster.MetadataConfig.ArrayType)">
+            <summary>
+            Method to print defects to console.
+            </summary>
+            <param name="arrayType"> Type of array this DB contains. </param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.SummarizeMaxCoresCount">
+            <summary>
+            Reduces internal datalog of reductions for ituff printing.
+            </summary>
+            <returns> A string representing datalog reductions. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.DoMafReductionsExist">
+            <summary>
+            Method indicating whether reductions exist for this property.
+            </summary>
+            <returns> A boolean value. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.DoMbdReductionsExist">
+            <summary>
+            Method indicating whether reductions exist for this property.
+            </summary>
+            <returns> A boolean value. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.DoMaxArrayReductionsExist">
+            <summary>
+            Method indicating whether reductions exist for this property.
+            </summary>
+            <returns> A boolean value. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.DoMaxCoreReductionsExist">
+            <summary>
+            Method indicating whether reductions exist for this property.
+            </summary>
+            <returns> A boolean value. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.SummarizeMbdReduction">
+            <summary>
+            Reduces internal datalog of reductions for ituff printing.
+            </summary>
+            <returns> A string representing datalog reductions. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.SummarizeMafMaxCount">
+            <summary>
+            Reduces internal datalog of reductions for ituff printing.
+            </summary>
+            <returns> A string representing datalog reductions. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.SummarizeArrayMaxCount">
+            <summary>
+            Reduces internal datalog of reductions for ituff printing.
+            </summary>
+            <returns> A string representing datalog reductions. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.CreateRasterMap(Prime.TestMethods.LSARaster.MetadataConfig.ArrayType)">
+            <summary> Method for reducing defect database + storing reductions for datalogging. </summary>
+            <param name="typeOfArray"> Type of array this database is holding. </param>
+            <returns> Reduced raster map containing all Arrays mapped to slices, and MBDs mapped to the slices. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.CreateDefectDatabaseFromString(System.String,Prime.TestMethods.LSARaster.MetadataConfig.ArrayType,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            When in simulation mode, create defect database when given a string.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.ReduceMBDsPerArrayPerSlice">
+            <summary>
+            Reduces the # of MBD per array per slice within the RasterMap; records reductions for later logging.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.ReduceArraysPerSlice">
+            <summary>
+            Reduces the # of arrays per slice within the RasterMap; records reductions for later logging.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.FailedArrayDatabase.ReduceSlicesPerArray">
+            <summary>
+            Reduces the # of slices per array within the RasterMap; records reductions for later logging.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.IFile">
+            <summary>
+            Interface that allows different file formats to provide input for LSARaster.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.IFile.FileText">
+            <summary>
+            Gets or sets string containing file text.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.IFile.DeserializeInput``1">
+            <summary>
+            Generic method for deserializing passed in input of type T.
+            </summary>
+            <typeparam name="T"> Type of which to deserialize the input file into. </typeparam>
+            <returns> An object of type T.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.IFile.DeserializeInputWithSchema``1">
+            <summary>
+            Generic method for deserializing passed in input of type T.
+            </summary>
+            <typeparam name="T"> Type of which to deserialize the input file into. </typeparam>
+            <returns> An object of type T.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.JsonFile">
+            <summary>Class to represent and convert user JSON configs.</summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.JsonFile.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.JsonFile"/> class.</summary>
+            <param name="fileText">String containing JSON text.</param>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.JsonFile.FileText">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.JsonFile.DeserializeInput``1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.JsonFile.DeserializeInputWithSchema``1">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.XmlFile">
+            <summary>
+            Class for XmlFile.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.XmlFile.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.XmlFile"/> class.
+            </summary>
+            <param name="fileText"> Text for this input handler. </param>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.XmlFile.FileText">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.XmlFile.DeserializeInput``1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.XmlFile.DeserializeInputWithSchema``1">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.HryConditionsChecker">
+            <summary>
+            Class that parses conditions found within the HryTableConfig classes.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.HryConditionsChecker.#ctor(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.HryConditionsChecker"/> class.
+            </summary>
+            <param name="ctvData"> CtvData to use when parsing data for pin and checking for conditions. </param>
+            <param name="conditions">String representing the conditions to use when parsing pin data for information. </param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.HryConditionsChecker.#ctor(System.Collections.Generic.List{Prime.TestMethods.LSARaster.HryTableConfig.CriteriaObject})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.HryConditionsChecker"/> class.
+            </summary>
+            <param name="criterias"> Criterias after deserializing HryMap. </param>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryConditionsChecker.CtvData">
+            <summary>
+            Gets or sets ctvData to use when checking conditions or pin data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryConditionsChecker.Criterias">
+            <summary>
+            Gets or sets ctvData to use when checking conditions or pin data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.HryConditionsChecker.Conditions">
+            <summary>
+            Gets or sets string representing the condition to use when querying ctvData.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.HryConditionsChecker.CheckIfConditionPassed">
+            <summary>
+            Checks if condition has failed for this instance of PinDataParser.
+            </summary>
+            <returns> Bool representing if pin data has failed the condition. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.HryConditionsChecker.GetListofPinsToMonitor">
+            <summary>
+            Returns all the pins that CTV's need to be captured from. Parses "Pin" and "Condition" attributes or HryMap.Json.
+            </summary>
+            <returns> List of strings representing list of pins that CTV's need to be captured. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.Prescreen">
+            <summary> For execution of LsaRaster in Prescreen mode. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Prescreen.PositiveChar">
+            <summary> Character representing 1 in the bitstream. Since ctvData will always be 1 or 0, this is probably unnecessary. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Prescreen.NegativeChar">
+            <summary> Character representing 0 in the bitstream. Since ctvData will always be 1 or 0, this is probably unnecessary. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Prescreen.failLabelIdentifier">
+            <summary> String that matches to a substring of a given fail label. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.#ctor(Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet,Prime.TestMethods.LSARaster.Prescreen.PrescreenConfigurationParameters,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.Prescreen"/> class.
+            </summary>
+            <param name="pinMappingSet"> Instance of <see cref="T:Prime.TestMethods.LSARaster.MetadataConfig"/> to provide metadata for execution. </param>
+            <param name="prescreenConfig"> The configuration parameters for the prescreen test. </param>
+            <param name="plist"> Name of the plist used to execute this Prescreen. </param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.Prescreen.ExecutionStates">
+            <summary>
+            Values representing the final status of the algorithm's execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Prescreen.ExecutionStates.NonFailingLabelDetected">
+            <summary>
+            The unit failed on a cycle that did not contain a fail label.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Prescreen.ExecutionStates.SuccessfulAlgorithm">
+            <summary>
+            Successfully parsed functional errors retrieved from functional test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Prescreen.FailedArrayDatabase">
+            <summary>
+            Gets or sets all failed arrays after prescreen is executed and a fail port of 3 is detected.
+            Structure remains empty for all other ports.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.GetArrayNameFromPattern(Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet,Prime.FunctionalService.IFailureData,System.String)">
+            <summary>
+            Using RegEx define in MetadataConfig, get the name of the failing array from the pattern that's defined in <see cref="T:Prime.FunctionalService.IFailureData"/>.
+            </summary>
+            <param name="pinMappingSet">PinMappingSet used for this execution of prescreen.</param>
+            <param name="failObject"> Instance of object that implements<see cref="T:Prime.FunctionalService.IFailureData"/>.</param>
+            <param name="plist">Name of the plist that the failObject was obtained from.</param>
+            <returns> String representing the array name if the match was successful. </returns>
+            <remarks> This method has a conditional statement checking the string representing the name of plist. This is a temporary work around due to service not behaving as expected. </remarks>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.GetValuesFromFailLabel(Prime.PatternService.ILabel,Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet,System.String@,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Populates this instance with values coming from a pattern's label.
+            </summary>
+            <param name="label">The label contained on the failing cycle of a pattern.</param>
+            <param name="pinMappingSet">The pinMappingSet used to generate this Array.</param>
+            <param name="slice">If this pinMappingSet contains the "SLICE" RegEx token, then this value is populated with the slices for this failed array.</param>
+            <param name="ctx">Session context.</param>
+            <returns>MBD address and possibly slice obtained from failing label.</returns>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Thrown if the label does not contain the required RegEx tokens of Multiport, Bank, Dword.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.GetSlicesFromPins(System.Collections.Generic.List{System.String},Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet)">
+            <summary>
+            From a list containing all failed pins for a given cycle, get all slice/module that failed..
+            </summary>
+            <param name="failedPins"> List of all pins that failed for a given cycle. </param>
+            <param name="pinMappingSet"> Instance of <see cref="T:Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet"/> to provide metadata on extracting info from pins. </param>
+            <returns>All slices that have failed.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.ExecuteFailMode(Prime.FunctionalService.ICaptureFailureTest)">
+            <summary>
+            Executes PrescreenMode when PrintMode is set to FAILMODE.
+            </summary>
+            <param name="funcTest"> FunctionalTest object for plist execution. </param>
+            <returns>Exit port for prescreen.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.ExecuteFailAndCtvMode(Prime.FunctionalService.ICaptureFailureAndCtvPerPinTest,Prime.TestMethods.LSARaster.HryTableConfig)">
+            <summary>
+            Executes PrescreenMode when PrintMode is set to CTVMODE.
+            </summary>
+            <param name="funcAndCtvTest"> FunctionalTest object for plist execution. </param>
+            <param name="deserializedHryTable"> Deserialized HryTable for ctv decoding. </param>
+            <returns>Exit port for prescreen.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.ParseFailData(System.Collections.Generic.List{Prime.FunctionalService.IFailureData},Prime.TestMethods.LSARaster.Prescreen.ExecutionStates@)">
+            <summary>
+            Checks for FunctionalTest result, if test passed without failures, the ExitPort is set and the Ituff data is generated.
+            If failures were detected, the DFM failures are mapped, the ExitPort is set and the Ituff data is generated.
+            </summary>
+            <param name="failData"> DFM failures to parse and map to failing arrays. </param>
+            <param name="state">The final state after the prescreen algorithm has finished executing.</param>
+            <returns>The arrays that were determined to have failed after parsing failData.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.ParseCtvData(System.Collections.Generic.Dictionary{System.String,System.String},Prime.TestMethods.LSARaster.HryTableConfig)">
+            <summary>
+            PrescreenMode when in CTVMODE. Parses ctvData for HryString printing.
+            </summary>
+            <param name="ctvData"> Dictionary holding CTV data. </param>
+            <param name="deserializedHryTable"> Deserialized HryTable for ctv decoding. </param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.MapFailureDataToFailedArrays(System.Collections.Generic.List{Prime.FunctionalService.IFailureData},Prime.TestMethods.LSARaster.Prescreen.ExecutionStates@)">
+            <summary>
+            Method for mapping <see cref="T:Prime.FunctionalService.IFailureData"/> to their respective arrays.
+            </summary>
+            <param name="failData">List of <see cref="T:Prime.FunctionalService.IFailureData"/> to map to array failures.</param>
+            <param name="state">The state of the algorithm execution.</param>
+            <returns> A enum representing the algorithm's final state. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.DatalogFunctionalTestDataToItuff(System.Int32)">
+            <summary>
+            Datalog functional test execution and fail array data (if applicable) to ituff.
+            </summary>
+            <param name="exitPort">The exit port for this instance of prescreen.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.DatalogCtvTestDataToItuff">
+            <summary>
+            Datalog the hryString obtained from the ctv test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.SubmitFailedArraysToSharedStorage(System.String)">
+            <summary>
+            Submits all failed array info to SharedStorage.
+            </summary>
+            <param name="sharedStorageKey">Key to use when submitting failed arrays to shared storage.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.TryGetPinData(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Try-get pin value from ctvData, throw an exception if not found.
+            </summary>
+            <param name="ctvData"> Dict that maps (pin name) -> (pin data). </param>
+            <param name="pinName"> Name of pin we're trying to access. </param>
+            <returns> Data from from the key of given pinName. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.Prescreen.PrescreenConfigurationParameters">
+            <summary>
+            The configuration parameters for the prescreen test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Prescreen.PrescreenConfigurationParameters.PrescreenHryFlowToken">
+            <summary>
+            The prescreen HRY Flow Token.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Prescreen.PrescreenConfigurationParameters.PrescreenHryFrequencyToken">
+            <summary>
+            The prescreen HRY Freq Token.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Prescreen.PrescreenConfigurationParameters.PrescreenMafLimit">
+            <summary>
+            The prescreen MAF Limit.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Prescreen.PrescreenConfigurationParameters.PrescreenPrintMode">
+            <summary>
+            The prescreen Print Mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Prescreen.PrescreenConfigurationParameters.#ctor(Prime.TestMethods.TestMethodsParams.String,Prime.TestMethods.TestMethodsParams.String,Prime.TestMethods.TestMethodsParams.UnsignedInteger,Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrintMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.Prescreen.PrescreenConfigurationParameters"/> struct.
+            </summary>
+            <param name="prescreenHryFlowToken">The prescreen HRY Flow Token.</param>
+            <param name="prescreenHryFrequencyToken">The prescreen HRY Freq Token.</param>
+            <param name="prescreenMafLimit">The prescreen MAF Limit.</param>
+            <param name="prescreenPrintMode">The prescreen Print Mode.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod">
+            <summary>
+            This class is intended to overwrite the test method PrimeFuncCaptureFailuresTestMethod.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.DefaultPrescreenMapName">
+            <summary> Default key to use when storing internal DB to sharedstorage. Just in case the user does not specify one. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrescreenMapNamePrefix">
+            <summary> Prefix to append to PrescreenMapName to prevent access of unintended items in shared storage. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.MetadataSchemaFileName">
+            <summary> Schema validation file for MetadataConfig file. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.RasterSchemaFileName">
+            <summary> Schema validation file for RasterConfig file. </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.TestInstanceMode">
+            <summary>
+            Enum representing which mode to use for this TM execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.TestInstanceMode.PRESCREEN">
+            <summary> Use Prescreen mode for this TM instance. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.TestInstanceMode.RASTER">
+            <summary> Use Raster mode for this TM instance. </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrintMode">
+            <summary> Enum representing which print mode to use for Prescreen; mainly affects prints to ituff. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrintMode.PASSMODE">
+            <summary> Set PreScreenMode to PASSMODE, ignore CTV capture, only report a pass or fail result. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrintMode.FAILMODE">
+            <summary> Set PreScreenMode to FAILMODE, ignore CTV capture, report pass/fail along with array info. </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrintMode.CTVMODE">
+            <summary> Set PreScreenMode to CTVMODE, decode CTV bits, report pass/fail along with array info and decoded ctvData info.</summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.ExecutionMode">
+            <summary> Gets or sets which mode to use for this instance of PrimeLSARasterTestMethod. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.TfileRasterPrint">
+            <summary> Gets or sets whether to print to raster tfile. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.Prime#TestMethods#CommonParams#IApplyEndSequenceParameter#ApplyEndSequence">
+            <summary>
+            Gets or sets the ApplyEndSequence at the end of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.Prime#TestMethods#CommonParams#IPrePlistCommonParam#PrePlist">
+            <summary>
+            Gets or sets the PrePlist callback to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.MaskPins">
+            <summary>
+            Gets or sets  comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.MetadataConfigPath">
+            <summary> Gets or sets filepath to MetadataConfig. Required for all TM instances. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.HryMapPath">
+            <summary> Gets or sets filepath to HryMap. Required when in Prescreen and PrescreenPrintMode is set to CTV_Mode. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.RasterConfigPath">
+            <summary> Gets or sets filepath to RasterConfig. Required for Raster. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PinMappingSetName">
+            <summary> Gets or sets PinMappingSet to use during execution; this is a name defined in MetadataConfig. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.ReductionConfigSetName">
+            <summary> Gets or sets ReductionConfigSet to use during Raster execution; optional if user needs to reduce internalDB. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrescreenMapName">
+            <summary> Gets or sets key used to store failing arrays in shared storage to be accessed later. Prescreen instance submits DB to this key, Raster instance uses this as the key to fetch from DB. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrescreenPrintMode">
+            <summary> Gets or sets print mode for Prescreen. By default this is set to FAILMODE. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrescreenHryFlowToken">
+            <summary> Gets or sets HRY flow token for Prescreen. Used for ituff printing. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrescreenHryFrequencyToken">
+            <summary> Gets or sets HRY frequency token for Prescreen. Used for ituff printing. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.PrescreenMafLimit">
+            <summary> Gets or sets maximum number of failing arrays to print to Ituff. By default, this is set to 0, or unlimited. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.OutputTag">
+            <summary> Gets or sets tag to output info for repair during Rastermode. Required for Raster is passing defects to iCRepair. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.RasterMapSimulation">
+            <summary> Gets or sets a string which will simulate the internal RasterMap for this TM instance. Eliminates the need to run Prescreen by faking locations which need to be rastered. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.Verify">
+            <summary>
+            Verify method for this TM.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.Execute">
+            <summary> Main entry point for the TM. </summary>
+            <returns> Exit port for the TM. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.ExportDefectsToRepair(System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.LSARaster.IDefect}})">
+            <summary>
+            Submits all defects found during execution to iCRepair.
+            </summary>
+            <param name="outputTag"> Tag to submit defects to. </param>
+            <param name="db"> Database containing defects that are being exported to iCRepair. </param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.ValidateDeserializedConfigs">
+            <summary>
+            Perform internal check on each object required for execution of the TM. Depending on object, also initializes values needed for execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.DeserializeConfigs(System.Boolean)">
+            <summary>
+            Deserialize the user configurations into objects needed for TM execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.GetConfigFileContents">
+            <summary>
+            Get the files depending on which mode we're in.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.PrimeLSARasterTestMethod.CheckRasterParameters(System.Boolean)">
+            <summary>
+            This method checks if any of the required parameters for RasterMode are missing.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.AtomDefect">
+            <summary>
+            Class to represent a defect decoded Ctvs captured in Raster.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.AtomDefect.#ctor(System.Int32,System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.AtomDefect"/> class.
+            </summary>
+            <param name="failAddress"> Value of failaddress. </param>
+            <param name="dword"> Value of dword. </param>
+            <param name="bank"> Value of bank. </param>
+            <param name="multiFailIo"> Value of all FailIos.</param>
+            <param name="prescreenMafLimit">The limit of the amount of errors that will be printed to console.</param>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.AtomDefect.Array">
+            <summary> Gets or sets array name for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.AtomDefect.Module">
+            <summary> Gets or sets slice (or module) for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.AtomDefect.Dword">
+            <summary> Gets or sets dword value for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.AtomDefect.Bank">
+            <summary> Gets or sets bank value for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.AtomDefect.FailAddress">
+            <summary> Gets or sets fail address value for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.AtomDefect.CoreToFailIO">
+            <summary> Gets or sets dict containing multiple failIO; a map of Core -> its failIo. If we're in Module mode, there will be a failIO per core for each module. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.AtomDefect.SendToRepair">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.AtomDefect.CreateDefects(System.Collections.Generic.List{System.String},Prime.TestMethods.LSARaster.DefectFactory.MetadataConfigSets,Prime.TestMethods.LSARaster.DefectFactory.CtvDataInformation,Prime.TestMethods.LSARaster.RasterConfig.DwordElement,System.String,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Method for instatiating instances of this class <see cref="T:Prime.TestMethods.LSARaster.AtomDefect"/>.
+            </summary>
+            <param name="ctvData"> CtvData to parse.</param>
+            <param name="configSets"> A struct containing the PinMappingSet metadata about defects and the Capture set that specifies how to decode the ctvData.</param>
+            <param name="ctvDataInformation"> A struct containing the Pin that the defect failed on and the Array to assign defects to. </param>
+            <param name="dwordElement"> Dword element used to collect ctvData. </param>
+            <param name="prescreenHryFlowToken">The hry flow token that determines if array values should be overriden with Hry values.</param>
+            <param name="prescreenMafLimit">The limit to the amount of errors that will be parsed and printed to console.</param>
+            <param name="ctx">The session context of this operation.</param>
+            <returns> List of <see cref="T:Prime.TestMethods.LSARaster.IDefect"/> objects. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.AtomDefect.Clone">
+            <summary>
+            Method for cloning this object.
+            </summary>
+            <returns> Copy of this object. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.AtomDefect.AddToInternalDatabase(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.LSARaster.IDefect}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.AtomDefect.CreateTFileString(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.AtomDefect.Equals(Prime.TestMethods.LSARaster.AtomDefect)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.AtomDefect.CreateRepairString(System.Collections.Generic.Dictionary{System.String,System.Int32},System.Text.StringBuilder,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.BigCoreDefect">
+            <summary>
+            Class to represent a defect decoded Ctvs captured in Raster.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.BigCoreDefect.#ctor(System.Int32,System.Int32,System.String,System.String,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.BigCoreDefect"/> class.
+            </summary>
+            <param name="failAddress"> Value of failaddress. </param>
+            <param name="dword"> Value of dword. </param>
+            <param name="bank"> Value of bank. </param>
+            <param name="failIo"> Value of failIo. </param>
+            <param name="prescreenMafLimit">The limit of the amount of errors that will be printed to console.</param>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.BigCoreDefect.Array">
+            <summary> Gets or sets array name for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.BigCoreDefect.Slice">
+            <summary> Gets or sets slice (or module) for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.BigCoreDefect.Dword">
+            <summary> Gets or sets dword value for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.BigCoreDefect.Bank">
+            <summary> Gets or sets bank value for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.BigCoreDefect.FailAddress">
+            <summary> Gets or sets fail address value for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.BigCoreDefect.FailIO">
+            <summary> Gets or sets failIo value for this defect. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.BigCoreDefect.SendToRepair">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.BigCoreDefect.CreateDefects(System.Collections.Generic.List{System.String},Prime.TestMethods.LSARaster.DefectFactory.MetadataConfigSets,Prime.TestMethods.LSARaster.DefectFactory.CtvDataInformation,Prime.TestMethods.LSARaster.RasterConfig.DwordElement,System.String,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Method for instatiating instances of this class <see cref="T:Prime.TestMethods.LSARaster.BigCoreDefect"/>.
+            </summary>
+            <param name="ctvData"> CtvData to parse.</param>
+            <param name="configSets"> A struct containing the PinMappingSet metadata about defects and the Capture set that specifies how to decode the ctvData.</param>
+            <param name="ctvDataInformation"> A struct containing the Pin that the defect failed on and the Array to assign defects to. </param>
+            <param name="dwordElement"> Dword element used to collect ctvData. </param>
+            <param name="prescreenHryFlowToken">The hry flow token that determines if array values should be overriden with Hry values.</param>
+            <param name="prescreenMafLimit">The limit to the amount of errors that will be parsed and printed to console.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> List of <see cref="T:Prime.TestMethods.LSARaster.IDefect"/> objects. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.BigCoreDefect.AddToInternalDatabase(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.LSARaster.IDefect}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.BigCoreDefect.CreateTFileString(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.BigCoreDefect.Equals(Prime.TestMethods.LSARaster.BigCoreDefect)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.BigCoreDefect.Clone">
+            <summary>
+            Method for cloning this object.
+            </summary>
+            <returns> Copy of this object. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.BigCoreDefect.CreateRepairString(System.Collections.Generic.Dictionary{System.String,System.Int32},System.Text.StringBuilder,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.DefectFactory">
+            <summary>
+            Class dedicated to creating objects that implement <see cref="T:Prime.TestMethods.LSARaster.IDefect"/> interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.DefectFactory.DecodeDefects(System.Collections.Generic.List{System.String},Prime.TestMethods.LSARaster.DefectFactory.MetadataConfigSets,Prime.TestMethods.LSARaster.DefectFactory.CtvDataInformation,Prime.TestMethods.LSARaster.RasterConfig.DwordElement,System.String,System.UInt32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Take in ctvData and decode them into <see cref="T:Prime.TestMethods.LSARaster.IDefect"/> objects.
+            </summary>
+            <param name="ctvData">CtvData to decode into defects.</param>
+            <param name="configSets">A struct containing the PinMappingSet metadata about defects and the Capture set that specifies how to decode the ctvData.</param>
+            <param name="ctvDataInformation">A struct containing the Pin that the defect failed on and the Array to assign defects to.</param>
+            <param name="dwordElement">Dword element used for patMod before ctv capture.</param>
+            <param name="prescreenHryToken">Determines if defect information should be overriden by Hry data.</param>
+            <param name="prescreenMafLimit">Limits how many failures are processed/printed to console.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> List of <see cref="T:Prime.TestMethods.LSARaster.IDefect"/>. </returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.DefectFactory.MetadataConfigSets">
+            <summary>
+            The metadata config sets for PinMappings and CTV Capture.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.DefectFactory.MetadataConfigSets.PinMappingSet">
+            <summary>
+            The metadata config PinMapping Set.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.DefectFactory.MetadataConfigSets.CaptureSet">
+            <summary>
+            The metadata config CTV Capture Set.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.DefectFactory.MetadataConfigSets.#ctor(Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet,Prime.TestMethods.LSARaster.MetadataConfig.CaptureSet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.DefectFactory.MetadataConfigSets"/> struct.
+            </summary>
+            <param name="pinMappingSet">The metadata config PinMapping Set.</param>
+            <param name="captureSet">The metadata config CTV Capture Set.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.DefectFactory.CtvDataInformation">
+            <summary>
+            Array and Pin that ctvData is coming from.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.DefectFactory.CtvDataInformation.CurrentPin">
+            <summary>
+            Pin that the ctvData is coming from.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.DefectFactory.CtvDataInformation.CurrentArray">
+            <summary>
+            Array that the ctvData is coming from.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.DefectFactory.CtvDataInformation.CurrentSlice">
+            <summary>
+            Slice or module from where the ctvData is coming.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.DefectFactory.CtvDataInformation.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.DefectFactory.CtvDataInformation"/> struct.
+            </summary>
+            <param name="currentPin">Pin that the ctvData is coming from.</param>
+            <param name="currentArray">Array that the ctvData is coming from.</param>
+            <param name="currentSlice">Slice or module from where the ctvData is coming.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.IDefect">
+            <summary>
+            This class is used to represent the different type of arrays we'll be seeing when performing raster. Each Defect will have its own method of deserializing into.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.IDefect.SendToRepair">
+            <summary>
+            Gets or sets a value indicating whether to send this object to repair.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.IDefect.AddToInternalDatabase(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.LSARaster.IDefect}})">
+            <summary>
+            Method for adding this object into the internalDB.
+            </summary>
+            <param name="database"> Database to load the defect into. </param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.IDefect.CreateTFileString(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Create a string used to log this Defect to the TFile.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> A string formatted for TFile. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.IDefect.CreateRepairString(System.Collections.Generic.Dictionary{System.String,System.Int32},System.Text.StringBuilder,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates a string to be submitted to PrimeRepairTestMethod or iCRepair supersede.
+            </summary>
+            <returns> A string value. </returns>
+            <param name="sliceDefectCount"> Database to load the defect into. </param>
+            <param name="last_defect"> Database to load the defeect into. </param>
+            <param name="ctx">SessionContext.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.Raster">
+            <summary>
+            Class representing functionality of RasterMode for LSARaster test class.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.CompleteLabelIdentifier">
+            <summary>
+            Identifier for when a label is considered complete.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.ParallelSlice">
+            <summary>
+            Name to use for sliceId when executing a test in parallel mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.#ctor(Prime.TestMethods.LSARaster.Raster.Configs,Prime.TestMethods.LSARaster.Raster.TestConditions,System.String,System.Tuple{System.String,System.UInt32},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.Raster"/> class.
+            </summary>
+            <param name="configs">The deserialized configurations needed for execution of the raster test.</param>
+            <param name="testConditions">Test Conditions used for plist execution.</param>
+            <param name="pinMappingSetName">Name of pinMappingSet to use for this instance of Raster.</param>
+            <param name="printingParams">A tuple containing loglevel, prescreenHryToken and prescreenMafLimit.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.Raster.ExecutionStates">
+            <summary>
+            Values representing the final status of algorithm execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.ExecutionStates.RasterTimeout">
+            <summary>
+            Failed cycle on an amble pattern.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.ExecutionStates.FailOnAmble">
+            <summary>
+            Failed cycle on an amble pattern.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.ExecutionStates.RasterConfigUndefined">
+            <summary>
+            HRY sent us here but raster configuration doesn't have array defined.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.ExecutionStates.Success">
+            <summary>
+            Fails have been raster/algorithm works as expected.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.ExecutionStates.FailOnNonCompleteLabel">
+            <summary>
+            Fail on cycle containing label other than complete label.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Raster.Metadata">
+            <summary> Gets or sets an instance of <see cref="T:Prime.TestMethods.LSARaster.MetadataConfig"/>, must be derived from the same JSON used in prescreen. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Raster.RasterConfig">
+            <summary> Gets or sets an instance of <see cref="T:Prime.TestMethods.LSARaster.RasterConfig"/>. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Raster.DefectDatabase">
+            <summary>
+            Gets database containing defects after performing <see cref="M:Prime.TestMethods.LSARaster.Raster.Execute(System.String,System.String)"/>.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Raster.ExitPort">
+            <summary> Gets exit port for this test instance. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Raster.TFile">
+            <summary> Gets or sets the T-File info for this test instance. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Raster.LevelsName">
+            <summary> Gets or sets name of levels file to use for plist execution. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Raster.TimingsName">
+            <summary> Gets or sets name of timings file to use for plist execution. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Raster.PinMappingSetName">
+            <summary> Gets or sets name of pinMappingSet to use for this instance of Raster. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Raster.SimulationString">
+            <summary> Gets or sets string used for simulating internal DB for debugging purposes. </summary>
+        </member>
+        <member name="P:Prime.TestMethods.LSARaster.Raster.TFileRasterPrint">
+            <summary> Gets or sets a value indicating whether to print Tfile raster results. </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.GetSlicesForMbdAddress(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.Tuple{System.Int32,System.Int32,System.Int32}}})">
+            <summary>
+            Convert a mapping of sliceId to set of MBD addresses to a mapping of MBD addresses to unique slices.
+            </summary>
+            <param name="sliceToAddresses"> Mapping of slice to mbd addresses. </param>
+            <returns> A dict using tuples as keys with a set of unique slices attached. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.GetMulticorePlistForLdatArray(Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet,Prime.TestMethods.LSARaster.RasterConfig.LdatArray,System.String)">
+            <summary>
+            Given a Ldat array and the current slice, get the multi-core plist required for raster execution.
+            </summary>
+            <param name="pinMappingSet">PinMappingSet used for this Raster execution.</param>
+            <param name="ldatArray">Array configuration for LdatArray currently being rastered.</param>
+            <param name="currentSliceId">Current slice we're rastering.</param>
+            <returns>plist.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.GetPlistForLdatArray(Prime.TestMethods.LSARaster.MetadataConfig.PinMappingSet,Prime.TestMethods.LSARaster.RasterConfig.LdatArray,System.String)">
+            <summary>
+            Return the plist to execute given an Ldat array and the slice we're executing on.
+            </summary>
+            <param name="pinMappingSet">PinMappingSet used to determine the plist to execute.</param>
+            <param name="ldatArray">The configuration of the Ldat array we'll execute on.</param>
+            <param name="currentSliceId">SliceID we're targeting for the given Ldat array.</param>
+            <returns>Name of the plist to execute to target this array.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.SeparateStringToChunks(System.String,System.UInt32)">
+            <summary>
+            Take a string, then substring it into a multiple of the passed length.
+            </summary>
+            <param name="ctvBits">String to substring.</param>
+            <param name="length">The maximum length of each output string.</param>
+            <returns>Substrings that are no greater than passed length.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.CheckDfmFails(System.Collections.Generic.List{Prime.FunctionalService.IFailureData})">
+            <summary>
+            CheckDfmFails.
+            </summary>
+            <param name="failData">.</param>
+            <returns>true/false.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.Execute(System.String,System.String)">
+            <summary>
+            Execute method for RasterMode. Entry point for LSARaster when set to Raster.
+            </summary>
+            <param name="reductionConfigSetName">Name of reductionConfigSet to use for this instance of Raster.</param>
+            <param name="sharedStorageFailedArrayKey">Key to retrieve failed arrays from SharedStorage from previous <see cref="T:Prime.TestMethods.LSARaster.Prescreen"/> execution.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.DecodeCtvData(System.Collections.Generic.Dictionary{System.String,System.String},Prime.TestMethods.LSARaster.MetadataConfig.CaptureSet,Prime.TestMethods.LSARaster.RasterConfig.DwordElement,System.String,System.String)">
+            <summary>
+            Returns a mapping of each pin's ctvData to its decoded information based on the captureSet provided.
+            </summary>
+            <param name="ctvData">Dictionary of each pin mapped to its returned ctvData.</param>
+            <param name="captureSet">CaptureSet used to decode the ctvData.</param>
+            <param name="dwordElement"><see cref="T:Prime.TestMethods.LSARaster.RasterConfig.DwordElement"/> used for the plist execution when gathering the ctvs for the specified array/dword address combo.</param>
+            <param name="currentArray">Array name to use for defect data.</param>
+            <param name="currentSlice">Current slice.</param>
+            <returns>Mapping of pin to decoded ctvData. Map(Pin name -> List(Map(Dword element -> value))).</returns>
+            <remarks>Would probably be better to convert the List of mappings to a list of objects for better clarity.</remarks>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.LogDatabaseReductions(Prime.TestMethods.LSARaster.FailedArrayDatabase)">
+            <summary>
+            Log database reductions.
+            </summary>
+            <param name="database">.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.PrintRasterMap(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.Tuple{System.Int32,System.Int32,System.Int32}}}},System.String)">
+            <summary>
+            PrintRasterMap.
+            </summary>
+            <param name="rasterMap"> Defects.</param>
+            <param name="keyName"> Name of key to use when printing out array defects.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.GenerateTFileStrings(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Prime.TestMethods.LSARaster.IDefect}})">
+            <summary>
+            GenerateTfileStrings.
+            </summary>
+            <param name="defectDatabase">Defect Database.</param>
+            <returns>String.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.RasterDatabase(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.Tuple{System.Int32,System.Int32,System.Int32}}}})">
+            <summary>
+            Iterate over every MBD address that failed for a given array, but enable capture on all failing rootKeys (capture ctvs on pins mapped to those rootKeys).
+            </summary>
+            <remarks>RootKey changes depending on product. Ex. BigCore uses SliceId for rootKey, ATOM uses module for rootKey.</remarks>
+            <param name="rasterMap">Mapping of Map(ArrayName -> Map(RootKey -> List of MBD)).</param>
+            <returns>An enum representing the status of the algorithm execution.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.StoreDefects(System.Collections.Generic.List{Prime.TestMethods.LSARaster.IDefect})">
+            <summary>
+            Stores defects detected into internal database.
+            </summary>
+            <param name="defects">Defects to store in internal database.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.ClearDefectDatabase">
+            <summary>
+            Clears the DefectDataBase.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.ExecuteTestOnMBDAddress(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{Prime.PatConfigService.IPatConfigHandle},System.String,System.String)">
+            <summary>
+            Execution of test on a particular MBD address when targeting an array.
+            </summary>
+            <param name="pinsForCtvCapture">List of pins to capture ctvs from.</param>
+            <param name="pinsToMask">Pins to mask during test execution.</param>
+            <param name="handles"><see cref="T:Prime.PatConfigService.IPatConfigHandle"/> to apply before execution.</param>
+            <param name="plistToExecute">Plist name to execute.</param>
+            <param name="currentSliceId">SliceId used to determine settings for execution.</param>
+            <returns>The Raster CTV and Fail Data from test execution. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.FilterPinsToMask(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            This function separate ctv pins from mask pins.
+            </summary>
+            <param name="slices">All slices we're currently interested in.</param>
+            <param name="ctvPinsCaptured">Ctv pins captured.</param>
+            <returns>List of masked pins.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.Raster.TestConditions">
+            <summary>
+            The test conditions used for the raster test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.TestConditions.LevelsName">
+            <summary>
+            The name of the levels file used for plist execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.TestConditions.TimingsName">
+            <summary>
+            The name of the timings file used for plist execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.TestConditions.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.Raster.TestConditions"/> struct.
+            </summary>
+            <param name="levelsName">The name of the levels file used for plist execution.</param>
+            <param name="timingsName">The name of the timings file used for plist execution.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.Raster.Configs">
+            <summary>
+            The deserialized configurations needed for execution of the raster test.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.Configs.Metadata">
+            <summary>
+            The deserialized metadata config.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.Configs.RasterConfig">
+            <summary>
+            The deserialized raster config.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.Configs.#ctor(Prime.TestMethods.LSARaster.MetadataConfig,Prime.TestMethods.LSARaster.RasterConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.Raster.Configs"/> struct.
+            </summary>
+            <param name="metadata">The deserialized metadata config.</param>
+            <param name="rasterConfig">The deserialized raster config.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.Raster.RasterData">
+            <summary>
+            The CTV data and fail data collected during raster test execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.RasterData.CtvData">
+            <summary>
+            The CTV data collected during raster test execution.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.LSARaster.Raster.RasterData.FailData">
+            <summary>
+            The Fail data collected during raster test execution.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.Raster.RasterData.#ctor(System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.List{Prime.FunctionalService.IFailureData})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.LSARaster.Raster.RasterData"/> struct.
+            </summary>
+            <param name="ctvData">The CTV data collected during raster test execution.</param>
+            <param name="failData">The Fail data collected during raster test execution.</param>
+        </member>
+        <member name="T:Prime.TestMethods.LSARaster.SharedFunctions">
+            <summary>
+            Class containing shared functionality between modes of PrimeLSARasterTestMethod.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.PrintCtvsToConsole(System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Prints CTVs to console, iterates through pins.
+            </summary>
+            <param name="ctvData">Self explanatory.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.ParseRange(System.String)">
+            <summary>
+            Given a string value, parse it and return a range of int values.
+            </summary>
+            <param name="ranges"> String representing ranges of indexes. </param>
+            <returns> List of all indexes to parse. </returns>
+            <remarks> If the provided string contains only one integer value, it will return the string as an int. </remarks>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.ExtractOnesIndexesFromFailIo(System.String)">
+            <summary>
+            Method for extracting defective indexes form FailIo.
+            </summary>
+            <param name="currentFailIo"> FailIo to extract indexes from. </param>
+            <returns> List of indexes. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.CheckLabelForMatches(System.String,System.Text.RegularExpressions.Regex,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Checks if the given label contains a given string.
+            </summary>
+            <param name="label"> Label to check. </param>
+            <param name="containedString"> The substring we check for in the label. </param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> A value indicating whether the given label is a fail label or not. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.CheckAllLabelsContain(System.Collections.Generic.List{Prime.FunctionalService.IFailureData},Prime.FunctionalService.IFailureData@,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Method for checking against all given DFM failures for a specific substring within their labels.
+            </summary>
+            <param name="failData"> List of <see cref="T:Prime.FunctionalService.IFailureData"/> to check against. </param>
+            <param name="mismatchFail"> A <see cref="T:Prime.FunctionalService.IFailureData"/> object that failed the check. Will be null if all fails contained the string specified. </param>
+            <param name="containedString"> String to check against every <see cref="T:Prime.FunctionalService.IFailureData"/> label. </param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> A value indicating whether all fails matched against the given string. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.IsPropertyNull(System.Object,System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Method for testing if a given property is null.
+            </summary>
+            <param name="property"> Property that's under test for a null value.</param>
+            <param name="propertyName"> Name of the property under test.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns> A value indicating whether the property is null. </returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.BinaryToHex(System.String,System.Boolean)">
+            <summary>
+            String extension method. Convert the given binary string to a Hex string (no size restrictions).
+            </summary>
+            <param name="data">Binary string.</param>
+            <param name="lsbFirst">If true, the input string's first char is the LSB. Otherwise, the input string's first char is the MSB.</param>
+            <returns>Hex string.</returns>
+            <exception cref="T:System.ArgumentNullException"> if the input data is null or empty.</exception>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.BinaryToInteger(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            String extension method. Convert the given binary string to decimal (32 bit integer).
+            </summary>
+            <param name="data">Binary string.</param>
+            <param name="lsbFirst">Bool value, set to true if the binary string is LSB first. (Default is true, which means MSB first).</param>
+            <param name="twosComp">Bool value, if true the binary is treated as a 2s compliment encoding.</param>
+            <returns>int32 value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.TwosComplementToInteger(System.String)">
+            <summary>
+            String extension method. Convert the given binary string (in 2s Complement encoding) to decimal (32 bit integer).
+            </summary>
+            <param name="data">Binary string.</param>
+            <returns>int32 value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.HexToBinary(System.Char)">
+            <summary>
+            Char extension method. Converts the Hexadecimal character into a binary value.
+            </summary>
+            <param name="data">Hex value in a string.</param>
+            <returns>binary value in a string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.HexToBinary(System.String)">
+            <summary>
+            String extension method. Converts the Hexadecimal value into a binary value.
+            </summary>
+            <param name="data">Hex value in a string.</param>
+            <returns>binary value in a string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.ResizeBinary(System.String,System.Int32)">
+            <summary>
+            Resizes the binary number. It will either pad (to the left) with 0s, or cut (from the left) extra bits.)
+            </summary>
+            <param name="data">Binary data.</param>
+            <param name="size">Expected size (0 means return as is).</param>
+            <returns>A resized binary string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.LSARaster.SharedFunctions.Invert(System.String)">
+            <summary>
+            Take a string and reverse it.
+            </summary>
+            <param name="data">The string to reverse.</param>
+            <returns>Reversed string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.TimeOutFeaturesExtensions.ForEachTimeOutReturnList``4(System.Collections.Generic.IDictionary{``0,``1},System.Func{``0,``1,``2,System.Threading.CancellationTokenSource,``3},``2)">
+            <summary>
+            Foreach with time out implementation.
+            </summary>
+            <typeparam name="T">Dictionary key type.</typeparam>
+            <typeparam name="T1">Dictionary value type.</typeparam>
+            <typeparam name="T2">Parameter type.</typeparam>
+            <typeparam name="T3">List type of return result.</typeparam>
+            <param name="dic">Dictionary to iterate.</param>
+            <param name="func">Function to invoke by iteration.</param>
+            <param name="p">Parameter.</param>
+            <returns>Ordered result.</returns>
+        </member>
+    </members>
+</doc>

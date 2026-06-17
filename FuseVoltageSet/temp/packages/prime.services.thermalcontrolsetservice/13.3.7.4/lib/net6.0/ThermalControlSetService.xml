@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.ThermalControlSetService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.ThermalControlSetService.ConfigurationFile.Parser">
+            <summary>
+            Configuration file, parser class.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalControlSetService.ConfigurationFile.Parser.ValidationErrors">
+            <summary>
+            Gets the validation errors details.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalControlSetService.ConfigurationFile.Parser.ParseFile(System.String)">
+            <summary>
+            Loads a configuration object from the file.
+            </summary>
+            <param name="fileContent">The Configuration file's path.</param>
+            <returns>The configuration object.</returns>
+        </member>
+        <member name="T:Prime.ThermalControlSetService.ConfigurationFile.Structures.ConfigurationFile">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalControlSetService.ConfigurationFile.Structures.ConfigurationFile.UeiPinNames">
+            <summary>
+            Gets or sets the list pins in which control sets could be applied.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalControlSetService.ConfigurationFile.Structures.ConfigurationFile.TccTemperatureSet">
+            <summary>
+            Gets or sets the TCCTempSet (name given to different control set configurations).
+            </summary>
+        </member>
+        <member name="T:Prime.ThermalControlSetService.ConfigurationFile.Structures.TccTempSet">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalControlSetService.ConfigurationFile.Structures.TccTempSet.Name">
+            <summary>
+            Gets or sets the name of the TccTemp set configuration.
+            </summary>
+        </member>
+        <member name="P:Prime.ThermalControlSetService.ConfigurationFile.Structures.TccTempSet.ControlSetMapping">
+            <summary>
+            Gets or sets the mapping between control set names and indexes assigned on the thermal controller.
+            </summary>
+        </member>
+        <member name="T:Prime.ThermalControlSetService.IThermalControlSetService">
+            <summary>
+            IThermalService.
+            </summary>
+        </member>
+        <member name="M:Prime.ThermalControlSetService.IThermalControlSetService.ApplyControlSet(System.String,System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Changes the active control set for the corresponding pin.
+            </summary>
+            <param name="ueiPinName">pin in which control set will be applied.</param>
+            <param name="controlSetIndex">index of the control set defined in the config file.</param>
+            <param name="activationDelay">time before actually applying the ControlSet on the thermal controller.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalControlSetService.IThermalControlSetService.SetTemperatureSetName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Sets the name of the temperatureSet to be used for ControlSet application.
+            </summary>
+            <param name="temperatureSetName">name of the TempeSet previously defined in the json config file.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.ThermalControlSetService.IThermalControlSetService.GetControlSetIndex(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Returns if the control set exists in the temperature set.
+            </summary>
+            <param name="controlSetName">name of the control set defined in the config file.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>true if the control set exists in the temperature set.</returns>
+        </member>
+        <member name="M:Prime.ThermalControlSetService.IThermalControlSetService.IsUeiPinAllowed(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Gets if the uei pin was defined in te control set configuration file.
+            </summary>
+            <param name="ueiPinName">the name of the uei pin.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>true id pin is allowed.</returns>
+        </member>
+        <member name="T:Prime.ThermalControlSetService.ThermalControlSetService">
+            <inheritdoc cref="T:Prime.ThermalControlSetService.IThermalControlSetService"/>/>
+        </member>
+        <member name="M:Prime.ThermalControlSetService.ThermalControlSetService.Prime#Base#IAlephAble#IAlephAble#GetAlephFilesRegEx">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalControlSetService.ThermalControlSetService.Prime#Base#IAlephAble#IAlephAble#GetConfigurationFilesInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalControlSetService.ThermalControlSetService.Prime#Base#IAlephAble#IAlephAble#GetAlephInitPriority">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalControlSetService.ThermalControlSetService.Prime#Base#IAlephAble#IAlephAble#AlephInit(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.ThermalControlSetService.ThermalControlSetService.ApplyControlSet(System.String,System.String,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThermalControlSetService.ThermalControlSetService.IsUeiPinAllowed(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThermalControlSetService.ThermalControlSetService.SetTemperatureSetName(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThermalControlSetService.ThermalControlSetService.GetControlSetIndex(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.ThermalControlSetService.ThermalControlSetService.LoadConfigurationFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Main LoadConfigurationFile and Load method, for init.
+            </summary>
+            <param name="configurationFilePath">Configuration file location.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+    </members>
+</doc>

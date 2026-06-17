@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Base.PrimeAttributes</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.Base.PrimeAttributes.PluginAttribute">
+            <summary>
+            A Plugin property in a Test Method should be decorated with this attribute.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.PrimeAttributes.PluginAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.PrimeAttributes.PluginAttribute"/> class.
+            </summary>
+            <param name="pluginType">The pluginType, which is the interface of the Plugin.</param>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PluginAttribute.PluginType">
+            <summary>
+            Gets pluginType.
+            </summary>
+        </member>
+        <member name="T:Prime.Base.PrimeAttributes.PrimeEnvVariableAttribute">
+            <summary>
+            An attribute to document on a usage of specific env variable in Prime.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.PrimeAttributes.PrimeEnvVariableAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.PrimeAttributes.PrimeEnvVariableAttribute"/> class.
+            </summary>
+            <param name="name">the env variable name.</param>
+            <param name="usedBy">the name of the object using this env variable (Test Method or Service name).</param>
+            <param name="description">short description on the usage of this env variable.</param>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeEnvVariableAttribute.Name">
+            <summary>
+            Gets the env variable name.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeEnvVariableAttribute.UsedBy">
+            <summary>
+            Gets the name of the object using this env variable (Test Method or Service name).
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeEnvVariableAttribute.Description">
+            <summary>
+            Gets short description on the usage of that env variable.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeEnvVariableAttribute.IsRequired">
+            <summary>
+            Gets or sets a value indicating whether the user var is required or not.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeEnvVariableAttribute.DefaultBehaviorWhenNotExist">
+            <summary>
+            Gets or sets a description of what will be the behavior when the user not exist.
+            This is needed only when IsRequired=false.
+            </summary>
+        </member>
+        <member name="T:Prime.Base.PrimeAttributes.PrimeSettingAttribute">
+            <summary>
+            Attribute to define a Prime setting with a name, usage context, and description.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.PrimeAttributes.PrimeSettingAttribute.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.PrimeAttributes.PrimeSettingAttribute"/> class.
+            </summary>
+            <param name="name">The setting name.</param>
+            <param name="usedBy">The name of the object using this setting.</param>
+            <param name="description">Short description on the usage of this setting.</param>
+            <param name="defaultValue">The default value of the setting when it's not provided.</param>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeSettingAttribute.Name">
+            <summary>
+            Gets the setting name.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeSettingAttribute.UsedBy">
+            <summary>
+            Gets the name of the object using this setting.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeSettingAttribute.Description">
+            <summary>
+            Gets short description on the usage of that setting.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeSettingAttribute.DefaultValue">
+            <summary>
+            Gets the default value of the setting when it's not provided by the user.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeSettingAttribute.WikiLink">
+            <summary>
+            Gets or sets a link to the wiki where more information about this can be found.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeSettingAttribute.PossibleValues">
+            <summary>
+            Gets or sets the possible values for the setting.
+            </summary>
+        </member>
+        <member name="T:Prime.Base.PrimeAttributes.PrimeUserVarAttribute">
+            <summary>
+            An attribute to document on a usage of specific uservar name in Prime.
+            </summary>
+        </member>
+        <member name="M:Prime.Base.PrimeAttributes.PrimeUserVarAttribute.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.Base.PrimeAttributes.PrimeUserVarAttribute"/> class.
+            </summary>
+            <param name="collection">the collection name of the uservar.</param>
+            <param name="name">the uservar name.</param>
+            <param name="usedBy">the name of the object using this uservar (Test Method or Service name).</param>
+            <param name="description">short description on the usage of that uservar.</param>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeUserVarAttribute.Collection">
+            <summary>
+            Gets the collection name of the uservar.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeUserVarAttribute.Name">
+            <summary>
+            Gets the uservar name.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeUserVarAttribute.UsedBy">
+            <summary>
+            Gets the name of the object using this uservar (Test Method or Service name).
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeUserVarAttribute.Description">
+            <summary>
+            Gets short description on the usage of env variable uservar.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeUserVarAttribute.IsRequired">
+            <summary>
+            Gets or sets a value indicating whether the user var is required or not.
+            </summary>
+        </member>
+        <member name="P:Prime.Base.PrimeAttributes.PrimeUserVarAttribute.DefaultBehaviorWhenNotExist">
+            <summary>
+            Gets or sets a description of what will be the behavior when the user not exist.
+            This is needed only when IsRequired=false.
+            </summary>
+        </member>
+    </members>
+</doc>

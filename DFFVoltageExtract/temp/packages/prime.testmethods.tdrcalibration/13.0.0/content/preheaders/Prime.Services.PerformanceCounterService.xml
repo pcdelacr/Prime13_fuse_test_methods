@@ -1,0 +1,538 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.PerformanceCounterService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.PerformanceCounterService.Constants.CounterKeywords">
+            <summary>
+            Keywords to counter operations.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.CounterKeywords.PatternConfigPrefix">
+            <summary>
+            PatternConfig prefix.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.CounterKeywords.VectorsConfigured">
+            <summary>
+            VectorsConfigured keyword for telemetry parameter.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.CounterKeywords.Counter">
+            <summary>
+            Counter keyword for telemetry parameter.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.CounterKeywords.CounterCategory">
+            <summary>
+            Counter Category keyword for telemetry parameter.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.CounterKeywords.CounterList">
+            <summary>
+            Counter List keyword for telemetry parameter.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.CounterKeywords.CounterControl">
+            <summary>
+            Counter Control SharedStorage key.
+            </summary>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.Constants.StandardCounterCategories">
+            <summary>
+            Standard counter categories supported by Performance Counter.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterCategories.FunctionalCounters">
+            <summary>
+            Functional counter category.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterCategories.PatternConfigCounters">
+            <summary>
+            Pattern Config counter category.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterCategories.TestConditionCounters">
+            <summary>
+            Test Condition counter category.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterCategories.DcTestCounters">
+            <summary>
+            Dc Test counter category.
+            </summary>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.Constants.StandardCounterLists">
+            <summary>
+            Lists of counters supported by Performance Counter.
+            </summary>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.Constants.StandardCounterNames">
+            <summary>
+            Standard counter names that is available.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.Functional_Execute">
+            <summary>
+            Counters for when Functional test is executed.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.Functional_PinMaskSet">
+            <summary>
+            Counters for when Pin Mask is set.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.Functional_PinMaskRestore">
+            <summary>
+            Counters for when Pin Mask is restored.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.PatternConfig_PvcData">
+            <summary>
+            Counters for when Pattern is configured with PVC data.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.PatternConfig_PinData">
+            <summary>
+            Counters for when Pattern is configured with Pin data.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.PatternConfig_InstructionData">
+            <summary>
+            Counters for when Pattern is configured with Instruction data.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.TestCondition_LevelsSetup">
+            <summary>
+            Counter for when Test Condition SmartTc Category Levels Setup is being executed.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.TestCondition_LevelsPowerOn">
+            <summary>
+            Counter for when Test Condition SmartTc Category Levels Power On is being executed.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.TestCondition_Timing">
+            <summary>
+            Counter for when Test Condition SmartTc Category Timing is being executed.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.TestCondition_NotSupported">
+            <summary>
+            Counter for when Test Condition SmartTc Category that's not supported is being called.
+            </summary>
+        </member>
+        <member name="F:Prime.PerformanceCounterService.Constants.StandardCounterNames.DcTest_LoadLevel">
+            <summary>
+            Counters for when DcTest Load Level.
+            </summary>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.Control.CounterControlStorage">
+            <summary>
+            To hold the counter control.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Control.CounterControlStorage.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PerformanceCounterService.Control.CounterControlStorage"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.PerformanceCounterService.Control.CounterControlStorage.GlobalCounterEnable">
+            <summary>
+            Gets or sets a value indicating whether the counter is enabled or not.
+            </summary>
+        </member>
+        <member name="P:Prime.PerformanceCounterService.Control.CounterControlStorage.InstanceCounterEnable">
+            <summary>
+            Gets or sets a value indicating whether the counter is enabled on instance level or not.
+            </summary>
+        </member>
+        <member name="P:Prime.PerformanceCounterService.Control.CounterControlStorage.IsCountThisSample">
+            <summary>
+            Gets a value indicating whether this sample need to be counted.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Control.CounterControlStorage.CalculateSampleRate(System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Calculate the sampling of this instance.
+            </summary>
+            <param name="sampleRate">The sample rate set by user.</param>
+            <param name="sessionContext">Session Context.</param>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.Counters.Counter">
+            <summary>
+            The counter.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Counters.Counter.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PerformanceCounterService.Counters.Counter"/> class with specified name.
+            </summary>
+            <param name="name">The name of the counter.</param>
+            <param name="instanceName">The name of the instance that's creating this counter.</param>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Counters.Counter.IncrementCounter(System.TimeSpan,System.Nullable{System.Int32})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Counters.Counter.GetCounterConsoleLines">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Counters.Counter.GetItuffData">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PerformanceCounterService.Counters.ICounter">
+            <summary>
+            The counter interface.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Counters.ICounter.IncrementCounter(System.TimeSpan,System.Nullable{System.Int32})">
+            <summary>
+            Increment the counter.
+            </summary>
+            <param name="elapsedTime">Elapsed time.</param>
+            <param name="vectorsConfigured">Vector configured for PatConfig counters.</param>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Counters.ICounter.GetCounterConsoleLines">
+            <summary>
+            Get the console formatted line for this counter.
+            </summary>
+            <returns>Counter data formatted for console printout.</returns>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Counters.ICounter.GetItuffData">
+            <summary>
+            Get the counters data in datalog.
+            </summary>
+            <returns>Ituff writers.</returns>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.Counters.PatternConfigCounter">
+            <summary>
+            Counter for Pattern Config.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Counters.PatternConfigCounter.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PerformanceCounterService.Counters.PatternConfigCounter"/> class with specified name.
+            </summary>
+            <param name="name">The name of the counter.</param>
+            <param name="instanceName">The name of the instance that's creating this counter.</param>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Counters.PatternConfigCounter.IncrementCounter(System.TimeSpan,System.Nullable{System.Int32})">
+            <summary>
+            Increment the counter.
+            </summary>
+            <param name="elapsedTime">Elapsed time.</param>
+            <param name="vectorsConfigured">Vectors configured.</param>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Counters.PatternConfigCounter.GetCounterConsoleLines">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PerformanceCounterService.Helper.Debug">
+            <summary>
+            Debug helper class.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Helper.Debug.PrintDebugMsg(System.String)">
+            <summary>
+            Print message for debug.
+            Only compiled in Debug configuration.
+            </summary>
+            <param name="msg">The message to print.</param>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Helper.Debug.PrintDebugMsg(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Print telemetry data for debug.
+            Only compiled in Debug configuration.
+            </summary>
+            <param name="telemetryParameters">The message to print.</param>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Helper.Debug.PrintDebugMsgToHdmtAppConsole(System.String)">
+            <summary>
+            Print message for debug to HdmtApp console..
+            Only compiled in Debug configuration.
+            </summary>
+            <param name="msg">The message to print.</param>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Helper.Debug.PrintDebugMessageToTosConsole(System.String)">
+            <summary>
+            Print message for debug to TOS console.
+            </summary>
+            <param name="msg">The message to print.</param>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.Internal.IPerformanceCounterService">
+            <summary>
+            Performance counter service internal ifc.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.Internal.IPerformanceCounterService.DeviceStart(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Reset the counter database from device to device.
+            </summary>
+            <param name="sessionContext">Current session for this operation.</param>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.IPerformanceCounterService">
+            <summary>
+            Performance Counters.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.IPerformanceCounterService.PrintCounterDataToConsole(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the data for console.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.IPerformanceCounterService.GetGlobalCounterDataForDatalog(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the global counter data for datalog.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dictionary of counter name as key and the counter data is the values.</returns>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.IPerformanceCounterService.GetInstanceCounterDataForDatalog(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the instance counter data for datalog.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Dictionary of counter name and instance name as key and the counter data is the values.</returns>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.IPerformanceCounterService.InitializePerformanceCounter(System.Boolean,System.Boolean,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Setup the counters for operation.
+            </summary>
+            <param name="isGlobalEnabled">Global counter enabling switch.</param>
+            <param name="isInstanceEnabled">Instance counter enabling switch.</param>
+            <param name="counterSampleRate">Counter sampling rate.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.PerformanceCounterService">
+            <inheritdoc cref="T:Prime.PerformanceCounterService.IPerformanceCounterService" />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.PerformanceCounterService.DeviceStart(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.PerformanceCounterService.PrintCounterDataToConsole(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.PerformanceCounterService.GetGlobalCounterDataForDatalog(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.PerformanceCounterService.GetInstanceCounterDataForDatalog(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.PerformanceCounterService.InitializePerformanceCounter(System.Boolean,System.Boolean,System.Int32,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.PerformanceCounterService.AddProviders(Prime.SessionService.ISessionContextProviderContainer@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.PerformanceCounterService.GetGlobalCounterCategoryItuffWriters(System.Collections.Generic.Dictionary{System.String,Prime.PerformanceCounterService.Counters.ICounter},System.String)">
+            <summary>
+            internal for UT.
+            </summary>
+            <param name="globalCounters">Counters.</param>
+            <param name="counterList">List of counters.</param>
+            <returns>List of ituff.</returns>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.PerformanceCounterService.GetInstanceCounterDataItuffWriters(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,Prime.PerformanceCounterService.Counters.ICounter}})">
+            <summary>
+            internal for UT.
+            </summary>
+            <param name="instanceCounters">Counters.</param>
+            <returns>List of ituff.</returns>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.SessionContextProvider.CounterControlProvider">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.SessionContextProvider.CounterControlProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PerformanceCounterService.SessionContextProvider.CounterControlProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.SessionContextProvider.CounterControlProvider.HandleMessage">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.SessionContextProvider.CounterControlProvider.RefreshOnExecute(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase">
+            <inheritdoc />
+            Excluding this test from coverage as testing this code might cause another test to fail.
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.CounterQueue">
+            <summary>
+            Gets the counter processor queue.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.Exception(MPE.MIT.Logging.LogLevel,System.Exception,System.String,System.Func{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.Error(MPE.MIT.Logging.LogLevel,System.String,System.Func{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.Usage(MPE.MIT.Logging.LogLevel,System.String,System.String,System.Func{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.Trace(MPE.MIT.Logging.LogLevel,System.String,System.Func{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.Performance(MPE.MIT.Logging.LogLevel,System.String,System.String,System.DateTimeOffset,System.TimeSpan,System.Boolean,System.Func{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.Request(MPE.MIT.Logging.LogLevel,System.String,System.String,System.DateTimeOffset,System.TimeSpan,System.Func{System.Collections.Generic.Dictionary{System.String,System.String}},System.String,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.Shutdown(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.Flush">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncCounterLoggerBase.AddCounterProcessorToQueue(System.TimeSpan,System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Add the counter processor into the queue.
+            </summary>
+            <param name="duration">The duration to accumulate into the counter.</param>
+            <param name="parameters">The telemetry parameters.</param>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.TelemetryProvider.AsyncGlobalCounterLogger">
+            <inheritdoc />
+            Excluding this test from coverage as testing this code might cause another test to fail.
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncGlobalCounterLogger.AddCounterProcessorToQueue(System.TimeSpan,System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PerformanceCounterService.TelemetryProvider.AsyncInstanceCounterLogger">
+            <inheritdoc />
+            Excluding this test from coverage as testing this code might cause another test to fail.
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.AsyncInstanceCounterLogger.AddCounterProcessorToQueue(System.TimeSpan,System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PerformanceCounterService.TelemetryProvider.CounterCallProcessor">
+            <summary>
+            Static class that process the counter calls.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.CounterCallProcessor.ProcessGlobalCounterCall(PerformanceCounterService.Storage,System.TimeSpan,System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Process the global counter call by handler.
+            </summary>
+            <param name="counterStorage">Counter Storage.</param>
+            <param name="duration">The duration to accumulate into the counter.</param>
+            <param name="parameters">The telemetry parameters.</param>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.CounterCallProcessor.ProcessInstanceCounterCall(PerformanceCounterService.Storage,System.TimeSpan,System.Collections.Generic.Dictionary{System.String,System.String},Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Process the global counter call by handler.
+            </summary>
+            <param name="counterStorage">Counter Storage.</param>
+            <param name="duration">The duration to accumulate into the counter.</param>
+            <param name="parameters">The telemetry parameters.</param>
+            <param name="sessionContext">The session context.</param>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.TelemetryProvider.CounterProvider">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.CounterProvider.CreateLogger">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.PerformanceCounterService.TelemetryProvider.CounterTelemetryHandler`1">
+            <summary>
+            Telemetry Handler for Counter.
+            </summary>
+            <typeparam name="T">The holding type.</typeparam>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.CounterTelemetryHandler`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.PerformanceCounterService.TelemetryProvider.CounterTelemetryHandler`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.CounterTelemetryHandler`1.LogCounter(System.String,System.String)">
+            <summary>
+            Returns telemetry performance scope object to be used within a using block for counter usage.
+            This counter will trigger Pattern Configuration counter.
+            If method name is not provided, the compiler will provide the calling method name.
+            Additional parameters can be provided as a func of Dictionary.
+            For performance, always use a static literals for this API.
+            </summary>
+            <param name="counterCategory">The counter categories.</param>
+            <param name="counterName">The type of the counter.</param>
+            <returns>IDisposable object that measure the block performance.</returns>
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.CounterTelemetryHandler`1.LogCounter(System.String,System.String,System.String)">
+            <summary>
+            Returns telemetry performance scope object to be used within a using block for counter usage.
+            This counter will trigger Pattern Configuration counter.
+            If method name is not provided, the compiler will provide the calling method name.
+            Additional parameters can be provided as a func of Dictionary.
+            For performance, always use a static literals for this API.
+            </summary>
+            <param name="counterCategory">The counter categories.</param>
+            <param name="counterName">The type of the counter.</param>
+            <param name="vectorsConfigured">The number of vectors being configured by PatternConfig.</param>
+            <returns>IDisposable object that measure the block performance.</returns>
+        </member>
+        <member name="T:Prime.PerformanceCounterService.TelemetryProvider.InstanceCounterProvider">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.PerformanceCounterService.TelemetryProvider.InstanceCounterProvider.CreateLogger">
+            <inheritdoc />
+        </member>
+        <member name="T:PerformanceCounterService.Storage">
+            <summary>
+            Performance Counter storage object.
+            </summary>
+        </member>
+        <member name="M:PerformanceCounterService.Storage.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PerformanceCounterService.Storage"/> class.
+            </summary>
+        </member>
+        <member name="P:PerformanceCounterService.Storage.SupportedGlobalCounters">
+            <summary>
+            Gets the supported global counters list.
+            </summary>
+        </member>
+        <member name="P:PerformanceCounterService.Storage.SupportedInstanceCounters">
+            <summary>
+            Gets the supported instance counters list.
+            </summary>
+        </member>
+        <member name="M:PerformanceCounterService.Storage.GetGlobalLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get a global object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="M:PerformanceCounterService.Storage.GetInstanceLock(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get an instance object by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Lock Object for this session.</returns>
+        </member>
+        <member name="M:PerformanceCounterService.Storage.GetGlobalCounters(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get global counter DB by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Global counters DB for this session.</returns>
+        </member>
+        <member name="M:PerformanceCounterService.Storage.GetInstanceCounters(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get instance counter DB by session.
+            </summary>
+            <param name="session">SessionContext.</param>
+            <returns>Instance counters DB for this session.</returns>
+        </member>
+    </members>
+</doc>

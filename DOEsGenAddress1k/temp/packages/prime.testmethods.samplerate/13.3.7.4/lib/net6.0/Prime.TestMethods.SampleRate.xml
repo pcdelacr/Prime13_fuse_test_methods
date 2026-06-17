@@ -1,0 +1,426 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.SampleRate</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.SampleRate.CommonParameter">
+            <summary>
+            Struct class that store common used parameters.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.CommonParameter.Option">
+            <summary>
+            Gets or sets sampleOptions.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.CommonParameter.SampleRateValue">
+            <summary>
+            Gets or sets SampleRateValue.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.CommonParameter.WaferSampleRateValue">
+            <summary>
+            Gets or sets WaferSampleRateValue.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.CommonParameter.WaferSampleList">
+            <summary>
+            Gets or sets WaferSampleList.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.CommonParameter.IsShouldFirstBeSampled">
+            <summary>
+            Gets or sets a value indicating whether IsShouldFirstBeSampled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.CommonParameter.IsGlobalSampleRate">
+            <summary>
+            Gets or sets a value indicating whether IsGlobalSampleRate.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.CommonParameter.SampleLowestWaferTrayList">
+            <summary>
+            Gets or sets SampleLowestWaferTrayList.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.CommonParameter.SampleLowestValue">
+            <summary>
+            Gets or sets SampleLowestvalue.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.CommonParameter.IsSampleLowestTray">
+            <summary>
+            Gets or sets a value indicating whether IsSampleLowestTray.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SampleRate.DutSampling">
+            <summary>
+            DUT Sampling.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.DutSampling.userInputDUTSampleRate">
+            <summary>
+            SampleRate value for DUT sampling given by the user, This can be uservar or shared key.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.DutSampling.shouldFirstBeSampled">
+            <summary>
+            Indicates whether this instance should start being sampled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.DutSampling.isGlobalSampleRate">
+            <summary>
+            Indicate whether to execute global sampleRate.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.DutSampling.sampleRateValue">
+            <summary>
+            SampleRate Value for DUT sampling.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.DutSampling.currentInstanceSampleCount">
+            <summary>
+            Indicates how many units went through this particular instance.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.DutSampling.#ctor(System.String,System.Boolean,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SampleRate.DutSampling"/> class.
+            </summary>
+            <param name="dutSampleCount">The lot to set.</param>
+            <param name="shouldFirstBeSampled">Whether the first DUT is the first sampled.</param>
+            <param name="isGlobalSampleRate">Whether it is global or local sampleRate.</param>
+            <param name="sessionContext">This session contest.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.DutSampling.SetSampleRateValue">
+            <summary>
+            Set sample rate values.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.DutSampling.InitialiseGlobalSampleRate">
+            <summary>
+            Check if global sampleRate enable.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.DutSampling.ExecuteLocalDutSampling">
+            <summary>
+            Execute local dutSampling.
+            </summary>
+            <returns>Sampling as true, otherwise false.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.DutSampling.Execute">
+            <summary>
+            DUT Sampling feature to determine whether the unit to be processed or not.
+            </summary>
+            <returns>representing the port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.DutSampling.Verify">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.SampleRate.ISampleRate">
+            <summary>
+            Sample Rate Interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.ISampleRate.Verify">
+            <summary>
+            Verify.
+            </summary>
+            <returns>representing the port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.ISampleRate.Execute">
+            <summary>
+            Execute.
+            </summary>
+            <returns>int representing the port.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SampleRate.LowestTrayWaferSampling">
+            <summary>
+            WaferListSampling Rate Interface.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.LowestTrayWaferSampling.dutSamplingFeature">
+            <summary>
+            DutSamplingFeature.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.LowestTrayWaferSampling.#ctor(System.String,System.String,System.Boolean,Prime.TestMethods.SampleRate.DutSampling,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SampleRate.LowestTrayWaferSampling"/> class.
+            </summary>
+            <param name="sampleLowestWaferTrayList">Tray or wafer to set.</param>
+            <param name="sampleLowestValue">Lowest X value of wafer/tray to be sampled.</param>
+            <param name="isSampleLowestTrayType">True for wafer type, false for tray type.</param>
+            <param name="dutSample">information needed for DUT sampling. </param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.LowestTrayWaferSampling.Verify">
+            <summary>
+            Verifies the lowest wafer/tray feature input parameter.
+            </summary>
+            <returns>representing the port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.LowestTrayWaferSampling.SetLowestSampleRateValue">
+            <summary>
+            Set lowest sample rate values.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.LowestTrayWaferSampling.Execute">
+            <summary>
+            Lowest sampling feature.
+            </summary>
+            <returns>int representing the port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.LowestTrayWaferSampling.FormWaferTrayList(System.String)">
+            <summary>
+            Remove all commas, empties, take only unique item and form a list of wafer/tray ID list.
+            Guarantee without empty string, but possible empty list.
+            </summary>
+            <param name="unresolvedWaferTrayString">User input wafer/tray string.</param>
+            <returns>List of wafer/tray ID.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.LowestTrayWaferSampling.ResolveWaferTrayListFormat(System.String)">
+            <summary>
+            This function checks the format of user input for wafer id and tray id format, and push to list.
+            Acceptable format shall be 121,124,120,122 for wafer, T121, T124, T120, T122 for tray.
+            And combination wafer with tray is 121T120, 124T124, 120T111, 122T119.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.LowestTrayWaferSampling.PopulateWaferId(System.String)">
+            <summary>
+            Only such example item is accepted to be push into list.
+            eg: 123, 120T129 (Before T is wafer, after T is tray).
+            </summary>
+            <param name="waferTrayID">Integer type of wafer ID.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.LowestTrayWaferSampling.PopulateTrayId(System.String)">
+            <summary>
+            Only such example item is accepted to be push into list.
+            eg: T123, 120T129 (Before T is wafer, after T is tray).
+            </summary>
+            <param name="waferTrayID">Integer type of tray ID.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SampleRate.Enabled">
+            <summary>
+            Indicates whether this parameter is enabled or not.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.Enabled.False">
+            <summary>
+            It's disabled.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.Enabled.True">
+            <summary>
+            It's enabled.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.sampleRateFeature">
+            <summary>
+            Object hold the sampleRateFeature information.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.SampleOptions">
+            <summary>
+            Indicates what wafer sample option to be considered for sampling the wafer.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.SampleOptions.WAFER_SAMPLING">
+            <summary>
+            Sample the wafer based on the wafer sampling parameter.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.SampleOptions.WAFER_LIST">
+            <summary>
+            Sample only the wafer listed by the user or station controller variable.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.SampleOptions.DUT_SAMPLING">
+            <summary>
+             Only DUT sampling is enabled, No wafer Sampling. User should not select this, do wafer Sampling.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.SampleOptions.SAMPLE_LOWEST">
+            <summary>
+            Sample lowest of the X wafer/tray, listed by user, based on lowestSampleValue.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.SamplingRateValue">
+            <summary>
+            Gets or sets the SamplingRateValue, DUT Sampling is based on this number.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.WaferSampleRateValue">
+            <summary>
+            Gets or sets the WaferSampleRateValue, Wafer Sampling is based on this number.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.WaferSampleList">
+            <summary>
+            Gets or sets the WaferSampleList, DUT Sampling is based on this wafer list.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.SampleOption">
+            <summary>
+            Gets or sets the SampleOption. This options provide total 4 different mode of operation, it will be decided whether DUT sampling, WAFER sampling, WAFER_LIST or SAMPLE_LOWEST is to be done.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.ShouldFirstBeSampled">
+            <summary>
+            Gets or sets the ShouldFirstBeSampled. When this parameter is true, first unit will be first sample.
+            Otherwise the first DUT sample to be sample will be the one with same number as SamplingRateValue.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.PrintItuffExitPort">
+            <summary>
+            Gets or sets the PrintItuffExitport, DUT Sampling is based on this number.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.GlobalSampleRate">
+            <summary>
+            Gets or sets global sample rate. If true, sampling happen in test-program level, where sampleRate is centralized in uservar. Otherwise it is test-method level or so called local sampleRate.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.SampleLowestWaferTrayList">
+            <summary>
+            Gets or sets the SampleLowestWaferTrayList, list of wafer/tray to be executed for lowest sample.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.SampleLowestValue">
+            <summary>
+            Gets or sets the SampleLowestValue, lowest numbered wafers/trays to be sampled.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.IsSampleLowestTrayType">
+            <summary>
+            Gets or sets IsSampleLowestTrayType. This parameter will be in use when sampleOption is SAMPLE_LOWEST. If true, tray sampling is taking place. Otherwise, it is wafer sampling.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.Verify">
+            <summary>
+            Gets or sets, SkipPort Information, what port the DUT has to exit out , whether to print the ituff information or not.
+            </summary>
+            valid.
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.ForceReVerify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.PrimeSampleRateTestMethod.PrintExitPortInfoToItuff(System.Double)">
+            <summary>
+            Log the port information in the output.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.SampleRate.SampleRateFeatureFactory">
+            <summary>
+            SampleRateFeatureFactory class to handle instantiation for test method.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.SampleRateFeatureFactory.CreateNewSampleRateFeature(Prime.TestMethods.SampleRate.CommonParameter,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initialize a new instance of sampleRate object, based on input sampleOption.
+            </summary>
+            <param name="common">Common parameters that share across test method class and factory.</param>
+            <param name="sessionContext">Session context.</param>
+            <returns>New instance on sampleRate class.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SampleRate.SampleRateValue">
+            <summary>
+            Class to resolve input sample rate value from the Shared storage string table or Uservar.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.SampleRateValue.GetSampleRateValue(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            check the user input value reside in uservar or shared storage key, if it is not in either places, it will return the same input value.
+            </summary>
+            <returns>Value obtained from shared storage key or uservar.</returns>
+            <param name="userInputDUTSampleRate">Input sample rate value by the user, This function shared by the DUT sampling and wafer rate sampling.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.SampleRateValue.GetSampleLowestList(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Check the user input value reside in uservar or shared storage key, if it is not in either places, it will return the same input value.
+            Empty string is allowed.
+            </summary>
+            <returns>Value obtained from shared storage key or uservar.</returns>
+            <param name="userInputSampleLowestList">Input SampleLowest item by user, could be a tray id or wafer id, or possibly combination of both.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.SampleRate.WaferListSampling">
+            <summary>
+            WaferListSampling Rate Interface.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.WaferListSampling.dutSamplingFeature">
+            <summary>
+            DutSamplingFeature.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.WaferListSampling.#ctor(System.String,Prime.TestMethods.SampleRate.DutSampling,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SampleRate.WaferListSampling"/> class.
+            </summary>
+            <param name="waferList">The lot to set.</param>
+            <param name="dutSample">information needed for DUT sampling. </param>
+            <param name="sessionContext">This session contest.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.WaferListSampling.Verify">
+            <summary>
+            Verifies theWafer list feature input parameter.
+            </summary>
+            <returns>representing the port.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.WaferListSampling.Execute">
+            <summary>
+            Wafer list feature.
+            </summary>
+            <returns>int representing the port.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.SampleRate.WaferSampling">
+            <summary>
+            WaferRateSampling object.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.WaferSampling.dutSamplingFeature">
+            <summary>
+            DutSamplingFeature.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.SampleRate.WaferSampling.shouldFirstBeSampled">
+            <summary>
+            Indicates whether this instance should start being sampled.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.WaferSampling.#ctor(System.String,Prime.TestMethods.SampleRate.DutSampling,System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.SampleRate.WaferSampling"/> class.
+            </summary>
+            <param name="userInputwaferRateValue">specifies the rate which the wafer to be processed.</param>
+            <param name="dutSample">information needed for DUT sampling. </param>
+            <param name="shouldFirstBeSampled">Whether the first DUT is the first sampled.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.WaferSampling.Verify">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.WaferSampling.SetSampleRateValue">
+            <summary>
+            Set sample rate values.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.SampleRate.WaferSampling.Execute">
+            <summary>
+             Wafer Rate feature implementation.
+            </summary>
+            <returns>int representing the port.</returns>
+        </member>
+    </members>
+</doc>

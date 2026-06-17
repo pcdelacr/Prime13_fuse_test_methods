@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Registers": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/definitions/Register" }
+    }
+  },
+  "required": [
+    "Registers"
+  ],
+  "definitions": {
+    "Register": {
+      "type": "object",
+      "properties": {
+        "Size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "RegistersData": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "RegisterName": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "ReadPin": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "ModifyPin": {
+                "$ref": "#/definitions/nonEmptyString"
+              }
+            },
+            "required": [
+              "RegisterName",
+              "ReadPin",
+              "ModifyPin"
+            ]
+          }
+        },
+        "FuseGroups": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "Fuses": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "Name": {
+                      "$ref": "#/definitions/nonEmptyString"
+                    },
+                    "StartAddress": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0
+                      }
+                    },
+                    "EndAddress": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0
+                      }
+                    }
+                  },
+                  "required": [
+                    "Name",
+                    "StartAddress",
+                    "EndAddress"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "Name",
+              "Fuses"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Size",
+        "RegistersData",
+        "FuseGroups"
+      ]
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

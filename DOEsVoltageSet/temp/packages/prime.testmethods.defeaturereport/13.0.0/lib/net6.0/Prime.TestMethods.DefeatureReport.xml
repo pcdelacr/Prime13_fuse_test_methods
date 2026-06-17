@@ -1,0 +1,393 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.DefeatureReport</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile">
+            <summary>
+            This class hold the data parsed from the input file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.SubFlows">
+            <summary>
+            Gets or sets SubFlows.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.SubFlow">
+            <summary>
+            Hold Subflow information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.SubFlow.Name">
+            <summary>
+            Gets or sets Subflow Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.SubFlow.Ips">
+            <summary>
+            Gets or sets IPs.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Ip">
+            <summary>
+            Hold IPs information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Ip.Name">
+            <summary>
+            Gets or sets IP Name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Ip.Destinations">
+            <summary>
+            Gets or sets Destinations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Ip.BitWidth">
+            <summary>
+            Gets or sets BitWidth.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Ip.Sockets">
+            <summary>
+            Gets or sets Sockets.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Socket">
+            <summary>
+            Hold Socket information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Socket.Name">
+            <summary>
+            Gets or sets socket name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Socket.ReportItems">
+            <summary>
+            Gets or sets report items.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Socket.Inputs">
+            <summary>
+            Gets or sets inputs.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Input">
+            <summary>
+            Hold Input informations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Input.Structure">
+            <summary>
+            Gets or sets Structure name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Input.BitMap">
+            <summary>
+            Gets or sets bitmap.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Input.SourceType">
+            <summary>
+            Gets or sets SourceType.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile.Input.SourceName">
+            <summary>
+            Gets or sets SourceName.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ConfigFile.IJsonSchemaValidator">
+            <summary>
+            JsonSchema validation object.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ConfigFile.IJsonSchemaValidator.ValidateJsonInputFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Validate the file content against the schema.
+            </summary>
+            <param name="fileContent">The content of the json file to be validated against the schema.</param>
+            <param name="sessionContext">The current instance's session context.</param>
+            <returns>True if there's no schema violation.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ConfigFile.IJsonValidator">
+            <summary>
+            This class is responsible to validate the JSON input file against its schema.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ConfigFile.IJsonValidator.ValidateInputFileAgainstSchema(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Validate input file against schema.
+            </summary>
+            <param name="fileContent">The json file content in string.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ConfigFile.IJsonValidator.ValidateInputFileRequirements(Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Validate inputs based on the requirements.
+            </summary>
+            <param name="inputData">The deserialized input file object.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ConfigFile.JsonDeserializer">
+            <summary>
+            This class is responsible to deserialize input file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ConfigFile.JsonDeserializer.Deserialize(System.String)">
+            <summary>
+            Deserialize the JSON into its own object.
+            </summary>
+            <param name="inputJson">JSON input in string.</param>
+            <returns>Deserialized object <see cref="T:Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile"/> of JSON.</returns>
+            <exception cref="T:Prime.Base.Exceptions.TestMethodException">Error encountered in deserializing.</exception>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ConfigFile.JsonSchemaValidator">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ConfigFile.JsonSchemaValidator.Prime#TestMethods#DefeatureReport#ConfigFile#IJsonSchemaValidator#ValidateJsonInputFile(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ConfigFile.JsonValidator">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ConfigFile.JsonValidator.Prime#TestMethods#DefeatureReport#ConfigFile#IJsonValidator#ValidateInputFileAgainstSchema(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ConfigFile.JsonValidator.Prime#TestMethods#DefeatureReport#ConfigFile#IJsonValidator#ValidateInputFileRequirements(Prime.TestMethods.DefeatureReport.ConfigFile.ConfigurationInputFile,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.DataHandler.DataHandlerFactory">
+            <summary>
+            Factory to produce the data source handler.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.DataHandler.DataHandlerFactory.GetHandler(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get new instance of data handler based on the given string of SourceType.
+            </summary>
+            <param name="sourceType">The type of data required to be handled.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>the instance of data source handler.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.DataHandler.IDataHandler">
+            <summary>
+            The data source handler.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.DataHandler.IDataHandler.GetData(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the data from the data source.
+            </summary>
+            <param name="variableName">A service data source will require structure name.
+            A UserVar data source will require uservar full name (Collection.UserVarName).
+            A Storage data source will require the SharedStorage key.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>The data in BitArray.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.DataHandler.ServiceHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.DataHandler.ServiceHandler.Prime#TestMethods#DefeatureReport#DataHandler#IDataHandler#GetData(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.DataHandler.StorageHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.DataHandler.StorageHandler.Prime#TestMethods#DefeatureReport#DataHandler#IDataHandler#GetData(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.DataHandler.UserVarHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.DataHandler.UserVarHandler.Prime#TestMethods#DefeatureReport#DataHandler#IDataHandler#GetData(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.FileHandler.FileHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.FileHandler.FileHandler.Prime#TestMethods#DefeatureReport#FileHandler#IFileHandler#ReadAll(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.FileHandler.IFileHandler">
+            <summary>
+            This object is responsible to handle files.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.FileHandler.IFileHandler.ReadAll(System.String)">
+            <summary>
+            Read file contents and returns the content as string.
+            </summary>
+            <param name="filePath">Full path of the file.</param>
+            <returns>File content in string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.Helpers.BitArrayHelpers">
+            <summary>
+            Helper class for BitArrays.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.Helpers.BitArrayHelpers.ConvertToString(System.Collections.BitArray)">
+            <summary>
+            Convert BitArray to binary string sequence.
+            </summary>
+            <param name="value">The bits to be converted.</param>
+            <returns>The string sequence.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.Helpers.BitArrayHelpers.ConvertToBitArray(System.String)">
+            <summary>
+            Convert the binary string to BitArray.
+            </summary>
+            <param name="value">The binary string.</param>
+            <returns>BitArray representation of the binary string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.Helpers.BitArrayHelpers.AreEquals(System.Collections.BitArray,System.Collections.BitArray)">
+            <summary>
+            Check whether the bitarrays are equal by value.
+            </summary>
+            <param name="leftSide">LeftSide of comparison.</param>
+            <param name="rightSide">RightSide of comparison.</param>
+            <returns>True if equals.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.PrimeDefeatureReportTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.PrimeDefeatureReportTestMethod.ReadFromFile">
+            <summary>
+            Option to always read from file or only once.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DefeatureReport.PrimeDefeatureReportTestMethod.ReadFromFile.ALWAYS">
+            <summary>
+            Always read from file regardless of storage.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DefeatureReport.PrimeDefeatureReportTestMethod.ReadFromFile.ONLY_ONCE">
+            <summary>
+            Take from storage if file has been read before.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.PrimeDefeatureReportTestMethod.InputFilePath">
+            <summary>
+            Gets or sets the input file path for defeature report.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.PrimeDefeatureReportTestMethod.SubFlow">
+            <summary>
+            Gets or sets the subflow to execute.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.PrimeDefeatureReportTestMethod.ReadConfigFromFile">
+            <summary>
+            Gets or sets read config from file.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.PrimeDefeatureReportTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.PrimeDefeatureReportTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ReportHandler.DatalogReport">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ReportHandler.DatalogReport.Prime#TestMethods#DefeatureReport#ReportHandler#IReportHandler#WriteReport(Prime.TestMethods.DefeatureReport.ReportHandler.ReportData,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ReportHandler.IReportHandler">
+            <summary>
+            To handle report writing.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ReportHandler.IReportHandler.WriteReport(Prime.TestMethods.DefeatureReport.ReportHandler.ReportData,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Write the report based on the consolidated data.
+            </summary>
+            <param name="data">The data to be reported.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ReportHandler.ReportItems">
+            <summary>
+            Report item enums.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DefeatureReport.ReportHandler.ReportItems.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DefeatureReport.ReportHandler.ReportItems.Vector">
+            <summary>
+            Vector (binary string) report.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DefeatureReport.ReportHandler.ReportItems.GoodCount">
+            <summary>
+            GoodCount report.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DefeatureReport.ReportHandler.ReportItems.BadCount">
+            <summary>
+            BadCount report.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ReportHandler.ReportData">
+            <summary>
+            Structure that holds consolidated report information.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ReportHandler.ReportData.SubFlow">
+            <summary>
+            Gets or sets SubFlow.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ReportHandler.ReportData.Ip">
+            <summary>
+            Gets or sets Ip.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ReportHandler.ReportData.Socket">
+            <summary>
+            Gets or sets Socket.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ReportHandler.ReportData.ReportItems">
+            <summary>
+            Gets or sets ReportItems.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DefeatureReport.ReportHandler.ReportData.Vector">
+            <summary>
+            Gets or sets Vector.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ReportHandler.ReportData.SetReportItems(System.String)">
+            <summary>
+            Set the report item to the struct.
+            </summary>
+            <param name="reportItem">Report item in string.</param>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ReportHandler.ReportHandlerFactory">
+            <summary>
+            Factory to produce the report writer handler.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ReportHandler.ReportHandlerFactory.GetHandler(System.String,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get instance of report writer handler based on the given string of report type.
+            </summary>
+            <param name="reportType">The type of report to be written.</param>
+            <param name="sessionContext">This session context.</param>
+            <returns>The instance of report writer handler.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.DefeatureReport.ReportHandler.StorageReport">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DefeatureReport.ReportHandler.StorageReport.Prime#TestMethods#DefeatureReport#ReportHandler#IReportHandler#WriteReport(Prime.TestMethods.DefeatureReport.ReportHandler.ReportData,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

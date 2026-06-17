@@ -1,0 +1,937 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.Hptp</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.Hptp.FileHandler">
+            <summary>
+            Main file handler implementation.
+            For basic file IOs operations.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.FileHandler.Prime#TestMethods#Hptp#IFileHandler#FileExists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.FileHandler.Prime#TestMethods#Hptp#IFileHandler#GetFile(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.FileHandler.Prime#TestMethods#Hptp#IFileHandler#ReadAll(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.FileHandler.Prime#TestMethods#Hptp#IFileHandler#GetText(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.IFileHandler">
+            <summary>
+            File handling interfaces.
+            Usage of FileService is preferred.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.IFileHandler.FileExists(System.String)">
+            <summary>
+            Checks if a file exists.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>True if file exits.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.IFileHandler.GetFile(System.String)">
+            <summary>
+            Returns filepath normalized by the FileService (local or SysC remote path).
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>Normalized file path.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.IFileHandler.ReadAll(System.String)">
+            <summary>
+            Read all file contents and return it content as string.
+            </summary>
+            <param name="filePath">File full path.</param>
+            <returns>File content as string.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.IFileHandler.GetText(System.String)">
+            <summary>
+            Gets a file, reads it's text, and returns contents as a string.
+            </summary>
+            <param name="filePath">File full path.full path.</param>
+            <returns>File content as string.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.ConfigurationSets">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ConfigurationSets.ConfigurationName">
+            <summary>
+            Gets or sets the name of the ConfigurationSet. Must be unique.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ConfigurationSets.Measurements">
+            <summary>
+            Gets or sets the list of measurements to apply during impedance Testing.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.ImpedanceConfiguration">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceConfiguration.ConfigSets">
+            <summary>
+            Gets or sets the list of configuration sets to run for dc measurements.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.Measurement">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.Measurement.Settings">
+            <summary>
+            Gets or sets the list of settings to apply before DC tests.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.MeasurementSetting">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.MeasurementSetting.Pins">
+            <summary>
+            Gets or sets the list of pins to apply the measurement settings to.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.MeasurementSetting.PinSetting">
+            <summary>
+            Gets or sets the measurement settings to apply to the list of pins.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.PinSetting">
+            <summary>
+            Json serializing class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PinSetting.Opmode">
+            <summary>
+            Gets or sets the opmode in the measurement setting.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PinSetting.LimitHigh">
+            <summary>
+            Gets or sets the high limit for all pins in the measurement setting.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PinSetting.LimitLow">
+            <summary>
+            Gets or sets the low limit for all pins in the measurement setting.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PinSetting.ForceValue">
+            <summary>
+            Gets or sets the force value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PinSetting.PreMeasurementDelay">
+            <summary>
+            Gets or sets the pre measurment delay.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PinSetting.ClampHigh">
+            <summary>
+            Gets or sets the value for a clamp high. Will be set to auto clamp if left blank.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PinSetting.ClampLow">
+            <summary>
+            Gets or sets the value for a clamp low. Will be set to auto clamp if left blank.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PinSetting.IRange">
+            <summary>
+            Gets or sets the measurement range for the pins. If left blank it is set to "auto".
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PinSetting.SamplingCount">
+            <summary>
+            Gets or sets the sampling count. Default is 1 if not set.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.ImpedanceTest">
+            <summary>
+            General measurement mode interface.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.#ctor(Prime.BusinessLogic.Dc.IDcTestCreator,Prime.TestMethods.Hptp.VerifyDataStructure,Prime.TestConditionService.ITestConditionService,Prime.PinService.IPinService,Prime.ConsoleService.IConsoleService,Prime.DatalogService.IDatalogService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Hptp.ImpedanceTest"/> class.
+            </summary>
+            <param name="verifyDataStructure">Object set during offline verify which holds configuration data.</param>
+            <param name="dcTestCreator">Dc test creator object.</param>
+            <param name="testConditionService">Test condition service object.</param>
+            <param name="pinService">Pin service object.</param>
+            <param name="consoleService">Console service object.</param>
+            <param name="datalogService">Datalog service object.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.SettingsToApply">
+            <summary>
+            Gets or sets measurement settings to be applied during execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.SavedPins">
+            <summary>
+            Gets or sets pin objects according to names to prevent unnecessary calls to pin service.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.PlistName">
+            <summary>
+            Gets or sets final plist to be tested(either pu or pd).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.FuncLevel">
+            <summary>
+            Gets or sets the func level name used when creating tests.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.DcLevels">
+            <summary>
+            Gets or sets the DC level name used when creating tests.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.TimingName">
+            <summary>
+            Gets or sets the timing name used when creating test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.InstanceName">
+            <summary>
+            Gets or sets the instance name used when creating test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.EndSeqLevel">
+            <summary>
+            Gets or sets the end sequence level.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.ConfigurationSets">
+            <summary>
+            Gets or sets measurement configuration set.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.MaskPins">
+            <summary>
+            Gets or sets masks pins for the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.TargetResistance">
+            <summary>
+            Gets or sets the target resistance for the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.PatConfigHandle">
+            <summary>
+            Gets or sets the target resistance for the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.EndSeqTestCondition">
+            <summary>
+            Gets or sets the end seq test condition for the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.ImpedanceTest.SessionContext">
+            <summary>
+            Gets or sets the target resistance for the test.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.Execute">
+            <summary>
+            Executes impedance test.
+            </summary>
+            <returns>relevant ports.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.Dec2Bin(System.Int32)">
+            <summary>
+            Decimal to Binary converter.
+            </summary>
+            <param name="dec">Decimal number.</param>
+            <returns>Binary value.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.GetAttributeValues(Prime.TestMethods.Hptp.PinSetting)">
+            <summary>
+            Gets attribute values from a pin setting.
+            </summary>
+            <param name="pinSetting">pin setting to extract from.</param>
+            <returns>list of attributes ready to be applied.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.ApplyAttributeValues(Prime.PinService.IPin,Prime.TestMethods.Hptp.PinSetting)">
+            <summary>
+            Applies attribute values to level for given pin.
+            </summary>
+            <param name="pin">pin to apply values to.</param>
+            <param name="setting">setting to be applied.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.ValidateMode">
+            <summary>
+            Validates configuration based on mode of test being performed.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.ExecuteMode(System.Int32)">
+            <summary>
+            Executes configuration based on selected mode.
+            </summary>
+            <returns>list of measurement results.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.ExecuteImpedanceTest">
+            <summary>
+            Execute impedance test.
+            </summary>
+            <returns>True if execution was successful, false otherwise.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.Verify">
+            <summary>
+            Calls verify on current mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.SetupDcLevel">
+            <summary>
+            Setup DC level.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.ValidateMeasurementSettings">
+            <summary>
+            Validates a list of settings for a measurement. Also populates pinlist table for future gets.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.SavePinSettings(Prime.TestMethods.Hptp.MeasurementSetting,System.String)">
+            <summary>
+            Populates pin settings object with pin/setting pairs.
+            </summary>
+            <param name="setting">Settings to be added.</param>
+            <param name="dcLevel">Dc level to be added.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.GetAllPinsFromList(System.Collections.Generic.List{System.String})">
+            <summary>
+            Gets all pins that are in list of pinNames.
+            </summary>
+            <param name="pinNames">list of pins to expand.</param>
+            <returns>List of expanded pins.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.GetAllSubPinNames(System.String)">
+            <summary>
+            Gets subpins from a given pin name recursively.
+            </summary>
+            <param name="pinName">pin to expand.</param>
+            <returns>list consisting of all sub pin names for the given pin.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.RunDcTest(System.Int32)">
+            <summary>
+            runs a DC test for a single pin and returns result.
+            </summary>
+            <param name="measurementPoint">measurement point selection, 0 or 1 only.</param>
+            <returns>List of measurement results.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.ExtractSinglePinGroupResults(System.String,Prime.BusinessLogic.Dc.IDcResult,Prime.TestMethods.Hptp.TestObjects.MeasurementSetting)">
+            <summary>
+            Extracts list of pin results from an IDCResults object.
+            </summary>
+            <param name="pinGroupName">Pin Group to extract results from.</param>
+            <param name="dcResults">Singular IDCResults object to be processed.</param>
+            <param name="settings">Settings that were used during execute.</param>
+            <returns>List of pin result objects extracted from dcResults.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.ExtractSinglePinResults(System.String,Prime.BusinessLogic.Dc.IDcResult,Prime.TestMethods.Hptp.TestObjects.MeasurementSetting)">
+            <summary>
+            Extracts results for a single pin Dc test.
+            </summary>
+            <param name="pinName">Pin to extract results from.</param>
+            <param name="dcResults">Singular IDCResults object to be processed.</param>
+            <param name="setting">Setting that was used during execute.</param>
+            <returns>List of measurement results from single pin.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.ImpedanceTest.ProcessResults(System.Collections.Generic.List{Prime.TestMethods.Hptp.TestObjects.MeasurementResult},System.Collections.Generic.List{Prime.TestMethods.Hptp.TestObjects.MeasurementResult}@)">
+            <summary>
+            Process results into pass/fail list.
+            </summary>
+            <param name="resultsList">list of results on measurement execution.</param>
+            <param name="passingResults">list of passing results on measurement execution.</param>
+            <returns>True is no fail results.False if otherwise.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.TerminationCharacterization">
+            <summary>
+            PullDown Impedance mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.TerminationCharacterization.#ctor(Prime.TestMethods.Hptp.VerifyDataStructure,Prime.BusinessLogic.Dc.IDcTestCreator,Prime.BusinessLogic.ResistanceOffset.IResistanceOffsetHandler,Prime.FunctionalService.IFunctionalService,Prime.ConsoleService.IConsoleService,Prime.PatConfigService.IPatConfigService,Prime.TesterService.ITesterService,Prime.PlatformService.IPlatformService,Prime.DatalogService.IDatalogService,Prime.TestConditionService.ITestConditionService,Prime.PinService.IPinService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Hptp.TerminationCharacterization"/> class.
+            </summary>
+            <param name="verifyDataStructure">Object set during offline verify which holds configuration data.</param>
+            <param name="dcTestCreator">Dc test creator object, used to create DcTest objects.</param>
+            <param name="resistanceOffsetHandler">IResistanceOffsetHandler object.</param>
+            <param name="functionalService">Functional service object.</param>
+            <param name="consoleService">Console service object.</param>
+            <param name="patConfigService">PatConfig service object.</param>
+            <param name="testerService">Tester service object.</param>
+            <param name="platformService">Platform service object.</param>
+            <param name="datalogService">Datalog service object.</param>
+            <param name="testConditionService">Test condition service object.</param>
+            <param name="pinService">Pin service object.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.TerminationCharacterization.ValidateMode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.TerminationCharacterization.ExecuteImpedanceTest">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.TerminationCharacterization.ExecuteMode(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod">
+            <summary>
+            Prime Hptp Impedance Test Method class.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.#ctor(Prime.BusinessLogic.Dc.IDcTestCreator,Prime.BusinessLogic.ResistanceOffset.IResistanceOffsetHandler,Prime.PinService.IPinService,Prime.PatConfigService.IPatConfigService,Prime.FileService.IFileService,Prime.FunctionalService.IFunctionalService,Prime.ConsoleService.IConsoleService,Prime.TesterService.ITesterService,Prime.PlatformService.IPlatformService,Prime.DatalogService.IDatalogService,Prime.TestConditionService.ITestConditionService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod"/> class.
+            </summary>
+            <param name="dcTestCreator">Dc test creator object, used to create DcTest objects.</param>
+            <param name="resistanceOffsetHandler">Resistance offset handler object.</param>
+            <param name="pinService">Pin service object.</param>
+            <param name="patConfigService">PatConfig service object.</param>
+            <param name="fileService">File service object.</param>
+            <param name="functionalService">Functional service object.</param>
+            <param name="consoleService">Console service object.</param>
+            <param name="testerService">Tester service object.</param>
+            <param name="platformService">Platform service object.</param>
+            <param name="datalogService">Datalog service object.</param>
+            <param name="testConditionService">Test condition service object.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.FuncLevel">
+            <summary>
+            Gets or sets func levels to be apply prior to pattern execution(this will contain all the preconditioning setup e.g pwr sequencing etc).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.DcLevels">
+            <summary>
+            Gets or sets dc levels to be applied after the plist execution to set up and trigger DC measurements. Override measurement configuration setup when exist.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.TargetResistance">
+            <summary>
+            Gets or sets target resistance to achieve.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.MeasConfigFile">
+            <summary>
+            Gets or sets the json file which contains Pin measurement configurations.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.MeasConfigSet">
+            <summary>
+            Gets or sets the configset.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.PatConfigName">
+            <summary>
+            Gets or sets the patconfigName.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.MaskPins">
+            <summary>
+            Gets or sets the CTV pin name.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.EndSequenceLevel">
+            <summary>
+            Gets or sets the end seq level.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.FileHandler">
+            <summary>
+            Gets the IO operations file handler.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.Verify">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.ValidatePinSetting(Prime.TestMethods.Hptp.PinSetting)">
+            <summary>
+            Validates a setting.
+            </summary>
+            <param name="setting">Setting to validate.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.ValidateOpMode(Prime.TestMethods.Hptp.PinSetting)">
+            <summary>
+            Validates Opmode for setting.
+            </summary>
+            <param name="setting">Setting to validate.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.ValidateLimits(Prime.TestMethods.Hptp.PinSetting)">
+            <summary>
+            Validates High and low attributes make sense for setting.
+            </summary>
+            <param name="setting">Setting to validate.</param>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.GetMeasConfigurationFromJson(System.String)">
+            <summary>
+            This function parses the json file and stores its data and returns the deserialized object.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper to inject required dependencies during runtime.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpImpedanceTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.TestObjects.ImpedanceResult">
+            <summary>
+            Object that holds reuslts from the measurement of impedance.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.TestObjects.ImpedanceResult.#ctor(System.String,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Boolean,System.Double,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Hptp.TestObjects.ImpedanceResult"/> struct.
+            </summary>
+            <param name="pinName">PinName for result.</param>
+            <param name="currentList">List of current value for the pin.</param>
+            <param name="voltageList">List of voltage value for the pin.</param>
+            <param name="resistanceList">List of resistance value for the pin.</param>
+            <param name="mean">boolean to determine if rterm is from mean or from slope.</param>
+            <param name="rterm">rterm value for the pin.</param>
+            <param name="code">calcode in used.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.ImpedanceResult.CurrentList">
+            <summary>
+            Gets or sets list of current value for the pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.ImpedanceResult.VoltageList">
+            <summary>
+            Gets or sets list of voltage value for the pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.ImpedanceResult.ResistanceList">
+            <summary>
+            Gets or sets list of resistance value for the pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.ImpedanceResult.Mean">
+            <summary>
+            Gets or sets a value indicating whether rterm is from mean or from slope.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.ImpedanceResult.RtermSlope">
+            <summary>
+            Gets or sets rterm value for the pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.ImpedanceResult.Calcode">
+            <summary>
+            Gets or sets calcode value in used.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.ImpedanceResult.PinName">
+            <summary>
+            Gets or sets Pin name for given result.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.TestObjects.MeasurementResult">
+            <summary>
+            Object that holds information result of measurement setting.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.TestObjects.MeasurementResult.#ctor(System.String,Prime.TestMethods.Hptp.TestObjects.MeasurementSetting,System.Boolean,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Hptp.TestObjects.MeasurementResult"/> struct.
+            </summary>
+            <param name="pinName">PinName for result.</param>
+            <param name="measurementSetting">measurment setting that was applied for the given test.</param>
+            <param name="testResult">Whether or not the test passed.</param>
+            <param name="measuredValue">Measured value of the test.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.MeasurementResult.TestResult">
+            <summary>
+            Gets or sets a value indicating whether or not the test passed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.MeasurementResult.MeasuredValue">
+            <summary>
+            Gets or sets Measured value of the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.MeasurementResult.PinName">
+            <summary>
+            Gets or sets Pin name for given result.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.MeasurementResult.MeasurementSetting">
+            <summary>
+            Gets or sets measurement setting that was applied for the given test.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.TestObjects.MeasurementSetting">
+            <summary>
+            Object that holds information needed for applying measurement setting.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.TestObjects.MeasurementSetting.#ctor(Prime.PinService.IPin,System.String,Prime.TestMethods.Hptp.PinSetting,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.Hptp.TestObjects.MeasurementSetting"/> struct.
+            </summary>
+            <param name="pin">Pin that setting is being applied to.</param>
+            <param name="pinName">Pin name of pin setting is being applied to.</param>
+            <param name="pinSetting">Attributes to be applied to pin.</param>
+            <param name="dcLevel">Dc level to be applied to pin.</param>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.MeasurementSetting.Pin">
+            <summary>
+            Gets or sets Pin that setting is being applied to.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.MeasurementSetting.PinName">
+            <summary>
+            Gets or sets Pin name of pin setting is being applied to.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.MeasurementSetting.PinSetting">
+            <summary>
+            Gets or sets Attributes to be applied to pin.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.TestObjects.MeasurementSetting.DcLevel">
+            <summary>
+            Gets or sets DcLevel to be applied to pin.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.VerifyDataStructure">
+            <summary>
+            Centralized data structure to be populated during VerifyOffline() and restored in Init().
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.ConfigurationFileContent">
+            <summary>
+            Gets or sets the contents for the Impedance Json configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.SelectedConfigurationSet">
+            <summary>
+            Gets or sets the selected configuration set from the configuration file.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.TargetResistance">
+            <summary>
+            Gets or sets value indicating target resistance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.MaskPins">
+            <summary>
+            Gets or sets masks pins for the test.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.PlistName">
+            <summary>
+            Gets or sets final plist determined for the test(either pu or pd).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.PatConfigHandle">
+            <summary>
+            Gets or sets patconfighandle.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.FuncLevel">
+            <summary>
+            Gets or sets func level.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.DcLevels">
+            <summary>
+            Gets or sets dc level.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.Timing">
+            <summary>
+            Gets or sets Timings used for Functional test pre-conditioning.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.InstanceName">
+            <summary>
+            Gets or sets Name of current instance.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.EndSeqLevel">
+            <summary>
+            Gets or sets Name of end seq level.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.VerifyDataStructure.SessionContext">
+            <summary>
+            Gets or sets session context.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod">
+            <summary>
+            Dummy description of this test method.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.NominalMode">
+            <summary>
+            Used to select whether to set back to nominal mode.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.NominalMode.TRUE">
+            <summary>
+            Reset to nominal
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.NominalMode.FALSE">
+            <summary>
+            No reset to nominal
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.CalibrationType">
+            <summary>
+            Used to select calibration type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.CalibrationType.RX_BASED">
+            <summary>
+            RX based
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.CalibrationType.TX_BASED">
+            <summary>
+            TX based
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.ExeMode">
+            <summary>
+            Used to select mode of Setup test to execute.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.ExeMode.TIMING_CALIBRATION">
+            <summary>
+            Execute TIMING_CALIBRATION
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.ExeMode.TERMSHIFTCODE_PATMOD">
+            <summary>
+            Execute ONLY TERMSHIFTCODE_PATMOD
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.ExeMode.TIMING_OVERRIDE">
+            <summary>
+            Execute ONLY TIMING_OVERRIDE
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.ExeMode.VOX_OVERRIDE">
+            <summary>
+            Execute ONLY VOX_OVERRIDE
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.ExeMode.PATMOD_AND_TIMING_OVERRIDE">
+            <summary>
+            Execute both TERMSHIFTCODE_PATMOD and TIMING_OVERRIDE
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.Patlist">
+            <summary>
+            Gets or sets Patlist to execute the timing calibration on.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.MaskPins">
+            <summary>
+            Gets or sets comma separated pins for mask.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingCalibratePins">
+            <summary>
+            Gets or sets comma separated pins for timing calibration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingCalibrationNames">
+            <summary>
+            Gets or sets comma separated Params for timing calibration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingCalibrateTxNames">
+            <summary>
+            Gets or sets comma separated TX param for timing calibration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingCalibrateRxNames">
+            <summary>
+            Gets or sets comma separated RX param for timing calibration.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingCalPatmodConfiguration">
+            <summary>
+            Gets or sets the configuration to patch the termination codes in the timing calibration pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.StartLargeOffset">
+            <summary>
+            Gets or sets the static value for the starting point in the Y axis for the 1D shmoo.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.XAxisDriveOffsetParameter">
+            <summary>
+            Gets or sets the name of the global drive offset parameter for the RX pins. XAxisDriveOffsetParameter is deprecated, please use SmallCalibrationOffsetParameter and LargeCalibrationOffsetParameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.SmallCalibrationOffsetParameter">
+            <summary>
+            Gets or sets the name of the global drive/strobe offset parameter. Use along with LargeCalibrationOffsetParameter and CalibrationMode parameters.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.YAxisStrobeOffsetParameter">
+            <summary>
+            Gets or sets the name of the global strobe offset parameter for the TX pins. YAxisStrobeOffsetParameter is deprecated, please use SmallCalibrationOffsetParameter and LargeCalibrationOffsetParameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.LargeCalibrationOffsetParameter">
+            <summary>
+            Gets or sets the name of the global drive/strobe offset parameter. Use along with SmallCalibrationOffsetParameter and CalibrationMode parameters.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingsTc">
+            <summary>
+            Gets or sets TimingsTc for plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingCalibrationRange">
+            <summary>
+            Gets or sets the maximum swing range for the timing calibration to take place.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.CalTDRRegisterFieldSequence">
+            <summary>
+            Gets or sets the field sequence value of the cal tdr register to be patmod into the pattern.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.OutputTokenPrefix">
+            <summary>
+            Gets or sets the prefix used in the output timing token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.OutputTokenPostfix">
+            <summary>
+            Gets or sets the postfix used in the output timing token, leave empty for no post fix.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.EyeWidthLimit">
+            <summary>
+            Gets or sets the eyewidth limit.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.ResetToNominal">
+            <summary>
+            Gets or sets the option to restore the timing specs after the test is executed.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.CalibrationMode">
+            <summary>
+            Gets or sets calibration mode.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.MaxCaptures">
+            <summary>
+            Gets or sets maximum number of captures admited before pattern execution is stopped.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.LevelsTc">
+            <summary>
+            Gets or sets LevelsTc to plist execution.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.ExecutionMode">
+            <summary>
+            Gets or sets ExeMode(TIMING_CALIBRATION, TERMSHIFTCODE_PATMOD, TIMING_OVERRIDE, VOX_OVERRIDE or PATMOD_AND_TIMING_OVERRIDE).
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingOverrideDriveParams">
+            <summary>
+            Gets or sets the name of the global drive offset parameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingOverrideDriveValues">
+            <summary>
+            Gets or sets the value for the global drive offset param, can be a number or a GlobalStorage variable, either SharedstorageToken or hardcoded.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingOverrideDriveOffset">
+            <summary>
+            Gets or sets the value for additional offset require for drive param.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingOverrideStrobeParams">
+            <summary>
+            Gets or sets comma separated params of the name of the perpin strobe offset parameter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.TimingOverrideStrobeValues">
+            <summary>
+            Gets or sets comma separated values for the name of the perpin strobe offset param, can be a number or a GlobalStorage variable, either SharedstorageToken or hardcoded.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.VoxTxOverridePins">
+            <summary>
+            Gets or sets comma separated values for the name of the perpin strobe offset param, can be a number or a GlobalStorage variable, either SharedstorageToken or hardcoded.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.VoxRxOverridePins">
+            <summary>
+            Gets or sets comma separated values for the name of the perpin strobe offset param, can be a number or a GlobalStorage variable, either SharedstorageToken or hardcoded.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.VoxTxOverrideParams">
+            <summary>
+            Gets or sets comma separated values for the name of the perpin strobe offset param, can be a number or a GlobalStorage variable, either SharedstorageToken or hardcoded.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.VoxRxOverrideParams">
+            <summary>
+            Gets or sets comma separated values for the name of the perpin strobe offset param, can be a number or a GlobalStorage variable, either SharedstorageToken or hardcoded.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.VoxSupplyParam">
+            <summary>
+            Gets or sets Vox Supply Parameter.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.RunTimingCalibration(System.Double)">
+            <summary>
+            Runs the timing calibration test for all the lanes in the TimingCalibratePins list.
+            </summary>
+            <param name="startlargeOffset"> The starting point in the Y axis for the 1D shmoo.</param>
+            <returns>
+            State of the timing calibration, true if calibration was possible, false if not.
+            </returns>
+        </member>
+        <member name="M:Prime.TestMethods.Hptp.PrimeHptpTimingCalibrationTestMethod.GetInitialTimingTC">
+            <summary>
+            Populates the parameterDefault list once per verify (once per TP run).
+            </summary>
+        </member>
+    </members>
+</doc>

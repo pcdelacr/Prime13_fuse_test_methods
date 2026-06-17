@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.Services.InitService</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.InitService.InitService">
+            <inheritdoc cref="T:Prime.InitService.IInitService"/>
+        </member>
+        <member name="M:Prime.InitService.InitService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.InitService.InitService"/> class.
+            </summary>
+        </member>
+        <member name="M:Prime.InitService.InitService.GetLastSuccessVerifyAllInstancesLocation(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.InitService.InitService.GetLastVerifyAllInstancesStatus(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.InitService.InitService.GetSavedLocation(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.InitService.InitService.GetSavedProductName(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.InitService.InitService.GetLastSuccessVerifyAllInstancesProductName(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.InitService.InitService.SaveCurrentLocation(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.InitService.InitService.SaveCurrentProductName(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.InitService.InitService.SetLastSuccessVerifyAllInstancesLocation(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.InitService.InitService.SetLastVerifyAllInstancesStatus(System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.InitService.InitService.SetLastSuccessVerifyAllInstancesProductName(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.InitService.InitService.SaveCurrentProcessType(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.InitService.InitService.GetSavedProcessType(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.InitService.InitService.SetLastSuccessVerifyAllInstancesProcessType(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.InitService.InitService.GetLastSuccessVerifyAllInstancesProcessType(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.InitService.InitService.SaveCurrentProcessStep(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.InitService.InitService.GetSavedProcessStep(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.InitService.InitService.SetLastSuccessVerifyAllInstancesProcessStep(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.InitService.InitService.GetLastSuccessVerifyAllInstancesProcessStep(Prime.SessionService.ISessionContextProviderContainer)">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.InitService.IInitService">
+            <summary>
+            Interface of InitService.
+            </summary>
+        </member>
+        <member name="M:Prime.InitService.IInitService.SaveCurrentLocation(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Save current location from SCVars.SC_LOCN.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.InitService.IInitService.GetSavedLocation(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get saved location value.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Saved location value.</returns>
+        </member>
+        <member name="M:Prime.InitService.IInitService.SaveCurrentProductName(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Save current product name from SCVars.SC_PACKAGE, SCVars.SC_DEVICE, SCVars.SC_REV, SCVars.SC_STEP, SCVars.SC_ENGID,
+            SCVars.SC_FABID, SCVars.SC_SSPEC.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.InitService.IInitService.GetSavedProductName(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get saved product name.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Saved product name.</returns>
+        </member>
+        <member name="M:Prime.InitService.IInitService.SetLastVerifyAllInstancesStatus(System.Boolean,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the VerifyAll instances status.
+            </summary>
+            <param name="verifyAllStatus">VerifyAll status.</param>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.InitService.IInitService.GetLastVerifyAllInstancesStatus(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the last VerifyAll instances status.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Returns PASS or FAIL for the last VerifyAll status.</returns>
+        </member>
+        <member name="M:Prime.InitService.IInitService.SetLastSuccessVerifyAllInstancesLocation(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the last success VerifyAll instances location code.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.InitService.IInitService.GetLastSuccessVerifyAllInstancesLocation(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the last success VerifyAll instances location code.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Last success VerifyAll instances location code.</returns>
+        </member>
+        <member name="M:Prime.InitService.IInitService.SetLastSuccessVerifyAllInstancesProductName(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the last success VerifyAll instances product name.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.InitService.IInitService.GetLastSuccessVerifyAllInstancesProductName(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the last success VerifyAll instances product name.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Last success VerifyAll instances product name.</returns>
+        </member>
+        <member name="M:Prime.InitService.IInitService.SaveCurrentProcessType(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Save current process type from SCVars.SC_CURRENT_PROCESS_TYPE.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.InitService.IInitService.GetSavedProcessType(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get saved process type value.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Saved process type value.</returns>
+        </member>
+        <member name="M:Prime.InitService.IInitService.SetLastSuccessVerifyAllInstancesProcessType(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the last success VerifyAll instances process type code.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.InitService.IInitService.GetLastSuccessVerifyAllInstancesProcessType(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the last success VerifyAll instances process type code.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Last success VerifyAll instances process type code.</returns>
+        </member>
+        <member name="M:Prime.InitService.IInitService.SaveCurrentProcessStep(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Save current process step from SCVars.SC_CURRENT_PROCESS_STEP.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.InitService.IInitService.GetSavedProcessStep(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get saved process step value.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Saved process step value.</returns>
+        </member>
+        <member name="M:Prime.InitService.IInitService.SetLastSuccessVerifyAllInstancesProcessStep(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Set the last success VerifyAll instances process step code.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+        </member>
+        <member name="M:Prime.InitService.IInitService.GetLastSuccessVerifyAllInstancesProcessStep(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Get the last success VerifyAll instances process step code.
+            </summary>
+            <param name="sessionContext">The session context of this operation.</param>
+            <returns>Last success VerifyAll instances process step code.</returns>
+        </member>
+    </members>
+</doc>

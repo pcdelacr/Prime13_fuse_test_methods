@@ -1,0 +1,178 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Elements": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/nonEmptyString" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "TrackingStructures": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/TrackingStructuresElement" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "Dependencies": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/DependencyElement" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "Rules": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/RulesElement" },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "Elements",
+    "TrackingStructures"
+  ],
+  "definitions": {
+    "TrackingStructuresElement": {
+      "type": "object",
+      "properties": {
+        "StructureNames": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/nonEmptyString" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "StructureGroups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "$ref": "#/definitions/nonEmptyString"
+              },
+              "TrackingElements": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/nonEmptyString" },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "Name",
+              "TrackingElements"
+            ]
+          }
+        },
+        "Links": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "required": [
+        "StructureNames",
+        "StructureGroups"
+      ],
+      "additionalProperties": false
+    },
+    "DependencyElement": {
+        "type": "object",
+        "properties": {
+          "HighLevelStructure": {
+            "items": { "$ref": "#/definitions/nonEmptyString" }
+            },
+          "LowLevelStructure": {
+            "items": { "$ref": "#/definitions/nonEmptyString" }
+            },
+          "HighLevelElement": {
+            "items": { "$ref": "#/definitions/nonEmptyString" }
+            },
+          "LowLevelElements": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/nonEmptyString" },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "Propagation": {
+            "enum": [
+              "HighToLow",
+              "LowToHigh",
+              "BothWays"
+            ]
+          }
+        },
+      "required": [
+        "HighLevelStructure",
+        "LowLevelStructure",
+        "HighLevelElement",
+        "LowLevelElements"
+      ]
+    },
+    "RulesElement": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "Single-Fail": {
+          "type": "object",
+          "properties": {
+            "type": { "$ref": "#/definitions/nonEmptyString" },
+            "value": {
+              "type": ["boolean", "string"],
+              "minLength": 1
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ]
+        },
+        "MinQuantity": {
+          "type": "object",
+          "properties": {
+            "type": { "$ref": "#/definitions/nonEmptyString" },
+            "value": {
+              "type": ["integer", "string"],
+              "minimum": 1,
+              "minLength": 1
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ]
+        },
+        "ValidCombination": {
+          "type": "object",
+          "properties": {
+            "type": { "$ref": "#/definitions/nonEmptyString" },
+            "value": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/nonEmptyString" },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "combo_results": { "$ref": "#/definitions/nonEmptyString" }
+          },
+          "required": [
+            "type",
+            "value"
+          ]
+        }
+      }
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

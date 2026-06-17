@@ -1,0 +1,1140 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prime.TestMethods.DeviceSession</name>
+    </assembly>
+    <members>
+        <member name="T:Prime.TestMethods.IRasterLocationBuilder">
+            <summary>
+            Interface abstracts how to obtain Raster location. This varies based on the Device TM used.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.IRasterLocationBuilder.GetLocation">
+            <summary>
+            Method gets Raster location.
+            </summary>
+            <returns>Raster Location.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.IWaferLocation">
+            <summary>
+            Interface to handle the logic for creating raster header for Device Test Methods.
+            As location differs for Wafer and SingleDie test types, this interface provides the extensions to implement the corresponding logic for each test flow.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.IWaferLocation.GetXCoordinate">
+            <summary>
+            Gets the DUT X coordinate.
+            </summary>
+            <returns>DUT X coordinate on the wafer.</returns>
+        </member>
+        <member name="M:Prime.TestMethods.IWaferLocation.GetYCoordinate">
+            <summary>
+            Gets the DUT y coordinate.
+            </summary>
+            <returns>DUT y coordinate on the wafer.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.RasterHeader">
+            <summary>
+            Class to handle the logic for creating raster header for DeviceTMs.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.RasterHeader.#ctor(System.String,Prime.TestMethods.IRasterLocationBuilder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.RasterHeader"/> class.
+            </summary>
+            <param name="dateFormat">Format used to display current datetime.</param>
+            <param name="rasterLocationBuilder">Implementation for raster location builder.</param>
+        </member>
+        <member name="M:Prime.TestMethods.RasterHeader.CreateHeader(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Creates Raster header.
+            </summary>
+            <param name="sessionContext">Current instance's context session.</param>
+        </member>
+        <member name="M:Prime.TestMethods.RasterHeader.GetHeader">
+            <summary>
+            Gets current Raster header in a string format.
+            </summary>
+            <returns>String containing all of the raster header information.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.IDeviceEndExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.IDeviceEndExtensions.ModifyLevel3Footer(Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat)">
+            <summary>
+            Called at the end of execute to provide the user a way to modify the level 3 footer before logging to ituff.
+            Default implementation returns default level 3 footer.
+            </summary>
+            <param name="formattedFooter">Level 3 footer.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.IDeviceEndExtensions.ModifyLevel2Footer(Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat)">
+            <summary>
+            Called at the end of execute to provide the user a way to modify the level 2 footer before logging to ituff.
+            Default implementation returns default level 2 footer.
+            </summary>
+            <param name="formattedFooter">Level 2 footer.</param>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.EndDatalog.Level2">
+            <summary>
+            Class to handle the logic for creating a level 2 footer.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.EndDatalog.Level2.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.EndDatalog.Level2"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.EndDatalog.Level2.Level2FooterFormat">
+            <summary>
+            Gets the level2 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.EndDatalog.Level2.CreateFooter">
+            <summary>
+            Method to create level 2 footer.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.EndDatalog.Level3">
+            <summary>
+            Class to handle the logic for creating a level 3 footer.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.EndDatalog.Level3.UserVarCollection">
+            <summary>
+            UserVar collection string.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.EndDatalog.Level3.#ctor(System.Boolean,Prime.BusinessLogic.ScoreboardLogger.IScoreboardResults,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.EndDatalog.Level3"/> class.
+            </summary>
+            <param name="isMergeSocketEnable">Indicates if merge socket is enabled.</param>
+            <param name="scoreboardResults">An IScoreboardResults for dependency injection.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.EndDatalog.Level3.Level3FooterFormat">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.EndDatalog.Level3.CreateFooter">
+            <summary>
+            Method to create level 3 footer.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat">
+            <summary>
+            The level3 Footer formatter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.HardwareRetestNum">
+            <summary>
+            Gets or sets the hwrt token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.HardwareRetestSoftBin">
+            <summary>
+            Gets or sets the hwrt_orig_curfbin token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.HardwareRetestHardBin">
+            <summary>
+            Gets or sets the hwrt_orig_curfbin token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.PrivateMemory">
+            <summary>
+            Gets or sets the PCS_VMU_PB token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.VirtualMemory">
+            <summary>
+            Gets or sets the PCS_VMU_VB token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.InstanceCounterData">
+            <summary>
+            Gets or sets the Instance Level Counter Data.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.GlobalCounterData">
+            <summary>
+            Gets or sets the Global Level Counter Data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat.Clear">
+            <summary>
+            Clear the internal data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat">
+            <summary>
+            The level3 Footer formatter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.DeviceEndTime">
+            <summary>
+            Gets or sets the 3_dvtsteddt token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.TestTime">
+            <summary>
+            Gets or sets the 3_ttime_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.PassCounters">
+            <summary>
+            Gets or sets the 3_tpass_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.FailCounters">
+            <summary>
+            Gets or sets the 3_tfail_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.ProcessType">
+            <summary>
+            Gets or sets the 3_subflstpid_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.FinalBin">
+            <summary>
+            Gets or sets the 3_binn_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.SdsIb">
+            <summary>
+            Gets or sets the 3_comnt_SDSIB_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.SdsFb">
+            <summary>
+            Gets or sets the 3_comnt_SDSFB_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.SdtIb">
+            <summary>
+            Gets or sets the 3_comnt_SDTIB_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.SdtFb">
+            <summary>
+            Gets or sets the 3_comnt_SDTFB_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.CurDataBTin">
+            <summary>
+            Gets or sets the 3_curdtbin_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.CurSoftTBin">
+            <summary>
+            Gets or sets the 3_curftbin_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.CurHardTBin">
+            <summary>
+            Gets or sets the 3_curitbin_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.CurFBin">
+            <summary>
+            Gets or sets the 3_curfbin_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.CurIBin">
+            <summary>
+            Gets or sets the 3_curibin_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.SubStructureFunctionalBin">
+            <summary>
+            Gets the 3_sscurfbin_ tokens.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.ResultStatus">
+            <summary>
+            Gets or sets the 3_trslt_ token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.DcFailPinInfo">
+            <summary>
+            Gets or sets the 3_failchannel_ token with fail pin info as data. This only printed at Sort.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat.Clear">
+            <summary>
+            Clear the interal data.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod">
+            <summary>
+            Test method responsible for executing device end printing to output files.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod.TrueValue">
+            <summary>
+            Contains string value that matches with TRUE.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod.tpTypeDieId">
+            <summary>
+            Contains string value of PKG/WFR based on Test Program Type.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod.#ctor(Prime.BusinessLogic.ScoreboardLogger.IScoreboardFactory,Prime.BusinessLogic.Brita.IBritaFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod"/> class with unit testing purposes.
+            </summary>
+            <param name="scoreboardFactory">An IScoreboardFactory for dependency injection.</param>
+            <param name="britaFactory">Brita factory injection.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod"/> class.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.DeviceSession.IDeviceEndExtensions" />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod.Prime#TestMethods#DeviceSession#IDeviceEndExtensions#ModifyLevel3Footer(Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level3FooterFormat)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod.Prime#TestMethods#DeviceSession#IDeviceEndExtensions#ModifyLevel2Footer(Prime.TestMethods.DeviceSession.DeviceEndDatalog.Level2FooterFormat)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceEndDatalogTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.RasterFooter">
+            <summary>
+            Class in charge of building raster footer.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.RasterFooter.BuildFooter(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Builds raster footer.
+            </summary>
+            <param name="sessionContext">Current instance's context session.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.RasterFooter.GetFooter">
+            <summary>
+            Returns raster footer string.
+            </summary>
+            <returns>Raster footer.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StorageWrapper">
+            <summary>
+            Class to create wrappers for SharedStorageService methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StorageWrapper.#ctor(Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.StorageWrapper"/> class.
+            </summary>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StorageWrapper.TryGetIntValue(System.String,System.Int32)">
+            <summary>
+            Tries to get the value from shared storage service. If key does not exist, will return default value.
+            </summary>
+            <param name="key">Key to look for in the shared storage service.</param>
+            <param name="defaultValue">Default value to return in case key does not exist.</param>
+            <returns>Value obtain from the shared storage.</returns>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.PrimeDeviceEndFinalizeTestMethod">
+            <summary>
+            Test method responsible for executing device end finalization logic.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceEndFinalizeTestMethod.britaEnabledInPrime">
+            <summary>
+            Flag to enable Brita.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceEndFinalizeTestMethod.#ctor(Prime.SharedStorageService.ISharedStorageService,Prime.PerformanceCounterService.IPerformanceCounterService,Prime.TestProgramService.ITestProgramService,Prime.ConsoleService.IConsoleService,Prime.PlatformService.IPlatformService,Prime.TelemetryService.Internal.ITelemetryService,Prime.TestConditionService.ITestConditionService,Prime.PinService.Internal.IPinService,Prime.SimbaService.ISimbaService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.PrimeDeviceEndFinalizeTestMethod"/> class.
+            </summary>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="performanceCounterService">performanceCounterService.</param>
+            <param name="testProgramService">testProgramService.</param>
+            <param name="consoleService">consoleService.</param>
+            <param name="platformService">platformService.</param>
+            <param name="telemetryService">telemetryService.</param>
+            <param name="testConditionService">testConditionService.</param>
+            <param name="pinService">pinService.</param>
+            <param name="simbaService">simbaService.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceEndFinalizeTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceEndFinalizeTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceEndFinalizeTestMethod.DisableFlowTraceForPrimeBrita">
+            <summary>
+            Runs DisableFlowTrace for Prime Brita.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat">
+            <summary>
+            The level3 Header formatter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.ChuckId">
+            <summary>
+            Gets or sets the chuckid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.ChuckDetail">
+            <summary>
+            Gets or sets the chuckdetail token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.VisualId">
+            <summary>
+            Gets or sets the visualid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.DelayIndexTime">
+            <summary>
+            Gets or sets the delay_index_time token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.UnitCountForSite">
+            <summary>
+            Gets or sets the tseq token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.TestSequence">
+            <summary>
+            Gets or sets the tdnseq token.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.Clear">
+            <summary>
+            Clear the interal data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat">
+            <summary>
+            The level3 Header formatter.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.PartNumber">
+            <summary>
+            Gets or sets the prtnm token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.DeviceStartTime">
+            <summary>
+            Gets or sets the dvtststdt token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.Socket">
+            <summary>
+            Gets or sets the socket token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.TestGroupCount">
+            <summary>
+            Gets or sets the tstordnum token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.TiuIdentifier">
+            <summary>
+            Gets or sets the tiuid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.HandleUniqueId">
+            <summary>
+            Gets or sets the eqpprtid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.SiteId">
+            <summary>
+            Gets or sets the siteid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.TesterId">
+            <summary>
+            Gets or sets the prttesterid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.PersonalityCardId">
+            <summary>
+            Gets or sets the tiuprscdid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.MemoryUsage">
+            <summary>
+            Gets or sets the memory usage token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.WaferXLocation">
+            <summary>
+            Gets or sets the wafxloc token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.WaferYLocation">
+            <summary>
+            Gets or sets the wafyloc token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.PartialWaferId">
+            <summary>
+            Gets or sets the partialwafid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.CarrierId">
+            <summary>
+            Gets or sets the carrierid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.CarrierXLocation">
+            <summary>
+            Gets or sets the carrierxloc token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.CarrierYLocation">
+            <summary>
+            Gets or sets the carrieryloc token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.CellId">
+            <summary>
+            Gets or sets the cellid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.ChuckId">
+            <summary>
+            Gets or sets the chuckid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.ThermalHeadId">
+            <summary>
+            Gets or sets the thermalhdid token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.XLocation">
+            <summary>
+            Gets or sets the xloc token.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.YLocation">
+            <summary>
+            Gets or sets the yloc token.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.ApplyFormatting">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.GetStream">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.ToFormattedString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.Clear">
+            <summary>
+            Clear the interal data.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat.GetTName">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.IDeviceStartPackageDatalogExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.IDeviceStartPackageDatalogExtensions.ModifyLevel3Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat)">
+            <summary>
+            Called at the end of execute to provide the user a way to modify the level 3 header before logging to ituff.
+            Default implementation returns default level 3 header for package mode.
+            </summary>
+            <param name="formattedHeader">Level 3 package header.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.IDeviceStartPackageDatalogExtensions.ModifyLevel2Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat)">
+            <summary>
+            Called at the end of execute to provide the user a way to modify the level 2 header before logging to ituff.
+            Default implementation returns default level 2 header for package mode.
+            </summary>
+            <param name="formattedHeader">Level 2 package header.</param>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartPackageDatalog.Level2">
+            <summary>
+            Class to handle the logic for creating a level 2 header for package mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartPackageDatalog.Level2.#ctor(System.String,Prime.TestMethods.DeviceSession.StartPackageDatalog.RasterLocation,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.StartPackageDatalog.Level2"/> class.
+            </summary>
+            <param name="visualIdCheck">Type of visual id check to be used.</param>>
+            <param name="rasterLocation">RasterLocation implementation.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.StartPackageDatalog.Level2.Level2HeaderFormat">
+            <summary>
+            Gets the level2 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartPackageDatalog.Level2.CreateHeader">
+            <summary>
+            Method to create level 2 header.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartPackageDatalog.Level3">
+            <summary>
+            Class to handle the logic for creating a level 3 header for package mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartPackageDatalog.Level3.#ctor(Prime.TestMethods.DeviceSession.StartPackageDatalog.RasterLocation,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.StartPackageDatalog.Level3"/> class.
+            </summary>
+            <param name="rasterLocation">RasterLocation implementation.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.StartPackageDatalog.Level3.Level3HeaderFormat">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartPackageDatalog.Level3.CreateHeader">
+            <summary>
+            Main method to create level 3 header.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartPackageDatalog.RasterLocation">
+            <summary>
+            Formats visualId, partNumber and location information as needed for raster header.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartPackageDatalog.RasterLocation.SetVisualId(System.String)">
+            <summary>
+            Sets visual id for Raster.
+            </summary>
+            <param name="id">Visual id string.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartPackageDatalog.RasterLocation.SetPartNumber(System.String)">
+            <summary>
+            Sets part number for Raster.
+            </summary>
+            <param name="prtNumber">Part number string.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartPackageDatalog.RasterLocation.GetLocation">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod">
+            <inheritdoc cref="T:Prime.TestMethods.TestMethodBase" />
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.TrueValue">
+            <summary>
+            Contains string value that matches with TRUE.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.FalseValue">
+            <summary>
+            Contains string value that matches with FALSE.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.UndefinedValue">
+            <summary>
+            Contains string value that matches with UNDEFINED.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.VisualIdKey">
+            <summary>
+            Contains the key for the current visual Id in the shared storage.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.DateFormat">
+            <summary>
+            Contains the date format to be used be the raster header to log the DeviceStart time value.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.VisualIdCheck">
+            ************ Start Of PH Parameters ************
+            <summary>
+            Gets or sets the type of visual Id check. Default value is "IGNORE_CAMERA".
+            </summary>>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.DeviceSession.IDeviceStartPackageDatalogExtensions" />
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.InternalDatalog">
+            <inheritdoc cref="T:Prime.DatalogService.IDatalogService" />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.Prime#TestMethods#DeviceSession#IDeviceStartPackageDatalogExtensions#ModifyLevel3Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.Prime#TestMethods#DeviceSession#IDeviceStartPackageDatalogExtensions#ModifyLevel2Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.VerifyVisualIdCheckParameter">
+            <summary>
+            Checks that VisualIdCheck parameter has a valid value.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.InitializeLevels">
+            <summary>
+            Initialize objects of level 2 and level 3.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartPackageDatalogTestMethod.OverrideResetPolicies">
+            <summary>
+            Overrides reset policies from the shared storage and set its value to NEVER_RESET.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.VisualIdCheck">
+            <summary>
+            Class to handle the visualIdCheck type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.VisualIdCheck.IgnoreCamera">
+            <summary>
+            Represents "IGNORE_CAMERA" token.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.VisualIdCheck.CheckCamera">
+            <summary>
+            Represents "CHECK_CAMERA" token.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.VisualIdCheck.CameraRepetitionsCheck">
+            <summary>
+            Represents "CAMERA_REPETITIONS_CHECK" token.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod">
+            <summary>
+            Test method responsible for executing logic prior to device star.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.UserVarCollectionName">
+            <summary>
+            Contains the generic user var collection name.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.StationControllerCollectionName">
+            <summary>
+            Contains the station controller collection name.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.#ctor(Prime.ConsoleService.IConsoleService,Prime.DffService.Internal.IDffService,Prime.PatConfigService.Internal.IPatConfigService,Prime.PerformanceCounterService.Internal.IPerformanceCounterService,Prime.PerformanceService.Internal.IPerformanceService,Prime.PlatformService.IPlatformService,Prime.SharedStorageService.ISharedStorageService,Prime.SharedStorageService.Internal.ISharedStorageService,Prime.SimbaService.ISimbaService,Prime.TelemetryService.Internal.ITelemetryService,Prime.TestConditionService.ITestConditionService,Prime.TesterService.Internal.ITesterService,Prime.TestProgramService.ITestProgramService,Prime.UserVarService.IUserVarService,Prime.BusinessLogic.MemoryProfiler.Profiler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod"/> class.
+            </summary>
+            <param name="consoleService">consoleService.</param>
+            <param name="dffService">dffService.</param>
+            <param name="patConfigService">patConfigService.</param>
+            <param name="performanceCounterService">performanceCounterService.</param>
+            <param name="performanceService">performanceService.</param>
+            <param name="platformService">platformService.</param>
+            <param name="sharedStorageService">sharedStorageService.</param>
+            <param name="sharedStorageServiceInternal">sharedStorageServiceInternal.</param>
+            <param name="simbaService">simbaService.</param>
+            <param name="telemetryService">telemetryService.</param>
+            <param name="testConditionService">testConditionService.</param>
+            <param name="testerService">testerService.</param>
+            <param name="testProgramService">testProgramService.</param>
+            <param name="userVarService">userVarService.</param>
+            <param name="profiler">profiler.</param>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.SmartTcStatus">
+            <summary>
+            Status of smart TC for current DUT.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.SmartTcStatus.Enabled">
+            <summary>
+            Enable smart TC.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.SmartTcStatus.Disabled">
+            <summary>
+            Disable smart TC.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.SmartTc">
+            <summary>
+            Gets or sets whether or not smartTC will be enabled for the current DUT.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.EnableFlowTraceForPrimeBrita">
+            <summary>
+            Runs EnableFlowTrace for Prime Brita.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.InitializeLastAlarmKey">
+            <summary>
+            Initialize a key in SharedStorage for logging tester alarms.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.ExecuteGlobalSampleRate">
+            <summary>
+            Execute sampling rate, when global sample rate is enabled.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSetupTestMethod.Bootstrapper.Bootstrap(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.IDeviceStartSingleDieDatalogExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.IDeviceStartSingleDieDatalogExtensions.ModifyLevel3Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat)">
+            <summary>
+            Called at the end of execute to provide the user a way to modify the level 3 header before logging to ituff.
+            Default implementation returns default level 3 header for single die mode.
+            </summary>
+            <param name="formattedHeader">Level 3 single die header.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.IDeviceStartSingleDieDatalogExtensions.ModifyLevel2Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat)">
+            <summary>
+            Called at the end of execute to provide the user a way to modify the level 2 header before logging to ituff.
+            Default implementation returns default level 2 header for single die mode.
+            </summary>
+            <param name="formattedHeader">Level 2 single die header.</param>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.Level2">
+            <summary>
+            Class to handle the logic for creating a level 2 header for single die mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.Level2.#ctor(Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.Level2"/> class.
+            </summary>
+            <param name="console">Instantiate console object.</param>
+            <param name="sessionContext">This session context.</param>
+            >
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.Level2.Level2HeaderFormat">
+            <summary>
+            Gets the level2 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.Level2.CreateHeader">
+            <summary>
+            Method to create level 2 header.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.Level3">
+            <summary>
+            Class to handle the logic for creating a level 3 header for single die mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.Level3.#ctor(Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.Level3"/> class.
+            </summary>
+            <param name="console">Instantiate console object.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.Level3.Level3HeaderFormat">
+            <summary>
+            Gets the level3 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.Level3.CreateHeader">
+            <summary>
+            Method to create level 3 header.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.RasterLocation">
+            <summary>
+            Formats wafer location as needed for raster header.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.RasterLocation.GetLocation">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.WaferLocation">
+            <summary>
+            Extracts wafer Location from user vars to be used by the raster header.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.WaferLocation.GetXCoordinate">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartSingleDieDatalog.WaferLocation.GetYCoordinate">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod">
+            <summary>
+            TestMethod in charge of creating and logging the header and footer information for SingleDie test floe type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.UserVarCollectionName">
+            <summary>
+            Contains the generic user var collection name.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.DateFormat">
+            <summary>
+            Contains the date format to be used be the raster header to log the DeviceStart time value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.TrueValue">
+            <summary>
+            Contains string value that matches with TRUE.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.DeviceSession.IDeviceStartSingleDieDatalogExtensions" />
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.Console">
+            <inheritdoc cref="T:Prime.ConsoleService.IConsoleService" />
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.InternalDatalog">
+            <inheritdoc cref="T:Prime.DatalogService.IDatalogService" />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.Prime#TestMethods#DeviceSession#IDeviceStartSingleDieDatalogExtensions#ModifyLevel3Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.Prime#TestMethods#DeviceSession#IDeviceStartSingleDieDatalogExtensions#ModifyLevel2Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartSingleDieDatalogTestMethod.InitializeLevels">
+            <summary>
+            Initialize objects of level 2 and level 3.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.IDeviceStartWaferDatalogExtensions">
+            <summary>
+            Class to define extendable methods.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.IDeviceStartWaferDatalogExtensions.ModifyLevel3Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat)">
+            <summary>
+            Called at the end of execute to provide the user a way to modify the level 3 header before logging to ituff.
+            Default implementation returns default level 3 header for wafer mode.
+            </summary>
+            <param name="formattedHeader">Level 3 wafer header.</param>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.IDeviceStartWaferDatalogExtensions.ModifyLevel2Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat)">
+            <summary>
+            Called at the end of execute to provide the user a way to modify the level 2 header before logging to ituff.
+            Default implementation returns default level 2 header for wafer mode.
+            </summary>
+            <param name="formattedHeader">Level 2 wafer header.</param>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartWaferDatalog.Level2">
+            <summary>
+            Class to handle the logic for creating a level 2 header for wafer mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartWaferDatalog.Level2.#ctor(Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.StartWaferDatalog.Level2"/> class.
+            </summary>
+            <param name="console">Console object.</param>
+            <param name="sessionContext">This session context.</param>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.StartWaferDatalog.Level2.Level2HeaderFormat">
+            <summary>
+            Gets the level2 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartWaferDatalog.Level2.CreateHeader">
+            <summary>
+            Method to create level 2 header.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartWaferDatalog.Level3">
+            <summary>
+            Class to handle the logic for creating a level 3 header for wafer mode.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartWaferDatalog.Level3.#ctor(Prime.ConsoleService.IConsoleService,Prime.SessionService.ISessionContextProviderContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prime.TestMethods.DeviceSession.StartWaferDatalog.Level3"/> class.
+            </summary>
+            <param name="console">Console object.</param>
+            <param name="sessionContext">This session context.</param>
+            >
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.StartWaferDatalog.Level3.Level3HeaderFormat">
+            <summary>
+            Gets the level2 Ituff format.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartWaferDatalog.Level3.CreateHeader">
+            <summary>
+            Method to create level 3 header.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartWaferDatalog.RasterLocation">
+            <summary>
+            Formats wafer location as needed for raster header.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartWaferDatalog.RasterLocation.GetLocation">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StartWaferDatalog.WaferLocation">
+            <summary>
+            Extracts wafer Location from user vars to be used by the raster header.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartWaferDatalog.WaferLocation.GetXCoordinate">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StartWaferDatalog.WaferLocation.GetYCoordinate">
+            <inheritdoc/>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod">
+            <summary>
+            TestMethod in charge of creating and logging the header and footer information for Wafer test floe type.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.DateFormat">
+            <summary>
+            Contains the date format to be used be the raster header to log the DeviceStart time value.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.UserVarCollectionName">
+            <summary>
+            Contains the generic user var collection name.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.TrueValue">
+            <summary>
+            Contains string value that matches with TRUE.
+            </summary>
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.TestMethodExtension">
+            <inheritdoc cref="T:Prime.TestMethods.DeviceSession.IDeviceStartWaferDatalogExtensions" />
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.Console">
+            <inheritdoc cref="T:Prime.ConsoleService.IConsoleService" />
+        </member>
+        <member name="P:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.InternalDatalog">
+            <inheritdoc cref="T:Prime.DatalogService.IDatalogService" />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.Verify">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.Execute">
+            <inheritdoc />
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.Prime#TestMethods#DeviceSession#IDeviceStartWaferDatalogExtensions#ModifyLevel3Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level3HeaderFormat)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.Prime#TestMethods#DeviceSession#IDeviceStartWaferDatalogExtensions#ModifyLevel2Header(Prime.TestMethods.DeviceSession.DeviceStartCommon.Level2HeaderFormat)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.PrimeDeviceStartWaferDatalogTestMethod.InitializeLevels">
+            <summary>
+            Initialize objects of level 2 and level 3.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.DeviceTelemetryConstants">
+            <summary>
+            Telemetry constants.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.DeviceTelemetryConstants.UnitId">
+            <summary>
+            UnitId constant.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.DeviceTelemetryConstants.TestOrderNumber">
+            <summary>
+            TestOrderNumber constant.
+            </summary>
+        </member>
+        <member name="F:Prime.TestMethods.DeviceSession.DeviceTelemetryConstants.DeviceSessionId">
+            <summary>
+            DeviceSessionId constant.
+            </summary>
+        </member>
+        <member name="T:Prime.TestMethods.DeviceSession.StringBuilderExtensions">
+            <summary>
+            Extend the string builder functionality for appending level's headers and footers information.
+            </summary>
+        </member>
+        <member name="M:Prime.TestMethods.DeviceSession.StringBuilderExtensions.Append(System.Text.StringBuilder,System.Int32,System.String,System.String,System.Boolean)">
+            <summary>
+            Appends the level, token and value to the StringBuilder using the following format : {level}_{token}_{value}.
+            </summary>
+            <param name="data">The string builder object.</param>
+            <param name="level">The ituff level in which to log the token information.</param>
+            <param name="token">Indicates the meaning of the information to be logged to the output file.</param>
+            <param name="value">Value corresponding to the ituff token.</param>
+            <param name="allowEmptyValuePrint">Flag indicating if the token can be printed to the output file even with an empty value. Flag is set to FALSE by default.</param>
+            <returns>The StringBuilder with the appended data.</returns>
+            <remarks>String line is append to the string builder only when value is not empty.</remarks>
+        </member>
+    </members>
+</doc>
