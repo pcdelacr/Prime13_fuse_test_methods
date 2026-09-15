@@ -55,7 +55,7 @@ namespace ArrayReadFuse
                 for (int row = 0; row < 42; row++)
                 {
                     temp_row_result = Prime.Services.SharedStorageService.GetRowFromTable<string>("FUSE_A" + arr.ToString() + "_R" + row.ToString(), Context.DUT, Services.SessionService.GetCurrentThreadSessionContextContainer());
-                    if (temp_row_result != "00000000000000000000000000000000000000000000")
+                    if (temp_row_result != "0b00000000000000000000000000000000000000000000")
                     {
                         row_fail_counter++;
                     }

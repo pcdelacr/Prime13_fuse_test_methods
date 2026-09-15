@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArrayReadFuse")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b0e9bcc1944bc5568d6d2bda6b2025d9a440e1f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArrayReadFuse")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArrayReadFuse")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

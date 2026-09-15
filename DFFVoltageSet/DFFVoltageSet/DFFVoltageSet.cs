@@ -88,12 +88,12 @@ namespace DFFVoltageSet
             Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCCF_NOM0", vccf_nom0.ToString());
             Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCCF_NOM1", vccf_nom1.ToString());
             Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCCF_NOM2", vccf_nom2.ToString());
-            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCCEHV_HVM0", vcc_ehv_hvm0.ToString());
-            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCCEHV_HVM1", vcc_ehv_hvm1.ToString());
-            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCCEHV_HVM2", vcc_ehv_hvm2.ToString());
-            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCCEHV_IFP0", vcc_ehv_ifp0.ToString());
-            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCCEHV_IFP1", vcc_ehv_ifp1.ToString());
-            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCCEHV_IFP2", vcc_ehv_ifp2.ToString());
+            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCC_EHV_HVM0", vcc_ehv_hvm0.ToString());
+            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCC_EHV_HVM1", vcc_ehv_hvm1.ToString());
+            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCC_EHV_HVM2", vcc_ehv_hvm2.ToString());
+            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCC_EHV_IFP0", vcc_ehv_ifp0.ToString());
+            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCC_EHV_IFP1", vcc_ehv_ifp1.ToString());
+            Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_PROG_VCC_EHV_IFP2", vcc_ehv_ifp2.ToString());
             Prime.Base.ServiceStore<IUserVarService>.Service.SetValue(this.Module + "::" + this.Module + ".GDFF_FUSE_VCCCORE", vcc_core.ToString());
             return 1;
         }
